@@ -1,0 +1,16 @@
+\documentclass[a4paper]{report}
+
+\usepackage{subfiles}
+\input{../../latex_settings_packages.tex}
+
+\begin{document}
+
+%struttura modulare
+\renewcommand{\onlyinsubfile}[1]{}
+\renewcommand{\onlyinmainfile}[1]{#1}
+
+\tableofcontents
+
+\subfile{../chapters/Chap1.tex}
+
+\end{document}
