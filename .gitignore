@@ -4,3 +4,8 @@
 *.log
 *.gz
 *.toc
+*.bcf
+Lecture_Notes/QuantumFieldTheory/chapters/Chap1.pdf
+*.xml
+*.bbl
+*.blg

@@ -9,7 +9,7 @@
 \usepackage{cases}
 \usepackage{mathtools}
 \usepackage{slashed}
-\usepackage{braket}
+\usepackage{physics}
 \usepackage{mathrsfs}
 \usepackage{quoting}
 \usepackage{bbold} %identity symbol (double 1)
@@ -19,36 +19,40 @@
 \usepackage{enumitem}
 	\setlist{nosep}
 	\setlist{label=(\roman*)}
-\usepackage[framemethod=TikZ]{mdframed}
+\usepackage[framemethod=TikZ]{mdframed}%ambient thm ecc...
 	\usepackage{amsthm}
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{dsfont}
 \usepackage{float}
 
-%footnote con num romani invece dei numeri (lo trovo più chiaro visto che potrebbero essere scambiati per apici, però vedi tu se tenerlo o no)
+%footnote con num romani invece dei numeri (lo trovo più chiaro visto che potrebbero essere scambiati per apici)
 \renewcommand{\thefootnote}
 	{\Roman{footnote}}
 
-\renewcommand{\epsilon}{\varepsilon}
-\renewcommand{\phi}{\varphi}
-\renewcommand{\vec}{\mathbf}
+%scambia phi e varphi
+\let\temp\phi
+\let\phi\varphi
+\let\varphi\temp
 
-\newcommand{\mathL}{\mathcal{L}}
-\newcommand{\mathH}{\mathcal{H}}
-\newcommand{\mathM}{\mathcal{M}}
-\newcommand{\mathR}{\mathbb{R}} %Reali
-\newcommand{\mathZ}{\mathbb{Z}} %Interi
+%scambia epsilon e varepsilon
+\let\temp\epsilon
+\let\epsilon\varepsilon
+\let\varepsilon\temp
+
+\let\vect\vec
+\let\vec\mathbf
+
+\newcommand{\RR}{\mathbb{R}} %Reali
+\newcommand{\ZZ}{\mathbb{Z}} %Interi
 \newcommand{\de}{\textup{d}}
-\newcommand{\so}{\Rightarrow}
-\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
-\newcommand{\norma}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\so}{\rightarrow}
 \newcommand{\id}{\mathbb 1} %Identità con il doppio 1
 \newcommand{\varid}{\textup {id}} %Identità con "id"
-\newcommand{\Tr}{\textup{Tr}} %trace
 
 
 \newcommand{\skipline}{\vspace{\baselineskip}} %Salta una riga (devi saltare una riga prima di mettere il comando)
+
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}%numeri cerchiati
             
@@ -91,6 +95,7 @@ innertopmargin=\topskip,
 	innerrightmargin = 5 pt,
 	font = \itshape\rmfamily,
 }
+% use \begin{mdframed}[style=mybox] -> \end{mdframed}
 
 \usepackage[backend=biber, style=numeric, sorting=nty]{biblatex}
 \addbibresource{Bibliography.bib}
