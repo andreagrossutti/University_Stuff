@@ -1,0 +1,79 @@
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+	\geometry{a4paper, top=3cm, bottom=3cm, left=2.5cm, right=2.5cm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{cases}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+\usepackage{physics}
+\usepackage{bbold}
+\usepackage{enumitem}
+	\setlist{nosep}
+	\setlist{label=(\roman*)}
+\usepackage{tikz}
+\usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{dsfont}
+\usepackage{float}
+
+
+
+\renewcommand{\thefootnote}
+	{\Roman{footnote}}
+
+%scambia epsilon e varepsilon
+\let\temp\epsilon
+\let\epsilon\varepsilon
+\let\varepsilon\temp
+
+\let\vect\vec
+\let\vec\mathbf
+
+\newcommand{\defn}{\textbf}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\skipline}{\vspace{\baselineskip}}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\usepackage[colorinlistoftodos,textsize=tiny]{todonotes}
+
+%Bibliografia
+\usepackage[backend=biber, style=numeric, sorting=nty]{biblatex}
+\addbibresource{Bibliography.bib}
+
+%Struttura modulare
+\usepackage{subfiles}
+\newcommand{\onlyinsubfile}[1]{#1}
+\newcommand{\onlyinmainfile}[1]{}
+
+%%AMBIENTI
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem*{lem*}{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{prop*}{Proposition}
+\newtheorem{axi}[thm]{Axiom}
+\newtheorem{pst}[thm]{Postulate}
+\newtheorem{cor}[thm]{Corollarius}
+\newtheorem*{cor*}{Corollarius}
+
+\theoremstyle{definition}
+\newtheorem{dfn}[thm]{Definion}
+\newtheorem*{dfn*}{Definition}
+
+\theoremstyle{remark}
+\newtheorem{oss}[thm]{Remark}
+\newtheorem{es}[thm]{Example}
+\newtheorem{ex}[thm]{Exercise}
+\newtheorem*{ex*}{Exercise}

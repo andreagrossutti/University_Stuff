@@ -1,0 +1,148 @@
+\documentclass[../main/main.tex]{subfiles}
+\newcommand{\opensubset}{\hspace{-1mm}\underset{\tiny\text{open}}{\subset}\hspace{-1mm}}
+\newcommand{\topo}{\mathcal T}
+
+\begin{document}
+
+\chapter{Prerequisites}
+\section{Topological Spaces}
+
+\begin{dfn}
+Let $X$ be a set and $\topo=\{U_i|i\in I,U_i\in X\}$. $(X,\mathcal T)$ is a \textbf{topological space} if 
+\begin{enumerate}
+\item $\phi,X\in\mathcal T$
+\item $\forall J\subset I$, $\bigcup_{j\in J}U_j\in\mathcal T$
+\item $\forall K\subset I$, $K$ finite, $\bigcap_{k\in K}U_k\in\mathcal T$
+\end{enumerate}
+($X$ is the topological space, $\mathcal T$ its topology, $U_i$ the open sets)
+\end{dfn}
+
+\begin{es}
+\hspace{1cm}
+\begin{enumerate}[label=(\alph*)]
+\item $X$ is a set and $\mathcal T$ the collection of all subset of $X$\\
+This is called the \emph{Discrete Topology}.
+\item $X$ is a set and $\mathcal T=\{\phi,X\}$. This is called the \emph{Trivial Topology}.
+\item $X=\RR$, $\topo$ all open intervals and their unions (the usual topology).\\
+Notice that $\bigcap_{\substack{a<-1\\b>+1}}(a,b)=[-1,+1]$ so we have an example of infinite intersection of open sets that does not give an open.
+\item $X$ is set, $d:X\times X\to\RR$ a metric, that is, $\forall x,y\in X$:
+\begin{enumerate}
+\item $d(x,y)=d(y,x)$
+\item $d(x,y)\geq0$ with $d(x,y)=0\Leftrightarrow x=y$
+\item $d(x,y)+d(y,x)\geq d(x,z)$
+\end{enumerate}
+$\topo$ open discs $U_\epsilon(x)=\{y\in X|d(x,y)<\epsilon\}$ and unions. This is called the \emph{Metric Topology}.
+\item $(X,\topo)$, $(Y,\topo')$ topological spaces\\
+$X\times Y$, $\topo"=\{$unions of $U\times V|U\in\topo, V\in\topo'\}$\\
+This is called the \emph{Product Topology}
+\end{enumerate}
+\end{es}
+
+\subsection{Continuous maps}
+\begin{dfn}
+$X$,$Y$ topological spaces. $f:X\to Y$ is \textbf{continuous} if $\forall\, V\opensubset Y$, $f^{-1}(V)\opensubset X$.
+\end{dfn}
+
+\begin{oss}
+Previous definition doesn't work with direct images $U$ and $f(U)$. For example take $f(x)=x^2$, then $U=(-1,+1)$ is open but $f(U)=[0,1)$ doesn't. Nevertheless $f$ is a continuous function.
+\end{oss}
+
+\subsection{Neighbourhoods and Haudorff spaces}
+\begin{dfn}
+$(X,\topo)$ topological space. $N\subset X$ is a \textbf{neighbourhood} of $x\in X$ if $\exists U\in\topo$ such that $x\in U\subset N$
+\end{dfn}
+\begin{es}
+$X=\RR$ with the usual topology. $[-1,+1]$ is a neighbourhood of $0\in\RR$.
+\end{es}
+\begin{dfn}
+$(X,\topo)$ topological space is \textbf{Hausdorff} if $\forall x,y\in X$ such that $x\neq y$ $\exists N_1$ neighbourhood of $x$, $\exists N_2$ neighbourhood of $y$, such that $N_1\cap N_2=\emptyset$.
+\end{dfn}
+\begin{ex}
+$X=\{$John, Paul, Ringo, George$\}$, $U_0=\emptyset$, $U_1=\{$John$\}$, $U_2=\{$John, Paul$\}$, $U_3=\{$John, Paul, Ringo, George$\}$. Show $\topo=\{U_0,U_1,U_2,U_3\}$ is a topology and that $(X,\topo)$ is not Hausdorff
+\end{ex}
+\begin{ex}
+Show $\RR^n$ is Hausdorff. Show any metric space is Hausdorff.
+\end{ex}
+\textsf{We will always assume all our topological spaces to be Hausdorff.}
+
+
+\subsection{Closed sets}
+\begin{dfn}
+$(X,\topo)$ topologocal space. $A\in X$ is \textbf{closed} iff $X\setminus A$ is open.
+\end{dfn}
+\begin{es}
+$\emptyset$, $X$ are both open and closed
+\end{es}
+\begin{dfn}
+The \textbf{closure} $\overline A$ of any subset $A\in X$ is the smallest closed set containing $A$.\\
+The \textbf{interior} $A^0$ of any subset $A\in X$ is the largest open subset of $A$.\\
+The \textbf{boundary} $b(A)$ or $\partial A$ of any subset $A\in X$ is $\overline A\setminus A^0=:b(A)$
+\end{dfn}
+
+\subsection{Compactness}
+\begin{dfn}
+$(X,\topo)$ topological space. A family $\{A_i\}_{i\in I}$ is called a \textbf{covering} of $X$ if $\bigcup_{i\in I}A_i=X$.\\
+If all of the $A_i$ $\forall i\in I$ are open, $\{A_i\}_{i\in I}$ is an \textbf{open covering}
+\end{dfn}
+
+\begin{dfn}
+$(X,\topo)$ topological space. $X$ is \textbf{compact} if $\forall$ open covering $\{A_i\}_{i\in I}$ $\exists J\subset I$ finite such that $\{A_j\}_{j\in J}$ is also an open covering
+\end{dfn}
+
+\begin{thm}
+$X\subset\RR^n$ is compact if and only if $X$ is closed and bounded.
+\end{thm}
+\begin{ex}
+\begin{enumerate}[label=(\alph*)]
+\item A point is compact.
+\item Let  $(a,b)\subset\RR$ and the open covering $U_n=(a,b-\frac1n)$, $n\in\NN$. Indeed $\bigcup_{n\in\NN}U_n=(a,b)$. If no finite subfamilies of $\{U_n\}_{n\in\NN}$ is a covering then $(a,b)$ is not compact.
+\item $S^n=\{x_1^2+\dots x_n^2=1|(x_1,\dots,x_n)\in\RR^n\}$ is compact since it is closed and bounded.
+\end{enumerate}
+\end{ex}
+
+
+\subsection{Connectedness}
+\begin{dfn}
+\begin{enumerate}[label=(\alph*)]
+\item $X$ topological space is \textbf{connected} if it cannot be written as $X=X_1\cup X_2$ where $X_1$, $X_2$ are open and $X_1\cap X_2=\emptyset$. Otherwise $X$ is called \textbf{disconnected}.
+\item $X$ is \defn{arcwise connected} if, $\forall x,y\in X$, $\exists f:[0,1]\to X$ continuous with $f(0)=x$, $f(1)=y$.
+\item A \defn{loop} in a topological space is a continuous map $f:[0,1]\to X$ with $f(0)=f(1)$. $X$ is \defn{simply connected} if, for any loop $f:[0,1]\to X$, there exists a continuous map $g:[0,1]\times[0,1]\to X$ such that
+\begin{align*}
+g(0,t)&=g(1,t)\qquad\text{(i.e. $g(\cdot,t)=:f_t(\cdot)$ is a family of loops)}\\
+g(s,0)&=f(s)\\
+g(s,1)&=\bar x\in X\qquad\text{($f_t$ shrikes $f_0=f$ to a point $f_1=\bar x$)}
+\end{align*}
+\end{enumerate}
+\end{dfn}
+
+\begin{es}
+\begin{enumerate}[label=(\alph*)]
+\item $\RR$ is arwise connected while $\RR\setminus\{0\}$ is not. $\RR^n$ and $\RR^n\setminus\{0\}$, $n\geq2$, are both arwise connected.
+\item $S^n$ is arwise connected $\forall n\geq 1$ but simply connected only for $n\geq 2$.
+\item $T^n:=\underbrace{S^1\times\dots\times S^1}_{\text{$n$-times}}$ is arcwise but not simply connected
+\item
+$\RR^2\setminus\RR$ is not arcwise connected. $\RR^2\setminus\{0\}$ is arcwise but not simply connected. $\RR^3\setminus\{0\}$ is both arcwise and simply connected.
+\end{enumerate}
+\end{es}
+
+\subsection{Homeomorphisms}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

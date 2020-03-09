@@ -1,9 +1,13 @@
 \documentclass[a4paper]{report}
 
 \usepackage{subfiles}
-\input{../../latex_settings_packages.tex}
+\input{../../latex_settings_math.tex}
 
 \begin{document}
+
+\setlist{noitemsep} %Rimuove lo spazio tra gli elementi di elenchi -> pkg enumitem
+\setlength{\abovedisplayskip}{4pt} %Gestiscono lo spazio sopra e sotto gli ambienti matematici \[...\]
+\setlength{\belowdisplayskip}{4pt}
 
 %struttura modulare
 \renewcommand{\onlyinsubfile}[1]{}
@@ -11,7 +15,7 @@
 
 \tableofcontents
 
-\subfile{../chapters/Chap1.tex}
+\subfile{../chapters/Chap0.tex}
 
 \nocite{*}
 \printbibliography
