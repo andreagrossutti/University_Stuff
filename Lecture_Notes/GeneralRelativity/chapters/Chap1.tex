@@ -1,32 +1,134 @@
 \documentclass[../main/main.tex]{subfiles}
 \begin{document}
 
+\chapter{Preliminaries}
+\section{Quick review of Special Relativity}
+
+Here we expose a quick review of Special Relativity in order to set the notations.
+
+\skipline
+Fundamental principles of Special Relativity are followings:
+\begin{enumerate}
+\item All inertial reference frames are physically equivalent. There is no way to distinguish between different inertial frames in the sense that there is no preferred one. 
+\item There exists universal (dimensional) constant: $c\simeq3\times10^8\text{m/s}$, i.e. the speed of massless particles.
+\end{enumerate}
+
+\skipline
+In order to implement these features basic ingredients are
+\begin{enumerate}
+\item Space and Time form a unique concept called \textbf{spacetime}. 
+\item A spacetime is a collection of points called \textbf{event}.
+\item Each inertial frame is associated with a set of \emph{space time coordinates}. Each events is specified through coordinate system of a fixed initial frame. \[x^\mu=(x^0,x^1,x^2,x^3)\equiv(x^0,x^i)\equiv(ct,x,y,z)\equiv(ct,\vec x)\]
+Usually $x,y,z$ are assumed to be Cartesian coordinates.
+
+
+Given 2 events $A$ and $B$ in  spacetime 
 
 
 
 
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt     
+\[
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da9013720818372855] 
+\draw    (195,224) -- (195,141) ;
+\draw [shift={(195,139)}, rotate = 450] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7261382621997787] 
+\draw    (195,224) -- (302.5,224) ;
+\draw [shift={(304.5,224)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da22577623387415535] 
+\draw    (195,224) -- (141.99,271.66) ;
+\draw [shift={(140.5,273)}, rotate = 318.03999999999996] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da04380450147553239] 
+\draw [color={rgb, 255:red, 65; green, 117; blue, 5 }  ,draw opacity=1 ][line width=0.75]    (219.5,203) -- (276.5,169) ;
+\draw [shift={(276.5,169)}, rotate = 329.18] [color={rgb, 255:red, 65; green, 117; blue, 5 }  ,draw opacity=1 ][fill={rgb, 255:red, 65; green, 117; blue, 5 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 1.9, y radius= 1.9]   ;
+\draw [shift={(219.5,203)}, rotate = 329.18] [color={rgb, 255:red, 65; green, 117; blue, 5 }  ,draw opacity=1 ][fill={rgb, 255:red, 65; green, 117; blue, 5 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 1.5, y radius= 1.5]   ;
+
+% Text Node
+\draw (120,137) node    {$$};
+% Text Node
+\draw (283,258) node    {$x,y,z$};
+% Text Node
+\draw (177,141) node    {$ct$};
+% Text Node
+\draw (210,207) node    {$A$};
+% Text Node
+\draw (280,157) node    {$B$};
 
 
+\end{tikzpicture}\]
+
+their distance is $\Delta x^\mu=x^\mu_B-x_A^\mu$. We introduce the (squared) \emph{Minkowski distance}
+\[\Delta s^2=\eta_{\mu\nu}\Delta x^\mu\Delta^\nu\quad\text{where}\quad\eta_{\mu\nu}=\begin{pmatrix}-1&&&\\&1&&\\&&1&\\&&&1\end{pmatrix}\]
+where $\eta_{\mu\nu}$ is \emph{Minkowski metric}.
+This induces the \emph{line element}
+\[\de s^2=\eta_{\mu\nu}\de x^\mu\de x^\nu\]
+This element is scalar quantity and therefore does not depends on the specific inertial frame.
+
+The quantity $\Delta s^2$ has an intrinsic meaning
+\[\begin{cases}\begin{alignedat}{2}
+&\Delta s^2>0\quad&&:\quad \Delta x^\mu\text{ is \emph{space-like} vector}\\
+&\Delta s^2=0\quad&&:\quad \Delta x^\mu\text{ is \emph{time-like} vector}\\
+&\Delta s^2<0\quad&&:\quad \Delta x^\mu\text{ is \emph{light-like/null} vector}
+\end{alignedat}\end{cases}\]
+Space-like vector means that exists different frames were two events are simultaneous. Time-like vector means that exists different frames where two events have same space coordinates but they happen at different times. Light-like vectors means that two events may be connected by a light signal.
+
+\item Allowed transformations for spacetime vectors must preserve the line element: $\Delta\tilde s^2=\Delta s^2$. These transformations are the \emph{Poincaré Transformations}
+
+\[x^\mu\quad\to\quad\tilde x^\mu={\Lambda^\mu}_\nu x^\nu+a^\mu\qquad\text{with}\qquad{\Lambda^\rho}_\mu{\Lambda^\sigma}_\nu\eta_{\rho\sigma}=\eta_{\mu\nu}\]
 
 
+\end{enumerate}
+
+\skipline
+Once we have reformulated notions of space and time, we have to reformulate law of physics in such a way they does not depends on the reference frame.
+
+Trajectories of point like-particles are associated to curved \emph{wordlines} in space time and described evolution of events. Mathematically they are described by maps from $\RR$ into a set of four functions: $\lambda\in\RR\to x^\mu(\lambda)$. Near if we consider nearby events separated by infinitesimal shift we can obtain infinitesimal variation of coordinates:
+\[\de x^\mu(\lambda)\equiv x^\mu(\lambda+\de\lambda)-x^\mu(\lambda)=\frac{\de x^\mu(\lambda)}{\de\lambda}\de\lambda\]
+Since no particles can move at a speed higher then light this implies that $\de s^2$ must be time-like. Notice that choice of parameter $\lambda$ is free. One possible choice of this parameter is the \emph{(differential) proper time}:
+\begin{align*}
+\de\tau\equiv\sqrt{-\de s^2}
+&=\de\lambda\sqrt{-\eta_{\mu\nu}\dot x^\mu(\lambda)\dot x^\nu(\lambda)}
+=c\,\de t\sqrt{1-\frac{v^2}{c^2}}\equiv\frac{c\,\de t}\gamma
+\end{align*}
+where third step holds if $\lambda\equiv t$. If we define $\beta\equiv v/c$ \footnote{This is the speed in natural units, i.e. in units of $\beta$. If we set $c=1$ then $v=\beta$.}, then $\gamma=1/\sqrt{1-\beta^2}$ is called \emph{Lorentz factor}. Notice that last step implies time dilatation at higher velocities. For $\lambda=t$ we obtain
+\[\tau=c\int\de t\sqrt{1-\frac{v^2}{c^2}}\]
+i.e. with this definition the proper time has dimension of a length $[\tau]=L$. Physically the proper times it's the time measured by a clock moving along the trajectory. 
+
+Proper time allow us to define a vector called \emph{4-velocity} that can be identified as relativistig generalization of velocity. Namely:
+\[u^\mu(\tau)=\frac{\de x^\mu(\tau)}{\de\tau}=\left(\gamma,\gamma\frac{\vec v}{c}\right)\]
+Notice 
+\[u^\mu u_\mu=-1\]
+i.e. is a time-like vector. Moreover, this vector has only three degrees of freedom, since one component is fixed by previous propriety.
 
 
+Now we can define the generalization of acceleration, \emph{4-acceleration}, as follows
+\[\alpha^\mu(\tau)=\frac{\de u^\mu(\tau)}{\de \tau}\]
+Notice that, as we expected, 4-acceleration is orthogonal to 4-velocity
+\[u_\mu\alpha^\mu=0\]
+and this implies that $\alpha^\mu$ is a space-like since it is orthogonal to a time-like vector.
+
+This proves a relativistic generalization of distance, speed and acceleration. Also laws of dynamic can be generalizated, in particular if we define the \emph{four-force} $f^\mu$ as the generalization of force we can obtain the
+ \emph{Relativistic Second Newton's law}:
+\[mc\alpha^\mu\equiv\frac{\de p^\mu}{\de\tau}=f^\mu\]
+where we used four acceleration or equivalently the generalization of newtonian momentum, \emph{4-momentum},
+\[p^\mu\equiv mcu^\mu=\p{\frac Ec,\vec p}\]
+
+For example, for Lorentz force
+\[\vec F_L=e\p{\vec E+\frac1c\vec v\cross\vec B}\]
+can be generalizzated in a manifestly covariant way into\footnote{Here is evident that this formula does not change under Poincaré transformations.}
+\[f^\mu_L=\frac ecF^{\mu\nu}u_\nu\hspace{1.5cm}\text{with}\quad F^{\mu\nu}=
+\begin{pmatrix}0&E_1&E_2&E_3\\-E_1&0&B_3&-B_2\\-E_2&-B_3&0&B_1\\-E_3&B_2&-B_1&0\end{pmatrix}\]
+where $F^{\mu\nu}$ is the \emph{EM-Tensor}.
+
+We can also rewrite Maxwell equations into two covariant equation
+\[\partial_\mu F^{\mu\nu}=-\frac{4\pi}{c}j^\nu\quad,\quad\partial_{[\mu}F_{\nu\rho]}=0\]
+where the former, inhomogeneous, shows the \emph{4-current} $j^\mu=(c\rho, \vec j)$. The second equation, homogeneous, exhibits total antisymmetrized indexes\footnote{$\partial_{[\mu}F_{\nu\rho]}=\partial_{\mu}F_{\nu\rho}+\partial_\rho F_{\mu\nu}+\partial_\nu F_{\rho\mu}$.}. Each of these equations contains 2 independent equations.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+We can conclude saying that all possible interactions can be written in a covariant way, except from gravitation. In order to include this force General Relativity has been developed.
 
 
 
