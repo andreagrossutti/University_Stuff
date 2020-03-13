@@ -5,36 +5,188 @@
 
 \chapter{The Path integral in Quantum Mechanics}
 
+Path Integral will be the main tool we will use in this course in order to study QFT.
+We will start introducing this tool in special case of Quantum Mechanics.
+
 \section{Intuitive Introduction to Path Integrals}
+\textsf{Rattazzi, sec. 1.1.1 - 1.1.3}\\
 
+One of the important experiments that show the fundamental difference between Quantum and Classical Mechanics is the double slit experiment. It is interesting with respect to the path integral formalism because it leads to a conceputal motivation for introducing it.
 
+Consider a source $S$ of approximatively mono-energetic particles, electrons for instance, placed at position $(x_i,y_i)$. The flux of electrons is measured on a screen facing the source. Imagine now placing a third screen in between the ohers, with two slits on it, which can be opened or closed. When the first is open and the second closed we measure the flux $F_1$, when the first slit is closed and the second open we measure a flux $F_2$ and when both slits are open we measure the flux $F$.
 
+One finds in general $F=F_1+F_2+F_{int}$, and the structure of $F_{int}$ precisely corresponds to the interference between two waves passing respectively through 1 and 2:
+\[F=|\phi_1+\phi_2|^2=\underbrace{|\phi_1|^2}_{F_1}+\underbrace{|\phi_2|^2}_{F_2}+\underbrace{\phi_1\phi_2^*+\phi_2\phi_1^*}_{F_{int}}\]
+where $\phi_i$ is the probability amplitude for a point-like particle position and $\vert\phi_i\vert^2$ the corresponding probability density.
 
+The idea behind the path integral approach to QM is to take the implications of the double slit experiment to its extreme consequences. One can immagine adding extra screens and drilling more and more holes through them, generalising the result of the double slit experiment by the superposition principle.
 
+Let's denote as follows the superposition of N slits fluxes:
+\[\Phi={\sum_{i=1}^N}\,\phi(y^i_A)\]
+where $\phi(y^i_A)$ denotes the flux of the particle whose trajectory goes through the $i$-th slit positioned in the coordinate $y^i_A$ of the screen placed in $x_A$.
+\todo{Fai un disegno. Le coordinate x sono quelle dove sono posizionati i vari schermi, le y sono le posizioni su ogni schermo}
+Nothing stops us from taking the ideal limit where $N\to\infty$ and the holes fill all the surface. The sum $\sum_i$ becomes now an integral over $y_A$:
+\[\Phi=\int\de y_A\phi(y_A)\]
 
+We can go on and further refine our trajectories by adding more and more screens between the source and the final screen. In the limit in which the added screens become infinitesimally close, we have specified all possible paths $y(x)$:
+\[\Phi=\int\de x\int \de y_x\phi(y(x))\]
+where $\phi(y(x))$ is the flux corresponding to the path $y(x)$. 
+We then arrived at a formal representation of the probability amplitude as a sum over all possible trajectories $g(x)$:
+\begin{equation}\label{eqn:sketch-total-phase-trajectory}
+\Phi=\sum_{\substack{\text{All trajectories}\\\{x(t),y(t)\}}}\phi(g(x))
+\end{equation}
 
+How do I make sense of this? What $\Phi$ is and how do I make sense of this sum?
+Moreover, I'd like that for $\hbar\to0$ I should go back to Classical Mechanics. This implies that $\phi$ must depends on $\hbar$ in someway.
 
+Since $\hbar$ has dimensionality [Energy]$\times$[Time], one can guess that 
+\begin{equation}\label{eqn:path-exp-formula}
+\phi(\gamma)=e^{i\frac{S[\gamma]}{\hbar}}
+\end{equation}
+where $S$ is the action which describes the classical trajectories via the principle of least action. This means that we associate to each trajectory $\gamma$ a phase related to the action $S[\gamma]$. Recall that the classical trajectories are given by the stationary points of $S[\gamma]$ ($\delta S[\gamma]=0$).
+ 
+Let's analyze our guess. The choice $\phi(\gamma)=f(S[\gamma]/\hbar)$ is natural, since in this way the argument is adimensional. The choice of the exponential function seems promising for two reasons:
 
+\begin{enumerate}
+\item The requirement $\delta S[\gamma]=0$ for $\hbar\to0$ is heuristically seen to hold. In a macroscopic, classical, situation the gradient $\delta S/\delta\gamma$ is for most trajectories much greater than $\hbar$. Around such trajectories the phase $e^{iS/\hbar}$ oscillates extremely rapidly and the sum over neighbouring trajectories will tend to cancel. 
 
+On the other hand, on a classical trajectory $\gamma_{cl}$ the action $S$ is stationary. Therefore in the neighbourhood of $\gamma_{cl}$, $S$ varies very little, so that all trajectories in a tube centred around $\gamma_{cl}$ add up coherently in the sum over trajectories. 
 
+Indeed, this means that in the exact limit $\hbar\to0$ these effects becomes dramatic and only the classical trajectory survives.
 
+\item Eq. \eqref{eqn:path-exp-formula} leads to crucial composition property. Indeed the action for a path $\gamma_{12}$ obtained by joining two subsequent paths $\gamma_1$ and $\gamma_2$ satisfies the simple additive relation
+\[S[\gamma_{12}]=S[\gamma_1]+S[\gamma_2]\]
+Thanks to eq.\eqref{eqn:path-exp-formula} the additivity of $S$ translates into a factorization property for the amplitude:
+\[\phi[\gamma_{12}]=\phi[\gamma_1]\phi[\gamma_2]\]
+This feature is required for our theory.
 
-
-
-
-
-
-
-
-
-
+\end{enumerate}
 
 
 \section{From Schroedinger Equation to the Path Integral}
+\textsf{Rattazzi, sec. 1.1.4}\\
 
+The transition amplitude for a particle in QM reads
 
+\[\braket{x_f(t_f)}{x_i(t_i)}=\bra{x_f}e^{-i\frac{\hat H}{\hbar}(t_f-t_i)}\ket{x_i}\]
+In order to evaluate this quantity we split $t_f-t_i$ in $N$ pieces with $N$ large. Let $\delta t=(t_f-t_i)/N$. Recall that $\int\de x\ket{x}\bra{x}=1=\int\de p\ket{p}\bra{p}$. Then
+\begin{align}\label{eqn:intro-Path-Int-deco}
+\braket{x_f(t_f)}{x_i(t_i)}=\int\prod_{j=1}^{N-1}\de x_j
+&\bra{x_f}e^{-i\frac{\hat H}{\hbar}\delta t}\ket{x_{N-1}}
+\bra{x_{N-1}}e^{-i\frac{\hat H}{\hbar}\delta t}\ket{x_{N-2}}
+\dots\\
+&\bra{x_2}e^{-i\frac{\hat H}{\hbar}\delta t}\ket{x_1}
+\bra{x_1}e^{-i\frac{\hat H}{\hbar}\delta t}\ket{x_i}
+\end{align}
+For each piece we have
+\begin{equation}\label{eqn:intro-path-int-integ-p}
+\bra{x'}e^{-i\frac{\hat H}{\hbar}\delta t}\ket{x}=\int\de p\braket{x'}{p}\bra{p}e^{-i\frac{\hat H}{\hbar}\delta t}\ket{x}
+\end{equation}
+If we stick to the simply case $\hat H=\hat p/2m+V(\hat x)$ and we denote the kinetic operator as $T(\hat p)=-i\frac{\hat p^2}{2m\hbar}\delta t$ and the potential $U(\hat x)=-iV(\hat x)\delta t/\hbar$, we can write
+\begin{align*}
+\bra{p}\exp{T(\hat p)+U(\hat x)}\ket{x}
+=\bra{p}e^{T(\hat p)}e^{-T(\hat p)}e^{T(\hat p)+U(\hat x)}e^{-U(\hat x)}e^{U((\hat x))}\ket{x}=e^{T(p)}e^{U(x)}\bra{p}e^{C(\hat p,\hat x)}\ket{x}
+\end{align*}
+where
+\[e^{C(\hat p,\hat x)}=e^{-T(\hat p)}e^{T(\hat p)+U(\hat x)}e^{-U(\hat x)}\]
+The operator $C$ is given, using Baker-Campbell-Hausdorff formula twice, as a series of commutators between $T$ and $U$
+\begin{align*}
+C=\frac12[T,V]+\frac{\delta t}6([T,[T,V]]+[V,[V,T]])+...
+\end{align*}
+If all commutators in the expression of $C$ are $o(1)$, then all the terms of the expansion of $C$ are $o((\delta t)^2)$ and therefore can be neglected. However, this assumption is not immediate, for example $[\hat p,V(\hat x)]=-iV'(\hat x)]$ implies that in order to neglect $C$ all derivatives of $V$ must be bounded. Then, if the derivatives of $V$ are bounded, the contribution of the operator $\hat x$ in the expansion of $C$ is a bounded contribution and in the limit $\delta t\to0$ vanishes. The only potential problem to concentrate on the $\delta t\to0$ limit is represented by the integration over powers of $p$ in \eqref{eqn:intro-path-int-integ-p}. Essentially what we are integrating is a function that goes approximatively as the gaussian $\exp(-\delta t\,p^2)$, therefore the leading contribution to the $p$ integral is the one with $p\sim\delta t^{-1/2}$. Thus we have   
+\[\bra{p}e^{C(\hat p,\hat x)}\ket{x}\simeq\braket{p}{x}(1+O(\delta t^{3/2}))\]
+Even if I consider all $N=1/\delta t$ contributions in \eqref{eqn:intro-Path-Int-deco} they can be neglected, since the final result is convergent to 1: 
+\[\lim_{\delta t\to0}(1+a\,\delta t^{3/2})^{1/\delta t}=1\]
+Therefore we can reasonably neglect contributions of $C$ and then
+\[\lim_{\delta t\to0}\bra{x'}e^{-i\frac{\hat H}{\hbar}\delta t}\ket{x}
+\simeq\lim_{\delta t\to0}\int\de p\exp{-i\frac{\delta t}{\hbar}\left[\frac{p^2}{2m}+V(x)\right]}\cdot\underbrace{\frac{\exp{i p(x'-x)/\hbar}}{2\pi\hbar}}_{\braket*{x'}{p}\braket{p}{x}}\]
+Now we introduce the variable $\dot x=(x'-x)/\delta t$, then 
+\[\lim_{\delta t\to0}\bra{x'}e^{-i\frac{\hat H}{\hbar}\delta t}\ket{x}
+=\lim_{\delta t\to0}\int\frac{\de p}{2\pi\hbar}\exp{-i\frac{\delta t}{\hbar}\p{\frac{p^2}{2m}+V(x)-p\dot x}}\]
+and performing the change of variable $p'=p-m\dot x$ we obtain
+\begin{align*}
+\lim_{\delta t\to0}\bra{x'}e^{-i\frac{\hat H}{\hbar}\delta t}\ket{x}
+&=\lim_{\delta t\to0}\int\frac{\de p'}{2\pi\hbar}\exp{-i\frac{\delta t}{\hbar}\p{\frac{p'^2}{2m}+\underbrace{V(x)-\frac12m\dot x^2}_{-\mathcal L}}}\\
+&=\lim_{\delta t\to0}\underbrace{\p{\frac{m}{2\pi i\hbar\,\delta t}}^{1/2}}_{k}\exp{i\frac{\delta t}{\hbar}\mathcal L(x,\dot x)}
+\end{align*}
+where we introduced the factor $k$ (that depends on $\delta t$) in order to simplify the notation. When I introduce this into eq.\eqref{eqn:intro-Path-Int-deco} we have ($x_0=x_i$ $x_N=x_f$):
+
+\begin{align}
+\lim_{\delta t\to0}\braket{x_f(t_f)}{x_i(t_i)}
+&=\lim_{\delta t\to0}\int\prod_{j=1}^{N-1}\de x_j
+k^N\exp{\frac{i}{\hbar}\sum_{m=0}^{N-1}\delta t\mathcal L(x_m,\dot x_m)}\notag\\
+&=\lim_{\delta t\to0}\int\prod_{j=1}^{N-1}\de x_j
+k\exp{\frac{i}{\hbar}S(x_f,x_i)}\notag\\
+&=\int_{C_T[x_i,x_f]} \mathcal Dx\,\exp{\frac{i}{\hbar}S(x_f,x_i)}\label{eqn:transition-measure-config}
+\end{align}
+where we defined the following functional measure over the space of trajectories\footnote{For the moment is not  clear if this functional is well defined and is a measure, this is just an anticipation of following results.}:
+\[\int_{C_T[x_i,x_f]} \mathcal Dx = \lim_{\delta t\to0} k \int\prod_{j=1}^{N-1}\de x_j\]
+Here $C_T[x_i,x_f]$ are all possible configurations on $x$ that start in $x_i$ and end in $x_f$ over a time $T=t_f-t_i$, i.e. is the set of all possible path $x(t)$ such that $x(t_i)=x_i$ and $x(t_i+T)=x(t_f)=x_f$. We call ${C_T[x_i,x_f]}$ \textbf{space of configurations}. The weight $\exp{\frac{i}{\hbar}S(x_f,x_i)}$ is the phase related to eq.\eqref{eqn:path-exp-formula}. Eq.\eqref{eqn:transition-measure-config} is just the analogous of eq.\eqref{eqn:sketch-total-phase-trajectory}. 
+
+The construction we made has no rigor, but clarify the idea behind Path Integrals theory. The result we obtained so far is the replacement of the sum into eq.\eqref{eqn:sketch-total-phase-trajectory} with an integral, hoping in a convergent expression. This is not obvious, indeed this does not happen in general. 
+
+This definition has some problematic points, that sometimes does not matter and we can skip on them in a straightforward way, but can also became crucial in order to obtain the results we obtained in operatorial approach. For example we assumed that trajectories were smooth and we can differentiate them, but this is not going to be true. Quite the opposite, the fact that trajectories may not be smooth leads to the contact between Path Integral approach and operatorial formalism of QM. 
+
+We won't exhaminate details of mathematical structure behind Path Integrals since it is not really interesting from the physical point of view, rather we focus on problematical aspects and special features of this formalism in order to obtain a deeper understanding of the physics. 
+
+Before proceeding with technical developments, it is worth assessing the role of the path integral in quantum mechanics. As it was hopefully highlighted so far, the path integral formulation is conceptually advantageous over the standard operatorial formulation of QM, in that the ``good old'' particle trajectories retain same role. The P.I. is however technically more involved. When working on simple quantum systems like the hydrogen atom, no technical profit is really given by path integrals. Nonetheless, after overcoming a few technical difficulties, the path integral offers a much more direct viewpoint on the semiclassical limit. Similarly, for issues involving topology (like the origin of Bose and Fermi statistics, the Aharonov-Bohm effect, charge quantization in the presence of a magnetic monopole, etc$\dots$) path integrals offer a much better viewpoint. Finally, for advanced issues like the quantization of gauge theories and for effects like instantons in quantum field theory it would be hard to think how to proceed without path integrals.
 
 \section{The Partition Function}
+\textsf{Rattazzi, chap. 1}\\
+
+We want to generalize results of the previous section. 
+What we have done, is to sum over all possible configurations of the field with a certain measure and weight them with a weight function that is essentially the action:
+\begin{equation}\label{eqn:dfn-partition-function}\boxed{
+\mathcal Z(\lambda, m,\dots)=\int_{\phi\in C}\mathcal  D[\phi]\exp{\frac i\hbar S[\phi]}
+}\end{equation}
+this integral is generic form of \textbf{path integral} and in particular is the \textbf{partition function} for a certain theory. In order to specify the theory we have to specify:
+\begin{enumerate}
+\item $M$: The space where out QFT theory lives and of course its metric, in particular we have to specify its dimension $d$ and, if it exists, the space's metric $g$ (we can also think about a metric with some degree of freedom, such in Quantum Gravity).
+\item $\phi$: Fields over the space, that are generically maps from $M$ to some target space (e.g. $\RR$, $\CC$, vector fields, gauge group, gauge bundle, etc.)
+\item $C$: Space of allowed field configurations (possibly with some boundary conditions)
+\item $\lambda$: Other parameters of the theory (such as mass $m$ etc.)
+\item $\mathcal L$: The lagrangian of our theory
+\item $S$: The action (depends on all the other parameters)
+\[S[\phi]=\int_M\de^dx\sqrt{|g|}\mathcal L(\phi, \partial \phi, \lambda, m, \dots)\]
+\item$\mathcal D\phi$: the measure of integration
+\end{enumerate}
+
+Once I have specified this items i can obtain a well defined partition function form my theory eq.\eqref{eqn:dfn-partition-function}. Moreover starting with partition function we can compute correlation functions.
+On the other hand partition function can depends on other parameters $\lambda'$ to which the action is independent. Notice that  eq.\eqref{eqn:dfn-partition-function} can be also a divergent, but this happens often and doesn't really matter. The important aspect is how the behaviour of the partition function depends on its parameters. 
+
+\todo{Verify what stated here}
+The name ``partition function'' comes from statistical mechanics: consider for instance a map from the circle to another target space
+\[x:S^1\to N\qquad x(0)=x(T)=y\in N\]
+When we go to the Euclidian space by sending\footnote{Notice that parametrizing $S^1$ into the Euclidian, we introduced an additional factor $i$, that multiplied by the factor $i$ present in the definition of partition function gives a minus. This will happen often when we compute partition integrals explicitly.} $t\to i\tau$ ($\hbar =1$) and we compute the path integral for some boundaries condition we obtain
+\[\int_{x\in C_T[y,y]}\mathcal Dx \exp{-S[x]}=\bra{y}\exp{-HT}\ket {y}\]
+and this is related to partition function of statistical mechanics, since this means that calculating the statistical partition function by tracing over all the Hilbert space $\mathcal H$,
+\[\Tr_{\mathcal H}(e^{-HT})=\int \de y\bra{y}e^{-HT}\ket{y}=\int\de y\int_{x\in C_T[y,y]}\mathcal D xe^{-S[x]}\]
+is the same as taking path integral without boundaries, i.e. integrating over all possible configurations $y\in S^1$. 
+\[\Tr_{\mathcal H}(e^{-HT})=\int_{x\in C_{S1}}\mathcal Dxe^{-S[x]}\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

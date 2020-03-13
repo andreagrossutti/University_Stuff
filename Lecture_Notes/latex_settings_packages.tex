@@ -47,9 +47,9 @@
 	{\Roman{footnote}}
 
 %scambia phi e varphi
-\let\temp\phi
-\let\phi\varphi
-\let\varphi\temp
+%\let\temp\phi
+%\let\phi\varphi
+%\let\varphi\temp
 
 %scambia epsilon e varepsilon
 \let\temp\epsilon
@@ -61,6 +61,7 @@
 
 \newcommand{\p}[1]{\left(#1\right)}
 \newcommand{\RR}{\mathbb{R}} %Reali
+\newcommand{\CC}{\mathbb{C}} %Complessi
 \newcommand{\ZZ}{\mathbb{Z}} %Interi
 \newcommand{\de}{\textup{d}}
 \newcommand{\so}{\rightarrow}
@@ -68,7 +69,7 @@
 \newcommand{\varid}{\textup {id}} %Identità con "id"
 
 
-\newcommand{\skipline}{\vspace{\baselineskip}} %Salta una riga (devi saltare una riga prima di mettere il comando)
+\newcommand{\skipline}{\leavevmode\vspace{\baselineskip}} %Salta una riga (devi saltare una riga prima di mettere il comando)
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}%numeri cerchiati
