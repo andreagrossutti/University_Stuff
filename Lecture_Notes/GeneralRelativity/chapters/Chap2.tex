@@ -1,15 +1,242 @@
 \documentclass[../main/main.tex]{subfiles}
 \begin{document}
 
+\chapter{Geometry in the spacetime}
+
+\section{The constantly accelerated elevator}
+\textbf{Blau sec. 1.3; 't Hooft chap. 3}\\
+
+Now we have to make more concrete what we introduced in the previous chapter, i.e. we want to extend in a covariant way the gravitational potential, using the equivalence principle. Up to the present, we obtained the equivalence principle using non-relativistic arguments, now we want to obtain same result using a suitable mathematical framework, which allows us to derive gravitational laws in a covariant way. 
+
+From now on we will use relativistic units for velocity, i.e. all velocities are expressed in units of $c$. This is the same as set $c=1$. With this choice
+\[[L]=[T]\,,\qquad [E]=[M]\,,\,\quad\dots\]
+
+Now we have to look for a natural frame with its own natural coordinates which describe uniform accelerated frame. Recall that in SR a trajectory with constant acceleration will not make physical sense because any particle undergoing constant acceleration at a certain time would exceedes the speed of light, leading to a non-physical propagating signal. 
+
+On the other hand a proper definition of a uniformly accelerating trajectory is to impose that the proper acceleration is constant. For example for a rocket travelling with a constant proper acceleration $a$ along $ x$:
+\[\alpha^\mu\alpha_\mu=a^2\qquad\text{with}\quad \alpha^\mu=(\alpha^0,\alpha^1,0,0)=\frac{\de u^\mu}{\de\tau}\]
+The interpretation of this proper acceleration is that this is exactly the acceleration measured in the instantaneous rest-frame of the rocket. This means that when we consider the trajectory of the rocket we should think about a specific point of the rocket. Then this point will accelerate, but in any instant of time we can choose a rest frame $S_I$ where the four velocity takes the form
+\[u^\mu\vert_{S_I}=(1,0,0,0)\]
+and since $\alpha^\mu u_\mu=0$ we have
+\[\alpha^\mu|_{S_I}=(0,a,0,0)\]
+where $a$ is constant during the acceleration. 
+%
+Then we can explicitly write down the form of a trajectory that satisfies this relation in the following form
+\begin{equation}\label{eqn:const-accell-solut}\begin{cases}\begin{alignedat}{4}
+&t(\tau)&&=x^0(\tau)&&=\frac1a\sinh(a\tau)&&=X\sinh(\frac\tau X)\\
+&x(\tau)&&=x^1(\tau)&&=\frac1a\cosh(a\tau)&&=X\cosh(\frac\tau X)
+\end{alignedat}\end{cases}\end{equation}
+where $X\equiv1/a$. Notice that $(x^0,x^1)(0)=(0,X)$, as it's shown in the next figure:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=5cm]{../img/const-accel-traject.jpg}
+\caption{The green line describe the trajectory, parametrized by $\tau$. In the picture are represented only first two coordinates.}
+\end{figure}
+
+A the notation suggests the parameter $\tau$ is the proper time, indeed we can check it computing $\de s^2$ over the trajectory:
+\[\de s^2=-\de t^2+\de x^2=-\cosh^2(a\tau)\de \tau^2+\sinh^2(a\tau)\de\tau^2=-\de\tau^2\]
+this implies
+\[\int_0^\tau\sqrt{-\de s^2}=\int_0^\tau\de\tilde\tau=\tau\]
+i.e. $\tau$ is exactly the proper time. 
+It is also immediate to check that these trajectories satisfies our requirement
+\[\begin{cases}
+u^0(\tau)=\cosh(a\tau)\\
+u^1(\tau)=\sinh(a\tau)
+\end{cases}
+\qquad
+\Rightarrow
+\qquad
+\begin{cases}
+\alpha^0(\tau)=a\sinh(a\tau)\\
+\alpha^1(\tau)=a\cosh(a\tau)
+\end{cases}
+\qquad
+\Rightarrow
+\qquad
+\alpha^\mu\alpha_\mu=a^2
+\]
+In order to simplify the notation in the following we will use also the (well known from SR) relation: $\gamma=\cosh(\tau/X)$.
+
+Notice also that eq.\eqref{eqn:const-accell-solut} is a particular solution that satisfies the requirement of constant acceleration. We fixed integration constants so that any trajectory of this form asymptotically tends to the straight line $t=\pm x$ that describes the light-like signal passing through the origin. With this specific choice $X=1/a$ can be identified with the $x$-position at $t=\tau=0$.
+
+Letting $X=1/a$ change we get a family of hyperbolic trajectories 
+\[x^2-t^2=X^2\equiv1/a^2\]
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=6cm]{../img/rindler-space.png}
+\caption{Here are shown all possible hyperbolic trajectories with $a>0$. The vertical straight line is the world line of a stationary observer.}
+\end{figure}
+
+Notice that choosing negative acceleration $a<0$ trajectories are in the left side of the space, i.e. trajectories for positive and negative acceleration lives in disconnected regions. 
+
+For $\tau=0$ we have $u^0(\tau=0)=\cosh(0)=1$ and $u^1(\tau=0)=\sinh(0)=0$, i.e. we are in the rest frame for our system. Since $X$ is the value of $x$ for $\tau=0$, then $X$ can be interpreted as the proper $x$ coordinate for a particle accelerating on the $x$ direction (analogously as $\tau$ for the time). Equivalently, let $\de X$ be the infinitesimal distance between two closed coordinates for the system in the rest frame, then $\de x$ for $\tau\neq0$ is the contracted distance between the two coordinates when the system has non-zero velocity:
+\[\de x=\frac{\de X}\gamma\]
+\begin{figure}[H]
+\centering
+\includegraphics[width=4cm]{../img/X-proper-lenght-Rindler.jpg}
+\end{figure}
+Let's prove the last statement. For $t=$const., we have $\de t=[\sinh(\tau/X)\de X+\cosh(\tau/X)\de\tau]=0$ and this means
+\[\de\tau=-\tanh(\frac\tau X)\de X\]
+then we have
+\[\de x=\cosh(\frac\tau X)\de X+\sinh(\frac\tau X)\de\tau=\frac1{\cosh(\tau/X)}\de X=\frac{\de X}\gamma\]
+
+Therefore the family of hyperbolic trajectories describes motion of points of a rigid body accelerating on the $x$ direction. 
+
+Notice that accelerations of points on the rigid body are all different, since different points belong to different trajectories, i.e. corresponds to different values for $a$. In our one-space-dimensional model this means that all points of the rod in the following picture has different acceleration\footnote{This can also be interpreted as the origin of the contraction of lengths.}:
+\begin{figure}[H]
+\centering
+\includegraphics[width=4cm]{../img/acceleration-points-rigid-body.jpg}
+\end{figure}
+This is not true for higher dimensions since all points in a hyperplane orthogonal to the direction of motion have same acceleration. Anyhow points on different hyperplanes must have different accelerations.
+
+Notice also that quantity $x^2-t^2=X^2$ is invariant under Lorentz transformation (i.e. 4-dimensional rotations), and then going from an inertial frame into another we have the same equation $\tilde x^2-\tilde t^2=X^2$. In particular for any inertial frame when $\tilde t=0$ all points of the rod are at rest and $\Delta \tilde x(\tilde t=0)=\Delta X$, i.e. all distances are equivalent in all rest frames. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=4cm]{../img/equivalence-rest-frames.jpg}
+\end{figure}
+
+Using last observation, we can think about $X$ as a coordinate for (instead of a rod) a rigid lattice, parametrized by space coordinates $X$, $Y$, $Z$, where $Y=y$ and $Z=z$ are usual Euclidean coordinates. We consider only the connected lattice defined by $X>0$ (i.e. $a>0$).
+So far we used to parametrize each trajectory with its proper time $\tau$ measured by a clock moving on the trajectory. Therefore we can use as coordinate system of our lattice the set $(\tau,X,Y,Z)$. 
+
+In order to describe what is special with this reference frame, let's consider line elements:
+\[\begin{cases}
+x^0=X\sinh(\frac\tau X)\\
+x^1=X\cosh(\frac\tau X)
+\end{cases}
+\qquad\Rightarrow\qquad
+\begin{cases}
+\de x^0=\left[\sinh(\tau/X)-\frac\tau X\cosh(\frac\tau X)\right]\de X+\cosh(\frac\tau X)\de\tau\\
+\de x^1=\left[\cosh(\tau/X)-\frac\tau X\sinh(\frac\tau X)\right]\de X+\sinh(\frac\tau X)\de\tau
+\end{cases}\]
+and then the metric reads
+\begin{align}\label{eqn:Rindler-metric-tau}
+\de s^2&=\eta_{\mu\nu}\de x^\mu\de x^\nu\\
+&=-\de\tau^2+\frac{2\tau}{X}\de\tau\,\de X+\p{1-\frac{\tau^2}{X^2}}\de X^2+\de Y^2+\de Z^2
+\end{align}
+This non-trivial metric can be regarded as fully characterising the new frame, so is telling us how coordinates (identified as position on the lattice and proper time measured by accelerating clocks) enter into the definition of line elements. 
+
+So far we could simply think about this metric as the consequence of a simply change of coordinates, and not really matter. But now invoking the equivalence principle, we can say that the accelerated frame described by coordinates  $(\tau,X,Y,Z)$ should be equivalent to a frame undergoing gravitational force.
+Therefore the existence of gravitational field could be revisited as the existence of a non trivial metric in our spacetime. 
 
 
+\section{The Rindler spacetime}
+\textbf{Blau sec. 1.3; 't Hooft chap. 3}\\
 
+ In the previous section we constructed the rigid lattice with coordinates $(\tau,X,Y,Z)$ and non-trivial metric\footnote{Usually in these notes terms ``metric" and ``line element" are used equivalently, beside in the formal definition of metric that we will introduce in the next chapters.} \eqref{eqn:Rindler-metric-tau} where $\tau$ and $X$ are respectively proper time and proper length in this lattice. 
+Note that the components of the metric depend on $(\tau,X)$. In particular, the separation between simultaneous events $A$ and $B$ (with $\tau_A=\tau_B$) is not the Eucledian one ($\Delta l^2=\Delta X^2+\Delta Y^2+\Delta Z^2$) and changes with time $\tau$.
 
+Despite the physical meaning of $\tau$ as proper time, a nicer coordinate $T$ can be chosen for lattice's system of coordinates. Note that
+\[\de s^2=-\p{\de\tau-\frac\tau X\de X}^2+\de Y^2+\de Z^2\]
+therefore if we define following \emph{adimensional} coordinate
+\[T=\frac\tau X\]
+and we use it instead of $\tau$, following substitutions must be done
+\[\tau=XT\qquad\Rightarrow\qquad\de\tau=X\de T+T\de X=X\de T+\frac\tau X\de X\]
+ and the line element takes the form
+\begin{equation}\label{eqn:Rindler-metric}
+\de s^2=-X^2\de T^2+\de X^2+\de Y^2+\de Z^2
+\end{equation}
 
+The spacetime equipped with metric eq.\eqref{eqn:Rindler-metric} is called \textbf{Rindler spacetime}. 
+Notice that same metric can be obtained directly from the flat spacetime using following substitutions
+\[\begin{cases}
+t=X\sinh T\\
+x=X\cosh T
+\end{cases}\]
 
+\subsubsection{Proprieties of the coordinates system of Rindler space}
 
+One of main advantages of the system of coordinates $(T,X,Y,Z)$ is that if we consider simultaneous events ($\de\tau=0=\de T$) then metric eq.\eqref{eqn:Rindler-metric} is the Euclidean one. Also, if we draw the Rindler space as follows:
+\begin{figure}[H]
+\centering
+\includegraphics[width=7cm]{../img/rindler-space2.jpg}
+\end{figure}
+\noindent then points with constant $X$ corresponds to hyperbolic trajectories with constant acceleration, and points with constant $T$ are placed on the same straight line passing through the origin, in particular proper time is given by the relation
+\[T=\tanh^{-1}\p{\frac tx}\]
 
+Moreover, suppose that two clocks moving with constant acceleration are placed on the lattice, and one of them (namely ``clock $A$'') sends light signals to the other (called ``clock $B$''). Let $T_A$ be the proper time for $A$ when the first clock sends the signal and $T_B$ be the proper time for $T_B$ when the second clock receives the signal. Then the difference $\Delta T=T_B-T_A$ does not depend on the time when the first clock sends it signal, i.e. $\Delta T$ is time-independent: if clock $A$ send another light signal at the proper time $T_A'$, which is received by the clock $B$ at proper time $T_B'$, then $T_B-T_A=T_B'-T_A'$.
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.5cm]{../img/T-meaning-Rindler.jpg}
+\end{figure}
+\noindent In other words, if $A$ sends light signals with a certain rate, then the clock $B$ ``sees''\footnote{``Sees'' mean seen by light signals.} clock $A$ ``clicking'' with the same rate. We can prove this as follows: first of all for the light signal we have $\de s^2=0$, then
+\[0=\de s^2=-X^2\de T^2+\de X^2\qquad\Rightarrow\qquad\de T=\frac{\de X}{X}\]
+where in the second step we fixed the sign in order to choose the right direction of propagation (shown in the picture). If we consider the value of $\Delta T\equiv T_B-T_A$, i.e. the time between the click of $A$ and the light signal seen by $B$, we have
+\[\Delta T\equiv T_B-T_A=\int_A^B\de T=\int_A^B\frac{\de X}{X}=\log\frac{X_B}{X_A}\] 
+this means that $\Delta T$ depends only on the proper position on the lattice of the two clocks, hence does not depend on the time $T_A$ when the first clock clicks:
+\begin{align*}
+T_B&=T_A+\Delta T\\
+T_{B'}&=T_{A'}+\Delta T
+\end{align*}
+We can also say that using time coordinate $T$ then times of clocks are syncronized by light signals.
+This propriety is called propriety of \textbf{static} spacetime. 
 
+We seen that give EEP implies that this accelerating frame (the Rindler space) could be interpreted as a frame undergoing a gravitational field. This leads a non-trivial acceleration of free-falling objects. We know that acceleration experienced by points in the lattice is given by $\vec a=-(1/X)\hat u_x$, then just applying EEP we can obtain the formula for the gravitational field: 
+\[\vec a_G=-1/X\hat u_x=-\vect\nabla\Phi\qquad\Rightarrow\qquad\Phi=\log X\]
+Notice that in this realization of EEP the gravitational field is not constant, since its strength is proportional to $-\vect\nabla\Phi$ and then decreases with $X$ (in particular, respect to the last picture, the field strength is weaker in $B$ than in $A$). Using $\Phi=\log X$ we can rewrite Rindler metric in the following form
+\begin{equation}\boxed{
+\de s^2=-e^{2\Phi}\de T^2+\de X^2+\de Y^2+\de Z^2
+}\end{equation}
+where basically respect to the flat metric we changed the coefficient of the time component by a factor given by the gravitational potential. This confirms our suggestion\footnote{By the analogy with EM we were looking for a way to rewrite gravitational laws in relativistic way using gravitational potential.}, namely by applying equivalence principle the potential associated to a specific gravitational field can be identified as a part of the metric specifying the frame in which the object experience such gravitational field. 
+This will lead us to treat and complete the notion of gravitational potential with the metric itself characterizing a given spacetime. 
+
+Before starting to work on the complete theory of GR, let's consider other proprieties of Rindler space. 
+Now we will discuss how Rindler spacetime already exhibits some effects that we will encounter in more general settings. 
+
+\subsubsection{Time dilatation and red-shift}
+
+In previous sections we described time dilatation and red-shift using non-relativistic arguments, now we will analyze them using relativistic treatment.
+Consider again next picture:
+\begin{figure}[H]
+\centering
+\includegraphics[width=4.5cm]{../img/T-meaning-Rindler.jpg}
+\end{figure}
+\noindent we know that the proper time is related with $T$ by the relation $\tau=XT$. This means that the proper time interval between events $B$ and $B'$ can be written as follows
+\[\tau_{B'}-\tau_B=X_B(T_{B'}-T_B)=X_B(T_{A'}-T_A)=\frac{X_B}{X_A}(\tau_{A'}-\tau_A)\]
+and using gravitational potential we have:
+\[\boxed{
+\Delta\tau_B=\frac{X_B}{X_A}\Delta\tau_A=e^{\Phi_B-\Phi_A}\Delta\tau_A
+}\]
+If instead of clocks synchronized by light signals (i.e. measuring the value $T$) we consider 2 identical clocks measuring the proper time, thenthey ``see'' each other running differently:
+\begin{enumerate}[label=\textbullet]
+\item clock $B$ ``sees''clock $A$ going \emph{slower} by factor $X_A/X_B=e^{\Phi_A-\Phi_B}<1$
+\item clock $A$ ``sees''clock $B$ going \emph{faster} by factor $X_A/X_B=e^{\Phi_B-\Phi_A}<1$
+\end{enumerate}
+Let's see this effect in terms of frequencies. If $\Delta\tau=1/\nu$ then we have
+\[\nu_B=\frac{X_A}{X_B}\nu_A\qquad\Rightarrow\qquad\nu_B<\nu_A\]
+and then this shows \emph{red-shift effect}. If $X_B=X_A+\delta X$ for $\delta X\ll1$ then gravitational potential can be thought as linear and
+\[\frac{\nu_B-\nu_A}{\nu_A}=\p{\frac{X_A}{X_B}-1}\simeq-\frac{\delta X}{X_A}=-\delta\Phi\simeq-\frac{1}{c^2}(\Phi_B-\Phi_A)\]
+where in the last step we restored the constant $c$.
+Energy of photons is proportional to them frequency ($E=h\nu$) so the difference between energy in $A$ and energy $B$ can be seen as the energy lost by the photon due to the fact that it is ``climbing'' the potential $\Phi$ (i.e. difference of energy is related to the difference of potential energy between $A$ and $B$).
+
+\subsubsection{Event horizons}
+A second propriety of Rindler space is related to the presence of \textbf{event horizons}. Similar phenomena will appear in the treatment of black holes, but Rindler space can be used as toy model for it description and understanding. First observation is that $X$ Rindler's coordinate is restricted to be positive, and we can see that the metric became degenerate for $X=0$:
+\[\de s^2=-X^2\de T^2+\de X^2+\de Y^2+\de Z^2\]
+i.e. we have a coordinate singularity for $X=0$. In particular for $X=0$ a purely time like difference $\Delta T$ between two events happening at different times becomes light-like. However, recovering original flat metric in a inertial frame (in particular we do not restrict only to the  $X>0$ case), then this metric is equivalent to a smooth metric well defined. The singularity is due to our specific choice of coordinates, and is not related to the geometry of the space itself.\footnote{In Differential Geometry terminology, this means that our chart is well defined only on the open set corresponding to $X>0$ local coordinates. On the other hand, we can find different charts and an atlas that covers all the $\RR^4$ space with well defined coordinates for each point. For example, the Minkowski system of coordinates defines an atlas well defined on all the space. Rindler system of coordinates is just a system of coordinates comfortable for our description of trajectories when $X>0$. This won't be true for singularities in black holes.} This somehow correspond to the $r=0$ case for radial coordinates $\de r^2+r^2\de\theta^2$: the flat space has its own well defined, smooth, metric, but with a specific choice of coordinates we could obtain a degenerate metric in some point, like the origin for radial coordinates or $X=0$ for the Rindler space. 
+
+On the other hand the point corresponding to $X=0$ has some special proprieties, namely recall $X\equiv\sqrt{x^2-t^2}$, then $X=0$ is the interception of two lines: $x=\pm t$. These two lines can be interpreted as horizons of Rindler spacetime, that is they separate Rindler space time to the remaining of the full Minkowskian spacetime. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.5cm]{../img/rindler-horizons.jpg}
+\end{figure}
+\noindent In particular, the right side of $x=t$ horizon is the boundary between events in the Rindler spacetime and events that cannot be reached by Rindler events. In other word, Rindler events cannot ``see'' beyond the future horizon line, i.e. events above the future horizon line cannot send signal to Rindler space. In the opposite, right side of the past horizon straight line represents the boundary between Rindler space and events that cannot receive any signal from Rindler space. 
+
+As we will see horizon will emerge in more general models and will actually characterize black holes.
+
+Any observer freely ``falling''\footnote{This means that he can freely move in Minkowski space.} towards the horizon will cross it in a finite proper time (recall that $t$ is the proper time if the observer is at rest), as it is pictorially represented in the next picture.
+\begin{figure}[H]
+\centering
+\includegraphics[width=5cm]{../img/observer-crossing-horizon-prop-time.jpg}
+\end{figure}
+\noindent If, instead of measuring time using proper time, we use the coordinate $T$, then we know that $\tanh T_A=t_a/x_a$ and therefore when the observer cross the horizon we have $\tanh T_A=1$, which implies that $T_A=\infty$. This means that if we try to describe a freely ``falling'' observer using Rindler coordinates, it can reach the horizon in a finite time, but then it needs an infinite amount of time in order to cross the boundary.
+If we suppose that, referencing to the next figure, an observer placed in $A$ sends with a certain proper period a light signal to a Rindler observer (i.e. that movers with constant acceleration) placed in B and the latter measure the rate between signals, we can see that when $A$ is crossing the horizon
+\[\Delta \tau_B=X_B\Delta T_B=X_B\Delta T_A=\infty\]
+\begin{figure}[H]
+\centering
+\includegraphics[width=5cm]{../img/observer-crossing-horizon-T-time.jpg}
+\end{figure}
+\noindent This means that even though the first observer cross the horizon in a finite proper time, the observer B never ``sees'' the first observer crossing the horizon. This can be also understood by observing that the light signal when $A$ approaches the horizon will take more and more time to reach B and in particular when A is crossing the horizon then the light signal will take an infinite time $T$ to reach B.
 
 
 
