@@ -109,19 +109,22 @@ and performing the change of variable $p'=p-m\dot x$ we obtain
 &=\lim_{\delta t\to0}\int\frac{\de p'}{2\pi\hbar}\exp{-i\frac{\delta t}{\hbar}\p{\frac{p'^2}{2m}+\underbrace{V(x)-\frac12m\dot x^2}_{-\mathcal L}}}\\
 &=\lim_{\delta t\to0}\underbrace{\p{\frac{m}{2\pi i\hbar\,\delta t}}^{1/2}}_{k}\exp{i\frac{\delta t}{\hbar}\mathcal L(x,\dot x)}
 \end{align*}
-where we introduced the factor $k$ (that depends on $\delta t$) in order to simplify the notation. When I introduce this into eq.\eqref{eqn:intro-Path-Int-deco} we have ($x_0=x_i$ $x_N=x_f$):
+where we introduced the factor $k$ (that depends on $\delta t$) in order to simplify the notation. When I introduce this into eq.\eqref{eqn:intro-Path-Int-deco} we have the following formula for the transition amplitude ($x_0=x_i$ $x_N=x_f$):
 
-\begin{align}
-\lim_{\delta t\to0}\braket{x_f(t_f)}{x_i(t_i)}
+\begin{align*}
+\braket{x_f(t_f)}{x_i(t_i)}
 &=\lim_{\delta t\to0}\int\prod_{j=1}^{N-1}\de x_j
-k^N\exp{\frac{i}{\hbar}\sum_{m=0}^{N-1}\delta t\mathcal L(x_m,\dot x_m)}\notag\\
+k^N\exp{\frac{i}{\hbar}\sum_{m=0}^{N-1}\delta t\mathcal L(x_m,\dot x_m)}\\
 &=\lim_{\delta t\to0}\int\prod_{j=1}^{N-1}\de x_j
-k\exp{\frac{i}{\hbar}S(x_f,x_i)}\notag\\
-&=\int_{C_T[x_i,x_f]} \mathcal Dx\,\exp{\frac{i}{\hbar}S(x_f,x_i)}\label{eqn:transition-measure-config}
-\end{align}
-where we defined the following functional measure over the space of trajectories\footnote{For the moment is not  clear if this functional is well defined and is a measure, this is just an anticipation of following results.}:
+k\exp{\frac{i}{\hbar}S(x_f,x_i)}
+\end{align*}
+We define the following functional measure over the space of trajectories\footnote{For the moment is not  clear if this functional is well defined and is a measure, this is just an anticipation of following results.}:
 \[\int_{C_T[x_i,x_f]} \mathcal Dx = \lim_{\delta t\to0} k \int\prod_{j=1}^{N-1}\de x_j\]
-Here $C_T[x_i,x_f]$ are all possible configurations on $x$ that start in $x_i$ and end in $x_f$ over a time $T=t_f-t_i$, i.e. is the set of all possible path $x(t)$ such that $x(t_i)=x_i$ and $x(t_i+T)=x(t_f)=x_f$. We call ${C_T[x_i,x_f]}$ \textbf{space of configurations}. The weight $\exp{\frac{i}{\hbar}S(x_f,x_i)}$ is the phase related to eq.\eqref{eqn:path-exp-formula}. Eq.\eqref{eqn:transition-measure-config} is just the analogous of eq.\eqref{eqn:sketch-total-phase-trajectory}. 
+Here $C_T[x_i,x_f]$ are all possible configurations on $x$ that start in $x_i$ and end in $x_f$ over a time $T=t_f-t_i$, i.e. is the set of all possible path $x(t)$ such that $x(t_i)=x_i$ and $x(t_i+T)=x(t_f)=x_f$. We call ${C_T[x_i,x_f]}$ \textbf{space of configurations}. The weight $\exp{\frac{i}{\hbar}S(x_f,x_i)}$ is the phase related to eq.\eqref{eqn:path-exp-formula}. Therefore I obtain
+\begin{equation}\label{eqn:transition-measure-config}\boxed{
+\braket{x_f(t_f)}{x_i(t_i)}=\int_{C_T[x_i,x_f]} \mathcal Dx\,\exp{\frac{i}{\hbar}S(x_f,x_i)}
+}\end{equation}
+This is just the analogous of eq.\eqref{eqn:sketch-total-phase-trajectory}. Notice that eq.\eqref{eqn:transition-measure-config} is manifestly invariant under the symmetries of our theory. 
 
 The construction we made has no rigor, but clarify the idea behind Path Integrals theory. The result we obtained so far is the replacement of the sum into eq.\eqref{eqn:sketch-total-phase-trajectory} with an integral, hoping in a convergent expression. This is not obvious, indeed this does not happen in general. 
 
@@ -132,14 +135,13 @@ We won't exhaminate details of mathematical structure behind Path Integrals sinc
 Before proceeding with technical developments, it is worth assessing the role of the path integral in quantum mechanics. As it was hopefully highlighted so far, the path integral formulation is conceptually advantageous over the standard operatorial formulation of QM, in that the ``good old'' particle trajectories retain same role. The P.I. is however technically more involved. When working on simple quantum systems like the hydrogen atom, no technical profit is really given by path integrals. Nonetheless, after overcoming a few technical difficulties, the path integral offers a much more direct viewpoint on the semiclassical limit. Similarly, for issues involving topology (like the origin of Bose and Fermi statistics, the Aharonov-Bohm effect, charge quantization in the presence of a magnetic monopole, etc$\dots$) path integrals offer a much better viewpoint. Finally, for advanced issues like the quantization of gauge theories and for effects like instantons in quantum field theory it would be hard to think how to proceed without path integrals.
 
 \section{The Partition Function}
-\textsf{Rattazzi, chap. 1}\\
 
 We want to generalize results of the previous section. 
 What we have done, is to sum over all possible configurations of the field with a certain measure and weight them with a weight function that is essentially the action:
 \begin{equation}\label{eqn:dfn-partition-function}\boxed{
-\mathcal Z(\lambda, m,\dots)=\int_{\phi\in C}\mathcal  D[\phi]\exp{\frac i\hbar S[\phi]}
+\mathcal Z(\lambda, m,\dots)=\int_{\phi\in C}\mathcal  D\phi\,\exp{\frac i\hbar S[\phi]}
 }\end{equation}
-this integral is generic form of \textbf{path integral} and in particular is the \textbf{partition function} for a certain theory. In order to specify the theory we have to specify:
+This is the generic form for a \textbf{path integral} and in particular is the \textbf{partition function} for a certain theory. In order to specify the theory we have to specify:
 \begin{enumerate}
 \item $M$: The space where out QFT theory lives and of course its metric, in particular we have to specify its dimension $d$ and, if it exists, the space's metric $g$ (we can also think about a metric with some degree of freedom, such in Quantum Gravity).
 \item $\phi$: Fields over the space, that are generically maps from $M$ to some target space (e.g. $\RR$, $\CC$, vector fields, gauge group, gauge bundle, etc.)
@@ -155,7 +157,7 @@ Once I have specified this items i can obtain a well defined partition function 
 On the other hand partition function can depends on other parameters $\lambda'$ to which the action is independent. Notice that  eq.\eqref{eqn:dfn-partition-function} can be also a divergent, but this happens often and doesn't really matter. The important aspect is how the behaviour of the partition function depends on its parameters. 
 
 \todo{Verify what stated here}
-The name ``partition function'' comes from statistical mechanics: consider for instance a map from the circle to another target space
+The name ``partition function'' comes from statistical mechanics\footnote{See \cite{Nakahara:2003aa} sec. 1.3.1, 1.3.2 for a furthered description of this correspondence between path integral formulation and partition functions in statistical mechanics.}: consider for instance a map from the circle to another target space
 \[x:S^1\to N\qquad x(0)=x(T)=y\in N\]
 When we go to the Euclidian space by sending\footnote{Notice that parametrizing $S^1$ into the Euclidian, we introduced an additional factor $i$, that multiplied by the factor $i$ present in the definition of partition function gives a minus. This will happen often when we compute partition integrals explicitly.} $t\to i\tau$ ($\hbar =1$) and we compute the path integral for some boundaries condition we obtain
 \[\int_{x\in C_T[y,y]}\mathcal Dx \exp{-S[x]}=\bra{y}\exp{-HT}\ket {y}\]
@@ -165,35 +167,132 @@ is the same as taking path integral without boundaries, i.e. integrating over al
 \[\Tr_{\mathcal H}(e^{-HT})=\int_{x\in C_{S1}}\mathcal Dxe^{-S[x]}\]
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \section{Operators and Time Ordering}
+\textsf{Rattazzi sec. 1.4}\\
+
+Now we want to see how to use path integral in order to compute operator matrix elements and more in general correlation functions. Notice that this problem depends on which picture (Heisenberg of Schröedinger) we use. In the Heisenber picture operators evolve with time according to
+\[\hat O(t)=e^{\frac{i\hat Ht}{\hbar}}\hat Oe^{\frac{-i\hat Ht}{\hbar}}\]
+where $\hat O$ is the time independent operator in the Schröedinger picture, while states are time independent. In Schröedinger picture operators are time independent, while states evolves according to
+\[\ket t=e^{\frac{i\hat Ht}{\hbar}}\ket{t=0}\]
+For instance if we want to compute the value of position $\hat x$ on a state for a given time $t$ we see that
+\[\hat x(t)\ket{x,t}=e^{\frac{i\hat Ht}{\hbar}}\hat xe^{-\frac{i\hat Ht}{\hbar}}e^{\frac{i\hat Ht}{\hbar}}\ket{x}=xe^{\frac{i\hat Ht}{\hbar}}\ket{t=0}=x\ket{x,t}\]
+We want to prove that matrix elements can be computed using path integrals using the following formula
+\begin{equation}\boxed{
+\int_{C_{t_f-t_i}[x_i,x_f]}\mathcal Dx\,\exp{\frac i\hbar S[x]}O(x(t))=\bra{x_f,t_f}\hat O(\hat x(t))\ket{x_i,t_i}
+}\end{equation}
+and we want to compute them using path integrals. Therefore we have to relate the matrix element with the expression eq.~\eqref{eqn:transition-measure-config}. In order to do that I have to find a way to remove $\hat O(\hat x(t)$, substituting it with some function that I can integrate. The way to do that is to compute this matrix element by evaluate operators on the states using eigenstates of the position:
+\begin{equation}\label{eqn:matrix-element-to-path-integral}\begin{split}
+\bra{x_f,t_f}\hat O(\hat x(t))\ket{x_i,t_i}
+&=\bra{x_f}e^{-i\frac{\hat H}{\hbar}(t_f-t)}\hat O(\hat x)e^{-i\frac{\hat H}{\hbar}(t-t_i)}\ket{x_i}\\
+&=\int\de x\bra{x_f}e^{-i\frac{\hat H}{\hbar}(t_f-t)}\hat O(\hat x)\ket x\bra xe^{-i\frac{\hat H}{\hbar}(t-t_i)}\ket{x_i}\\
+&=\int\de x\,O(x)\bra{x_f}e^{-i\frac{\hat H}{\hbar}(t_f-t)}\ket x\bra xe^{-i\frac{\hat H}{\hbar}(t-t_i)}\ket{x_i}\\
+&=\int\de x\int_{C_{t_f-t}[x,x_f]}\mathcal Dx_a\int_{C_{t-t_i}[x_i,x]}\mathcal Dx_b\exp{\frac i\hbar(S[x_a]+S[x_b])}O(x)\\
+&=\int_{C_{t_f-t_i}[x_i,x_f]}\mathcal Dx\,\exp{\frac i\hbar S[x]}O(x(t))
+\end{split}\end{equation}
+where in the last step we composed all possible paths.
+
+Now we want to see how do compute correlators, i.e. products of operators. But the generalization of what we done is really simple. Consider two functions $O_1(x(t))$ and $O_2(x(t))$, then we will prove that
+\begin{equation}\label{eqn:correlations-path-int}
+\boxed{\int_{C_{t_f-t_i}[x_i,x_f]}\mathcal Dx\,O_1(x(t_1))O_2(x(t_2))\exp{\frac i\hbar S[x]}
+=\bra{x_f,t_f}T\left[\hat O_1(x(t_1))\hat O_2(x(t_2))\right]\ket{x_i,t_i}}
+\end{equation}
+where we used the \textbf{time ordering product}
+\[T\left[\hat O_1(t_1)\hat O_2(t_2)\right]=\theta(t_2-t_1)\hat O_2(t_2)\hat O_1(t_1)+\theta(t_1-t_2)\hat O_1(t_1)\hat O_2(t_2)\]
+Now we show eq.~\eqref{eqn:correlations-path-int}. Let's assume that $t_2>t_1$ for the time being. Then using composition of paths
+\begin{align*}
+&\int_{C_{t_f-t_i}[x_i,x_f]}\mathcal Dx\,O_1(x(t_1))O_2(x(t_2))\exp{\frac i\hbar S[x]}=\\
+&\qquad=\int\mathcal Dx_a\mathcal Dx_b\mathcal Dx_c\de x\de\tilde x\bra{x_f}e^{-i\frac{\hat H}\hbar(t_f-t_2)}O_2(x(t_2))\ket x\bra xe^{-i\frac{\hat H}\hbar(t_2-t_1)}O_1(\tilde x(t_1))\ket {\tilde x}\bra{\tilde x}e^{-i\frac{\hat H}\hbar(t_1-t_i)}\ket{x_i}\\
+&\qquad=\bra{x_f,t_f}\hat O_2(\hat x(t_2))\hat O_1(\hat x(t_1))\ket{x_i,t_i}
+\end{align*}
+%
+\begin{figure}[H]\centering   
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1] 
+\draw    (95,115) .. controls (135,85) and (194.5,140) .. (234.5,110) .. controls (274.5,80) and (354.5,93) .. (375.5,127) ;
+\draw [shift={(375.5,127)}, rotate = 58.3] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(165.5,112.69)}, rotate = 14.04] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(308.8,94.09)}, rotate = 5.19] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(95,115)}, rotate = 323.13] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw (90,125) node    {$t_{i}$};
+\draw (165,124) node    {$t_{1}$};
+\draw (306,108) node    {$t_{2}$};
+\draw (389,139) node    {$t_{f}$};
+\draw (133,93) node    {$a$};
+\draw (233,95) node    {$b$};
+\draw (357,94) node    {$c$};
+\end{tikzpicture}
+\end{figure}
+%
+\noindent When we consider $t_2<t_1$ the final result is
+\[\bra{x_f,t_f}\hat O_1(\hat x(t_1)) O_2(\hat x(t_2))\ket{x_i,t_i}\]
+therefore eq.~\eqref{eqn:correlations-path-int} has been proved. Using eq.~\eqref{eqn:correlations-path-int} we can compute matrix element of time ordering products using path integrals. 
 
 \section{The Continuum Limit and Non-Commutativity}
+
+Let's go back to an issue we considered in the introduction of the path integral. Now we analyze what happens if the path we consider are not only the one someone expects, i.e. consider the case where path are in general not differentiable. The non-commutativity of operators
+\begin{equation}\label{eqn:non-comm-PI}
+[\hat x(t),\hat p(t)]=i\hbar
+\end{equation}
+is somehow necessary in order for the path integral to work.  And it is intimately related to the existence of not differentiable path that has to be taken into account in the path integral. We want to show that when we consider all possible path in the computation of the path integral, also non-differentiable path must be taken into account, and this non-differential paths are those to become important when we see non-commutativity of some operators in QM. 
+
+Let's consider only smooth paths, in particular where $\dot x(t)$ exists. Then for $t_-$ slightly smaller than $t$ we have\footnote{We will write $\hat p(x(t))=\dot x(t)$.This is not restrictive, since if we replace $\dot x(t)$ with any other sufficiently regular function the result does not change.}
+\begin{align*}
+\bra{x_f,t_f}\hat x(t)\,\hat p(t_-)\ket{x_i,t_i}
+&=\int_{C_{t_f-t_i}[x_i,x_f]}\mathcal Dx\,x(t)\,\dot x(t_-)e^{\frac i\hbar S[x]}
+\end{align*}
+Similarly, for $t_+$ slightly greater that $t$
+\begin{align*}
+\bra{x_f,t_f}\hat p(t_+)\,\hat x(t)\ket{x_i,t_i}
+&=\int_{C_{t_f-t_i}[x_i,x_f]}\mathcal Dx\,x(t)\,\dot x(t_+)e^{\frac i\hbar S[x]}
+\end{align*}
+Since we are considering only smooth path, we have
+\begin{align*}
+&\lim_{t_\pm\to t}\int_{C_{t_f-t_i}[x_i,x_f]}\mathcal Dx\,x(t)(\dot x(t_-)-\dot x(t_+))e^{\frac i\hbar S[x]}=\\
+&\qquad=\int_{C_{t_f-t_i}[x_i,x_f]}\mathcal Dx\,x(t)\p{\lim_{t_\pm\to t}(\dot x(t_-)-\dot x(t_+))}e^{\frac i\hbar S[x]}=0
+\end{align*}
+and then
+\begin{align*}
+&\bra{x_f,t_f}\left[\hat x(t)\,\hat p(t)\right]\ket{x_i,t_i}=\\
+&\qquad=\lim_{t_\pm\to t}\p{\bra{x_f,t_f}\hat x(t)\,\hat p(t_-)\ket{x_i,t_i}-\bra{x_f,t_f}\hat p(t_+)\,\hat x(t)\ket{x_i,t_i}}=0
+\end{align*}
+which is clearly in contrast with eq.~\eqref{eqn:non-comm-PI}. The problem is the following: we wrote down the relation between operator formalism and path integral only in the discrete case for $\delta t=T/N=0$ and then we took the continuous limit. We anticipated that this procedure may have some problematic points, that must be considered carefully. 
+
+Let's show this in the simply case of the free particle: $\hat H=\hat p^2/2m$. In order to simplify the notation we set $m=1$. Then the propagator reads
+\[K(x_f,t;x_i,0)=\braket{x_f,t}{x_i,0}=\bra{x_f}e^{-i\frac{\hat H}{\hbar}t}\ket{x_i}\]
+This satisfies the following relation
+\begin{equation}\label{eqn:deriv-prop-free-part}
+i\hbar\frac{\partial}{\partial t}K(x_f,t;x_i,0)=\hat HK(x_f,t;x_i,0)
+\end{equation}
+therefore using eq.~\eqref{eqn:deriv-prop-free-part} and $\hat p=-i\hbar\partial_x$ we can verify the following explicit expression for the propagator\footnote{See \textsf{Rattazzi sec. 1.2.2} for a derivation of this formula.}
+\[K(x_f,t;x_i,0)=\frac1{\sqrt{2\pi i\hbar t}}\exp{\frac{i}{2\hbar t}(x_f-x_i)^2}\]
+or, with a trivial time translation
+\[K(x_f,t_f;x_i,t_i)=\frac 1{\sqrt{2\pi i\hbar (t_f-t_i)}}\exp{\frac{i}{2\hbar}\frac{(x_f-x_i)^2}{t_f-t_i}}\]
+Therefore the propagator satisfies following relation
+\begin{equation}\label{eqn:derivx-propag-free-part}
+-i\hbar \frac{\partial}{\partial x}K(y,t_f;x,t_i)= \frac{x-y}{t_f-t_i}K(y,t_f;x,t_i)=i\hbar \frac{\partial}{\partial y}K(y,t_f;x,t_i)
+\end{equation}
+The derivative expression of a path can be written as limit of the differential increase rate
+\[\dot x(t)=\lim_{\delta t\to0}\frac{x(t+\delta t)-x(t)}{\delta t}\]
+If we set $t_+=t+\delta t$ and $t_-=t-\delta t$ we can write, event if $x(t)$ is not differentiable:
+\begin{align*}
+&\lim_{\delta t\to0}\bra{x_{t_+},{t_+}}\p{\hat x(t)\,\hat p(t_-)-\hat p(t_+)\,\hat x(t)}\ket{x_{t_-},{t_-}}=\\
+&\qquad=\lim_{\delta t\to0}\int\de x\bra{x_{t_+},{t_+}}\p{\hat x(t)\,\hat p(t_-)-\hat p(t_+)\,\hat x(t)}\ket x\bra x\ket{x_{t_-},t_-}\\
+&\qquad=\lim_{\delta t\to0}\int\de x\braket{x_{t_+},{t_+}}{x,t}x(t)\p{\dot x(t_-)-\dot x(t_+)}\bra{ x,t}\ket{x_{t_-},t_-}\\
+&\qquad=\lim_{\delta t\to0}\int\de x\,K(x_{t+\delta t},t+\delta t;x,t)x(t)\p{\frac{x(t)-x(t-\delta t)}{\delta t}-\frac{x(t+\delta t)-x(t)}{\delta t}}K(x,t;x_{t-\delta t},t-\delta t)\\
+&\qquad=\lim_{\delta t\to0} \int\de x\,x(t)\frac\partial{\partial x}\p{K(x_{t+\delta t},t+\delta t;x,t)K(x,t;x_{t-\delta t},t-\delta t)}\\
+&\qquad=\lim_{\delta t\to0} \int\de x\,K(x_{t+\delta t},t+\delta t;x,t)K(x,t;x_{t-\delta t},t-\delta t)\\
+&\qquad=\lim_{\delta t\to0} i\hbar \,K(x_{t+\delta t},t+\delta t;x_{t-\delta t},t-\delta t)
+\end{align*}
+Where in the second to last step we assumed vanishing boundary terms in the integration by parts. 
+So using again composition of paths we obtain
+\begin{align*}
+\bra{x_f,t_f}\left[\hat x(t)\,\hat p(t)\right]\ket{x_i,t_i}=i\hbar \,K(x_f,t_f;x_i,t_i)
+\end{align*}
+This is exactly what we desired. It means that all the contributions to the matrix elements of commutators between non-commuting operators is given by non-differentiable paths
+\[\lim_{ t_+\to t}\dot x(t_+)\neq\lim_{ t_-\to t}\dot x(t_-)\]
+i.e. where velocity shows a discontinuity. If we consider only smooth path, then matrix elements of each commutators would be zero, and this is physically wrong. 
+
+
+
 
 
 
