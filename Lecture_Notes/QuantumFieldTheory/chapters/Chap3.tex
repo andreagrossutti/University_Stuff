@@ -5,32 +5,199 @@
 
 \chapter{Perturbation Theory}
 
+In this chapter we will discuss perturbation theory using path integral approach. Also, we will see that path integrals contains more information than perturbation theory, since path integrals allows to study non-perturbative features, that are not involved in the  perturbative approach. We will see that perturbative expansion has a limited fidelity to physics feature we want to analyze, even at highest order of expansion. 
+
 \section{Correlators and scattering amplitudes}
 
+Primary object we will use to describe perturbative approach to QFT are the partition functions
+\[\mathcal Z(g,m,\lambda,\dots)=\int_C\mathcal D\phi \,e^{\frac i\hbar S[\phi]}\]
+As we already mentioned, the partition function does not depend directly from fields , but only on the other parameters of the theory. Using partition functions, we want to compute correlation functions, which are genericay expectation values of products of operators of these fields
+\begin{equation}\label{eqn:exp-value-prod-corr}\boxed{
+\left\langle\prod_{i=1}^nO_i(\phi)\right\rangle=\frac1{\mathcal Z}\int_C\mathcal D\phi \,e^{\frac i\hbar S[\phi]}\prod_{i=1}^nO_i(\phi)
+}\end{equation}
+Here we introduced the normalization factor $1/\mathcal Z$ so that the expectation value of operator 1 is unitary: $\langle1\rangle=1$. We introduced this normalizations since we want to use correlation functions in order to compute scattering amplitude using LSZ formula. 
 
+Usually operators $O_i(\phi)$ are \emph{local operators}, this means that they depends on the value of $\phi$ and/or its derivatives at a point of the spacetime $p\in M$. Some example of local operators may be $\phi^4(x)$, $\phi(x)\partial_\mu\phi(x)\partial^\mu\phi(x)$, etc. Other important operators are \emph{integrated operators} over the full space time, for instance $\int_M\de^4x(\partial_\mu\phi\partial^\mu\phi)^2$. We can also integrate over some submanifold of $M$, for example this is what we do for \emph{Wilson lines}, which is a fundamental object in gauge theories defined in terms of a given connections $A$ on the gauge field and a certain closed path $\Gamma$
+\vspace{-0.5cm}
+\[\mathcal W_\Gamma=\Tr(-\oint_\Gamma\de x^\mu A_\mu)
+\qquad\quad
+\raisebox{-1cm}{
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw    (239.3,173.79) .. controls (232.75,151.54) and (249.05,112.33) .. (265.88,134.64) .. controls (282.38,155.95) and (316.29,158.19) .. (294.59,173.84) .. controls (285.8,178.31) and (255.18,176.47) .. (269.03,189.74) .. controls (284.07,205.31) and (248.5,201.19) .. (240.1,176.56) ;
+\draw [shift={(239.3,173.79)}, rotate = 436.39] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+\draw (221.56,172.66) node    {$\Gamma $};
+\end{tikzpicture}
+}\]
+All these operators can be computed directly using correlation functions. 
 
+One important point in the following, is that operators can be directly related to partition functions. Imagine for instance an action $S[\phi]$ that is given by
+\[S[\phi]=\int_M\de^4x\left[-\frac12\partial_\mu\phi\partial^\mu\phi+\frac\lambda{4!}\phi^4(x)\right]\]
+Now we see that if we want to compute the expectation value of the operator $O$ defined as
+\[\langle O\rangle=\left\langle\frac1{4!}\int_M\de^4x\,\phi^4(x)\right\rangle\]
+then it can be written in terms of the partition function
+\begin{align*}
+\left\langle\frac1{4!}\int_M\phi^4(x)\de^4x\right\rangle
+&=\int_C\mathcal D\phi\p{\frac{1}{4!}\int\de^4x\phi^4(x)}\,e^{\frac i\hbar S[\phi]}
+=-i\hbar\frac{\partial}{\partial\lambda}\int_C\mathcal D\phi \,e^{\frac i\hbar S[\phi]}
+=-i\hbar\frac{\partial}{\partial\lambda}\mathcal Z
+\end{align*}
+Now, suppose that in my initial theory the action contains only the integral of $-\frac12\partial_\mu\phi\partial^\mu\phi$ and we want to study the response of the theory when we add the additional term $\frac\lambda{4!}\phi^4(x)$ to the integrand of the action. Such a response is meant to be exactly the expectation value we just calculated. 
+This implies that I can measure the response of the theory to the additional local operator by varying the partition function with respect to the coupling $\lambda$. 
 
+Let's generalize what we already stated. Image that I have an initial theory with action $S[\phi]$ (for example $S[\phi]=\int_M\de^4x\,\p{-\frac12\partial_\mu\phi\partial^\mu\phi}$) and I introduce a coupling term $\int_M\de^4xJ(x)O(x)$ as a perturbation to my initial theory. The function $J(x)$ is a called \emph{local coupling}, or more traditionally ``\emph{source}'', and generalize the parameter $\lambda$, while $O(x)$ is an operator (for instance $O(x)=\frac1{4!}\phi^4(x)$). I can measure the response of my QFT to the addition of the operator $O$ by the following substitution
+\begin{equation}\boxed{
+S[\phi]\quad\to\quad S[\phi]+\int_M\de^4xJ(x)O(x)
+}\end{equation}
+Thanks to this substitution we can compute the response (i.e. the expectation value of the operator $O(x)$ that I have introduced) just taking derivatives of the partition function: \footnote{We introduce normalization $1/\mathcal Z$ in order to normalize probabilities and we omit the time ordering product in the expectation value.}
+\begin{equation}\label{eqn:exp-value-prod-deriv}\boxed{
+\langle O_1(x_1)O_2(x_2)\dots O_n(x_n)\rangle=\frac{(-i\hbar)^n}{\mathcal Z}\frac{\delta^n\mathcal Z[J_i]}{\delta J_1(x_1)\delta J_2(x_2)\dots \delta J_n(x_n)}\bigg\vert_{J_i=0}
+}\end{equation}
+Notice that taking $J_i=0$ at the end of the computation we removed the additional factor $\int_M\de^4xJ(x)O(x)$ we added before in the action. 
+This is a generic way to obtain the value for the expectation value of products of operators using functional derivatives instead of direct computation. For instance
+\[\langle\phi(x_1)\phi(x_2)\dots\phi(x_n)\rangle=\frac{(-i\hbar)^n}{\mathcal Z}\frac{\delta^n\mathcal Z[J]}{\delta J(x_1)\delta J(x_2)\dots \delta J(x_n)}\bigg\vert_{J=0}\]
+where we made the substitution
+$S\to S+\int\de^4x \,J(x)\phi(x)$.
+Actually we can have even more complicated operators such as stress energy tensor of the general relativity. 
 
+Let's summarize our result: once we have our path integral and we defined our partition functions we can compute expectation values by using both eq.~\eqref{eqn:exp-value-prod-corr} and eq.~\eqref{eqn:exp-value-prod-deriv}, i.e. respectively either introducing operators in the partition function or introducing a local coupling in the action by mean of some function $J(x)$ and then taking variation with respects to this source.  
 
+This allows us to split our problem in a free theory for which we will be able to compute path integral explicitly, and some additional operators (that also may describe interactions) for which we can compute the contributions to our theory using perturbative approach by taking variations of the partition function with respect to the sources that couple to these operators. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+In the special case of scattering amplitudes, we can obtain more specific forms for the previous results. Let's prescribe some asymptotic configuration for $\phi$, namely $\phi_i$ for $t\to-\infty$ and $\phi_f$ for $t\to+\infty$. Then the scattering amplitude is
+\[\braket{\phi_f}{\phi_i}=\int_{C[\phi_f,\phi_i]}\mathcal D\phi\,e^{\frac i\hbar S[\phi]}\]
+In order to compute scattering amplitudes we will use correlators through the LSZ formula, and we will compute correlators by splitting the action in the quadratic part for which we can compute correlators in an exact way and additional contributions which are going to be treated perturbatively. 
 
 
 \section{Free field theory}
+
+Let's start from the free field theory. We start from the special case of QFT in zero dimensions. This means that the manifold of out theory is just a point $M=\{p\}$ and therefore there are no derivatives, we just have functions from a point to some target space (eg. $\RR$, $\CC$, etc.). Moreover, the space does not have any symmetry (for example, in such a theory spin doesn't exists). We can take fields as functions
+\[\phi:\{p\}\longrightarrow\RR\]
+In this case the path integral is just the Lebesgue integral (we can consider it in the Euclidean form)
+\[\mathcal Z=\int_\RR\de\phi\,e^{-\frac{S[\phi]}\hbar}\]
+were we used $-1$ instead of $i$ because since we are computing a Lebesgue integral we hope that the minus factor will give to the integral a generic good behaviour (notice that for most theories kinetic terms have positive contributions to the action). Also we assume for simplicity that $S[\phi]$ is polinomial, in particular we consider the quadratic case. 
+Then in this case the theory is characterized by an action
+\[S=\frac12M_{ij}\phi^i\phi^j\qquad\quad i,j=1,\dots,n\]
+For simplify further the computation we take the matrix $M_{ij}$ to be a real, symmetric, positive defined matrix (in this way this matrix has only real positive eigenvalues).
+The partition function for such a simple instance is 
+\[\mathcal Z_0=\int_{\RR^n}\de^n\phi \exp{-\frac1{2\hbar}M_{ij}\phi^i\phi^j}=\frac{(2\pi\hbar)^{n/2}}{\sqrt{\det M}}\]
+where we can computed easily the integral by diagonalization of the matrix $M$ through orthogonal rotations $O(n)$. Since the Lebesgue measure is invariant under orthogonal rotations, we just have to compute the $n$-dimensional Gaussian integral we obtained in this way. 
+
+In general using Gaussian integrals we will always be able to compute quadratic terms. Hence we will call ``free fields'' theories which contains only quadratic terms of my action. In the perturbative approach possibly I will expand my action and I will do this in such a way that the first term that appears up to constant pieces is going to be a quadratic term in the field, and that is going to be the free theory. 
+
+\subsubsection{Correlators in the free theory}
+
+Now we take into account correlators in the free theory:
+\[\langle\phi^{a_1}\dots\phi^{a_n}\rangle=\frac1{\mathcal Z_0}\int_{\RR^n}\de^n\phi\,\,\phi^{a_1}\dots\phi^{a_n}\exp{-\frac1{2\hbar}M_{ij}\phi^i\phi^j}\]
+We will compute this by means of introduction of sources:
+\begin{align*}
+\langle\phi^{a_1}\dots\phi^{a_n}\rangle
+&=\frac1{\mathcal Z_0}\int_{\RR^n}\de^n\phi\,\phi^{a_1}\dots\phi^{a_n}\exp{-\frac1{2\hbar}M_{ij}\phi^i\phi^j-\frac{1}\hbar J_i\phi^i}\Bigg\vert_{J_i=0}\\
+&=\frac1{\mathcal Z_0}\int_{\RR^n}\de^n\phi\,(-\hbar)^n\frac{\delta^n}{\delta J_{a_1}\dots \delta J_{a_n}}\exp{-\frac1{2\hbar}M_{ij}\phi^i\phi^j-\frac{1}\hbar J_i\phi^i}\Bigg\vert_{J_i=0}\\
+&=\frac{(-\hbar)^n}{\mathcal Z_0}\frac{\delta^n}{\delta J_{a_1}\dots \delta J_{a_n}}\p{\int_{\RR^n}\de^n\phi\,\exp{-\frac1{2\hbar}M_{ij}\phi^i\phi^j-\frac{1}\hbar J_i\phi^i}}\Bigg\vert_{J_i=0}
+\end{align*}
+We just followed the procedure described in the previous section. Starting from the free theory we added the coupling with the source, then we took derivatives that brings down fields. Computing the partition function for the theory with sources we can immediately obtain the correlation function by means of derivatives. 
+
+Now, we have in the exponential a term quadratic in fields and a term linear in fields. We can redefine fields in order to absorb the linear terms as follow:
+\[\widetilde\phi^i=\phi^i+(M^{-1})^{ij}J_j\]
+This is just a translation, therefore the measure does not change $\de^n\widetilde\phi=\de^n\phi$. 
+\begin{align*}
+-\frac12M_{ij}\phi^i\phi^j-J_i\phi^i
+&=-\frac12M_{ij}\p{\widetilde\phi^i-(M^{-1})^{ik}J_k}\p{\widetilde\phi^j-(M^{-1})^{jl}J_l}-J_i\p{\widetilde\phi^i-(M^{-1})^{ik}J_k}\\
+&=-\frac12M_{ij}\widetilde\phi^i\widetilde\phi^j+\frac12J_i(M^{-1})^{ij}J_j
+\end{align*}
+Then I can complete the calculation of the correlator
+\begin{align*}
+\langle\phi^{a_1}\dots\phi^{a_n}\rangle
+&=\frac{(-\hbar)^n}{\mathcal Z_0}\frac{\delta^n}{\delta J_{a_1}\dots \delta J_{a_n}}\p{\int_{\RR^n}\de^n\phi\,\exp{-\frac1{2\hbar}M_{ij}\widetilde\phi^i\widetilde\phi^j+\frac1{2\hbar}J_i(M^{-1})^{ij}J_j}}\Bigg\vert_{J_i=0}
+\end{align*}
+and since the first term in the exponential cancel with normalization factor $\mathcal Z_0$ we finally end up with
+\begin{equation}\label{eqn:0-dim-corr-fin}\boxed{
+\langle\phi^{a_1}\dots\phi^{a_n}\rangle
+=(-\hbar)^n\frac{\delta^n}{\delta J_{a_1}\dots \delta J_{a_n}}\exp{\frac1{2\hbar}J_i(M^{-1})^{ij}J_j}\Bigg\vert_{J_i=0}
+}\end{equation}
+
+From this expression I learn that
+\begin{enumerate}[label=\textbullet]
+\item The number of derivatives that I have to take must be even, otherwise all this expression vanishes when I take $J_i=0$, therefore each correlator of an odd number of operator gets zero as result;
+\item For $n=2$ the correlator corresponds to the \emph{propagator}
+\begin{align*}
+\langle\phi^a\phi^b\rangle
+&=\hbar^2\frac{\delta^2}{\delta J_{a}\delta J_{b}}\exp{\frac1{2\hbar}J_i(M^{-1})^{ij}J_j}\Bigg\vert_{J_i=0}\\
+&=\hbar\frac{\delta}{\delta J_{b}}\p{(M^{-1})^{aj}J_j\exp{\frac1{2\hbar}J_i(M^{-1})^{ij}J_j}}\Bigg\vert_{J_i=0}
+=\hbar(M^{-1})^{ab}
+\end{align*}
+I could have expected this feature since in zero dimensional theories propagators are just the inverse of quadratic forms. This will be different in higher dimensions since in that case propagators will be inverse of differential operators of the second order. 
+
+Associated to each correlator there is a Feynman diagram, which in zero dimension is very simple
+\begin{equation}\label{eqn:contraction-2fields-0dim}
+\langle\phi^a\phi^b\rangle=\quad\phi^a\,
+\raisebox{0.5mm}{\begin{tikzpicture}
+	\begin{feynman}
+		\vertex(a);
+		\vertex[right=1.5cm of a](b);
+		\diagram*{(a)--(b)};
+	\end{feynman}
+\end{tikzpicture}}\,\,
+\phi^b\quad= \hbar(M^{-1})^{ab}
+\end{equation}
+\item Contributions of the initial partition function $\mathcal Z_0$ are normalized to 1, this implies that we don't have to calculate explicitly the partition function and our procedure is defined even if $\mathcal Z_0$ is divergent. Everything ends up to an easy computation given by the simple term eq.~\eqref{eqn:0-dim-corr-fin} that depends only on the sources. 
+\end{enumerate}
+
+\subsubsection{Wick's theorem}
+In the general case, when we want to compute the correlator between $2k$ fields
+\begin{equation}\label{eqn:wick-thm}
+\langle\phi^{a_1}\dots\phi^{a_{2k}}\rangle=\hbar^k\sum_{\sigma\in\text{Pairings}}\,\,\,\prod_{i\in\sigma_{\text{Pairs}}}(M^{-1})^{i\sigma(i)}
+\end{equation}
+This is just the statement of the \emph{Wick's theorem}. For instance
+\begin{equation}\label{eqn:wick-thm-case4}
+\langle\phi^a\phi^b\phi^c\phi^d\rangle=\hbar^2\left[(M^{-1})^{ab}(M^{-1})^{cd}+(M^{-1})^{ac}(M^{-1})^{bd}+(M^{-1})^{ad}(M^{-1})^{bc}\right]
+\end{equation}
+Formula eq.~\eqref{eqn:wick-thm} comes from eq.~\eqref{eqn:0-dim-corr-fin}: in order to have non vanishing terms, couples of derivatives must acts in such a way they brings down matrix elements $(M^{-1})^{ab}$ independent from sources. In other words eq.~\eqref{eqn:wick-thm} states that contributions to $\langle\phi^{a_1}\dots\phi^{a_{2k}}\rangle$ are given by all possible products of contractions, and each contraction gives a factor $\hbar(M^{-1})^{ab}$, as shown in \eqref{eqn:contraction-2fields-0dim}. For example, correlator eq.~\eqref{eqn:wick-thm-case4} is given by following pairings
+\[
+\begin{tikzpicture}[baseline=(e)]
+	\begin{feynman}
+		\vertex(e);
+		\vertex[above left=0.5cm of e](a){$1$};
+		\vertex[below left=0.5cm of e](b){$2$};
+		\vertex[above right=0.5cm of e](c){3};
+		\vertex[below right=0.5cm of e](d){4};
+		\diagram*{(a)--(b), (c)--(d)};
+	\end{feynman}
+\end{tikzpicture}
+\quad+\quad
+\begin{tikzpicture}[baseline=(e)]
+	\begin{feynman}
+		\vertex(e);
+		\vertex[above left=0.5cm of e](a){$1$};
+		\vertex[below left=0.5cm of e](b){$2$};
+		\vertex[above right=0.5cm of e](c){3};
+		\vertex[below right=0.5cm of e](d){4};
+		\diagram*{(a)--(c), (b)--(d)};
+	\end{feynman}
+\end{tikzpicture}
+\quad+\quad
+\begin{tikzpicture}[baseline=(e)]
+	\begin{feynman}
+		\vertex(e);
+		\vertex[above left=0.5cm of e](a){$1$};
+		\vertex[below left=0.5cm of e](b){$2$};
+		\vertex[above right=0.5cm of e](c){3};
+		\vertex[below right=0.5cm of e](d){4};
+		\diagram*{(a)--(d), (c)--(b)};
+	\end{feynman}
+\end{tikzpicture}
+\]
+All possible contractions for $2k$ fields are\footnote{When I take the first field, I have $2k-1$ ways to couple it. Then I take one of the other $2k-2$ fields, and I have $2k-3$ way to couple this one, and so on.}
+\[(2k-1)(2k-3)\dots(1)=\frac{2k}{2k}(2k-1)\frac{(2k-2)}{2(k-1)}(2k-3)\dots1=\frac{(2k)!}{2^kk!}\]
+This is the number of all the Feynman diagrams I obtain through contractions when I do perturbation theory. 
+
+
+
+
+
+
+
+
 \section{Perturbation theory}
 \section{Feynman Diagrams}
 \section{Borel resummation}
