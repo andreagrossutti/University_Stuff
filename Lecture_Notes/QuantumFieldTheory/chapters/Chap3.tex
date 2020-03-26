@@ -210,7 +210,7 @@ The best we can do is to introduce an \textbf{asymptotic expansion}. This means 
 \begin{equation}\label{eqn:asymp-expan-pert}
 \lim_{\hbar\to0^+}\frac1{\hbar^N}\Bigg\vert F(\hbar)-\sum_{n=0}^Na_n\hbar^n\Bigg\vert=0
 \end{equation}
-This means that for each $N$ fixed we can choose a sufficiently small value for $\hbar$ such that the difference between the initial function and our asymptotic expansion is $o(\hbar^N)$. Raising the value for $N$ we can obtain better reproductions of $F(\hbar)$, but notice that 
+This means that for each $N$ fixed we can choose a sufficiently small value for $\hbar$ such that the difference between the initial function and our asymptotic expansion is $O(\hbar^N)$. Raising the value for $N$ we can obtain better reproductions of $F(\hbar)$, but notice that 
 \begin{enumerate}[label=\textbullet]
 \item what we stated right now holds if $\hbar\to0^+$, but this is not true  for fixed (even if very small) values of $\hbar$ , like in the physical case: an asymptotic expansion for finite values of $\hbar$ can't be obtained in general. Indeed, for fixed values of $\hbar$ we can use eq.~\eqref{eqn:asymp-expan-pert} only for finite values of $N$, since over some value of $N$ contributions in the order of $\hbar^N$ became relevant in our analysis;
 \item even if we trust our asymptotic expansion, we lose in any case all transcendental terms, i.e. terms that are sums of exponentials, for instance $F(\hbar)$ and $\widetilde F(\hbar)=F(\hbar)+Ae^{-B/\hbar^2}$ have same asymptotic expansion for $\hbar\to0$, since $e^{-B/\hbar^2}\to0$ when we take the limit. Usually these terms are small and can be neglected, anyhow in general one may be interested in these contributions, that cannot be obtained through asymptotic expansion. 
@@ -263,7 +263,9 @@ Even though eq.~\eqref{eqn:corr-exp-perturb-exp} could be computed directly usin
 &=\mathcal Z_0(m^2)\p{1-\frac{\lambda\hbar}{m^4}\frac{4!}{4!\,1!\,4\,2!}+\dots}
 \end{align*}
 where we used the Gamma function
-\[\Gamma(z)=\int_0^{+\infty}e^{-x}x^{z-1}\de x\]
+\begin{equation}\label{eqn:Gamma-function}
+\Gamma(z)=\int_0^{+\infty}e^{-x}x^{z-1}\de x
+\end{equation}
 with proprieties
 \[\Gamma(p)=p!\qquad\quad\Gamma\p{p+\frac12}=\sqrt\pi\,\frac{(2p)!}{4^pp!}\]
 and equation eq.~\eqref{eqn:part-func-free-0D}. The final result in the last step shows explicitly the perturbative contributions to the partition function. 
@@ -388,6 +390,53 @@ Using this expression is clear that even though we restricted our analysis to a 
 
 
 \section{Borel resummation}
+
+\textsf{Spada~\cite{Spada:2018aa}}\\
+
+Even though we saw that generic perturbative expansions are only asymptotic expansions that leads to some problems in the mathematical point of view. Moreover, in general one can be interested in non-perturbative features of our theory, that requires the correct partition function to be analyzed. 
+
+In the case of QED, where the coupling is $\alpha\sim e^2$, we can be prove easily that the convergence radius of partition function must be zero, since otherwise $\alpha=0$ would be a regular point for any physical observable, and then values $\alpha<0$ would be admitted. But $\alpha<0$ is unacceptable: it would imply that $e^-$ and $e^+$  reject each other, and then the destruction of the vacuum (pairs generated spontaneously from the vacuum cannot recombine), hence we cannot formalize any perturbation theory. We conclude that $\alpha=0$ cannot be analytic. This is the physical reason behind the failure of perturbation theory over some point of perturbation.  
+
+In order to have an asymptotic series that describes in a good way our partition function we need
+\[\mathcal Z(\lambda)-\sum_{n=0}^N\mathcal Z_n\lambda^n
+=O(\lambda^n)\]
+Let's consider the value of $N$ such that the asymptotic expansion give best results. For orders over $N$ the predictions of our perturbative approach gives no more good results. For instance let's assume
+\[\mathcal Z_n\sim n!a^nn^b\]
+Using Stirling approximation $n!=\sqrt{2\pi n}\,n^ne^{-n}(1+O(1/n))$ we can minimize the logarithm of $\mathcal Z_n\lambda^n$:
+\[f(n)=\log(\mathcal Z_n\lambda^n)\sim-n+n\log(a\lambda n)+\p{b+\frac12}\log n\]
+which derivatives is
+\[f'(n)=-1+\log(a\lambda n)+1+\p{b+\frac12}\frac1n\]
+therefore we have a minimum for $f$ when
+\[n=\frac1{a\lambda}\p{1+o\p{\frac1n}}\]
+
+In the previous example we had
+\[\mathcal Z_n\sim \frac1{(4!)^nn!}\frac{(4n)!}{4^n(2n)!}\sim{2}{\sqrt{2\pi n}}\,e^{-n}n^n\underbrace{\p{\frac{4^4}{2^2\cdot4\cdot4!}}^n}_{(2/3)^n}\]
+so $n=\frac3{2\lambda}$. This means that if for instance we take $\lambda=0.1$ we would have problems for $n$ higher that $15$, which is very high respect to archiviable experimental precision.  
+
+We just seen that even though perturbative expansion have some mathematical issue it is perfectly consistent to describe physics. Anyhow, using Borel resummation in some cases we can resume the series corresponding the our asymptotic expansion in such a way we get the correct partition function. This allow us also to recover non-perturbative features of our theory. 
+
+Starting from a divergent series given by an asymptotic expansion $\mathcal Z(\lambda)=\sum_n\mathcal Z_n\lambda^n$ we can define the \textbf{Borel transform} 
+\begin{equation}\label{eqn:Borel-series}
+\mathcal B\,\mathcal Z(\lambda)=\sum_n\frac1{n!}\mathcal Z_n\lambda^n
+\end{equation}
+This series obviously has a finite radius of converge. If the analytic continuation in the complex plane is free of singularities for $\lambda>0$, then the following integral is well defined
+\begin{equation}\label{eqn:Borel-integral}
+\mathcal Z_{\mathcal B}(\lambda)=\int_0^\infty\de t\, e^{-t}\mathcal B\mathcal Z(t\lambda)
+\end{equation}
+which has the same asymptotic expansion of $\mathcal Z(\lambda)$. Indeed, using Gamma function eq.~\eqref{eqn:Gamma-function} we obtain
+\[\int_0^\infty\de t\, e^{-t}\sum_n\frac1{n!}\mathcal Z_n\lambda^n
+=\sum_n\frac{\mathcal Z_n\lambda^n}{n!}\Gamma(n+1)=\sum_n\mathcal Z_n\lambda^n\]
+
+The interesting thing is that now we have the convergent series eq.~\eqref{eqn:Borel-series} which can be used in eq.~\eqref{eqn:Borel-integral} in order to obtain same behaviour of asymptotic series.
+Now the question in whether $\mathcal Z_{\mathcal B}(\lambda)$ corresponds to the full partition function, since for the moment we just know that has same expansion as the asymptotic series corresponding to the partition function. In general the answer is not easy. 
+\begin{enumerate}[label=\textbullet]
+\item If exists $\mathcal Z_{\mathcal B}$ (i.e. analytical continuation of $\mathcal B\,\mathcal Z$ has no zero for $\lambda>0$) we say that $\mathcal Z$ is \emph{Borel resummable}.
+\item If $\mathcal Z_{\mathcal B}=\mathcal Z$ we say that $\mathcal Z$ is \emph{Borel resummable to the exact result}.
+\end{enumerate}
+This does not happen in general, for instance for 4-dim Gauge theories this is not possible, but in some cases this is possible and Borel resummation gives exact results, for instance for $\lambda\phi^4$ theory in $d=2,3$ and also for various problems in QM (such as harmonic oscillator). 
+
+Finally notice that there are also other ways to obtain exact results in specific cases, and such as Borel resummation allow treatment of several theories fixing the perturbative approach. 
+
 \section{Exact results - localization}
 
 
