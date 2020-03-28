@@ -316,7 +316,7 @@ Letting $X=1/a$ change we get a family of hyperbolic trajectories
 
 Notice that choosing negative acceleration $a<0$ trajectories are in the left side of the space, i.e. trajectories for positive and negative acceleration lives in disconnected regions. 
 
-For $\tau=0$ we have $u^0(\tau=0)=\cosh(0)=1$ and $u^1(\tau=0)=\sinh(0)=0$, i.e. we are in the rest frame for our system. Since $X$ is the value of $x$ for $\tau=0$, then $X$ can be interpreted as the proper $x$ coordinate for a particle accelerating on the $x$ direction (analogously as $\tau$ for the time). Equivalently, let $\de X$ be the infinitesimal distance between two closed coordinates for the system in the rest frame, then $\de x$ for $\tau\neq0$ is the contracted distance between the two coordinates when the system has non-zero velocity:
+For $\tau=0$ we have $u^0(\tau=0)=\cosh(0)=1$ and $u^1(\tau=0)=\sinh(0)=0$, i.e. we are in the rest frame for our system. Since $X$ is the value of $x$ for $\tau=0$, then $X$ can be interpreted as the proper $x$ coordinate for a particle accelerating on the $x$ direction (analogously as $\tau$ for the time). Equivalently, let $\de X$ be the infinitesimal distance between two close coordinates for the system in the rest frame, then $\de x$ for $\tau\neq0$ is the contracted distance between the two coordinates when the system has non-zero velocity:
 \[\de x=\frac{\de X}\gamma\]
 \begin{figure}[H]
 \centering
@@ -373,7 +373,7 @@ Therefore the existence of gravitational field could be revisited as the existen
 Note that the components of the metric depend on $(\tau,X)$. In particular, the separation between simultaneous events $A$ and $B$ (with $\tau_A=\tau_B$) is not the Eucledian one ($\Delta l^2=\Delta X^2+\Delta Y^2+\Delta Z^2$) and changes with time $\tau$.
 
 Despite the physical meaning of $\tau$ as proper time, a nicer coordinate $T$ can be chosen for lattice's system of coordinates. Note that
-\[\de s^2=-\p{\de\tau-\frac\tau X\de X}^2+\de Y^2+\de Z^2\]
+\[\de s^2=-\p{\de\tau-\frac\tau X\de X}^2+\de X^2+\de Y^2+\de Z^2\]
 therefore if we define following \emph{adimensional} coordinate
 \[T=\frac\tau X\]
 and we use it instead of $\tau$, following substitutions must be done
@@ -418,7 +418,7 @@ We can also say that using time coordinate $T$ then times of clocks are syncroni
 This propriety is called propriety of \textbf{static} spacetime. 
 
 We seen that give EEP implies that this accelerating frame (the Rindler space) could be interpreted as a frame undergoing a gravitational field. This leads a non-trivial acceleration of free-falling objects. We know that acceleration experienced by points in the lattice is given by $\vec a=-(1/X)\hat u_x$, then just applying EEP we can obtain the formula for the gravitational field: 
-\[\vec a_G=-1/X\hat u_x=-\vect\nabla\Phi\qquad\Rightarrow\qquad\Phi=\log X\]
+\[\vec a_G=-(1/X)\hat u_x=-\vect\nabla\Phi\qquad\Rightarrow\qquad\Phi=\log X\]
 Notice that in this realization of EEP the gravitational field is not constant, since its strength is proportional to $-\vect\nabla\Phi$ and then decreases with $X$ (in particular, respect to the last picture, the field strength is weaker in $B$ than in $A$). Using $\Phi=\log X$ we can rewrite Rindler metric in the following form
 \begin{equation}\boxed{
 \de s^2=-e^{2\Phi}\de T^2+\de X^2+\de Y^2+\de Z^2
@@ -443,10 +443,10 @@ and using gravitational potential we have:
 \[\boxed{
 \Delta\tau_B=\frac{X_B}{X_A}\Delta\tau_A=e^{\Phi_B-\Phi_A}\Delta\tau_A
 }\]
-If instead of clocks synchronized by light signals (i.e. measuring the value $T$) we consider 2 identical clocks measuring the proper time, thenthey ``see'' each other running differently:
+If instead of clocks synchronized by light signals (i.e. measuring the value $T$) we consider 2 identical clocks measuring the proper time, then they ``see'' each other running differently:
 \begin{enumerate}[label=\textbullet]
-\item clock $B$ ``sees''clock $A$ going \emph{slower} by factor $X_A/X_B=e^{\Phi_A-\Phi_B}<1$
-\item clock $A$ ``sees''clock $B$ going \emph{faster} by factor $X_A/X_B=e^{\Phi_B-\Phi_A}<1$
+\item clock $B$ ``sees'' clock $A$ going \emph{slower} by factor $X_A/X_B=e^{\Phi_A-\Phi_B}<1$
+\item clock $A$ ``sees'' clock $B$ going \emph{faster} by factor $X_B/X_A=e^{\Phi_B-\Phi_A}>1$
 \end{enumerate}
 Let's see this effect in terms of frequencies. If $\Delta\tau=1/\nu$ then we have
 \[\nu_B=\frac{X_A}{X_B}\nu_A\qquad\Rightarrow\qquad\nu_B<\nu_A\]
@@ -460,7 +460,7 @@ A second propriety of Rindler space is related to the presence of \textbf{event 
 \[\de s^2=-X^2\de T^2+\de X^2+\de Y^2+\de Z^2\]
 i.e. we have a coordinate singularity for $X=0$. In particular for $X=0$ a purely time like difference $\Delta T$ between two events happening at different times becomes light-like. However, recovering original flat metric in a inertial frame (in particular we do not restrict only to the  $X>0$ case), then this metric is equivalent to a smooth metric well defined. The singularity is due to our specific choice of coordinates, and is not related to the geometry of the space itself.\footnote{In Differential Geometry terminology, this means that our chart is well defined only on the open set corresponding to $X>0$ local coordinates. On the other hand, we can find different charts and an atlas that covers all the $\RR^4$ space with well defined coordinates for each point. For example, the Minkowski system of coordinates defines an atlas well defined on all the space. Rindler system of coordinates is just a system of coordinates comfortable for our description of trajectories when $X>0$. This won't be true for singularities in black holes.} This somehow correspond to the $r=0$ case for radial coordinates $\de r^2+r^2\de\theta^2$: the flat space has its own well defined, smooth, metric, but with a specific choice of coordinates we could obtain a degenerate metric in some point, like the origin for radial coordinates or $X=0$ for the Rindler space. 
 
-On the other hand the point corresponding to $X=0$ has some special proprieties, namely recall $X\equiv\sqrt{x^2-t^2}$, then $X=0$ is the interception of two lines: $x=\pm t$. These two lines can be interpreted as horizons of Rindler spacetime, that is they separate Rindler space time to the remaining of the full Minkowskian spacetime. 
+On the other hand the point corresponding to $X=0$ has some special proprieties: recall $X\equiv\sqrt{x^2-t^2}$, then $X=0$ is the interception of two lines: $x=\pm t$. These two lines can be interpreted as horizons of Rindler spacetime, they separate Rindler space time to the remaining of the full Minkowskian spacetime:
 \begin{figure}[H]
 \centering
 \includegraphics[width=5.5cm]{../img/rindler-horizons.jpg}
@@ -495,10 +495,10 @@ so that  the line element takes the form
 Vice versa, we can say that the gravitational field associated to some metric $g_{\mu\nu}$ is ``fake'' if we can find a global ``freely-falling'' frame $x^\mu(X)$ such that \eqref {eqn:non-trivial-metric-fake-field} holds. 
 \footnote{An interesting example is given by an uniformly rotating frame in Minkowski space, described in \textsf{Rindler sec. 9.7}}
 
-One can then consider more general metrics $g_{\mu\nu}(x)$ such that  \eqref {eqn:non-trivial-metric-fake-field} does not hold. In such a case te metric can be identified with the ``\emph{genuine}'' gravitational potetial, i.e. a potential that cannot be interpreted as a ``freely-falling'' frame. 
+One can then consider more general metrics $g_{\mu\nu}(x)$ such that  \eqref {eqn:non-trivial-metric-fake-field} does not hold. In such a case the metric can be identified with the ``\emph{genuine}'' gravitational potetial, i.e. a potential that cannot be interpreted as a ``freely-falling'' frame. 
 In analogy to the EM potential one can think of the ``fake'' gravitational potential as a vector potential which is a pure gauge potential (i.e. can be written as derivative of some function defining gauge transformation), while a ``genuine'' gravitational potential would correspond to a gauge field associated to a non trivial field strength.
 
-We then need to study general metrics $g_{\mu\nu}(x)$ in general coordinate systems, and in order to do this we must consider more general space times. For example we will consider the gravitational field produced by a spherical object
+We then need to study general metrics $g_{\mu\nu}(x)$ in general coordinate systems, and in order to do this we must consider more general space-times. For example we will consider the gravitational field produced by a spherical object
 
 \begin{figure}[H]
 \centering

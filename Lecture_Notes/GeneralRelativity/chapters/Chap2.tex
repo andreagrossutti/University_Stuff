@@ -4,11 +4,9 @@
 \chapter{Geometry in the spacetime}
 Refer to \textsf{Carroll chap. 2} and \textsf{Nakahara chap. 5,7} for this chapter.\\
 
-\section{Differential geometry of metric spaces}
+\section{Manifolds}
 
-\subsection{Manifolds}
-
-\begin{definition}{}
+\begin{definition}[Manifold]{}
 $M$ is a $d$-dimensional differentiable manifold if
 \begin{enumerate}
 \item $M$ is a topological space
@@ -99,10 +97,10 @@ What we have done is just slice dS$n$ into spheres (circumferences in the figure
 Up to this point, we want to stress the fact that for these manifolds only pathches, topological and differential structure have been specified. No notion of distance has been introduced yet. 
 
 
-\subsection{Calculus on Manifolds}
+\section{Calculus on Manifolds}
 
 
-\begin{definition}{}
+\begin{definition}[Scalar field]{}
 A \textbf{scalar field} is defined as a function
 \begin{alignat*}{4}
 F\,:\,&&M&&\quad\longrightarrow\quad&\RR\qquad(\text{or }\CC)\\
@@ -118,9 +116,9 @@ If we consider a different patch $(\tilde U,\tilde \phi)$ associated to local co
 where $\tilde x$ are the coordinates for $M$ using the patch $(\tilde U,\tilde \phi)$.
 \end{definition}
 
-Pragmatically, we will not distiguish between $F$ and its local form $f(x)$ and use the latter.
+Pragmatically, we will not distinguish between $F(p)$ and its local form $f(x)$ and use the latter.
 %
-\begin{definition}{}
+\begin{definition}[Vector field]{}
 We define a \textbf{vector field}
 \begin{alignat*}{4}
 V\,:\,&&M&&\quad\longrightarrow\quad&TM\\
@@ -187,6 +185,279 @@ Let's consider the vector field $V=\sin\theta\partial_\phi$ where we used spheri
 \raisebox{-2cm}{\includegraphics[width=4cm]{../img/vector-field-sintheta.jpg}}
 \]
 \end{example}
+
+\begin{definition}[One-forms]{}
+
+One can consider another kind of vector fields $\alpha_\mu$, called \textbf{1-forms}, which transforms in the ``dual'' way, i.e. follows following \textbf{transformation rule of one-forms}:
+\[\boxed{
+\tilde\alpha_\mu(\tilde x)=\frac{\partial x^\nu}{\partial\tilde x^\mu}\alpha_\nu(x)
+}\]
+Notice that since this transformation is the inverse of the one we defined for vector fields, then the product between a 1-form and a vector space is invariant under transformations, i.e. is a scalar
+\[\alpha_\mu(x)V^\mu(x)=(x)\]
+This proprieties suggests a  more intrinsic definition of a one-form field, which assigns at any $p\in M$ an element $\alpha$ of the \textbf{cotangent space}
+\begin{align*}
+T^*_pM&=\{\text{vector space \textbf{dual} to }T_pM\}\\
+=\{\text{space of linear functionals $\alpha$ on }T_pM\}
+\end{align*}
+hence
+\[\alpha\,:\, V\in  T_pM\quad\longmapsto \quad\alpha(V)\in\RR\]
+such that
+\[\alpha(aV_1+bV_2)=a\alpha(V_1)+b\alpha(V_2)\]
+The coordinate basis dual to basis $\partial_\mu\in T_pM$ is given by
+\[\de x^\mu\in T^*_p M\quad \forall p\in U\quad\text{such that} \quad\de x^\mu(\partial_\nu)=\delta^\mu_\nu\]
+Respect to this basis a generic one-form we can write as $\alpha=\alpha_\mu(x)\de x^\mu$, so is action is described by
+\[\alpha(V)=\alpha(V^\mu(x)\partial_\mu)=V^\mu(x)\alpha_\nu(x)\de x^\nu(\partial_\mu)=\alpha_\mu(x)V^\mu(x)\]
+The last description in terms of the basis leads to an interpretation of one forms as linear combinations of infinitesimal coordinate variations. Indeed the transformation rule for one-forms is the same as the transformation rules for line elements
+\[\de \tilde x^\mu=\frac{\partial \tilde x^\mu}{\partial x^\nu}\de x^\nu\quad\Rightarrow
+\quad\tilde \alpha(\tilde x)=\tilde\alpha_\mu(\tilde x)\de\tilde x^\mu=\alpha_\mu(x)\de x^\mu=\alpha(x)\]
+
+One can also take arbitrary basis of linearly independent 1-forms:
+\[\boxed{
+e^a=e^a_\mu(x)\de x^\mu\in T^*_pM	\qquad a=1,\dots,\quad\forall p\in M
+}\]
+In order to be consistent with the representation in terms of coordinate basis we must have
+\[\alpha(x)=\alpha_a(x)e^a=\alpha_\mu(x)\de x^\mu\]
+therefore
+\[\alpha_\mu(x)=e^a_\mu(x)\alpha_a(x)\]
+
+A particular subclass of one forms is given by \textbf{exact 1-forms}
+\[\alpha(x)\de f(x)=\partial_\mu f(x)\de x^\mu\qquad f(x)\text{ scalar field}\]
+that in components implies $\alpha_\mu(x)=\partial_\mu f(x)$.
+
+Observe that 
+\[\de f(V)=\partial_\mu f V^\mu\]
+gives the \textbf{directional derivative} of $f$ along $V$.
+
+A one-form field $\alpha$ assigns an element of $T^*_p$ at each $p\in M$. This can be considered as a section of the \textbf{cotangent bundle}
+\[T^*M\equiv\bigcup_pT^*_pM\]
+
+\end{definition}
+
+
+\begin{definition}[General tensors]{}
+
+Pragmatically, a \textbf{tensor field of type ($n,m$)} is a field characterized $n$ upper indices and $n$ lower indices
+\[{T^{\mu_1\dots\mu_n}}_{\nu_1\dots\nu_m}(x)\]
+In order to define such a field over an entire manifold one can define how this fields transforms under coordinate transformation, namely the \textbf{transformation rule for tensor fields}:
+\[\boxed{
+{\widetilde T^{\mu_1\dots\mu_n}\,}_{\nu_1\dots\nu_m}(\tilde x)=
+\frac{\partial \tilde x^{\mu_1}}{\partial x^{\rho_1}}\dots\frac{\partial \tilde x^{\mu_n}}{\partial x^{\rho_n}}\frac{\partial  x^{\sigma_1}}{\partial \tilde x^{\nu_1}}\dots\frac{\partial  x^{\sigma_m}}{\partial \tilde x^{\nu_m}}{T^{\rho_1\dots\rho_n}}_{\sigma_1\dots\sigma_m}(x)
+}\]
+More intrinsically, a tensor fields at each point $p\in M$ is an element of the vector space
+\[(T_pM)^{\otimes n}\otimes(T_p^*M)^{\otimes m}\]
+Then we can express the tensor fields in terms of coordinate basis or an arbitrary local basis either:
+\begin{align*}
+T(x)&={T^{\mu_1\dots\mu_n}}_{\nu_1\dots\nu_m}(x)\,\partial_{\mu_1}\otimes\dots\otimes\partial_{\mu_n}\otimes\de x^{\nu_1}\otimes\dots\otimes\de x^{\nu_m}\\
+&={T^{a_1\dots a_n}}_{b_1\dots b_m}(x)\,e_{a_1}\otimes\dots\otimes e_{a_n}\otimes e^{b_1}\otimes\dots\otimes e^{b_m}
+\end{align*}
+where this time ${T^{\mu_1\dots\mu_n}}_{\nu_1\dots\nu_m}(x)$ and ${T^{a_1\dots a_n}}_{b_1\dots b_m}(x)$ are a set of functions and are required to satisfy the equality between two transformations.
+
+Some tensors  may have specific index-symmetries, for instance 
+\[{S^\mu}_{\nu\rho}={S^\mu}_{\rho\nu}\]
+is \textbf{symmetric} in second and third indices, while
+\[A^{\mu\nu\rho}=-A^{\mu\rho\nu}\]
+is \textbf{antisymmetric} in second and third indices. Notice that tensors with $>d$ antisymmetric indices is identically vanishing.
+
+Given a tensor, one can \textbf{symmetrize} or \textbf{antisymmetrize} any number of upper or lower indices
+\begin{align*}
+{{T_\rho}^\sigma}_{\mu_1\dots\mu_n}\quad&\longrightarrow\quad {{T_\rho}^\sigma}_{(\mu_1\dots\mu_n)}=
+\frac1{n!}({{T_\rho}^\sigma}_{\mu_1\dots\mu_n}\,+\text{ permutations of }\mu_1\dots\mu_n)\\
+{{T_\rho}^\sigma}_{\mu_1\dots\mu_n}\quad&\longrightarrow\quad {{T_\rho}^\sigma}_{[\mu_1\dots\mu_n]}=
+\frac1{n!}({{T_\rho}^\sigma}_{\mu_1\dots\mu_n}\,\pm\text{ permutations of }\mu_1\dots\mu_n)
+\end{align*}
+where in the second case we take positive sign when we sum an element obtained by an even permutation of indices, while we take munis sign when we sum an element obtained by ad odd permutation of indices.
+For instance
+\begin{align*}
+T_{(\mu\nu)}&=\frac12(T_{\mu\nu}+T_{\nu\mu})\\
+T_{[\mu\nu]}&=\frac12(T_{\mu\nu}-T_{\nu\mu})
+\end{align*}
+The factor $\frac1{n!}$ is inserted in such a way that if the initial tensor is already (anti)symmetric then its (anti)symmetrized tensor is the same as the initial one. 
+
+\end{definition}
+
+
+\begin{definition}[Differential forms]{}
+
+A distinguish subclass of tensor fields is given by the ``{forms}''
+\[A_{\mu_1\dots\mu_p}(x)=A_{[\mu_1\dots\mu_p]}(x)\]
+i.e. total antisimmetric tensors, called \textbf{$p$-forms} where $p$ is the degree of the form (recall that $p\leq d$, otherwise the form vanishes).
+
+For this class of tensor is useful to introduce a special basis obtained by taking \textbf{wedge-product} of the one form basis
+\begin{align*}
+\de x^{\mu_1}\wedge\de x^{\mu_2}\wedge\dots\wedge\de x^{\mu_p}
+&=p!\,\de x^{[\mu_1}\otimes\de x^{\mu_2}\otimes\dots\otimes\de x^{\mu_p]}\\
+&=(\de x^{\mu_1}\otimes\de x^{\mu_2}\otimes\dots\otimes\de x^{\mu_p}\,+\text{ permutations with alternating signs })
+\end{align*}
+where $p!$ cancels the normalization factor we introduced in the definition of antisymmetrization. In this way $p$-forms can be written as 
+\[A_p=\frac1{p!}A_{\mu_1\dots\mu_p}\,\de x^{\mu_1}\wedge\dots\wedge\de x^{\mu_p}\]
+for a set of scalar fields $A_{\mu_1\dots\mu_p}$.
+
+We can define some operations over $p$-forms. The first one is the \textbf{Wedge product}, that is given by linearity extension of the wedge product between basis elements, defined as
+\[A_p\wedge B_q=\frac1{p!}\frac1{q!}A_{\mu_1\dots\mu_p}B_{\nu_1\dots\nu_q}\,\de x^{\mu_1}\wedge\dots\wedge\de x^{\mu_p}\wedge\de x^{\nu_1}\wedge\dots\wedge\de x^{\nu_q}\]
+Notice that the result is a total antisymmetric $p+q$-tensor, hence  in components
+\[(A_p\wedge B_q)_{\mu_1\dots\mu_{p+q}}=\frac{(p+q)!}{p!\cdot q!}A_{[\mu_1\dots\mu_p}B_{\nu_{p+1}\dots\nu_{p+q}]}\]
+Another operation is the \textbf{exterior derivative}
+\[\de\,:A_p\quad\longmapsto\quad(p+1)\text{-form }\de A_p\]
+defined as
+\begin{align*}
+\de A_p&=\frac1{p!}\,\partial_\nu A_{\mu_1\dots\mu_p}\de x^\nu\wedge\de x^{\mu_1}\wedge\dots\wedge\de x^{\mu_p}\\
+&=\frac1{p!}\,\partial_{[\mu_1} A_{\mu_2\dots\mu_{p+1}]}\de x^{\mu_1}\wedge\dots\wedge\de x^{\mu_{p+1}}
+\end{align*}
+or in components
+\[(\de A_p)_{\mu_1\dots\mu_{p+1}}=(p+1)\,\partial_{[\mu_1} A_{\mu_2\dots\mu_{p+1}]}\]
+We could prove that $\partial_{[\mu_1} A_{\mu_2\dots\mu_{p+1}]}$ transforms tensorially. \footnote{Prove it as an exercize.}
+
+These operations have some important proprieties:
+\begin{enumerate}
+\item (Weighted) \textbf{Leibniz rule}: \[\de(A_p\wedge B_q)=\de A_p\wedge B_q+(-)^pA_p\wedge \de B_q\]
+\item \textbf{Nilpotency}:
+\[\de^2=\de\circ\de=0\]
+Notice that this is a consequence of $\partial_\mu\partial_\nu=\partial_\nu\partial_\mu$.
+\end{enumerate}
+Moreover we can check the consistency of the notation
+$\de x^\mu=\de(x^\mu)$.
+
+Given a $p$-form $A_p$ we say that it is
+\begin{enumerate}
+\item \textbf{closed} if $\de A_p=0$
+\item \textbf{exact} if $A=\de B_{p-1}$ for some $(p-1)$-form $B_{p-1}$.
+\end{enumerate}
+Notice that \emph{any exact form is a closed form} as a consequence of the nilpotency. Viceversa, \emph{Poincaré Lemma} states that \emph{any closed form is locally exact}. 
+
+\end{definition}
+
+\begin{example}
+The EM gauge field is given by the one form
+\[A_1=A_\mu\de x^\mu\]
+Then we can define the \textbf{field-strength} the 2-form
+\[F_2=\frac12F_{\mu\nu}\de x^\mu\wedge\de x^\nu=\de A_1=\partial_{[\mu}A_{\nu]}\de x^\mu\wedge\de x^\nu=\frac12(\partial_\mu A_\nu-\partial_\nu A_\mu)\de x^\mu\wedge\de x^\nu\]
+We can check as exercize that the coefficient of the basis representation
+\[F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu\]
+transforms covariantly. 
+
+\end{example}
+
+\begin{example}
+
+Take $S^2$ with spherical coordinates $\tilde x^\mu=(\theta, \phi)$ and let's define the one form
+\[\psi_1=-\cos\theta\de\phi=\tilde\psi_\mu\de\tilde x^\mu\quad\rightarrow\tilde\psi_\mu=(0,-\cos\theta)\]
+Notice that this one form is singular at the poles. 
+To see this, pass to some coordinates well defined at the poles. If we focus to the North poles we can introduce angular coordinates
+\[\begin{cases}
+x^1=\sin\theta\cos\phi\\
+x^2=\sin\theta\sin\phi
+\end{cases}
+\quad\to\quad
+\begin{cases}
+\sin\theta=\sqrt{(x^1)^2+(x^2)^2}\\
+\tan\phi=\frac{x^2}{x^1}
+\end{cases}
+\qquad
+\raisebox{-1cm}{\includegraphics[width=4.5cm]{../img/north-angular-coordi.jpg}}\vspace{-0.4cm}
+\]
+
+In order to redefine the one form we can either using the Jacobian or notice that exterior derivative of $\tan\theta$ can be used to substitute $\de\phi$ with the new coordinates:
+\[\de\tan\phi=(1+\tan^2\phi)\de\phi=\p{1+\p{\frac{x^2}{x^1}}^2}\de\phi=-\frac{x^2}{(x^1)^2}\de x^1+\frac1{x^1}\de x^2\]
+hence we obtain
+\[\psi_1=-\frac{\sqrt{1-(x^1)^2-(x^2)^2}}{(x^1)^2+(x^2)^2}(-x^2\de x^1+x^1\de x^2)\]
+Now its clear that $\psi_1$ is singular for $(x^1,x^2)=(0,0)$. 
+
+Let's consider now the 2-form 
+\[\omega_2=\frac12\widetilde\omega_{\mu\nu}\de\tilde x^\mu\wedge\de \tilde x^\nu=\sin\theta\,\de\theta\wedge\de\phi\]
+We can easily prove that it is smooth on the poles. Notice that $\de\omega_2=0$ (is a 3-form in a 2-dim manifold) hence $\omega_2$ is closed. By Poincaré lemma it is also locally exact, indeed in $S^2\setminus\{\text{poles}\}$ we have
+\[\de\psi_1=\de(-\cos\,\theta\de\phi)=\sin\theta\,\de\theta\wedge\de\phi=\omega_2\]
+But $\psi_1$ is not defined at poles, indeed $\omega_2$ is only locally exact. 
+
+\end{example}
+
+
+
+\section{Manifolds with metric}
+
+Manifolds do not carry natural notions of 
+\begin{enumerate}[ label=\textbullet]
+\item length and volumes
+\item notions of spatial and temporal ``directions''
+\item a way to distinguish the locally inertial/freely falling frames
+\end{enumerate}
+All this notion are given by the introduction of a metric:
+
+\begin{definition}[Metric]{}
+
+The \textbf{metric} is a tensor field
+\[g(x)=g_{\mu\nu}(x)\de x^\mu\otimes\de x^\nu\]
+which satisfy following proprieties: it is symmetric
+\[g_{\mu\nu}(x)=g_{\nu\mu}(x)=g_{(\mu\nu)}(x)\]
+and it is non-degenerate
+\[\det(g_{\mu\nu})\neq0\]
+Its content is equivalently encoded in the \textbf{line element}, since thanks to symmetry we can omit tensorial product symbol
+\[\boxed{\de s^2=g_{\mu\nu}(x)\de x^\mu\de x^\nu}\]
+therefore usually we use terms ``metric'' and ``line element'' with the same meaning. 
+
+The metric takes values in $T*M\otimes_ST*M$ and can be regarded as defining a scalar product
+\[g(V,W)=g_{\mu\nu}(x)V^\mu(x)W^\nu(x)\]
+which associate to two vector fields a scalar field. This also implies that the scalar product is invariant. We can also define the ``lenght'' of a vector, i.e. introduce a \textbf{norm}, given by $g(V,V)$. Generalizing what we stated for SR we say
+\begin{enumerate}
+\item if $G(V,V)>0$ then $V^\mu$ is \textbf{space-like}
+\item if $G(V,V)<0$ then $V^\mu$ is \textbf{time-like}
+\item if $G(V,V)=0$ then $V^\mu$ is \textbf{null} (or \textbf{light-like})
+\end{enumerate}
+An \textbf{Euclidean / Riemannian (metric) space} $\mathcal M_d$ is a manifold equipped to a metric such then all vectors are space-like, i.e. $g$ is positive definite everywhere. A\textbf{Lorenzian / Minkowskian / pseudo-Riemannian (metric) space(-time)} $\mathcal M_d$  is a manifold equipped to a metric $g$ which has $d-1$ positive eigenvalues and 1 negative eigenvalues (strictly, there are no zero eigenvalues). Negative eigenvalues corresponds to time direction, while positive eigenvalues corresponds to spatial directions. Can be proved that the characterization of the metric in terms of signature of its eigenvalues (this is called the \textbf{signature} of the metric) is invariant under change of coordinates, i.e. do not depends by the parametrization of the manifold. 
+
+\end{definition}
+
+Regarding $g_{\mu\nu}$ as a symmetric matrix, we can find an othogonal matrix $E$ ($E^TE=\id$) such that
+\[E^TgE=\text{diag}(\lambda_0,\dots,\lambda_{d+1})\]
+with $\lambda_i\neq0$. Then previous condition implies
+\[g_{\mu\nu}{E^\mu}_a{E^\nu}_b=\lambda_a\delta_{ab}\]
+where in the last term there is no summation over index $a$. Once we identified the matrix $E$ we can define basis
+\[{e^\mu}_a=\frac1{\sqrt{|\lambda_a|}}{E^\mu}_a\]
+so that 
+\[e^Tge=g_{\mu\nu}{e^\mu}_a{e^\mu}_b=\text{diag}(-1,\dots,-1,1,\dots,1)\]
+and in particular for the Lorenzian spacetime we have $e^Tge=\text{diag}(-1,1,\dots,1)$.
+Hence \textit{a metric space(-time) is Lorenzian iff exists an orthonormal basis $e_a=e_a^\mu\partial_\mu$ such that }
+\[\boxed{g_{\mu\nu}{e^\mu}_a{e^\nu}_b=\eta_{ab}$ \qquad\text{with}\quad $\eta_{ab}=\text{diag}(-1,1,\dots,1)}\]
+By introducing a dual basis of 1-forms $e^a={e^a}_\mu\de x^\mu$ such that $e^a_\mu e^\mu_b=\delta^a_b\Leftrightarrow e^a_\mu e^\nu_a=\delta_\mu^nu$ then we can equivalently say that \textit{the metric space(-time) is Lorenzian iff exists an orthonormal basis $e^a=e^a_\mu\de x^\mu$ such that}
+\[\boxed{
+g_{\mu\nu}=\eta_{ab}e^a_\mu e^b_\nu\quad\Leftrightarrow\quad g=\eta_{ab}e^a\otimes e^b\quad\Leftrightarrow\quad \de s^2=\eta_{ab}e^a e^b}\]
+Basis $e_a$ and $e^a$ are often called \textbf{Lorentz / flat (co)frames} but notice that they exists only point-wise and, generically, they do not correspond to inertial coordinate systems $\hat x^\alpha$ such that 
+\begin{equation}\label{eqn:coord-inert-frame}
+e^a=\delta^a_\alpha\de\hat x^\alpha\quad\Leftrightarrow\quad \hat e^a_\alpha(\hat x)=\delta_\alpha^a\quad\Leftrightarrow\quad \de s^2=\eta_{\alpha\beta}\de\hat x^\alpha\de\hat x^\beta
+\end{equation}
+On the other hand we will see that for generic ``curved'' space-times condition eq.~\eqref{eqn:coord-inert-frame} can be satisfied only ``locally'' through a proper choice of coordinates
+\[\boxed{
+\de s^2=\left[\eta_{\alpha\beta}+O\p{\frac{\Delta\hat x^2}{L^2}}\right]\de\hat x^\alpha\de\hat x^\beta
+}\]
+where the second order term cannot vanishes since it contains the information about the curvature.\footnote{See \textsf{Carrol} pag. 74 for an explanation about why this is the better result one can archivie, namely ``counting argument''.} Coordinates which satisfies this condition are called \textbf{``local'' intertial coordinates}.
+
+
+
+\begin{example}[(Euclidean) round metric on $S^n$]
+If we consider $S^n$ embedded into $\mathbb E^{n+1}$ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=4cm]{../img/round-metric-sn.jpg}
+\end{figure}
+then the round metric is inherited from the ambient flat metric
+\[\de s^2(\mathbb E^{n+1})=(\de x^1)^2+\dots+(\de x^{n+1})^2\]
+We can introduce angular coordinates by iteration, starting from $\theta_1$ we have
+\[\de s^2(S^n)=R^2[\de\theta_1^2+\sin^2\theta_1\de s^2(S^{n-1})]\]
+
+In order to prove this (left as an exercize) it is easier to start with the explicit computation of $\de s^2(S^2)$ and $\de s^2(S^3)$. 
+
+\end{example}
+
+
+In any metric space one can use the metric $g_{\mu\nu}$ or its inverse $g^{\mu\nu}$ to lower or raise the indices of any tensor, for instance
+\[{T^\mu}_\nu\quad\longrightarrow\quad T_{\mu\nu}\equiv g_{\mu\rho}{T^\rho}_\nu\]
+In the following we will consider this identifications as implicit. However one should keep in mind that, being $G_{\mu\nu}(x)$ an elementary dynamical field in GR, ${T^\mu}_\nu(x)$ and $T_{\mu\nu}(x)$ may carry different physical content.
+
+
+
+
+
+
+
 
 
 
