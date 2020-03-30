@@ -1,29 +1,245 @@
 \documentclass[../main/main.tex]{subfiles}
 \begin{document}
 
-\chapter {Dynamics in curved spacetimes}
+\chapter {Physics in spacetimes}
 
 
 
+Now that we introduced the framework of Differential Geometry, we can come back to the description of dynamics of physical systems. One one identified the metric of gravitational field, one can consider it as dynamic object. 
+
+Before discussing the EoM of the metric we first discuss the dynamics of a (probe) particle in a fixed metric (i.e. fixed gravitational fields.
+The EoM of the particle must be
+\begin{enumerate}[label=(\alph*)]
+\item Invariant ( in covariant form) under coordinate transformations
+\item Reduce to free rectilinear motion for (flat) Minkowski metric $g=\eta$
+\item Reproduce to Newton's universal law of gravitation in appropriate limit
+\end{enumerate}
+We will first consider (a) and (b), exploiting the \emph{least action principle}.
+
+\section{Particle's action in flat space-time}
+
+Let's focus to free particle in the flat space. The particle trajectories are described by world lines
+\[X^\mu\,:\quad\lambda\in\RR\longmapsto X^\mu(\lambda)\in\RR^4\]
+\begin{figure}[H]
+\centering
+\includegraphics[width=5cm]{../img/world-line-particle-traject.jpg}
+\end{figure}
+
+In general $\lambda$ is arbitrary but if we chose it to be the proper time then the trajectory is given by a straight line, indeed for $\lambda=\tau$ and $m\neq0$
+\[\alpha^\mu=0\quad\Leftrightarrow\quad\frac{\de^2 x^\mu}{\de \tau^2}=0\quad\Leftrightarrow\quad X^\mu=x_o^\mu+u^\mu\tau\]
+
+Now we want to derive this set of equation of motions (of for each $\mu$) from a least action principle. Note that the proper time depedens on the trajectory itself, so it is not convenient to chose $\tau$ as parameter for the action. 
+Since for a general $\lambda$
+\begin{equation}\label{eqn:tau-lambda-relation}
+\frac\de{\de\tau}=\frac{\de\lambda}{\de\tau}\frac{\de}{\de\lambda}=\frac1{\sqrt{-\eta_{\mu\nu}\dot X^\mu(\lambda)\dot X^\nu(\lambda)}}\frac\de{\de\lambda}
+\end{equation}
+then we can rewrite $\frac{\de^2 x^\mu}{\de \tau^2}=0$ as 
+\begin{equation}
+\frac{\de}{\de\lambda}\p{\frac{\eta_{\mu\nu}\dot X^\nu}{\sqrt{-\eta_{\mu\nu}\dot X^\mu\dot X^\nu}}}=0
+\end{equation}
+where we lowered index $\mu$ in $X\mu$ convenience. Notice that this equation is invariant under reparametrizations $\lambda\to\lambda'(\lambda)$.
+Hence we want to derive this equation from least action principle. A straight world line between two points $x_{in}^\mu$ and $x_{fin}^\mu$ in $\text{Mink}_4$ is the world line that maximize the proper time $\Delta \tau$ measured along the trajectory (since along a straight world line a clock runs faster, recall twin paradox)
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{../img/trajectories-least-action.jpg}
+\end{figure}
+\noindent
+This provides a natural candidate action, basically the proper time itself:
+\begin{equation}\label{eqn:action-massice-part}
+\boxed{
+S=-m\int\de\tau=-m\int_{\lambda_{in}}^{\lambda_{fin}}\de\lambda\,\sqrt{-\eta_{\mu\nu}\dot X^\mu\dot X^\nu}
+}
+\end{equation}
+In such a way when $\Delta \tau$ is maximum $S$ is minimum. Moreover we added the mass term $m$ in order to satisfy dimensional requirements.\footnote{In this way $[S]=EL=ET$ as we require for the action.} Notice also that this action is invariant under reparametrizations $\lambda\to\lambda'$.
+If we consider a generical fluctuation $\delta X^\mu(\lambda)$ such that $\delta X^\mu(\lambda_{in})=\delta X^\mu(\lambda_{fin})=0$:
+\begin{alignat*}{3}
+\delta S
+&=-m\int_{\lambda_{in}}^{\lambda_{fin}}\de\lambda\,\delta\sqrt{-\eta_{\mu\nu}\dot X^\mu\dot X^\nu}
+&&=-m\int_{\lambda_{in}}^{\lambda_{fin}}\de\lambda\,\frac{\eta_{\mu\nu}\dot X^\mu}{\sqrt{-\eta_{\mu\nu}\dot X^\mu\dot X^\nu}}\delta\dot X^\nu\\
+&=-m\int_{\lambda_{in}}^{\lambda_{fin}}\de\lambda\,\frac{\eta_{\mu\nu}\dot X^\mu}{\sqrt{-\eta_{\mu\nu}\dot X^\mu\dot X^\nu}}\frac{\de}{\de\lambda}\delta X^\nu
+&&=-m\int_{\lambda_{in}}^{\lambda_{fin}}\de\lambda\,\delta X^\nu(\lambda)\frac{\de}{\de\lambda}\p{\frac{\eta_{\mu\nu}\dot X^\mu}{\sqrt{-\eta_{\mu\nu}\dot X^\mu\dot X^\nu}}}
+\end{alignat*}
+where in the last step we performed integration by parts with vanishing boundaries conditions. Then imposing least action principle for any fluctuation $\delta X^\nu(\lambda)$ we have
+\begin{equation}
+\boxed{
+\delta S=0\quad\Leftrightarrow\quad\frac{\de}{\de\lambda}\p{\frac{\eta_{\mu\nu}\dot X^\mu}{\sqrt{-\eta_{\mu\nu}\dot X^\mu\dot X^\nu}}}=0
+}
+\end{equation}
+
+Notice that in the massless case $m\to0$ (e.g. for photons) eq.~\eqref{eqn:action-massice-part} doesn't work, indeed we know that photons travel along null trajectories:
+\[\dot X^\mu\dot X_\mu=0\quad\Rightarrow\quad \Delta\tau=0\quad\Rightarrow\quad u^\mu=\frac{\de X^\mu}{\de\tau}\text{ is not well defined}\]
+However, we can avoid this problem by reformulating least action principle introducing an action that reduces to eq.~\eqref{eqn:action-massice-part} in the massive case. In order to do that, we introduce a metric on the world-line, so that the trajectory can be consider as a space-time with zero space coordinates, so that line element takes the form
+\[\de s^2_\gamma=h(\lambda)\de\lambda^2=-e^2(\lambda)\de\lambda^2\]
+where $h(\lambda)=g_{00}(\lambda)$ and in the second step we rewritten the line element in terms of the \emph{vielbein} one-form $e(\lambda)\de\lambda$, i.e. the basis such that the metric takes the diagonal form (for instance the basis given by eigenvectors for a matrix). In particular $[e(\lambda)\de\lambda]=\left[\frac LM\right]$ and $e(\lambda)=\tilde e(\tilde\lambda)\frac{\de\tilde\lambda}{\de\lambda}$.
+
+Then in terms of the world line metric, or equivalently in terms of the vielbein, we can construct an alternative parametrization-invariant action
+\begin{equation}\label{eqn:modif-action-flat}
+\boxed{
+\begin{split}
+\tilde S&=-\frac12\int\de\lambda\sqrt{-h}\p{h^{-1}\dot X^\mu\dot X_\mu+m^2}\\
+&=\frac12\int\de\lambda\p{e^{-1}\dot X^\mu\dot X_\mu-m^2e}
+\end{split}
+}
+\end{equation}
+In such action independent fields are not only $X^\mu$, but also one-dimensional components of $e^\mu$. This means that we promoted our time independent metric to a dynamical one by the introduction of the vielbein. On the other hand such dynamical metric, or equivalently the vielbein, appears only algebraically: it has no derivatives in the action, therefore if $m\neq0$ we can minimize action respect to fluctuations of $e$, obtaining an exact expression for $e$ in terms of coordinates $X^\mu$:
+\begin{equation}\label{eqn:vielbein-m-neq0}
+\delta e\quad\Longrightarrow\quad \delta \tilde S=\frac12\int\de\lambda\,\delta e\p{-\frac1{e^2}\dot X^\mu\dot X_\mu-m^2}\quad\Longrightarrow\quad e=\frac{-\sqrt{\dot X^\mu\dot X_\mu}}m
+\end{equation}
+In this case ($m\neq0$) the action $\tilde S$ reduces to eq.~\eqref{eqn:action-massice-part} :
+\[\tilde S\big\vert_{e=\text{eq.~}\eqref{eqn:vielbein-m-neq0}}=-m\int\de\lambda\sqrt{-\dot X^\mu\dot X_\mu}=S\]
+Therefore the modified action $\tilde S$ reduces to $S$ when $m\neq0$, and is a well defined action even for $m=0$. 
+
+Before proving that $\tilde S$ provides the right EoM even for the massless case, notice that we can write $\tilde S$ in terms of the lagrangian $\tilde L$
+\[\tilde S=\int\de\lambda\,\tilde L\]
+and define the \textbf{4-momentum} $p^\mu$ as the conjugated field of $\dot X^\mu$
+\begin{equation}\label{eqn:4-momentum-particle}
+\boxed{
+P_\mu\equiv\frac{\partial\tilde L}{\partial\dot X^\mu}=e^{-1}(\lambda)\eta_{\mu\nu}\dot X^\nu
+}
+\end{equation}
+Notice that the appearance of the vielbein component leads to the invariance under reparametrization of the 4-momentum. If $m\neq0$ using eq.~\eqref{eqn:vielbein-m-neq0} with eq.~\eqref{eqn:tau-lambda-relation} the 4-momentum reduces to the standard definition
+\[P^\mu=m{\frac{\de X^\mu}{\de\tau}}\]
+Anyhow, notice that eq.~\eqref{eqn:4-momentum-particle} is well defined even for $m=0$.
+Such massless limit can be taken even in $\tilde S$, obtaining the well defined action for massless particles
+\begin{equation}
+\boxed{
+\tilde S\big\vert_{m\to0}=\frac12\int\de\lambda\,e^{-1}\dot X^\mu\dot X_\mu
+}
+\end{equation}
+and the conditions we get by extremizing the action are
+\begin{subequations}
+\begin{align}
+\delta e\quad&:\quad\dot X^\mu\dot X_\mu=0\\
+\delta X^\mu\quad&:\quad\frac\de{\de\lambda}\p{e^{-1}\frac{\de X^\mu}{\de\lambda}}\equiv\frac{\de P^\mu}{\de\lambda}=0\qquad\Rightarrow\quad P^\mu(\lambda)\quad\text{is constant}
+\end{align}
+\end{subequations}
+Notice that first condition describes the null condition for trajectories, while second conditions describes the conservation of momentum. Both result were expected according with SR.
 
 
+\section{Particle's action in curved space-time}
 
+Now we consider a free particle in a general spacetime, i.e. a particle that  interacts only with gravitational field. 
+A particle's world line is now a curve in a more general 4 dimensional manifold $\mathcal M$
+\[\gamma\,:\quad\RR\supset I\quad\longrightarrow\quad \mathcal M\]
+\begin{figure}[H]
+\centering
+\includegraphics[width=4cm]{../img/trajectory-manifold.jpg}
+\end{figure}
+\noindent
+In each coordinate patch $x^\mu$ the world-line is described by 4 functions
+\[X^\mu\,:\quad\lambda\quad\longmapsto\quad X^\mu(\lambda)\]
+In other coordinates $\tilde x^\mu=\tilde x^\mu(x)$, new coordinates are given in the intersection of opens by
+\[\tilde X^\mu(\lambda)\equiv\tilde X^\mu(X(\lambda))\]
 
+Since space-time metric can be locally well approximated by the flat one, then (smooth enough) trajectories can be locally approximated by straight world-line, tangent to $\dot X^\mu$. 
 
+The natural requirement that no physical signal can travel faster than light translates into
+\begin{equation}\label{eqn:no-faster-light-cond-metric}
+g_{\mu\nu}(X)\dot X^\mu\dot X^\nu\leq0\qquad(\,<0\quad\text{for }m\neq0)
+\end{equation}
+\begin{figure}[H]
+\centering
+\includegraphics[width=2cm]{../img/less-than-speed-light-traj.jpg}
+\end{figure}
+\noindent
+We can easily prove that this condition is invariant under reparametrization of $X^\mu(\lambda)$ (even for change on the direction) and also is invariant under change of patch for the manifold. 
 
+The natural covariant generalization of eq.~\eqref{eqn:modif-action-flat} is 
+\begin{equation}\label{eqn:action-curved-spacetime}
+\tilde S=\frac12\int\de\lambda\p{e^{-1}g_{\mu\nu}(X)\dot X^\mu\dot X^\nu-m^2e}
+\end{equation}
+Notice that now also $g_{\mu\nu}(X)$ depends on $\lambda$, then  the action is not purely quadratic as in the Minkowskian case. Again, this action is invariant under transformations of $\lambda$ and $x^\mu$, in particular the invariance under changes of patch can be proven easily through transformation proprieties of tensors. 
 
+Now we have to repeat same steps we did in the flat metric case. First let's assume $m\neq0$, then we can integrate out the world-line vielbein component as we done in eq.~\eqref{eqn:vielbein-m-neq0}:
+\begin{equation}\label{eqn:vielbein-gen-m-neq0}
+\delta e\quad\Longrightarrow\quad \delta \tilde S=-\frac12\int\de\lambda\,\delta e\p{\frac1{e^2}g_{\mu\nu}(X)\dot X^\mu\dot X^\nu+m^2}\quad\Longrightarrow\quad e=\frac{\sqrt{-g_{\mu\nu}\dot X^\mu\dot X^\nu}}m
+\end{equation}
+hence in the massive case we obtain the generalization in the curved space of the action in the massive case eq.~\eqref{eqn:action-massice-part}
+\begin{equation}\label{eqn:action-massice-part-curved}
+\boxed{
+S=-m\int\de\lambda\sqrt{-g_{\mu\nu}\dot X^\mu\dot X^\nu}=-m\int\de\tau=-m\Delta\tau
+}
+\end{equation}
+with:
+\[\de\tau^2=-\de s^2\big\vert_\gamma=g_{\mu\nu}(X)\dot X^\mu\dot X^\nu\de\lambda^2\]
+By the equivalence principle, we may again interpret $\de\tau$ and $\Delta\tau$ as proper time intervals: time intervals measured by the particle's clock. Hence, again, the particle's trajectory should be the one which (locally\footnote{For general non-trivial metrics, in particular with manifolds with non trivial topologies, may be different trajectories that maximize proper time, for instance around a cylinder one may take two paths with opposite directions that are both solutions of minimal action principle.}) maximizes the  proper time interval (between two fixed events). Notice that condition eq.\eqref{eqn:no-faster-light-cond-metric} is required in order to have a well defined squared root in eq.~\eqref{eqn:action-massice-part-curved}.
 
+Now we have to consider the massless case, and as in the Minkowskian case we can take the massless limit directly from the action eq.~\eqref{eqn:action-curved-spacetime}:
+\begin{equation}\label{eqn:action-curved-spacetime-massles}
+\tilde S=\frac12\int\de\lambda\p{e^{-1}g_{\mu\nu}(X)\dot X^\mu\dot X^\nu}
+\end{equation}
+Taking the variation respect to the vielbein the least action principle leads to
+\begin{equation}\label{eqn:action-massless-part-curved}
+\delta e\quad\Longrightarrow\quad g_{\mu\nu}(X)\dot X^\mu\dot X^\nu=0
+\end{equation}
+hence particle moves along null trajectories. Again notice that in the massless case the vielbein is unfixed.  
 
+The EoM for the field $X^\mu(\lambda)$ given by  action eq.~\eqref{eqn:action-curved-spacetime} are given by the least action principle respect to variation $\delta X^\mu(\lambda)$:
+\begin{align*}
+0=\delta\tilde S
+&=\frac12\int\de\lambda\,e^{-1}\delta\p{g_{\mu\nu}(X)\dot X^\mu\dot X^\nu}\\
+&=\int\de\lambda\,e^{-1}\p{g_{\mu\nu}(X)\delta\dot X^\mu\dot X^\nu+\frac12\delta X^\mu\partial_\mu g_{\nu\rho}(X)\dot X^\nu\dot X^\rho}\\
+&=-\int\de\lambda\,\delta X^\mu \p{\frac\de{\de\lambda}\p{e^{-1}g_{\mu\nu}(X)\dot X^\nu}-\frac{e^{-1}}2\partial_\mu g_{\nu\rho}(X)\dot X^\nu\dot X^\rho}
+\end{align*}
+and we finally obtain the EoM in the curved spacetime (for both massive and massless case)
+\begin{equation}
+\frac\de{\de\lambda}\p{e^{-1}g_{\mu\nu}(X)\dot X^\nu}-\frac{e^{-1}}2\partial_\mu g_{\nu\rho}(X)\dot X^\nu\dot X^\rho=0
+\end{equation}
 
+Let's try to rewrite these equation of motions in a more convenient way. Remember that the vielbein transforms in a non-trivial way under reparametrizations: $\tilde e(\tilde \lambda)\frac{\de\tilde\lambda}{\de\lambda}=e(\lambda)$, then we can choose a parameter $\lambda$ such that $e(\lambda)$ is constant, just solving the first order differential equation $\tilde e(\tilde \lambda)\frac{\de\tilde\lambda}{\de\lambda}=e(\lambda)=\,$const. respect to the variable $\lambda$. Such value of $\lambda$ is said to be a \textbf{affine parameter}. For instance in the massive case $e(\lambda)=\frac1m$ corresponds to $\lambda=\tau$ (the proper time) as we can see from eq.~\eqref{eqn:vielbein-gen-m-neq0}, or, both in massive and massless case, we can always impose $e(\lambda)=1$ for some other parameter $\lambda$ (if $m\neq0$ then $\lambda=\frac\tau m$). In case $e(\lambda)=1$ we refer to the parameter $\lambda$ as \textbf{proper} parameter. 
 
+Now, imposing $\lambda$ to be an affine parameter\footnote{This choice is said to be a \textbf{gauge choice}: we fixed a specific field $e(\lambda)$ among several equivalent choices $\tilde e(\tilde\lambda)$. This is the same we do for EM potential $A^\mu$ invariant under gauge symmetry.} the EoM can be rewritten removing the vielbein
+\[
+\frac\de{\de\lambda}\p{g_{\mu\nu}(X)\dot X^\nu}-\frac12\partial_\mu g_{\nu\rho}(X)\dot X^\nu\dot X^\rho=0
+\]
+This is consistent with the fact that EoM should not depend on the field $e(\lambda)$ we introduced in order to using Lagrangian formalism in the massless case. Writing explicitly derivatives we have
+\[g_{\mu\nu}(X)\ddot X^\nu+\partial_\rho \,g_{\nu\mu}(X)\dot X^\rho\dot X^\nu-\frac12\partial_\mu g_{\nu\rho}\dot X^\nu\dot X^\rho=0\]
+Notice that we may exchange indices $\rho$ and $\nu$ in the second term thanks to the symmetry of the tensor $\dot X^\mu\dot X^\nu$. Then only symmetric part of $\partial_\rho g_{\nu\mu}$ really contributes to the equation of motion
+\[g_{\mu\nu}(X)\ddot X^\nu+\partial_{(\rho} \,g_{\nu)\mu}(X)\dot X^\rho\dot X^\nu-\frac12\partial_\mu g_{\nu\rho}\dot X^\nu\dot X^\rho=0\]
+and taking into account this natural symmetrization we can write the EoM in the following form:
+\begin{equation}\label{eqn:eom-levi-civita}
+\boxed{
+\frac{\de^2X^\mu}{\de\lambda^2}+{\Gamma^\mu}_{\nu\rho}(X)\frac{\de X^\nu}{\de\lambda}\frac{\de X^\rho}{\de\lambda}=0
+}
+\end{equation}
+where terms
+\begin{equation}
+\boxed{
+{\Gamma^\mu}_{\nu\rho}(X)\equiv\frac12g^{\mu\sigma}(\partial_\nu g_{\rho\sigma}+\partial_\rho g_{\nu\sigma}-\partial_\sigma g_{\nu\rho})
+}
+\end{equation}
+are known as \textbf{Christoffel symbols} or \textbf{Levi-Civita connection}.  ${\Gamma^\mu}_{\nu\rho}(X)$ clearly is not a tensor, anyhow its transformation proprieties must be exactly the ones of $\ddot X^\mu$ in order to satisfy eq.~\eqref{eqn:eom-levi-civita} for any choice of coordinates $X^\mu$. Moreover Christoffel symbols shows following symmetry
+\[{\Gamma^\mu}_{\nu\rho}={\Gamma^\mu}_{\rho\nu}\]
 
+As we done for the flat space-time, we can set $\tilde S=\int\de\lambda\tilde L$ and define the four momentum in curved space as
+\begin{equation}
+P_\mu\equiv\frac{\partial L}{\partial \dot X^\mu}=e^{-1}\dot X^\mu\quad\rightarrow\quad P^\mu \equiv e^{-1}\dot X^\mu
+\end{equation}
+This formula is general for any parameter $\lambda$, but when we chose $\lambda$ to be the proper parameter ($e(\lambda)=1$) this formula reduces to 
+\[P^\mu(\lambda)=\frac{\de X^\mu}{\de\lambda}\]
+Recall that choice $e(\lambda)=1$ has dimension of $[\tau/m]$ i.e. a length over a mass, then $P^\mu$ has dimension of mass, which is the right dimension for the momentum when we set $c=1$.
+By using this identification we can rewrite EoM in terms of 4-momentum
 
-
-
-
-
-
-
+\begin{equation}\label{eqn:eom-levi-civita-moment}
+\boxed{
+\frac{\de P^\mu}{\de\lambda}+{\Gamma^\mu}_{\nu\rho}(X)P^\nu P^\rho=0
+}
+\end{equation}
+This formula holds both massive and massless case, but in the massive case we have $\lambda=\frac\tau m$  and the four momentum can be written in terms of velocity:
+\[P^\mu=m\frac{\de X^\mu}{\de\tau}=m u^\mu\]
+then the EoM becomes
+\begin{equation}\label{eqn:eom-levi-civita-velocity}
+\boxed{
+\frac{\de u^\mu}{\de\tau}+{\Gamma^\mu}_{\nu\rho}(X)u^\nu u^\rho=0
+}
+\end{equation}
+In general (even for massless particles) ${\Gamma^\mu}_{\nu\rho}\neq0$ and then $P^\mu$ is not conserved:
+\[\frac{\de P^\mu}{\de\lambda}=-{\Gamma^\mu}_{\nu\rho}(X)P^\nu P^\rho\]
+In order to obtain a conserved momentum we have to require additional symmetries in our manifold, as it happen in the Minkowski case, which is the maximally symmetric space-time (since $\eta_{\mu\nu}$ is invariant under a large number of symmetries given by the Poincaré group). 
+We will see that the four momentum conservation is associated to the invariance of the theory under space translations. In general only the ``lenght'' of $P^\mu$ is preserved, indeed using eq.~\eqref{eqn:action-massice-part-curved} and eq.~\eqref{eqn:action-massless-part-curved} with $e(\lambda)=1$ we obtain
+\[P^\mu P_\mu=\dot X^\mu\dot X_\mu=-m^2\]
+We will see in the following that eq.~\eqref{eqn:eom-levi-civita-moment} directly implies the conservation $P^\mu P_\mu$.
 
 
 
