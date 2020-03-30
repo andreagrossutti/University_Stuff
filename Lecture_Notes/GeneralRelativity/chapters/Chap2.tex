@@ -406,7 +406,7 @@ An \textbf{Euclidean / Riemannian (metric) space} $\mathcal M_d$ is a manifold e
 
 \end{definition}
 
-Regarding $g_{\mu\nu}$ as a symmetric matrix, we can find an othogonal matrix $E$ ($E^TE=\id$) such that
+Regarding $g_{\mu\nu}$ as a symmetric matrix, we can find an orthogonal matrix $E$ ($E^TE=\id$) such that
 \[E^TgE=\text{diag}(\lambda_0,\dots,\lambda_{d+1})\]
 with $\lambda_i\neq0$. Then previous condition implies
 \[g_{\mu\nu}{E^\mu}_a{E^\nu}_b=\lambda_a\delta_{ab}\]
@@ -428,7 +428,7 @@ On the other hand we will see that for generic ``curved'' space-times condition 
 \[\boxed{
 \de s^2=\left[\eta_{\alpha\beta}+O\p{\frac{\Delta\hat x^2}{L^2}}\right]\de\hat x^\alpha\de\hat x^\beta
 }\]
-where the second order term cannot vanishes since it contains the information about the curvature.\footnote{See \textsf{Carrol} pag. 74 for an explanation about why this is the better result one can archivie, namely ``counting argument''.} Coordinates which satisfies this condition are called \textbf{``local'' intertial coordinates}.
+where the second order term cannot vanishes since it contains the information about the curvature.\footnote{See \textsf{Carrol} pag. 74 for an explanation about why this is the better result one can archive.} Coordinates which satisfies this condition are called \textbf{``local'' inertial coordinates}.
 
 
 
@@ -452,23 +452,88 @@ In any metric space one can use the metric $g_{\mu\nu}$ or its inverse $g^{\mu\n
 \[{T^\mu}_\nu\quad\longrightarrow\quad T_{\mu\nu}\equiv g_{\mu\rho}{T^\rho}_\nu\]
 In the following we will consider this identifications as implicit. However one should keep in mind that, being $G_{\mu\nu}(x)$ an elementary dynamical field in GR, ${T^\mu}_\nu(x)$ and $T_{\mu\nu}(x)$ may carry different physical content.
 
+\subsubsection{Interpretation of one forms and line elements}
+Let's give an interpretation of $\de x^\mu$. Consider an infinitesimal displacement 
+\[x^\mu\quad\longrightarrow\quad x^\mu+\delta x^\mu\]
+We could set $\delta x^\mu=\epsilon V^\mu$ with $V^\mu$ finite vector applied at $x^\mu$, then we can identify an infinitesimal vector as
+\[\epsilon V=\epsilon V^\mu\partial_\mu=\delta x^\mu\partial_\mu\]
+Hence, when we apply the one form $\de x^\mu$ to such infinitesimal vector, we have
+\[\de x^\mu(\epsilon V)=\epsilon V^\mu\equiv\delta x^\mu\]
+Provided some infinitesimal vector $\epsilon V$, this suggest following identification
+\[\de x^\mu\quad\sim\quad\delta x^\mu\]
+where $\de x^\mu$ can be interpret as generic variation of the coordinate along a vector $V$.
+
+When we generalize this analysis to one forms associated to scalar fields we have
+\[\de f(\epsilon V)=\partial_\mu f\de x^\mu(\epsilon V)=\epsilon V^\mu\partial_\mu f=\delta x^\mu\partial_\mu f=\delta f\]
+then $\de f(\epsilon V)$ coincides to the infinitesimal variation of the scalar field $f$ corresponding to $\delta x^\mu$. Again, provided some infinitesimal vector, we have the following identification
+\[\de f=\partial_\mu f\de x^\mu\quad\sim\quad\delta f=\partial_\mu f\delta x^\mu\]
+where $\de f$ is the generic variation of $f$ while $\delta f$ is the specific variation of $f$ under $\delta x^\mu$.
+ 
+ Let's see how this works for the metric. Given $\delta x^\mu=\epsilon V^\mu$, its infinitesimal interval is given by 
+\[\delta s^2=g(\epsilon V,\epsilon V)=\epsilon ^2g_{\mu\nu}V^\mu V^\nu=g_{\mu\nu}\delta x^\mu\delta x^\nu\]
+And, provided an infinitesimal vector, we have the identification
+\[\de s^2=g_{\mu\nu}\de x^\mu\de x^\nu\quad\sim\quad\delta s^2=g_{\mu\nu}\delta x^\mu\delta x^\nu\]
+where $\de s^2$ is a generic infinitesimal interval, wile $\delta s^2$ is the specific interval of $\delta x^\mu=\epsilon V^\mu$.\\
+
+\begin{example}[The evolving universe]
+
+\textsf{Carroll, sec 2.6, 8.2, 8.4}\\
+
+Let's consider a family of metrics that plays a special role in the description of expanding universe:
+\begin{equation}\label{eqn:metric-exp-univ}
+\de s^2=-\de t^2+a^2(t)\de\vec x\cdot\de\vec x=-\de t^2+a^2(t)\delta_{ij}\de x^i\de x^j
+\end{equation}
+Metrics in this forms are a subclass of the \emph{Friedmann-Robertson-Walker (FRW) space-times}.
+Notice that  $t$ is the proper time measured by clock stuck at constant position $\vec x$, this is a consequence of the fact that the only term related to the time in the line element is $-\de t^2$ as in the flat metric.  
+
+On the other hand, the proper distance between simultaneous events scale as $a(t)$, which cannot be absorbed by change coordinates since it is a time dependent factor.  
+The distance between two events in world line of observers placed in fixed positions $x_a$ and $x_B$ is 
+\[\Delta L=a(t)\vert\vec x_B-\vec x_A\vert
+\hspace{1cm}
+\raisebox{-2.4cm}{\includegraphics[width=5.5cm]{../img/world-lines-expand-univ.jpg}}\]
+For this reason the factor $a(t)$ is called \textbf{scale factor}. In GR factor $a(t)$ is fixed by Einstein equations, and describes the expansion of universe. 
+Anyhow just assuming homogeneous and isotropic distribution of matter and radiation one obtain a power law relation for $a(t)$:
+\[a(t)=\p{\frac t{t_*}}^q\qquad0\leq q<1\quad
+\begin{cases}
+q=\frac23\quad\text{matter dominated universe}\\
+q=\frac12\quad\text{rafiation dominated universe}
+\end{cases}\]
+where $t_*$ is a typical time scale characterizing the phase of cosmological evolution.
+With such a a power low dependence, for $t\to 0$ we have $a(t)\to0$, hence metric looks singular and this singularity does not depend on the choice of parametrization, it is intrinsic in the geometry of the manifold. For this reason is a \emph{proper} singularity called \emph{Big Bang}.
+
+Nowadays this idea has been overcome, in particular in the early period of cosmological evolution is characterized by a \textbf{period of inflation}, and in such period one can approximate scale factor as
+\begin{equation}\label{eqn:Hubble-acceler}
+\boxed{a(t)=e^{Ht}}
+\end{equation}
+where $t_*$ is called \textbf{Hubble scale} and $H=1/t*$ is the \textbf{Hubble parameter}. In this way the Big Bang singularity is pushed to $t=-\infty$.
+
+The cosmological solution with $A(t)=e^{Ht}$ describes a patch of the 4-dimensional de Sitter space $\text{dS}_4\subset\mathbb M_5$ with equation
+\begin{equation}\label{eqn:de-Sitter-eqn}
+\vert\vec X\vert^2-T^2=L^2
+\end{equation}
+where $\vec X=(X^1,\dots,X^4)$.
+\begin{figure}[H]
+\centering
+\includegraphics[width=5cm]{../img/de-Sitter-expanding-univ.jpg}
+\end{figure}
+\noindent
+The flat metric $\mathbb M_5$ induces a metric on $\text{dS}_4$
+\[\text{dS}_4(\textbb{M_5})-\de T^2+\de \vec X\cdot \de\vec X\]
+In order to solve eq.~\eqref{eqn:de-Sitter-eqn} one may set
+\begin{align*}
+T&=L\sinh\p{\frac tL}+\frac12\frac{|\vec x|^2}Le^{t/L}\\
+X^4&=L\cosh\p{\frac tL}-\frac12\frac{|\vec x|^2}Le^{t/L}\\
+X^i&=x^ie^{t/L}\qquad i=1,2,3
+\end{align*}
+where $\vec x=(x^1,x^2,x^3)$, then one obtain\footnote{Prove it as exercise} that the line element induced in the de Sitter space is eq.~\eqref{eqn:metric-exp-univ} with eq.~\eqref{eqn:Hubble-acceler} and $H=\frac12$. 
+
+Moreover, the patch covered by cosmological coordinates does not cover the full de Sitter space, but only half of it
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{../img/patch-de-Sitter-expand-univ.jpg}
+\end{figure}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\end{example}
 
 \end{document}
