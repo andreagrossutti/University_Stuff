@@ -439,6 +439,198 @@ Finally notice that there are also other ways to obtain exact results in specifi
 
 \section{Exact results - localization}
 
+\subsubsection{Fermions and Grassmann variables}
+
+\textsf{Ramond~\cite{Ramond:1997aa}, sec. 5.1, Skinner~\cite{Skinner:2018aa}, sec. 2.5; Cartier~\cite{Cartier:2002aa}, sec. 3, 8}\\
+
+Realistic theories contains fermions. In higher dimensions, the spin-statistics theorem says that for a unitary theory, fermions must have half-integral spin. However, in $d=0$ there is no notion of spin, much less a spin-statistic theorem, and fermionic ``fields'' are simply \textbf{Grassmann numbers}. These are a set of $n$ elements $\{\theta_i\}$ obeying the algebra
+\[\{\theta_i\theta_j\}=0\quad\text{and}\quad[\theta_i,\phi_j]=0\quad\forall\phi_i\in\CC\]
+Notice that elements $\phi_i$ describes boson fields in zero dimensional spaces. 
+Thus, Grassmann variables anticommute with each other and commute with any bosonic variable. In particular, this implies $\theta_i\theta_i=-\theta_i\theta_i=0$ for each $i$. This property means that any function of a finite number of Grassmann variables has a finite expansion
+\[f(\theta)=f_0+\sum_if_i\theta_i+\sum_{ij}f_{ij}\theta_i\theta_j+\dots+\sum_{i_1,\dots,i_n}f_{i_1,\dots,i_n}\theta_{i_1}\dots\theta_{i_n}\]
+where we can take the coeficients to be totally antisymmetric, e.g. $f_{ij}=-f_{ji}$. For example, the exponential of a Grassmann number take a very simply form, since all terms $(\theta_i)^a$ vanishes for $a>1$:
+\[\exp(\theta)=1+\theta+\frac{\theta^2}{2}+\frac{\theta^3}{3!}+\dots=1+\theta\]
+
+One defines the differential operator $\frac\de{\de\theta}$ by means of
+\[\left\{\frac{\partial}{\partial\theta_i},\theta_j\right\}=\delta^i_j\qquad\left\{\frac{\partial}{\partial\theta_i},\frac{\partial}{\partial\theta_j}\right\}=0\]
+In particular
+\[\frac{\partial}{\partial\theta_i}\theta_j=\delta^i_j-\theta_j\frac{\partial}{\partial\theta_i}(1)=\delta^i_j\]
+and
+\[\frac{\partial^2}{\partial\theta^2}=0\]
+Moreover, from the definition, we also obtain a relation equivalent to the Leibniz rule
+\[\frac{\partial}{\partial\theta_i}(\theta_j\theta_z)=\delta^i_j\theta_k-\theta_j\delta^i_k=-\frac{\partial}{\partial\theta_i}(\theta_z\theta_j)\]
+
+Regarding integration\footnote{See \url{http://swc.math.arizona.edu/dls/DLSCartierCh9.pdf} for an additional reference regarding integration (and more in general analysis in Grassmann variables).}, we introduce the \textbf{Berezin integration}, which impose the following fundamental requirement on a definite integral: given an integral operator $\int$ and a derivative operator $\partial$ on a space of functions, then these operators satisfy following condition:
+\[\partial\int=0=\int\partial\]
+Moreover, we require that the integral operator does not depend on constant functions:
+\[\partial f=0\qquad\Rightarrow\qquad\int(g\cdot f)=\p{\int g}\cdot f\]
+The requirement $\partial \int =0$ for functions of real variables says that the integral does not depend on the variable of integration, while the requirement $\int\partial=0$ says that functions vanish on their domain boundaries. 
+
+These condition implies 
+\[\int\de\theta=\int\de\theta\,1=0\]
+and 
+\[\int\de\theta\,\theta=1\]
+If we have $n$ Grassmann variables $\theta_i$ , repeated applications of the above rules shows that the integral of an $n$ parameter function coincides with derivation (in order to prove this, just expand the function $f$):
+\[\int\de\theta_1\dots\de\theta_n\,f(\theta_1,\dots,\theta_n)=\frac{\partial}{\partial\theta_1}\frac{\partial}{\partial\theta_2}\dots\frac{\partial}{\partial\theta_n}f(\theta_1,\dots,\theta_n)\]
+Obviously previous formula holds if we suppose to integrate starting with $\de\theta_n$, otherwise if we define multivariable integral starting from the first differential $\de \theta_1$ we have to reverse the order of differential operators. 
+
+The change of integration variable leads to a different rule respect to the usual one (which introduce inverse of the determinant of Jacobian): here differentiation and integration are the same, hence integration measure transforms as the derivative. If we consider some other coordinates $\tilde \theta=\tilde\theta(\theta)$ with\footnote{This is the most general relation between Grassmann numbers.} $\tilde\theta_i=a_i^j\theta_j$ then
+\begin{align*}
+\int\de\tilde\theta_1\dots\de\tilde\theta_n\,f(\tilde\theta_1,\dots,\tilde\theta_n)
+&=\frac{\partial}{\partial\tilde\theta_1}\dots\frac{\partial}{\partial\tilde\theta_n}f(\tilde\theta_1,\dots,\tilde\theta_n)\\
+&=\frac{\partial\theta_{i_1}}{\partial\tilde\theta_1}\dots\frac{\partial\theta_{i_n}}{\partial\tilde\theta_n}\frac{\partial}{\partial\theta_{i_1}}\dots\frac{\partial}{\partial\theta_{i_n}}f(\tilde\theta_1,\dots,\tilde\theta_n)
+\end{align*}
+Since $\frac{\partial}{\partial\theta_{i_1}}\dots\frac{\partial}{\partial\theta_{i_n}}$ are anticommuting, then this term is proportional to the total antisymmetric tensor $\epsilon_{i_1,\dots,i_n}$, and $\frac{\partial\theta_{i_1}}{\partial\tilde\theta_1}\dots\frac{\partial\theta_{i_n}}{\partial\tilde\theta_n}\epsilon_{i_1,\dots,i_n}$ gives the determinant of the Jacobian of $\tilde\theta(\theta)$:
+\[\int\de\tilde\theta_1\dots\de\tilde\theta_n\,f(\tilde\theta_1,\dots,\tilde\theta_n)
+=\det \p{\frac{\partial\tilde\theta}{\partial\theta}}\int\de\theta_1\dots\de\theta_n\,(f\circ\tilde\theta)(\theta_1,\dots,\theta_n)\]
+
+For future purposes, we now compute the Gaussian integral for Grassmann variables. 
+\[\int\de\theta_1\dots\de\theta_n\,\exp(-\sum_{ij}\theta_iM_{ij}\theta_j)\]
+Notice that if we have $n=2k$ Grassmann variables, the expansion of the exponential may contain products of terms in the form $\theta_iM_{ij}\theta_j$ up to $k$-th order (in the $(k+1)$-th order we will have at least two variables $\theta_i^a$ with $a\geq2$ that gives zero, same for higher orders). For $n=2k+1$ variables, we would have again powers of $\theta_iM_{ij}\theta_j$ up to $k$-th order, since at higher orders at least one variable appears two times, giving zero contribution. Hence, when we perform Gaussian integral for $2k$ variables in general we have non-zero result, but when we integrate over $2k+1$ variables we obtain always zero, since we have to perform $2k+1$ derivation of products of $2k$ variables. \\
+For an even number of variables, usually starting from $n=2k$ initial variables one introduce $k$ complex Grassmann variables, and in general the integral takes the form
+\[\int\underbrace{\de\bar\theta_1\de\theta_1\dots\de\bar\theta_k\de\theta_k}_{\de^k\bar\theta\,\de^k\theta}\,\exp(-\sum_{ij}\bar\theta_iM_{ij}\theta_j)\]
+Then we can redefine this further through an expansion of the exponential (in the right hand side we omit summations over $i,j$, moreover terms substituted with dots goes from the third order to the $k$-th order: the last term contains exactly $k$ summations and $2k$ Grassmann variables):
+\begin{align*}
+\int\de^k\bar\theta\,\de^k\theta\,\exp(-\sum_{ij}\bar\theta_iM_{ij}\theta_j)
+&=\int\de^k\bar\theta\,\de^k\theta\,\p{1-M_{i_1j_1}\bar\theta_{i_1}\theta_{j_1}+M_{i_1j_1}M_{i_2j_2}\bar\theta_{i_1}\theta_{j_1}\bar\theta_{i_2}\theta_{j_2}-\dots}
+\end{align*}
+This integration keeps only the higher order terms, i.e. ones with $2k$ Grassman variables
+\[\int\de^k\bar\theta\,\de^k\theta\,\exp(-\sum_{ij}\bar\theta_iM_{ij}\theta_j)=(-)^kM_{i_1j_1}M_{i_2j_2}\dots M_{i_kj_k}\int\de^k\bar\theta\,\de^k\theta\,\bar\theta_{i_1}\theta_{j_1}\bar\theta_{i_2}\theta_{j_2}\dots\bar\theta_{i_k}\theta_{j_k}\]
+Recall that in order to perform latter integral, we have to move all $\theta$ on the left and all $\bar\theta$ on the right (obtaining again sign corrections). Finally we obtain
+\[\int\de^k\bar\theta\,\de^k\theta\,\exp(-\sum_{ij}\bar\theta_iM_{ij}\theta_j)=\epsilon_{i_1\dots i_k}\epsilon_{j_1\dots j_k}M_{i_1j_1}\dots M_{i_kj_k}=\det M\]
+
+Let's compare this result with eq.~\eqref{eqn:part-func-free-0D} in the commuting case. The latter is proportional to the inverse of the square root of the determinant, while in this case the gaussian integral is directly proportional to the determinant. This is a consequence of the fact that for anticommuting variables the integral is the same as the derivation.
+
+\subsubsection{Localization}
+
+\textsf{Skinner~\cite{Skinner:2018aa} sec. 2.5.2; Cremonesi~\cite{Cremonesi:2013aa} sec. 3, Pestun~\cite{Pestun_2012} sec. 1-3}\\
+
+For a generic QFT, the asymptotic series is as good representation of the partition function (or correlation functions) as we can hope for, barring numerics. However, if the action is of a very special type, it may sometimes possible to evaluate the partition function and even certain correlation functions exactly. There are many mechanisms by which this might happen; this section gives a toy model of one of them, known as \textbf{localization} in supersymmetric theories. 
+
+Let's take a theory in zero-dimensional\footnote{As we mentioned before, in zero dimension we distinguish between boson and fermions only by them statististics, i.e. commuting/anticommuting proprieties, since in zero dimension spin is not defined.} space-time where there are one bosonic field $\psi$ and two fermionic fields $\psi_1$ and $\psi_2$. In the zero-dimensionale spacetime, the space of fields is indicated with $\RR^{1|2}$. Let's introduce the action ($\hbar=1$)
+\[S[\phi,\psi_1,\psi_2]=f(\phi)+g(\phi)\psi_1\psi_2\]
+for some $\RR$ valued functions of the boson field $f$ and $g$. Notice that this is the most general expression for an action defined with fields $\phi$,$\psi_i$: there can't be any terms in $S$ involving only one of the fermion fields since this term would itself be fermionic; there also can't be higher order terms in the fermion fields since $\psi^2_i=0$ for a Grassmann variable. 
+
+Given the action, the partition function is
+\begin{equation}\label{eqn:-part-func-localization}
+\mathcal Z=\int\de\phi\de\psi_1\de\psi_2\,e^{-S[\phi,\psi_i]}
+\end{equation}
+Generically, we would have to be content with a perturbative evaluation of $\mathcal Z$, using Feynman diagrams formed from edges for the $\phi$ and  $\psi_i$ fields, together with vertices from all the different vertices that appears in our action. For a complicated action, even low orders of the perturbative expansion might be difficult to compute in general. 
+
+We can introduce the complexification of fermions fields
+\[\psi=\frac12(\psi_1+i\psi_2)\qquad\bar\psi=\frac12(\psi_1-i\psi_2)\]
+
+Let's suppose the action takes a special form
+\begin{equation}\label{eqn:action-loc}
+S[\phi,\psi,\bar\psi]=\frac12\p{W'(\phi)}^2-i\psi\bar\psi W''(\phi)
+\end{equation}
+where $W'(\phi)=\partial_\phi W$ and $W''(\phi)=\partial^2_\phi W$ for some real\footnote{We require $W$ to be real since $\phi$ is real.} function $W$. \\
+Now consider the transformations
+\begin{equation}\label{eqn:fermionic-symm}
+\delta\phi=\epsilon\psi+\bar\epsilon\bar\psi\qquad\delta\psi=-i\bar\epsilon W'\qquad\delta\bar\psi=i\epsilon W'
+\end{equation}
+where $\epsilon$ is a fermionic parameter. These are \textbf{fermionic symmetry} or \textbf{supersymmetry} transformations in this zero-dimensional context. Under transformations eq.~\eqref{eqn:fermionic-symm} the action eq.~\eqref{eqn:action-loc} transforms as
+\[\delta S=W'W''\delta\phi-i\delta\psi\bar\psi W''+i\delta\bar\psi\psi W''-iW''\delta\phi\psi\bar\psi\]
+the term $\delta\phi\psi\bar\psi$ vanishes since $\delta\phi$ contains both $\psi$ and $\bar\psi$, then
+\[\delta S=W''[W'(\epsilon\psi+\bar\epsilon\bar\psi)-W'(\bar\epsilon\bar\psi+\epsilon\psi)]=0\]
+Thus the action is invariant under eq.~\eqref{eqn:fermionic-symm}, and this is a consequence of the proprieties of boson and fermions fields. 
+Morover, the integration measure $\de\phi\de\psi\de\bar\psi$ is invariant itself, this can be easily proved using Grassmann numbers proprieties and proprieties of Wedge product between $i\de\psi$ and $\de\bar\psi$. 
+
+Given an action with such special symmetry, we can prove that partition function $\mathcal Z$ (or any other correlator obtained by insertion of an operator into integral eq.~\eqref{eqn:-part-func-localization}) is different from zero only in special points.
+
+Let's describe the general argument. Consider a quantum field theory with fields collectively described by $\Phi$, defined on a configuration space $\mathcal C$ over which we path integrate. Assume that there is a symmetry group $G$ which acts freely on $\mathcal C$ (in particular the action $S$ is invariant under $G$) and consider an operator $O$ invariant under $G$. Then we can introduce collective coordinates for the $G$-action and integrate over them to get the volume of the group $G$. This volume factor multiplies a left-over path integral over $\mathcal C/G$, the space of orbits of $G$ in the configuration space:
+\begin{equation}\label{eqn:localization-formula}
+\int_{\mathcal C}\mathcal D\Phi\, Oe^{-S[\Phi]}=\text{Vol}(G)\int_{\mathcal C/G}\mathcal D\Phi\, Oe^{-S[\Phi]}
+\end{equation}
+For instance if we take
+\[\langle O\rangle=\int_{\RR^2}\de x\de y\,O(x,y)e^{-S(x,y)}\]
+where $S$ and $O$ (and obviously $\de x\de y$) are invariant under the orthogonal group $O(2)$: $\vec x'=R\vec x$, then in angular coordinates $S$ and $O$ depends only on radius $r$, therefore
+\[\langle O\rangle=2\pi\int_0^\infty\,O(r)e^{-S(r)}r\de r\]
+where $2\pi$ is the volume of the group $O(2)$ respect to the measure $\de\varphi$ and $r\de r$ is the restriction of the two form $\de x\de y$ in the quotient subset $\mathcal C/G=\RR^2/O(2)=\RR_\geq$.
+
+If the global symmetry group $G$ is generated by a fermionic charge $\mathcal Q$ (a fermionic charge is called \textbf{supercharge}; since the action is invariant under $G$ then the action of $\mathcal Q$ on $S$ gives zero: $\mathcal QS=0$), the associate collective coordinate $\theta$ is a Grassmann variable and the volume vanishes by the rules of Berezin integrals: Vol$(G)=\int\de\theta\,1=0$. Of course a supercharge $\mathcal Q$ cannot act freely on the whole configuration space $\mathcal C$, otherwise eq.~\eqref{eqn:localization-formula} would vanish even for the identity operator and we would not be able to normalize correlators. Hence the supercharge $\mathcal Q$ has fixed points, which form the so called \textbf{localization locus} of (bosonic) $\mathcal Q$-invariant configurations:
+\[\mathcal C_{\mathcal Q}=\{[\Phi]\in\mathcal C|\,\text{fermions}=0,\,\mathcal Q(\text{fermions})=0\}\]
+The supercharge $\mathcal Q$ acts freely on the complement of the localization locus $\mathcal C\setminus\mathcal C_{\mathcal Q}$, and we can apply the above argument there to learn that the path integral with insertion of $\mathcal Q$-closed observables vanishes over $\mathcal C\setminus\mathcal C_{\mathcal Q}$. Therefore we conclude that the path integral over field space $\mathcal C$ localizes to a subspace, the localization locus $\mathcal C_{\mathcal Q}$. 
+
+
+For instance, localization locus of fermionic symmetry eq.~\eqref{eqn:fermionic-symm} is given by values of $\phi$ and $\psi$ such that $\delta\phi=0=\delta\psi$, for instance if we take a value of $\phi$ such that $W'(\phi)=0$ and we take $\psi=0$ then both $\delta\phi$ and $\delta\psi$ are zero. 
+
+There is another way to see that path integrals of supersymmetric field theories localize to $\mathcal C_{\mathcal Q}$. In this second localization argument we use the freedom to deform the path integrand of a supersymmetric quantum field theory by a $\mathcal Q$-exact term to force the path integral to localize to  $\mathcal C_{\mathcal Q}$.  Let $\mathcal Q$ be the charge associated to the symmetry of our theory. The value
+\[B=\mathcal Q^2\]
+is the bosonic charge associated to a bosonic symmetry. Let $S$ be a $\mathcal Q$-invariant action, so that $\mathcal QS=0$. Consider a functional
+\[V[\phi]=\int\de^dx\mathcal V(\phi)\]
+which is invariant under $B$, so that $\mathcal Q^2V=0$. We can introduce a deformation of the action $S$ by the introduction of a $\mathcal Q$-exact term\footnote{Recall that if $\mathcal Q$ is the charge associated to some symmetry $G$, then $\mathcal QF$ is the infinitesimal transformation of $F$ under the symmetry $G$. We say that some function is $\mathcal Q$-exact if it can be written as infinitesimal transformation of some function $F$ under the symmetry $G$. This is analogous to exact functions in analysis, where some function $f$ is exact is it can be written as $f=\de g$ for some other function $g$, i.e. it can be written as total derivative respect to its parameter $\frac{\de g}{\de x}$  times an infinitesimal variation of the parameter $\de x$. } $\mathcal QV$ called   \textbf{localized action term}\footnote{Usually $V=\sum_i\psi_i(\mathcal Q\psi_i)^\dagger$, where $\mathcal Q\psi_i$ is the action of the generator $Q$ on the fermion $\psi_i$ and the summation is over all the fermionic variables $\psi_i$. The symbol $\dagger$ means the complex conjugated term. In such a way $S_{loc}=\sum_i\mathcal Q(\sum_i\psi_i(\mathcal Q\psi_i)^\dagger) $ is a sum of squares of supersymmetric variations. Then the saddle point configurations of $S_{loc}$ are given by $\mathcal C_{\mathcal Q}$.\label{note:usual-form-loc-action}}
+\todo{In this part many statements may be not precise.}
+\[S_{loc}=\mathcal QV=\int\de^dx\,\mathcal Q\mathcal V\]
+Then, introducing $\Phi$ as the collection of all fields in the theory, we can define following partition function
+\begin{equation}\label{eqn:loc-modif-part}
+\mathcal Z_t=\int\mathcal D\Phi \exp{-S[\Phi]-t\int \mathcal QV[\phi]\de^dx}
+\end{equation}
+When we take $t$ derivative of this object, we obtain
+\[\frac\de{\de t}\mathcal Z_t=\int\mathcal D\Phi\,\p{\mathcal Q\int V[\phi]\de^dx}\,\exp{-S[\Phi]-t\int \mathcal QV[\phi]\de^dx}\]
+but since action is invariant ($\mathcal QS=0$) and $\mathcal Q^2V=0$ we have 
+\begin{equation}\label{eqn:loc-modif-part-deriv}
+\frac\de{\de t}\mathcal Z_t=\int\mathcal D\Phi\,\mathcal Q\p{\int V[\phi]\de^dx\,\exp{-S[\Phi]-t\int \mathcal QV[\phi]\de^dx}}
+\end{equation}
+One can prove that since $\mathcal Q$ is the generator of the symmetry in our configuration space, then $\mathcal Q O$ is the infinitesimal variation of some operator $O$ under transformations of $G$. Hence, by a generalization of Stokes theorem, the integral of such term gives the transformation of $O$ at boundaries of the configuration space, where we assume a vanishing contribution from $O$:
+\[\frac\de{\de t}\mathcal Z_t=0\]
+Then the deformation of the action given by $S_{loc}$ do not change corrlators, in particular $\mathcal Z_0=\mathcal Z_t$ for any $t\in\RR$. 
+We can evaluate the partition function by taking  $t\to\infty$:
+\[\mathcal Z_0=\mathcal Z_\infty=\lim_{t\to\infty}\int\mathcal D\Phi \exp{-S[\Phi]-t\int \mathcal QV[\phi]\de^dx}=\lim_{t\to\infty}\int\mathcal D\Phi \exp{-S[\Phi]-t\,S_{loc}}\]
+In this limit the integrand is dominate by the saddle points of $S_{loc}$. Let us expand the fields about the localization locus
+\begin{equation}\label{eqn:fluctuations-loc}
+\Phi=\Phi_0+\frac{\delta\Phi}{\sqrt t}
+\end{equation}
+In this way we obtain
+\begin{equation}\label{eqn:action-fluct-local}
+S_{loc}[\Phi]=S_{loc}[\Phi_0]+\frac12\frac{\delta^2S_{loc}}{\delta\Phi^2}\frac{\delta\Phi^2}t+o\p{\frac1{t^{3/2}}}
+\end{equation}
+where $S_{loc}[\phi_0]$ is a constant, and we can set it to zero, then performing the change of variables eq.~\eqref{eqn:fluctuations-loc} we have the substitution $\mathcal D\Phi\to\de\p{\frac{\delta\phi}{\sqrt t}}\de\p{\frac{\delta\psi}{\sqrt t}}=\frac{\de(\delta\phi)}{\sqrt t}\sqrt t\,\de(\delta\psi)=\de(\delta\phi)\de(\delta\psi)$ and we have
+\[\mathcal Z_\infty=\lim_{t\to\infty}\int\mathcal D\delta\Phi \exp{-S[\Phi_0]-\frac12\frac{\delta^2S_{loc}}{\delta\Phi^2}\delta\Phi^2+o\p{\frac1{t^{1/2}}}}\]
+where we substituted $S[\Phi]$ with $S[\Phi_0]$ plus additional terms included into $o\p{t^{-1/2}}$. The factor $S[\Phi_0]$ is constant and can be set to zero, hence in the limit we obtain an explicit formula
+\[\mathcal Z=\mathcal Z_\infty=\lim_{t\to\infty}\int\mathcal D\delta\Phi \exp{-\frac12\frac{\delta^2S_{loc}}{\delta\Phi^2}\delta\Phi^2}=e^{-S[\Phi_0]}\frac{(2\pi\hbar)^{n/2}}{\det M_{bos}}\det M_{ferm}\]
+where $M_{bos}$ and $M_{ferm}$ are operators appearing at quadratic order in bosonif nd fermionic fluctuations in eq.~\eqref{eqn:fluctuations-loc}.
+
+This means that under fermionic symmetries, there is a general procedure (not very easy) that allow to obtain $\mathcal Z$ with a simple gaussian integration of fluctuations around zero locus. Only configurations invariant under the symmetry contributes to the integral, and these contribution can be computed explicitly. 
+
+Let's go back to our previous example. In our case the fermionic symmetry is charaterized by $Q^2\neq0$, but we can anyway introduce a partition function $\mathcal Z_t$ that depends on a parameter $t$ in such a way that the result does not depend on $t$, $\frac\de{\de t}\mathcal Z_t=0$, in such a way that I can compute 
+\[\mathcal Z_t=\int\de\phi\de\psi\de\bar\psi\,\exp{-S_t[\phi,\psi,\bar\psi]}\]
+by introducing a modified action
+\begin{equation}\label{eqn:modified-action-loc}
+S_t=\frac12t^2(W')^2-itW''\psi\bar\psi
+\end{equation}
+Modifying the action I have a different fermionic symmetry such that the theory is invariant, such a symmetry this time depends on $t$. Then
+\begin{equation}\label{eqn:modified-action-loc-label}
+\frac\de{\de t}S_t=t(W')^2-iW''\psi\bar\psi=Q\p{\frac i2W'(\psi-\bar\psi)}
+\end{equation}
+where $Q$ acts as
+\[Q=(\psi+\bar\psi)\frac\partial{\partial \phi}-itW'\p{\frac\partial{\partial\psi}-\frac\partial{\partial\bar\psi}}\]
+This means for instance
+\[Q[\psi]=-itW'\]
+and
+\[Q[\phi]=\psi+\bar\psi\]
+i.e. we are taking previous transformation for a hermitian parameter $\epsilon=\bar\epsilon$ and then we are rescaling the transformation in such a way that the action is invariant, $Q[S_t]=0$. 
+This is similar to what we done in eq.~\eqref{eqn:loc-modif-part} where we introduced a boundary term $-t\int QV[\phi]\de^dx$ in such a way that the derivative eq.~\eqref{eqn:loc-modif-part-deriv} gives a boundary term. In our case, instead of the partition function, we modified the action eq.~\eqref{eqn:modified-action-loc} since in this way the derivative of the action itself is a boundary eq.~\eqref{eqn:modified-action-loc-label}. Indeed, also in this case
+\[\frac\de{\de t}\mathcal Z_t=\int\de\phi\de\psi\de\bar\psi\,Q\p{\frac12W'(\psi-\bar\psi)e^{-S_t}}=0\]
+since the argument of the integrand is again a boundary. 
+Then we can expand again fields about locus
+\[\phi=\phi_0+\frac{\delta\phi}{t}\qquad\psi=\frac{\delta\psi}{\sqrt t}\]
+where we modified the exponents of $t$ for bosonic fields in order to reproduce same degrees of freedom for both bosonic and fermionic parts, in such a way the action is invariant. 
+Now the action can be expanded in the following way
+\[S_t=\frac{t^2}2W'(\phi_0)^2+\frac{t^2}2\p{2(W'')^2+2W'''W'(\phi_0)}\frac{\delta\phi^2}{t^2}-2tW''(\phi_0)\frac{\delta\psi_1\delta\psi_2}t+o\p{\frac1{\sqrt t}}\]
+Notice that we can set $W'(\phi_0)=0$ and $W'''=0$ since we are considering the localization locus where fermion symmetry vanishes, so the expansion has only quadratic pieces
+\[\mathcal Z_t=\int\de\phi\de\psi\de\bar\psi\,\exp{(W'')^2\delta\phi^2-2W''\delta\psi_1\delta\psi_2}\]
+and up to coefficent this is proportional to the mass term of fermions $W''$ divided by the root of the mass squared of the boson $(W'')^2$
+\[\mathcal Z_t\simeq\frac{W''}{\sqrt{(W'')^2}}=\frac{W''}{|W''|}=\text{sgn} W''(\phi_0)\]
+This means that the partition function simply counts maximum and minimum as explained in the next figure:
+\begin{figure}[H]
+\centering
+\includegraphics[width=6cm]{../img/Localization.png}
+\caption{\textit {The partition function receives contributions just from infinitesimal neighbourhoods of the critical points of $h(\phi)=W(\phi)$. These alternately contribute $\pm1$ accoarding to whether they are minima or maxima}}
+\end{figure}
+
+Now we can repeat this argument for expectation value of other operators $\langle O\rangle$ if $QO=O$. this means that also for such expectation values the only contributions are given by a specific set of points, defined by $W'=0$
+
 
 
 
