@@ -200,17 +200,17 @@ Notice that we may exchange indices $\rho$ and $\nu$ in the second term thanks t
 and taking into account this natural symmetrization we can write the EoM in the following form:
 \begin{equation}\label{eqn:eom-levi-civita}
 \boxed{
-\frac{\de^2X^\mu}{\de\lambda^2}+{\Gamma^\mu}_{\nu\rho}(X)\frac{\de X^\nu}{\de\lambda}\frac{\de X^\rho}{\de\lambda}=0
+\frac{\de^2X^\mu}{\de\lambda^2}+\Gamma^\mu_{\nu\rho}(X)\frac{\de X^\nu}{\de\lambda}\frac{\de X^\rho}{\de\lambda}=0
 }
 \end{equation}
 where terms
-\begin{equation}
+\begin{equation}\label{eqn:dfn-levi-civita-coeff}
 \boxed{
-{\Gamma^\mu}_{\nu\rho}(X)\equiv\frac12g^{\mu\sigma}(\partial_\nu g_{\rho\sigma}+\partial_\rho g_{\nu\sigma}-\partial_\sigma g_{\nu\rho})
+\Gamma^\mu_{\nu\rho}(X)\equiv\frac12g^{\mu\sigma}(\partial_\nu g_{\rho\sigma}+\partial_\rho g_{\nu\sigma}-\partial_\sigma g_{\nu\rho})
 }
 \end{equation}
-are known as \textbf{Christoffel symbols} or \textbf{Levi-Civita connection}.  ${\Gamma^\mu}_{\nu\rho}(X)$ clearly is not a tensor, anyhow its transformation proprieties must be exactly the ones of $\ddot X^\mu$ in order to satisfy eq.~\eqref{eqn:eom-levi-civita} for any choice of coordinates $X^\mu$. Moreover Christoffel symbols shows following symmetry
-\[{\Gamma^\mu}_{\nu\rho}={\Gamma^\mu}_{\rho\nu}\]
+are known as \textbf{Christoffel symbols} or \textbf{Levi-Civita connection}.  $\Gamma^\mu_{\nu\rho}(X)$ clearly is not a tensor, anyhow its transformation proprieties must be exactly the ones of $\ddot X^\mu$ in order to satisfy eq.~\eqref{eqn:eom-levi-civita} for any choice of coordinates $X^\mu$. Moreover Christoffel symbols shows following symmetry
+\[\Gamma^\mu_{\nu\rho}=\Gamma^\mu_{\rho\nu}\]
 
 As we done for the flat space-time, we can set $\tilde S=\int\de\lambda\tilde L$ and define the four momentum in curved space as
 \begin{equation}
@@ -223,7 +223,7 @@ By using this identification we can rewrite EoM in terms of 4-momentum
 
 \begin{equation}\label{eqn:eom-levi-civita-moment}
 \boxed{
-\frac{\de P^\mu}{\de\lambda}+{\Gamma^\mu}_{\nu\rho}(X)P^\nu P^\rho=0
+\frac{\de P^\mu}{\de\lambda}+\Gamma^\mu_{\nu\rho}(X)P^\nu P^\rho=0
 }
 \end{equation}
 This formula holds both massive and massless case, but in the massive case we have $\lambda=\frac\tau m$  and the four momentum can be written in terms of velocity:
@@ -231,11 +231,11 @@ This formula holds both massive and massless case, but in the massive case we ha
 then the EoM becomes
 \begin{equation}\label{eqn:eom-levi-civita-velocity}
 \boxed{
-\frac{\de u^\mu}{\de\tau}+{\Gamma^\mu}_{\nu\rho}(X)u^\nu u^\rho=0
+\frac{\de u^\mu}{\de\tau}+\Gamma^\mu_{\nu\rho}(X)u^\nu u^\rho=0
 }
 \end{equation}
-In general (even for massless particles) ${\Gamma^\mu}_{\nu\rho}\neq0$ and then $P^\mu$ is not conserved:
-\[\frac{\de P^\mu}{\de\lambda}=-{\Gamma^\mu}_{\nu\rho}(X)P^\nu P^\rho\]
+In general (even for massless particles) $\Gamma^\mu_{\nu\rho}\neq0$ and then $P^\mu$ is not conserved:
+\[\frac{\de P^\mu}{\de\lambda}=-\Gamma^\mu_{\nu\rho}(X)P^\nu P^\rho\]
 In order to obtain a conserved momentum we have to require additional symmetries in our manifold, as it happen in the Minkowski case, which is the maximally symmetric space-time (since $\eta_{\mu\nu}$ is invariant under a large number of symmetries given by the Poincaré group). 
 We will see that the four momentum conservation is associated to the invariance of the theory under space translations. In general only the ``lenght'' of $P^\mu$ is preserved, indeed using eq.~\eqref{eqn:action-massice-part-curved} and eq.~\eqref{eqn:action-massless-part-curved} with $e(\lambda)=1$ we obtain
 \[P^\mu P_\mu=\dot X^\mu\dot X_\mu=-m^2\]
@@ -243,8 +243,155 @@ We will see in the following that eq.~\eqref{eqn:eom-levi-civita-moment} directl
 
 
 
+\section{Covariant derivatives}
+\textsf{Carroll sec. 3.1,3.2}\\
+
+Let's consider geometrical interpretation of eq.~\eqref{eqn:eom-levi-civita} and eq.~\eqref{eqn:dfn-levi-civita-coeff}  we derived in the previous lecture. All what we stated in this section hold in any metric space, not only Lorenzian ones. 
+
+First of all notice that $\Gamma^\mu_{\nu\rho}$ soes not transform as a tensor. Rather, they define a generalization of usual derivative, the so-called \textbf{covariant derivative} $\nabla_\mu$ on vector fields, one forms, and in general on tensors
+\begin{align*}
+\nabla_\mu V^\mu&=\partial_\mu V^\nu+\Gamma^\nu_{\rho\mu}V^\rho\\
+\nabla_\mu\alpha_\nu&=\partial_\mu\alpha_\nu-\Gamma^\rho_{\nu\mu}\alpha_\rho\\
+\nabla_\mu T^{\nu\rho\dots}_{\sigma\dots}&=\partial_\mu T^{\nu\rho\dots}_{\sigma\dots}+{\Gamma^\nu}_{\tau\mu}T^{\tau\rho\dots}_{\sigma\dots}\\
+&\quad+\Gamma^\rho_{\tau\mu}T^{\nu\tau\dots}_{\sigma\dots}+\dots-\Gamma^\tau_{\sigma\mu}T^{\nu\rho\dots}_{\tau\dots}-\dots
+\end{align*}
+Differently to usual partial derivative - which in general do not transform tensor field in tensor field - the covariant derivative $\nabla$ applied to a tensor of type $(n,m)$  produces a tensor of type $(n,m+1)$. Note that $\nabla_\mu$ preserves (anti)symmetry of indices and satisfies Leibniz rule
+\[\nabla_\mu({T^\rho\dots}W_{\sigma\dots})=(\nabla_\mu T^{\rho\dots})W_{\sigma\dots}+T^{\rho\dots}\nabla_\mu W_{\sigma\dots}\]
+
+In order to behave like a derivative (preserving tensorial nature of objects)  $\Gamma^\mu_{\nu\rho}$ must transform in such a way to ``correct'' the non-covariance of $\partial_\mu T^{\nu\dots}_{\rho\dots}$. For instance, for vector fields
+\[\partial_\mu=A^\nu_\mu\tilde\partial_\nu\qquad V^\mu={(A^{-1})}^\mu_\nu\tilde V^\nu\]
+with
+\[\tens A\mu\nu=\pder{\tilde x^\mu}{x^\nu}\qquad\tens{(A^{-1})}\mu\nu=\pder{x^\mu}{\tilde x^\nu}\]
+when we make a coordinate transformation of $\partial_\mu V^\nu$ we see that traditional derivatives do not give another vector field
+\[\partial_\mu V^\nu=\tens A\rho\mu\tilde\partial_\rho(\tens{(A^{-1})}\nu\sigma\tilde V^\sigma)=\tens A\rho\mu[\tens{(A^{-1})}\nu\sigma\tilde\partial_\rho\tilde V^\sigma+(\tilde \partial_\rho\tens{(A^{-1})}\nu\tau)\tilde V^\tau]\]
+I order to correct this, we have to use the covariant derivative
+\begin{align*}
+\nabla_\mu V^\nu
+&=\partial_\mu V^\nu+\tens\Gamma\nu{\alpha\mu}V^\alpha\\
+&=\tens A\rho\mu\tens{(A^{-1})}\nu\sigma[\tilde\partial_\rho\tilde V^\sigma\underbrace{\overbrace{\tens A\sigma\alpha\tilde\partial_\rho\tens{(A^{-1})}\alpha\tau}^{\tens A\sigma\alpha\tens{(A^{-1})}\beta\rho\partial_\beta\tens{(A^{-1})}\alpha\tau}\tilde V^\tau+\tens{(A^{-1})}\beta\rho\tens A\sigma\gamma\tens\Gamma\gamma{\alpha\beta}\tens{(A^{-1})}\alpha\tau\tilde V^\tau}_{\tens{\tilde\Gamma}\sigma{\tau\rho}\tilde V^\tau}]\\
+&=\tens A\rho\mu\tens{(A^{-1})}\nu\sigma(\tilde\partial_\rho\tilde V^\sigma+\tens{\tilde\Gamma}\sigma{\tau\rho}\tilde V\tau)\\
+&=\tens A\rho\mu\tens{(A^{-1})}\nu\sigma\tilde\nabla_\rho\tilde V^\sigma
+\end{align*}
+then in order to obtain a tensor as the result of the application covariant derivative to a vector field we require following transformation property under change of coordinates for Christoffel coefficients:
+\begin{equation}
+\tens{\tilde\Gamma}\mu{\nu\rho}=\tens A\mu\sigma\tens{(A^{-1})}\alpha\nu\tens{(A^{-1})}\beta\rho\tens\Gamma\sigma{\alpha\beta}+\tens A\mu\alpha\tens{(A^{-1})}\beta\rho\partial_\beta\tens{(A^{-1})}\alpha\nu
+\end{equation}
+with
+\[\tens A\mu\nu=\pder{\tilde x^\nu}{x^\nu}\qquad\tens{(A^{-1})}\mu\nu=\pder{x^\mu}{\tilde x^\nu}\]
+More explicitly, in coordinates
+\begin{equation}\label{eqn:transf-rule-LC-coeff}\boxed{
+\tchris\mu\nu\rho=\pder{\tilde x^\mu}{x^\sigma}\pder{x^\alpha}{\tilde x^\nu}\pder{x^\beta}{\tilde x\rho}\chris\sigma\alpha\beta+\pder{\tilde x^\mu}{x^\alpha}\pdder{x^\alpha}{\tilde x^\rho}{\tilde x^\nu}
+}\end{equation}
+This guarantees that any covariant derivative $\nabla_\mu\tens T{\rho\dots}{\nu\dots}$ transforms covariantly. One can check that Levi-Civita connection transforms according to these rules. 
+
+Notice that
+\begin{enumerate}[label=\textbullet]
+\item any connection $\chris\mu\nu\rho$ must transform in this way, actually this is the defining property of a connection;
+\item the non-tensorial term in eq.~\eqref{eqn:transf-rule-LC-coeff} is $\Gamma$-independent: this means that differences of connections $\Delta\chris\mu\nu\rho$ transform as tensors;
+\item the antisymmetric components of coefficient of a connection\footnote{Levi-Civita coefficients are symmetric, but this does not holds in general for any connection}
+\[\tens T\mu{\nu\sigma}=2\chris\mu{[\nu}{\rho]}=\chris\mu\nu\rho-\chris\mu\rho\nu\]
+transforms as a tensor, and define the \textbf{torsion} tensor
+\[T=2\chris\mu{[\nu}{\rho]}\partial_\mu\otimes\de x^\nu\de x^\rho\]
+Clearly, for Levi-Civita connection the torsion is vanishing
+\end{enumerate}
+
+The Levi-Civita connection is the only connection that is
+\begin{enumerate}
+\item torsion free ($\chris\mu\nu\rho=\chris\mu\rho\nu$)
+\item a metric connection such that $\nabla_\mu g_{\nu\rho}=0$, such property is called \textbf{metricity}
+\end{enumerate}
+One can prove that these two conditions, given some metric $g_{\mu\nu}$, define uniquely a connection, which is the Levi-Civita connection. Let's give a sketch of proof. Imposing the compatibility with the metric and the symmetry property given by $T=0$ we have
+\[0=\nabla_\mu g_\nu\rho-\nabla_\nu g_{\rho\mu}-\nabla_\rho g_{\mu\nu}=\partial_\mu g_{\nu\rho}-\partial_\nu g_{\rho\mu}-\partial_\rho g_{\mu\nu}+2g_{\mu\sigma}\chris\sigma\nu\rho\]
+
+Note that a connection $\Gamma$ is analogous to a non-abelian gauge field and indeed one can give a unified description in terms of principal and vector bundles. However, in the Standard Model the gauge fields are elementary, while in General Relativity the Levi-Civita connection $\chris\mu\nu\rho$ is composite, in terms of the elementary field $g_{\mu\nu}(x)$. 
+
+Another important remark is that combining $g^{\mu\sigma}g_{\sigma\nu}=\delta^\mu_\nu$, $\nabla_\rho\delta_\nu^\mu=0$ (given by the fact that $\delta_\nu^\mu$ is constant) and the Leibniz rule we obtain that the covariant derivative of the inverse of the metric vanishes as well $\nabla_\mu g^{\nu\rho}=0$. \\
+Moreover, the metricity of LC connection, together with Leibniz rule, allows one to freely move $g_{\mu\nu}$ and $g^{\mu\nu}$ in and out-side $\nabla_\mu$. 
 
 
+
+\section{Parallel transport and Geodesics}
+\textsf{Carroll sec. 3.3, 3.4}\\
+
+Given a connection $\nabla$ and a curve $\gamma\in\mathcal M$ with coordinates $X(\lambda)$, we can define the covariant derivative along the curve of some tensor $T$ as
+\[\cder{T}{\lambda}=\dot X^\mu(\lambda)(\nabla_\mu T)(X(\lambda))=\der{T(X(\lambda))}\lambda+\dot X^\mu\chris\rho\sigma\mu(X)T^{\sigma\dots}_{\dots}+\dots\]
+which depends only on the values of the tensor on the curve. Indeed, $\cder{}{\lambda}$ is well defined also on tensor fields $T(\lambda)$ supported only on $\gamma$.
+\begin{figure}[H]
+\centering
+\includegraphics[width=2cm]{../img/parallel-transport.jpg}
+\end{figure}
+\noindent
+In particular, a vector field $V^\mu(\lambda)$ supported on a curve $\gamma:\,\lambda\mapsto X^\mu$, is \textbf{parallel-transported} along the curve iff it is covariantly constant along $\gamma$
+\begin{equation}\label{eqn:parallel-transport}\boxed{
+\cder{V^\mu}{\lambda}=\der{V^\mu(\lambda)}{ \lambda}+\dot X^\rho(\lambda)\chris\mu\sigma\rho(X(\lambda))V^\sigma(\lambda)=0
+}\end{equation}
+This is a first order equation that can be always be integrated, then given $V^\mu(\lambda_0)$ one can define the corresponding parallel transported vector field uniquely through eq.~\eqref{eqn:parallel-transport}. 
+
+If the connection is compatible with the metric (for instance if it is Levi-Civita connection) the parallel transport preserves the scalar product between vectors: if
+\[\cder{V^\mu(\lambda)}{\lambda}=\cder{W^\mu(\lambda)}{\lambda}=0\]
+then
+\[\der{}{\lambda}(V^\mu W_\mu)=\cder {}{\lambda}(g_{\mu\nu}V^\mu W^\nu)=\cder{g_{\mu\nu}}{\lambda}V^\mu W^\nu+g_{\mu\nu}\p{\cder{V^\mu}{\lambda}W^\nu+V^\mu\cder{W^\nu}{\lambda}}=0\]
+i.e. $V^\mu W_\mu$ is constant along the curve if $V^\mu$ and $W^\mu$ are parallel transported along $\gamma$. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=5cm]{../img/parallel-transport-scalar-prod.jpg}
+\end{figure}
+
+In a flat space a straight line is a path that parallel-transports its own tangent vector. We can generalize this concept for more general connection introducing a new object. In particular \textbf{geodesic} are curves that satisfies following relation, namely \textbf{geodesics equation}:
+\begin{equation}\label{eqn:geodesic-equation}\boxed{
+\cder{\dot X(\lambda)}\lambda=\frac{\de^2 X^\mu}{\de\lambda^2}+\chris\mu\nu\rho(X)\der{X^\mu}\lambda\der{X^\nu}\lambda=0
+}\end{equation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=4cm]{../img/geodesic.jpg}
+\end{figure}
+
+\noindent
+Such curves can be thought heuristically as straightest possible curve in a curved space, and are exactly the particle's EoM for the affine parameter $\lambda$. This makes further manifest the invariance of the particle's EoM, indeed trajectories are a geometrical object independent from bulk coordinate since covariant derivative of a vector is a tensor. Moreover, in the case of LC connection a time-like geodesic can be equivalently characterized  as the curve between two fixed events that extremizes the proper time. 
+
+Another important point is that using the compatibility between parallel transport and scalar product we can conclude that under parallel transport
+\[\dot X^\mu(\lambda)\dot X_\mu(\lambda)=g_{\mu\nu}(X(\lambda))\dot X^\mu(\lambda)\dot X^\nu(\lambda)=\,\text{constant}\]
+and then
+\[\boxed{
+\dot X^\mu(\lambda_0)\,\text{is time-like/space-like/null}\quad\Rightarrow\quad\dot X^\mu(\lambda)\,\text{is time-like/space-like/null }\,\forall \lambda
+}\]
+This means that we can distinguish between time-like, space-like and null geodesics. In particular, for massless particles we do no need to separately solve for $\dot X^2(\lambda)=0$, but it is sufficient to impose it at $\lambda=\lambda_0$. 
+
+For space-like curves $X^\mu(\lambda)$, that is such that $g_{\mu\nu}(X)\dot X^\mu\dot X^\nu>0$, one can define the \textbf{proper length}
+\[\Delta l=\int\de\lambda\,\sqrt{g_{\mu\nu}(X)\dot X^\mu\dot X^\nu}\]
+and by following the same steps as for the particle's action, one can show that $\Delta s$ between two fixed points is extremized if the geodesic equation is satisfied, with Levi-Civita connection $\chris\mu\nu\rho$ and affine parameter in the form 
+\[\lambda=al+b\]
+for some constant $a$ and $b$ (geodesic equation does not change under this reparametrization). In particular (locally) shortest curves between two points are space-like geodesics. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=5cm]{../img/extremized-geodesic.jpg}
+\end{figure}
+
+We said that geodesics parametrized by the affine parameter $\lambda$ coincides with EoM of point-particles. However, we may want to use a more general parameter $\sigma$ to describe the geodesics. Then the corresponding equation obtained from geodesic equation through a change of parameter is
+\begin{equation}\label{geodesic-eqn-change-coord}\boxed{
+\cder {\dot X^\mu(\sigma)}\sigma=\frac{\de^2 X^\mu}{\de\sigma^2}+\chris\mu\nu\rho\der{X^\nu}\sigma\der{X^\rho}{\sigma}=f(\sigma)\der{X^\mu}\sigma
+}\end{equation}
+with $f(\sigma)=-\p{\der\sigma\lambda}^{-2}\frac{\de^2\sigma}{\de\lambda^2}$ (prove this as an exercize). Viceversa, if this equation holds, then we can always fine an affine parameter $\lambda$ such that $f(\sigma)\der{X^\mu}\sigma=0$. 
+Then, the condition eq.~\eqref{geodesic-eqn-change-coord} requires that $\dot X^\mu$ is parallely transported along $\gamma$, up to possible rescaling of its length. This gives a more general description of geodesics respect to eq.~\eqref{eqn:geodesic-equation}, indeed eq.~\eqref{geodesic-eqn-change-coord} states that a geodesics is a curve such that the covariant derivative of the tangent vector is proportional to the tangent vector itself (previous definition states that tangent vector must be covariantly constant). 
+
+One may consider more general time-like trajectories parametrized by proper time and define \textbf{four-velocity} as
+\[u^\mu=\der{X^\mu}{\tau}\]
+Then using the notion of covariant derivative for a trajectory, define \textbf{four-acceleration} as
+\[\alpha^\mu=\cder{u^\mu}\tau=\frac{\de^2 X^\mu}{\de\tau^2}+\chris\mu\rho\sigma\der{X^\rho}\tau\der{X^\sigma}{\tau}\]
+With the definition, as expected, geodesic condition is equivalent to 
+\[\alpha^\mu=0\]
+i.e. the 4-velocity is covariantly constant. This equation also define the EoM for free particles in a curved space. Whenever a force (not the gravitational one) is applied to a particle, the effect of this forces can be codified in a \textbf{four-force} defined as
+\[f^\mu=m\alpha^\mu=m\cder{u^\mu}\tau\]
+As in the special relativistic case, 4-velocity and 4-acceleration satisfies useful properties. First of all
+\[u^\mu u_\mu=-1\]
+Then, by applying the covariant derivative on both sides of this equation and using the  metricity of the connection, we obtain
+\[u_\mu\alpha^\mu=g_{\mu\nu}u^\mu\alpha^\nu=0\]
+and this means that $\alpha^\mu$ is space-like. 
+Finally, we can define \textbf{proper acceleration} as the acceleration in the proper instance frame of the particle itself
+\[\alpha=\sqrt{\alpha^\mu\alpha_\mu}\]
 
 
 
