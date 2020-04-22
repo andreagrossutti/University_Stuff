@@ -1,7 +1,7 @@
 \documentclass[../main/main.tex]{subfiles}
 \begin{document}
 
-\chapter {Physics in spacetimes}
+\chapter {Motion in spacetime}
 
 
 
@@ -310,7 +310,7 @@ Moreover, the metricity of LC connection, together with Leibniz rule, allows one
 
 
 
-\section{Parallel transport and Geodesics}
+\section{Parallel transport and geodesics}
 \textsf{Carroll sec. 3.3, 3.4}\\
 
 Given a connection $\nabla$ and a curve $\gamma\in\mathcal M$ with coordinates $X(\lambda)$, we can define the covariant derivative along the curve of some tensor $T$ as
@@ -392,6 +392,157 @@ Then, by applying the covariant derivative on both sides of this equation and us
 and this means that $\alpha^\mu$ is space-like. 
 Finally, we can define \textbf{proper acceleration} as the acceleration in the proper instance frame of the particle itself
 \[\alpha=\sqrt{\alpha^\mu\alpha_\mu}\]
+
+%%%%%%%%%%%Lecture 8.I%%%%%%%%%
+
+\section{The Newtonian limit}
+
+\textsf{Carroll, sec. 4.1}
+
+We have started from the simplest possible action for particles and we have concluded that a probe particle follows geodesics, that is, the \emph{strightest possible} path in space-time. 
+
+Regarding $g_{\mu\nu}(x)$ as a gravitational field, this provides the mathematical definition of a \emph{freely falling} particle, then we should be able to recover the Newtonian description. This should hold in the so-called \textbf{Newtonian limit}.
+
+The Newtonian limit is defined by three assumptions:
+\begin{enumerate}[label=(\arabic*)]
+\item \textbf{Weak field}: metric can be regarded to be a very small fluctuation about the Minkowskian one:
+\[g_{\mu\nu}(x)\simeq\eta_{\mu\nu}+h_{\mu\nu}(x)\qquad\text{with}\quad h_{\mu\nu}\ll1\]
+\item \textbf{Stationary field}: the metric is time independent up to higher corrections
+\[h_{\mu\nu}(t,\vec x)=h_{\mu\nu}(\vec x)\]
+Notice that this implies the (approximate) break of the  Lorentz symmetry (since there is a difference between space and time)
+\item \textbf{Non-reativistic limit}
+\[v\ll c\qquad\Rightarrow\quad\text{slow massive particles}\]
+More precisely, in units $c=1$, we will assume $v^2\lesssim h_{\mu\nu}$. 
+\end{enumerate}
+
+If we take the time $t$ as world-line parameter (i.e. we use the \emph{static gauge}) for the derivative of any vector we obtain $\dot X^\mu=(1,\dot{\vec X}(t))$, in particular in the Newtonian limit we have $|\dot{\vec X}|\sim v\ll1$. Then the length of a tangent vector can be approximated as follows:
+\begin{align*}
+g_{\mu\nu}(X)\dot X^\mu\dot X^\nu
+&=[\eta_{\mu\nu}+h_{\mu\nu}(\vec X)+O(h^2)]\dot X^\mu\dot X^\nu\\
+&=\eta_{\mu\nu}\dot X^\mu\dot X^\nu+[h_{00}(\vec X)+O(h^{3/2})]\\
+&=-[1-|\dot{\vec X}|^2-h_{00}(\vec X)+O(h^{3/2})]
+\end{align*}
+Then we can perform the following expansion of the particle's action
+\begin{align*}
+S&=-m\int\de t\sqrt{-g_{\mu\nu}\dot X^\mu\dot X^\nu}\\
+&\simeq-m\int\de t\sqrt{1-|\dot{\vec X}|^2-h_{00}(\vec X)+\dots}\\
+&\simeq\int\de t\left[-m+\frac12m|\dot{\vec X}|^2+\frac12mh_{00}(\vec X)+\dots\right]
+\end{align*}
+We can see that, up to irrelevant constant terms, the expression into square brackets corresponds to the Lagrangian for a particle moving in a gravitational potential
+\[L=\frac12m|\dot{\vec X}|^2-m\Phi(\vec X)\qquad\text{where}\qquad h_{00}(\vec x):=-2\Phi(\vec x)\]
+Such approximations holds as long as $\Phi(\vec x)\ll c^2$. 
+
+On the Earth surface $\Delta z\lesssim 10$km, we have $\frac\Phi{c^2}\lesssim10^{-12}$ and $\p{\frac vc}^2\lesssim h$ if $v\lesssim10^{-6}c\simeq3\times10^2\text{m/s}\simeq10^3$km/h.
+
+This matches what found by taking the weak-field limit ($\Phi\ll1$) of Rindler's metric:
+\[\de s^2=-e^{2\Phi}\de t^2+\de\vec x\cdot\de\vec x\simeq-(1+2\Phi)\de t^2+\de\vec x\cdot\de\vec x\]
+
+\begin{exercise}
+Recover Newton's law $\vec a=-\vect\nabla\Phi$ by taking the Newtonian limit directly of the geodesic equation.
+\end{exercise}
+
+Hence we found that the geodesic equation reproduces the correct Newton's equation in the Newtonian limit. 
+
+%%%%%%%%%%%%LECTURE 8.II%%%%%%%%%%%%%%%
+
+
+
+\subsection{Example: The evolving universe (II)}
+
+\begin{example}[The evolving universe (II)]
+\textsf{Carroll, sec 3.5}
+
+\[\de s^2=-\de t^2+a^2(t)\delta_{ij}\de x^i\de x^j\qquad\Rightarrow\qquad g_{00}=-1\quad g_{ij}=a(t)\delta_{ij}\quad g_{0i}=0\]
+
+The non-vanishing Christoffel symbols are $\chris0ij=a\dot a\delta_{ij}$, $\chris ij0=\chris i0j=\frac{\dot a}a\delta^i_j$ ($\dot a=\der{a(t)}t$)
+
+The geodesic equation becomes
+\[\frac{\de^2T}{\de\lambda^2}+a(T)\dot a(T)\delta_{ij}\der{X^i}\lambda\der{X^j}\lambda=0
+\qquad
+\frac{\de^2X^i}{\de\lambda^2}+2\frac{\dot a}a(T)\der T\lambda\der{X^i}\lambda=0
+\qquad(\text{with affine }\lambda)\]
+
+$X^i(\lambda)\equiv x_o^i$ (constant) describes a time-like geodesic, provided
+\[\frac{\de^2T}{\de\lambda^2}=0\qquad\Rightarrow\qquad T(\lambda)=a\lambda+b\]
+
+A convenient choice is $T(\lambda)=\lambda\equiv\tau$ and then we fill the space-time with (probe) \emph{freely falling} observers at fixed $x^i$ coordinates and whose clocks measure the time $t$. However, notice that they are not ``parallel'' since their distance sales with $a(t)$. 
+
+More generic geodesics $X^i(\lambda)=x_0^i+f(\lambda)n^i$ where $x_0^i$ and $n_i$ are constant such that $\vec n\cdot\vec n=1$ the geodesics equations becomes
+\begin{equation}\label{eqn:geo-eqn-expand-univ}
+\frac{\de^2T}{\de\lambda^2}+a(T)\dot a(T)\p{\der{f(\lambda)}\lambda}^2=0
+\qquad
+\frac{\de^2 f}{\de\lambda^2}+2\frac{\dot a}a(T)\der T\lambda\der{f}\lambda=0
+\end{equation}
+Hence geodesic equations reduce to equations for $T(\lambda)$ and $f(\lambda)$ only. Any other ``freely falling'' observer will travel along straight spatial trajectories, as expected from spatial homogeneity and isotropy. 
+
+Let's restrict ourself to null geodesics $X^i(\lambda)=x_0^i+f(\lambda)n^i$. Then
+\[0=g_{\mu\nu}\der{X^\mu}\lambda\der{X^\nu}\lambda=\p{\der T\lambda}^2-a^2(T)\der{\vec X}\lambda\cdot\der{\vec X}\lambda=\p{\der T\lambda}^2-a^2(T)\p{\der f\lambda}^2\]
+and this implies
+\begin{equation}\label{eqn:expand-univ-evolut-T}
+\der T\lambda=a(T)\der f\lambda
+\end{equation}
+(the other sign can be reabsorbed by changing $f\to-f$).
+
+Notice that we may use $t=T(\lambda)$ instead of $\lambda$ to parametrize the world-line, hence
+\begin{equation}
+\der{f(t)}t=\frac1{a(t)}
+\end{equation}
+and
+\begin{equation}
+X^i(t)=x_0^i(t)=x_0^i+n^i\int_{t_0}^{t}\frac{\de t'}{a(t')}
+\end{equation}
+This is possible because of the isotropy, which allows us to reduce the problem to a 2-dimensional one. 
+
+On the other hand, both equations in eq.~\eqref{eqn:geo-eqn-expand-univ} reduce to
+\begin{equation}
+\frac{\de^2T(\lambda)}{\de\lambda^2}+\p{\frac{\dot a}a}(T)\p{\der T\lambda}^2=0
+\end{equation}
+so
+\[\der T\lambda=\frac{E_0}{a(T)}\]
+where $E_0$ is an integration constant. 
+
+Recall that $P^\mu=\der{X^\mu}\lambda$ (with proper $\lambda$). In general, the energy of the particle measured by a (time-like observer with 4-velocity $u^\mu$ is then given by
+\begin{equation}
+E=-u_\mu P^\mu
+\end{equation}
+(which is intrinsic but observer-dependent!) since in the observer's (instant) inertial rest frame
+\[\hat g_{\mu\nu}=\eta_{\mu\nu}\qquad\hat u^\mu=(1,0,0,0)\quad\Rightarrow\quad E=\hat P^0\]
+%
+\begin{figure}[H]
+\centering
+\includegraphics[width=2cm]{../img/expand-univ-obs-rest-frame.jpg}
+\end{figure}
+
+In cosmological space-times, consider (geodesic) coordinate observers at constant $\vec x$, this implies $u^\mu=(1,0,0,0)$ and 
+\[E=-u_\mu P^\mu=P^0=\der T\lambda=\frac{E_0}{a(T)}\]
+The relation
+\begin{equation}\boxed{
+E=\frac{E_0}{a(T)}
+}\end{equation}
+means the remarkable fact that in an evolving universe $E$ is not constant. 
+Indeed since $a(t)\sim t^p$ or $e^{Ht}$ (expanding universe) $E$ decreases.
+
+By the QFT relation $P^mu=\hbar k^\mu$ (where $k^\mu$ is the wave 4-vector) which implies $E=\hbar\omega$ this implies
+\begin{equation}
+\omega=\frac{\omega_0}{a(t)}
+\end{equation}
+Hence, in an expanding universe, there is a \textbf{cosmological red-shift}
+\begin{equation}\boxed{
+\frac{\omega_B}{\omega_A}=\frac{a_A}{a_B}<1
+}\end{equation}
+%
+\begin{figure}[H]
+\centering
+\includegraphics[width=5cm]{../img/cosmological-redshift-1.jpg}
+\end{figure}
+\noindent
+which is a purely cosmological effect, and cannot be interpreted as Doppler effect since, as we can see in the next picture, at times $t_A$ and $t_B$ the observers are not receeding:
+\begin{figure}[H]
+\centering
+\includegraphics[width=4cm]{../img/cosmological-redshift-2.jpg}
+\end{figure}
+
+\end{example}
 
 
 
