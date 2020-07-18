@@ -40,6 +40,13 @@
 \usetikzlibrary{fadings}
 \usetikzlibrary{patterns}
 \usetikzlibrary{shadows.blur}
+\usepackage{hyperref}
+\hypersetup{
+	linktoc=all,
+	colorlinks=true,
+	linkcolor={blue!70!black},
+	citecolor={green}
+}
 
 
 %footnote con num romani invece dei numeri (lo trovo più chiaro visto che potrebbero essere scambiati per apici)
@@ -73,6 +80,9 @@
 \newcommand{\pdder}[3]{\frac{\partial^2 #1}{\partial #2\,\partial #3}}
 \newcommand{\inv}[1]{{#1}^{-1}}
 
+\newcommand{\comma}{\quad,\quad}
+
+\newenvironment{eqalign}{\begin{equation}\begin{aligned}}{\end{aligned}\end{equation}}
 
 \newcommand{\skipline}{\leavevmode\vspace{\baselineskip}} %Salta una riga (devi saltare una riga prima di mettere il comando)
 

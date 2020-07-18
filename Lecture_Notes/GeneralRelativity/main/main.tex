@@ -4,13 +4,40 @@
 \input{../../latex_settings_packages.tex}
 \input{../../Ambienti_ThDefProp.tex}
 
+\newcommand{\dimension}[1]{\left[#1\right]}
+\newcommand{\diff}[2]{\de^{#1}{#2}\,}
+\newcommand{\lag}{\mathcal L}
+\newcommand{\sqder}[2]{\frac{\text{D}^2 #1}{{\de #2}^2}}
+\newcommand{\pde}[1]{\partial_{#1}}
+\newcommand{\hpde}[1]{\hat\partial_{#1}}
+\newcommand{\cde}[1]{\nabla_{#1}}
+\newcommand{\icde}[1]{\nabla^{#1}}
 \newcommand{\cder}[2]{\frac{\text{D}#1}{\de#2}}
+\newcommand{\sqcder}[2]{\frac{\text{D}^2 #1}{{\de #2}^2}}
 \newcommand{\tens}[3]{{#1}^{#2}_{#3}} %tensor
+\newcommand{\met}[2]{g_{#1 #2}}
+\newcommand{\hmet}[2]{\hat g_{#1 #2}}
+\newcommand{\tmet}[2]{\tilde g_{#1 #2}}
+\newcommand{\imet}[2]{ g^{#1 #2}}
+\newcommand{\minkm}[2]{\eta_{#1 #2}}
+\newcommand{\minkim}[2]{\eta^{#1 #2}}
 \newcommand{\chris}[3]{{\Gamma}^{#1}_{#2 #3}}
 \newcommand{\tchris}[3]{{\tilde\Gamma}^{#1}_{#2 #3}}
 \newcommand{\hchris}[3]{{\hat\Gamma}^{#1}_{#2 #3}}
 \newcommand{\curv}[4]{{{R}^{#1}}_{#2 #3 #4}}
 \newcommand{\hcurv}[4]{{{{{\hat R}}^{#1}\,}}_{#2 #3 #4}}
+\newcommand{\tcurv}[4]{{R}_{#1 #2 #3 #4}}
+\newcommand{\htcurv}[4]{{\hat R}_{#1 #2 #3 #4}}
+\newcommand{\ricc}[2]{R_{#1 #2}}
+\newcommand{\eten}[2]{G_{#1 #2}}
+\newcommand{\emt}[2]{T_{#1 #2}}
+\newcommand{\temt}[2]{\tilde T_{#1 #2}}
+\newcommand{\iemt}[2]{T^{#1 #2}}
+\newcommand{\tiemt}[2]{\tilde T^{#1 #2}}
+\newcommand{\hiemt}[2]{\hat T^{#1 #2}}
+\newcommand{\press}{\mathcal P}
+
+
 
 
 \begin{document}
@@ -25,6 +52,7 @@
 \subfile{../chapters/Chap2.tex}
 \subfile{../chapters/Chap3.tex}
 \subfile{../chapters/Chap4.tex}
+\subfile{../chapters/Chap5.tex}
 
 \nocite{*}
 \printbibliography
