@@ -9,15 +9,17 @@ In this chapter we will discuss perturbation theory using path integral approach
 
 \section{Correlators and scattering amplitudes}
 
+\textsf{Skinner~\cite{Skinner:2018aa} sec. 1.2.2, 1.2.4}\\
+
 Primary object we will use to describe perturbative approach to QFT are the partition functions
 \[\mathcal Z(g,m,\lambda,\dots)=\int_C\mathcal D\phi \,e^{\frac i\hbar S[\phi]}\]
 As we already mentioned, the partition function does not depend directly from fields , but only on the other parameters of the theory. Using partition functions, we want to compute correlation functions, which are genericay expectation values of products of operators of these fields
 \begin{equation}\label{eqn:exp-value-prod-corr}\boxed{
 \left\langle\prod_{i=1}^nO_i(\phi)\right\rangle=\frac1{\mathcal Z}\int_C\mathcal D\phi \,e^{\frac i\hbar S[\phi]}\prod_{i=1}^nO_i(\phi)
 }\end{equation}
-Here we introduced the normalization factor $1/\mathcal Z$ so that the expectation value of operator 1 is unitary: $\langle1\rangle=1$. We introduced this normalizations since we want to use correlation functions in order to compute scattering amplitude using LSZ formula. 
+Here we introduced the normalization factor $1/\mathcal Z$ so that the expectation value of operator 1 is unitary: $\langle1\rangle=1$. We introduced this normalizations since we want to use correlation functions to compute scattering amplitude using LSZ formula. 
 
-Usually operators $O_i(\phi)$ are \emph{local operators}, this means that they depends on the value of $\phi$ and/or its derivatives at a point of the spacetime $p\in M$. Some example of local operators may be $\phi^4(x)$, $\phi(x)\partial_\mu\phi(x)\partial^\mu\phi(x)$, etc. Other important operators are \emph{integrated operators} over the full space time, for instance $\int_M\de^4x(\partial_\mu\phi\partial^\mu\phi)^2$. We can also integrate over some submanifold of $M$, for example this is what we do for \emph{Wilson lines}, which is a fundamental object in gauge theories defined in terms of a given connections $A$ on the gauge field and a certain closed path $\Gamma$
+Usually operators $O_i(\phi)$ are \emph{local operators}, this means that they depend on the value of $\phi$ and/or its derivatives at a point of the spacetime $p\in M$. Some example of local operators may be $\phi^4(x)$, $\phi(x)\partial_\mu\phi(x)\partial^\mu\phi(x)$, etc. Other important operators are \emph{integrated operators} over the full space time, for instance $\int_M\de^4x(\partial_\mu\phi\partial^\mu\phi)^2$. We can also integrate over some submanifold of $M$, for example this is what we do for \emph{Wilson lines}, which is a fundamental object in gauge theories defined in terms of a given connections $A$ on the gauge field and a certain closed path $\Gamma$
 \vspace{-0.5cm}
 \[\mathcal W_\Gamma=\Tr(-\oint_\Gamma\de x^\mu A_\mu)
 \qquad\quad
@@ -44,11 +46,11 @@ then it can be written in terms of the partition function
 Now, suppose that in my initial theory the action contains only the integral of $-\frac12\partial_\mu\phi\partial^\mu\phi$ and we want to study the response of the theory when we add the additional term $\frac\lambda{4!}\phi^4(x)$ to the integrand of the action. Such a response is meant to be exactly the expectation value we just calculated. 
 This implies that I can measure the response of the theory to the additional local operator by varying the partition function with respect to the coupling $\lambda$. 
 
-Let's generalize what we already stated. Image that I have an initial theory with action $S[\phi]$ (for example $S[\phi]=\int_M\de^4x\,\p{-\frac12\partial_\mu\phi\partial^\mu\phi}$) and I introduce a coupling term $\int_M\de^4xJ(x)O(x)$ as a perturbation to my initial theory. The function $J(x)$ is a called \emph{local coupling}, or more traditionally ``\emph{source}'', and generalize the parameter $\lambda$, while $O(x)$ is an operator (for instance $O(x)=\frac1{4!}\phi^4(x)$). I can measure the response of my QFT to the addition of the operator $O$ by the following substitution
+Let's generalize what we already stated. Image that I have an initial theory with action $S[\phi]$ (for example $S[\phi]=\int_M\de^4x\,\p{-\frac12\partial_\mu\phi\partial^\mu\phi}$) and I introduce a coupling term $\int_M\de^4xJ(x)O(x)$ as a perturbation to my initial theory. The function $J(x)$ is a called \emph{local coupling}, or more traditionally ``\emph{source}'', and generalize the parameter $\lambda$, while $O(x)$ is an operator (for instance $O(x)=\frac1{4!}\phi^4(x)$). I can measure the response of my QFT to the addition of the operator $O$ by doing the following substitution
 \begin{equation}\boxed{
 S[\phi]\quad\to\quad S[\phi]+\int_M\de^4xJ(x)O(x)
 }\end{equation}
-Thanks to this substitution we can compute the response (i.e. the expectation value of the operator $O(x)$ that I have introduced) just taking derivatives of the partition function: \footnote{We introduce normalization $1/\mathcal Z$ in order to normalize probabilities and we omit the time ordering product in the expectation value.}
+and then taking derivatives of the partition function:\footnote{We introduce normalization $1/\mathcal Z$ in order to normalize probabilities and we omit the time ordering product in the expectation value.}
 \begin{equation}\label{eqn:exp-value-prod-deriv}\boxed{
 \langle O_1(x_1)O_2(x_2)\dots O_n(x_n)\rangle=\frac{(-i\hbar)^n}{\mathcal Z}\frac{\delta^n\mathcal Z[J_i]}{\delta J_1(x_1)\delta J_2(x_2)\dots \delta J_n(x_n)}\bigg\vert_{J_i=0}
 }\end{equation}
@@ -70,9 +72,11 @@ In order to compute scattering amplitudes we will use correlators through the LS
 
 \section{Free field theory}
 
-Let's start from the free field theory. We start from the special case of QFT in zero dimensions. This means that the manifold of out theory is just a point $M=\{p\}$ and therefore there are no derivatives, we just have functions from a point to some target space (eg. $\RR$, $\CC$, etc.). Moreover, the space does not have any symmetry (for example, in such a theory spin doesn't exists). We can take fields as functions
+\textsf{Skinner~\cite{Skinner:2018aa} sec. 2.1, 2.2; Vafa~\cite{Hori:2003ic} 9.0, 9.1}\\
+
+Let's start from the free field theory. We start from the special case of QFT in zero dimensions. This means that the manifold of out theory is just a point $M=\{p\}$ (we assume $M$ to be connected) and therefore there are no derivatives, we just have functions from a point to some target space (eg. $\RR$, $\CC$, etc.). Moreover, the space does not have any symmetry (for example, in such a theory spin doesn't exists). We can take fields as functions
 \[\phi:\{p\}\longrightarrow\RR\]
-In this case the path integral is just the Lebesgue integral (we can consider it in the Euclidean form)
+In this case the partition function is just the Lebesgue integral (we can consider it in the Euclidean form)
 \[\mathcal Z=\int_\RR\de\phi\,e^{-\frac{S[\phi]}\hbar}\]
 were we used $-1$ instead of $i$ because since we are computing a Lebesgue integral we hope that the minus factor will give to the integral a generic good behaviour (notice that for most theories kinetic terms have positive contributions to the action). Also we assume for simplicity that $S[\phi]$ is polinomial, in particular we consider the quadratic case. 
 Then in this case the theory is characterized by an action
@@ -101,7 +105,7 @@ We just followed the procedure described in the previous section. Starting from 
 
 Now, we have in the exponential a term quadratic in fields and a term linear in fields. We can redefine fields in order to absorb the linear terms as follow:
 \[\widetilde\phi^i=\phi^i+(M^{-1})^{ij}J_j\]
-This is just a translation, therefore the measure does not change $\de^n\widetilde\phi=\de^n\phi$. 
+This is just a translation, therefore the measure does not change $\de^n\widetilde\phi=\de^n\phi$. The argument of the exponential become:
 \begin{align*}
 -\frac12M_{ij}\phi^i\phi^j-J_i\phi^i
 &=-\frac12M_{ij}\p{\widetilde\phi^i-(M^{-1})^{ik}J_k}\p{\widetilde\phi^j-(M^{-1})^{jl}J_l}-J_i\p{\widetilde\phi^i-(M^{-1})^{ik}J_k}\\
@@ -146,7 +150,7 @@ Associated to each correlator there is a Feynman diagram, which in zero dimensio
 \end{enumerate}
 
 \subsubsection{Wick's theorem}
-In the general case, when we want to compute the correlator between $2k$ fields
+In the general case, when we want to compute the correlator between $2k$ fields we have to sum over products of all inequivalent ways of connecting pairs of $\phi^i$ using $M^{-1}$:
 \begin{equation}\label{eqn:wick-thm}
 \langle\phi^{a_1}\dots\phi^{a_{2k}}\rangle=\hbar^k\sum_{\sigma\in\text{Pairings}}\,\,\,\prod_{i\in\sigma_{\text{Pairs}}}(M^{-1})^{i\sigma(i)}
 \end{equation}
@@ -198,22 +202,25 @@ This is the number of all the Feynman diagrams I obtain through contractions whe
 
 \section{Perturbation theory}
 
+\textsf{Skinner~\cite{Skinner:2018aa} sec. 2.3; Vafa~\cite{Hori:2003ic} 9.0, 9.1}\\
+
 Now, we want to compute correlator functions or in general expectation values for operators (let's consider the simply case of one field $\phi$):
 \begin{equation}\label{eqn:correlator-f-pert}
 \langle f(\phi)\rangle=\frac1{\mathcal Z}\int_\RR\de\phi\, f(\phi)e^{-S[\phi]/\hbar}
 \end{equation}
-Even in this simple instance, where we are considering zero dimensions and the path integral is a standard integral, the exact computation is in general impossible, neither if we consider $f$  a simple function. For this reason is often very useful to use perturbation theory, since in many case gives very good results. Usually when we consider perturbation theory we start from classical results and then we calculate quantum corrections. The general idea to do this is to take $\hbar\to0$ to obtain the classical result and then expand in powers of $o(\hbar)$
+Even in this simple instance, where we are considering zero dimensions and the path integral is a standard integral, the exact computation is in general impossible, neither if we consider $f$  a simple function. For this reason is often very useful to use perturbation theory, indeed in many case it gives very good results. Usually when we consider perturbation theory we start from classical results and then we calculate quantum corrections. The general idea to do this is to take $\hbar\to0$ to obtain the classical result and then expand in powers of $o(\hbar)$
 
 We will see that  the Taylor expansion in $\hbar$ that we will do is in general not well defined. Take for instance $\hbar>0$, then the series we obtain from eq.~\eqref{eqn:correlator-f-pert} may converge, but for $\hbar<0$ the series diverges for sure. We cannot assume simply $\hbar>0$, since in order to use the Taylor expansion, we need to have some neighbourhood of the origin where the expansion in well defined, and with the restriction $\hbar>0$ such neighbourhood have radius equal to 0.  
 
-The best we can do is to introduce an \textbf{asymptotic expansion}. This means that we introduces a series $\sum_{n=0}^\infty a_n\hbar^n$ such that for an arbitrary \emph{but fixed and finite} $N$ it approaches our function $F(\hbar)$:
+The best we can do is to introduce an \textbf{asymptotic expansion}, i.e. we introduce a series $\sum_{n=0}^\infty a_n\hbar^n$ such that for each \emph{finite} $N\in\mathbb N$ it approaches our function $F(\hbar)$:
 \begin{equation}\label{eqn:asymp-expan-pert}
 \lim_{\hbar\to0^+}\frac1{\hbar^N}\Bigg\vert F(\hbar)-\sum_{n=0}^Na_n\hbar^n\Bigg\vert=0
+\qquad\forall N\in\mathbb N
 \end{equation}
 This means that for each $N$ fixed we can choose a sufficiently small value for $\hbar$ such that the difference between the initial function and our asymptotic expansion is $O(\hbar^N)$. Raising the value for $N$ we can obtain better reproductions of $F(\hbar)$, but notice that 
 \begin{enumerate}[label=\textbullet]
 \item what we stated right now holds if $\hbar\to0^+$, but this is not true  for fixed (even if very small) values of $\hbar$ , like in the physical case: an asymptotic expansion for finite values of $\hbar$ can't be obtained in general. Indeed, for fixed values of $\hbar$ we can use eq.~\eqref{eqn:asymp-expan-pert} only for finite values of $N$, since over some value of $N$ contributions in the order of $\hbar^N$ became relevant in our analysis;
-\item even if we trust our asymptotic expansion, we lose in any case all transcendental terms, i.e. terms that are sums of exponentials, for instance $F(\hbar)$ and $\widetilde F(\hbar)=F(\hbar)+Ae^{-B/\hbar^2}$ have same asymptotic expansion for $\hbar\to0$, since $e^{-B/\hbar^2}\to0$ when we take the limit. Usually these terms are small and can be neglected, anyhow in general one may be interested in these contributions, that cannot be obtained through asymptotic expansion. 
+\item even if we trust our asymptotic expansion, we lose in any case all transcendental terms, i.e. terms that are sums of exponentials. For instance $F(\hbar)$ and $\widetilde F(\hbar)=F(\hbar)+Ae^{-B/\hbar^2}$ have same asymptotic expansion for $\hbar\to0$, since $e^{-B/\hbar^2}\to0$ when we take the limit. Usually these terms are small and can be neglected, anyhow in general one may be interested in these contributions, that cannot be obtained through asymptotic expansion. 
 \end{enumerate}
 Notice that these additional informations were contained in the initial path integral eq.~\eqref{eqn:correlator-f-pert}, but are lost in the perturbative approach. As we already stated, path integral contains \emph{more} information than perturbation theory. 
 
@@ -223,41 +230,36 @@ Suppose we have an action $S[\phi]$ and we expand it around some minimum $\phi_0
 \[S(\phi)=S(\phi_0)+\frac12\partial_\phi^2S(\phi_0)\delta\phi^2+\dots\]
 The constant term is removed by the normalization into the partition function, then we can neglect it. We assumed that $\partial_\phi S(\phi)=0$ but even if this is not true we can obtain it by redefine our field removing any linear field. The quadratic part was already analyzed in the last section, since it describes a free theory at the vacuum $\phi_0$. Remaining terms are the one we will consider in our perturbative approach. 
 
-What we essentially to is to split the action into 
+What we essentially do is to split the action into 
 \[S(\phi)=S_0(\phi)+S_I(\phi)\]
-where $S_0(\phi)$ corresponds to the quadratic free theory and $S_I(\phi)$ is an interacting term. Let's start with a simple calculation of the expansion of the interacting part. Suppose
+where $S_0(\phi)$ corresponds to the quadratic free theory and $S_I(\phi)$ is an interacting term. Let's start with a simple calculation of the expansion of the interacting part. Suppose that
 \begin{equation}\label{eqn:action-examp-0d-perturb}
 S(\phi)=\frac12m^2\phi^2+\frac\lambda{4!}\phi^4\quad,\quad S_0(\phi)=\frac12m^2\phi^2\quad\text{and}\quad S_I(\phi)=\frac\lambda{4!}\phi^4
 \end{equation}
-where $m^2>0$ and $\lambda>0$, in such a way that $\phi=0$ is a global minimum. In this way the constant term $S(\phi_0)=0$ and $\partial_\phi S=0$, and we have to expand around $\phi=0$, i.e. $\phi$ can be interpreted as a fluctuation around zero. Then the partition function of the free theory depends only on the mass
+where $m^2>0$ and $\lambda>0$. In such a way $\phi=0$ is a global minimum, hence $S(\phi_0)=0$ and $\partial_\phi S=0$, and we have to expand around $\phi=0$, i.e. $\phi$ can be interpreted as a fluctuation around zero. Then the partition function of the free theory depends only on the mass
 \[\mathcal Z_0(m^2)=\int_\RR\de\phi \exp{-\frac1{2\hbar}m^2\phi^2}\]
-since we integrate over all the paths, while the partition function depends also on the parameter $\lambda$:
+while the partition function depends also on the parameter $\lambda$:
 \[\mathcal Z(m^2,\lambda)=\int_\RR\de\phi \exp{-\frac1{2\hbar}m^2\phi^2-\frac\lambda{4!\hbar}\phi^4}\]
-We introduce the interaction as a response to the coupling with $\lambda$, meaning that instead of writing the partition function as we just done, we introduce also a coupling to a source 
+We introduce the interaction as a response to the coupling with $\lambda$, using a source $J$
 \begin{equation}\label{eqn:corr-exp-perturb-exp}
 \mathcal Z(m^2,\lambda)=\int_\RR\de\phi \exp{-\frac1{2\hbar}m^2\phi^2-\frac\lambda{4!\hbar}\phi^4-\frac1\hbar J\phi}\Bigg\vert_{J=0}
 \end{equation}
-in such a way we recover the exponential of the interaction part as an operator inside the partition function of the free theory
-\[O(\phi)=\exp{-\frac\lambda{4!\hbar}\phi^4}\]
-Explicitly, we have
-\[\mathcal Z(m^2,\lambda)=\int_\RR\de\phi \,O(\phi)\exp{-\frac1{2\hbar}m^2\phi^2-\frac1\hbar J\phi}\Bigg\vert_{J=0}\]
+such that we recover the exponential of the interacting part as an operator inside the partition function of the free theory with the source:
+\[\mathcal Z(m^2,\lambda)=\int_\RR\de\phi \,O(\phi)\exp{-\frac1{2\hbar}m^2\phi^2-\frac1\hbar J\phi}\Bigg\vert_{J=0}
+\qquad\text{with}\qquad O(\phi)=\exp{-\frac\lambda{4!\hbar}\phi^4}\]
 Then we see that the result of this integral is
 \[\mathcal Z(m^2,\lambda)=\langle O(\phi)\rangle_0\,\mathcal Z_0(m^2)\]
-This can be computed using derivatives as we already know using the series expansion of the exponential. In this way we obtain
+Using the procedure we described before we have
 \begin{align*}
 \mathcal Z(m^2,\lambda)
 &=\exp{-\frac\lambda{4!\hbar}\p{-\hbar\frac\partial{\partial J}}^4}\,\mathcal Z_0(m^2,J)\Bigg\vert_{J=0}\\
-&=\sum_n\frac1{n!}\p{-\frac\lambda{4!\hbar}}^n\p{-\hbar\frac\partial{\partial J}}^{4n}\int_\RR\de\phi \,\exp{-\frac1{2\hbar}m^2\phi^2-\frac1\hbar J\phi}\Bigg\vert_{J=0}
-\end{align*}
-This can be actually computed explicitly in a simple way in zero dimension, anyhow this is the general procedure to compute the interacting contribution of my action to correlator. The result is
-\begin{align*}
-\mathcal Z(m^2,\lambda)
+&=\sum_n\frac1{n!}\p{-\frac\lambda{4!\hbar}}^n\p{-\hbar\frac\partial{\partial J}}^{4n}\int_\RR\de\phi \,\exp{-\frac1{2\hbar}m^2\phi^2-\frac1\hbar J\phi}\Bigg\vert_{J=0}\\
 &=\int_\RR\de\phi \,\exp{-\frac1{2\hbar}m^2\phi^2}\sum_n\frac1{n!}\p{-\frac\lambda{4!\hbar}}^n\phi^{4n}
 \end{align*}
-Even though eq.~\eqref{eqn:corr-exp-perturb-exp} could be computed directly using expansion in $\lambda$, this is not in general possible, while our procedure can be actually done also in more complex cases. In this simply case we can go on in the computation in an explicit way, in order to understand better the result we will obtain in general. If we set $\phi=\sqrt{2\hbar x/m^2}$ and $\de\phi=\sqrt{2\hbar/m^2}\,\de x/(2\sqrt x)$, and we change sign of the field for $\phi\in(-\infty,0)$, we obtain
+Even though eq.~\eqref{eqn:corr-exp-perturb-exp} could be computed directly using expansion in $\lambda$, this is not in general possible, while our procedure can be actually done also in more complex cases. In this simply case we can go on in the computation in an explicit way, in order to understand better the result we will obtain in general. If we set $\phi=\sqrt{2\hbar x/m^2}$ and $\de\phi=\sqrt{2\hbar/m^2}\,\de x/(2\sqrt x)$, and we change sign of the field for $\phi\in(-\infty,0)$ (this gives us an additional factor 2 which cancel the factor 1/2 in the Jacobian of the change of variable), we obtain
 \begin{align*}
 \mathcal Z(m^2,\lambda)
-&=\sqrt{\frac{2\hbar x}{m^2}}\int_0^{+\infty}\de x\,\frac{e^{-x}}{\sqrt x}\sum_n\frac1{n!}\p{-\frac{\lambda}{4!\hbar}}^n\p{\frac{2\hbar}{m^2}}^{2n}x^{2n}\\
+&=\sqrt{\frac{2\hbar }{m^2}}\int_0^{+\infty}\de x\,\frac{e^{-x}}{\sqrt x}\sum_n\frac1{n!}\p{-\frac{\lambda}{4!\hbar}}^n\p{\frac{2\hbar}{m^2}}^{2n}x^{2n}\\
 &=\frac{\sqrt{2\hbar}}m\sum_n\frac1{n!}\p{-\frac{\lambda\hbar}{3!m^4}}^n\underbrace{\int_0^{+\infty}\de x\,x^{2n+\frac12-1}e^{-x}}_{\Gamma\p{2n+\frac12}}\\
 &=\underbrace{\frac1m\sqrt{2\pi\hbar}}_{\mathcal Z_0(m^2)}\sum_n\p{-\frac{\lambda\hbar}{m^4}}^n\frac1{(4!)^nn!}\frac{(4n)!}{4^n(2n)!}\\
 &=\mathcal Z_0(m^2)\p{1-\frac{\lambda\hbar}{m^4}\frac{4!}{4!\,1!\,4\,2!}+\dots}
@@ -279,7 +281,9 @@ Moreover, the term $1/((4!)^nn!)$ is fixed by the order of the expansion of the 
 Finally, notice that the result we obtain diverges. This is not a problem since we computed an asymptotic expansion, which not recovers the real initial partition function (anyhow, in general also the initial partition function may diverges, in this case we have to treat fields in correlators in such a way that divergent partition function is normalized at the end of the calculation). Recall Stirling approximation $n!\approx\exp{n\log n}$, this means that $(4n)!/((4!)^nn!)(4^n(2n)!)$ behaves like $\exp{n\log n+\dots}$ and this function has zero convergence radius. This number will corresponds to the number of Feynman diagrams one obtain at each perturbative level, and this means that above some order the number of Feynman diagrams that contributes is so huge that overcomes the small pre-factor $(-\hbar\lambda/m^4)^n$ and gives divergent contribution to the full series. Hence,  using perturbative approach to compute scattering amplitudes, up to some value $N$ the introduction of higher order contributions gives more precise results, but beyond that value my scattering amplitude will start to diverge. Obviously this behaviour of the series leads to some doubt about the using of perturbative expansion but this is, again, a consequence of the use of asymptotic expansion instead of Taylor's one. Moreover, sometimes non-perturbative effects, allows series to converges, as we will see later on. Anyhow,  these divergent contributions appears when we consider perturbative contributions many orders of magnitude away from the highest precision we will ever be able to archive experimentally. This means that asymptotic expansion have issues only from the mathematical point of view, while our results agree perfectly with physical results, and we are always be able to understand when our approach starts to show unphysical results. 
 
 
-\section{Feynman Diagrams}
+\subsection{Feynman Diagrams}
+
+\textsf{Skinner~\cite{Skinner:2018aa} sec. 2.3.1}\\
 
 Now we want to express perturbative expansion in terms of Feynman diagrams. For this theory we immediately have
 
@@ -389,9 +393,9 @@ Using this expression is clear that even though we restricted our analysis to a 
 
 
 
-\section{Borel resummation}
+\section{Borel resummation *}
 
-\textsf{Spada~\cite{Spada:2018aa}}\\
+\textsf{Spada~\cite{Spada:2018aa} sec. 2.1, 2.2}\\
 
 Even though we saw that generic perturbative expansions are only asymptotic expansions that leads to some problems in the mathematical point of view. Moreover, in general one can be interested in non-perturbative features of our theory, that requires the correct partition function to be analyzed. 
 
@@ -413,13 +417,13 @@ In the previous example we had
 \[\mathcal Z_n\sim \frac1{(4!)^nn!}\frac{(4n)!}{4^n(2n)!}\sim{2}{\sqrt{2\pi n}}\,e^{-n}n^n\underbrace{\p{\frac{4^4}{2^2\cdot4\cdot4!}}^n}_{(2/3)^n}\]
 so $n=\frac3{2\lambda}$. This means that if for instance we take $\lambda=0.1$ we would have problems for $n$ higher that $15$, which is very high respect to archiviable experimental precision.  
 
-We just seen that even though perturbative expansion have some mathematical issue it is perfectly consistent to describe physics. Anyhow, using Borel resummation in some cases we can resume the series corresponding the our asymptotic expansion in such a way we get the correct partition function. This allow us also to recover non-perturbative features of our theory. 
+We just seen that even though perturbative expansion have some mathematical issue it is perfectly consistent to describe physics. Anyhow, using Borel resummation in some cases we can resum the series corresponding the our asymptotic expansion in such a way that we get the correct partition function. This allows us also to recover non-perturbative features of our theory. 
 
-Starting from a divergent series given by an asymptotic expansion $\mathcal Z(\lambda)=\sum_n\mathcal Z_n\lambda^n$ we can define the \textbf{Borel transform} 
+Starting from a divergent series given by an asymptotic expansion $\mathcal Z(\lambda)=\sum_n\mathcal Z_n\lambda^n$ we can define its \textbf{Borel transform} 
 \begin{equation}\label{eqn:Borel-series}
 \mathcal B\,\mathcal Z(\lambda)=\sum_n\frac1{n!}\mathcal Z_n\lambda^n
 \end{equation}
-This series obviously has a finite radius of converge. If the analytic continuation in the complex plane is free of singularities for $\lambda>0$, then the following integral is well defined
+This series obviously has a finite radius of convergence. If the analytic continuation in the complex plane is free of singularities for $\lambda>0$, then the following integral is well defined
 \begin{equation}\label{eqn:Borel-integral}
 \mathcal Z_{\mathcal B}(\lambda)=\int_0^\infty\de t\, e^{-t}\mathcal B\mathcal Z(t\lambda)
 \end{equation}
@@ -437,11 +441,9 @@ This does not happen in general, for instance for 4-dim Gauge theories this is n
 
 Finally notice that there are also other ways to obtain exact results in specific cases, and such as Borel resummation allow treatment of several theories fixing the perturbative approach. 
 
-\section{Exact results - localization}
+\section{Fermions and Grassmann variables}
 
-\subsubsection{Fermions and Grassmann variables}
-
-\textsf{Ramond~\cite{Ramond:1997aa}, sec. 5.1, Skinner~\cite{Skinner:2018aa}, sec. 2.5; Cartier~\cite{Cartier:2002aa}, sec. 3, 8}\\
+\textsf{Hori~\cite{Hori:2003ic} sec. 9.2, sec. 5.1, Skinner~\cite{Skinner:2018aa}, sec. 2.5.0, 2.5.1; Cartier~\cite{Cartier:2002aa}, sec. 3, 8}\\
 
 Realistic theories contains fermions. In higher dimensions, the spin-statistics theorem says that for a unitary theory, fermions must have half-integral spin. However, in $d=0$ there is no notion of spin, much less a spin-statistic theorem, and fermionic ``fields'' are simply \textbf{Grassmann numbers}. These are a set of $n$ elements $\{\theta_i\}$ obeying the algebra
 \[\{\theta_i\theta_j\}=0\quad\text{and}\quad[\theta_i,\phi_j]=0\quad\forall\phi_i\in\CC\]
@@ -501,7 +503,7 @@ Recall that in order to perform latter integral, we have to move all $\theta$ on
 
 Let's compare this result with eq.~\eqref{eqn:part-func-free-0D} in the commuting case. The latter is proportional to the inverse of the square root of the determinant, while in this case the gaussian integral is directly proportional to the determinant. This is a consequence of the fact that for anticommuting variables the integral is the same as the derivation.
 
-\subsubsection{Localization}
+\section{Localization *}
 
 \textsf{Skinner~\cite{Skinner:2018aa} sec. 2.5.2; Cremonesi~\cite{Cremonesi:2013aa} sec. 3, Pestun~\cite{Pestun_2012} sec. 1-3}\\
 
@@ -630,10 +632,6 @@ This means that the partition function simply counts maximum and minimum as expl
 \end{figure}
 
 Now we can repeat this argument for expectation value of other operators $\langle O\rangle$ if $QO=O$. this means that also for such expectation values the only contributions are given by a specific set of points, defined by $W'=0$
-
-
-
-
 
 
 \end{document}

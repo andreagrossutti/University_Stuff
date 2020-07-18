@@ -27,32 +27,32 @@ First of all we need to understand which are limits of operatorial formalism, an
 
 
 \subsubsection{Limits of the Operatorial Formalism}
-In the operator formalism approach the step we done are
+In the operator formalism approach the step one has to do are:
 \begin{enumerate}
-\item pick a time variable $t$;
-\item define an hamiltonian $H=H(\phi, \pi)$ and the field conjugated field 
+\item Pick a time variable $t$;
+\item Define an Hamiltonian $H=H(\phi, \pi)$ and the conjugated field 
 \[\pi=\frac{\delta\mathcal L}{\delta\dot\phi(x)}\]
-\item transform $\phi$ and $\pi$ these into operators
-\item impose that at equal time some (anti)commutation rules between fields are satisfied
+\item Promote $\phi$ and $\pi$ these into operators
+\item Impose that at equal time some (anti-)commutation rules between fields are satisfied
 \[[\phi(t,\vec x),\pi(t,\vec y)]=i\delta^3(\vec x-\vec y)\]
 \end{enumerate}
 Pros: 
 \begin{enumerate}
-\item Clear physical content (states, operators), expecially manifest unitariety (thanks to hamiltonian approach)
+\item Clear physical content (states, operators), especially manifest unitarity (thanks to Hamiltonian formalism)
 \end{enumerate}
 Cons:
 \begin{enumerate}
 \item Covariance not manifest at intermediate stages
 \item Derivation of Feynman rules can be complicated.\\
-For example, consider a lagrangian with a term that mixes interaction and kinematic terms
-\[\mathcal L =-\frac12\partial_\mu\phi\partial^\mu-\lambda\phi^2\partial_\mu\phi\partial^\mu\]
+For example, consider a Lagrangian with a term that mixes interaction and kinetic terms
+\[\mathcal L =-\frac12\partial_\mu\phi\partial^\mu\phi-\lambda\phi^2\partial_\mu\phi\partial^\mu\phi\]
 The conjugated field is 
 \[\pi=\partial_0\phi(1+2\lambda\phi^2)\]
-and the hamiltonian reads
+and the Hamiltonian reads
 \[H=\pi\partial_0\phi-\mathcal L=\frac12\frac{\pi^2}{1+2\lambda\phi^2}+\dots\]
-So we don't have only $\pi^2$ but also an interaction term between $\pi$ and $\phi$. Assume $\lambda\ll1$ then using perturbative approach
+So we don't have only $\pi^2$ but also an interaction term between $\pi$ and $\phi$. Assume $\lambda\ll1$, then using perturbative approach
 \[H=\frac12\pi^2(1-2\lambda\phi^2+4\lambda^2\phi^4+\dots)\]
-so we obtain an infinite number of vertex related to terms $\lambda^n\phi^{2n}\pi$.
+thus we obtain an infinite number of vertex related to terms $\lambda^n\phi^{2n}\pi$.
 In this case deriving Feynman rules is a really hard task.
 \item  In order to obtain a nice analysis of gauge theories ( in particular non-abelian ones) at levels up to the tree level the perturbative approach is not so good. To obtain proprieties of these theories we must go beyond using use path integral approach.
 \end{enumerate}
@@ -60,7 +60,7 @@ In this case deriving Feynman rules is a really hard task.
 
 \section{Correlators and the LSZ reduction formula}
 
-\textbf{Important:} \textit{Accoarding to the notation used in Srednicki, in this section we will use the metric}
+\textbf{Important:} \textit{In this section (and also often in the following) we will use the metric}
 \[g^{\mu\nu}=\begin{pmatrix}-1&&&\\&1&&\\&&1&\\&&&1\end{pmatrix}\]
 
 
@@ -69,128 +69,113 @@ Recall from previous courses that \emph{correlators} or \emph{Green functions} c
 \[G(x_1,x_2,\dots,x_n)=\bra0T[\phi(x_1),\dots,\varphi(x_n)]\ket0\]
 
 \subsubsection{Covariant convention for states}
-\textsf{Srednicki, chap 3}.\\
+\textsf{Srednicki~\cite{Srednicki:2007aa} chap 3}.\\
 
 We start with a very simple theory, a free massive scalar field with lagrangian
 \[\mathcal L_0=-\frac12\partial_\mu\phi\,\partial^\mu\phi-\frac{m^2}2\phi^2\]
 whose  equation of motion is 
 \[\square\phi=m^2\phi\]
-and normalized solutions are in the form of plane waves\footnote{$x^\mu=(t,\vec x)$ and $k^\mu=(\omega,\vec k)$. Depending on the contest, when $k^0$ is not used as integration variable we assume $k^0=\omega$.}
-\[ \frac1{\sqrt{(2\pi)^32k^0}}e^{\pm ik x}\qquad\textup{where}\quad k^2=\vec k^2-\omega^2=-m^2\]
-I can write scalar field in terms of $\alpha$ and $\alpha^\dagger$ operators:\footnote{If I consider a real field $\alpha(x)=\alpha^\dagger(x)$}
-\[\phi(x)=\int\frac{\de^3\vec k}{\sqrt{(2\pi)^32k^0}}\left(\alpha(\vec k)e^{ikx}+\alpha^\dagger(\vec k)e^{-ikx}\right)\]
-When we quantize the theory we introduce the commutation relation
+and normalized solutions are in the form of plane waves\footnote{$x^\mu=(t,\vec x)$ and $k^\mu=(k^0,\vec k)$.}
+\[ \frac1{\sqrt{(2\pi)^32k^0}}e^{\pm ik x}\qquad\textup{where}\quad k^2=\vec k^2-(k^0)^2=-m^2\]
+I can write scalar field in terms of $\alpha$ and $\alpha^\dagger$ operators:\footnote{If I consider a real field $\phi(x)=\phi^\dagger(x)$}
+\begin{equation}\label{eq:scalar-phi-expansion}\phi(x)=\int\frac{\de^3\vec k}{\sqrt{(2\pi)^32k^0}}\left(\alpha(\vec k)e^{ikx}+\alpha^\dagger(\vec k)e^{-ikx}\right)\end{equation}
+When we quantize the theory we introduce the commutation relations
 \[[\phi(t,\vec x),\pi(t,\vec y)]=i\delta^3(\vec x-\vec y)\]
 \[[\phi(t,\vec x),\phi(t,\vec y)]=0=[\pi(t,\vec x),\pi(t,\vec y)]\]
 Equivalently, these relation can be imposed saying that $\alpha$, $\alpha^\dagger$ are annihilation and creation operators that satisfy
 \[[\alpha(\vec k),\alpha(\vec k')]=0=[\alpha(\vec k),\alpha(\vec k')]\]
 \[[\alpha(\vec k), \alpha^\dagger(\vec k')]=\delta^3(\vec k-\vec k')\]
 
-\skipline
-
-
 Let's introduce an alternative notation in oder to obtain a covariant algebra for ladder operators and a covariant normalization for states.
-
-We introduce the Lorentz invariant\footnote{We don't consider full Lorentz group but only transformations that preserve time, i.e. transformations with determinant equal to 1 (proper Lorentz transformations).} measure (under $SO^+(3,1)$)
+We introduce the manifestly Lorentz invariant\footnote{We don't consider full Lorentz group but only transformations that preserve time, i.e. transformations with determinant equal to 1 (proper Lorentz transformations).} measure (under $SO^+(3,1)$)
 \[\de^4k\,\delta(k^2+m^2)\theta(k^0)\]
-{\small Notice that the theta function picks an arrow of time (i.e. particles or antiparticles).}
-
-Using proprieties of delta function, we know that $\delta(k^2+m^2)$ can be splitted as follows (here $k^0\ne\omega$ in general)
+Notice that the theta function picks an arrow of time (i.e. particles or antiparticles).
+Using proprieties of delta function, we know that $\delta(k^2+m^2)$ can be splitted as follows
 \[\delta (k^2+m^2)=\frac1{2k^0}\left[\delta\left(k^0-\sqrt{m^2+\vec k^2}\right)+\delta\left(k^0+\sqrt{m^2+\vec k^2}\right)\right]\]
-
-We then have (recall $\omega=\sqrt{m^2+\vec k^2}$)
+Then we have ($\omega:=\sqrt{m^2+\vec k^2}$)
 \[\int\de k^0\delta(k^2+m^2)\theta(k^0)=\frac1{2\omega}\]
-thus we see that if we take $f(k)\propto\omega$ then $\de^3k/f(k)$ will be Lorentz invariant. If we take $f(k)=(2\pi)^32\omega$ then the field express with the corresponding Lorentz invariant differential is
+thus we see that if we replace the measure in eq.~\eqref{eq:scalar-phi-expansion} with a measure proportional to $\de^3\vec k/2\omega$ then this will be Lorentz invariant. In particular we choose the Lorentz invariant differential as follows, obtaining a new expansion of $\phi(x)$ in terms of new ladder operators
 \begin{align*}
-\phi(x)
-&=\frac1{(2\pi^3)}\int\frac{\de^3 k}{2k^0}\left(a(k)e^{ikx}+a^\dagger(k)e^{-ikx}\right)
+\phi(x)=\frac1{(2\pi)^3}\int\frac{\de^3 \vec k}{2k^0}\left(a(k)e^{ikx}+a^\dagger(k)e^{-ikx}\right)
 \end{align*}
-As a consequence of commutation relations, ladder operators obey the following covariant algebra (obviously $k^0=\omega$)
+As a consequence of commutation relations, new ladder operators obey the following covariant algebra
 \[[a(k),a(k')]=[a^\dagger(k),a^\dagger(k')]=0\]
 \[[a(k),a^\dagger(k')]=(2\pi)^32k^0\delta^3(\vec k-\vec k')\]
-We obtain a Fock space made of covariant normalized states
+and we obtain a Fock space made of covariant normalized states
 \[\braket0=1,\qquad\ket k=a^\dagger(k)\ket0\]
 \[\braket{k}{k'}=(2\pi)^32k^0\delta^3(\vec k-\vec k')\]
 
-
-In the free theory we can also write down $a$ and $a^\dagger$ in function of the field, in particular
+In the free theory we can also write down $a$ and $a^\dagger$ in function of the field, in particular for the free scalar theory we have
 \begin{equation}\label{eqn:ladder-field-relation}
-a^\dagger(k)=-i\int\de^3x(e^{ikx}\partial_0\phi(x)-\partial_0e^{ikx}\phi(x))
+a^\dagger(k)=-i\int\de^3x\,(e^{ikx}\overset{\leftrightarrow}{\partial_0}\phi)
 \end{equation}
-
-\begin{exercise}
-Prove explicitly equation \eqref{eqn:ladder-field-relation}
-\end{exercise}
-\todo{insert solution}
-
+where $\overset{\leftrightarrow}{\partial_0}:=\overset{\rightarrow}{\partial_0}-\overset{\leftarrow}{\partial_0}$.
 
 \subsubsection{Scattering amplitude in interacting theory}
-\textsf{Srednicki, chap 5}.\\
+\textsf{Srednicki~\cite{Srednicki:2007aa}, chap 5}.\\
 
-When we do a scattering experiment (which are function of momenta) $a$ and $a^\dagger$ will became time dependent operators. Consider a generic lagrangian in the form
+When we do a scattering experiment (which depend on the momenta of particles) $a$ and $a^\dagger$ will became time dependent operators. Consider a generic lagrangian in the form
 \[\mathcal L=\mathcal L_0+\mathcal L_{int}\]
-where $\mathcal L_0$ is the free field lagrangian while $\mathcal L_{int}$ is an interaction term.
-
-Inital and final states takes the from
+where $\mathcal L_0$ is the free field Lagrangian while $\mathcal L_{int}$ is an interaction term.
+Initial and final states takes the from\footnote{Notice that now $a$ and $a^\dagger$ are ladder operators for the interacting theory, no more for the free theory.}
 \[\ket i=\lim_{t\rightarrow -\infty}a^\dagger(k_1,t)\dots a^\dagger(k_n,t)\ket0\]
 \[\ket f=\lim_{t\rightarrow +\infty}a^\dagger(k_1',t)\dots a^\dagger(k'_n,t)\ket0\]
-This states must be normalized, for istance
+This states must be normalized, for instance we can take
 \[\braket i=1=\braket f\]
 
-Notice that now $a$ and $a^\dagger$ are ladder operators for the interacting theory, no more for the free theory. Now we look for an explicit expression for the scattering amplitude
+Now we look for an explicit expression for the scattering amplitude
 \[S_{fi}=\braket {f}{i}\]
 in the interaction formalism.
 In order to obtain an useful expression for that we better try to express latter operators in terms of fields of the theory.
-Let's start from the free field, we can write
+Let's start from the free field, we can write, using eq.~\eqref{eqn:ladder-field-relation}
 \begin{equation}\label{eqn:ladder-inf-diff}\begin{split}
 a^\dagger(k,+\infty)-a^\dagger(k, -\infty)
 &=\int_{-\infty}^{+\infty}\de t\,\partial_0a^\dagger(k,t)\\
 &=\int\de t\,\partial_0\left(-i\int_{-\infty}^{+\infty}\de^3x(e^{ikx}\partial_0\phi-\partial_0e^{ikx}\phi)\right)\\
-&=-i\int\de^4x\,e^{ikx}(\partial_0^2+(k^0)^2)\phi(x)\\
-&=-i\int\de^4x\,e^{ikx}(\partial_0^2+m^2+\vec k^2)\phi(x)\\
-&=-i\int\de^4x\,[e^{ikx}(\partial_0^2+m^2)\phi(x)-\phi(x)\vect{\nabla}^2e^{ikx}]\\
-&=-i\int\de^4x\,[e^{ikx}(\partial_0^2-\vect{\nabla}^2+m^2)\phi(x)] + \text{surface term}\\
-&=-i\int\de^4x\,e^{ikx}(-\partial_\mu\partial^\mu+m^2)\phi(x)
+&=-i\int\de^4x\,e^{ikx}(\partial_0^2+(k^0)^2)\phi\\
+&=-i\int\de^4x\,e^{ikx}(\partial_0^2+m^2+\vec k^2)\phi\\
+&=-i\int\de^4x\,[e^{ikx}(\partial_0^2+m^2)\phi-\phi\vect{\nabla}^2e^{ikx}]\\
+&=-i\int\de^4x\,[e^{ikx}(\partial_0^2-\vect{\nabla}^2+m^2)\phi] + \text{surface term}\\
+&=-i\int\de^4x\,e^{ikx}(-\partial_\mu\partial^\mu+m^2)\phi
 \end{split}\end{equation}
-and vanishes in the free theory because of the e.o.m. as we expected since we are considering a free field.
+and vanishes in the free theory because $(\square- m^2)\phi=0$.
 
-Let assume that \eqref{eqn:ladder-field-relation} holds also in the interaction case, then also the latter formula holds, but in this case the last term in general is not vanishing. 
+Let's assume that \eqref{eqn:ladder-field-relation} holds also in the interaction case, then also the latter formula holds, but in this case the last term in general is not vanishing. 
 Consider scattering amplitude
-\[S_{fi}=\braket fi=\bra0a(k_1',+\infty)\dots a(k'_n,+\infty)a^\dagger(k_1,-\infty)\dots a^\dagger(k_n,-\infty)\ket0
+\[S_{fi}=\braket {f}{i}=\bra0a(k_1',+\infty)\dots a(k'_m,+\infty)a^\dagger(k_1,-\infty)\dots a^\dagger(k_n,-\infty)\ket0
 \]
 since operators are time ordered I can write
-\[S_{fi}=\bra0T\left[a(k_1',+\infty)\dots a(k'_n,+\infty)a^\dagger(k_1,-\infty)\dots a^\dagger(k_n,-\infty)\right]\ket0
+\[S_{fi}=\bra0T\left[a(k_1',+\infty)\dots a(k'_m,+\infty)a^\dagger(k_1,-\infty)\dots a^\dagger(k_n,-\infty)\right]\ket0
 \]
-
-Using \eqref{eqn:ladder-inf-diff} and its complex conjugated, i can rewrite:
+Using eq.~\eqref{eqn:ladder-inf-diff} and its complex conjugated, i can rewrite\footnote{The time ordering product kills undesired ladder operators in eq.~\eqref{eqn:ladder-inf-diff} since their action on the vacuum gives zero.}:
 \begin{mdframed}[style=mybox]
 \begin{equation}\label{eqn:LSZ}\begin{split}
 S_{fi}
 &=i^{m+n}\int
-\prod_{i=1}^m\de^4x_i\,e^{ik_ix_i}(-\square_{x_i}+m^2)
-\prod_{j=1}^n\de^4y_j\,e^{ig_jk_j}(-\square_{y_j}+m^2)\times\\
+\prod_{i=1}^m\de^4x'_i\,e^{-ik'_ix'_i}(-\square_{x'_i}+m^2)
+\prod_{j=1}^n\de^4x_j\,e^{ik_jx_j}(-\square_{x_j}+m^2)\times\\
 &\hspace{0.5cm}\times
-\underbrace{\bra0 T\left[\phi(x_1)\dots\phi(x_m)\phi(y_1)\dots\phi(y_n)\right]\ket0}_{G(x_1,\dots,x_n,y_1,\dots,y_n)}
+\underbrace{\bra0 T\left[\phi(x'_1)\dots\phi(x'_m)\phi(x_1)\dots\phi(x_n)\right]\ket0}_{G(x'_1,\dots,x'_n,x_1,\dots,x_n)}
 \end{split}\end{equation}
 \end{mdframed}
 
-Eq. \eqref{eqn:LSZ} is the \textbf{Lehmann-Symanzik-Zimmermann reduction formula}, it express the scattering amplitude in terms of Green functions. Here is clear the importance of the Green functions.
+Eq. \eqref{eqn:LSZ} is the \textbf{Lehmann-Symanzik-Zimmermann (LSZ) reduction formula}, it express the scattering amplitude in terms of Green functions. Here is clear the importance of the Green functions, as they allows to compute any scattering amplitudes.
 
 Let's recall a crucial assumption we made: formula \eqref {eqn:ladder-field-relation} must holds in the interacting case.
-The equation  \eqref {eqn:ladder-field-relation} holds for the interacting theory only if a couple of conditions are satisfied:
+This is the case only if a couple of conditions are satisfied:
 \begin{enumerate}
 \item $\bra0\phi(x)\ket0=0$
 
-This means that whenever you start from the state $\ket0$ the operator $a^\dagger$ must create some particle state, orthogonal to the vacuum. This is obvious for free theories, but does not holds in general for interacting theories. In some cases $\phi(x)\ket0$ is a linear combination of one particle states and the vacuum state. 
+This means that whenever you start from the state $\ket0$ the operator $a^\dagger$ must creates a particle state, orthogonal to the vacuum. This is obvious for free theories, but does not holds in general for interacting theories. In some cases $\phi(x)\ket0$ is a linear combination of a one particle state and the vacuum state. 
 
-So, if $v=\bra0\phi(x)\ket0$ is a Lorentz invariant number different to zero, we will shift the field $\phi(x)$ by the constant $v$:
+So, if\footnote{We assume that $\hat p\ket0=0$.} $v=\bra0\phi(x)\ket0=\bra0e^{-i\hat px}\phi(0)e^{i\hat px}\ket0=\bra0\phi(0)\ket0$ is a Lorentz invariant number different to zero, we will shift the field $\phi(x)$ by the constant $v$:
 \[\phi(x)\rightarrow\phi(x)+v=\tilde \phi(x)\]
 This is just a change in the name of the operator of interest, and does not affect the physics. However, the shifted $\tilde\phi(x)$ obeys, by costruction, $\bra0\tilde\phi(x)\ket0=0$.
 \item $\bra k\phi(x)\ket 0=e^{-ikx}$
 
-This is what it is in the free theory, and we know that in free theory, $a^\dagger(\pm\infty)$ creates a correctly normalized one-particle state. Thus, for $a^\dagger(\pm\infty)$ creates a correctly normalized one-particle state in the interacting theory, we must have $\bra k\phi(x)\ket 0=\bra ke^{-i\hat kx}\phi(0)e^{i\hat kx}\ket0=e^{-ikx}\bra k\phi(0)\ket 0=e^{-ikx}$.
+This is what it is in the free theory, and we know that in free theory, $a^\dagger(\pm\infty)$ creates a correctly normalized one-particle state. Thus, for $a^\dagger(\pm\infty)$ creates a correctly normalized one-particle state in the interacting theory, we must have $e^{-ikx}=\bra k\phi(x)\ket 0=\bra ke^{-i\hat px}\phi(0)e^{i\hat px}\ket0=e^{-ikx}\bra k\phi(0)\ket 0$.
 
-So, if $\bra k\phi(0)\ket 0$ is a Lorentz invariant number different to one, we will rescale (or, \emph{renormalize} $\phi(x)$ by a multiplicative constant:
+So, if $Z_\phi^{1/2}=\bra k\phi(0)\ket 0$ is a Lorentz invariant number different to one, we will rescale (or, \emph{renormalize} $\phi(x)$ by a multiplicative constant:
 \[\phi(x)\rightarrow Z_{\phi}^{1/2}\phi=\phi_{int}\]
  This is just a change of the name of the operator of interest, and does not affect the physics. However, the rescaled $\phi(x)$ obeys, by costruction, $\bra k\phi(0)\ket 0=1$.
 \end{enumerate}
@@ -205,11 +190,10 @@ After shifting and rescaling (and renaming some parameters), we will have instea
 \[\mathcal L'=\mathcal L+\mathcal L_{CT}=-\frac12Z_\phi\partial^\mu\phi\partial_\mu\phi-\frac12Z_mm^2\phi^2+\frac16Z_gg\phi^3+Y\phi\]
 where
 \[\mathcal L_{CT}=-\frac12(Z_\phi-1)\partial^\mu\phi\partial_\mu\phi-\frac12(Z_m-1)m^2\phi^2+\frac16(Z_g-1)g\phi^3+Y\phi\]
-\todo{Verificare per cosa sta CT}
-is a new term called \emph{countive (?) lagrangian}.
- Here $Z_\phi$, $Z_m$, $Z_g$ and $Y$ are yet unknown constant. They must be chosen to ensure the validity of eq.\eqref{eqn:LSZ-condition}; this gives us two conditions in four unknown. We fix the parameter $Z_mm^2$ by requiring  to be equal to the actual mass of the particle (equivalently, the energy of the first excited state relative to the ground state), and we fix the parameter $Z_gg$ by requiring some particular scattering cross section to depend on the coupling term in some particular way. So we have four conditions in four unknown, and it is possible to calculate $Y$ and the three $Z$s order by order in powers of $g$.
+is a new term called \emph{counter-Lagrangian} and terms $Z_\bullet$ and $Y$ are called \emph{counter-terms}.
+Here $Z_\phi$, $Z_m$, $Z_g$ and $Y$ are yet unknown constant. They must be chosen to ensure the validity of eq.\eqref{eqn:LSZ-condition}; this gives us two conditions in four unknown. We fix the parameter $Z_mm^2$ by requiring  to be equal to the actual mass of the particle (equivalently, the energy of the first excited state relative to the ground state), and we fix the parameter $Z_gg$ by requiring some particular scattering cross section to depend on the coupling term in some particular way. So we have four conditions in four unknown, and it is possible to calculate $Y$ and the three $Z$s order by order in powers of $g$.
 
-Next, we must develop the tools needed to compute the correlation functions $\bra0 T\left[\phi(x_1)\dots\right]\ket0$ in an interacting quantum field theory.
+Next, we must develop the tools needed to compute the correlation functions $G(x_1,\dots,x_n)$ in an interacting quantum field theory.
 
 
 
