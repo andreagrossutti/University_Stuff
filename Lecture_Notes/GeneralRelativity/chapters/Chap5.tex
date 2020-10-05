@@ -205,13 +205,13 @@ i.e.
 }\end{eqalign}
 where the term $\frac{\delta^4(x-X(\lambda))}{\sqrt{-g(x)}}$ transform as a scalar. 
 
-We can take proper $\lambda$: $e(\lambda) = 1$ so that $\dot X^\mu = p^\mu(\lambda)$ with $p^\mu p_\mu = -m^2$, in this case 
+We can take proper $\lambda$: $e(\lambda) = 1$ so that $\dot X^\mu = P^\mu(\lambda)$ with $P^\mu P_\mu = -m^2$, in this case 
 \begin{eqalign}\boxed{
-	\iemt\mu\nu_{(\Part)}(x) = \int\diff{}{\lambda}p^\mu(\lambda) p^\nu(\lambda) \frac{\delta^4(x-X(\lambda))}{\sqrt{-g(x)}}
+	\iemt\mu\nu_{(\Part)}(x) = \int\diff{}{\lambda}P^\mu(\lambda) P^\nu(\lambda) \frac{\delta^4(x-X(\lambda))}{\sqrt{-g(x)}}
 }\end{eqalign}
 is covariant.  Furthermore we can rewrite
 \begin{eqalign}
-	\delta^4(x-X(\lambda)) = \delta(x^0 - X^0(\lambda))\delta^3(\vec x-\vec X(\lambda)) = \frac{\delta(\lambda-\bar\lambda)}{\dot X^0(\bar\lambda)}\delta^3(\vec x-\vec X(x^0)) = \frac{\delta(\lambda-\lambda_0)}{p^0(x^0)}\delta^3(\vec x-\vec X(x^0))
+	\delta^4(x-X(\lambda)) = \delta(x^0 - X^0(\lambda))\delta^3(\vec x-\vec X(\lambda)) = \frac{\delta(\lambda-\bar\lambda)}{\dot X^0(\bar\lambda)}\delta^3(\vec x-\vec X(x^0)) = \frac{\delta(\lambda-\lambda_0)}{P^0(x^0)}\delta^3(\vec x-\vec X(x^0))
 \end{eqalign}
 where in the last step we assumed $\dot X^0>0$: 
 \begin{figure}[H]
@@ -221,12 +221,12 @@ where in the last step we assumed $\dot X^0>0$:
 \noindent
 Hence
 \begin{eqalign}\boxed{
-	\iemt\mu\nu_{(\Part)}(x) =p^\mu(t) p^\nu(t) \frac{\delta^3(\vec x-\vec X(t))}{p^0(t)\sqrt{-g(x, \vec x)}}
+	\iemt\mu\nu_{(\Part)}(x) =P^\mu(t) P^\nu(t) \frac{\delta^3(\vec x-\vec X(t))}{P^0(t)\sqrt{-g(x, \vec x)}}
 }\end{eqalign}
 In a LIF $\hat x^\alpha = (\hat x^0, \hat x^a)$ we get
 \begin{eqalign}
-	\hiemt00 &= \hat p^0\delta^3(\vec x - \vec X(t))\quad\textbf{energy density}\\
-	\hiemt0a &= \hat p^a\delta^3(\vec x - \vec X(t))\quad\textbf{momentum density}
+	\hiemt00 &= \hat P^0\delta^3(\vec x - \vec X(t))\quad\textbf{energy density}\\
+	\hiemt0a &= \hat P^a\delta^3(\vec x - \vec X(t))\quad\textbf{momentum density}
 \end{eqalign}
 
 \subsection{Perfect fluids}
@@ -255,15 +255,15 @@ which can be immediately covariantized into
 
 We already know that for point particles we have
 \begin{eqalign}
-	\imet\mu\nu(x) = \sum_I \frac{p_I^\mu p_I^\nu}{p_I^0} \frac{\delta^3(\vec x-\vec X(t))}{\sqrt{-g}} = \sum_I \int\diff{}{\lambda} p_I^\mu(\lambda)p_I^\nu(\lambda) \frac{\delta^4(x-X_I(\lambda))}{\sqrt{-g}}
+	\imet\mu\nu(x) = \sum_I \frac{P_I^\mu P_I^\nu}{P_I^0} \frac{\delta^3(\vec x-\vec X(t))}{\sqrt{-g}} = \sum_I \int\diff{}{\lambda} P_I^\mu(\lambda)P_I^\nu(\lambda) \frac{\delta^4(x-X_I(\lambda))}{\sqrt{-g}}
 \end{eqalign}
 
 The perfect fluid regime then implies that, in the local fluid rest frame
 \begin{eqalign}
-	\epsilon = \sum_I E_I \delta^3(\hat x-\hat X_I(t))\quad, \quad\press = \frac13\sum_I \frac{\vert\vec p_I\vert^2}{E_I} \delta^3(\hat x-\hat X_I(t))
+	\epsilon = \sum_I E_I \delta^3(\hat x-\hat X_I(t))\quad, \quad\press = \frac13\sum_I \frac{\vert\vec P_I\vert^2}{E_I} \delta^3(\hat x-\hat X_I(t))
 \end{eqalign}
 
-Since $E_I = \sqrt{m^2_I+\vert \vec p_I\vert^2}$ then we have $\vert \vec p_I\vert^2\leq E_I^2$ and hence
+Since $E_I = \sqrt{m^2_I+\vert \vec P_I\vert^2}$ then we have $\vert \vec P_I\vert^2\leq E_I^2$ and hence
 \begin{eqalign}\boxed{
 	0\leq\press\leq\frac13\epsilon
 }\end{eqalign}
@@ -275,10 +275,10 @@ We can now go further in our analysis in some special regimes, which will be des
 \newcommand{\nRel}{\text{\tiny non-rel}}
 \newcommand{\Dust}{\text{\tiny dust}}
 
-Such regime correspond to the case $E_I \simeq m_I+\frac{\vec p_I^2}{2m}$, then we have
+Such regime correspond to the case $E_I \simeq m_I+\frac{\vec P_I^2}{2m}$, then we have
 \begin{eqalign}
-	\press &\simeq \frac13\sum_I\frac{\vert\vec p_I\vert^2}{m_I^2}\delta^3(\hat x - \hat X(t))\\
-	\epsilon &\simeq \sum_I(m_I + \frac{\vert\vec p_I\vert^2}{2m_I})\delta^3(x-\hat X_I(t)) = \rho(x) + \frac32\press(x)
+	\press &\simeq \frac13\sum_I\frac{\vert\vec P_I\vert^2}{m_I^2}\delta^3(\hat x - \hat X(t))\\
+	\epsilon &\simeq \sum_I(m_I + \frac{\vert\vec P_I\vert^2}{2m_I})\delta^3(x-\hat X_I(t)) = \rho(x) + \frac32\press(x)
 \end{eqalign}
 where $\rho(x)$ denotes the \textbf{mass density in the fluid comoving frame}. Then the space-like matrix elements of $\hiemt\mu\nu$ are
 \begin{eqalign}
@@ -297,7 +297,7 @@ with $\epsilon=\rho$.
 
 \subsubsection{Ultra-relativistic regime}
 
-Such regime correspond to the case $E_I \simeq \vert\vec p_I\vert$, then we have
+Such regime correspond to the case $E_I \simeq \vert\vec P_I\vert$, then we have
 \begin{eqalign}\boxed{
 	\press\simeq\frac13\epsilon
 }\end{eqalign}
@@ -309,17 +309,17 @@ which implies $\tens T\mu\mu=0$.
 
 \subsubsection{A particular perfect fluid}
 
-Consider a \textbf{cosmological constant term}
+Consider a \textbf{cosmological constant term} in $S_M$:
 \begin{eqalign}
-	-\frac\Lambda k\int\diff4x\sqrt{-g}\subset S_M
+	-\frac\Lambda \kappa\int\diff4x\sqrt{-g}
 \end{eqalign}
 where $\dimension\Lambda = L^{-2}$ is known as \textbf{cosmological constant}. Then we see that
 \begin{eqalign}\boxed{
-	\imet\mu\nu_\Lambda = -\frac\Lambda k\imet\mu\nu
+	\imet\mu\nu_\Lambda = -\frac\Lambda \kappa\imet\mu\nu
 }\end{eqalign}
 correspond to a perfect fluid with
 \begin{eqalign}\boxed{
-	\epsilon = \frac\Lambda k
+	\epsilon = \frac\Lambda \kappa
 }\end{eqalign}
 
 \subsection{Example: The expanding universe}
@@ -361,19 +361,19 @@ i.e.
 \begin{eqalign}
 	\epsilon &\propto \frac1{a^3} \text{ for matter domainated universe ($\sim$ rescaling of physical volume)}\\
 	\epsilon &\propto \frac1{a^4} \text{ for radiation domainated universe ($\sim$ rescaling of physical volume + cosmological redshift)}\\
-	\epsilon &=\epsilon_0 \text{ for vacuum domainated universe (with $\Lambda=k\epsilon_0$)}
+	\epsilon &=\epsilon_0 \text{ for vacuum domainated universe (with $\Lambda=\kappa\epsilon_0$)}
 \end{eqalign}
 We also computed the Einstein tensor
 \begin{eqalign}
 	\eten00=3\p{\frac{\dot a}a}^2 \comma \eten ij =-(\dot a^2 + 2a\ddot a)\delta_{ij}
 \end{eqalign}
-Then, from Einstein's equation $\eten\mu\nu=k\emt\mu\nu$ we get
+Then, from Einstein's equation $\eten\mu\nu=\kappa\emt\mu\nu$ we get
 \begin{eqalign}
-	&\boxed{\p{\frac{\dot a}a}^2 = \frac13 k\epsilon}
+	&\boxed{\p{\frac{\dot a}a}^2 = \frac13 \kappa\epsilon}
 \end{eqalign}
 and
 \begin{eqalign}
-	&-(\dot a^2 + 2a\ddot a) = k\press a^2 \quad\Rightarrow\quad \boxed{\frac{\ddot a}{a} = -\frac k6(\epsilon+3\press)}
+	&-(\dot a^2 + 2a\ddot a) = \kappa\press a^2 \quad\Rightarrow\quad \boxed{\frac{\ddot a}{a} = -\frac k6(\epsilon+3\press)}
 \end{eqalign}
 these are known as the \textbf{Friedmann equations} for (3d-flat) FRW universes. \\
 Moreover assuming $\press=w\epsilon$ we get
@@ -384,7 +384,7 @@ Moreover assuming $\press=w\epsilon$ we get
 \end{eqalign}
 We also notice that the case $w=-1$ corresponds to $\epsilon = -\press=\epsilon_0$ which gives a \textbf{constant} Hubble parameter
 \begin{eqalign}	
-	H = \frac{\dot a}a=\sqrt{\frac13k\epsilon_0} = \sqrt{\frac\Lambda3}
+	H = \frac{\dot a}a=\sqrt{\frac13\kappa\epsilon_0} = \sqrt{\frac\Lambda3}
 \end{eqalign}
 and then
 \begin{eqalign}
@@ -397,23 +397,118 @@ and then
 
 \section{Weak field gravitational physics}
 
+Differentily from Newton's law, equations $\nabla^2\Phi = 4\pi G_N\rho$ for the gravitational potential $\Phi$ are highly non-linear in $\met\mu\nu(x)$. However things simplify significantly if one can use the \textbf{weak field approximation}:
+\begin{eqalign}
+	\met\mu\nu(x) \simeq \minkm\mu\nu+\wfa\mu\nu(x)\quad\text{with}\quad\vert \wfa\mu\nu\vert\ll1
+\end{eqalign}
 
+\subsection{Newtonian limit}
 
+The weak field approximation is also assumed in the Newtonian limit, which also assumes small velocities and static field $\wfa\mu\nu(\vec x)$. 
+Consider again the EM tensor generated by a set of particles. In weak field we can approximate
+\begin{eqalign}
+	\iemt\mu\nu\simeq\sum_I\frac{P^\mu_I P^\nu_I}{P_I^0}\delta^3(\vec x-\vec X_I(t))[1+O(h)]
+\end{eqalign}
+The Newtonian limit assumes also $v^2\sim O(h)$. Hence we should restrict to massive particles with $\vert\vec P_I\vert\ll m_I$:
+\begin{eqalign}
+	\iemt00\simeq\sum_I m_I\delta^3(\vec x-\vec X_I(t))=\rho \comma \iemt0i\simeq\iemt ij\simeq0
+\end{eqalign}
+which is the same as $\iemt\mu\nu_\Dust$. Note that $\partial_\mu\iemt\mu\nu=0$ implies $\partial_0\rho=0$ i.e. the density is time independent $\rho=\rho(\vec x)$, consistently with the static condition.
 
+Under such approximation $\eten\mu\nu$ become
+\begin{eqalign}
+	\begin{cases}
+		\eten00\simeq \kappa\rho\\
+		\eten0i\simeq\eten ij\simeq 0
+	\end{cases}
+\end{eqalign}
+which gives $\ricc0i\simeq0$. Moreover taking the trace of $\eten ij \simeq \ricc ij-\frac12 R=0$ we get
+\begin{eqalign}
+	0= {R^i}_i-\frac32R=R-{R^0}_0-\frac32R \implies E=2\ricc00
+\end{eqalign}
+Then $\eten00\simeq\ricc00-\frac12\minkm00R=2\ricc00$ and the first equation become
+\begin{eqalign}
+	\ricc00=\frac12\kappa\rho
+\end{eqalign}
+On the other hand, by dropping all $h^2$ and $\partial_0h$ terms
+\begin{eqalign}
+	\ricc00=\curv\mu0\mu0\simeq\partial_i\chris i00\simeq-\frac12\delta^{ij}\partial_i\partial_j\wfa00=-\Delta\wfa00
+\end{eqalign}
+i.e.
+\begin{eqalign}\boxed{
+	\Delta\wfa00=-\kappa\rho
+}\end{eqalign}
+Recall that $\wfa00(\vec x)=-2\Phi(\vec x)$ hence we recover Newton's law $\nabla^2\Phi=4\pi G_N\rho$ provided that
+\begin{eqalign}\boxed{
+	\kappa=\frac{8\pi G_N}{c^3}
+}\end{eqalign}
 
+\subsection{Checking the weak gravity approximation}
 
+Numerically we have
+\begin{eqalign}
+	G_N \simeq 6.67\times10^{-11}\text{m}^3(\text{kg})^{-1}{\text{s}}^{-2}
+\end{eqalign}
+and normalizing $\Phi\to0$ at large distance, we have
+\begin{enumerate}[label=\textbullet]
+	\item \textbf{Earth}: $M_\otimes \sim 6\times10^{24}$kg, $R_\otimes\sim6\times10^6$m, hence
+		\begin{eqalign}
+			\wfa00\sim\frac{\Phi}{c^2}\sim\frac{G_NM_\otimes}{c^2R_\otimes} \sim \frac{10^{-11}\times10^{24}\text{m}^3\text{s}^{-2}}{(10^{13}\text{m}^2\text{s}^{-2})(10^6\text{m})}\sim10^{-12}\lll1
+		\end{eqalign}
+		hence $\wfa_00$ is extremely weak outside the Earth. 
+	\item \textbf{Sun}: $M_\odot \sim 2\times10^{30}$kg, $R_\odot\sim7\times10^8$m, hence
+		\begin{eqalign}
+			\wfa00\sim\frac{\Phi}{c^2}\sim\frac{G_NM_\otimes}{c^2R_\otimes} \sim \frac{10^{-11}\times10^{30}}{10^{25}}\sim10^{-6}\lll1
+		\end{eqalign}
+		hence $\wfa_00$ is extremely weak outside the Sun too. 
+\end{enumerate}
 
+Hence we just proved that the weak field limit is appropriate to study planets' motion in the solar system. 
 
+\section{Gravitational waves}
 
+One of the main difference between GR and Newton is that the gravitational field can be time dependent. In particular we will see that, if one perturbs the gravitational field by some event, the perturbation propagates along the space in the for of \textbf{gravitational waves}, which are analogous to EM waves. 
 
+Such waves are very important for physics, since they are related to astrophysics, as they are related to radiation from rotating bodies (in particular to the coolescing black holes) and to the ``smocking gun''of inflation in CMB. Moreover, gravitational waves quanta are the \textbf{gravitons} which allows a QFT interpretation of GR as an effective field theory. 
 
+Gravitational waves was first detected by LIGO (Laser Interferometer Gravitational waves Observatory) in 2016, and Thorne, Weiss and Barish won the Nobel prize for the discovery of GW's. 
 
+\skipline
 
+The description of gravitational waves is somewhat analogous to the EM case. Recall that EM in flat empty space is described by
+\begin{eqalign}
+	\partial^\mu F_{\mu\nu}\quad\text{with}\quad F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu
+\end{eqalign}
+or equivalently
+\begin{eqalign}
+	\square A_\mu - \partial_\mu(\partial^\nu A_\nu)=0
+\end{eqalign}
+On the other hand we have gauge-freedom $\delta A_\mu = \partial_\mu f$ and one may impose the Lorentz gauge $\partial^\mu A_\mu=0$. Then $\square A_\mu=0$ become a wave equation whose plane wave solutions
+\begin{eqalign}
+	A_\mu \sim \ipol\mu(k) e^{ik_\mu x^\mu}\quad\text{with}\quad k^2=0\comma \boxed{k^\mu\ipol\mu=0\quad\text{and}\quad\ipol\mu=\ipol\mu+\alpha k_\mu}
+\end{eqalign}
+where the squared relations represent the residual gauge symmetry in the longitudinal polarization. 
+The physical polarization of the photons are then the transverse ones, for instance in the frame $k^\mu\propto(1,0,0,1)$ we have $\ppol \mu = (0,\pol1, \pol2, 0)$. 
 
+\skipline
 
-
-
-
+Take now GR in empty space, equations are
+\begin{eqalign}
+	\eten\mu\nu=0 \iff \ricc\mu\nu=0
+\end{eqalign}
+and expanding around the Minkowski solution in a weak--field regime $\met\mu\nu\simeq\minkm\mu\nu+\wfa\mu\nu$ with $\wfa\mu\nu\ll1$ the inverse metric reads $\imet\mu\nu\simeq\minkim\mu\nu-\iwfa\mu\nu$ with indices raised and lowered using $\minkim\mu\nu$ and $\minkm\mu\nu$.  Then
+\begin{eqalign}
+	\chris\mu\nu\rho\simeq\half\minkim\mu\sigma(\partial_\nu\wfa\sigma\rho+\partial_\rho\wfa\sigma\nu-\partial_\sigma\wfa\nu\rho)
+\end{eqalign}
+and
+\begin{eqalign}
+	\ricc\nu\rho=\curv\mu\nu\mu\rho &\simeq \partial_\mu\chris\mu\nu\rho-\partial_\rho\chris\mu\nu\mu\quad(+ \Gamma^2 \sim h^2)\\
+	&\simeq\half(\partial^\sigma\partial_\nu\wfa\sigma\rho+\partial^\sigma\partial_\rho\wfa\mu\rho)-\half(\partial_\rho\partial_\nu{h^\mu}_\mu+\cancel{\partial_\rho\partial^\mu\wfa\mu\nu}-\cancel{\partial_\rho\partial^\mu\wfa\mu\nu})\\
+	&=\half(\partial_\nu\partial^\sigma\wfa\sigma\rho+\partial_\rho\partial^\sigma\wfa\sigma\nu-\partial_\nu\partial_\rho h-\square\wfa\mu\nu)
+\end{eqalign}
+where in the last line we set $h := {h^\mu}_\mu$. 
+	
+	
 
 
 
