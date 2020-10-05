@@ -48,11 +48,16 @@
 	linkcolor={blue!70!black},
 	citecolor={green}
 }
+\usepackage[colorinlistoftodos,textsize=tiny]{todonotes}% TO DO points
 
 
-%footnote con num romani invece dei numeri (lo trovo più chiaro visto che potrebbero essere scambiati per apici)
+%footnote con numeri romani invece dei numeri arabi
 \renewcommand{\thefootnote}
 	{\Roman{footnote}}
+	
+\newenvironment{eq}{\begin{equation}\begin{aligned}}{\end{aligned}\end{equation}\ignorespacesafterend}
+\newenvironment{eq*}{\begin{equation*}\begin{aligned}}{\end{aligned}\end{equation*}\ignorespacesafterend}
+
 
 %scambia phi e varphi
 %\let\temp\phi
@@ -65,33 +70,86 @@
 \let\varepsilon\temp
 
 \let\vect\vec
-\let\vec\mathbf
+\let\vec\boldsymbol
 
 \newcommand{\half}{\frac12}
 \newcommand{\p}[1]{\left(#1\right)}
-\newcommand{\RR}{\mathbb{R}} %Reali
-\newcommand{\CC}{\mathbb{C}} %Complessi
-\newcommand{\ZZ}{\mathbb{Z}} %Interi
-\newcommand{\de}{\textup{d}}
-\newcommand{\so}{\rightarrow}
+\newcommand{\N}{\mathbb{N}} %Naturali
+\newcommand{\Z}{\mathbb{Z}} %Interi
+\newcommand{\R}{\mathbb{R}} %Reali
+\newcommand{\C}{\mathbb{C}} %Complessi
+
+\renewcommand{\to}{\rightarrow}
+\newcommand{\ot}{\leftarrow}
+\newcommand{\so}{\Rightarrow}
+\newcommand{\os}{\Leftarrow}
+
 \newcommand{\id}{\mathbb 1} %Identità con il doppio 1
 \newcommand{\varid}{\textup {id}} %Identità con "id"
+
+\newcommand{\de}{\text{d}} %Differential
 \newcommand{\der}[2]{\frac{\de #1}{\de #2}}
 \newcommand{\dder}[3]{\frac{\de^2 #1}{\de #2\,\de #3}}
 \newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\pdder}[3]{\frac{\partial^2 #1}{\partial #2\,\partial #3}}
+\newcommand{\dpder}[2]{\frac{\partial^2 #1}{{\partial #2}^2}}
+
 \newcommand{\inv}[1]{{#1}^{-1}}
 
-\newcommand{\comma}{\quad,\quad}
+\newcommand{\hs}{\mathcal H} %Hilbert space
+\newcommand{\fock}{\mathcal F} %Fock space
+\newcommand{\dom}{D} %domain of an operator
+\newcommand{\contour}{\mathcal C} %contour integral
+\newcommand{\lag}{\mathcal L} %lagrangian density
+\newcommand{\ham}{\mathcal H} %hamiltonian density
 
-\newenvironment{eqalign}{\begin{equation}\begin{aligned}}{\end{aligned}\end{equation}}
+\newcommand{\cinf}{C^\infty} %infinitely derivable functions
+
+\newcommand{\cenergy}{\mathcal E} %curly energy simbol
+\newcommand{\efield}{\textbf E} %electric field
+
+\newcommand{\modx}{|\vec x|}
+\newcommand{\modk}{|\vec k|}
+\newcommand{\modp}{|\vec p|}
+\newcommand{\modpp}{|\vec{p'}|}
+
+\renewcommand{\op}[1]{\hat{#1}}%\operator
+\newcommand{\dotop}[1]{\dot{\op{#1}}} %time derivative of operator
+\newcommand{\supp}{\operatorname{supp}} %support of an operator
+\newcommand{\spec}{\sigma} %spectrum
+\newcommand{\st}{\,|\,} %such that
+\newcommand{\varst}{\,\text{s.t.}\,} %var such that
+\newcommand{\tp}{\text T}%time ordering product
+
+\newcommand{\ophi}{\op\phi} %field operator phi
+\newcommand{\opsi}{\op\psi} %field operator psi
+\newcommand{\opi}{\op\pi} %field operator pi
+
+\newcommand{\uei}{U_\epsilon^I} %unitary operator in interaction picture for finite epsilon
+\newcommand{\ueid}{U_\epsilon^{I\dagger}} % adj unitary operator in interaction picture for finite epsilon
+\newcommand{\scate}{S_\epsilon}
+
+\newcommand{\dir}{\oplus} %direct sum
+\newcommand{\bigdir}{\bigoplus} % big direct sum
+\newcommand{\ten}{\otimes} %tensor product
+
+\newcommand{\sls}{\,{\mathbin{\tikz [x=1.4ex,y=1.6ex,line width=.2ex] \draw (0,0) -- (1,1) (0,1) -- (1,0);}}\,} %space-like separated coordinates
+
+\newcommand{\tmax}{\text{max}}
+\newcommand{\trad}{\text{rad}}
+\newcommand{\tin}{\text{in}}
+\newcommand{\tout}{\text{out}}
+
+\newcommand{\tcomma}{\quad,\quad}
+\newcommand{\twith}{\quad\text{with}\quad}
+\newcommand{\tand}{\quad\text{and}\quad}
+\newcommand{\tif}{\quad\text{if}\quad}
+\newcommand{\tfor}{\quad\text{for}\quad}
 
 \newcommand{\skipline}{\leavevmode\vspace{\baselineskip}} %Salta una riga (devi saltare una riga prima di mettere il comando)
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}%numeri cerchiati
-            
-\usepackage[colorinlistoftodos,textsize=tiny]{todonotes}% TO DO points
 
 %Struttura modulare
 \usepackage{subfiles}
@@ -106,21 +164,19 @@ frametitlebackgroundcolor=gray!20,
 innertopmargin=\topskip,
 }
 \mdtheorem[style=example, nobreak=false]{example}{Example}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Exercise
 % metti il colore che preferisci su linecolor e frametitlebackgroundcolor
 % nel file .tex: \begin{exercise}[TITOLO ESERICZIO], se non vuoi dare un titolo all'esercizio non mettere le parentesi quadre (lo stesso vale per example)
 \definecolor{blue}{RGB}{0, 114, 178} % modifica qui se vuoi creare un colore personalizzato con codice RGB
 
-\mdfdefinestyle{exercise}{%
+\mdfdefinestyle{exercize}{%
 linecolor=blue,linewidth=2pt,%	
 frametitlerule=true,%
 frametitlebackgroundcolor=blue!20,	% !20 = saturazione del colore
 innertopmargin=\topskip,
 }
-\mdtheorem[style=exercise, nobreak=false]{exercise}{Exercise}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mdtheorem[style=exercize, nobreak=false]{exercize}{Exercize}
 
 %Framed
 \mdfdefinestyle{mybox}{
