@@ -391,7 +391,7 @@ therefore the Hilbert space of photons at the end of the process is not the fock
 
 \section{Interacting fields}
 
-\textsf{Ref.~\cite[Chapter 8,9]{Greiner_1996}}\\
+\textsf{Ref.~\cite[Chapter 8,9]{Greiner_1996}; \cite[Section 1.9, Chapter 10]{Kleinert_2015}}\\
 
 Up to now we have considered only ``free'' fields whose Hilbert space is a fock space, however to obtain physical informations we need interactions. Now, starting from the particle physics case (zero temperature $T=0$, zero density $n=0$, relativistic case), and then moving to the condensed matter case, we will introduce the perturbative calculation of the interactions. We are mainly interested in understand which are the problems that arise in the perturbative approach and in general the need of non-perturbative techniques.
 
@@ -489,7 +489,11 @@ By construction $\fock_\tin,\fock_\tout\subset\hs$ (the space of $\ophi$) and if
 \end{eq}
 Hence the scattering is analyzed in terms of these matrix elements.
 
-These matrix elements are in turn related to the correlation functions of $\ophi$ (for $\epsilon>0$) by the LSZ (Lehmann-Symanzik-Zimmermann) formula: if the in-state is given by particles with momenta $q_1,\dots,q_m$ and the out state by particles with momenta $p_1,\dots,p_n$, then
+These matrix elements are in turn related to the \emph{correlation or Green functions} of $\ophi$
+\begin{eq}
+	G^{(n)}(x_1,\ldots,x_n):=\bra0\tp[\ophi(x_1)\ldots\ophi(x_n)]\ket0
+\end{eq} 
+by the LSZ (Lehmann-Symanzik-Zimmermann) formula: if the in-state is given by particles with momenta $q_1,\dots,q_m$ and the out state by particles with momenta $p_1,\dots,p_n$, then
 \begin{eq}
 	&\braket{q_1,\dots,q_m\,\tin}{p_1,\dots,p_n\,\tout}=\\
 	&\qquad= i^{m+n}\int\de^4x_1\ldots\de^4x_m\int\de^4y_1\ldots\de^4y_n \times\\
@@ -542,13 +546,13 @@ for some operator $L$. Now $\braket{0_\tin}{0_\tout}=e^{iL}$ therefore
 \end{eq} 
 and taking $t\to+\infty$ we finally get eq.~\eqref{eq:gell-man-low}. 
 
-Finally the perturbative approach consists in replacing
+In general is very hard to evaluate expressions like eq.~\eqref{eq:gell-man-low}. In order to make this effort, the perturbative approach consists in replacing
 \begin{eq}\begin{gathered}
 	\bra{0_\tin}\tp[\ophi_\tin(x_1)\ldots\ophi_\tin(x_n)\sum_{\ell=0}^\infty\frac1{\ell!}\left(-\frac i\hbar\int_{-\infty}^{+\infty}\de t'\,H_\epsilon^I(t')\right)^\ell]\ket{0_\tin}\\
 	\downarrow\\
 	\sum_{\ell=0}^\infty\frac1{\ell!}\bra{0_\tin}\tp[\ophi_\tin(x_1)\ldots\ophi_\tin(x_n)\left(-\frac i\hbar\int_{-\infty}^{+\infty}\de t'\,H_\epsilon^I(t')\right)^\ell]\ket{0_\tin}
 \end{gathered}\end{eq}
-i.e. moving the infinite series outside the expectation value. The terms inside the sum can now be computed in terms of in-fields using Feynman diagrams. 
+i.e. moving the infinite series outside the expectation value. The terms inside the sum can now be computed in terms of in-fields using Wick theorem or equivalently Feynman diagrams. 
 
 Resumming our steps, we expressed the scattering amplitudes in terms of correlators of interacting fields using LSZ formula, then Gell-Mann - Low formula allows us to express such correlators in terms of correlators of in-fields (free). Finally the perturbative approach prescripts the extraction of the infinite series outside the expectation value, in such a way that we can obtain our result computing expectation values of free fields through Feynman diagrams. We'll see in the following how dangerous is perturbative approach prescription. 
 
@@ -558,7 +562,7 @@ Resumming our steps, we expressed the scattering amplitudes in terms of correlat
 
 \section{Condensed matter systems}
 
-\textsf{\footnote{Reference: \\\url{https://web.archive.org/web/20160304030119/http://www.cond-mat.de/events/correl14/manuscripts/pavarini.pdf}}}\\
+\textsf{\cite[Sections 1.16, 2.17-2.19, 10.9]{Kleinert_2015}; \cite{Fjaerestad_2013}}\\
 
 Let us turn to condensed matter systems. A source of information on the physical properties (typically transport properties) are the correlation functions of local observables, such as spin, density, current, etc; in particular two-points functions. Hence in this case physical informations are much more involved than just scattering amplitudes in particle physics. These two-points functions appear naturally in particular when one studies the \emph{linear response}, i.e. the response to a test (i.e. infinitesimal) perturbation. 
 
@@ -597,18 +601,18 @@ We calculate the response to the perturbation through a variation, using the per
 	=-i\int_{-\infty}^{+\infty}\de t'\,\xi_\epsilon(t')\theta(t-t')\bra n[O_1^H(t'),O_2^H(t)]\ket n\\
 \end{eq}
 One can now just sum over $\{\ket n\}$ to perform the thermal expectation value 
-\begin{eq}
+\begin{eq}\label{eq:thermal-average}
 	\langle(\bullet)\rangle_{\beta:=\frac1{kT}}
 	=\frac{\sum_n\bra n(\bullet)\ket ne^{-\beta\cenergy_n}}{\sum_ne^{-\beta\cenergy_n}}
 \end{eq}
 obtaining the expectation value at a given temperature $T$
 \begin{eq}\label{eq:pert_ret_corr}
-	\delta\langle O_1^{H+V_\epsilon}(t)\rangle_T
+	\delta\langle O_1^{H+V_\epsilon}(t)\rangle_\beta
 	=\int\de t'\,\xi_\epsilon(t')\left(-i\theta(t-t')\langle[O_1^H(t),O_2^H(t')]\rangle_\beta\right)
 	=\int_{-\infty}^{+\infty}\de t'\,\xi_\epsilon(t')\retc^{\,O_1O_2}(t,t')
 \end{eq}
 where
-\begin{eq}
+\begin{eq}\label{eq:ret-corr-hermit}
 	\retc^{\,O_1O_2}(t,t'):=-i\theta(t-t')\langle[O_1^H(t),O_2^H(t')]\rangle_\beta
 \end{eq}
 is called \emph{retarded correlation function}. Also in this case, similarly to what happens in RQFT, that experimental data are obtained from particular correlation functions. 
@@ -620,7 +624,7 @@ Of curse if $O_1$, $O_2$ and $\xi_\epsilon$ depend also on space coordinates the
 	&=\int\de^3x'\,\de t'\,\xi_\epsilon(\vec {x'}, t')\,\retc^{\,O_1O_2}(\vec x,t,\vec{x'},t')
 \end{eq}
 where
-\begin{eq}
+\begin{eq}\label{eq:ret-corr-func}
 	\retc^{\,O_1O_2}(\vec x,t,\vec{x'},t'):=-i\theta(t-t')\langle[O_1^H(\vec x,t),O_2^H(\vec{x'},t')]\rangle_\beta
 \end{eq}
 
@@ -666,7 +670,7 @@ For example the intensity of response in metals by high frequency photons (if th
 	i\theta(t_1-t_2)\langle\{\psi^\dagger(\vec{x_1},t_1),\psi(\vec {x_2},t_2)\}\rangle_\beta
 \end{eq}
 
-\subsubsection{Computation of the retarded correlator - Matsubara formalism}
+\subsubsection{Matsubara formalism}
 
 If $H$ is not free the next question is how to compute the correlation functions. Let $H=H_0+H_I$, with $H_0$ ``free'' (typically this means that contains only the quadratic terms in the fields, with no mixed components). For $T=0$ one just have to replace
 \begin{eq}
@@ -674,14 +678,154 @@ If $H$ is not free the next question is how to compute the correlation functions
 \end{eq}
 and the Gell-Mann Low formula applies as before with adiabatic switching as in the relativistic case and the perturbative approach is completely similar. 
 
-For $T>0$ the situation is more complicated because $H_I$ would appear in two places: in the time evolution eq.~\eqref{eq:evol-op-solid-state} as in $T=0$ but also in the Boltzmann weight $e^{-\beta(H_0+H_I)}$. This makes the standard perturbative treatment inapplicable, since we need to disentangle a perturbation in these two places. 
+For $T>0$ the situation is more complicated because $H_I$ would appear in two places: in the time evolution eq.~\eqref{eq:evol-op-solid-state} as in $T=0$ but also in the Boltzmann weight $e^{-\beta(H_0+H_I)}$. This makes the standard perturbative treatment inapplicable, since we need to disentangle a perturbation in these two places. The way to solve this issue is due to Matsubara, and for this reason called the \emph{Matsubara formalism}. Let's see how it works. 
 
-However here come to rescue the following trick: the \emph{Matsubara formalism}.
+We define an ``evolution'' of the operators by a new parameter $\tau$:
+\begin{eq}
+	O^H(\tau)=e^{\tau H}Oe^{-\tau H}
+	\twith
+	0\leq\tau\leq\beta
+\end{eq}
+and then instead of computing correlation functions at ordinary time $t$, we compute them using the modified evolution and the parameters $\tau_i$:
+\begin{eq}	
+	\langle O_1^H(\tau_1)\ldots O^H_n(\tau_n)\rangle_\beta
+\end{eq}
+Suppose that $H=H_0+H_I$ (notice that the cutoff $\epsilon$ is not required here since the domain of $\tau$ is already finite, $\tau\in[0,\beta]$) and write again the evolution separating the contribution of $H_0$ and $H_I$ as in the interaction picture
+\begin{eq}
+	O^H(\tau)=U^I(\tau)O^{H_0}(\tau)U^I(\tau)
+\end{eq}
+getting as before
+\begin{eq}
+	U^I(\tau)=e^{\tau H_0}e^{-\tau H}
+	\twith
+	U^I(0)=\id
+\end{eq}
+and again
+\begin{eq}
+	U^I(\tau)=\tp_\tau[e^{-\int_0^\tau\de\tau'\,H_I(\tau')}]
+\end{eq}
 
+We define \emph{Matsubara correlator / Green function} the object
+\begin{eq}
+	G_M^{\,O_1\ldots O_n}(\tau_1,\ldots, \tau_n):=-\langle\tp_\tau[O_1^{H}(\tau_1) \ldots O_n^{H}(\tau_n)]\rangle_\beta
+\end{eq}
+Now for the analogue of the Gell-Mann Low formula
+\begin{eq}
+	\langle\tp_\tau[O_1^H(\tau_1)\ldots O_n^H(\tau_n)]\rangle_\beta=
+	\frac{\langle\tp_\tau[O_1^{H_0}(\tau_1)\ldots O_n^{H_0}(\tau_n)e^{-\int_0^\beta\de\tau'\,H_I(\tau')}]\rangle_\beta^0}
+	{\langle\tp_\tau[e^{-\int_0^\beta\de\tau'\,H_I(\tau')}]\rangle_\beta^0}
+\end{eq}
+with $\langle\bullet\rangle_\beta^0$ the thermal average computed using $H_0$ as Hamiltonian. In comparison with the Gell-Mann Low formula for particles physics, in this case the vacuum expectation values are replaced by the Boltzmann-weighted thermal traces, and the vacuum expectation value of the $S$-matrix operator $U_\epsilon^I(+\infty)$ in the denominator is replaced by the Boltzmann-weighted trace of the interaction operator $U^I(\beta)$ along the euclidean time axis $\tau$. 
 
+Finally perturbative treatment then prescripts
+\begin{eq}
+	\langle\tp_\tau[O_1^{H_0}(\tau_1)\ldots O_n^{H_0}(\tau_n)e^{-\int_0^\beta\de\tau'\,H_I(\tau')}]\rangle_\beta^0
+	= \sum_{\ell=0}^\infty\frac{(-1)^\ell}{\ell!}\langle\tp_\tau[O_1^{H_0}(\tau_1)\ldots O_n^{H_0}(\tau_n)\Big(\int_0^\beta\de\tau'\,H_I(\tau')\Big)^\ell]\rangle_\beta^0
+\end{eq}
+This leads to a series of thermally averaged products of many fields which move according to the free field equations. Therefore Wick's theorem can be applied and we obtain an expansion of the Matsubara Green function completely analogous to the field theoretic one. The only difference is the finite-time interaction. Now everything is again expressed in terms of the free fields and can be computed using Feynman diagrams. 
 
+To be precise in most cases one also need to use an infrared cutoff $\epsilon$, which in this case (the domain of $\tau$ is finite) is required only in the space coordinates, and will be removed at the end of the calculation.
 
+Now the question is how this thermal averaged operator can be related to the retarded correlators needed to compute the linear response of our system. Using thermal average formula eq.~\eqref{eq:thermal-average} and $Z:=\Tr_\hs e^{-\beta H}$ the \emph{partition function} computed taking the trace over the whole Hilbert space of the system $\hs$\footnote{Notice that at this point we do not know whether this space is Fock or non-Fock.} (not only the 1-particle Hilbert space $\hs_1$), the 2-points Matsubara correlator (the only needed in the perturbative approach) reads:
+\begin{eq}	\label{eq:Matsu-corr-tau12}
+	G_M^{\,O_1O_2}(\tau_1,\tau_2)&=-\frac1Z\big\{\Tr_\hs[e^{-\beta H}e^{\tau_1H}O_1 e^{-\tau_1H}e^{\tau_2H}O_2e^{-\tau_2H}]\theta(\tau_1-\tau_2)\\
+	&\qquad \pm \Tr_\hs[e^{-\beta H}e^{\tau_2H}O_2 e^{-\tau_2H}e^{\tau_1H}O_1e^{-\tau_1H}]\theta(\tau_2-\tau_1)\big\}=\\
+	&=-\frac1Z\big\{\Tr_\hs[e^{-\beta H}O_1e^{-(\tau_1-\tau_2)H}O_2e^{(\tau_1-\tau_2)H}]\theta(\tau_1-\tau_2)\\
+	&\qquad  \pm \Tr_\hs[e^{-\beta H}O_2e^{-(\tau_2-\tau_1)H}O_1e^{(\tau_2-\tau_1)H}]\theta(\tau_2-\tau_1)\big\}
+\end{eq}
+where in the second step we used the cyclicity of the trace and the choice of the sign depends on the commutation relation between $O_1^H$ and $O_2^H$ ($+$ if they commute or $-$ if they anticommute). This computation shows that the two points correlator is just a function of the difference $\tau:=\tau_1-\tau_2$. 
+\begin{eq}\label{eq:Matsu-corr-tau}
+	G_M^{\,O_1O_2}(\tau)&=-\frac1Z\big\{\Tr_\hs[e^{-\beta H}O_1e^{-\tau H}O_2e^{\tau H}]\theta(\tau) \pm \Tr_\hs[e^{-\beta H}O_2e^{\tau H}O_1e^{-\tau H}]\theta(-\tau)\big\}
+\end{eq}
+By construction $0\leq\tau_i\leq\beta$, $i=1,2$, hence we get that $\tau\in[-\beta,\beta]$. Notice that for $\tau\in[-\beta,0]$, $\tau+\beta\geq0$ 
+\begin{eq}
+	\Tr_\hs[e^{-\beta H}O_2e^{\tau H}O_1e^{-\tau H}]
+	=\Tr_\hs[O_2e^{(\tau+\beta)H}e^{-\beta H}O_1 e^{-(\tau+\beta)H}]
+	=\Tr_\hs[e^{-\beta H}O_1 e^{-(\tau+\beta)H}O_2e^{(\tau+\beta)H}]
+\end{eq}
+hence $G_M^{\,O_1O_2}(\tau)=\pm \,G_M^{\,O_1O_2}(\tau+\beta)$ and we can regard $G_M^{\,O_1O_2}(\tau)$ as an (anti)periodic function of period $\beta$ defined for any $\beta\in\R$. 
 
+Notice that in general traces can be infinite or the limit $\epsilon\to0$ of the cutoff might not exists, making the perturbative approach not working (notice that an infinite trace is the thermal-equivalent of a divergent vacuum expectation value of the theoretical field case). Nevertheless the periodicity of the Matsubara correlator is a non-perturbative result which hold anyway, even if the definition of the trace lose its meaning. Such relation is called \emph{Kubo-Martin-Schwinger (KMS) condition}:
+\begin{eq}\label{eq:KMS-condition}
+	G_M(\tau)=\pm\, G_M(\tau+\beta)
+\end{eq}
+which is independent on the choice of $\epsilon$ and works also for $\epsilon\to0$.
 
+Due to periodicity, $G_M(\tau)$ can be represented in terms of Fourier coefficients
+\begin{eq}\label{eq:Mats_Gree_Four_series}
+	G_M(\tau)=\frac1\beta\sum_{n\in\Z}e^{-i\omega_n\tau}G_M(\omega_n)
+\end{eq}
+with
+\begin{eq}\label{eq:Matsu-freq}
+	\omega_n=\begin{cases}\begin{aligned}
+		&\frac{2n\pi }\beta &&\tif G_M(\tau)= +\,G_M(\tau+\beta)\\[7pt]
+		&\frac{(2n+1)\pi}\beta &&\tif G_M(\tau)=-\,G_M(\tau+\beta)
+	\end{aligned}\end{cases}
+\end{eq}
+called \emph{Matsubara frequencies} and
+\begin{eq}\label{eq:Matsubara-Fourier-coefficents}
+	G_M(\omega_n)=\int_0^\beta\de\tau\,e^{i\omega_n\tau}G_M(\tau)
+\end{eq}
+Notice that as $T\to0$ Matsubara coefficients become continuous and eq.~\eqref{eq:Mats_Gree_Four_series} become a Fourier transformation. 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 4 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Lehmann spectral representation of the correlators ($T>0$)}
+
+The Wick rotation of the $t$-axis in eq.~\eqref{eq:ret-corr-func} exactly coincides with the axis on which $\tau$ is defined, and the Wick rotation send the energies in the field theoretic Green functions eq.~\eqref{eq:ret-corr-func} to the axis along which Matsubara frequencies are situated. The retarded Green functions are related to the imaginary-time Matsubara Green functions by an analytical continuation. 
+
+To see this relation we introduce a Dirac completeness of eigenstates $\{\ket n\}$ of $H$ inside the coefficients of the Fourier series eq.~\eqref{eq:Matsubara-Fourier-coefficents} (we change the label for the Fourier coefficients from $n$ to $s$) using eq.~\eqref{eq:Matsu-corr-tau}:
+\begin{eq}\label{eq:Mats-corr-coeff-complet}
+	G_M(\omega_s)&=-\frac1Z\int_0^\beta\de\tau\,e^{i\omega_s\tau}\Tr_\hs[e^{-\beta H}O_1e^{-\tau H}O_2e^{\tau H}]\\
+	&=-\frac1Z\int_0^\beta\de\tau\sum_{m,n}\,e^{i\omega_s\tau}e^{-\beta\cenergy_n}e^{\tau(\cenergy_n-\cenergy_m)}\bra nO_1\ket m\bra mO_2\ket n
+\end{eq}
+Using $\int_0^\beta\de\tau\,e^{\alpha\tau}=\frac1\alpha(e^{\alpha\beta}-1)$ we can integrate:
+\begin{eq}
+	G_M(\omega_s)&=-\frac1Z\sum_{m,n}e^{-\beta\cenergy_n}\frac{e^{i\omega_s\beta+\beta(\cenergy_n-\cenergy_m)}-1}{i\omega_s+\cenergy_n-\cenergy_m}\bra nO_1\ket m\bra mO_2\ket n\\
+	&=-\frac1Z\sum_{m,n}\frac{e^{i\omega_s\beta-\beta\cenergy_m}-e^{-\beta\cenergy_n}}{i\omega_s+\cenergy_n-\cenergy_m}\bra nO_1\ket m\bra mO_2\ket n
+\end{eq}
+Finally using the explicit values of Matsubara frequencies eq.~\eqref{eq:Matsu-freq}, one gets
+\begin{eq}\label{eq:Lehm_Mats_corr}
+	G_M(\omega_s)&=-\frac1Z\sum_{m,n}\frac{\pm e^{-\beta\cenergy_m}-e^{-\beta\cenergy_n}}{i\omega_s+\cenergy_n-\cenergy_m}\bra nO_1\ket m\bra mO_2\ket n=\\
+	&=\frac1Z\sum_{m,n}\frac{e^{-\beta\cenergy_n}\mp e^{-\beta\cenergy_m}}{i\omega_s+\cenergy_n-\cenergy_m}\bra nO_1\ket m\bra mO_2\ket n
+	\tfor
+	G_M(\tau)=\pm\, G_M(\tau+\beta)
+\end{eq}
+Such expression for the Green function is called \emph{Lehmann representation} (of $G_M$, in this case). Notice that in this representation the Fourier series coefficients can be computed in terms of $H$ eigenvalues and the matrix elements of $O_1$ and $O_2$ only (for this reason such representation is also called ``spectral'' representation). Notice that these coefficients have poles along the imaginary axis. 
+
+Let's try to find the Lehmann representation of the retarded Green function we introduced before. Actually a more generic definition respect to eq.~\eqref{eq:ret-corr-hermit} of the retarded correlator is used:
+\begin{eq}\label{eq:ret-corr}
+	\retc^{\,O_1O_2}(t,t'):=-i\theta(t-t')\langle[O_1^H(t),O_2^{H}(t')]_\mp\rangle_\beta
+\end{eq}
+taking the commutator or the anticommutator depending on the label after the square bracket.
+Rewriting eq.~\eqref{eq:ret-corr} introducing a Dirac completeness as in eq.~\eqref{eq:Mats-corr-coeff-complet} we get
+\begin{eq}\label{eq:ret-corr-coeff-complet}
+	\retc(t_1,t_2)&=-i\theta(t_1-t_2)\Tr_\hs[e^{-\beta H}[e^{it_1H}O_1e^{-it_1H},e^{it_2H}O_2e^{-it_2H}]_\mp]\\
+	&=-\frac iZ\theta(t_1-t_2)\Tr_\hs[e^{-\beta H}(e^{it_1H}O_1e^{-it_1H}e^{it_2H}O_2e^{-it_2H}\mp e^{it_2H}O_2e^{-it_2H}e^{it_1H}O_1e^{-it_1H})]\\
+	&=-\frac iZ\theta(t)\Tr_\hs[e^{-\beta H}e^{itH}O_1e^{-itH}O_2\mp e^{itH}O_1e^{-\beta H}e^{-itH}O_2]\\
+	&=-\frac iZ\theta(t)\sum_{m,n}(e^{-\beta\cenergy_n}\mp e^{-\beta\cenergy_m})e^{it(\cenergy_n-\cenergy_m)}\bra nO_1\ket m\bra mO_2\ket n
+\end{eq}
+where $t:=t_1-t_2$ and in the third step we used the cyclicity of the trace. 
+Using the Fourier Transform of the following functions (the limit $\delta\to0$, $\delta>0$, is understood)
+\begin{eq}
+	\fourier[\theta(t)](\omega)=\frac i{\omega+i\delta}
+	\tcomma
+	\fourier[e^{i\alpha t}](\omega)=\delta(\omega+\alpha)\\
+	\fourier[f(t)g(t)](\omega)=\int\de\omega'\,\tilde f(\omega-\omega')\tilde g(\omega')
+\end{eq}
+one get the Fourier transform of $\retc(t)$:
+\begin{eq}\label{eq:Lehm_ret_corr}
+	\retc(\omega)&=-\frac iZ\int\de\omega'\,\frac i{\omega-\omega'+i\delta}\sum_{m,n}(e^{-\beta\cenergy_n}\mp e^{-\beta\cenergy_m})\delta(\omega'+\cenergy_n-\cenergy_m)\bra nO_1\ket m\bra mO_2\ket n\\
+	&=\frac1Z\sum_{m,n}\frac{e^{-\beta\cenergy_n}\mp e^{-\beta\cenergy_m}}{\omega+\cenergy_n-\cenergy_m+i\delta}\bra nO_1\ket m\bra mO_2\ket n
+\end{eq}
+which is the Lehmann representation of $\retc$. Notice that the prescription $i\delta$ is needed to move slightly the poles of the functions from the real axis, in such a way that the Wick rotation of the function is allowed. 
+
+Is now clear comparing eq.~\eqref{eq:Lehm_Mats_corr} and eq.~\eqref{eq:Lehm_ret_corr} that the retarded correlator is just the analytical continuation of the Matsubara correlator
+\begin{eq}
+	\retc(\omega)=G_M(i\omega_s\to\omega+i\delta)
+\end{eq}
+Can be proved\footnote{Original proof by Baym and Mermin (1960): \url{https://doi.org/10.1063/1.1703704}, useful reference: Appendix A in \url{https://fks.sk/~bzduso/physics/master/thesis.pdf}.} using Carleman's theorem that such relation is well-defined and can be used to reconstruct uniquely $\retc(\omega)$ by analytical continuation of $G_M(\omega_n)$. The only requirement on the Matsubara Green function is that it satisfy the KMS condition eq.~\eqref{eq:KMS-condition}. Therefore it is possible to compute $G_M$ as in the high energy case and then obtain $\retc$ from analytical continuation. 
 
 \end{document}

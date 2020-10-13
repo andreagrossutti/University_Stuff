@@ -1,12 +1,93 @@
 \documentclass[../main/main.tex]{subfiles}
 \begin{document}
 
+\chapter{Non-perturbative QFT}
 
+\section{The need of a non-perturbative approach}
 
+We saw in the previous chapter that all the interesting physical quantities can be computed, both in high-energy physics and in condensed matter physics, using the perturbative approach. In this chapter we'll see why what we said doesn't really work so good, and in some instances we need a non-perturbative approach. We already anticipated some problems in the introduction, now we'll go more in detail. 
 
+\subsubsection{Divergent quantities}
 
+Let's start from the simple example provided by a massive theory with quartic coupling in $d=0$. Consider the following quantity, which naturally emerges in perturbative computations:
+\begin{eq}\label{eq:pert-probl-int1}
+	\frac{\displaystyle \int\de x\,e^{-\frac\alpha2x^2}e^{-\lambda x^4}}{\displaystyle\int\de x\,e^{-\frac{\alpha}2x^2}}
+	\tfor \lambda>0 \tcomma \Re\alpha>0
+\end{eq}
+Such quantity is clearly smaller than 1, since the numerator contains the integral of a function which is everywhere smaller than the function in the integral present in the denominator. Nevertheless if one applies the perturbative prescription, the previous quantity is substitute by 
+\begin{eq}\label{eq:pert-probl-int2}
+	\frac{\displaystyle\sum_{n=0}^\infty\frac1{n!}\int\de x\,e^{-\frac\alpha2x^2}(-\lambda x^4)^n}{\displaystyle\int\de x\,e^{-\frac{\alpha}2x^2}}
+\end{eq}
+But if one tries to compute explicitly the coefficient of the series
+\begin{eq}
+	\frac{\displaystyle\int\de x\,e^{-\frac\alpha2x^2}(\lambda x^4)^n}{\displaystyle\int\de x\,e^{-\frac{\alpha}2x^2}}
+	=\lambda^n\frac{(4n)!}{(2n)!}\frac1{2^{2n+1}}\frac1{\alpha^{2n}}
+	\geq \frac{\lambda^n}2\frac{((2n)!)^2}{(2n)!}\frac1{(2\alpha)^{2n}}
+	=\frac{\lambda^n}2 \frac{(2n)!} {(2\alpha)^{2n}}
+	\geq \frac12\left(\frac\lambda{(2\alpha)^2}\right)^n(n!)^2
+\end{eq}
+one gets that the series eq.~\eqref{eq:pert-probl-int2} is absolutely divergent
+\begin{eq}
+	\sum_{n=0}^\infty\left\vert\frac{(-\lambda)^n}{n!}\frac{\displaystyle\int\de x\,e^{-\frac\alpha2x^2} x^{4n}}{\displaystyle\int\de x\,e^{-\frac{\alpha}2x^2}}\right\vert
+	\geq \sum_{n=0}^\infty\half\left(\frac\lambda{(2\alpha)^2}\right)^n n!=+\infty
+\end{eq}
 
+Obviously we saw that the perturbative prescription in this case didn't worked, but can be proved that the same issue appear also in higher dimension. Such problem is actually more general, indeed all the perturbation series needed to compute the collerator using Gell-Mann Low formula are divergent. 
 
+Nevertheless is well known that usually the perturbative approach works (for instance in QED it works very well, and allows to obtain extremely precise predictions) hence we wonder if it is somehow possible to obtain the right expression of the original correlator using the coefficients of the perturbative series. In other words we want to know if, although divergent, could the perturbative series at least determine uniquely the corresponding correlation function. 
 
+\subsubsection{The asymptotic series}
+
+One says that a series $\sum_{n=0}^\infty a_n\lambda^n$, $\lambda>0$, is \emph{asymptotic to a function} $f(\lambda)$ if
+\begin{eq}
+	\lim_{\lambda\to0^+}\frac{\displaystyle\bigg|f(\lambda)-\sum_{n=0}^Na_n\lambda^n\bigg|}{\lambda^N}=0
+	\tforall
+	N>0
+\end{eq}
+This means that the absolute difference between $f(\lambda)$ and the truncated series at order $N$ is $O(\lambda^{N+1})$ so that for $\lambda\ll1$ small enough we can make the difference as mild as we prefer. 
+
+Apparently with the increase of the order of perturbation the truncated series approximate better and better $f(\lambda)$. This naive idea is obviously wrong, due to the fact that increasing the perturbation order one should also decrease the value of $\lambda$. Indeed if one fixes the value of $\lambda$ and increases the perturbation order $N$, the absolute difference between $f(\lambda)$ and the truncated series initially decreases, but eventually it reaches its minimum and starts to increase again, diverging as $N\to\infty$. At higher perturbative orders one should take values of $\lambda$ smaller and smaller to make the correction negligible. The fact that we can take $\lambda\ll1$ to make the difference negligible doesn't solve our problem, since in physical applications the role of $\lambda$ is done by $\hbar$, and decreasing its value below its physical value is meaningless. 
+
+\subsubsection{Non-analytical contributions}
+
+The second problem is that any series asymptotic to a function is also asymptotic to infinitely many distinguished functions. For instance, if a series is asymptotic to some $f(\lambda)$ it is also asymptotic to $f(\lambda)+e^{-\frac1{\lambda\alpha}}$, since
+\begin{eq}
+	\lim_{\lambda\to0^+}\frac{\displaystyle e^{-\frac1{\lambda\alpha}}}{\lambda^N}=0
+	\tforany
+	N\in\N
+	\tand
+	a>0
+\end{eq}
+This is due to the fact that the series expansion of $e^{-\frac1{\lambda\alpha}}$ for $\lambda\ll1$ has all the coefficients equal to zero. 
+
+Unfortunately terms in the form $e^{-\frac1{\lambda\alpha}}$ are exactly the contributions that arises if there are non-trivial topological configurations of the fields in the correlation function.
+
+This makes completely impossible any unique reconstruction of the original function starting from its asymptotic series, since in any case the reconstructed function would be defined up to non-analytical terms which didn't appear in its asymptotic series. 
+
+\subsubsection{Is the perturbative series asymptotic to the correlation function?}
+
+Even if it's impossible to reconstruct the correlator from its asymptotic series, at lest it has been shown that in many QFT where the ultraviolet renormalization does not involve coupling constants (the so called \emph{super-renormalizable theories}) the renormalized perturbation series is asymptotic to the non-perturbative defined correlation function (e.g. QED for $d<3+1$ and $\phi^4$ in $d<3+1$).
+
+Nevertheless if our theory is \emph{renormalizable} (hence not super-renormalizable) in the only case we have almost completely rigorous control of the RQFT, i.e. $\phi^4$ in $d=3+1$, it has been proved that the renormalized perturbation series is not asymptotic to the non-perturbative correlator. Even if we don't have a rigorous proof, this seems the case also for QED in $d=3+1$. 
+
+\subsubsection{Borel resummation}
+
+In some cases, called \emph{Borel resummable theories}, even if the perturbative series is divergent it is possible to resum it via \emph{Borel resummation} obtaining a finite result. 
+
+The idea is ot introduce the identity
+\begin{eq}
+	1=\frac1{n!}\int_0^\infty x^ne^{-x}\de x
+\end{eq}
+inside the perturbative series
+\begin{eq}
+	\sum_{n=0}^\infty a_n\lambda^n=\int_0^\infty\sum_{n=0}^\infty\frac{a_n}{n!}(x\lambda)^ne^{-x}\de x
+\end{eq}
+In some instances, the introduction of the factor $\frac1{n!}$ inside the perturbative coefficients makes the new series converge: $\sum_n\frac1{n!}a_n(x\lambda)^n$ might converge even if $\sum_na_n\lambda^n$ does not. If the new coefficients are smooth enough to make the integral, we are then able to obtain the resummed series. 
+
+The first problem is that the resummed series is still not sensible to non-analytical terms (they cannot be reconstructed just resumming the analytical contributions), moreover a-posteriori one has to check that the resummed series is asymptotic to the non-perturbative result (up to non-analytical terms), since the right convergence is not ensured in general. 
+
+\subsubsection{Resurgence}
+
+We just mention that there is a very recent technique called \emph{resurgence} which applies to Quantum Mechanics and allows to obtain non-perturbative results just using perturbative techniques. Is still unknown whether such technique can be implemented or not also in QFT.
 
 \end{document}
