@@ -219,9 +219,126 @@ Let's see how to generalize the previous representation without assuming Lorentz
 	\item A unitary representation $U$ of spacetime translations (one can also add rotational invariance).
 	\item The field $\ophi$ should transform under an irreducible representation of transformations under $U$.\footnote{For lattice theories $U$ is restricted to discrete spatial lattice translations and typically the time lattice translations are represented contractively, i.e. through terms of the form $e^{-tH}$ (continuum variation of the transfer matrix).} We assume that $\ophi$ transforms as a scalar. 
 \end{enumerate}
+As in the relativistic case, (1') implies that exists a Dirac completeness for the generators $\op{\vec P}$, $ H$ of $U(a)$ with eigenvalue $p_\alpha$. Applying the same strategy as in the relativistic case (the symbol $\pm$ in $\langle\bullet\rangle_{\beta\,\pm}$ indicates whether the operators are bosons or fermions when we compute the average at finite temperature $T$, while $[\bullet,\bullet]_+$ is the anticommutator and $[\bullet,\bullet]_-$ is the commutator)
+\begin{eq}\label{eq:2-point-func-spec-repr-nr}
+	\langle[\ophi(x),\ophid(y)]_\pm\rangle_{\beta\,\pm}
+	&=\frac{\displaystyle\Tr[e^{-\beta H}[\ophi(x),\ophid(y)]_\pm]}{\displaystyle\Tr[e^{-\beta H}]}\\
+	&=\frac1Z\sum_{\alpha,\alpha'}\big(\bra{\alpha'}e^{-\beta H}\ophi(x)\ket\alpha\bra\alpha\ophid(y)\ket{\alpha'} \pm \bra{\alpha}e^{-\beta H}\ophid(y)\ket{\alpha'}\bra{\alpha'}\ophi(x)\ket{\alpha}\big)\\
+	&=\frac1Z\sum_{\alpha,\alpha'}\big(e^{-\beta\cenergy_{\alpha'}}\pm e^{-\beta\cenergy_\alpha}\big)e^{i(p_\alpha-p_{\alpha'})(x-y)}|\bra{\alpha'}\ophi(0)\ket\alpha|^2\\
+	&\overset{d=3}=\int\frac{\de^4q}{(2\pi)^3}\,\rho^\pm(q)e^{-q(x-y)}
+\end{eq}
+with \emph{spectral function}
+\begin{eq}
+	\rho^\pm(q)=\frac{(2\pi)^3}Z\sum_{\alpha,\alpha'}\big(e^{-\beta\cenergy_{\alpha'}}\pm e^{-\beta\cenergy_\alpha}\big)\delta(q-p_\alpha+p_{\alpha'})|\bra{\alpha'}\ophi(0)\ket\alpha|^2
+\end{eq}
+Eq.~\eqref{eq:2-point-func-spec-repr-nr} is called \emph{Lehmann representation} of $\langle[\ophi(x),\ophid(y)]_\pm\rangle_{\beta\,\pm}$. 
 
-%Lezione 13/10-2 16.37
+For fermions, provided that CAR $\{\ophi(\vec x,t),\ophid(\vec y,t)\}=i\delta(\vec x-\vec y)$ is satisfied\footnote{Notice that in the non-relativistic case there is no time derivative in the CAR.} and $T=0$, we get that $A(\omega,\vec q):=\rho^+(q)$ (without $q^0$ in the non relativistic case) is a probability density, and it describes the probability density to find the state $\int e^{-iqx}\ophi(x)\ket0$ in a state of energy $\omega$. 
 
+\subsubsection{The constraint $0\leq Z(\vec q)\leq 1$}
+
+Let's see what these spectral representations have to do with the inconsistency of the perturbation theory as $\epsilon\to0$.
+
+In general in a QFT (relativistic or not) if there is a particle (or a quasi-particle) excitation with dispersion $\omega=\omega(\vec q)$ (in the relativistic case $\omega=\sqrt{m^2+\vec q^2}$) (we assume $\bra0\ophi(0)\ket0=0$, otherwise we can shift the field) then in $A(\omega, \vec q)$ there should be a term
+\begin{eq}\label{eq:stable_1_particle_term_in_spec_func}
+	&Z(\vec q)\delta(\omega-\omega(\vec q)) \quad \text{in the non-relativistic case}\\
+	 &Z\delta(q^2-m^2)\theta(q^0) \quad \text{in the relativistic case}
+\end{eq}
+Notice that in the relativistic case there cannot be any dependence on $\vec q$ in Z due to Lorentz invariance. 
+
+Suppose that we have only one particle in the system (no other particles excitations), then in the non-relativistic case\footnote{The relativistic one is obtained imposing $q^2=m^2$.} since $A(\omega, \vec q)$ describe the probability density to find the state $\int e^{-iqx}\ophi(x)\ket0$ in a state of energy $\omega$ we have that in general
+\begin{eq}
+	A(\omega,\vec q)=Z(\vec q)\delta(\omega-\omega(\vec q))+A_\tinc(\omega, \vec q)
+\end{eq}
+where $A_\tinc$ is a regular (differently from $\delta$) ``featureless'' positive function describing contributions of multi-particle states in the two points function (we still allow our particle to generate some other particles which eventually recombine in the original one due to energy uncertainty, if there are interactions in our theory). These give a (small) non-zero probability to find a particle in an energy state different from $\omega(\vec q)$.      
+%
+\begin{figure}[H]
+\centering
+\scalebox{.9}{
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw    (94.5,195) -- (379.5,195) ;
+\draw [shift={(382.5,195)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+\draw    (238.5,195) -- (238.5,52) ;
+\draw [shift={(238.5,49)}, rotate = 450] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+\draw [color=blue  ,draw opacity=1 ][line width=1.5]    (289,63) -- (289,195) ;
+\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (95.5,188) .. controls (102.23,188) and (108.09,183.72) .. (114.5,185) .. controls (116.33,185.37) and (120.65,189.85) .. (123.5,190) .. controls (141.15,190.93) and (158.84,189.48) .. (176.5,189) .. controls (191.61,188.59) and (200.37,179.85) .. (216.5,181) .. controls (229.23,181.91) and (242.27,193.21) .. (255.5,191) .. controls (262.38,189.85) and (267.57,180.39) .. (274.5,179) .. controls (284.54,176.99) and (295.68,188.42) .. (305.5,189) .. controls (315,189.56) and (327.9,191.69) .. (337.5,191) .. controls (340.48,190.79) and (342.95,187.42) .. (346.5,186) .. controls (349.17,184.93) and (354.56,190.99) .. (359.5,190) .. controls (362.91,189.32) and (366.02,187) .. (369.5,187) ;
+\draw (296,53) node [anchor=north west][inner sep=0.75pt]    {$Z(\vec{q}) \delta (\omega-\omega(\vec q))$};
+\draw (187,45) node [anchor=north west][inner sep=0.75pt]    {$A( \omega ,\vec q)$};
+\draw (391,190) node [anchor=north west][inner sep=0.75pt]    {$\vec q$};
+\draw (123,170) node [anchor=north west][inner sep=0.75pt]    {$A_\tinc( \omega ,\vec q)$};
+\end{tikzpicture}}
+\caption{One-dimensional pictorially representation of the function $A( \omega ,\vec q)$ for a stable particle.}
+\label{fig:sharp_behav_A_spect_func}
+\end{figure}
+%
+\noindent
+Just notice that since $A(\omega,\vec q)$ has an explicitly physical meaning as probability amplitude, the plot shown in Fig.~\ref{fig:sharp_behav_A_spect_func} can be obtained directly in experiments, up to uncertainties which turn the $\delta$-function into a smooth but very localized function. 
+
+From the sum sule we get
+\begin{eq}
+	1=\int\de\omega\,A(\omega, \vec q)=Z(\vec q)+\underbrace{\int\de\omega\,A_\tinc(\omega, \vec q)}_{\geq 0}
+\end{eq}
+which implies
+\begin{eq}
+	0\leq Z(\vec q)\leq1
+\end{eq}
+
+Notice that the case $Z(\vec q)=1$ the theory is free, indeed for a free particle $A(\omega, \vec q)=\delta(\omega-\omega(\vec q))$. Our problem is that, as we'll see, is very difficult to satisfy $0\leq Z<1$ in an interacting situation. 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 6 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+We can weak a little the above requirement of a stable particle excitation: let's see what happen if we do not have a stable particle but a long-life resonance (i.e. a particle with a lifetime large respect to the typical time of the system). The $\delta$-function in eq.~\eqref{eq:stable_1_particle_term_in_spec_func} can be rewritten as
+\begin{eq}
+	\delta(\omega-\omega(\vec q))\quad\mapsto\quad \frac1 \Im\frac1\pi{\omega-\omega(\vec q)+i\delta}
+	\quad\text{where the limit $\delta\to 0^+$ is understood}
+\end{eq}
+and this implies that the retarded correlator has a pole at $\omega=\omega(\vec q)-i\delta$. Notice that $\delta$ essentially correspond to the inverse lifetime $\inv\tau$ of the particle, hence the limit $\delta\to0^+$ correspond to the infinite lifetime of the particle. 
+
+A resonance is described through a Lorentzian distribution, by replacing the above pole by a complex pole at $\omega=f(\omega, \vec q)$ where $f$ is a complex function with $\Im f(\omega,\vec q)$ (in such a way that $A(\omega, \vec q)\geq0$ is satisfied). Then
+\begin{eq}
+	\Im\frac1{\omega-f(\omega, \vec q)}=\frac{-\Im f(\omega, \vec q)}{(\omega-\Re f(\omega, \vec q))^2+(\Im f(\omega, \vec q))^2}
+\end{eq}
+where $\omega=\Re f(\omega, \vec q)$ describes the dispersion relation of the unstable particle and $\Im f(\omega, \vec q)$ its inverse lifetime. 
+
+Then if we take $\Im f(\omega, \vec q)\to0^-$ then $\Im(\omega-f(\omega,\vec q)^{-1}\to\delta(\omega-f(\omega,\vec q))$ with $\omega(\vec q)$ solution of the equation $\omega-\Re f(\omega, \vec q)=0$:
+\begin{eq}
+	\delta(\omega-f(\omega, \vec q))=\frac{\displaystyle \delta(\omega-\omega(\vec q))}{\displaystyle \left|\pder f\omega(\omega, \vec q)\right|\Big|_{\omega=\omega(\vec q)}}
+	=Z(\vec q)\delta(\omega-\omega(\vec q))
+\end{eq}
+This means that in the case of the resonance we just broaden the $\delta$-function in the spectral function, as shown in fig.~\ref{fig:res_behav_A_spect_func}. 
+      
+\begin{figure}[H]
+\centering
+\scalebox{.9}{
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw    (94.5,195) -- (379.5,195) ;
+\draw [shift={(382.5,195)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+\draw    (238.5,195) -- (238.5,52) ;
+\draw [shift={(238.5,49)}, rotate = 450] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (95.5,188) .. controls (102.23,188) and (108.09,183.72) .. (114.5,185) .. controls (116.33,185.37) and (120.65,189.85) .. (123.5,190) .. controls (141.15,190.93) and (158.84,189.48) .. (176.5,189) .. controls (191.61,188.59) and (200.37,179.85) .. (216.5,181) .. controls (229.23,181.91) and (242.27,193.21) .. (255.5,191) .. controls (262.38,189.85) and (267.57,180.39) .. (274.5,179) .. controls (284.54,176.99) and (295.68,188.42) .. (305.5,189) .. controls (315,189.56) and (327.9,191.69) .. (337.5,191) .. controls (340.48,190.79) and (342.95,187.42) .. (346.5,186) .. controls (349.17,184.93) and (354.56,190.99) .. (359.5,190) .. controls (362.91,189.32) and (366.02,187) .. (369.5,187) ;
+\draw[scale=1, domain=240:340, smooth, variable=\x, blue][line width=1.5] plot (\x,{195-900/((\x-289)*(\x-289)+6)});
+\draw (296,53) node [anchor=north west][inner sep=0.75pt]    {$Z(\vec{q}) \delta (\omega-\omega(\vec q))$};
+\draw (187,45) node [anchor=north west][inner sep=0.75pt]    {$A( \omega ,\vec q)$};
+\draw (391,190) node [anchor=north west][inner sep=0.75pt]    {$\vec q$};
+\draw (123,170) node [anchor=north west][inner sep=0.75pt]    {$A_\tinc( \omega ,\vec q)$};
+\end{tikzpicture}}
+\caption{One-dimensional pictorially representation of the function $A( \omega ,\vec q)$ for a unstable particle. The width of the blue peak is proportional to the inverse lifetime $\inv\tau$ of the particle.}
+\label{fig:res_behav_A_spect_func}
+\end{figure}
+
+Again, provided CCR or CAR (depending on the physical situation) we again have the contstraint
+\begin{eq}
+	0\leq Z\leq 1
+\end{eq}
+hence the constraint applies even if we consider unstable particles. Let's see where the problem with the removal of the cutoff $\epsilon$ arises. 
+
+\section{The Hilbert spaces of the free and the interacting theory}
+
+\subsubsection{The limit $\epsilon\to0^+$ - the easy case}
+
+%14/10-1 min 15:56
 
 
 \end{document}
