@@ -96,6 +96,8 @@ We just mention that there is a very recent technique called \emph{resurgence} w
 
 \section{The Källen-Lehmann representation and the Lehmann representation}
 
+\textsf{\cite[Section 9.3]{Greiner_1996}}\\
+
 The second problem of the perturbative approach is related to the limit $\epsilon\to0$ of the IR cutoff of the relation
 \begin{eq}	
 	\ueid(t)\ophi_\tin(\vec x,t)\uei(t)=\ophi(\vec x, t)
@@ -105,8 +107,6 @@ Indeed the limit $\epsilon\to0$ should be taken in a way compatible with physica
 In order to exploit the problem we first need to introduce the spectral representation of the Green functions (the same we introduced for Matsubara and reatarded correlators, but from a more general and deep point of view). 
 
 \subsubsection{Källen-Lehmann representation (relativistic case)}
-
-\textsf{\cite[Section 9.3]{Greiner_1996}}\\
 
 If $\hs$ is the Hilbert space of the interacting theory, in order to have translational and Poincaré invariance, some properties has to be satisfied: in particular we need in $\hs$
 \begin{enumerate}[label=(\arabic*)]
@@ -247,7 +247,7 @@ In general in a QFT (relativistic or not) if there is a particle (or a quasi-par
 Notice that in the relativistic case there cannot be any dependence on $\vec q$ in Z due to Lorentz invariance. 
 
 Suppose that we have only one particle in the system (no other particles excitations), then in the non-relativistic case\footnote{The relativistic one is obtained imposing $q^2=m^2$.} since $A(\omega, \vec q)$ describe the probability density to find the state $\int e^{-iqx}\ophi(x)\ket0$ in a state of energy $\omega$ we have that in general
-\begin{eq}
+\begin{eq}\label{eq:split_spect_func_delta_inc}
 	A(\omega,\vec q)=Z(\vec q)\delta(\omega-\omega(\vec q))+A_\tinc(\omega, \vec q)
 \end{eq}
 where $A_\tinc$ is a regular (differently from $\delta$) ``featureless'' positive function describing contributions of multi-particle states in the two points function (we still allow our particle to generate some other particles which eventually recombine in the original one due to energy uncertainty, if there are interactions in our theory). These give a (small) non-zero probability to find a particle in an energy state different from $\omega(\vec q)$.      
@@ -329,16 +329,93 @@ This means that in the case of the resonance we just broaden the $\delta$-functi
 \end{figure}
 
 Again, provided CCR or CAR (depending on the physical situation) we again have the contstraint
-\begin{eq}
+\begin{eq}\label{eq:bound_Z_spect_repr}
 	0\leq Z\leq 1
 \end{eq}
-hence the constraint applies even if we consider unstable particles. Let's see where the problem with the removal of the cutoff $\epsilon$ arises. 
+hence the constraint applies even if we consider unstable particles.
 
-\section{The Hilbert spaces of the free and the interacting theory}
+\section{The incompatibility between CCR and $U^I$}
 
-\subsubsection{The limit $\epsilon\to0^+$ - the easy case}
+Let's see where the problem with the removal of the cutoff $\epsilon$ arises, first considering the relativistic case. Let's inspect the relation between $Z$ and asymptotic fields. With the introduction of the infrared cutoff $\epsilon$ (at least in $t$) we got that the free field is related to the interacting field by a unitary operator
+\begin{eq}
+	\ophi(\vec x,t) =\ueid(t)\ophi_\tin(\vec x, t)\uei(t)
+\end{eq}
+such that
+\begin{eq}
+	\ophi(\vec x,t) \xrightarrow[t\to-\infty]{}\ophi_\tin(\vec x,t)
+	\tand
+	\uei(t)\xrightarrow[t\to+\infty]{}\id
+\end{eq}
+Let's see if such unitary relation between free and interacting field is possible preserving translational invariance. 
 
-%14/10-1 min 15:56
+Consider a one particle system, then from eq.~\eqref{eq:split_spect_func_delta_inc} we can identify $\bra0\ophi_\tin\ophi_\tin\ket0$ as responsible for the contribution
+\begin{eq}\label{eq:contr_A_relativ_case}
+	Z\delta(q^2-m^2)\theta(q^0)
+\end{eq}
+in the spectral function $A(q)$ of $\ophi$. Since we want that $\ophi$ describe an interacting field we need to assume $Z\neq1$ (otherwise $\ophi$ is free), conversely for $\ophi_\tin$ we already know that eq.~\eqref{eq:contr_A_relativ_case} is satisfied for $Z=1$. Therefore it is impossible to satisfy $\ophi \xrightarrow[t\to-\infty]{}\ophi_\tin$, one can at best hope to satisfy $\ophi \xrightarrow[t\to-\infty]{}Z^{1/2}\ophi_\tin$, i.e.
+\begin{eq}\label{eq:free_int_unit_rela_Z}
+	\ophi(\vec x,t) =Z^{1/2}\ueid(t)\ophi_\tin(\vec x, t)\uei(t)
+\end{eq}
 
+But if $\ophi_\tin$ and $\ophi$ are canonical, i.e. satisfy CCR, then eq.~\eqref{eq:free_int_unit_rela_Z} must be wrong, indeed from eq.~\eqref{eq:free_int_unit_rela_Z} we get
+\begin{eq}\label{eq:limit_t_-inf_CCR}
+	[\ophi(\vec x,t),\dot\ophi(\vec y,t)]\xrightarrow[t\to-\infty]{}Z[\ophi_\tin(\vec x,t),\dot\ophi_\tin(\vec y,t)]
+\end{eq}
+but then using CCR for $\ophi_\tin$ and $\ophi$ we get
+\begin{eq}\label{eq:inconsistency_CCR_unitary}
+	\delta(\vec x -\vec y)
+	&\overset{\text{CCR}}=\lim_{x^0\to-\infty}\bra0[\ophi(\vec x,x^0),\dot\ophi(\vec y,y^0)]\ket0\big|_{x^0=y^0}=\\
+	&=Z\lim_{x^0\to-\infty}\bra0[\ophi_\tin(\vec x,x^0),\dot\ophi_\tin(\vec y,y^0)]\ket0\big|_{x^0=y^0}\overset{\text{CCR}}=Z\delta(\vec x -\vec y)
+\end{eq}
+which give $Z=1$, but this is wrong since we assumed that $\ophi$ is interacting. 
+
+Notice that the above argument about the inconsistency between CCR and eq.~\eqref{eq:free_int_unit_rela_Z} requires that both $x^0$ and $y^0$ are sent to $-\infty$ contemporaneily in eq.~\eqref{eq:limit_t_-inf_CCR}. Conversely it is still possible that $\ophi$ approaches $Z^{1/2}\ophi_\tin$ as $t\to-\infty$ in the weak sense $\ophi \xrightharpoonup[t\to-\infty]{}Z^{1/2}\ophi_\tin$, i.e. in matrix elements: taken a sequence $A_n$ of operators the \emph{weak limit} 
+\begin{eq}
+	A_n\xrightharpoonup[n\to+\infty]{} A
+\end{eq}
+means that 
+\begin{eq}
+	|\langle\psi,(A_n-A)\phi\rangle|\xrightarrow[n\to+\infty]{}0
+\end{eq} 
+Indeed taken $A_n\rightharpoonup A$ and $B_n\rightharpoonup B$ is not ensured that $A_nB_n\rightharpoonup AB$, therefore $\ophi(x)\xrightharpoonup[x^0\to-\infty]{}Z^{1/2}\ophi_\tin(x)$ and $\dot\ophi(y)\xrightharpoonup[y^0\to-\infty]{}Z^{1/2}\dot\ophi_\tin(y)$ does not imply $[\ophi(x),\dot\ophi(y)]\xrightarrow[x^0,y^0\to-\infty]{}Z[\ophi_\tin(x),\dot\ophi_\tin(y)]$ and eq.~\eqref{eq:limit_t_-inf_CCR} does not hold anymore. Therefore we don't have any inconsistency between CCR and eq.~\eqref{eq:free_int_unit_rela_Z} if $\ophi(x)\xrightharpoonup[x^0\to-\infty]{}Z^{1/2}\ophi_\tin(x)$.\footnote{More about this fact in \cite[Section 9.2]{Greiner_1996}.}
+
+Notice that LSZ formula uses precisely such weak limit for $t\to-\infty$, so there is no inconstistence with it.\footnote{The derivation of the LSZ formula for the scalar theory can be found in \cite[Section 9.4]{Greiner_1996}.} 
+
+The serious problem arises when in perturbative approach is used the Gell-Mann Low formula, which requires the existence of a unitary operator $U^I=\lim_{\epsilon\to0^+}\uei$ interpolating between $\ophi$ and $\ophi_\tin$, but if $\ophi$ obeys CCR and translation invariance is recovered (i.e. we take the limit $\epsilon\to0^+$) we get from eq.~\eqref{eq:free_int_unit_rela_Z}  that such unitary operator does not exist (in order to get unitarity we should have $Z=1$, which is forbitten provided that $\ophi$ is interacting).
+
+\section{The Haag's theorem}
+
+\cite[Section 3]{Earman:2005}\\
+
+The important argument from Haag\footnote{Original paper: \cite{Haag:1955}.} proves that the situation does not improves even if we do not require $\ophi$ to be canonical. Except very special non-relativistic cases, the Hilbert space of the free field is disjoint from the Hilbert space of the interacting field (i.e. don't exist any unitary operator which maps the states of one Hilbert spaces into the states of the other one). 
+
+\begin{theorem}[Haag]
+	Assume that the unique translationally invariant state of an interacting scalar QFT with Hilbert space $\hs$ and field $\ophi\in\hs$ is the vacuum $\ket0\in\hs$ \footnote{It is reasonable to assume that the only translationally invariant state should be the vacuum, as the presence of any particle should broke translational invariance. This is ensured if the underlying free theory has a mass gap, i.e. all particles of our theory are massive. In general these assumptions does not hold if the free theory has massless particles. See \cite[Section 3]{Earman:2005} for further comments about this fact.} (for lattice theories only discrete translations are considered).  Let $U(\vec x)$, $\vec x\in\R^d$, be the unitary representation of translations in $\hs$. Suppose that the Hamiltonian of the theory can be written as $H=H_0+H_I$, with $H_0$ free Hamiltonian. Then there is no state $\ket{0_F}\in\hs$ such that $H_0\ket{0_F}=0$ i.e. the vacuum of the free theory $\ket{0_F}$ is not an element of $\hs$.
+\end{theorem}
+\begin{proof}
+	By contradiction, assume that the Fock vacuum $\ket{0_F}$ of the free theory with Hamiltonian $H_0$ is an element of $\hs$. Denote by $a_F(\vec q)$ the annihilation operator of $H_0$, then
+	\begin{eq}
+		U^\dagger(\vec x)a_F(\vec q)U(\vec x)=e^{i\vec q\cdot\vec x}a_F(\vec q)
+	\end{eq}
+	therefore
+	\begin{eq}
+		0=U^\dagger(\vec x)a_F(\vec q)\ket{0_F}=U^\dagger(\vec x)a_F(\vec q)U(\vec x)U^\dagger(\vec x)\ket{0_F} = e^{i\vec q\cdot\vec x}a_F(\vec q))U^\dagger(\vec x)\ket{0_F}
+	\end{eq}
+	and this means that $)U^\dagger(\vec x)\ket{0_F}$ annihilates $U(\vec x)\ket{0_F}$, hence $\ket{0_F}$ is translationally invariant. By uniqueness of the translational invariant state $\ket{0_F}=c\ket0$ for some constan $c$ (actually if our states are normalized $c$ is just a phase). Then
+	\begin{eq}
+		0=H\ket0=(H_0+H_I)c\ket{0_F}=c\,H_I\ket{0_F}
+	\end{eq}
+	which give us $H_I\ket{0_F}=0$ and $H\ket{0_F}=0$. But the typical Hamiltonians for interacting fields does not annihilate $\ket{0_F}$ (i.e. $H$ ``polarizes the vacuum'') since $H_I$ describes interactions of the field with itself.\footnote{As an illustration, consider the $\ophi^4$ scalar field in $\R^{3+1}$ with (formal) Hamiltonian
+	\begin{eq}
+		H=H_0+\lambda\int\de^3x\,:\ophi^4:-\,C
+	\end{eq}
+	where $C$ is a $c$-number constant chosen to give to the ground state energy zero, and $:\quad:$ indicates the Wick normal product. This $H$ will not annihilate the bare vacuum $\ket{0_F}$ since the factor that follows the coupling constat $\lambda$ contains a term with a product of four creation operator $\sim (a^\dagger)^4$ (and there is only one term of this form, so it will not be canceled by another term).} Thus, we arrive at a contradiction: it follows from the announced assumptions that $H\ket{0_F}=0$, but for typical interaction Hamiltonians $H\ket{0_F}\neq0$.
+\end{proof}
+
+The relative simplicity of this first version of Haag's theorem is purchased at the expense of generality since it appeals to the fact that typical Hamiltonians for interacting fields do not annihilate $\ket{0_F}$. It was the ambition of the second version of his theorem to dispense with any reference to the particular form of the interacting field Hamiltonian. However, Haag's attempted proof of such general version was found ``inconclusive''. The gap was filled by a pair of theorems presented by Hall and Wightman\footnote{Original paper: \cite{Hall:1957}}, which together constitutes the so called \emph{Haag-Hall-Weightman (HHW) theorem}, and apply to any pair to neutral scalar field.
+
+\begin{theorem}[HHW, Part 1]
+	Consider two 
+\end{theorem}
 
 \end{document}

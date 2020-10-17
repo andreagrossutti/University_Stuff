@@ -170,7 +170,13 @@
 \newcommand{\onlyinsubfile}[1]{#1}
 \newcommand{\onlyinmainfile}[1]{}
 
-%Example
+\definecolor{blue}{RGB}{0, 114, 178} 
+\definecolor{red}{RGB}{255, 51,0}
+\definecolor{green}{RGB}{0, 153, 0}
+
+%Ambienti riquadrati
+% nel file .tex: \begin{exercise}[TITOLO ESERICZIO], se non vuoi dare un titolo all'esercizio non mettere le parentesi quadre (lo stesso vale per example)
+
 \mdfdefinestyle{example}{%
 linecolor=gray,linewidth=2pt,%
 frametitlerule=true,%
@@ -178,11 +184,6 @@ frametitlebackgroundcolor=gray!20,
 innertopmargin=\topskip,
 }
 \mdtheorem[style=example, nobreak=false]{example}{Example}
-
-%Exercise
-% metti il colore che preferisci su linecolor e frametitlebackgroundcolor
-% nel file .tex: \begin{exercise}[TITOLO ESERICZIO], se non vuoi dare un titolo all'esercizio non mettere le parentesi quadre (lo stesso vale per example)
-\definecolor{blue}{RGB}{0, 114, 178} % modifica qui se vuoi creare un colore personalizzato con codice RGB
 
 \mdfdefinestyle{exercize}{%
 linecolor=blue,linewidth=2pt,%	
@@ -192,7 +193,22 @@ innertopmargin=\topskip,
 }
 \mdtheorem[style=exercize, nobreak=false]{exercize}{Exercize}
 
-%Framed
+\mdfdefinestyle{todo}{%
+linecolor=red,linewidth=2pt,%	
+frametitlerule=true,%
+frametitlebackgroundcolor=red!20,% !20 = color saturation
+innertopmargin=\topskip,
+}
+\mdtheorem[style=todo, nobreak=false]{todo}{TO DO} %use \begin{todo} ... \end{todo}
+
+\mdfdefinestyle{tocheck}{%
+linecolor=green,linewidth=2pt,%	
+frametitlerule=true,%
+frametitlebackgroundcolor=green!20,% !20 = color saturation
+innertopmargin=\topskip,
+}
+\mdtheorem[style=tocheck, nobreak=false]{tocheck}{TO CHECK} %use \begin{tocheck} ... \end{tocheck}
+
 \mdfdefinestyle{mybox}{
 	leftmargin = 1cm,
 	rightmargin = 1cm,
@@ -201,6 +217,53 @@ innertopmargin=\topskip,
 	font = \itshape\rmfamily,
 }
 % use \begin{mdframed}[style=mybox] -> \end{mdframed}
+
+	\theoremstyle{plain}%
+	\newtheorem{theorem}{Theorem}[chapter]%
+	\newtheorem{proposition}[theorem]{Proposition}%
+	\newtheorem{corollary}{Corollary}[theorem]%
+	\newtheorem{lemma}[theorem]{Lemma}%
+	\newtheorem{property}[theorem]{Property}%
+	\newtheorem{axiom}{Axiom}%
+	\newtheorem{problem}{Problem}%
+	\newtheorem{question}{Question}%
+	\newtheorem{claim}{Claim}%
+	%
+	\theoremstyle{definition}%
+	\newtheorem{definition}[theorem]{Definition}%
+%	\newtheorem{example}{Example}[chapter]%
+	\newtheorem{counterexample}[example]{Counterexample}%
+	\newtheorem{nonexample}[example]{Non-Example}%
+	\newtheorem{impexample}[example]{Important Example}%
+	\newtheorem{exercise}[example]{Exercise}%
+	\newtheorem{construction}[theorem]{Construction}%
+	%
+	\theoremstyle{remark}%
+	\newtheorem{remark}{Remark}[theorem]%
+	%
+	% starred environments defs
+	\theoremstyle{plain}%
+	\newtheorem*{theorem*}{Theorem}%
+	\newtheorem*{proposition*}{Proposition}%
+	\newtheorem*{corollary*}{Corollary}%
+	\newtheorem*{lemma*}{Lemma}%
+	\newtheorem*{property*}{Property}%
+	\newtheorem*{axiom*}{Axiom}%
+	\newtheorem*{problem*}{Problem}%
+	\newtheorem*{question*}{Question}%
+	\newtheorem*{claim*}{Claim}%
+	%
+	\theoremstyle{definition}%
+	\newtheorem*{definition*}{Definition}%
+%	\newtheorem*{example*}{Example}%
+	\newtheorem*{counterexample*}{Counterexample}%
+	\newtheorem*{nonexample*}{Non-Example}%
+	\newtheorem*{impexample*}{Important Example}%
+	\newtheorem*{exercise*}{Exercise}%
+	\newtheorem*{construction*}{Construction}%
+	%
+	\theoremstyle{remark}%
+	\newtheorem*{remark*}{Remark}%
 
 \usepackage[backend=biber, style=alphabetic, sorting=nty]{biblatex}
 \addbibresource{Bibliography.bib}
