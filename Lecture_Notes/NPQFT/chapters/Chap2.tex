@@ -385,11 +385,11 @@ The serious problem arises when in perturbative approach is used the Gell-Mann L
 
 \section{The Haag's theorem}
 
-\cite[Section 3]{Earman:2005}\\
+\cite[Section 3]{Earman:2005}; \cite[Section 4.5]{Raymond-F.-Streater:1964}; \cite[Pages 39-40, 95-96]{Strocchi_2013}\\
 
 The important argument from Haag\footnote{Original paper: \cite{Haag:1955}.} proves that the situation does not improves even if we do not require $\ophi$ to be canonical. Except very special non-relativistic cases, the Hilbert space of the free field is disjoint from the Hilbert space of the interacting field (i.e. don't exist any unitary operator which maps the states of one Hilbert spaces into the states of the other one). 
 
-\begin{theorem}[Haag]
+\begin{theorem}[{Haag, \cite[Page 8]{Earman:2005}}]
 	Assume that the unique translationally invariant state of an interacting scalar QFT with Hilbert space $\hs$ and field $\ophi\in\hs$ is the vacuum $\ket0\in\hs$ \footnote{It is reasonable to assume that the only translationally invariant state should be the vacuum, as the presence of any particle should broke translational invariance. This is ensured if the underlying free theory has a mass gap, i.e. all particles of our theory are massive. In general these assumptions does not hold if the free theory has massless particles. See \cite[Section 3]{Earman:2005} for further comments about this fact.} (for lattice theories only discrete translations are considered).  Let $U(\vec x)$, $\vec x\in\R^d$, be the unitary representation of translations in $\hs$. Suppose that the Hamiltonian of the theory can be written as $H=H_0+H_I$, with $H_0$ free Hamiltonian. Then there is no state $\ket{0_F}\in\hs$ such that $H_0\ket{0_F}=0$ i.e. the vacuum of the free theory $\ket{0_F}$ is not an element of $\hs$.
 \end{theorem}
 \begin{proof}
@@ -414,8 +414,96 @@ The important argument from Haag\footnote{Original paper: \cite{Haag:1955}.} pro
 
 The relative simplicity of this first version of Haag's theorem is purchased at the expense of generality since it appeals to the fact that typical Hamiltonians for interacting fields do not annihilate $\ket{0_F}$. It was the ambition of the second version of his theorem to dispense with any reference to the particular form of the interacting field Hamiltonian. However, Haag's attempted proof of such general version was found ``inconclusive''. The gap was filled by a pair of theorems presented by Hall and Wightman\footnote{Original paper: \cite{Hall:1957}}, which together constitutes the so called \emph{Haag-Hall-Weightman (HHW) theorem}, and apply to any pair to neutral scalar field.
 
-\begin{theorem}[HHW, Part 1]
-	Consider two 
+\begin{theorem}[{HHW, Part 1, \cite[Thm. 4.14]{Raymond-F.-Streater:1964}}]\label{thm:HHW1}
+	Consider two QFTs with fields $\ophi_1$, $\ophi_2$ and Hilbert spaces $\hs_1$, $\hs_2$ and assume that
+	\begin{enumerate}[label=(\roman*)]
+	\item the Euclidean group $\mathbb E_d$ (roto-traslations) is represented unitarily by $U_1$ and $U_2$ on $\hs_1$ and $\hs_2$ respectively:
+	\begin{eq}
+		U_j(\vec a,\vec R)\ophi_j(\vec x,t) U_j^\dagger(\vec a, \vec R)=\ophi_j(\vec R\,\vec x+\vec a,t)
+	\end{eq}
+	\item the representation of the fields is irreducible, i.e. if an operator $\op A$ defined in $\hs_j$ commutes with all the fields $\{\ophi_j\}\subset\hs_j$ then it is a multiple of the identity, $\op A=c\,\id$;
+	\item the fields are related at some time $t$ by a unitary transformation $V(t)$
+	\begin{eq}
+		\ophi_2(\vec x,t)=V(t)\ophi_1(\vec x,t) V^\dagger(t)
+	\end{eq}
+	\end{enumerate}
+	Then 
+	\begin{eq}\label{eq:HHW1_thesis1}
+		U_2(\vec a,\vec R)=V(t)U_1(\vec a,\vec R)V^\dagger(t)
+	\end{eq}
+	Further, if there are unique states $\ket{0_j}$ invariant under $\mathbb E_d$, $U_j(\vec a,\vec R)\ket{0_j}=\ket{0_j}$, then
+	\begin{eq}\label{eq:HHW1_thesis2}
+		V(t)\ket{0_1}=c\,\ket{0_2} \twith c\in\C
+	\end{eq}
+	In particular if $\ket{0_j}$, $j=1,2$ are normalized to 1 then $|c|=1$.
 \end{theorem}
+
+Notice that this part of the theorem holds also in the non-relativistic case. The operator $V$ is meant to be the unitary operator interpolating between the free and the interacting fields in the Gell-Mann Low formula.
+
+\begin{proof}
+	Consider the operator $U_1^\dagger(\vec a,\vec R) V^\dagger(t) U_2(\vec a,\vec R) V(t)$, this commutes with all $\ophi_1\in\hs_1$, indeed:
+	\begin{eq}
+		&U_1^\dagger(\vec a,\vec R) V^\dagger(t) U_2(\vec a,\vec R) V(t)\ophi_1(\vec x,t)V^\dagger(t)U_2^\dagger(\vec a,\vec R)V(t)U_1(\vec a,\vec R)=\\
+		&=U_1^\dagger(\vec a,\vec R) V^\dagger(t) U_2(\vec a,\vec R) \ophi_2(\vec x,t)U_2^\dagger(\vec a,\vec R)V(t)U_1(\vec a,\vec R)=\\
+		&=U_1^\dagger(\vec a,\vec R) V^\dagger(t)\ophi_2(\vec R\,\vec x+\vec a,t)V(t)U_1(\vec a,\vec R)=\\
+		&=U_1^\dagger(\vec a,\vec R)\ophi_1(\vec R\,\vec x+\vec a,t)U_1(\vec a,\vec R)=\\
+		&=U_1^\dagger(\vec a,\vec R)U_1(\vec a,\vec R)\ophi_1(\vec x,t)U_1(\vec a,\vec R)U_1^\dagger(\vec a,\vec R)=\\
+		&=\ophi_1(\vec x, t)
+	\end{eq}
+	which implies
+	\begin{eq}
+		U_1^\dagger(\vec a,\vec R) V^\dagger(t) U_2(\vec a,\vec R) V(t)\ophi_1(\vec x,t) = \ophi_1(\vec x,t)U_1^\dagger(\vec a,\vec R) V^\dagger(t) U_2(\vec a,\vec R) V(t)
+	\end{eq}
+	Due to the irreducibility of the representation we get that
+	\begin{eq}
+		U_1^\dagger(\vec a,\vec R) V^\dagger(t) U_2(\vec a,\vec R) V(t) = \omega(\vec a,\vec R)\id
+	\end{eq}
+	for some complex function $\omega(\vec a,\vec R)$ which depend on the element $(\vec a,\vec R)\in\mathbb E_d$ and then
+	\begin{eq}\label{eq:HHW1_proof_eq1}
+		\omega(\vec a,\vec R)U_1(\vec a,\vec R)=V^\dagger(t) U_2(\vec a,\vec R) V(t)
+	\end{eq}
+	Notice that in order to preserve unitarity we must have $|\omega(\vec a,\vec R)|=1$ for all $(\vec a,\vec R)\in\mathbb E_d$. By definition $\omega(\vec a,\vec R)$ provides a continuous one-dimensional representation (on $\C$) of a non-compact group ($\mathbb E_d$), and it is a general mathematical result that there is no such a representation appart from the trivial one; then, one may take $\omega(\vec a,\vec R)=1$.  If there are unique states $\ket{0_j}$ invariant under $\mathbb E_d$, $U_j(\vec a,\vec R)\ket{0_j}=\ket{0_j}$, then from $U_1(\vec a,\vec R)\ket{0_1}=\ket{0_1}$ one gets using eq.~\eqref{eq:HHW1_proof_eq1}
+	\begin{eq}
+		&V^\dagger(t) U_2(\vec a,\vec R) V(t)\ket{0_1}=\ket{0_1}
+	\end{eq}
+	and
+	\begin{eq}
+		&U_2(\vec a,\vec R) V(t)\ket{0_1}=V(t)\ket{0_1}
+	\end{eq}
+	but the only state in $\hs_2$ invariant under $U_2(\vec a,\vec R) $ is $\ket{0_2}$, therefore we must have
+	\begin{eq}
+		V(t)\ket{0_1} = c \ket{0_2}
+	\end{eq}
+	for some constant $c\in\C$, which should be a phase, $|c|=1$, if $\ket{0_1}$ and $\ket{0_2}$ are normalized to 1.
+\end{proof}
+
+\begin{corollary}\label{cor:HHW_1}
+	In any two theories satisfying the hypothesis of theorem \ref{thm:HHW1} the equal time correlation functions of $\ophi_1$ and $\ophi_2$ coincides
+	\begin{eq}
+		\bra{0_1}\ophi_1(\vec x_1,t)\ldots\ophi_1(\vec x_n,t)\ket{0_1}=\bra{0_2}\ophi_2(\vec x_1,t)\ldots\ophi_2(\vec x_n,t)\ket{0_2}
+	\end{eq}
+\end{corollary} 
+\begin{proof}
+	The statement directly follows from eq.~\eqref{eq:HHW1_thesis1} and eq.~\eqref{eq:HHW1_thesis2}.
+\end{proof}
+
+In principle an operator $V$ satisfying the hypothesis of Gell-Mann Low formula can still exists, and corollary \ref{cor:HHW_1} still admits different dynamics for $\ophi_1$ and $\ophi_2$ since it applies only for equal time correlators. As we consider correlators at different time one should use time evolution operators involving the Hamiltonian, and no useful conclusion can be stated at this point if there is no vacuum polarization. We need one more result, which however works only in the relativistic case:
+
+\begin{theorem}[{HHW, Part 2, \cite[Thm. 4.16]{Raymond-F.-Streater:1964}}]\label{thm:HHW2}
+	Under the hypothesis of theorem \ref{thm:HHW1} assume further that the (covering of the) restricted Poincaré group $\poinc$ is represented unitarily by $U_1$ and $U_2$ on $\hs_1$ and $\hs_2$ respectively, i.e.
+	\begin{eq}
+		U_j(\Lambda, a)\ophi_j(x) U_j^\dagger(\Lambda, a)=\ophi_j(\Lambda\, x+ a)
+	\end{eq}
+	Then
+	\begin{eq}
+		\bra{0_1}\ophi_1(x)\ophi_1(y)\ket{0_1}=\bra{0_2}\ophi_2(x)\ophi_2(y)\ket{0_2}
+	\end{eq}
+	and if $\ophi_1$ is a free field of mass $m>0$, then $\ophi_2$ is a free field of mass $m>0$ too.
+\end{theorem}
+\begin{proof}
+	The proof is much more involved than the previous one, since requires a preliminary result of R. Jost and B. Schroer, which can be found in \cite[Thm. 4.15]{Raymond-F.-Streater:1964}. We just sketch the argument for the proof: by Poincaré covariance through a boost transformation we can bring any two points in the space-time to equal time, in such a way that corollary \ref{cor:HHW_1} applies. Then the correlator we obtained can be extended to the initial points by analiticity, preserving the value of $Z$ and the position of the pole in the Källen-Lehmann representation. This is enough to prove the statement of the theorem.  
+\end{proof}
+
+The immediate consequence of the latter is that, if the hypothesis holds, any interacting theory is actually free. The conclusion that both fields are free fields is unacceptable because the intention is to represent an interacting field, therefore at least one of the assumptions of the theorem must be dropped. A n obvious candidate is the assumption that at some $t$ there exists a unitary transformation $V(t)$ relating the fields. Therefore the Heisenberg dynamics of the interacting field do not exists in the Hilbert space of the free field, but requires a different Hilbert space, inequivalent to the free one.  
 
 \end{document}
