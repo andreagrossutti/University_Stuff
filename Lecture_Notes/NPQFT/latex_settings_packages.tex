@@ -3,6 +3,7 @@
 \usepackage[english]{babel}
 \usepackage{geometry}
 	\geometry{a4paper, top=3cm, bottom=3cm, left=2.5cm, right=2.5cm}
+\setlength{\parindent}{0pt} %no indentation
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{latexsym}
@@ -48,15 +49,16 @@
 	linkcolor={blue!70!black},
 	citecolor={green}
 }
-%\usepackage[colorinlistoftodos,textsize=tiny]{todonotes}% TO DO points
+\usepackage[colorinlistoftodos,textsize=tiny]{todonotes}% TO DO points
 
 
 %footnote con numeri romani invece dei numeri arabi
 \renewcommand{\thefootnote}
 	{\Roman{footnote}}
 	
+\mathtoolsset{showonlyrefs}%number equations only if they are referred to
+
 \newenvironment{eq}{\begin{equation}\begin{aligned}}{\end{aligned}\end{equation}\ignorespacesafterend}
-\newenvironment{eq*}{\begin{equation*}\begin{aligned}}{\end{aligned}\end{equation*}\ignorespacesafterend}
 
 
 %scambia phi e varphi
@@ -80,6 +82,7 @@
 \newcommand{\C}{\mathbb{C}} %Complessi
 
 \newcommand{\loren}{L_+^\uparrow} %restricted Lorentz group
+\newcommand{\cloren}{\tilde L_+^\uparrow} %covering of restricted Lorentz group
 \newcommand{\poinc}{\mathcal P_+^\uparrow} %restricted Poincaré group
 \newcommand{\cpoinc}{\tilde {\mathcal P}_+^\uparrow} %covering of restricted Poincaré group
 
@@ -87,31 +90,32 @@
 \newcommand{\ot}{\leftarrow}
 \newcommand{\so}{\Rightarrow}
 \newcommand{\os}{\Leftarrow}
+\renewcommand{\iff}{\Leftrightarrow}
 
+\newcommand{\iso}{\cong}%isomorphism
 \newcommand{\id}{\mathbb 1} %Identità con il doppio 1
 \newcommand{\varid}{\textup {id}} %Identità con "id"
 
-\newcommand{\de}{\text{d}} %Differential
+\newcommand{\de}{\textnormal{d}} %Differential
 \newcommand{\der}[2]{\frac{\de #1}{\de #2}}
 \newcommand{\dder}[3]{\frac{\de^2 #1}{\de #2\,\de #3}}
 \newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\pdder}[3]{\frac{\partial^2 #1}{\partial #2\,\partial #3}}
 \newcommand{\dpder}[2]{\frac{\partial^2 #1}{{\partial #2}^2}}
 
-\newcommand{\inv}[1]{{#1}^{-1}}
-\newcommand{\sign}{\operatorname{sign}}
-
 \newcommand{\hs}{\mathcal H} %Hilbert space
 \newcommand{\fock}{\mathcal F} %Fock space
 \newcommand{\dom}{D} %domain of an operator
-\newcommand{\contour}{\mathcal C} %contour integral
+\newcommand{\contour}{\mathcal C} %path for contour integral
 \newcommand{\lag}{\mathcal L} %lagrangian density
 \newcommand{\ham}{\mathcal H} %hamiltonian density
 \newcommand{\fourier}{\mathcal F} %Fourier transform
+\newcommand{\schw}{\mathcal S} %Schwartz's space
 
-\newcommand{\cinf}{C^\infty} %infinitely derivable functions
+\newcommand{\cinf}{C^\infty} %ring of infinitely derivable functions
+\newcommand{\polyn}{\mathcal P}%ring of polynomials
 
-\newcommand{\cenergy}{\mathcal E} %curly energy simbol
+\newcommand{\cenergy}{\mathcal E} %curly energy symbol
 \newcommand{\efield}{\textbf E} %electric field
 
 \newcommand{\modx}{|\vec x|}
@@ -119,22 +123,29 @@
 \newcommand{\modp}{|\vec p|}
 \newcommand{\modpp}{|\vec{p'}|}
 
+\newcommand{\inv}[1]{{#1}^{-1}}
+\newcommand{\sign}{\operatorname{sign}}
 \renewcommand{\op}[1]{\hat{#1}}%\operator
 \newcommand{\dotop}[1]{\dot{\op{#1}}} %time derivative of operator
 \newcommand{\supp}{\operatorname{supp}} %support of an operator
 \newcommand{\spec}{\sigma} %spectrum
-\newcommand{\st}{\,|\,} %such that
-\newcommand{\varst}{\,\text{s.t.}\,} %var such that
-\newcommand{\tp}{\text T}%time ordering product
+\newcommand{\st}{\ |\ } %such that
+\newcommand{\varst}{\ \text{s.t.}\ } %var such that
+\newcommand{\tp}{\textnormal T}%time ordering product
+\newcommand{\tensp}{\otimes}%tensor product
+\renewcommand{\norm}[1]{\Vert#1\Vert}%norm in a vector space
+
+\newcommand{\mom}{\op{ P}}%momentum
 
 \newcommand{\ophi}{\op\phi} %field operator phi
 \newcommand{\ophid}{\op\phi^\dagger} %adjoint of field operator phi
 \newcommand{\opsi}{\op\psi} %field operator psi
 \newcommand{\opi}{\op\pi} %field operator pi
+\newcommand{\ophil}{\ophi^\Lambda} %field operator phi with cutoffs
 
-\newcommand{\retc}{G_{\text{ret}}} %retarded correlator
-\newcommand{\fretc}{\tilde G_{\text{ret}}} %fourier transform of retarded correlator
-\newcommand{\mret}{G_{\text{M}}} %Matsubara correlator
+\newcommand{\retc}{G_{\textnormal{ret}}} %retarded correlator
+\newcommand{\fretc}{\tilde G_{\textnormal{ret}}} %fourier transform of retarded correlator
+\newcommand{\mret}{G_{\textnormal{M}}} %Matsubara correlator
 
 \newcommand{\uei}{U_\epsilon^I} %unitary operator in interaction picture for finite epsilon
 \newcommand{\ueid}{U_\epsilon^{I\dagger}} % adj unitary operator in interaction picture for finite epsilon
@@ -146,11 +157,14 @@
 
 \newcommand{\sls}{\,{\mathbin{\tikz [x=1.4ex,y=1.6ex,line width=.2ex] \draw (0,0) -- (1,1) (0,1) -- (1,0);}}\,} %space-like separated coordinates
 
-\newcommand{\tmax}{\text{max}}
-\newcommand{\trad}{\text{rad}}
-\newcommand{\tin}{\text{in}}
-\newcommand{\tout}{\text{out}}
-\newcommand{\tinc}{\text{inc}}
+\newcommand{\tmax}{\textnormal{max}}
+\newcommand{\trad}{\textnormal{rad}}
+\newcommand{\tin}{\textnormal{in}}
+\newcommand{\tout}{\textnormal{out}}
+\newcommand{\tinc}{\textnormal{inc}}
+\newcommand{\tren}{\textnormal{ren}}
+\newcommand{\tUV}{\textnormal{UV}}
+\newcommand{\tIR}{\textnormal{IR}}
 
 \newcommand{\tcomma}{\quad,\quad}
 \newcommand{\twith}{\quad\text{with}\quad}
@@ -159,8 +173,23 @@
 \newcommand{\tfor}{\quad\text{for}\quad}
 \newcommand{\tforall}{\quad\text{for all}\quad}
 \newcommand{\tforany}{\quad\text{for any}\quad}
+\newcommand{\tso}{\quad\so\quad}
+\newcommand{\tiff}{\quad\iff\quad}
 
-\newcommand{\skipline}{\leavevmode\vspace{\baselineskip}} %Salta una riga (devi saltare una riga prima di mettere il comando)
+\newcommand{\UVcut}{{\Lambda_\tUV}}%UV cutoff
+\newcommand{\IRcut}{{\Lambda_\tIR}}%IR cutoff
+\newcommand{\limcutrem}{\lim_{\UVcut\to\infty \atop \IRcut\to0}}%limit remove cutoffs
+
+\newcommand{\varunderline}[1]{\underline{\smash{#1}\vphantom{T_n}}\vphantom{#1}} %underline at constant height
+\newcommand{\uf}{\varunderline {f}}%sequence of test functions ``f_i''
+\newcommand{\ug}{\varunderline g}%sequence of test functions ``g_i''
+\newcommand{\uschw}{\varunderline\schw}%space of sequences of test functions
+\newcommand{\nuschw}{\varunderline{\schw_0}}%space of sequences of test functions with null norm
+\newcommand{\qschw}{\uschw\,/\nuschw}%quotient between \uschw and \nuschw
+\newcommand{\eqclass}[1]{[\,#1\,]}%equivalence class
+\newcommand{\uid}{\varunderline\id}%sequence (1,0,...,0,...)
+
+\newcommand{\skipline}{\leavevmode\vspace{0.3\baselineskip}\newline} %Salta una riga (devi saltare una riga prima di mettere il comando)
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}%numeri cerchiati
@@ -192,22 +221,6 @@ frametitlebackgroundcolor=blue!20,	% !20 = saturazione del colore
 innertopmargin=\topskip,
 }
 \mdtheorem[style=exercize, nobreak=false]{exercize}{Exercize}
-
-\mdfdefinestyle{todo}{%
-linecolor=red,linewidth=2pt,%	
-frametitlerule=true,%
-frametitlebackgroundcolor=red!20,% !20 = color saturation
-innertopmargin=\topskip,
-}
-\mdtheorem[style=todo, nobreak=false]{todo}{TO DO} %use \begin{todo} ... \end{todo}
-
-\mdfdefinestyle{tocheck}{%
-linecolor=green,linewidth=2pt,%	
-frametitlerule=true,%
-frametitlebackgroundcolor=green!20,% !20 = color saturation
-innertopmargin=\topskip,
-}
-\mdtheorem[style=tocheck, nobreak=false]{tocheck}{TO CHECK} %use \begin{tocheck} ... \end{tocheck}
 
 \mdfdefinestyle{mybox}{
 	leftmargin = 1cm,

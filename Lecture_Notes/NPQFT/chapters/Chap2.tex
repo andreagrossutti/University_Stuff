@@ -129,7 +129,7 @@ Consider the 2-points function of a scalar RQFT
 	\overset{d=3}= \int\frac{\de^4q}{(2\pi)^3}\,\rho_+(q)e^{-iq(x-y)}
 \end{eq}
 where in the last step we used the identity $1=\int\de q\,\delta(q-p_\alpha)$ and we defined the Fourier transform (up to a factor $2\pi$) of the 2-point function
-\begin{eq}
+\begin{eq}\label{eq:rho_plus_deltas}
 	\rho_+(q)=(2\pi)^3\sum_\alpha \delta(q-p_\alpha) |\bra0\ophi(0)\ket\alpha|^2
 \end{eq}
 which has some interesting properties:
@@ -201,14 +201,25 @@ and $\sigma(m^2)$ are probability densities. In particular can be proved that $\
 
 We just mention that for fermions the same sum rule eq.~\eqref{eq:sum_rule_spect_func} holds equivalently provided that we have the CAR $\{\ophi(\vec x,t),\dot\ophi(\vec y,t)\}=i\delta(\vec x-\vec y)$. 
 
-Denoting by $\Delta_+(x-y;m)$ the 2-points function of the free scalar field of mass, then inserting the equality $\int_0^{+\infty}\de m^2\,\delta(q^2-m^2)=1$ we get
+Now, suppose that we do not know if our interacting field satisfies CCR, but we are sure that the associated free theory does. Denoting by $\Delta_+(x-y;m)$ the 2-points function of the free scalar field of mass $m$, then inserting inside eq.~\eqref{eq:2-point-func-spec-repr} the equality $\int_0^{+\infty}\de m^2\,\delta(q^2-m^2)=1$ we get
 \begin{eq}
 	\bra0\phi(x)\phi(y)\ket0
-	&=\int\frac{\de^4p}{(2\pi)^3}\sigma(q^2)\theta(q^0)e^{-iq(x-y)}+|\bra0\ophi(0)\ket0|^2\\
+	&=\int\frac{\de^4q}{(2\pi)^3}\sigma(q^2)\theta(q^0)e^{-iq(x-y)}+|\bra0\ophi(0)\ket0|^2\\
 	&=\int_0^{+\infty}\de m^2\,\sigma(m^2)\int\frac{\de^4p}{(2\pi)^3}\delta(q^2-m^2)\theta(q^0)e^{-iq(x-y)}+|\bra0\ophi(0)\ket0|^2\\
 	&=\int_0^{+\infty}\de m^2\,\sigma(m^2)\Delta_+(x-y;m)+|\bra0\ophi(0)\ket0|^2
 \end{eq}
-where $|\bra0\ophi(0)\ket0|^2$ is an irrelevant constant which can be removed just shifting $\ophi(x)$. This means that even in the interacting theory we can write the 2-points function as an integral of free 2-points functions of the free field with varying mass weighted by a suitable measure $\de m^2\,\sigma(m^2)$. This fact is a purely relativistic effect, and has no analogue for NRQFT, due to Lorentz invariance, and is no more true if we broke Lorentz symmetry. 
+where $|\bra0\ophi(0)\ket0|^2$ is an irrelevant constant which comes from eq.~\eqref{eq:rho_plus_deltas} when evaluated at $q=0$ due to the term $\delta(q)$ in eq.~\eqref{eq:rho_+_sigma}, and can be removed just shifting $\ophi(x)$. This means that even in the interacting theory we can write the 2-points function as an integral of free 2-points functions of the free fields with varying mass weighted by a suitable measure $\de m^2\,\sigma(m^2)$. This fact is a purely relativistic effect, and has no analogue for NRQFT, due to Lorentz invariance, and is no more true if we broke Lorentz symmetry. 
+
+One of the consequences is that, since the 2-point function of the interacting theory can be written in terms of weighted two point functions of free theories, which satisfies CCR, also the interacting theory should satisfy CCR, up to some constant factor $c$ which can be reabsorbed in the field:
+\todo{Non sono molto sicuro di quanto scritto qui, l'ho aggiunto per motivare quanto detto a fine capitolo riguardo a RQFT con Z=0. Non posso assumere c=1 senza richiedere la sum rule, che vale solo se già so che la teoria interagente soddisfa le CCR. Inoltre, se la sum rule non vale, c potrebbe essere divergente per quanto ne so, o uguale a Z.}
+\begin{eq}\label{eq:KL_repr_CCR_int}
+	\bra0[\ophi(\vec x,t),\dot\ophi(\vec y,t)]\ket0
+	&=\partial_{y^0}\bra0[\ophi(x),\ophi(y)]\ket0 \big|_{x_0=t \atop y_0=t}\\
+	&=\int_0^{+\infty}\de m^2\,\sigma(m^2)\,\partial_{y^0}\big(\Delta_+(x-y;m)-\Delta_+(y-x;m)\big)\big|_{x_0=t \atop y_0=t}\\
+	&=\int_0^{+\infty}\de m^2\,\sigma(m^2)\,i\delta(\vec x-\vec y)
+	=c\,i\delta(\vec x-\vec y)
+\end{eq}
+with $c=\int_0^{+\infty}\de m^2\,\sigma(m^2)$.
 
 Representation of correlation functions given by eq.~\eqref{eq:2-point-func-spec-repr} and eq.~\eqref{eq:2-point-func-spec-repr-comm} are called \emph{Källen-Lehmann representations} since they was firstly derived by these two physicist.\footnote{Källen: \url{https://doi.org/10.5169\%2Fseals-112316}, Lehmann: \url{https://doi.org/10.1007\%2Fbf02783624}.} Actually Lehmann applied such representation also to the non-relativistic case, as we now show.
 
@@ -385,7 +396,7 @@ The serious problem arises when in perturbative approach is used the Gell-Mann L
 
 \section{The Haag's theorem}
 
-\cite[Section 3]{Earman:2005}; \cite[Section 4.5]{Raymond-F.-Streater:1964}; \cite[Pages 39-40, 95-96]{Strocchi_2013}\\
+\cite[Section 3]{Earman:2005}; \cite[Section 4.5]{Streater:2000}; \cite[Pages 39-40, 95-96]{Strocchi_2013}\\
 
 The important argument from Haag\footnote{Original paper: \cite{Haag:1955}.} proves that the situation does not improves even if we do not require $\ophi$ to be canonical. Except very special non-relativistic cases, the Hilbert space of the free field is disjoint from the Hilbert space of the interacting field (i.e. don't exist any unitary operator which maps the states of one Hilbert spaces into the states of the other one). 
 
@@ -414,7 +425,7 @@ The important argument from Haag\footnote{Original paper: \cite{Haag:1955}.} pro
 
 The relative simplicity of this first version of Haag's theorem is purchased at the expense of generality since it appeals to the fact that typical Hamiltonians for interacting fields do not annihilate $\ket{0_F}$. It was the ambition of the second version of his theorem to dispense with any reference to the particular form of the interacting field Hamiltonian. However, Haag's attempted proof of such general version was found ``inconclusive''. The gap was filled by a pair of theorems presented by Hall and Wightman\footnote{Original paper: \cite{Hall:1957}}, which together constitutes the so called \emph{Haag-Hall-Weightman (HHW) theorem}, and apply to any pair to neutral scalar field.
 
-\begin{theorem}[{HHW, Part 1, \cite[Thm. 4.14]{Raymond-F.-Streater:1964}}]\label{thm:HHW1}
+\begin{theorem}[{HHW, Part 1, \cite[Section 3, Thm. 1]{Hall:1957}, \cite[Thm. 4.14]{Streater:2000}}]\label{thm:HHW1}
 	Consider two QFTs with fields $\ophi_1$, $\ophi_2$ and Hilbert spaces $\hs_1$, $\hs_2$ and assume that
 	\begin{enumerate}[label=(\roman*)]
 	\item the Euclidean group $\mathbb E_d$ (roto-traslations) is represented unitarily by $U_1$ and $U_2$ on $\hs_1$ and $\hs_2$ respectively:
@@ -489,7 +500,7 @@ Notice that this part of the theorem holds also in the non-relativistic case. Th
 
 In principle an operator $V$ satisfying the hypothesis of Gell-Mann Low formula can still exists, and corollary \ref{cor:HHW_1} still admits different dynamics for $\ophi_1$ and $\ophi_2$ since it applies only for equal time correlators. As we consider correlators at different time one should use time evolution operators involving the Hamiltonian, and no useful conclusion can be stated at this point if there is no vacuum polarization. We need one more result, which however works only in the relativistic case:
 
-\begin{theorem}[{HHW, Part 2, \cite[Thm. 4.16]{Raymond-F.-Streater:1964}}]\label{thm:HHW2}
+\begin{theorem}[{HHW, Part 2, \cite[Section 3, Thm. 2]{Hall:1957}, \cite[Thm. 4.16]{Streater:2000}}]\label{thm:HHW2}
 	Under the hypothesis of theorem \ref{thm:HHW1} assume further that the (covering of the) restricted Poincaré group $\poinc$ is represented unitarily by $U_1$ and $U_2$ on $\hs_1$ and $\hs_2$ respectively, i.e.
 	\begin{eq}
 		U_j(\Lambda, a)\ophi_j(x) U_j^\dagger(\Lambda, a)=\ophi_j(\Lambda\, x+ a)
@@ -501,9 +512,41 @@ In principle an operator $V$ satisfying the hypothesis of Gell-Mann Low formula 
 	and if $\ophi_1$ is a free field of mass $m>0$, then $\ophi_2$ is a free field of mass $m>0$ too.
 \end{theorem}
 \begin{proof}
-	The proof is much more involved than the previous one, since requires a preliminary result of R. Jost and B. Schroer, which can be found in \cite[Thm. 4.15]{Raymond-F.-Streater:1964}. We just sketch the argument for the proof: by Poincaré covariance through a boost transformation we can bring any two points in the space-time to equal time, in such a way that corollary \ref{cor:HHW_1} applies. Then the correlator we obtained can be extended to the initial points by analiticity, preserving the value of $Z$ and the position of the pole in the Källen-Lehmann representation. This is enough to prove the statement of the theorem.  
+	The proof is much more involved than the previous one, since requires a preliminary result of R. Jost and B. Schroer, which can be found in \cite[Thm. 4.15]{Streater:2000}. We just sketch the argument for the proof: by Poincaré covariance through a boost transformation we can bring any two points in the space-time to equal time, in such a way that corollary \ref{cor:HHW_1} applies. Then the correlator we obtained can be extended to the initial points by analiticity, preserving the value of $Z$ and the position of the pole in the Källen-Lehmann representation. This is enough to prove the statement of the theorem.  
 \end{proof}
 
-The immediate consequence of the latter is that, if the hypothesis holds, any interacting theory is actually free. The conclusion that both fields are free fields is unacceptable because the intention is to represent an interacting field, therefore at least one of the assumptions of the theorem must be dropped. A n obvious candidate is the assumption that at some $t$ there exists a unitary transformation $V(t)$ relating the fields. Therefore the Heisenberg dynamics of the interacting field do not exists in the Hilbert space of the free field, but requires a different Hilbert space, inequivalent to the free one.  
+The immediate consequence of the latter is that, if the hypothesis holds, any interacting theory is actually free. The conclusion that all the fields are free is unacceptable because the intention is to represent an interacting field, therefore at least one of the assumptions of the theorem must be dropped. A n obvious candidate is the assumption that at some $t$ there exists a unitary transformation $V(t)$ relating the fields. Therefore the Heisenberg dynamics of the interacting field do not exists in the Hilbert space of the free field, but requires a different Hilbert space, inequivalent to the free one.  
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 7 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+The second part of the HHW theorem applies only to relativistic QFT, nevertheless the unitary operator $U^I$ interpolating between free and interacting fields does not exists also in most of the non-relativistic QFT, except for very special cases. Therefore almost always the perturbative approach is not consistent. 
+
+\section{Ultraviolet singularities and canonical quantization}
+
+\cite[Section 2.4]{Strocchi_2013}\\
+
+It is worth to notice that for a RQFT such that $Z=0$ (recall that $Z$ is the constant connecting the renormalized and the free field, $\phi\xrightarrow[t\to-\infty]{}Z^{1/2}\ophi_\tin$, $\ophi_\tren:=Z^{-1/2}\ophi\xrightarrow[t\to-\infty]{}\ophi_\tin$) then in perturbation theory one usually gets
+\begin{eq}
+	Z=1-\lambda\infty\sim\frac1{1+\lambda\infty}=0
+\end{eq}
+where $\infty$ simply denotes some divergent quantity which has been removed through the renormalization procedure. Then at some fixed time the field itself does not exist as an operator. In order to have a well defined operator, one needs to smear $\ophi(x)$ not only in space
+\begin{eq}
+	\ophi(x^0,f)=\int\de^3x\,f(\vec x)\ophi(x^0,\vec x)
+\end{eq}
+ but also in time
+ \begin{eq}
+	\ophi(g)=\int\de^4x\,g(x)\ophi(x)
+\end{eq}
+Indeed suppose that $\ophi$ is the Heisenberg interacting field, and suppose that it is well defined at fixed time $x^0$, then according to Källen-Lehmann representation (recall eq.~\eqref{eq:KL_repr_CCR_int} \todo{Ho aggiunto questa formula ai paragrafi precedenti, non son sicuro sia giusta, ho qualche dubbio. Altrimenti non saprei come motivare che il campo interagente soddisfa le CCR.}) we get
+\begin{eq}
+	\bra0[\ophi(x^0,\vec x),\dot\ophi(x^0,\vec y)]\ket0=i\delta(\vec x-\vec y)
+\end{eq} 
+because and interacting 2-points function can be written in terms of free 2-points functions of different masses satisfying CCR. Therefore the ``renormalized'' field $\ophi_\tren=Z^{-1/2}\ophi$ which approaches weakly the $\ophi_\tin$ as $t\to-\infty$, satisfies
+\begin{eq}
+	\bra0[\ophi_\tren(x^0,\vec x),\dot\ophi_\tren(x^0,\vec y)]\ket0=\frac iZ\delta(\vec x-\vec y)
+\end{eq}
+Clearly if $Z=0$ this expression is ill-defined, but no assumption has been made except that $\ophi$ is well defined at fixed time, hence if $Z=0$ this assumption should be wrong, i.e. the renormalized field cannot be defined at fixed time. A Schrödinger picture requires that we have a definite space at a fixed time, hence we also proved that it is impossible to defined a picture of dynamics using Schrödinger idea if $Z=0$. 
 
 \end{document}

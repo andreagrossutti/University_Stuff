@@ -1,8 +1,374 @@
 \documentclass[../main/main.tex]{subfiles}
 \begin{document}
 
+\chapter{The reconstruction theory}
+
+\section{How to avoid Haag's theorem}
+\cite[Section 2.5]{Strocchi_2013}\\
+
+Let's see how to avoid problems raised by Haag theorem. The idea is to start by introducing IR (volume) and UV cutoffs (the IR one is not needed for lattice models) so that the cutoff model describes a system of finite degrees of freedom, such that the interaction picture is still correct, thanks to von Neumann uniqueness theorem, which guarantees that free and interacting fields are unitarily equivalent and defined in the same Hilbert space. Moreover one can also require that free fields (and then also interacting ones due to Källen-Lehmann representation) satisfy CCR (or CAR) since no problem arises in this framework.
+
+Consider a $T=0$ RQFT (the restriction $T=0$ is not really needed, but simplify the traction) and let $\ophi_0(\vec x):=\ophi(x^0=0,\vec x)$ be the $t=0$ field, then the cutoff field at arbitrary time is given by
+\begin{eq}
+	\ophil_\#(x^0,\vec x)=e^{ix^0 H_\#}\ophi_0(\vec x)e^{-ix^0H_\#}
+\end{eq}
+where $\#$ denotes either the free of the interacting theory and $\Lambda$ denotes the cutoffs. The previous time evolution is ensured by the von Newman theorem, assuming that the free and the interacting fields coincides at the initial time $t=0$.  Let $\ket{0^\Lambda_I}$ be the vacuum of the interacting Hamiltonian, which is still in the Fock space of the free field. 
+
+We construct the following functions (actually they are distributions, but with abuse of terminology, we call ``functions'' also these expectation values)
+\begin{eq}
+	W^\Lambda_n(x_1,\ldots,x_n):= \bra{0^\Lambda_I}\ophil_I(x_1)\cdots\ophil_I(x_n)\ket{0^\Lambda_I}
+\end{eq}
+We stress the fact that since translational invariance (and thus also Poincaré invariance) is broken, Haag's theorem does not apply. 
+
+Then we identify the necessary counterterms to be added to the Hamiltonian (or to the Lagrangian if the path integral approach is used) and the field renormalization $Z_\Lambda$ (called \emph{wave-function renormalization constant}) leading to ``\emph{renormalized fields}'', for which the correlation functions have a well-defined limit when IR an UV cutoffs are removed from outside\footnote{It is important to notice that the limit should be removed from outside, otherwise Haag's theorem apply and we are stuck.} of the correlation function, i.e. such that the following limit
+\begin{eq}
+	\limcutrem Z^{-n}_\UVcut \bra{0^\Lambda_I}\ophil_I(x_1)\cdots\ophil_I(x_n)\ket{0^\Lambda_I}
+\end{eq}
+exists in a suitable space of functions or distributions, e.g. $\schw'(\R^d)$. This is possible since the previous limit is a functions limit, hence much weaker than the operator limit (for the fields) which cannot exists due to Haag's theorem. 
+
+The crucial fact is that if the limiting functions satisfy certain properties we can reconstruct quantum fields acting in an appropriate Hilbert space, such that their expectation values are precisely the functions we started from. The reconstructed field $\ophi$ now has no reasons to be equivalent to a free field, nor the Hilbert space of $\ophi$ has reason to be the same Fock space we started from (actually in general it could even not be a Fock space), hence the reconstruction is not in conflict with Haag's argument. 
+ 
+\section{Wightman's reconstruction theorem}
+
+\cite[Chapter 3]{Streater:2000}; \cite[Chapter 3]{Jost.:1965}; \cite[Chapter 3]{Strocchi_2013}; \cite[Sections 1.3-1.4]{Strocchi:1993}\\
+
+As anticipated, provided some properties for the limiting functions
+\begin{eq}
+	W_n(x_1,\ldots,x_n):=\limcutrem Z^{-n}_\UVcut W^\Lambda_n(x_1,\ldots,x_n)
+\end{eq}
+these functions themselves determine states and fields of the interacting theory, avoiding Haag's theorem. In this section we first describe how this reconstruction works for a RQFT at $T=0$, then we'll sketch how to adapt the formalism to more general situations. 
+
+We give the statement and the complete proof of the \emph{reconstruction theorem} for a real scalar field at $T=0$ for a relativistic theory.
+
+\begin{theorem}[{Wightman's reconstruction theorem, \cite{Wightman:1956}, \cite[Thm. 3.7]{Streater:2000}, \cite[Section 3.4, Thm. 1]{Jost.:1965}}]
+	Let $\{W_n\}_{n=0}^\infty$ be a sequence of (tempered) distributions, $W_n\in\schw'(\R^{(d+1)n})$ for all $n>0$, $W_0:=1$. Suppose that they satisfy the following properties:
+	\todo{La condizione di hermiticità non è necessaria per definire un campo reale?}
+	\begin{enumerate}[label=(\arabic*)]
+		\item (\emph{Positive Definiteness}) For any finite sequence of $N$ test functions $\uf=(f_0,f_1(x_1),f_2(x_1,x_2),\ldots)$, $f_n\in\schw(\R^{(d+1)n})$, then
+		\todo{Qui ho usato la definizione di Streater-Wight e Jost, differente da quella data a lezione, non mi sembra che le due definizioni siano equivalenti (quella data a lezione sembra più forte, visto che la serie diventa infinita).}
+		\begin{eq}
+			\sum_{j,k=0}^N\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k \,f_n^*(x_1,\ldots,x_j)W_{j+k}(x_1,\ldots,x_j,y_1,\ldots,y_k)f_k(y_1,\ldots,y_k)\geq0
+		\end{eq}
+		or in more compact notation $(\uf,W\uf)\geq0$.\footnote{Notice that the proof of this property is not easy, since one should also prove the existence of the limit $W_n^\Lambda\to W_n$.} 
+		\item (\emph{Poincaré covariance}) For any $(a,\Lambda)\in\poinc$, $\Lambda\in\loren$ and $a\in\R^{d+1}$, 
+		\begin{eq}
+			W_n(x_1,\ldots,x_n)=W_n(\Lambda x_1+a,\ldots,\Lambda x_n+a)
+		\end{eq}
+		for all $n\in\N$.
+		\item (\emph{Spectral condition}) For each $W_n$, $n>0$, exists $\widetilde W_n$ such that
+		\begin{eq}\label{eq:reconstr_thm_hp_3}
+			W_n(x_1,\ldots,x_n)=\int\de p_1\ldots\de p_n\,\widetilde W_{n-1}(p_1,\ldots,p_{n-1})\, e^{ i(x_n-x_{n-1})p_{n-1}}\ldots e^{i(x_2-x_1)p_1}
+		\end{eq}
+		with $\widetilde W_{n-1}(p_1,\ldots,p_{n-1})=0$ if $p_j\not\in \overline V^+$ for some $j$, $1\leq j\leq n-1$. 
+		\item (\emph{Local commutativity condition / Symmetry}) If $x_i$ and $x_{i+1}$ are space-like separated for some $i$, that is $(x_i-x_{i+1})^2<0$, then for all $n>i$
+		\begin{eq}
+			W_n(x_1,\ldots,x_i,x_{i+1},\ldots,x_n)=W_n(x_1,\ldots,x_{i+1},x_i,\ldots,x_n)
+		\end{eq}
+		\item (\emph{Cluster property}) For any $n\geq2$, $j<n$,
+		\begin{eq}
+			\lim_{a\to\infty\atop a^2<0} W_n(x_1,\ldots x_j,x_{j+1}+a,\ldots,x_n+a)=W_j(x_1,\ldots,x_j)W_{n-j}(x_{j+1},\ldots,x_n)
+		\end{eq}
+	\end{enumerate}
+	Then exists
+	\begin{enumerate}[label=(\arabic*')]
+		\item a separable Hilbert space $\hs$,
+		\item a continuous unitary representation $U(a,\Lambda)$ of $\poinc$\footnote{In the case of fields with half-integer spin $\poinc$ is replaced by $\cpoinc$.} in $\hs$,
+		\item a state $\Omega\in\hs$, translationally invariant, called \emph{vacuum},
+		\item an operator-valued distribution field $\ophi(x)$ such that, given a test function $f$, $\ophi(f):=\int\de x\,f(x)\ophi(x)$ is an operator with domain $\dom$, $\dom$ dense in $\hs$ and $\ket\Omega\in\dom$, and denoting by $\polyn(\ophi(f))$ the set of polynomials of $\ophi(f)$\footnote{It is important to notice that $\polyn(\ophi(f))$ denotes polynomials of fields smeared (in general) with different test functions, not only one test function $f$, for instance $\ophi(f_1)\ophi(f_2)\ldots\ophi(f_n)\in\polyn(\ophi(f))$.}, the subspace of $\hs$ generated applying polynomials of the smeared fields to the vacuum, $\polyn(\ophi(f))\ket\Omega$, is dense in $\hs$
+	\end{enumerate}
+	and the following properties hold:
+	\begin{enumerate}[label=(\arabic*'), resume]
+		\item the field $\ophi(x)$ transforms covariantly under $\poinc$:
+		\begin{eq}
+			U(a,\Lambda)\ophi(x)U^\dagger(a,\Lambda)=\ophi(\Lambda x+a)
+		\end{eq}
+		\item let $\spec(\mom^\mu)$ be the spectrum of the generator $\mom^\mu$ of the subgroup of translations, then $\spec(\mom^\mu)\subseteq\overline V^+$, i.e. $\spec(\mom^\mu\mom_\mu)\geq 0$ and $\spec(\mom^0)\geq 0$;
+		\item (\emph{Locality}) fields in space-like separated regions commute
+		\begin{eq}
+			[\ophi(x),\ophi(y)]=0 \tif (x-y)^2<0
+		\end{eq}
+		or more precisely, in terms of smeared fields $f,g$,
+		\begin{eq}
+			[\ophi(f),\ophi(g)]=0 \tif \supp f\sls \supp g
+		\end{eq}
+		where $\sls$ denotes that the two regions are space-like separated,
+		\item (\emph{Uniqueness of the vacuum}) The vector $\Omega$ is the unique vector in $\hs$ translationally invariant;
+		\item for all $n\in \N$\footnote{Usually in the axiomatic approach due to Wightman the Dirac notation is avoided, and the scalar product is denoted by $(-,-)$.}
+		\begin{eq}\label{eq:reconstr_thm_prop_9}
+			(\Omega,\ophi(x_1)\ldots\ophi(x_n)\Omega)=W_n(x_1,\ldots,x_n)
+		\end{eq}
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}(\textit{sketch})
+	\todo{Ho cercato di completare la dimostrazione, ora mi sembra completa, non più ``abbozzata''.}
+	
+	\textit{(1')} Consider the vector space $\uschw$ of sequences of test functions $\uf=(f_0,f_1(x_1),f_2(x_1,x_2),\ldots)$, $f_0\in\C$ and $f_k\in\schw(\R^{(d+1)k})$, with finite number of non-vanishing elements. Addition and multiplication by complex scalars are definite by
+	\begin{eq}
+		(f_0,f_1,\ldots)+(g_0,g_1,\ldots)&=(f_0+g_0,f_1+g_1,\ldots)\\
+		\alpha(f_0,f_1,\ldots)&=(\alpha f_1,\alpha f_2,\ldots)
+	\end{eq}
+	Next we introduce a scalar product defined on pairs of vectors of the vector space
+	\begin{eq}\label{eq:reconstr_thm_scalar_prod}
+		(\uf,\ug):=\sum_{j,k=0}^\infty\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k f_j^*(x_1,\ldots,x_j)W_{j+k}(x_1,\ldots,x_j,y_1,\ldots,y_k)g_k(y_1,\ldots,y_k)
+	\end{eq}
+	or using the previous compact notation $(\uf, \ug):=(\uf, W\ug)$. Recall $W_0=1$ by definition. 
+	\todo{In caso, aggiungere hemiticità del prodotto scalare, vedi Streater-Wight.}
+	The linearity in $\ug$ and anti-linearity in $\uf$ are evident from the definition, furthermore from \textit{(1)} we get that the norm $\norm\uf^2=(\uf,\uf)$ is semi-definite positive, i.e. $\norm\uf\geq0$ for any $\uf$. Therefore the operation $(-,-)$ is a well defined inner product in $\uschw$, but $\uschw$ is not a pre-Hilbert space yet since it may contain vectors of zero norm.
+	
+	In order to get a pre-Hilbert, note that the set
+	\begin{eq}
+		\nuschw:=\{\uf\in\uschw\varst \norm\uf=0\}\subseteq\uschw
+	\end{eq}
+	is an isotropic subspace of $\uschw$, that is, a subspace in which each vector is orthogonal to every other vector, indeed
+	\begin{eq}
+		|(\uf,\ug)|\leq\norm\uf\,\norm\ug=0
+	\end{eq}
+	by the Schwartz inequality (which is valid as long as the scalar product is non-negative). Thus, if $\uf$ and $\ug$ are of zero norm, then $\uf$ is orthogonal to $\ug$ and $\alpha\uf+\beta\ug$ is of zero norm. We now form equivalence classes of sequences $\uf$, two sequences being equivalent if they differ by a sequence of zero norm. These equivalence classes form in a natural way a vector space, denoted by $\qschw$, on which the scalar product induced by $\uschw$ is well-defined and positive definite, since $\norm{\eqclass\uf}=0$ implies $\eqclass\uf=\eqclass{\varunderline0}$. Therefore $\uschw$ is a pre-Hilbert space. A generic element of $\qschw$ is of the form
+	\begin{eq}
+		\qschw\ni\eqclass\uf=\{\ug\in\uschw\st\uf-\ug\in\nuschw\}
+	\end{eq}
+	Then we can finally define the Hilbert space $\hs$ by completion\footnote{The completion procedure is described in \cite[Pages 121-122]{Streater:2000}.} of $\qschw$ respect to the induced norm:
+	\begin{eq}
+		\hs:=\overline\qschw
+	\end{eq}
+	that is, let $\mathfrak h$ be the space of Cauchy sequences $F=\{\eqclass{\varunderline{f_1}},\eqclass{\varunderline{f_2}},\ldots\}$ with scalar product
+	\begin{eq}\label{eq:reconstr_thm_scal_prod_hs}
+		(F,G):=\lim_{n\to\infty}(\eqclass{\varunderline{f_n}},\eqclass{\varunderline{g_n}})
+	\end{eq}
+	and $\mathfrak h_0$ its subspace given by vectors of zero norm, then $\hs:=\mathfrak h/\mathfrak h_0$. In the following we'll denote by $(\eqclass{\uf_1},\eqclass{\uf_2},\ldots)$ the elements of $\hs$ (i.e. as elements of $\mathfrak h$) rather then $[(\eqclass{\uf_1},\eqclass{\uf_2},\ldots)]$, we give as understood the fact that we refer to the associated equivalence class.
+	
+	Being $\schw$ separable so is $\uschw$, and since the latter is dense in $\hs$ also $\hs$ is separable. 
+	
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 8 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+	\skipline
+	 \textit{(2')} We define the linear transformation $U(a,\Lambda)$ in $\uschw$ by
+	 \begin{eq}
+	 	U(a,\Lambda)(f_0,f_1,f_2,\ldots):=(f_0,\{a,\Lambda\}f_1,\{a,\Lambda\}f_2,\ldots)
+	\end{eq}
+	where
+	\begin{eq}
+		\{a,\Lambda\}f_k(x_1,\ldots,x_k):=f_k(\inv\Lambda(x_1-a),\ldots,\inv\Lambda(x_k-a))
+	\end{eq}
+	The operator $U(a,\Lambda)$ leaves the scalar product of $\uschw$ invariant by virtue of \textit{(2)}:
+	\begin{eq}
+		&(U(a,\Lambda)\uf,U(a,\Lambda)\ug)=\\
+		&\quad=\sum_{j,k=0}^\infty\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k f_j^*(\inv\Lambda(x_1-a),\ldots,\inv\Lambda(x_j-a))\times\\
+		&\quad\hspace{1.5cm} \times W_{j+k}(x_1,\ldots,x_j,y_1,\ldots,y_k)g_k(\inv\Lambda(y_1-a),\ldots,\inv\Lambda(y_k-a))\\
+		&\quad=\sum_{j,k=0}^\infty\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k f_j^*(x_1,\ldots,x_j)W_{j+k}(\Lambda x_1+a,\ldots,\Lambda y_k+a)g_k(y_1,\ldots,y_k)\\
+		&\quad\overset{\textit{(2)}}=\sum_{j,k=0}^\infty\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k f_j^*(x_1,\ldots,x_j)W_{j+k}(x_1,\ldots,x_j,y_1,\ldots,y_k)g_k(y_1,\ldots,y_k)\\
+		&\quad=(\uf,\ug)
+	\end{eq}
+	thus $U(a,\Lambda)$ leaves invariant also $\nuschw$, since $\norm\uf=0$ implies $\norm{ U(a,\Lambda)\uf}=0$. We have to check that $U(a,\Lambda)$ is actually a mapping of equivalence classes in $\qschw$. But due to the invariance of the scalar product if $\eqclass\uf=\eqclass\ug$ then $\eqclass{U(a,\Lambda)\uf}=\eqclass{U(a,\Lambda)\ug}$, hence $U(a,\Lambda)$ is well defined also in $\qschw$. Being bounded it extends by continuity to $\hs$, preserving the scalar product in $\hs$. Recall that by Wigner's theorem linear operators that preserves  the scalar products in a Hilbert space are unitary, then $U(a,\Lambda)$ is a unitary representation of $\poinc$ on $\hs$. 
+	\todo{Onestamente non mi ricordo bene questa parte sugli spazi di Hilbert, spero di non aver scritto scorrettezze.}
+	
+	\skipline
+	\textit{(3')} Notice that
+	\begin{eq}
+		U(a,\Lambda)(1,0,\ldots,0,\ldots)=(1,0,\ldots,0,\ldots)=:\uid
+	\end{eq}
+	hence $\uid\in\uschw$ is translational invariant in $\uschw$ and the same holds for $\eqclass{\uid}$ in $\qschw$. Finally, the vacuum in $\hs$ is given by the Cauchy sequence
+	$\Omega:=(\eqclass{\uid},\eqclass{\uid},\ldots)$.
+	
+	\skipline
+	\textit{(4')} We introduce in $\uschw$ a linear operator $\ophi(h)$ for each test function $h\in\schw(\R^{d+1})$ by the equation
+	\begin{eq}
+		\ophi(h)\uf:=(0,hf_0,h\tensp f_1,h\tensp f_2,\ldots)
+	\end{eq}
+	or in compact notation $\ophi(h)\uf:=h\times\uf$, where
+	\begin{eq}
+		(h\tensp f_k)(x_1,\ldots,x_{k+1}):= h(x_1)f_k(x_2,x_3,\ldots,x_{k+1})
+	\end{eq}
+	is clearly a test function. As functionals of $h$ the matrix elements $(\uf,\ophi(h)\ug)$ are tempered distributions since they are finite sums of $W$'s, and further
+	\begin{eq}\label{eq:recons_th_self_adj_phi}
+		(\uf,\ophi(h)\ug)=(\ophi(h^*)\uf,\ug)
+	\end{eq}
+	We have to check that $\ophi(h)$ is a mapping of equivalence classes in $\qschw$. That $\norm \uf=0$ implies $\norm{\ophi(h)\uf}=0$ follows from previous definition and Schwartz inequality:
+	\begin{eq}
+		(\ophi(h)\uf,\ophi(h)\uf)=(\uf,\ophi(h^*)\ophi(h),\uf)\leq\cancel{\norm \uf}\,\norm{\ophi(h^*)\ophi(h)\uf}=0
+	\end{eq}
+	if $\norm \uf=0$. Therefore $\ophi(h)$ is well-defined also in $\qschw$, $\ophi(h)\eqclass\uf:=\eqclass{\ophi(h)\uf}$. For each $\eqclass\uf\in\qschw$, $\ophi(h)$ is well-defined also for the associated vectors in $\hs$, $\ophi(h)(\eqclass{\uf},\eqclass{\uf},\ldots):=(\ophi(h)\eqclass{\uf},\ophi(h)\eqclass{\uf},\ldots)$, hence $\ophi$ is defined in a dense subset $\dom$ of $\hs$, $\dom\iso\qschw$. In particular, being $\ket\Omega=(\eqclass{\uid},\eqclass{\uid},\ldots)\in\dom$, this defines $\ophi(h)$ on $\polyn(\ophi(h))\ket\Omega$. Notice that
+	\begin{eq}\label{eq:polyn_fields_on_vacuum}
+		\ophi(h_1)\cdots\ophi(h_n)\uid=\ophi(h_1)\cdots\ophi(h_{n-1})(0,h_n,0,0,\ldots)
+		=(\underbrace{0,\ldots,0}_n,h_1\tensp h_2\tensp\ldots\tensp h_n,0,0,\ldots)
+	\end{eq}
+	hence $\polyn(\ophi(h))\,\uid\iso\uschw$ and then $\polyn(\ophi(h))\ket\Omega\iso\dom$ is dense in $\hs$. 
+	
+	\skipline
+	\textit{(9')} Notice that the vacuum expectation value in $\hs$ reads
+	\begin{eq}
+		(\Omega,\ophi(h_1)\ldots\ophi(h_n)\Omega)
+		&=(\eqclass{\uid},\ophi(h_1)\ldots\ophi(h_n)\eqclass\uid)\qquad\text{scalar product in $\qschw$}\\
+		&=({\uid},\ophi(h_1)\ldots\ophi(h_n)\uid)\qquad\qquad\text{scalar product in $\uschw$}\\
+		&=\int\de x_1\ldots\de x_n\,W_n(x_1,\ldots,x_n)h_1(x_1)\ldots h_n(x_n)\\
+		&=W_n(h_1,\ldots,h_n)
+	\end{eq}
+	where in the first step we computed the scalar product in $\hs$ using eq.~\eqref{eq:reconstr_thm_scal_prod_hs}, in the second step we chosed the representative $\uid$ for the equivalence class $\eqclass\uid$ and then we computed the scalar product in $\uschw$ according to the definition eq.~\eqref{eq:reconstr_thm_scalar_prod} using eq.~\eqref{eq:polyn_fields_on_vacuum} to compute $\ophi(h_1)\cdots\ophi(h_n)\uid$. Then we noted that the result we obtained coincide with the smearing of the Wightman function. Finally eq.~\eqref{eq:reconstr_thm_prop_9} follows immediately from $\bra\Omega\ophi(h_1)\ldots\ophi(h_n)\ket\Omega=W_n(h_1,\ldots,h_n)$. 
+	
+	\skipline
+	\textit{(5')} That $\ophi(h)$ satisfies the transformation law
+	\begin{eq}
+			U(a,\Lambda)\ophi(h)U^\dagger(a,\Lambda)=\ophi(\{a,\Lambda\}h)
+	\end{eq}
+	can be easy proved in $\uschw$:
+	\begin{eq}
+		U(a,\Lambda)\ophi(h)(f_0,f_1,\ldots)
+		&=U(a,\Lambda)(0,h f_0,h\tensp f_1,\ldots)\\
+		&=(0,\{a,\Lambda\}hf_0,\{a,\Lambda\}h\tensp\{a,\Lambda\}f_1,\ldots)\\
+		&=\ophi(\{a,\Lambda\}h)U(a,\Lambda)(f_0,f_1,\ldots)
+	\end{eq}
+	then since the previous computation holds for each $\uf\in\uschw$ and both $\ophi(h)$ and $U(a,\Lambda)$ are mapping of equivalence classes then 
+	\begin{eq}
+		U(a,\Lambda)\ophi(h)\eqclass\uf=\ophi(\{a,\Lambda\}h)U(a,\Lambda)\eqclass\uf
+	\end{eq}
+	and finally we can extend it by continuity to $\hs$, since $\qschw$ is dense in it:
+	\begin{eq}
+		U(a,\Lambda)\ophi(h)(\eqclass{\uf_1},\eqclass{\uf_2},\ldots)=\ophi(\{a,\Lambda\}h)U(a,\Lambda)(\eqclass{\uf_1},\eqclass{\uf_2},\ldots)
+	\end{eq}
+	Since this holds for any element of $\hs$ we get 
+	\begin{eq}
+		U(a,\Lambda)\ophi(h)=\ophi(\{a,\Lambda\}h)U(a,\Lambda) 
+		\quad\so\quad
+		\ophi(\{a,\Lambda\}h)=U(a,\Lambda)\ophi(h)\inv U(a,\Lambda)
+	\end{eq}
+	and we are done, since ``unsmearing'' the fields we get
+	\begin{eq}
+		\int\de x\,h(\inv\Lambda(x-a))\ophi(x)=U(a,\Lambda)\int\de x\,h(x)\ophi(x)\inv U(a,\Lambda)
+	\end{eq}
+	and by a change of variable on the r.h.s.:
+	\begin{eq}
+		\int\de x\,h(x)\ophi(\Lambda x+a)=\int\de x\,h(x)U(a,\Lambda)\ophi(x)\inv U(a,\Lambda)
+	\end{eq}
+	
+	\skipline
+	\textit{(6')} Consider the unitary group of translations $\{U(a)\}:=\{U(a,\id)\}$. Stone's theorem\footnote{\url{https://doi.org/10.2307\%2F1968538}} apply to such operators (the group can be decomposed in $(d+1)$ one-parameter unitary groups), then exists a unique operator $\mom:\dom_P\to\hs$, self-adjoint in the dense domain $\dom_P$, such that $U(a)=e^{ia\mom}$ for any $a\in\R^{d+1}$. Moreover thanks to \textit{(5')} we have
+	\begin{eq}\label{eq:recons_thm_spec_stone}
+		\ophi(x)=e^{ix\mom}\ophi(0)e^{-ix\mom}
+	\end{eq}
+	Then, using \textit{(9')} together with \textit{(3')} we have
+	\begin{eq}\label{eq:recons_thm_spec_repr_p}
+		&W_n(x_1,\ldots,x_n)=\\
+		&\qquad=\bra\Omega\ophi(x_1)\ldots\ophi(x_n)\ket\Omega\\
+		&\qquad=\bra\Omega\ophi(0)e^{i\mom	(x_2-x_1)}\ophi(0)\ldots \ophi(0)e^{i\mom(x_n-x_{n-1})}\ophi(0)\ket\Omega\\
+		&\qquad=\int\de p_1\ldots\de p_{n-1}\,\bra\Omega\ophi(0)e^{i\mom(x_2-x_1)}\ketbra{p_1}\ophi(0)\ldots \ophi(0)e^{i\mom(x_n-x_{n-1})}\ketbra{p_{n-1}}\ophi(0)\ket\Omega\\
+		&\qquad=\int\de p_1\ldots\de p_{n-1}\,e^{ip_1(x_2-x_1)}\ldots e^{ip_{n-1}(x_n-x_{n-1})}\bra\Omega\ophi(0)\ketbra{p_1}\ophi(0)\ket{p_2}\ldots\bra{p_{n-1}}\ophi(0)\ket\Omega
+	\end{eq}	
+	Comparing this expression with eq.~\eqref{eq:reconstr_thm_hp_3} we get
+	\begin{eq}\label{eq:recon_thm_spectra_step1}
+		\widetilde W_{n-1}(p_1,\ldots,p_{n-1}) = \bra\Omega\ophi(0)\ketbra{p_1}\ophi(0)\ket{p_2}\ldots\bra{p_{n-1}}\ophi(0)\ket\Omega
+	\end{eq}
+	Then the claim follows using property \textit{(3)}.
+	\todo{Mi sembra che l'argomentazione data a lezione non fosse sufficiente a dimostrare questo punto del teorema. Da qui in poi la dimostrazione l'ho fatta di sana pianta, quindi potrebbe essere molto sbagliata (spero di no).}
+	Indeed, take $p_2\not\in \overline V^+$ and $n=4$, then from \textit{(3)} we get 
+	\begin{eq}
+		\widetilde W_3(p_1,p_2,p_3)=\bra\Omega\ophi(0)\ketbra{p_1}\ophi(0)\ketbra{p_2}\ophi(0)\ketbra{p_3}\ophi(0)\ket\Omega=0\tforall p_1,p_3\in\R^{d+1}
+	\end{eq}
+	This is possible only if
+	\begin{eq}
+		\bra p\ophi(0)\ket{p_2}=0\tforall p\in\R^{d+1}
+		\tiff 
+		\ophi(0)\ket{p_2}=0 
+		\overset{\eqref{eq:recons_thm_spec_stone}}\tiff
+		\ophi(x)\ket{p_2}=0
+	\end{eq}
+	Hence for each $p\not\in\overline V^+$ we have $\ophi(x)\ket p=0$. Applying $\mom$ to any element of $\polyn(\ophi(x))\ket\Omega$ we get then
+	\begin{eq}
+		\mom\big(\polyn(\ophi(x))\ket\Omega\big) = \int\de p\,\ketbra p \big(\polyn(\ophi(x))\ket\Omega\big) = \int_{\overline V^+}\de p\,\ketbra p \big(\polyn(\ophi(x))\ket\Omega\big)
+	\end{eq}
+	which give the following spectral representation of $\mom$
+	\begin{eq}
+		\mom = \int_{\overline V^+}\de p\,\ketbra p \quad\tin\quad  \polyn(\ophi(x))\ket\Omega
+	\end{eq}
+	but since $\polyn(\ophi(x))\ket\Omega$ is dense in $\hs$ the previous spectral representation for $\mom$ holds in the whole $\hs$ (actually, in $D_P\subseteq\hs$). The claim follows immediately.
+	
+	\skipline
+	\textit{(7')}
+	\todo{Anche qui ho cercato di completare la dimostrazione, mi faccia sapere se è giusta o devo correggerla.}
+	Take $f,g\in\schw(\R^{d+1})$ space-like separated, that is $\supp f\sls\supp g$, and $\{h_i\}_{i=0}^\infty$. Then from \textit{(4)} we know that, for each value of $n$,  
+	\begin{eq}
+		W_{n+2}(f,g,h_1,\ldots,h_n)=W_{n+2}(g,f,h_1,\ldots,h_n)
+	\end{eq}
+	and \textit{(9')} tells us that
+	\begin{eq}
+		(\Omega,\ophi(f)\ophi(g)\ophi(h_1)\ldots\ophi(h_n)\Omega)=(\Omega,\ophi(g)\ophi(f)\ophi(h_1)\ldots\ophi(h_n)\Omega)
+	\end{eq}
+	Then, by linearity
+	\begin{eq}
+		(\Omega,[\ophi(f),\ophi(g)]\ophi(h_1)\ldots\ophi(h_n)\Omega)=0
+	\end{eq}
+	An analogous procedure together with eq.~\eqref{eq:recons_th_self_adj_phi} lead us also to
+	\begin{eq}
+		([\ophi(f),\ophi(g)]\ophi(h_1)\ldots\ophi(h_n)\Omega,[\ophi(f),\ophi(g)]\ophi(h_1)\ldots\ophi(h_n)\Omega)
+		=\norm{[\ophi(f),\ophi(g)]\ophi(h_1)\ldots\ophi(h_n)\Omega}^2=0
+	\end{eq}
+	Since the scalar product is non-degenerate, this implies that $[\ophi(f),\ophi(g)]\ophi(h_1)\ldots\ophi(h_n)\Omega=0$ is the zero vector in $\qschw$. The only way to satisfy this for any choice of $n$ and any set of smearing test functions $\{h_i\}_{i=1}^\infty$ is that in $\polyn(\ophi(h))\Omega$ we have
+	\begin{eq}
+		[\ophi(f),\ophi(g)]=0 
+	\end{eq}
+	meaning that the operator $[\ophi(f),\ophi(g)]$ maps all the elements of $\polyn(\ophi(h))\Omega$ into the zero vector. But then the claim extends to the whole Hilbert space $\hs$ due to the denseness of $\polyn(\ophi(h))\Omega$.
+	
+	\skipline
+	\textit{(8')} Assume that, beside $\Omega=(\eqclass\uid,\eqclass\uid,\ldots)$ there is another translationally invariant state $\Omega'$. Without loss of generality we can orthonormalize $\Omega'$ respect to $\Omega$, i.e. we take $(\Omega',\Omega)=0$ and $(\Omega',\Omega')=1$. If $\Omega'\in\qschw$, $\Omega=\eqclass\uf$, then we would have an immediate contradiction because,
+	\begin{eq}
+		1&=(\Omega',\Omega')\overset{\text{(a)}}
+		=\lim_{a\to\infty\atop a^2<0}(\Omega',U(a)\Omega')
+		=\lim_{a\to\infty\atop a^2<0}((f_0,f_1,\ldots),(f_0,\{a,\id\}f_1,\{a,\id\}f_2,\ldots))\\
+		&\smash{\overset{\eqref{eq:reconstr_thm_scalar_prod}}=}\lim_{a\to\infty\atop a^2<0}\sum_{j,k=0}^\infty\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k\,f_j^*(x_1,\ldots,x_j)W_{j+k}(x_1,\ldots,x_j,y_1,\ldots,y_k)f_k(y_1-a,\ldots,y_k-a)\\
+		&=\lim_{a\to\infty\atop a^2<0}\sum_{j,k=0}^\infty\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k\,f_j^*(x_1,\ldots,x_j)W_{j+k}(x_1,\ldots,x_j,y_1+a,\ldots,y_k+a)f_k(y_1,\ldots,y_k)\\
+		&\smash{\overset{\textit{(5)}}=}\sum_{j,k=0}^\infty\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k\,f_j^*(x_1,\ldots,x_j)W_j(x_1,\ldots,x_j)W_k(y_1,\ldots,y_k)f_k(y_1,\ldots,y_k)\\
+		&=\bigg(\sum_{j=0}^\infty\int\de x_1\ldots\de x_j\,f_j^*(x_1,\ldots,x_j)W_j(x_1,\ldots,x_j)\bigg)\bigg(\sum_{k=0}^\infty\int\de y_1\ldots\de y_k\,W_k(y_1,\ldots,y_k)f_k(y_1,\ldots,y_k)\bigg)\\
+		&=(\Omega',\Omega)(\Omega,\Omega')=0
+	\end{eq}
+	where in (a) we used the translational invariance of $\Omega'$. In general $\Omega'$ is not an element of $\qschw$, but because the latter is dense then $\Omega'$ can be approximated by elements of $\qschw$ by arbitrary accuracy, then the contradiction easily extends for $\Omega'\in\hs$, see \cite[Page 124]{Streater:2000} for the details.
+\end{proof}
+
+The most important consequence of the theorem is that in order to exhibit a relativistic quantum field theory model, it is enough to give a set of Wightman functions satisfying properties \textit{(1)-(5)}. These properties provide a non-perturbative substitute for canonical quantization, since allow to construct a quantum field theory without use the canonical quantization procedure and CCR (or CAR) which are inconsistent in the interacting case due to Haag's theorem. 
+
+Properties \textit{(1') - (8')} are called \emph{Wightman axioms}\footnote{These axioms are discussed in \cite[Section 3.1]{Streater:2000} and \cite[Section 3.2]{Jost.:1965}.}, and define axiomatically a RQFT at $T=0$ for a real scalar field. Provided appropriated versions of properties \textit{(1)-(5)}, more general forms of the reconstruction theorem allow to reconstruct also theories with complex fields and more general spins, satisfying appropriate Wightman axioms. 
+
+Notice that property \textit{(9')} tells us that the vacuum expectation values of the reconstructed theory are exactly the Wightman function we started from. 
+
+Conversely, the vacuum expectation values of any theory satisfying Wightman axioms satisfy themselves the properties required in the reconstruction theorem.\footnote{See \cite[Theorems 3.1-3.4]{Streater:2000} and \cite[Section 3.3]{Jost.:1965}.}  In particular, if $\ophi_F$ is a free theory defined in a Fock space, then the vacuum expectation values $\bra0\ophi_F(x_1)\ldots\ophi_F(x_n)\ket0$ satisfy properties \textit{(1)-(5)} and the reconstructed theory coincide with the initial one, $\ophi_{\text{rec}}=\ophi_F$. On the other side, a reconstructed interacting theory is defined in a Hilbert space disjoint from the Fock space of the free theory, due to Haag's theorem. 
+
+Can also be proved that the reconstructed theory is unique, i.e. any other theory satisfying properties \textit{(1') - (9')} (in particular with same vacuum expectation values $\{W_n\}_{n=0}^\infty$) is unitarily equivalent to the one reconstructed in the proof of the theorem.\footnote{Actually this claim is included in the reconstruction theorem, see \cite[Thm. 3.7]{Streater:2000} and \cite[Section 3.4, Thm. 1]{Jost.:1965}.} 
+
+Finding a set of Wightman functions satisfying properties \textit{(1)-(5)} turned out to be a very hard problem, apart from the non-interacting case, also because it is difficult to satisfy the positivity condition, which has a non-linear structure, in contrast to the other properties, which have a linear structure. We will see in the following how this problem has been solved by computing Wightman functions in the Euclidean space, where properties \textit{(1)-(5)} take a more simple form.
+
+\todo{Non sono molto convinto di quanto scritto da qui in poi.}
+In the proof of the theorem we constructed the Hilbert space of the theory as (the completion of) finite sequences of test functions. In order to give a better interpretation of the Hilbert space, notice that if we define
+\begin{eq}
+	\ophi(\uf):= f_0+\int\de x_1\,\ophi(x_1)f_1(x_1)+\int\de x_1\de x_2\,\ophi(x_1)\ophi(x_2)f_2(x_1,x_2)+\ldots
+\end{eq}
+such that
+\begin{eq}
+	\ophi(\uf)\ug:=(f_0g_0,f_0g_1+f_1 g_0,f_0g_2+f_1\tensp g_1+f_2g_0,\ldots)
+	\tcomma
+	\ophi(\uf)\eqclass\ug:=\eqclass{\ophi(\uf)\ug}
+\end{eq}
+and in particular (let $\Omega:=\eqclass\uid$ in this instance, since we do not consider the completion of $\qschw$)
+\begin{eq}
+	\ophi(\uf)\uid=(f_0,f_1,f_2,\ldots)=\uf
+	\tcomma
+	\ophi(\uf)\Omega=\eqclass\uf
+\end{eq}
+Then the scalar product in $\uschw$ and $\qschw$ can be rewritten as\footnote{The bilinear $(-,-)$ denotes as usual the scalar product in $\uschw$, whereas $\langle-,-\rangle$ denotes the scalar product in $\{\ophi(\uf)\uid\st\uf\in\uschw\}$. Analogous notations hold for the quotient sets.}
+\begin{eq}
+	(\uf,\ug)=\langle\ophi(\uf)\uid,\ophi(\ug)\uid\rangle
+	\tcomma
+	(\eqclass\uf,\eqclass\ug)=\langle\ophi(\uf)\Omega,\ophi(\ug)\Omega\rangle
+\end{eq}
+Hence we can identify by unitary equivalence (i.e. up to representations) $\qschw$ with $\{\ophi(\uf)\Omega\st\uf\in\uschw\}$, since the scalar products defined in the two spaces are the same. This is related with the denseness of $\polyn(\ophi(f))\Omega$ in $\hs$. Then we are done: one can forget the structure underlying $\uf$ and $\Omega$ and define the Hilbert space by applying the operator $\ophi(\uf)$ on the vacuum $\Omega$, as usual. 
 
 
+\section{Additional remarks}
 
+%Lecture 27/10 part 2
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 9 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
