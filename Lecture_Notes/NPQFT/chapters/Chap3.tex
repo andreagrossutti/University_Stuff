@@ -324,7 +324,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 	where in (a) we used the translational invariance of $\Omega'$. In general $\Omega'$ is not an element of $\qschw$, but because the latter is dense then $\Omega'$ can be approximated by elements of $\qschw$ by arbitrary accuracy, then the contradiction easily extends for $\Omega'\in\hs$, see \cite[Page 124]{Streater:2000} for the details.
 \end{proof}
 
-The most important consequence of the theorem is that in order to exhibit a relativistic quantum field theory model, it is enough to give a set of Wightman functions satisfying properties \textit{(1)-(5)}. These properties provide a non-perturbative substitute for canonical quantization, since allow to construct a quantum field theory without use the canonical quantization procedure and CCR (or CAR) which are inconsistent in the interacting case due to Haag's theorem. 
+The most important consequence of the theorem is that in order to exhibit a relativistic quantum field theory model, it is enough to give a set of Wightman functions satisfying properties \textit{(1)-(5)}. As we'll discuss in the next section, these properties provide a non-perturbative substitute for canonical quantization, since allow to construct a quantum field theory without use the canonical quantization procedure and CCR (or CAR) which are inconsistent in the interacting case due to Haag's theorem. 
 
 Properties \textit{(1') - (8')} are called \emph{Wightman axioms}\footnote{These axioms are discussed in \cite[Section 3.1]{Streater:2000} and \cite[Section 3.2]{Jost.:1965}.}, and define axiomatically a RQFT at $T=0$ for a real scalar field. Provided appropriated versions of properties \textit{(1)-(5)}, more general forms of the reconstruction theorem allow to reconstruct also theories with complex fields and more general spins, satisfying appropriate Wightman axioms. 
 
@@ -364,11 +364,141 @@ Hence we can identify by unitary equivalence (i.e. up to representations) $\qsch
 
 \section{Additional remarks}
 
-%Lecture 27/10 part 2
+\cite[Sections 3.4, 4.1-4.4]{Strocchi_2013}; \cite[Chapters 4,5]{Jost.:1965}; \cite[Chapter 4]{Streater:2000}\\
 
+By exploiting the analyticity properties of the Wightman's functions, general results have been derived.  In this section we will focus on some of the main results which have been derived in the specific case of relativistic QFT's.
+
+\subsubsection{Spin-statistics theorem}
+
+The connection between spin and statistics, which is at the basis of Pauli principle (namely, in the alternative of anti/commutation relations at space-like points, fields carrying half-integer/integer spin must anti-commute/commute), have been first derived by Pauli for free theories in Fock space. It's generalization to interacting theories holds in the Wightman axiomatic formalism, and is a consequence of Lorentz covariance, as has been proved in \emph{spin-statistics theorem}:
+\begin{theorem}[{Spin-statistics, \cite[Section 4.2]{Strocchi_2013}, \cite[Section 4.4]{Streater:2000}, \cite[Section 5.3]{Jost.:1965}}]
+	Let $\psi_{\alpha,\dot\beta}$ be a spinor field\footnote{Here we consider a spinor field since it can describe the most general case, i.e. both integer and half integer fields. We will do the same also for the spin-statistics theorem.} transforming as $\mathcal D^{j/2,k/2}$, and therefore carrying a integer/half-integer spin, corresponding to $j+k=$even/odd, then the wrong connection between spin and statistics, i.e., for integer/half-integer spin the field anti-commutes/commutes at space-like separations, implies that $\psi\Omega=0$ and, if locality holds, $\psi=0$.
+\end{theorem}
+
+\subsubsection{PCT theorem}
+
+The (up to now experimentally established) \emph{PCT symmetry} also follows from Wightman functions properties, being in particular related to local commutativity:
+\begin{theorem}[{PCT, \cite[Section 4.3-4.4]{Strocchi_2013}, \cite[Section 4.3]{Streater:2000}, \cite[Section 5.2]{Jost.:1965}}]
+	If a spinor field satisfies covariance, spectral condition, and locality, then the corresponding Wightman functions are PCT symmetric.
+\end{theorem}
+
+\subsubsection{Reeh-Schlieder theorem}
+
+Wightman's functions analyticity can be proved\footnote{\cite[Sections 3.4.1-3.4.3]{Strocchi_2013}, \cite[Chapter 4]{Streater:2000}}  and imply that the knowledge of the Wightman functions of the fields localized in a given open set $\mathcal O\subset\R^4$, however small, completely determines the theory. In fact, if $\polyn(\mathcal O)$ denotes the polynomial algebra of the fields smeared with test functions with support in $\mathcal O$, one has
+\begin{theorem}[{Reeh-Schlieder, \cite[Section 4.2]{Streater:2000}, \cite[Section 4.8]{Jost.:1965}, \cite[Section 3.4.4]{Strocchi_2013}, \cite[Section II.5.3]{Haag_1996}}] 
+	For any $\mathcal O\subset \R$, the vacuum is cyclic with respect to the algebra $\polyn(\mathcal O)$, i.e.
+	\begin{eq}
+		\{\polyn(\ophi(f))\varst \supp(f)\subset\mathcal O\}\Omega
+	\end{eq}
+	is dense in $\hs$. Moreover, if $A\in\polyn(\mathcal O)$ and $A\Omega=0$ then $A=0$.
+\end{theorem}
+
+This means that the information contained in fields localized in any, arbitrarily small, open subset of $\R^4$, can be used to reconstruct the entire RQFT.
+
+\subsubsection{Non-commutativity of the algebra of interacting fields}
+
+As we already pointed out equal-time canonical (anti-)commutation relations cannot be used to quantize field equations for interacting theories. A natural question is whether and where a quantization condition is contained in the general requirements of Wightman's axioms, equivalently in the properties of Wightman functions. To this purpose, one may show that, as a consequence of the spectral condition, the field algebra of the reconstructed theory cannot be commutative, hence properties \textit{(1)-(5)} imply quantization. Since can be proved\footnote{\cite[Section 4.1]{Strocchi_2013}} that field obeying free fields equations satisfy either CCR of CAR, Wightman's properties qualify as he way of defining quantum fields by providing the correct substitute of canonical quantization in the interacting case. 
+
+\section{Haag-Ruelle scattering theory (massive case) and LSZ reduction formula}
+
+\cite{Ruelle:1962}; \cite{Hepp:1965}; \cite[Chapter II.4]{Haag_1996}; \cite[Chapters 6]{Jost.:1965}; \cite[Sections 6.1-6.2]{Strocchi_2013}\\
+
+Another important consequence of properties \textit{(1)-(5)} for relativistic QFT's is the existence of asymptotic fields which provide a non-perturbative definition of the $S$-matrix, which is unitary if asymptotic completeness holds. Also the LSZ asymptotic condition and the LSZ reduction formulas can be derived from the same properties, as proved by Hepp; furthermore, one can prove dispersion relations for scattering amplitudes, yielding experimentally measurable relations. 
+
+\skipline%
+
+One should notice that the axioms of Wightman do not introduce the notion of a particle. The particle notion is, however, of crucial importance if any connection of the theory with realities of physics is to be achieved. The principal observable of elementary particle physics, the $S$-matrix, depends essentially on the possibility of defining asymptotic incoming and outgoing states, which themselves can be described by free particles and their corresponding free fields. 
+
+It is highly gratifying that, under natural conditions, a Wightman field theory allows the precise definition of such asymptotic fields. This was proved by Ruelle, who applied Haag's idea of construct asymptotic ingoing and outgoing states as strong limits in Hilbert space, if certain ``space like asymptotic condition'' is verified by the vacuum expectation values of products of field operators. 
+
+In his theory, Ruelle has to make some natural additional assumptions which go beyond axioms of Wightman. This is not astonishing, it is easily seen that in a theory which allows a complete particle interpretation the spectrum of the energy momentum vector must have special properties. 
+
+\skipline%
+
+We shall not present the general theory in this section. The special case to which we shall restrict ourselves, however, shows most of the interesting aspects of the general case. Let's assume that our theory have a \emph{mass gap}. This means that the spectrum of the generators of the spacetime translations, as determined by the Wightman functions and the reconstruction theorem, satisfies the following:
+
+\emph{Mass gap condition}: Above the isolated point $p=0$ (corresponding to the vacuum state) there is a gap up to an isolated hyperboloid $p^2=m^2$ (\emph{mass gap}) denoted by $V_m^+\subset\spec(\mom^\mu)\subseteq\overline V^+$, with finite multiplicity (one-particle state), followed by a continuous spectrum starting at $p^2=(2m)^2$ (two-particles states). It suffices that such a mass gap condition holds in the subspace characterized by the conserved quantum numbers of the asymptotic states under investigation. 
+
+Notice that such condition cannot be satisfied if theories admits massless particles, for instance it does not apply to QED. 
+
+\skipline%
+
+Let us restrict to the one-body problem, i.e. the description of the asymptotic sate for a one particle system. The existence of free asymptotic fields of mass $m$ should be related to the existence of an isolated hyperboloid $p^2=m^2$ in the two-point spectral function of the field $\ophi$. 
+
+Let $\hs_m$ be the improper\footnote{It is an improper subspace since it is made of generalized vectors, in the sense of Dirac's formalism.} subspace of $\hs$, which is eigenspace of the operator $\mom^\mu\mom_\mu$ associated to the eigenvalue $m^2$. 
+Suppose that our (possibly renormalized, if needed) field $\ophi$ when applied to the vacuum has a non-empty intersection with $\hs_m$, that is $\ophi(x)\Omega\not\perp\hs_m$. 
+Let $h(x)$ be a test function whose Fourier transform satisfies $\supp\tilde h(p)\cap\spec(\mom^\mu)\subseteq V_m^+$, or equivalently, its support in momentum space does not intersect the continuum region above $V_m^+$ of $\overline V^+$ (the one associated to multi-particles states).
+
+Let's define the operator
+\begin{eq}
+	\ophi_m(h):=\int\de p\,\tilde h(p)\tilde\ophi(p)
+\end{eq}
+and consider the two-points function 
+\begin{eq}
+	(\Omega, \ophi_m(h)\ophi_m(h')\Omega)
+\end{eq}
+where $h'$ satisfies same properties as $h$. Such two-point function in the Källen-Lehmann representation contains only an isolated term like $\delta(p^2-m^2)\theta(p^0)$, since the localization of $h$ on the one-particle hyperboloid acts as a cutoff for the continuum part in the spectral representation of the correlator. 
+
+The field $\ophi_m(h)$ is not a free field, since in general $\supp h\not\subset\spec(\mom^\mu)$ and $(p^2-m^2)\tilde \ophi_m(p)\neq 0$, however $(p^2-m^2)\tilde \ophi_m(p)\Omega=0$, hence we selected at the field level a neighbourhood of the mass shell. 
+
+\skipline
+
+Let's see how to construct more than one. Suppose that we have $n$ test functions, $\{h_i\}_{i=1}^n$, $\supp\tilde h(p)\cap\spec(\mom^\mu)\subseteq V_m^+$, such that their supports in terms of velocities are disjoint, that is 
+\begin{eq}\label{eq:disj_velocit_condit}
+	\frac{\vec p_i}{p_i^0}\neq\frac{\vec p_j}{p_j^0} \tforany p_i\in\supp\tilde h_i \tcomma p_j\in\supp\tilde h_j \tcomma i\neq j
+\end{eq}
+Due to condition \eqref{eq:disj_velocit_condit}, for very large values of $t$ the operators
+\begin{eq}
+	e^{-itH}\ophi_m(h_i)e^{itH}
+	\tcomma
+	i=1,\ldots,n
+\end{eq}
+have their supports separated by large distances, hence in the asymptotic limit $t\to\pm\infty$ they are free (since interactions decay exponentially for $m>0$, see \cite[Section 6.2.2]{Strocchi_2013}). Then we can ``bring them back'' using free evolution, i.e. using the standard dispersion relation $\sqrt{\vec p^2+m^2}$:
+\begin{eq}
+	\ophi_m(h,t):=\int\de p\,e^{it\sqrt{\vec p^2+m^2}}\tilde h(p) e^{-itH}\ophi_m(p)e^{itH}
+\end{eq}
+Such field behaves for $t\to\pm\infty$ as a free field. 
+\todo{Non capisco il senso di ``portare indietro'' il campo utilizzando l'evoluzione libera, non potevamo utilizzare direttamente $e^{-itH}\ophi_m(h_i)e^{itH}$? Inizialmente pensavo che servisse a definire un campo libero per $t$ generico, ma $\ophi_m(h,t)$ è libero solo per $t\to\pm\infty$... Suppongo allora che tale definizione serva per dimostrare il teorema di Ruelle. Mi chiedo inoltre se $\ophi_m(h,t)$ in genere possa considerarsi un elemento di uno spazio di Fock per $t\to\pm\infty$ o abbia qualche peculiarità che non lo permette, in particolare nel teorema diciamo che $\hs_{\tin/\tout}\subseteq\hs$ quindi immagino di no.} 
+
+The final result is provided by the following theorem
+\begin{theorem}[{Haag-Ruelle, \cite[Section 4]{Ruelle:1962}; \cite[Theorem 6.2.1]{Strocchi_2013}, \cite[Theorem II.4.2.1]{Haag_1996}, \cite[Theorems 1,2 section 6.3]{Jost.:1965}}]
+	The following asymptotic limits
+	\begin{eq}
+		\lim_{t\to-\infty}\ophi_m(h_1,t)\cdots\ophi_m(h_n,t)\ket\Omega&=:\ket{h_1,\ldots,h_n}_\tin\\
+		\lim_{t\to+\infty}\ophi_m(h_1,t)\cdots\ophi_m(h_n,t)\ket\Omega&=:\ket{h_1,\ldots,h_n}_\tout
+	\end{eq}
+	exist in the strong sense and define asymptotic in/out scattering states. The closure of the space of scattering states $\hs_{\tin/\tout}$ is contained in $\hs$. In $\hs_{\tin/\tout}$ are defined the operators $\ophi_{\tin/\tout}$ such that
+	\begin{eq}
+		\ophi_\tin(h)\ket{h_1,\ldots,h_n}&=\lim_{t\to-\infty}\ophi_m(h,t)\ket{h_1,\ldots,h_n}_\tin\\
+		\ophi_\tout(h)\ket{h_1,\ldots,h_n}&=\lim_{t\to+\infty}\ophi_m(h,t)\ket{h_1,\ldots,h_n}_\tout
+	\end{eq}
+\end{theorem}
+
+Let's see what happens if abandon the restriction on the support of the test function, i.e. if we define
+\begin{eq}
+	\ophi(f,t)=\int\de p\,f(p)e^{itH}\tilde\ophi(p)e^{-itH}e^{it\sqrt{\vec p^2+m^2}}
+\end{eq}
+for some (generic) test function $f$. Hepp proved that it admits a weak limit $t\to\pm\infty$ on scattering states, and can be used as asymptotic fields in the LSZ formula 
+\begin{theorem}[{Hepp, \cite{Hepp:1965}}]
+	The following weak limits exist:
+	\begin{eq}
+		\lim_{t\to-\infty}\,_\tin\langle h_1,\ldots,h_n|\ophi(f,t)\ket{h_1',\ldots,h_n'}_\tin&=\,_\tin\langle h_1,\ldots,h_n|\ophi_\tin(f)\ket{h_1',\ldots,h_n'}_\tin\\
+		\lim_{t\to+\infty}\,_\tout\langle h_1,\ldots,h_n|\ophi(f,t)\ket{h_1',\ldots,h_n'}_\tout&=\,_\tout\langle h_1,\ldots,h_n|\ophi_\tout(f)\ket{h_1',\ldots,h_n'}_\tout
+	\end{eq}
+	and defined scattering fields $\ophi_{\tin/\tout}$. These fields can be used inside the LSZ reduction formula, hence the reduction formalism work even in this axiomatic framework starting from Wightman functions. 
+\end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% LECTURE 9 %%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% 
+
+Hence within Wightman theory all the formalism of asymptotic states and fields is mathematically well defined. 
+
+\section{Construction of Wightman functions using path integral formalism}
+
+%As a consequence of the spectral condition, Lorentz covariance, and locality, the Wightman's functions have an analytic continuation to the so-called Euclidean points, and from this one derives the existence and the general properties of \emph{Euclidean quantum field theory}. This is at the basis of the functional integral approach to QFT and the non-perturbative approaches developed in the last decades (such as the lattice approach to gauge theories, the constructive strategy, etc.)
+
+
+
 
 \end{document}

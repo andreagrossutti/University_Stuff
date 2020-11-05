@@ -60,6 +60,8 @@
 
 \newenvironment{eq}{\begin{equation}\begin{aligned}}{\end{aligned}\end{equation}\ignorespacesafterend}
 
+\newcommand{\skipline}{\leavevmode\vspace{0.3\baselineskip}\newline}
+
 
 %scambia phi e varphi
 %\let\temp\phi
@@ -130,10 +132,13 @@
 \newcommand{\supp}{\operatorname{supp}} %support of an operator
 \newcommand{\spec}{\sigma} %spectrum
 \newcommand{\st}{\ |\ } %such that
-\newcommand{\varst}{\ \text{s.t.}\ } %var such that
+\newcommand{\varst}{\ \textnormal{s.t.}\ } %var such that
 \newcommand{\tp}{\textnormal T}%time ordering product
-\newcommand{\tensp}{\otimes}%tensor product
 \renewcommand{\norm}[1]{\Vert#1\Vert}%norm in a vector space
+\newcommand{\dir}{\oplus} %direct sum
+\newcommand{\bigdir}{\bigoplus} % big direct sum
+\newcommand{\ten}{\otimes} %tensor product
+\newcommand{\tensp}{\otimes}%tensor product
 
 \newcommand{\mom}{\op{ P}}%momentum
 
@@ -150,10 +155,6 @@
 \newcommand{\uei}{U_\epsilon^I} %unitary operator in interaction picture for finite epsilon
 \newcommand{\ueid}{U_\epsilon^{I\dagger}} % adj unitary operator in interaction picture for finite epsilon
 \newcommand{\scate}{S_\epsilon}
-
-\newcommand{\dir}{\oplus} %direct sum
-\newcommand{\bigdir}{\bigoplus} % big direct sum
-\newcommand{\ten}{\otimes} %tensor product
 
 \newcommand{\sls}{\,{\mathbin{\tikz [x=1.4ex,y=1.6ex,line width=.2ex] \draw (0,0) -- (1,1) (0,1) -- (1,0);}}\,} %space-like separated coordinates
 
@@ -188,8 +189,6 @@
 \newcommand{\qschw}{\uschw\,/\nuschw}%quotient between \uschw and \nuschw
 \newcommand{\eqclass}[1]{[\,#1\,]}%equivalence class
 \newcommand{\uid}{\varunderline\id}%sequence (1,0,...,0,...)
-
-\newcommand{\skipline}{\leavevmode\vspace{0.3\baselineskip}\newline} %Salta una riga (devi saltare una riga prima di mettere il comando)
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}%numeri cerchiati
