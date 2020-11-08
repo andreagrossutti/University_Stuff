@@ -1,0 +1,219 @@
+\documentclass[../main/main.tex]{subfiles}
+\begin{document}
+
+\chapter{Constructive QFT}
+
+\cite[Pages 185-191]{Streater:2000}, \cite{Summers:2016}, \cite{Wightman:1976}, \cite[Section 5.1]{Strocchi_2013}, \cite[Section 6.1, Chapter 19]{Glimm:1987}\\
+
+We now have to deal with the construction of the Wightman functions or their non relativistic counterpart, which as we have seen are the cornerstone of our formalism. It turns out that the easiest way to construct them is the following
+\begin{enumerate}[label=(\arabic*)]
+	\item go back to the Gell-Man - Low formula and introduce an IR cutoff (an in the relativistic case also an UV one) so that we avoid Haag's no-go theorem;
+	\item rewrite such formula using the path-integral formalism as described in Sec.~\ref{sec:PI_formalism} (when the cutoffs are introduce, we'll denote the action by $S_\Lambda$), in particular
+	\begin{enumerate}[label=(\alph*)]
+		\item for a relativistic theory the path integral is defined in an Euclidean space-time,
+		\item for a non relativistic theory the path integral is defined in an Euclidean space-time for an ``immaginary'' time;
+	\end{enumerate}
+	\item remove the cutoffs from outside the path integral, we assume that this is possible, otherwise the procedure fails;
+	\item provided some properties for the correlation functions, analytically continue them to the appropriate space, in particular
+	\begin{enumerate}[label=(\alph*)]
+		\item for a relativistic theory, the correlation functions in the Euclidean space are called \emph{Schwinger functions}, denoted by $\{S_n\}$
+		\begin{eq}
+			S_n(x_1,\ldots,x_n)=\limcutrem \frac%
+			{\int\pide\phi\pide\phi^*\,e^{-S_\Lambda(\phi^*,\phi)}\phi(x_1)\ldots\phi(x_n)}
+			{\int\pide\phi\pide\phi^*\,e^{-S_\Lambda(\phi^*,\phi)}}
+		\end{eq}
+		they determine Wightman function by analytical continuation in the Minkowski space if a set of properties, called \emph{Osterwalder-Schrader (OS) axioms}, are satisfied,
+		\item for a non relativistic theory with $T>0$ the Matsubara Green functions we obtained for an ``immaginary'' time can be analytically continued to the real time provided that other suitable axioms are satisfied, defining in this way the retarded functions for the interacting theory.
+	\end{enumerate}
+\end{enumerate}
+
+We first discuss the relativistic case and later we make some comments on the non relativistic $T>0$ and the lattice QFT cases.
+
+Let's heuristically motivate why it is easier to work in the Euclidean space rather than in the Minkowski one. In the Euclidean space the exponential inside the path integral has a real argument, $e^{-S}$, whereas in the Minkowski one the argument is imaginary: $e^{iS}$. In the Euclidean space one can use more powerful techniques such as saddle point method, moreover in general the path integral measure can be defined with a real exponential, while the definition in the Minkowski space is much more difficult and up to now it is not really understood if the path integral can be defined in a rigorous way. Without enter in the details, notice for instance that $\int e^{-x^2}\de x$ clearly converges, whereas $\int e^{ix^2}\de x$ should be regularized. For the same reason, in the non relativistic case is better to work with imaginary time rather than with the real one.
+ 
+\section{Osterwalder-Schrader reconstruction}
+
+\cite{Osterwalder:1973}, \cite{Osterwalder:1974}, \cite{Osterwalder:1973a}, \cite[Chapter 5]{Strocchi_2013}, \cite[Chapter 3]{Strocchi:1993}\\
+
+We now list the properties of Schwinger functions needed to determine Wightman functions of an interacting (scalar) RQFT. Such properties are called \emph{Osterwalder-Schrader axioms}:
+\begin{enumerate}[label=(\arabic*), start=0]
+	\item (\emph{Regularity}) The $\{S_n(x_1,\ldots,x_n)\}_{n=0}^\infty$, $x_i\in\R^{d+1}$ with Euclidean metric are distributions in $\schw(\R^{d+1})$ and ``should not grow too fast in $n$'' (we omit the details about this requirement).
+	\item (\emph{Euclidean covariance}) They transform covariantly under the Euclidean $d+1$-dimensional group $\eucl^{d+1}$. In particular for a scalar field $\phi$, $(a,R)\in\eucl^{d+1}$, we have 
+	\begin{eq}\label{eq:OS_axioms_covariance}
+		S_n(Rx_1+a,\ldots,Rx_n+a)=S_n(x_1,\ldots,x_n)
+	\end{eq}
+	\item (\emph{Osterwalder-Schrader positivity / Reflection positivity}) Let $F(\phi)$ be a function of the field $\phi$ with support in the upper half-space in the Euclidean time direction (i.e. the support is completely contained in the $\tau>0$ region). Let $\theta$ denote the convolution corresponding to reflection with respect to the time-zero $d$-dimensional space, together with complex conjugation.\footnote{For instance, let $x=(\tau,\vec x)$, $\tau>0$, then $\theta f(\phi(\tau,\vec x))=f^*(\phi^*(-\tau,\vec x))$.} Then OS positivity is the inequality (in the bosonic case)
+	\begin{eq}
+		\langle F(\phi)\theta F(\phi)\rangle\geq0
+	\end{eq}
+	when the (vacuum) expectation value is written in terms of Schwinger functions. 
+	\item (\emph{Symmetry}) Schwinger functions of bosonic (fermionic) fields are symmetric (antisymmetric) under any exchange of the arguments. For a scalar bosonic theory we have $S_n(x_1,\ldots,x_n)=S_n(x_{\pi(1)},\ldots,x_{\pi(n)})$ for any permutation $\pi$.
+	\item (\emph{Cluster property}) Schwinger functions asymptotically factorize when two sets of the arguments are taken apart to $\infty$:
+	\begin{eq}
+		\lim_{a\to\infty}S_n(x_1+a,\ldots,x_j+a,x_{j+1},\ldots,x_n)=S_j(x_1,\ldots,x_j)S_{n-j}(x_{j+1},\ldots,x_n)
+	\end{eq}
+\end{enumerate}
+
+Notice that it is much more easy to verify this axioms (beside OS positivity) rather than properties of Schwinger functions. For instance in this case no spectral condition, since it is very cleverly hidden inside OS positivity. 
+
+To Schwinger functions satisfying OS axioms, one can apply a reconstruction theorem which is a variant of Wightman reconstruction theorem. Then Schwinger functions are directly related to Wightman functions (whose existence is now guaranteed by such theorem) by analytical continuation\footnote{Notice that in order to make an analytical continuation from immaginary time to real time one should prove that no obstruction in the complex plane such as poles or cuts.} in the time variable.
+
+\begin{theorem}[Osterwalder-Schrader]
+	Assume that the Schwinger functions $\{S_n(x_1,\ldots,x_n)\}_{n=0}^\infty$ satisfy the OS axioms. Then they uniquely determine
+	\begin{enumerate}[label=(\arabic*')]
+	\item a Hilbert space of states $\hs$;
+	\item a continuous representation $U(a,\Lambda)$ of $\cpoinc$ on $\hs$;
+	\item a unique vector $\ket\Omega\in\hs$ invariant under $U$;
+	\item a field operator (in the bosonic case) $\ophi(\vec x)$ such that, for $t_i<t_{i+1}$, 
+	\begin{eq}
+		S_n(x_1,\ldots,x_n)&=\bra\Omega\prod_{j=1}^{n-1}\ophi(\vec x_j)e^{-(t_{j+1}-t_j)H}\ophi(\vec x_n)\ket\Omega\\
+		&=\bra\Omega e^{-t_1H}\ophi(\vec x_1)e^{t_1H}e^{-t_2H}\ophi(\vec x_2)\ldots e^{-t_nH}\ophi(\vec x_n)e^{t_nH}\ket\Omega
+	\end{eq}
+	where $H$ is the generator of $U(a^0)$ and $H\geq0$.\footnote{Since $H$ is semidefinite positive is reasonable that Schwinger functions can be analytically continued to the real time obtaing Wightman functions, since this provides the right sign inside the time evolution exponentials.} 
+	\end{enumerate}
+	Furthermore such $S_n(x_1,\ldots,x_n)$ are the restriction of functions $W_n(\vec x_1,z_1,\ldots,\vec x_n,z_n)$, analytic in $\{z_i\}_{i=1}^n$ on the domain $\Im z_i<\Im z_{i+1}$, to the region $z_j=it_j$, for $j=1,\ldots,n$. Formally\footnote{Notice that the relation between Wightman functions and Schwinger functions is very similar to the relation between retarded correlators and Matsubara functions.}
+	\begin{eq}
+		S_n(x_1,\ldots,x_n)=W_n(\vec x_1,it_1,\ldots,\vec x_n,it_n)
+		\twhere
+		x_j=(\vec x_j,t_j)
+	\end{eq}
+	The functions $W_n(\vec x_1,t_1,\ldots,\vec x_n,t_n)$ are the Wightman functions of a RQFT. In other words the Wightman functions are obtained by the Schwinger functions by analytical continuation in time. 
+	
+	Properties \textit{(5')-(9')} in Wightman reconstruction theorem are satisfied.
+	
+	The Hilbert space $\hs$, the representation $U$, the vacuum $\ket\Omega$ and the field $\ophi$ constructed in the theorem are the same obtained by Wightman reconstruction starting from the Wightman functions $\{W_n\}$ obtained by analytical continuation. 
+\end{theorem}
+
+Notice that the fact that we reconstruct the theory directly from the Euclidean space, without using Wightman functions, turns out to be crucial in different situations, for instance OS reconstruction theorem apply to the quantization of solitons, whereas Wightman reconstruction theorem doesn't. 
+
+Moreover we already know that the path integral can be used for built Schwinger functions for the theory regularized by cutoffs (since they are simply vacuum expectation values and we can apply previous formulas, which certainly give well-defined results thanks to the cutoffs we introduced), whereas it is not well defined in the Minkowski space, where Wightman functions are defined. 
+
+After the construction of functions using the path integral for the regularized theory one has to check that after the removal of the cutoffs the OS axioms are satisfied. 
+
+\begin{proof}(\emph{sketch}) \textit{(1')} Let $\uschwp$ be the space of finite sequences $\uf$ of thest functions with support in the positive euclidean time half-space. Define a semi-definite inner product by
+	\begin{eq}\label{eq:OS_scalar_prod_dfn}
+		(\uf,\ug)&:=\sum_{j,k=0}^\infty\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k\,(\theta f(x_1,\ldots,x_j))g(y_1,\ldots,y_k)S_{j+k}(x_1,\ldots,x_j,y_1,\ldots,y_k)\\
+	\end{eq}
+	also denoted in compact notation by $S(\theta f\times g)$, which is semi-definite positive by OS positivity. 
+	
+	The construction of $\hs$ then is performed like in the Wightman reconstruction theorem:
+	\begin{eq}
+		\hs:=\uschwp/\mathcal N
+		\twhere
+		\mathcal N=\{\uf\in\uschwp\st\norm\uf=0\}
+	\end{eq}
+	We denote by $\ket\uf$ the vectors in $\hs$ corresponding to $\uf$. 
+	
+	\textit{(2')} Given a sequence $\uf$ let $\uf_t$ be the sequence with all argument translated in the euclidean time by $t>0$ and $\uf_{\vec a,R}$ the sequence with arguments rotated by $R$ and then translated spatially by $\vec a$. Set also the compact notation $\uf_{\vec a}:=\uf_{\vec a,\id}$. 
+	
+	Spatial roto-translations are well-defined by the same arguments that we used for $U(a,\Lambda)$ in the Wightman reconstruction theorem, with a unitary operator $U(\vec a, R)$ such that:
+	\begin{eq}
+		(\uf,\ug_{\vec a,R})=(\uf_{(\vec a,R)^{-1}},\ug)=(\uf,{U(\vec a,R)\ug})
+		\tand
+		(\uf,\ug_{\vec a})=(\uf_{-\vec a},\ug)=(\uf,e^{i\vec P\vec a}\ug)
+	\end{eq}
+	
+	Different arguments are required for time translations, since restricting ourself to $\tau>0$ we broke time translational invariance. We want to prove that 
+	\begin{eq}\label{eq:OS_time_evolution_unitary_op}
+		(\uf,\ug_t)=(\uf_t,\ug)=(\uf,{e^{-tH}\ug})
+		\twith 
+		H \geq0
+	\end{eq}
+	The continuity in $t$ of $(\uf,\ug_t)$ is obvious, and 
+	\begin{eq}\label{eq:OS_recons_symmetry_t_transl}
+		(\uf,\ug_t)=(\uf_t,\ug)
+	\end{eq}
+	follows directly from the definition eq.~\eqref{eq:OS_scalar_prod_dfn} using eq.~\eqref{eq:OS_axioms_covariance} and the definition of $\theta$. 
+	Let's define the operator $P_t:\ug\mapsto\ug_t$, then it is symmetric thanks to eq.~\eqref{eq:OS_recons_symmetry_t_transl}. Moreover 
+	\begin{eq}\scalemath{1.1}{\begin{aligned}
+		\norm{P_t\ug}^2
+		=\norm{\ug_t}^2
+		=|(\ug_t,\ug_t)|
+		=|(\ug,\ug_{2t})|
+		&\leq |(\ug,\ug)|^{1/2}|(\ug_{2t},\ug_{2t})|^{1/2}
+		= |(\ug,\ug)|^{1/2} |(\ug,\ug_{4t})|^{1/2}\\
+		&\leq |(\ug,\ug)|^{1/2} |(\ug,\ug)|^{1/4}|(\ug_{4t},\ug_{4t})|^{1/4}\\
+		&\leq\ldots\\
+		&\leq |(\ug,\ug)|^{\sum_{n=1}^N\frac1{2^n}}|(\ug_{2^Nt},\ug_{2^Nt})|^{1/2^N}\\
+		&\leq  |(\ug,\ug)|^{\sum_{n=1}^\infty\frac1{2^n}}|(\ug_{\infty},\ug_{\infty})|^{0}\\
+		&=|(\ug,\ug)|=\norm\ug^2
+	\end{aligned}}\end{eq}
+	where inequalities are due to Schwartz. Due to continuity and $\norm{P_t\ug}^2\leq\norm\ug^2$ an analogue of Stone's theorem proves the existence of $H\geq0$ such that $P_t=e^{-tH}$. In this way we proved eq.~\eqref{eq:OS_time_evolution_unitary_op}.
+	
+	Moreover since $H$ is positive, this suggest us that analytical continuation of $e^{-tH}$ to $e^{-itH}$ may be possible.
+	
+	For boosts the situation is much more complicated and it will not be discussed here. We just say that they can be built starting from representations of spatial roto-translations and time translations.
+	
+	\textit{(3')} The vacuum $\ket\Omega$ is then given (up to quotienting and completion) by $\uid=(1,0,\ldots,0,\ldots)$. The proof of uniqueness is omitted.
+	
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 10 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+	\textit{(4')} We just sketch how to construct the field $\ophi$, without proving the well-definiteness and its properties. 
+	Define the domain
+	\begin{eq}
+		\dom_+=\bigcup_{\epsilon>0}e^{-\epsilon H}\uschwp/\mathcal N
+	\end{eq}
+	given by sequences shifted in the positive time direction by arbitrary $\epsilon>0$. In such domain we can define the field at time $t=0$, $\ophi_0$, as the quadratic form\footnotemark in $\dom_+\times \dom_+$.%
+	\footnotetext{A \emph{quadratic form} is a quantity defined in matrix elements only when both the vectors are in a specified dense domain. This provides a generalization of the concept of self-adjoint operator in some cases in which an operator would be unbounded. 
+	
+	Indeed, given an operator $O$ and its domain $\dom(O)$, $\ket\psi\in\dom(O)$, then $O\ket\psi\in\hs$ and $\bra\phi O\ket\psi$ is well defined for any $\ket\phi\in\hs$. Conversely, a quadratic form $Q$ has domain $\dom(Q)$ such that $\bra\phi Q\ket\psi$ is well defined for $\ket\phi,\ket\psi\in\dom(Q)$. Comparing the two definitions, the latter is weaker that the former, since in general $Q\ket\psi$ is not defined for $\ket\psi\in\dom(Q)$. 
+	
+	For instance, consider the formal map $Q: g\mapsto \delta(x)g(x)$ with the scalar product $(f,Qg)=\int\de x f(x)\delta(x)g(x)$. But the multiplication by $\delta(x)$ is not an operator, hence $Q$ can not be defined as an operator, but $Q$ can be defined as a quadratic form. Indeed one should require that the function $g(x)$ is not singular in $x=0$, but this is not enough, one should also require that the same property is satisfied also by $f(x)$.
+	
+	This problems can be avoided when one consider a system in QM with potential $V(x)=\delta(x)$. Indeed if we consider the operator $-\frac{\hbar^2}{2m}\frac{\de^2}{\de x^2}+V(x)$ associated to the Schrödinger equation this is well-defined since the ground state of the wave function has a jump in the first derivative, so that the double derivative produces a delta function which cancels with the one produced by the potential. 
+	
+	Reference: \cite[Section 8.6]{Reed-Simon1}.}%
+	\footnote{We are forced to use a quadratic form since in general it is not guaranteed that the field exists as an operator at a fixed time. For instance we have seen that this it is not possible if the wave function renormalization is vanishing $Z=0$, as we previously discussed.}
+	In particular, let $\uf,\uh\in\dom_+$ and $g\in\schw(\R^d)$, then the field at $t=0$ is defined by
+	\begin{eq}\label{eq:OS_recons_dfn_field_tau0}
+		\bra\uf\ophi_0(g)\ket\uh:=\big(\uf,(g\tensp\delta(\tau))\times\uh\big)
+	\end{eq}
+	This is well-defined since all sequences in $\dom_+$ are moved away from the $\tau=0$ axis, and then the previous object is always finite provided that both $\uf,\ug\in\dom_+$. Notice that the r.h.s. of eq.~\eqref{eq:OS_recons_dfn_field_tau0} is exactly the generalization of smeared field 
+	\begin{eq}
+		\ophi(g)=\int\de\vec x\,\ophi(\vec x,0)g(\vec x)=\int\de\vec x\,\de\tau\,\ophi(\vec x,\tau)g(\vec x)\delta(\tau)
+	\end{eq}
+	where we defined it as a quadratic function (i.e. using matrix elements) in an appropriate domain such that the delta function gives always a finite contribution. 
+	
+	Notice that for $\tau=0$ the field is identical to its analytic continuation to the real time, hence $\ophi_0$ provides a well defined field for $t=0$ where $t$ is the real time. We can then generalize the definition to arbitrary real time just using the unitary time evolution defined in Minkowski, and this can be done in such a way that the final field is an operator rather than just a quadratic form, just by appropriately smearing in time the resulting field. In particular, let $f\in\schw(\R^{d+1})$, $f(\vec x,t)=f_t(\vec x)$, be a test function in Minkowski, then the following is a well-defined operator in a dense domain:
+	\begin{eq}
+		\ophi(f)=\int_{-\infty}^{+\infty}\de t\,e^{itH}\int\de\vec x\,\ophi_0(\vec x)f_t(\vec x) e^{-itH}
+	\end{eq}
+	Indeed for any fixed value of $t$, the function $f_t(\vec x)$ is an element of $\schw(\R^d)$ such as $g$ in eq.~\eqref{eq:OS_recons_dfn_field_tau0}, such that $\int\de\vec x\,\ophi_0(\vec x)f_t(\vec x)$ is a well defined quadratic form. The function $f(\vec x,t)$ should be seen as a set of function of $\vec x$ labelled by $t$, and then smearing in $t$ we promote the quadratic form to an operator defined in a dense domain. 
+	
+	\textit{(Locality)} We just make a comment about the proof of the locality for the field we constructed. It can be proved analogously to what we have done for the Wightman reconstruction theorem. 
+	
+	Let's consider two points $x,y$ space-like separated, it always exists a boost putting them at equal time and by time translational invariance we ban put both of them at $t=0$. We denote the resulting space-like component by $\vec x'$ and $\vec y'$ respectively, $\vec x'\neq\vec y'$. 
+	
+	Now consider $\uf,\ug\in\dom_+$ and construct the following matrix elements
+	\begin{eq}
+		\bra\uf\ophi(\vec x',0)e^{-\epsilon H}\phi(\vec y',0)\ket\ug
+		\tand
+		\bra\uf\ophi(\vec y',0)e^{-\epsilon H}\phi(\vec x',0)\ket\ug
+	\end{eq}
+	for some $\epsilon>0$. If one consider the matrix element on the l.h.s., the exponential $e^{-\epsilon H}$ raised slightly the argument of $\phi(\vec y',0)\ket\ug$ above the $t=0$ hyperplane. Looking at this matrix element from the right to the left, $\phi(\vec y',0)\ket\ug$ is well defined since $\ug\in\dom_+$, but then also $e^{-\epsilon H}\phi(\vec y',0)\ket\ug$ is an element of $\dom_+$ due to the effect of $e^{-\epsilon H}$, and this finally imply that such matrix element is well defined since both the vectors on which the quadratic form $\ophi(\vec x',0)$ acts on are elements of $\dom_+$. 
+	Similarly, also the matrix elements on the r.h.s. is well defined, just inverting the role of $\vec x'$ and $\vec y'$. 
+	
+	But then
+	\begin{eq}
+		\lim_{\epsilon\to0} \bra\uf\ophi(\vec x',0)e^{-\epsilon H}\phi(\vec y',0)\ket\ug= \lim_{\epsilon\to0}\bra\uf\ophi(\vec y',0)e^{-\epsilon H}\phi(\vec x',0)\ket\ug
+	\end{eq}
+	due to symmetry of the Schwinger functions (we are still in the Euclidean space), which implies that, on matrix elements,
+	\begin{eq}
+		[\ophi(\vec x',0),\ophi(\vec y',0)]=0
+	\end{eq}
+	Now using again boosts (and Lorentz invariance) this vanishing condition apply also for the initial space-like separated points, and locality is proven. 
+	
+	The proof of all the other points of the theorem (e.g. uniqueness of the vacuum and analytical continuation of Schwinger functions) are omitted.
+\end{proof}
+
+There are several variants of the OS reconstruction theorem, e.g. applied to lattice theories, to fields not supported on points (like Wilson loops in gauge theories, which in abelian case take the form $\exp\big(-\oint_\contour A\big)$, to finite temperature and also to soliton fields. We'll see in the following some examples. 
+All these variants are based on the same idea, just changing appropriately the OS axioms depending on the situation. 
+
+For this reason, let us now pinpoint where the properties of OS axioms have been used:
+
+%\lect 3/11 part 1
+
+
+\end{document}

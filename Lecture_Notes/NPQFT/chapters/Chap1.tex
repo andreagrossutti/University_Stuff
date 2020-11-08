@@ -828,4 +828,218 @@ Is now clear comparing eq.~\eqref{eq:Lehm_Mats_corr} and eq.~\eqref{eq:Lehm_ret_
 \end{eq}
 Can be proved\footnote{Original proof by Baym and Mermin (1960): \url{https://doi.org/10.1063/1.1703704}, useful reference: Appendix A in \url{https://fks.sk/~bzduso/physics/master/thesis.pdf}.} using Carleman's theorem that such relation is well-defined and can be used to reconstruct uniquely $\retc(\omega)$ by analytical continuation of $G_M(\omega_n)$. The only requirement on the Matsubara Green function is that it satisfy the KMS condition eq.~\eqref{eq:KMS-condition}. Therefore it is possible to compute $G_M$ as in the high energy case and then obtain $\retc$ from analytical continuation. 
 
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 9A %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% 
+
+\section{Path integral formalism}
+
+\cite{Zhang:1999}, \cite{Zinn-Justin:2002}, \cite[Chapter 14]{Kleinert_2015}\\
+\todo{Se ha qualche altra referenza per QFT a $T>0$ la aggiungo.}
+
+In this section we just sketch in an ``heuristic way'', without details, how the path-integral is defined, with some more details in the non relativistic setting and $T>0$.
+
+The key ingredients of Feynman path-integrals both in real and imaginary time are 
+\begin{enumerate}[label=(\arabic*)]
+	\item a Dirac completeness like $\int\de x\,\ketbra x{x}=\id$, appropriately generalized for fields;
+	\item the representation of the kernel of infinitesimal time evolution in terms of the action.
+\end{enumerate}
+
+\subsubsection{Path integral for bosonic fields}\label{sec:PI_formalism}
+
+For bosonic fields the completeness employees the \emph{coherent states}. We just recall that for the harmonic QM oscillator the coherent states $\ket z$, $z\in\C$, are of the form (with $a$ annihilation operator)
+\begin{eq}\label{eq:coh_stat_dfn}
+	a\ket z=z\ket z
+	\tcomma
+	\ket z=e^{za^\dagger}\ket 0
+\end{eq}
+One easily verifies that
+\begin{eq}\label{eq:coh_stat_prop}
+	\bra za^\dagger=z^*\bra z
+	\tcomma
+	\braket z{z'}=e^{z^*z'}
+	\tcomma
+	\int_\C\de z\,\de z^*\,\ketbra z{z}e^{-|z|^2}=\id
+\end{eq}
+
+The concept of coherent states easily generalizes to fields, just replacing the single annihilation operator in QM with a set of annihilation operators $\{a_\alpha\}_{\alpha\in A}$. Indeed a generic field can be written as\footnote{We consider the field at $t=0$ in analogy with QM, the evolution can be recovered according to Heisenberg picture.}
+\begin{eq}\label{eq:coh_field_exp}
+	\ophi(\vec x)=\sum_{\alpha\in A}\phia(\vec x)a_\alpha
+\end{eq}
+The set $\{a_\alpha\}_{\alpha\in A}$ is commuting, hence all the operators admits a common eigenbasis $\big\{\ket\phib\}_{\beta\in B}$, $\ket\phib:=\ket{\{\phib_{\alpha'}\}_{\alpha'\in A}}$, such that for any $\alpha\in A$
+\begin{eq}
+	a_\alpha\ket\phib=\phiab\ket{\phib}
+	\quad\text{with eigenvalues}\quad
+	\phia^\beta\in\C
+\end{eq}
+Moreover, using commutation relations for ladder operators, this implies
+\begin{eq}
+	\ket\phib=e^{\sum_\alpha\phiab a_\alpha^\dagger}\ket0
+	\tand
+	\langle{\phib}\vert{\phi^{\beta'}}\rangle=e^{\sum_\alpha{\phiab}^*\phia^{\beta'}}
+\end{eq}
+
+It is clear that vectors $\big\{\ket\phib\big\}$ are eigenvectors also for the field operator
+\begin{eq}
+	\ophi(\vec x)\ket{\phib}=\sum_{\alpha\in A}\phia(\vec x)\phiab\ket{\phib}=\phib(\vec x)\ket{\phib}
+\end{eq}
+with eigenvalue $\phib(\vec x):=\sum_{\alpha\in A}\phia(\vec x)\phiab$ (is a function). In particular, for a RQFT we have the operator
+\begin{eq}
+	\ophi(\vec x)=\sum_\alpha\phia(\vec x)a_\alpha+\phia^*(\vec x)a_\alpha^\dagger
+\end{eq}
+and correspondingly we have the eigenvalues
+\begin{eq}
+	\phib(\vec x)=\sum_\alpha\phia(\vec x)\phiab+\phia^*(\vec x){\phiab}^*
+\end{eq}
+Notice that up to now we have properly generalized eq.~\eqref{eq:coh_stat_dfn} in the case of fields.
+
+Let's see how the last identity in eq.~\eqref{eq:coh_stat_prop} generalizes in this setting. The following Dirac completeness can be proved:
+\todo{Ci va davvero il fattore $i$ a denominatore? Nella referenza che ho trovato non c'è.}
+\begin{eq}\label{eq:complet_coh_states}
+	\int\frac{\de\phi\,\de\phi^*}{2\pi i}e^{-\phi^*\phi}\ket\phi\bra\phi
+	:= \sum_{\beta\in B}\frac1{2\pi i}e^{-\sum_\alpha{\phiab}^*\phiab}\ket\phib\bra{\phib}=\id
+\end{eq}
+where on the l.h.s. we defined ${\phib}^*\phib:=\langle\phib|\phib\rangle$ and suppressed the label $\beta$ by replacing $\sum_\beta f(\phib,{\phib}^*) \to\int\de{\phi}\,\de{\phi}^*\,f(\phi,\phi^*)$.
+\todo{É possibile provare ${\phib}^*\phib=\langle\phib|\phib\rangle$ o è da considerarsi una definizione per semplificare la notazione?}
+
+For each operator $A$ and a basis $\{\ket n\}$ satisfying Dirac completeness $\sum_n\ketbra{n}{n}=\id$ we have
+\begin{eq}
+	\Tr A &= \sum_n\bra nA\ket n
+	=\sum_n\bra n A \int\frac{\de\phi\,\de\phi^*}{2\pi i}e^{-\phi^*\phi}\ket{\phi}\braket{\phi}{n}\\
+	&=\sum_n\int\frac{\de\phi\,\de\phi^*}{2\pi i}e^{-\phi^*\phi}\braket{\phi}{n}\bra n A\ket\phi\\
+	&=\int\frac{\de\phi\,\de\phi^*}{2\pi i}e^{-\phi^*\phi}\bra \phi A\ket\phi
+\end{eq}
+
+Beside the fields at fixed time $\ophi(\vec x)$ in the Gell-Mann - Low formula or in the Matsubara formalism (to which we now address our effort) there are also the time-evolution operators. Let us consider an infinitesimal one: for $H$ the Hamiltonian in terms of free fields, $\Delta\tau$ infinitesimal ``immaginary time'' interval, the infinitesimal time-evolution operator is 
+\begin{eq}
+	e^{-\Delta\tau H(a_\alpha^\dagger, a_\alpha)}
+\end{eq}
+We rewrite it in ``normal order'' $\nord\quad$ form, i.e. with all the creation operators on the left of the annihilation ones:
+\begin{eq}\label{eq:norm_ord_inf_t_evol_coh}
+	e^{-\Delta\tau H(a_\alpha^\dagger, a_\alpha)}=\nord{e^{-\Delta\tau H(a_\alpha^\dagger, a_\alpha)}}+O((\Delta\tau)^2)
+\end{eq}
+
+Let us now study the partition function of the system. It reads (from now on $\beta$ is no more a label, rather it is the Boltzmann factor $\beta:=1/(k_bT)$)
+\begin{eq}
+	Z:=\Tr e^{-\beta H}=\int\frac{\de\phi\,\de\phi^*}{2\pi i}e^{-\phi^*\phi}\bra \phi e^{-\beta H}\ket\phi
+\end{eq}
+We now split the interval $[0,\beta]$ into $N$ small interval of length $\beta/N=:\Delta\tau$ and at the ``immaginary times'' multiples of $\Delta\tau$ we insert the Dirac completeness eq.~\eqref{eq:complet_coh_states}. Finally we take the limit $N\to\infty$ so that the intervals becomes arbitrarily small. We get
+\begin{eq}
+	Z=\lim_{N\to\infty}\int\prod_{j=1}^N\frac{\de\phi_j\,\de\phi_j^*}{2\pi i}e^{-\phi_j^*\phi_j}\bra{\phi_j}e^{-\Delta\tau H}\ket{\phi_{j-1}}
+	\twhere
+	\phi_0:=\phi_N
+\end{eq}
+For each $\ket{\phi_j}$, $j=1,\ldots,N$, the integral runs over all possible states of the completeness eq.~\eqref{eq:complet_coh_states}. Due to the limit $N\to\infty$ and eq.~\eqref{eq:norm_ord_inf_t_evol_coh} we have
+\begin{eq}
+	&\bra{\phi_j}e^{-\Delta\tau H(a_\alpha^\dagger, a_\alpha)}\ket{\phi_{j-1}}
+	\simeq\bra{\phi_j}\nord{e^{-\Delta\tau H(a_\alpha^\dagger, a_\alpha)}}\ket{\phi_{j-1}}=\\
+	&\quad=e^{-\Delta\tau H(\phi_j^*,\phi_{j-1})}\braket{\phi_j}{\phi_{j-1}}
+	=e^{-\Delta\tau H(\phi_j^*,\phi_{j-1})}e^{\sum_\alpha\phi^*_{\alpha\,j}\phi_{\alpha\,j-1}}
+\end{eq}
+Putting things together we have
+\begin{eq}
+	Z=\lim_{N\to\infty}\int\prod_{j=1}^N\frac{\de\phi_j\,\de\phi_j^*}{2\pi i}e^{-S_N(\phi^*,\phi)}
+\end{eq}
+with
+\begin{eq}
+	S_N(\phi^*,\phi):=\Delta\tau\bigg(\sum_{j=1}^N\sum_\alpha\phi_{\alpha\,j}^*\frac{\phi_{\alpha\,j}-\phi_{\alpha\,j-1}}{\Delta\tau}+H(\phi_j^*,\phi_{j-1})\bigg)
+	\twhere
+	\phi_0:=\phi_N
+\end{eq}
+
+We now define the \emph{path integral measure} $\pide\phi(\tau)$ such that
+\begin{eq}
+	\int_{\phi(0)=\phi(\beta)}\pide\phi(\tau)\pide\phi^*(\tau)\,\ldots:=\lim_{N\to\infty}\int\prod_{j=1}^N\frac{\de\phi_j\,\de\phi_j^*}{2\pi i}\,\ldots
+\end{eq}
+and taking the limit on $S_N$ as a Riemann integral, the label $j$ is replaced by a continuous variable $\tau$:
+\begin{eq}
+	S_N\xrightarrow[N\to\infty]{} \int_0^\beta\de\tau\,\Big(\phi^*(\tau)\pder{}\tau\phi(\tau)+H(\phi^*(\tau),\phi(\tau)\Big)=: S(\phi^*,\phi)
+	\twhere
+	\phi(0)=\phi(\beta)
+\end{eq}
+In this way we obtained the \emph{Euclidean action} $S$ with time $\tau$ of period $\beta$, since $\phi_0:=\phi_N$ has been replaced by the condition $\phi(0)=\phi(\beta)$. 
+Hence for the partition function we get
+\begin{eq}\label{eq:part_func_PI_boson}
+	Z=\int_{\phi(0)=\phi(\beta)}\pide\phi(\tau)\pide\phi^*(\tau)\,e^{-S(\phi^*,\phi)}
+\end{eq}
+We can interpret $e^{-S(\phi^*,\phi)}$ as a Boltzmann weight for field configurations. In general expression eq.~\eqref{eq:part_func_PI_boson} has not a rigorous mathematical definition. One exception is provided by free fields, for which one can give a rigorous meaning to the condensed expression
+\begin{eq}
+	\pide\phi(\tau)\pide\phi^*(\tau)\,e^{-S(\phi^*,\phi)}
+\end{eq}
+as a gaussian measure (notice that for free fields the action is quadratic), and then the whole integral is well defined. 
+
+The original non-commutativity of the field operators $\ophi$ is replaced here by the integration over all possible ``alternatives'' of the function fields $\phi$, without the classical constraint of the equation of motion. 
+
+It worth to notice that in general the expansion in annihilation operators eq.~\eqref{eq:coh_field_exp} is performed in momentum space, hence the labels $\{\alpha\in A\}$ are the three momentum vectors $\vec p\in\R^3$. Since each element $\phi(\tau)$ should be meant as a collection $\{\phi_\alpha(\tau)\}_{\alpha\in A}=\{\phi_{\vec p}(\tau)\}_{\vec p\in\R^3}$, then we can define a function $\phi(\tau,\vec p)$ defined by $\phi(\tau,\vec p):=\phi_{\vec p}(\tau)$. Similarly, the expansion of $\ophi$ can be done in the standard space of elements $\{\vec x\in\R^3\}$, defining in this way the functions $\phi(\tau,\vec x)$. Therefore the path-integral measure can be thought as an integration over all possible functions defined on $\R^4$, periodic in $\tau$, and the summation $\sum_\alpha$ can always be replaced by $\int\de^3x$ or $\int\de^3p$.
+
+\subsubsection{Path integral for fermionic fields}
+
+If we have fermions the above procedure needs a little modification since now annihilation states satisfy a different algebra
+\begin{eq}
+	\{a_\alpha,a_{\alpha'}\}=0
+\end{eq}
+so that for each common eigenstate $\ket\phib$ of the annihilation operators we have
+\begin{eq}
+	\{a_\alpha,a_{\alpha'}\}\ket\phib=\{\phiab,\phib_{\alpha'}\}\ket\phib\neq0
+\end{eq}
+hence the eigenvalues $\phiab,\phib_{\alpha'}$ of the annihilation operators cannot be complex numbers, and we need to introduce some \emph{Grassmann variables}, i.e. anticommuting objects such that
+\begin{eq}
+	\xi_\alpha\xi_{\alpha'}+\xi_{\alpha'}\xi_\alpha=0
+\end{eq}
+A strategy similar to the one previously sketched replacing bosonic operators $\ophi$ by complex functions $\phib$ can be adapted, replacing fermionic operators $\ophi$ by Grassmann functions $\xi$. For instance the trace of an operator now reads
+\begin{eq}
+	\Tr A=\int\de\xi^*\de\xi\,e^{\sum_\alpha\xi_\alpha^*\xi_\alpha}\bra{-\xi}A\ket{\xi}
+\end{eq}
+so that
+\begin{eq}
+	Z&=\lim_{N\to\infty}\int\prod_{j=1}^N\de\xi^*_j\de\xi_j\,e^{-S_N(\xi^*,\xi)}
+	=:\int_{\xi(0)=-\xi(\beta)}\pide\xi^*(\tau)\pide\xi(\tau)\,e^{-S(\xi^*,\xi)}
+\end{eq}
+with the \emph{Euclidean action} defined in terms of Grassmann fields
+\begin{eq}
+	S(\xi^*,\xi):=\int_0^\beta\Big(\xi^*(\tau)\pder{}\tau\xi(\tau)+H(\xi^*(\tau),\xi(\tau)\Big)
+\end{eq}
+
+Again one can give a rigorous meaning to the above formulas for free by proving that $\pide\xi^*(\tau)\pide\xi(\tau)\,e^{-S(\xi^*,\xi)}$ is a ``Grassmann Gaussian integral''. 
+
+In the following we denote by $\phi$ both the complex fields in the bosonic case and Grassmann fields in the fermionic case.
+
+ \subsubsection{Computation of Matsubara Green functions}
+ 
+ As an example, let's see how to compute Matsubara Green functions using the path integral formalism in the Fock space in the finite volume case. Since we are working in the Fock space we can use for the free field the ladder operators $\{a_\alpha, a_\alpha^\dagger\}_{\alpha\in A}$, and using the Matsubara formalism we can introduce a dependence on $\tau$ for these operators:
+\begin{eq}
+ 	a_\alpha(\tau)=e^{\tau H}a_\alpha e^{-\tau H}
+\end{eq}
+Then in Fock space the Matsubara green functions are defined by
+\begin{eq}\label{eq:matsu_GF_PI}
+	\langle\tp[a_{\alpha_1}(\tau_1)\ldots a_{\alpha_n}a_{\alpha_{n+1}}^\dagger\ldots a_{\alpha_{2n}}]\rangle_\beta
+	:= \frac%
+		{\Tr_{\fock^\pm}\tp\big[e^{-\beta H}\tp[a_{\alpha_1}(\tau_1)\ldots a_{\alpha_n}a_{\alpha_{n+1}}^\dagger\ldots a_{\alpha_{2n}}]\big]}
+		{\Tr_{\fock^\pm}e^{-\beta H}}
+\end{eq}
+where the time ordering $\tp[-]$ is considered in the Euclidean time $\tau$, and we consider $\fock^+$ for bosonic fields and $\fock^-$ for fermionic fields. The previous formula holds provided that $\Tr_{\fock^\pm}e^{-\beta H}$ is finite. The requirement of finite volume makes this assumption more easily satisfied, but obviously this can raise easily problems in the thermodynamic limit. 
+
+The time ordering product can be removed by means of a permutation $\pi$ that puts the immaginary times in chronological order, $\tau_{\pi(i)}>\tau_{\pi(i+1)}$, then using notation
+\begin{eq}
+	\tilde a_{\alpha_i}(\tau_i)=\begin{cases}
+		a_{\alpha_i}(\tau_i)\quad\tif i\leq n\\
+		a_{\alpha_i}^\dagger(\tau_i)\quad\tif i<n
+	\end{cases}
+\end{eq}
+then
+\begin{eq}
+	&\langle\tp[a_{\alpha_1}(\tau_1)\ldots a_{\alpha_n}a_{\alpha_{n+1}}^\dagger\ldots a_{\alpha_{2n}}]\rangle_\beta=\\
+	&\qquad=\frac1Z\varepsilon^{\sigma(\pi)}\Tr\big[e^{-\beta H}\tilde a_{\alpha_{\pi(1)}}(\tau_{\pi(1)})\ldots \tilde a_{\alpha_{\pi(2n)}}(\tau_{\pi(2n)})\big]\\
+	&\qquad=\frac1Z\varepsilon^{\sigma(\pi)}\int_{\phi(0)=\pm\phi(\beta)}\pide\phi(\tau)\pide\phi^*(\tau)\,e^{-S(\phi^*,\phi)}\tilde\phi_{\alpha_{\pi(1)}}(\tau_{\pi(1)})\ldots\tilde\phi_{\alpha_{\pi(2n)}}(\tau_{\pi(2n)})\\
+	&\qquad=\frac1Z\int_{\phi(0)=\pm\phi(\beta)}\pide\phi(\tau)\pide\phi^*(\tau)\,e^{-S(\phi^*,\phi)}\tilde\phi_{\alpha_{1}}(\tau_{1})\ldots\tilde\phi_{\alpha_{2n}}(\tau_{2n})
+\end{eq}
+where in the last step we put the operators in the original order, killing in this way the factor $\varepsilon^{\sigma(\pi)}$. We saw in this way that the path integral is very useful to avoid problems related to the time ordering inside the Gell-Mann Low formula. 
+
+\subsubsection{Relativistic case}
+
+Completely analogour formulas holds in the relativistic case, where $S(\phi^*,\phi)$ is replaced by the Euclidean relativistic action. For instance for the massive bosonic field it is given by
+\begin{eq}
+	S(\phi^*,\phi)=\frac1\hbar\int\de^{d+1}x\,\half(\partial_\mu\phi\partial^\mu\phi^*+m^2\phi^*\phi)(x,\tau)
+\end{eq}
+
 \end{document}

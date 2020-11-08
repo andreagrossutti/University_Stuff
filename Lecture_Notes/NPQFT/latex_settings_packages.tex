@@ -62,6 +62,8 @@
 
 \newcommand{\skipline}{\leavevmode\vspace{0.3\baselineskip}\newline}
 
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+
 
 %scambia phi e varphi
 %\let\temp\phi
@@ -83,6 +85,7 @@
 \newcommand{\R}{\mathbb{R}} %Reali
 \newcommand{\C}{\mathbb{C}} %Complessi
 
+\newcommand{\eucl}{\mathbb E} %euclidean group
 \newcommand{\loren}{L_+^\uparrow} %restricted Lorentz group
 \newcommand{\cloren}{\tilde L_+^\uparrow} %covering of restricted Lorentz group
 \newcommand{\poinc}{\mathcal P_+^\uparrow} %restricted Poincaré group
@@ -134,13 +137,16 @@
 \newcommand{\st}{\ |\ } %such that
 \newcommand{\varst}{\ \textnormal{s.t.}\ } %var such that
 \newcommand{\tp}{\textnormal T}%time ordering product
+\newcommand{\nord}[1]{\ :#1:\,}%normal ordering
 \renewcommand{\norm}[1]{\Vert#1\Vert}%norm in a vector space
 \newcommand{\dir}{\oplus} %direct sum
 \newcommand{\bigdir}{\bigoplus} % big direct sum
 \newcommand{\ten}{\otimes} %tensor product
 \newcommand{\tensp}{\otimes}%tensor product
+\renewcommand{\ket}[1]{\,\vert#1\rangle}
+\renewcommand{\bra}[1]{\langle#1\vert\,}
 
-\newcommand{\mom}{\op{ P}}%momentum
+\newcommand{\mom}{\op P}%momentum
 
 \newcommand{\ophi}{\op\phi} %field operator phi
 \newcommand{\ophid}{\op\phi^\dagger} %adjoint of field operator phi
@@ -176,19 +182,28 @@
 \newcommand{\tforany}{\quad\text{for any}\quad}
 \newcommand{\tso}{\quad\so\quad}
 \newcommand{\tiff}{\quad\iff\quad}
+\newcommand{\twhere}{\quad\text{where}\quad}
 
 \newcommand{\UVcut}{{\Lambda_\tUV}}%UV cutoff
 \newcommand{\IRcut}{{\Lambda_\tIR}}%IR cutoff
 \newcommand{\limcutrem}{\lim_{\UVcut\to\infty \atop \IRcut\to0}}%limit remove cutoffs
 
 \newcommand{\varunderline}[1]{\underline{\smash{#1}\vphantom{T_n}}\vphantom{#1}} %underline at constant height
-\newcommand{\uf}{\varunderline {f}}%sequence of test functions ``f_i''
+\newcommand{\uf}{\varunderline f}%sequence of test functions ``f_i''
 \newcommand{\ug}{\varunderline g}%sequence of test functions ``g_i''
+\newcommand{\uh}{\varunderline h}%sequence of test functions ``h_i''
 \newcommand{\uschw}{\varunderline\schw}%space of sequences of test functions
 \newcommand{\nuschw}{\varunderline{\schw_0}}%space of sequences of test functions with null norm
 \newcommand{\qschw}{\uschw\,/\nuschw}%quotient between \uschw and \nuschw
 \newcommand{\eqclass}[1]{[\,#1\,]}%equivalence class
 \newcommand{\uid}{\varunderline\id}%sequence (1,0,...,0,...)
+
+\newcommand{\phia}{\phi_\alpha}%coefficient in the expansion of the field in terms of annihilation op's
+\newcommand{\phib}{\phi^\beta}%eigenvector of the annihilation operators
+\newcommand{\phiab}{\phi_\alpha^\beta}%eigenvalue of the annihilation operator for a coherent state
+\newcommand{\pide}{\mathcal D}%path integral measure
+
+\newcommand{\uschwp}{\varunderline\schw_+}%space of sequences of test functions with support in tau>0
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}%numeri cerchiati
