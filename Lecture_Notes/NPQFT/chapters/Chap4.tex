@@ -208,12 +208,232 @@ After the construction of functions using the path integral for the regularized 
 	The proof of all the other points of the theorem (e.g. uniqueness of the vacuum and analytical continuation of Schwinger functions) are omitted.
 \end{proof}
 
+\section{Generalizations of OS reconstruction theorem}
+
+\cite{Summers:2016}, \cite[Section 6.1]{Glimm:1987}\\
+
 There are several variants of the OS reconstruction theorem, e.g. applied to lattice theories, to fields not supported on points (like Wilson loops in gauge theories, which in abelian case take the form $\exp\big(-\oint_\contour A\big)$, to finite temperature and also to soliton fields. We'll see in the following some examples. 
 All these variants are based on the same idea, just changing appropriately the OS axioms depending on the situation. 
 
 For this reason, let us now pinpoint where the properties of OS axioms have been used:
+\begin{enumerate}[label=(\arabic*)]
+	\item the OS positivity was used to construct $\hs$ and $\Omega$;
+	\item \begin{enumerate}[label=(\roman*)]
+			\item time translational invariance was used to construct the time evolution $e^{-tH}$ and the field operator $\ophi(x)$;
+			\item space roto-translational invariance was used to construct $U(\vec a,R)$;
+			\item euclidean symmetry was used to construct the full representation of the Poincaré group and, combined with OS positivity, to prove that $\sigma(\mom^\mu)\subseteq \overline V^+$;
+		\end{enumerate}
+	\item cluster property was used to ensure the uniqueness of $\Omega$ as translational invariant state;
+	\item symmetry was used to prove the locality of $\ophi$.
+\end{enumerate}
 
-%\lect 3/11 part 1
+\subsection{Lattice and gauge theories}
 
+\cite[Section 4]{Frohlich:1980aa}, \cite{Osterwalder:1977pc}, \cite{Seiler:1982}, \cite[Section 6.4]{Strocchi:1993}\todo{Non ho trovato una bibliografia particolarmente soddisfacente, se ha consigli aggiungo volentieri altri testi.}\\
+
+
+In view of this remarks is not difficult to understand the variants of OS reconstruction for lattice theories involving also non-local fields, such as the Wilson loop in gauge theories. For abelian theories with gauge potential $A_\mu$ the Wilson loop is defined as follows. Let $\contour$ be a loop, then the \emph{Wilson loop} is defined by\footnotemark
+\begin{eq}	\label{eq:dfn_Wilson_loop}
+	\wils(\contour)=e^{i\oint_\contour A_\mu\de x^\mu}
+\end{eq}
+\footnotetext{Recall that in QM not only the field strength is an observable. Due to Aharonov-Bohm effect also objects of the form eq.~\eqref{eq:dfn_Wilson_loop} are observables.}
+One can prove that the the collection of all $\wils(\contour)$ for each loop $\contour$ completely determines a massless gauge theory. Therefore Wilson loops are those objects that contains all the information about a (massless) gauge theory in a gauge invariant way. 
+
+In the non-abelian case we need to take also a path ordering $\operatorname P(-)$, which is just the time-ordering for the ``time'' parametrizing the loop, combined with the trace:
+\begin{eq}	\label{eq:dfn_Wilson_loop_YM}
+	\wils(\contour)=\Tr \operatorname P\bigg(e^{i\oint_\contour A_\mu\de x^\mu}\Bigg)
+\end{eq}
+
+Consider a lattice whose sites are labelled by $i,j$, then for each pair of neighboring sites (neighboring sites are denoted by $\langle i,j\rangle$) we can define (for the abelian case)
+\begin{eq}
+	U_{\langle i,j\rangle}:=\operatorname P\bigg(e^{i\int_i^j A_\mu\de x^\mu}\Bigg)
+\end{eq}
+Then given a loop in the lattice let's define
+\begin{eq}
+	\wils(\contour):=\prod_{\langle i,j\rangle\in\contour}U_{\langle i,j\rangle}
+\end{eq}
+such that this object is exactly the lattice regularization of eq.~\eqref{eq:dfn_Wilson_loop}. 
+
+We can now take
+\begin{eq}
+	\langle \wils(\contour_1)\ldots \wils(\contour_n)\rangle
+\end{eq}
+as the correlator for the lattice theory.
+
+Using such regularization it has been computed (using computers) some very interesting results for QED and QCD, which gave very good approximations of experimental results.  
+
+\subsubsection{OS axioms for lattice theories}
+
+Let ${O_\alpha(\contour_i)}_{\alpha\in A}$ be lattice fields, each of them with support on a compact connected set of cells $\{\contour_i\}_{i=1}^n$ of the lattice (the supports $\contour_i$ can be  points, lines, surfaces, etc, in the case of Wilson loops the support is given by a closed line). 
+Let's define the correlation functions as expectation values of these fields
+\begin{eq}	
+	S_n(\alpha_1,\contour_1,\ldots,\alpha_n,\contour_n):=\langle O_{\alpha_1}(\contour_1)\ldots O_{\alpha_n}(\contour_n)\rangle
+\end{eq}
+Notice that in general is not required that all the $\{\contour_i\}$ are of the same type, for instance we can have both lines and surfaces. 
+Let $F(\{O_{\alpha_i}(\contour_i)\})\in\mathcal F$ where $\mathcal F$ is the space of functions in these lattice fields with $\{\contour_i\}$ supported on the positive ``euclidean-time'' half-lattice. 
+Let $\theta$ denote the OS reflection, i.e. the reflection with respect to the euclidean time 0 space together with (for bosonic fields) complex conjugation.
+Moreover, set the lattice spacing to 1. 
+
+\begin{theorem}[OS reconstruction theorem for lattice theories] Given a set of correlation functions $\{S_n(\alpha_1,\contour_1,\ldots,\alpha_n,\contour_n)\}_{n=0}^\infty$ satisfying
+
+\begin{enumerate}[label=(\arabic*)]
+	\item lattice translational invariance,
+	\item OS positivity: for every $F\in\mathcal F$
+	\begin{eq}
+		\langle FOF\rangle\geq 0
+	\end{eq}
+	when expressed in terms of correlation functions $\{S_n\}$.
+\end{enumerate}
+
+Then one can reconstruct from $\{S_n\}$
+
+\begin{enumerate}[label=(\arabic*')]
+	\item a separable Hilbert space $\hs$,
+	\item a vector $\ket\Omega\in\hs$, the vacuum,
+	\item a self adjoint \emph{transfer matrix} $T=e^{-H}$ and unitary space translation operators $U_\mu$, $\mu=1,\ldots,d$, acting on $\hs$ \footnote{The matrix $T$ describes the time evolution by a unit of time, while $U_\mu$ describe a space translation o f a unit of space in the direction given by $\mu$.} such that $T\ket\Omega=\ket\Omega$, $U_\mu\ket\Omega=\ket\Omega$,
+\end{enumerate}
+Moreover if cluster property holds, i.e.
+\begin{eq}
+	&\lim_{a\to\infty}S_n(\alpha_1,\contour_1+a,\ldots,\alpha_j,\contour_j+a,\alpha_{j+1},\contour_{j+1},\ldots,\alpha_n,\contour_n)=\\
+	&\qquad=S_j(\alpha_1,\contour_1,\ldots,\alpha_j,\contour_j)S_{n-j}(\alpha_{j+1},\contour_{j+1},\ldots,\alpha_n,\contour_n)
+\end{eq}
+then
+\begin{enumerate}[label=(\arabic*'), resume]
+	\item $\ket \Omega$ is the unique translationally (both in space and time direction) invariant vector in $\hs$,
+	\item there is a set of vectors in $\hs$, $\{\ket{\alpha_1,\contour_1,\ldots,\alpha_n,\contour_n}\}$ such that their linear combination is dense in $\hs$ such that\footnote{Notice that the scalar product in $\hs$ is defined through the convolution $\theta$.}  
+	\begin{eq}
+		&\braket{\alpha_1,\contour_1,\ldots,\alpha_m,\contour_m}{\alpha_1',\contour_1',\ldots,\alpha_n,\contour_n'}=\\
+		&\qquad=\langle O_{\alpha_1'}(\contour'_1)\ldots O_{\alpha_n'}(\contour_n')\theta[O_{\alpha_1}(\contour_1)\ldots O_{\alpha_m}(\contour_m)]\rangle
+	\end{eq}
+	\item there are some ``field operators'' $\op O_\alpha(\contour)$, with $\contour$ contained in the strip $[0,\tau]$, $\tau\in\N\setminus\{0\}$, such that
+	\begin{eq}
+		\op O_\alpha(\contour)T(\tau)\ket{\alpha_1,\contour_1,\ldots,\alpha_n,\contour_n}
+		=\ket{\alpha, \contour,\alpha_1,\contour_1+\tau,\ldots,\alpha_n,\contour_n+\tau}
+	\end{eq}
+	with $T(\tau):=T^\tau$ representing a time translation by $\tau$ time units.
+\end{enumerate}
+
+\end{theorem}
+
+\subsection{Reconstruction at finite temperature}
+
+\cite{Birke:2002}, \cite{Froehlich:1975}\\
+
+Suppose that we have a set of Matsubara functions $S_n$ depending on creation and annihilation operators $a_{\alpha_i}^\#$, where $\,^\#$ denotes either annihilation $a_{\alpha_i}$ or creation $a_{\alpha_i}^\dagger$ operators, and euclidean times $\tau_i$, time ordered. 
+
+This are constructed starting from some expectation values of ladder operators at finite volume $V$, where we have finite degrees of freedom,
+\begin{eq}
+	\langle a^\#_{\alpha_1}(\tau_1)\ldots a^\#_{\alpha_n}(\tau_n)\rangle^\beta_V
+\end{eq}
+and then taking them thermodynamic limit
+\begin{eq}
+	S_n^\beta(a^\#_{\alpha_1},\tau_1,\ldots a^\#_{\alpha_n},\tau_n)
+	:=\lim_{V\to\infty}\langle a^\#_{\alpha_1}(\tau_1)\ldots a^\#_{\alpha_n}(\tau_n)\rangle^\beta_V
+\end{eq}
+Indeed in general functions $S_n^\beta$ cannot be defined as expectation values of operators defined in the infinite volume limit since such operators cannot exists due to Haag's theorem. 
+
+Due to usual boundary conditions operators $a_{\alpha_i}$ should be thought as operators defined on a circle of circumference $\beta$.  
+
+\begin{theorem}[OS reconstruction theorem for finite temperature] Suppose that functions $\{S_n^\beta\}_{n=0}^\infty$ satisfy the following properties: 
+
+\begin{enumerate}[label=(\arabic*)]
+	\item \emph{Regularity} conditions in $a_{\alpha_i}$ and $\{\tau_i\}$.
+	\item \emph{Time translational invariance}
+	\begin{eq}
+		S_n^\beta(a^\#_{\alpha_1},\tau_1,\ldots a^\#_{\alpha_n},\tau_n)=S_n^\beta(a^\#_{\alpha_1},\tau_1+\tau,\ldots a^\#_{\alpha_n},\tau_n+\tau)
+	\end{eq}
+	for arbitrary $\tau\in\R$.
+	\item \emph{KMS condition} 
+	\begin{eq}
+		S_n^\beta(a^\#_{\alpha_1},\tau_1,\ldots a^\#_{\alpha_n},\tau_n)
+		=S_n^\beta(a^\#_{\alpha_{j+1}},\tau_1,\ldots a^\#_{\alpha_n},\tau_n,a^\#_{\alpha_1},\tau_1+\beta,\ldots a^\#_{\alpha_n},\tau_n+\beta)
+	\end{eq}
+	for any $j=1,\ldots,n-1$.
+	\item \emph{OS positivity}: Consider all polynomials in $\{a_i^\#(\tau_i)\}$ variables, $\polyn(\{a_i^\#(\tau_i)\})$, such that the time variables are ordered and bounded by $\beta/2$, that is
+	\begin{eq}
+		\tau_1<\tau_2,\ldots\tau_n<\beta/2
+	\end{eq}
+	For such polynomial we define the convolution $\theta$ by\footnote{The definition of such convolution is just what we expect adapting the definition of $\theta$ that we gave for $T=0$. First it reflects the time variables in the circle of circumference $\beta$ respect to the line passing through $\tau=0$ and $\tau=\beta/2$. Then takes the adjoint of the resulting polynomial, such that the order of $a^\#$ is inverted and each $a^\#$ is substituted with the corresponding adjoint. In some sense this is the appropriate adjustment of the reflection $\tau\to-\tau$.}
+	\begin{eq}
+		\theta\polyn(\{a_i^\#(\tau_i)\})=\polyn(\{a_i^\#(\beta-\tau_i)\})^\dagger
+	\end{eq}
+	with again $\beta-\tau_i$ ordered. Then the OS positivity is the requirement
+	\begin{eq}
+		\langle \polyn(\{a_i^\#(\tau_i)\})\theta \polyn(\{a_j^\#(\tau_j)\})\geq0
+	\end{eq}
+	for any couple of these polynomials, when the expectation value is written in terms of $\{S_n^\beta\}$. 
+\end{enumerate}
+
+Then the $\{S_n^\beta\}$ uniquely determine
+\begin{enumerate}[label=(\arabic*')]
+	\item a separable Hilbert space $\hs_\beta$,
+	\item a vector $\Omega_\beta\in\hs_\beta$,
+	\item a continuous unitary one-parameter group $\{e^{itL}, t\in\R\}$ ($t$ is now the real time, not the Euclidean one) leaving $\Omega_\beta$ invariant,
+	\item a representation in terms of operators in $\hs$ of the algebra of $a_{\alpha_i}^\#$, $\Pi(a_{\alpha_i}^\#)$ such that the functions $S_n^\beta$ are obtained from the real-time ``Wightman'' functions
+	\begin{eq}
+		W_n(a^\#_{\alpha_1},t_1,\ldots,a^\#_{\alpha_n},t_n)
+		=\bigg\langle\prod_{j=1}^ne^{it_j L}\Pi(a^\#_{\alpha_i})e^{-it_jL}\Omega_\beta\bigg\vert\Omega_\beta\bigg\rangle
+	\end{eq}
+	(the expression in the r.h.s. denotes the scalar product between elements of $\hs_\beta$) by analytic continuation in the time variable $t_1,\ldots,t_n$ to the domain $(z_1,\ldots,z_n)$, $z_i\in\C$, with $\Im z_1<\Im z_i<\Im z_{i+1}<\Im z_n<\Im z_1+\beta$ and then restricting $(z_1,\ldots,z_n)$ to $(i\tau_1,\ldots,i\tau_n)$ with $0<\tau_i<\tau_{i+1}<\beta$.
+\end{enumerate}
+
+\end{theorem}
+
+From the real-time ``Wightman'' functions one can of course construct the retarded Green functions just using $\theta(t)$ and (anti)commutators.
+
+\subsubsection{A comment on the Hilbert space $\hs_\beta$}
+
+For finite volume $\hs_\beta$ constructed in the proof is the Hilbert space of operators $A$ such that $\Tr A^\dagger A<\infty$ with inner product and vacuum defined by
+\begin{eq}
+	\braket A{B}:=\Tr A^\dagger B
+	\tand
+	\ket{\Omega_\beta}:=\frac{\ket{e^{-\beta H/2}}}{\sqrt{\Tr e^{-\beta H}}}
+\end{eq}
+where the denominator in the definition $\ket{\Omega_\beta}$ appropriately normalizes the state to 1.
+
+Heuristically, the reason beside this strange structure of the Hilbert space is due to the fact that in finite temperature we are not considering an isolated system anymore, but a system in a thermal bath. Such thermal bath is an infinite volume system, and now we have to take care of the fluctuations coming from the thermal bath. This fluctuations induces an infinite renormalization of the energy, so if one proceeds as before defining the Hamiltonian starting from the temporal evolution would obtain a divergent result in the infinite volume limit. Therefore one should define a new operator $H$ in such a way that fluctuations coming from the thermal bath are killed. This turns out to be impossible using a Fock space, whereas is possible if one uses such strange Hilbert space. 
+
+This is also related to the fact that in statistical mechanics the Hamiltonian of a system in a thermal bath cannot be positive definite, so one has to consider the Liouvillian $L$ instead of the Hamiltonian $H$. In this case these objects are just related by a renormalization constant. 
+
+More formally, in $\hs_\beta$ at finite volume we have two commuting representation of observables $A(\{a_{\alpha}^\#\})$:
+\begin{eq}\label{eq:repre_obs_OS_Temp}
+	\Pi(A)\ket B=\ket{AB}
+	\tand
+	\Pi_r(A)\ket{B}=\ket{BA^\dagger}
+\end{eq}
+where the first one is the one used in the statement of the theorem. It turns out that the generator of time evolution is 
+\begin{eq}\label{eq:dfn_Liou_op}
+	L=\Pi(H)-\Pi_r(H)
+\end{eq}
+The subtraction of $\Pi_r(H)$, since $\Pi_r$ and $\Pi$ commutes, does not change the equations of motion of the observable in $\Pi$. Indeed $\Pi_r(H)$ acts as a constant, and cancel the infinities appearing in $H$ in the infinite volume limit. 
+
+\todo{Da qui in poi penso di non esser riuscito a scrivere chiaramente quanto ha spiegato perché anche a me alcuni punti sono non proprio chiarissimi.}
+Let us see the relation with the standard formalism with the Boltzmann weight $e^{-\beta H}$. For a finite system at finite $T$ we have two equivalent descriptions: in the Fock space $\fock$ the equilibrium state is a mixed states of the form
+\begin{eq}\label{eq:eq_state_Pi_r_repr}
+	\rho=\frac{e^{-\beta H}}{\Tr e^{-\beta H}}
+\end{eq}
+whereas in the Hilbert space $\hs_\beta$ defined above the equilibrium state $\Omega_\beta$ is a vector of the form $\ket{\sqrt\rho}$ (instead of a mixed state) which is a eigenvector of $L=\Pi(H)-\Pi_r(H)$ of zero eigenvalue, indeed using eq.~\eqref{eq:repre_obs_OS_Temp} ad eq.~\eqref{eq:dfn_Liou_op} one gets
+\begin{eq}\label{eq:L_eigenv_0}
+	L\ket{\sqrt\rho}=\frac{\ket{He^{-\beta H/2}}-\ket{e^{-\beta H/2}H^\dagger}}{\sqrt{\Tr e^{-\beta H/2}}}\overset{H=H^\dagger}=0
+\end{eq}
+since the two vectors in the numerator cancel each other. 
+
+Notice that as $V\to\infty$ the expectation value of the energy in $\rho$ diverges
+\begin{eq}
+ 	\frac{\Tr He^{-\beta H}}{\Tr e^{-\beta H}}\to\infty
+\end{eq}
+thus $\rho$ in eq.~\eqref{eq:eq_state_Pi_r_repr} diverges as operator as $V\to\infty$. Conversely (the symbol (\textbullet) should be substituted with some operator)
+\begin{eq}
+ 	\bra{\Omega_\beta}(\bullet)\ket{\Omega_\beta}_V=\frac{\Tr_V (\bullet) e^{-\beta H}}{\Tr_V e^{-\beta H}}
+\end{eq}
+provides an expectation value, respect to the vector $\ket{\Omega_\beta}\in\hs_\beta$, well defined even in the infinite volume limit (for operators in an appropriate domain, from which $H$ is excluded since is unbounded) which still satisfies $L\ket{\Omega_\beta}>0$ (thanks to eq.~\eqref{eq:L_eigenv_0}) and the KMS condition. 
+
+\subsubsection{Summary}
+
+The procedure to construct retarded Green functions is the following: first one constructs the Fock space for the theory at finite temperature appropriately regularized (lattice and finite volume regularization), then one computes the Matsubara Green functions in the Fock space using the path integral method and assumes that the thermodynamic limit exists. If Matsubara functions in the thermodynamic limit exists and satisfy the axioms then one can reconstruct completely the theory even in the thermodynamic limit. Obviously the Hilbert space we constructed has nothing to do with the original Fock space, and in particular is not the generalization of the original Fock space but instead is the generalization of the finite volume $\hs_\beta$, which is a space of operators. By analytical continuation one defines an analogue of Wightman functions and combining them with Heaviside functions and commutators one finally gets the desired retarded Green functions.  
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 11 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
