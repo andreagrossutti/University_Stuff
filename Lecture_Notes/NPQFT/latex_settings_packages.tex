@@ -60,10 +60,11 @@
 
 \newenvironment{eq}{\begin{equation}\begin{aligned}}{\end{aligned}\end{equation}\ignorespacesafterend}
 
-\newcommand{\skipline}{\leavevmode\vspace{0.3\baselineskip}\newline}
+\newcommand{\skipline}{\bigskip}
 
 \newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %scambia phi e varphi
 %\let\temp\phi
@@ -85,11 +86,13 @@
 \newcommand{\R}{\mathbb{R}} %Reali
 \newcommand{\C}{\mathbb{C}} %Complessi
 
+\newcommand{\arctanh}{\operatorname{arctanh}}%hyperbolic arcotangent
+
 \newcommand{\eucl}{\mathbb E} %euclidean group
 \newcommand{\loren}{L_+^\uparrow} %restricted Lorentz group
 \newcommand{\cloren}{\tilde L_+^\uparrow} %covering of restricted Lorentz group
-\newcommand{\poinc}{\mathcal P_+^\uparrow} %restricted Poincaré group
-\newcommand{\cpoinc}{\tilde {\mathcal P}_+^\uparrow} %covering of restricted Poincaré group
+\newcommand{\poinc}{\mathscr P_+^\uparrow} %restricted Poincaré group
+\newcommand{\cpoinc}{\tilde {\mathscr P}_+^\uparrow} %covering of restricted Poincaré group
 
 \renewcommand{\to}{\rightarrow}
 \newcommand{\ot}{\leftarrow}
@@ -100,16 +103,19 @@
 \newcommand{\iso}{\cong}%isomorphism
 \newcommand{\id}{\mathbb 1} %Identità con il doppio 1
 \newcommand{\varid}{\textup {id}} %Identità con "id"
+\newcommand{\lctens}{\varepsilon} %Levi-Civita antisymmetric tensor
 
 \newcommand{\de}{\textnormal{d}} %Differential
 \newcommand{\der}[2]{\frac{\de #1}{\de #2}}
 \newcommand{\dder}[3]{\frac{\de^2 #1}{\de #2\,\de #3}}
 \newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\pdder}[3]{\frac{\partial^2 #1}{\partial #2\,\partial #3}}
-\newcommand{\dpder}[2]{\frac{\partial^2 #1}{{\partial #2}^2}}
+\newcommand{\dpder}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+
+\newcommand{\fder}[2]{\frac{\delta #1}{\delta #2}}%functional derivative
 
 \newcommand{\hs}{\mathcal H} %Hilbert space
-\newcommand{\fock}{\mathcal F} %Fock space
+\newcommand{\fock}{\mathscr F} %Fock space
 \newcommand{\dom}{D} %domain of an operator
 \newcommand{\contour}{\mathcal C} %path for contour integral
 \newcommand{\lag}{\mathcal L} %lagrangian density
@@ -148,10 +154,14 @@
 
 \newcommand{\mom}{\op P}%momentum
 
+\newcommand{\dphi}{\dot\phi}%time derivative phi
+\newcommand{\dpi}{\dot\pi}%time derivative of pi
+
 \newcommand{\ophi}{\op\phi} %field operator phi
 \newcommand{\ophid}{\op\phi^\dagger} %adjoint of field operator phi
 \newcommand{\opsi}{\op\psi} %field operator psi
 \newcommand{\opi}{\op\pi} %field operator pi
+\newcommand{\ochi}{\op\chi}%field operator chi (fluctuations)
 \newcommand{\ophil}{\ophi^\Lambda} %field operator phi with cutoffs
 
 \newcommand{\retc}{G_{\textnormal{ret}}} %retarded correlator
@@ -172,6 +182,8 @@
 \newcommand{\tren}{\textnormal{ren}}
 \newcommand{\tUV}{\textnormal{UV}}
 \newcommand{\tIR}{\textnormal{IR}}
+\newcommand{\tconst}{\text{const}}
+\newcommand{\tcl}{\text{cl}}
 
 \newcommand{\tcomma}{\quad,\quad}
 \newcommand{\twith}{\quad\text{with}\quad}
@@ -205,6 +217,14 @@
 
 \newcommand{\uschwp}{\varunderline\schw_+}%space of sequences of test functions with support in tau>0
 \newcommand\wils{W}%Wilson loop
+
+\newcommand{\obsalg}{\mathcal A}%observables algebra
+\newcommand{\purstate}{\mathcal S}%space of pure states
+
+\newcommand{\suppot}{\mathcal W}%supersymmetric potential
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}%numeri cerchiati
