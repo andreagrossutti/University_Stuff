@@ -92,7 +92,7 @@ For field theories are basically equivalent from the practical point of view but
 \cite[Chapter 2]{Shifman:2012}\\
 
 The fist (topological) soliton that we consider is the \emph{kink} in $\phi^4_2$, i.e. the relativistic $\phi^4$ theory in 1+1 dimensions in the spontaneously broken phase. The classical Hamiltonian we consider is on the real line $\R$, labelled by $x$, and if the system is described by a real scalar field $\phi(x,t)$ with conjugated momentum $\pi(x,t)$ (the dependence on time of the fields is understood) it reads
-\begin{eq}
+\begin{eq}\label{eq:ham-kink}
 	H=\int\de x\,\ham\big(\pi,\phi\big)=\int\de x\,\left[\half\pi^2+\half\left(\der{\phi} x\right)^2+\frac{g^2}4\big(\phi^2-v^2\big)^2\right]
 \end{eq}
 with $v,g\in\R$. This potential is the field analogue of the double well with potential $\frac{g^2}4(x^2-v^2)^2$.
@@ -182,13 +182,14 @@ where we denoted the two solutions by $S$, which means ``soliton''. In fig.~\ref
   \draw[->] (-4, 0) -- (5, 0) node[at={(5.1,0.25)}] {$x$};
   \draw[->] (0, -2.2) -- (0, 2.5) node[at={(0.7,2.6)}] {$\phi_+^S(x)$};
   \draw[scale=0.5, domain=-7:9, smooth, variable=\x, blue, very thick] plot ({\x}, {3*tanh(0.5*(\x-1))});
-  \draw[scale=0.5, domain=-7:9, smooth, variable=\x, red] plot ({\x}, {3});
-  \draw[scale=0.5, domain=-7:9, smooth, variable=\x, red] plot ({\x}, {-3});
+    \draw[scale=0.5, domain=-7:9, smooth, variable=\x, red, very thick] plot ({\x}, {-3*tanh(0.5*(\x-1))});
+  \draw[scale=0.5, domain=-7:9, smooth, variable=\x, dash pattern=on 2pt off 2pt] plot ({\x}, {3});
+  \draw[scale=0.5, domain=-7:9, smooth, variable=\x, dash pattern=on 2pt off 2pt] plot ({\x}, {-3});
   \draw (4.5,1.8) node {$+v$};
   \draw (4.5,-1.25) node {$-v$};
   \draw (0.7,-0.2) node {$x_0$};
 \end{tikzpicture}
-\caption{Shape of the solution $\phi_+^S(x)$.} %parameters: x_0=1, v=3, g=1/3sqrt2 
+\caption{Shape of the solutions $\phi_+^S(x)$ (blue) and $\phi_-^S(x)$ (red).} %parameters: x_0=1, v=3, g=1/3sqrt2 
 \label{fig:kink-solution}
 \end{figure}
 
@@ -238,14 +239,14 @@ Now notice that the last term gives
 \end{eq}
 with
 \begin{eq}
-	\Delta\suppot=\suppot(v)-\suppot(-v)=-\frac43\frac g{\sqrt2}<0
+	\Delta\suppot=\suppot(v)-\suppot(-v)=-\frac4{3\sqrt2}gv^3<0
 \end{eq}
 hence we get that
 \begin{eq}\label{eq:Bogom-bound}
 	H\geq-\Delta\suppot>0
 \end{eq}
 for both the possible boundary conditions. This lower bound  is called \emph{Bogomol'nyi bound} (as we will see has several generalizations). This bound is saturated, hence the equality in eq.~\eqref{eq:Bogom-bound} holds, only if the term inside square brackets in eq.~\eqref{eq:Ham-kink-suppot} vanishes, i.e. if the following first order equation is satisfied
-\begin{eq}
+\begin{eq}\label{eq:Bogom-bound-cond}
 	\der\phi x=\pm\der\suppot\phi
 \end{eq}
 which coincides exactly with eq.~\eqref{eq:eom-kink}. Hence the solutions $\phi_\pm^S$ are local minima for which the energy coincides with the Bogomol'nyi bound. 
@@ -253,37 +254,41 @@ which coincides exactly with eq.~\eqref{eq:eom-kink}. Hence the solutions $\phi_
 \skipline
 
 The energy density associated to $\phi_\pm^S(x_0)$, depending on the modulus $x_0$, is given by the Hamiltonian density evaluated for the field $\phi_\pm^S(x_0)$ (it obviously depends on the spatial coordinate $x$ and on the choice of $x_0$):
-\begin{eq}
-	\ham&=\half\left(\der{\phi_\pm^S}x\right)^2+\frac{g^2}4\left(\phi_\pm^{S\,2}-v^2\right)^2
-	=\half\left(\der{\phi_\pm^S}x\right)^2+\half\left(\der{\suppot(\phi_\pm^S)}x\right)^2
-	=\frac{g^2v^4}2\sech^4\left(\frac{gv}{\sqrt2}(x-x_0)\right)
+\begin{eq}\label{eq:kink-classic-energy-density}
+	\cenergy^\tcl&=\half\left(\der{\phi_\pm^S}x\right)^2+\frac{g^2}4\left(\phi_\pm^{S\,2}-v^2\right)^2
+	\overset{\eqref{eq:Bogom-bound-cond}}=2\cdot\half\left(\der{\phi_\pm^S}x\right)^2=\left(\der{\phi_\pm^S}x\right)^2
 \end{eq}
 In fig.~\ref{fig:kink-energy} one can see the shape of $\cenergy(x)$ associated to the field of fig.~\ref{fig:kink-solution}. It is clearly localized near $x_0$. Hence the soliton sxhibits an energy density profile as a `` dump'' around $x_0$, thus behaving ``like a particle'' at $x_0$. The integral 
 \begin{eq}
-	\int\de x\,\cenergy(x)=-\Delta\suppot=\frac4{3\sqrt2}gv^3
+	M_S^\tcl:=\int\de x\,\cenergy^\tcl(x)=-\Delta\suppot=\frac4{3\sqrt2}gv^3
 \end{eq}
-can be interpreted as the ``classical'' mass of the soliton $M_S^\tcl$, i.e. the energy of the soliton in its rest frame. 
+can be interpreted as the ``classical'' mass of the soliton, i.e. the energy of the soliton in its rest frame. 
 
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}
   \draw[->] (-4, 0) -- (5, 0) node[at={(5.1,0.25)}] {$x$};
-  \draw[->] (0, -1) -- (0, 3) node[at={(0.5,3.1)}] {$\cenergy(x)$};
+  \draw[->] (0, -2.5) -- (0, 2.7) node[at={(0.2,3)}] {$\cenergy(x)$};
   \draw[scale=0.5, domain=-7:9, smooth, variable=\x, blue, very thick] plot ({\x}, {4.5*(cosh((\x-1)/2))^(-4)});
-   \draw[scale=0.5, domain=0:5, smooth, variable=\y, dash pattern=on 3pt off 3pt] plot ({1}, {\y});
-  \draw (0.5,-0.2) node {$x_0$};
+  \draw[scale=0.5, domain=-7:9, smooth, variable=\x, red, very thick] plot ({\x}, {-4.5*(cosh((\x-1)/2))^(-4)});
+   \draw[scale=0.5, domain=-5:5, smooth, variable=\y, dash pattern=on 3pt off 3pt] plot ({1}, {\y});
+   \draw[scale=0.5, domain=-0.1:2, smooth, variable=\x, dash pattern=on 3pt off 3pt] plot ({\x}, {4.5});
+   \draw[scale=0.5, domain=-0.1:2, smooth, variable=\x, dash pattern=on 3pt off 3pt] plot ({\x}, {-4.5});
+  \draw (0.8,-0.2) node {$x_0$};
+  \draw (0,2.25) node [anchor=east]{$\displaystyle\frac{g^2v^4}2$};
+  \draw (0,-2.25) node [anchor=east]{$\displaystyle-\frac{g^2v^4}2$};
 \end{tikzpicture}
-\caption{Shape of the energy density for the field $\phi_+^S(x)$}{plotted in fig.~\ref{fig:kink-solution} (the $x$-axis has not be rescaled).} %parameters: x_0=1, v=3, g=1/3sqrt2 
+\caption{Shape of the energy density for the fields $\phi_+^S(x)$ (blue) and}{$\phi_-^S(x)$ (red) plotted in fig.~\ref{fig:kink-solution} (the $x$-axis has not be rescaled).} %parameters: x_0=1, v=3, g=1/3sqrt2 
 \label{fig:kink-energy}
 \end{figure}
 
-Since (looking at the Hamiltonian) the theory is Lorentz invariant (on 1+1 dimension) one can ``change the reference frame'' and make the soliton move at a constant velocity $V$:
+Since (looking at the Hamiltonian) the theory is Lorentz invariant (on 1+1 dimension) one can ``change the reference frame'' and make the soliton move at a constant velocity $\textrm v$:
 \begin{eq}
-	\phi_\pm^S(x,x_0,V)=\pm v\tanh\left(\frac{gv}{\sqrt2}\,\frac{x-x_0-Vt}{\sqrt{1-V^2}}\right)
+	\phi_\pm^S(x,x_0,\textrm v)=\pm v\tanh\left(\frac{gv}{\sqrt2}\,\frac{x-x_0-\textrm vt}{\sqrt{1-\textrm v^2}}\right)
 \end{eq}
-i.e. behaves like a particle with equation of motion $x=x_0+Vt$.
+i.e. behaves like a particle with equation of motion $x=x_0+\textrm vt$.
 
-\subsubsection{Semi-classical description}
+\subsubsection{Semi-classical description of fluctuations around the vacuum}
 
 Up to now we just described the soliton at classical level. Let us turn to the quantum world. We first give a standard semi-classical (heuristic) Hamiltonian treatment, then we make some comments on a rigorous approach in the spirit of the reconstruction theorem previously discussed. 
 
@@ -314,13 +319,154 @@ and then one can write
 \end{eq}
 From the quadratic terms we see that $\ochi$ is a massive field with (bare) mass $m=\sqrt2gv$, such that we recover the usual dispersion relation $\omega(k)=\sqrt{k^2+m^2}$, and polynomial interaction given by $\polyn(\ochi)$.
 
-%Lecture 10/11-1 min 42.13 pag 19
+Perturbatively we impose the CCR on $\ochi$ and $\opi=\dot\ochi$
+\begin{eq}
+	[\ochi(x),\opi(y)]=[\ochi(x),\dot\ochi(y)]=i\hbar\,\delta(x-y)
+\end{eq}
+and in order to make sense to the previous discussion we insert a normal ordering in the Hamiltonian, so that the free $H_2$ Hamiltonian has zero vacuum energy (otherwise it would be divergent) and then proceed in the usual way. 
+
+Clearly in perturbation theory the bare mass of $\ochi$ is renormalized by the polynomial interaction, and the relevant term, coming from $\nord{\ochi^4}$, is the counterterm corresponding to the following Feynman graph
+
+\begin{eq}
+	(-1)\cdot\quad\begin{tikzpicture}[baseline=($(a)+(90:0.5)$)]	
+		\coordinate (a) at (-1.8,0);
+		\coordinate (b) at (0,0);
+		\coordinate (c) at (1.8,0);	
+		\draw (a) -- (c);
+		\draw ($(b)+(90:0.7)$) circle(0.7);
+		\draw ($(b)+(-90:0.6)$) node {$\displaystyle\frac{g^2}4$};
+		\filldraw [black] (b) circle (2pt);
+		\draw ($(a)+(90:0.3)$) node {$\chi$};
+		\draw ($(c)+(90:0.3)$) node {$\chi$};
+		\draw ($(b)+(90:1.7)$) node {$\chi$};
+	\end{tikzpicture}
+	\quad=\quad-4\cdot3\cdot\frac{g^2}4\int_{|p|<\Lambda}\frac{\de^2p}{(2\pi)^2}\frac\hbar{p^2+m^2}
+	=-\frac{3g^2}{4\pi}\log(\frac{\Lambda^2}{m^2}+1)
+\end{eq}
+where $4\cdot 3$ is a combinatorial factor\footnote{Notice that the coupling $\frac {g^2}4$ already contains the factor $1/4!$ associated to the possible permutations of the legs of the vertex. This can be easily understood by comparing the interaction potential of the theory with the potential of $\lambda\phi^4$ theory. Since there is only one vertex in the graph no symmetry factor associated to the exchange of the vertices is needed. Hence we just have to take care of the $4\cdot3$ possible ways to connect the external fields to the vertex.}, $\Lambda$ is a cutoff introduced to regularize the integral and we set $\hbar=1$. It yields (taking $\Lambda^2\gg m^2$) a renormalized mass
+\begin{eq}\label{eq:classical-mass-kink}
+	m^2_R=m^2-\frac{3g^2}{2\pi}\log(\frac{\Lambda^2}{m^2})
+\end{eq}
+where we multiplied the correction by 2 in order to take into account the factor 1/2 in the mass term of the Hamiltonian. The quantity $m^2_R$ is exactly the square of the mass that one detects if perform an experimental measure of the mass. 
+
+\subsubsection{Semi-classical description of fluctuations around soliton solution}
+
+Let us now turn to the quantization around the soliton solution, consider for instance $\phi_+^S$. Since this is a local minima, we can still expand around such solution very similarly to what we done for the fluctuations around the vacuum. First notice that even at the classical level when expressed in terms of the (classical) mass of $\chi$ we have
+\begin{eq}
+	M^\tcl_S=\frac {m^3}{2g^2}\sim\frac1{g^2}
+\end{eq}
+hence it cannot be recoveder by a perturbation theory around $g=0$, because then the mass is infinite. The behaviour $\sim g^{-2}$ of the energy or the action is typical to the soliton solutions. 
+
+A naive approach to quantization would be to write
+\begin{eq}
+	\ophi(x,t)=\phi_+^S(x)+\ochi(x,t)
+\end{eq}
+Inserting in the Hamiltonian we get (recall that $\dot\phi_+^S=0$)
+\begin{eq}
+	H &= \int\de x\bigg[\,\half{{\dot\phi^S_+}\hspace{0cm}}^2+\dot\phi^S_+\dot\ochi+\half\dot\ochi^2+\half\left(\der{{\phi_+^S}}x\right)^2+\der{{\phi_+^S}}x\der\ochi x+\half\left(\der\ochi x\right)^2+\\
+	&\qquad+\frac{g^2}4\left[({\phi_+^S}^2-v^2)^2+(4{\phi_+^S}^3-4v^2{\phi_+^S})\ochi+(6{\phi_+^S}^2-2v^2)\ochi^2+4{\phi_+^S}\ochi^3+\ochi^4\right]\bigg]
+\end{eq}
+By integrating by parts with boundary conditions $\ochi(\pm\infty)=0$ (otherwise the field would have infinite energy) we get
+\begin{eq}
+	H&= \int\de x\bigg[\,\half{{\dot\phi^S_+}\hspace{0cm}}^2+\dot\phi^S_+\dot\ochi+\half\dot\ochi^2+\half\left(\der{{\phi_+^S}}x\right)^2-\der{^2\phi_+^S}{x^2}\,\ochi-\half\ochi\,\der{^2\ochi}{x^2}+\\
+	&\qquad+\frac{g^2}4\left[({\phi_+^S}^2-v^2)^2+(4{\phi_+^S}^3-4v^2{\phi_+^S})\ochi+(6{\phi_+^S}^2-2v^2)\ochi^2+4{\phi_+^S}\ochi^3+\ochi^4\right]\bigg]
+\end{eq}
+first notice that the terms proportional to $\ochi$ vanish exactly due to the equation of motion of $\phi_+^S$:
+\begin{eq}
+	\left(\der{^2\phi_+^S}{x^2}-{g^2}({\phi_+^S}^3-v^2\phi_+^S)\right)\ochi=0
+\end{eq}
+and combining with \eqref{eq:kink-classic-energy-density} we get
+\begin{eq}\label{eq:full_ham_fluc}
+	H&= M_S^\tcl+\int\de x\bigg[\,\half{{\dot\phi^S_+}\hspace{0cm}}^2+\dot\phi^S_+\dot\ochi+\half\dot\ochi^2-\half\ochi\,\der{^2\ochi}{x^2}+\frac{g^2}4\left[(6{\phi_+^S}^2-2v^2)\ochi^2+4{\phi_+^S}\ochi^3+\ochi^4\right]\bigg]\\
+	&=M_S^\tcl+\int\de x\bigg[\,\half{{\dot\phi^S_+}\hspace{0cm}}^2+\dot\phi^S_+\dot\ochi+\half\dot\ochi^2+\half\ochi L_2\ochi+\frac{g^2}4\left(4{\phi_+^S}\ochi^3+\ochi^4\right)\bigg]
+\end{eq}	
+with
+\begin{eq}
+	L_2=\frac{g^2}2(6{\phi_+^S}^2-2v^2)-\der{^2}{x^2}=\frac{m^2}{2}\left(\frac32\tanh^2\frac{mx}2-1\right)-\der{^2}{x^2}
+\end{eq}
+Up to now we kept terms proportional to $\dot\phi^S_+$ because in the following we will introduce a time dependence, nevertheless at this stage the time derivative vanishes, hence taking the terms quadratic in $\ochi$ we get
+\begin{eq}\label{eq:kink-H_2-fluct}
+	H_2=\int\de x\,\left(\half\dot\ochi^2+\frac12\ochi L_2\ochi\right)
+\end{eq}
+and the remaining terms are third and quartic interactions in $\ochi$.
+
+Now the problem is similar to the free one, except for the fact that the operator associated to the harmonic oscillator has been replaced by $L_2$. We have to solve the ``Schrödinger equation''
+\begin{eq}
+	L_2\chi_n(x)=\omega_n^2\chi_n(x)
+\end{eq}
+where $n$ and $\chi_n$ play the previous roles of $k$  and $e^{ikx}$ respectively. Then we can rewrite
+\begin{eq}
+	\ochi(x,t)=\sum_{n=0}^\infty\op a_n(t)\chi_n(x)
+\end{eq}
+We can rewrite the Hamiltonian as
+\begin{eq}
+	H_2=\sum_n\frac{\dot{\op a}_n^2}2+\frac{\omega_n^2}2\op a_n^2
+\end{eq}
+i.e. naively as a sum of uncoupled oscillator, as in the free case. 
+
+\skipline
+
+This would actually be true if $\omega_n>0$, but one can prove that there is one vanishing eigenvalue $\omega_0$, it is a ``zero mode'' and must be treated separately because the fluctuations along the direction of this mode are not small.\footnote{Fluctuations associated to $\omega_n=0$ are not limited by any physical argument, as the potential is identically vanishing for this mode. Even worse, $\omega_n<0$ would imply that the system is unstable, as fluctuations naturally become arbitrarily large.} Such zero mode is associated to fluctuations of the modulus of kink solution: changing the value of $x_0$ the solution has the same energy as the original one, hence this do not contribute to the Hamiltonian, moreover there is no limit of this kind of fluctuations, as all possible values of $x_0$ give  kink solutions with the same energy. The occurrence of the zero mode can be understood by a general argument. The kink solution depend on the fixed value $x_0$, hence fixing the solution the translational invariance has been broken in the space of equilibrium states.\footnote{This is very similar to the previous example of a classical particle in a flat plane, subject to a gravitational force.} Such invariance is recovered by taking into account all possible values of $x_0$, and the standard approach, called \emph{adiabatic}, to recover the invariance is to convert the position $x_0$ of the soliton into a quantum dynamical variable $\op x_0(t)$ (a quantum position variable cannot assume a sharp value, hence there is no breaking of translational invariance) and to assume that the only dependence on time of the kink solution enter trough its modulus\footnote{Adiabaticity implies ``very slow changes'' of the system, in this way translations of the modulus are slow enough to leave invariant the shape of the field during the spatial translation.}
+\begin{eq}\label{eq:adiabatic-solution-kink}
+	\phi_+^S(x)\longmapsto \phi_+^S(x-\op x_0(t))
+	\tand
+	\chi_n(x)\longmapsto\chi_n(x-\op x_0(t))
+\end{eq}
+Notice this is in agreement with the previous interpretation of the classical kink as a localized particle, indeed moving to a quantum mechanical description a semi-classical\footnote{I.e. without any other quantum number.} particle should only depend on a quantum operator describing its position. 
+
+Expanding $\ophi$ in $\op x_0$ we are able to recover the quantum mechanics of the kink. The same adiabatic strategy apply in general for the description of the solitons, but we will discuss it in details only in this instance. For example the time derivative of $\ophi$ is given by (notice that using the adiabatic approach we eliminated the zero mode $\omega_0$)
+\begin{eq}\label{eq:kink-time-der-adiab}
+	\dot\ophi(x,t)
+	&=\der{}{t}\left(\phi_+^S(x-\op x_0(t))+\ochi(x-\op x_0(t),t)\right)
+	=\der{}{t}\left(\phi_+^S(x-\op x_0(t))+\sum_{n=1}^\infty\op a_n(t)\chi_n(x-\op x_0(t))\right)\\
+	&=\left[-\der{\phi_+^S(x-\op x_0(t))}x-\sum_{n=1}^\infty\op a_n(t)\der{\chi_n(x-\op x_0(t))}x\right]\dot{\op x}_0(t)+\sum_{n=1}^\infty\dot{\op a}_n(t)\chi_n(x-\op x_0(t))\\
+	&=\left[-\der{\phi_+^S(x-\op x_0(t))}x-\der{\ochi(x-\op x_0(t),t)}x\right]\dot{\op x}_0(t)+\sum_{n=1}^\infty\dot{\op a}_n(t)\chi_n(x-\op x_0(t))\\
+	&=-\der{\ophi(x,t)}x\dot{\op x}_0(t)+\sum_{n=1}^\infty\dot{\op a}_n(t)\chi_n(x-\op x_0(t))
+\end{eq}
+Notice that the second term in the square bracket, when multiplied with $\dot{\op x}_0(t)$, give a product of operators and in general it gives a negligible contribution respect to the other terms. 
+The Hamiltonian around the soliton up to quadratic terms is
+\begin{eq}
+	H_{\leq2} &\smash{\overset{\eqref{eq:full_ham_fluc}}=}M_S^\tcl+\int\de x\bigg[\,\half{{\dot\phi^S_+}\hspace{0cm}}^2+\dot\phi^S_+\dot\ochi+\half\dot\ochi^2+\half\ochi L_2\ochi\bigg]\\
+	&\smash{\overset{\eqref{eq:kink-time-der-adiab}}=}M_S^\tcl+\int\de x\,\bigg[\,\left(\der{\phi_+^S}x\right)^2\dot{\op x}\hspace{0cm}^2_0-\der{\phi_+^S}x\dot{\op x}_0\dot\ochi+\half\dot\ochi^2+\half\ochi L_2\ochi\bigg]
+\end{eq}
+As a consequence of the adiabaticity assumption\footnote{From the practical point of view, this consist in assuming that our ``particle'' moves very slowly, in such a way that the motion do not affect the shape of the field.} the effect of the time dependence of the modulus and the presence of the fluctuations should be considered separately in the Hamiltonian, i.e. the term $\dot{\op x}_0\dot\ochi$ gives higher order corrections which we can neglect. From another point of view, typically the Fourier transform of $\dot{\op x}_0$ should have low frequencies components, whereas typically fluctuations highly oscillate, hence the support in the Fourier space of $\op\ochi$ is typically charaterized by high frequencies. Since Fourier components of different wavelengths are orthogonal we get $\int\de x\,\dot{\op x}_0\dot\ochi\approx0$. Using eq.~\eqref{eq:kink-classic-energy-density} we finally get
+\begin{eq}
+	H_{\leq2} &=M_S^\tcl+\half M_S^\tcl \,\dot{\op x}\hspace{0cm}^2_0+\int\de x\,\bigg[\half\dot\ochi^2+\half\ochi L_2\ochi\bigg]\\
+	&=M_S^\tcl+\half M_S^\tcl \,\dot{\op x}\hspace{0cm}^2_0+\sum_{n=1}^\infty\frac{\dot{\op a}_n^2}2+\frac{\omega_n^2}2\op a_n^2\\
+	&=M_S^\tcl+\frac{\op p_0^2}{2M_S^\tcl} \,\dot{\op x}\hspace{0cm}^2_0+\sum_{n=1}^\infty\frac{\dot{\op a}_n^2}2+\frac{\omega_n^2}2\op a_n^2
+\end{eq}
+where we introduced the momentum $\op p_0:=M_S^\tcl\dot{\op x}_0$. It is clear that due to the introduction of the time dependence in $\op x_0$, this gives a contribution to the Hamiltonian associated to the fluctuations of the classical solution along the ``modulus axis'', while the non-zero modes give the contributions of the fluctuations of the kink. Recall that we made an expansion in $\dot {\op x}_0$ in a relativistic framework we can reconstruct the complete energy of the classical solution with a quantum modulus:
+\begin{eq}
+	 M_S^\tcl+\frac{\op p_0^2}{2M_S^\tcl} \quad\longrightarrow\quad \sqrt{M_S^\tcl+\op p_0^2}
+\end{eq}
+(we won't use the complete energy since we are working at quadratic order in the operators).
+Notice that there is no potential for $\op x_0$, because consistently with translational invariance $H$ cannot depend on $\op x_0$ itself but only on $\op p_0$.
+Quantization is finally archived imposing commutation relations
+\begin{eq}
+	[\op x_0,\op p_0]=i
+	\tand
+	[\op a_n,\dot{\op a}_m]=i\delta_{nm}
+\end{eq}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 13 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%% LECTURE 13 %%%%%%%%
+%%%%%%%% LECTURE 14 %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
