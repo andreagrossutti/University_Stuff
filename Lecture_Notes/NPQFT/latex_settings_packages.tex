@@ -23,10 +23,13 @@
 \usepackage[framemethod=TikZ]{mdframed}%ambient thm ecc...
 	\usepackage{amsthm}
 \usepackage{booktabs}
-\usepackage{caption}
+\usepackage[justification=centering]{caption}
+%\usepackage{subcaption}
+%\usepackage{subfig}
 \usepackage{dsfont}
 \usepackage{float}
 \usepackage{tikz}
+\usepackage{chemfig}
 \usepackage{mathdots}
 \usepackage{yhmath}
 \usepackage[thicklines]{cancel}
@@ -56,7 +59,7 @@
 \renewcommand{\thefootnote}
 	{\Roman{footnote}}
 	
-\mathtoolsset{showonlyrefs}%number equations only if they are referred to
+%\mathtoolsset{showonlyrefs}%number equations only if they are referred to
 
 \newenvironment{eq}{\begin{equation}\begin{aligned}}{\end{aligned}\end{equation}\ignorespacesafterend}
 
@@ -184,6 +187,8 @@
 \newcommand{\tIR}{\textnormal{IR}}
 \newcommand{\tconst}{\text{const}}
 \newcommand{\tcl}{\text{cl}}
+\newcommand{\tq}{\text q}
+\newcommand{\tvac}{\text{vac}}
 
 \newcommand{\tcomma}{\quad,\quad}
 \newcommand{\twith}{\quad\text{with}\quad}
