@@ -597,7 +597,7 @@ There are a lot of one-dimensional systems with $n$ ground states related by $\Z
 
 Up to now we have discussed classical and quantum mechanical treatment of kinks. What about a really QFT treatment?
 
-\subsubsection{The space of configurations of the path integral}
+\subsubsection{The space of configurations of the path integral - The semi-classical approximation}
 
 We start by asking how much the classical solution of a field theory is relevant for understanding the corresponding QFT behaviour. 
 In the path-integral approach the configurations of the field $\phi(x)$ are weighted by $e^{-\frac1\hbar S(\phi)}$, where $S(\phi)$ is the classical action, and the classical equations of motion can be derived as minima of $S(\phi)$. 
@@ -654,11 +654,270 @@ Summarizing, for a theory where the ultraviolet cutoff is pushed to infinity and
 %%%%%%%% LECTURE 14 %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 
+The reason why classical field solutions are relevant, is that they can be useful as a starting point for the following approximation. In analogy to the procedure we followed before, we expand the field $\phi$ around a minima $\phicl$ of the action, $\phi\to\phicl+\chi$, as
+\begin{eq}
+	S(\phi)=S(\phicl)+Q(\chi)+R(\chi)
+\end{eq}
+where $Q(\chi)$ contains quadratic (and possibly linear) terms in $\chi$ and $R(\chi)$ is the reminder (contains all higher order terms in $\chi$). 
+The semi-classical approximation is based on the idea that the contribution of $R(\chi)$ is typically small respect to $S(\phicl)+Q(\chi)$, hence configurations which differ significantly from the classical solutions are suppressed by the quadratic term $Q(\chi)$, and in the path integration the only configurations whose contributions sum up coherently in a non-zero result are those which are ``near'' to the classical one. \todo{Qui non mi era molto chiaro quanto detto a lezione, ho rielaborato un po in base alle mie conoscenze.} Therefore, the main contribution to the path integral is given by those configuration localized around the classical solution, in the configurations space. Such situation is represented in fig.~\ref{fig:paths-localized-classical-solution}.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=0.6,xscale=1]
+\draw  [color=blue ,draw opacity=1 ][line width=0.75] [line join = round][line cap = round] (107.34,149.42) .. controls (109.06,146.87) and (101.14,134.38) .. (106.76,132.94) .. controls (107.11,132.85) and (107.64,132.8) .. (107.91,132.94) .. controls (112.34,135.2) and (122.31,137.36) .. (127.48,140) .. controls (127.98,140.26) and (133.04,141.42) .. (133.23,141.18) .. controls (135.22,138.64) and (131.53,138.04) .. (130.93,135.88) .. controls (129.52,130.84) and (125.58,123.07) .. (127.48,118.22) .. controls (127.65,117.79) and (134.21,119.92) .. (134.38,119.99) .. controls (138.36,121.62) and (143.31,123.15) .. (147.04,124.11) .. controls (148.03,124.36) and (151.64,125.9) .. (151.65,125.88) .. controls (152.63,120.35) and (154.61,106.12) .. (160.86,102.92) .. controls (163.74,101.45) and (167.35,105.48) .. (170.06,107.04) .. controls (172.09,108.21) and (179.81,115.44) .. (182.72,114.69) .. controls (188.91,113.11) and (204.42,99.17) .. (212.65,100.57) .. controls (213.01,100.63) and (212.37,101.02) .. (212.65,101.16) .. controls (216.01,102.88) and (216.15,112.39) .. (219.55,115.87) .. controls (219.72,116.05) and (219.21,116.37) .. (219.55,116.46) .. controls (222.04,117.09) and (226.67,114.58) .. (227.61,114.1) .. controls (230.69,112.53) and (241.69,109.74) .. (243.72,109.4) .. controls (244.2,109.31) and (251.72,108.59) .. (251.78,108.81) .. controls (253.35,114.84) and (241.64,125.13) .. (252.93,127.05) .. controls (256.35,127.64) and (270.8,121.89) .. (273.64,121.17) .. controls (274.56,120.93) and (282.57,118.43) .. (284,119.4) .. controls (286.96,121.42) and (286.46,133.69) .. (289.76,137.06) .. controls (290.19,137.5) and (295.5,134.12) .. (295.51,134.12) .. controls (300.17,131.26) and (309.59,126.69) .. (315.08,125.29) .. controls (318.74,124.35) and (318.06,127.51) .. (318.53,128.23) .. controls (320.01,130.5) and (326.77,143.58) .. (328.89,144.12) .. controls (331.13,144.69) and (331.03,141.42) .. (331.19,141.18) .. controls (332.77,138.76) and (341.07,131.73) .. (346.15,130) .. controls (347.97,129.37) and (351.46,135.79) .. (351.9,136.47) .. controls (352.08,136.73) and (352.57,136.93) .. (353.06,137.06) .. controls (357.58,138.22) and (357.3,143.44) .. (362.26,144.71) .. controls (362.88,144.87) and (363.41,145.3) .. (363.41,145.3) .. controls (363.41,145.3) and (365.04,141.87) .. (365.72,141.18) .. controls (369.07,137.74) and (373.76,131.77) .. (377.22,128.23) .. controls (377.61,127.84) and (377.61,126.86) .. (378.38,127.05) .. controls (382.78,128.18) and (389.87,135.87) .. (393.34,137.65) .. controls (393.78,137.87) and (395.64,140) .. (395.64,140) .. controls (395.64,140) and (398.17,137.3) .. (399.09,135.88) .. controls (402.56,130.55) and (406.26,125.02) .. (410.6,120.58) .. controls (410.73,120.45) and (411.98,119.24) .. (412.9,119.4) .. controls (417.06,120.11) and (423.18,127.19) .. (425.56,128.82) .. controls (425.76,128.96) and (430.95,132.14) .. (431.32,131.76) .. controls (435.81,127.17) and (437.23,121.09) .. (443.98,117.64) .. controls (447.04,116.07) and (447.09,112.13) .. (450.88,111.16) .. controls (452.93,110.64) and (451.52,111.49) .. (452.03,111.75) .. controls (457.56,114.58) and (457.69,119.3) .. (461.24,122.93) .. controls (461.58,123.28) and (462.86,123.11) .. (463.54,122.93) .. controls (465.86,122.34) and (476.52,115.71) .. (479.65,114.1) .. controls (481.02,113.41) and (485.29,109.66) .. (488.86,110.57) .. controls (491.29,111.19) and (489.57,113.32) .. (490.01,114.69) .. controls (490.62,116.57) and (495.71,124.1) .. (499.22,124.7) .. controls (505.46,125.76) and (512.18,114.14) .. (521.09,115.28) .. controls (521.61,115.35) and (522.07,115.61) .. (522.24,115.87) .. controls (523.86,118.36) and (533.69,129.1) .. (537.2,130) .. controls (537.89,130.17) and (538.96,130.27) .. (539.5,130) .. controls (544.76,127.3) and (545.43,116.41) .. (554.46,114.1) .. controls (558.17,113.16) and (569.42,120.86) .. (570,119.7) ;
+\draw  [color=blue,draw opacity=1 ][line width=0.75] [line join = round][line cap = round] (107.34,149.42) .. controls (114.91,148.48) and (117.1,148.36) .. (122.57,149.06) .. controls (123.92,149.24) and (126.03,150.95) .. (126.03,150.24) .. controls (126.03,141.67) and (117.22,132.3) .. (115.67,124.34) .. controls (115.28,122.38) and (113.08,118.94) .. (116.82,118.46) .. controls (124.77,117.44) and (147.73,125.82) .. (157.1,127.88) .. controls (161.08,128.75) and (166.84,131.86) .. (170.91,130.82) .. controls (171.6,130.64) and (170.67,130.01) .. (170.91,129.64) .. controls (173.04,126.38) and (172.55,122.59) .. (175.51,119.05) .. controls (182.07,111.22) and (193.26,102.4) .. (206.59,97.86) .. controls (210.98,96.36) and (212.71,102.72) .. (213.49,104.33) .. controls (216.46,110.4) and (220.92,123.43) .. (228.46,127.29) .. controls (230.64,128.41) and (233.83,125.72) .. (236.51,124.93) .. controls (246.05,122.15) and (255.27,116.58) .. (265.29,113.16) .. controls (266.1,112.88) and (277.67,109.95) .. (277.95,110.81) .. controls (279.04,114.18) and (279.78,128.67) .. (280.25,132) .. controls (280.6,134.54) and (279.89,137.1) .. (280.25,139.65) .. controls (280.25,139.7) and (282.15,142.14) .. (282.55,142) .. controls (292.33,138.67) and (303.45,130.14) .. (312.47,125.52) .. controls (314.75,124.36) and (325.69,119.33) .. (326.28,119.64) .. controls (330.54,121.81) and (339.8,137.7) .. (342.4,141.41) .. controls (342.65,141.78) and (342.11,142.23) .. (342.4,142.59) .. controls (343.19,143.6) and (348.73,150.24) .. (349.3,150.24) .. controls (349.89,150.24) and (350.22,148.71) .. (350.45,148.48) .. controls (351.31,147.6) and (353.08,147.01) .. (353.9,146.12) .. controls (358.78,140.86) and (365.72,126.33) .. (375.77,123.76) .. controls (377.62,123.28) and (380.65,124.53) .. (381.53,124.93) .. controls (390.97,129.28) and (404.44,136.04) .. (411.45,140.82) .. controls (412.02,141.21) and (418.4,144.33) .. (419.51,143.77) .. controls (420.49,143.26) and (420.36,140.26) .. (420.66,139.65) .. controls (423.43,133.98) and (427.14,127.35) .. (431.01,121.4) .. controls (431.78,120.23) and (435.35,112.42) .. (437.92,111.98) .. controls (441.24,111.42) and (464.99,123.88) .. (468.99,126.11) .. controls (469.91,126.62) and (477.97,130.7) .. (478.2,130.23) .. controls (480.1,126.34) and (483.88,122.7) .. (486.26,119.05) .. controls (487.8,116.69) and (489.02,115.2) .. (492.01,113.16) .. controls (495.19,111) and (496.55,107.31) .. (500.07,105.51) .. controls (501.7,104.67) and (506.6,109.83) .. (506.97,110.22) .. controls (512.77,116.15) and (517.87,120.45) .. (521.94,126.7) .. controls (523.15,128.56) and (527.72,135.53) .. (529.99,136.12) .. controls (534.16,137.18) and (536.61,130.08) .. (536.9,129.64) .. controls (539.65,125.41) and (545.07,114.28) .. (549.56,111.98) .. controls (549.73,111.89) and (553.72,111.28) .. (554.16,111.4) .. controls (556.53,112) and (566.13,118.7) .. (567.97,119.64) .. controls (569.29,120.31) and (568.03,121.99) .. (570,119.7) ;
+\draw [color=blue,draw opacity=1 ][line width=0.75] [line join = round][line cap = round]   (107.34,149.42) .. controls (111.43,147.84) and (119.65,150.67) .. (122.88,151.53) .. controls (125.07,152.12) and (128.63,155.31) .. (128.63,153.99) .. controls (128.63,152.6) and (126.67,151.72) .. (125.18,150.92) .. controls (116.37,146.21) and (111.21,139.9) .. (104.46,134.3) .. controls (102.6,132.76) and (101.39,131.02) .. (99.86,129.38) .. controls (99.09,128.56) and (96.02,127.33) .. (97.56,126.92) .. controls (104,125.2) and (110.64,130.16) .. (117.12,131.84) .. controls (124.24,133.69) and (131.8,135) .. (138.99,136.76) .. controls (141.33,137.34) and (144.07,137.64) .. (145.89,138.61) .. controls (146.28,138.81) and (146.87,139.5) .. (147.04,139.22) .. controls (148.26,137.27) and (143.98,133.28) .. (143.59,132.46) .. controls (143.13,131.46) and (142.44,109.4) .. (142.44,94.31) .. controls (148.02,93.45) and (154.26,98.39) .. (157.4,100.46) .. controls (169.39,108.35) and (175.9,114.22) .. (189.63,122) .. controls (190.64,122.57) and (198.83,126.3) .. (198.83,126.3) .. controls (198.83,126.3) and (199.87,124.52) .. (199.99,124.46) .. controls (201.96,123.4) and (205.42,121.16) .. (208.04,118.92) .. controls (214.66,113.26) and (224.37,105.88) .. (233.36,101.08) .. controls (238.57,98.29) and (244.49,95.88) .. (250.63,93.69) .. controls (250.85,93.61) and (256.31,90.01) .. (257.53,92.46) .. controls (249.47,108.22) and (240.13,126.85) .. (257.53,136.15) .. controls (259.87,137.4) and (268.21,131.71) .. (270.19,130.61) .. controls (271.26,130.02) and (306.85,103.41) .. (320.83,105.28) .. controls (323.13,124.7) and (324.28,134.7) .. (327.74,149.07) .. controls (328.49,149.48) and (333.19,143.37) .. (333.49,142.92) .. controls (337.84,136.41) and (343.14,116.4) .. (356.51,114.61) .. controls (361.38,113.96) and (363.98,117.8) .. (365.72,119.53) .. controls (372.54,126.37) and (376.68,133.2) .. (384.13,139.84) .. controls (384.72,140.37) and (394.38,146.38) .. (394.49,145.99) .. controls (397.89,133.27) and (393.69,116.03) .. (415.2,106.61) .. controls (418.23,105.29) and (420.97,107.41) .. (422.11,108.46) .. controls (429.85,115.6) and (435.53,123.33) .. (442.83,130.61) .. controls (444.94,132.72) and (447.05,134.85) .. (449.73,136.76) .. controls (451.53,138.05) and (455.78,141.37) .. (456.64,139.84) .. controls (462.35,129.66) and (460.41,106.44) .. (475.05,98.61) .. controls (476.89,97.63) and (490.97,116.21) .. (491.16,116.46) .. controls (496.74,123.41) and (502.81,134.99) .. (510.73,139.22) .. controls (513.02,140.45) and (517.32,134.36) .. (517.63,133.69) .. controls (521.11,126.26) and (522.83,108.39) .. (536.05,104.15) .. controls (539.37,103.09) and (544.52,109.23) .. (545.26,110.31) .. controls (549.09,115.94) and (552.42,121.4) .. (556.76,126.92) .. controls (558.98,129.73) and (558.49,133.38) .. (562.52,135.53) .. controls (562.79,135.68) and (563.55,135.73) .. (563.67,135.53) .. controls (566.03,131.74) and (565.27,127.37) .. (565.97,123.23) .. controls (566.25,121.58) and (567.12,119.96) .. (570,119.7) ;
+\draw  [color=blue,draw opacity=1 ][line width=0.75] [line join = round][line cap = round] (107.34,149.42) .. controls (120.31,144.12) and (127.71,143.06) .. (135.54,143.53) .. controls (136.49,143.59) and (155.1,145.89) .. (155.1,145.89) .. controls (155.1,145.89) and (150.5,142.75) .. (148.2,141.18) .. controls (138.43,134.52) and (133.66,127.57) .. (127.48,119.99) .. controls (126.76,119.1) and (120.53,114.71) .. (122.88,113.52) .. controls (124.9,112.48) and (128.74,114.44) .. (129.78,114.69) .. controls (154.53,120.8) and (158.04,121.66) .. (181.57,125.88) .. controls (184.14,126.33) and (186.17,127.05) .. (187.33,127.64) .. controls (187.33,127.64) and (189.58,128.4) .. (189.63,128.23) .. controls (192.62,117.53) and (199.23,110.36) .. (206.89,100.57) .. controls (209.4,97.36) and (212.79,92.84) .. (216.1,91.15) .. controls (216.48,90.95) and (217.08,90.3) .. (217.25,90.56) .. controls (224.91,102.32) and (221.7,119.76) .. (229.91,132.35) .. controls (230.25,132.87) and (232.19,131.19) .. (232.21,131.17) .. controls (234.73,128.96) and (237.2,126.72) .. (240.27,124.7) .. controls (247.73,119.79) and (257.64,115.74) .. (265.59,111.16) .. controls (270.91,108.1) and (271.48,108.28) .. (275.95,106.45) .. controls (277.56,105.79) and (281.33,104.24) .. (281.7,105.28) .. controls (286.25,118.07) and (281.47,131.74) .. (284,144.71) .. controls (284.17,145.58) and (285.2,143.03) .. (286.3,142.36) .. controls (291.69,139.05) and (297.38,135.86) .. (303.57,132.94) .. controls (307.4,131.13) and (311.8,129.64) .. (316.23,128.23) .. controls (318.28,127.57) and (322.36,125.88) .. (323.13,127.05) .. controls (327.35,133.53) and (330.12,142.22) .. (333.49,148.83) .. controls (333.56,148.97) and (334.31,151.94) .. (335.79,151.18) .. controls (337.05,150.54) and (336.61,148.39) .. (336.94,147.65) .. controls (338.22,144.87) and (340.14,142.18) .. (341.55,139.41) .. controls (345.66,131.35) and (350.65,120.03) .. (364.56,115.28) .. controls (364.63,115.26) and (369.6,121.48) .. (370.32,122.34) .. controls (374.25,127.03) and (379.95,131.66) .. (384.13,136.47) .. controls (385.6,138.16) and (388.66,145.57) .. (392.19,146.48) .. controls (392.53,146.56) and (393.07,146.61) .. (393.34,146.48) .. controls (394.32,145.97) and (392.21,145.51) .. (392.19,145.3) .. controls (391.83,142.56) and (392.47,139.8) .. (392.19,137.06) .. controls (391.72,132.58) and (386.88,124.83) .. (391.04,120.58) .. controls (391.06,120.55) and (399.03,124.08) .. (399.09,124.11) .. controls (403.66,126.45) and (411.72,130.76) .. (416.35,133.53) .. controls (420.37,135.92) and (424.33,138.49) .. (424.41,138.24) .. controls (427.05,130.13) and (426.81,125.4) .. (433.62,117.05) .. controls (434.94,115.43) and (436.32,113.8) .. (438.22,112.34) .. controls (439.58,111.29) and (442.76,108.89) .. (443.98,109.98) .. controls (449.64,115.05) and (454.05,121.15) .. (458.94,126.46) .. controls (459.82,127.42) and (460.21,128.49) .. (461.24,129.41) .. controls (461.78,129.89) and (463.06,131.08) .. (463.54,130.58) .. controls (464.83,129.26) and (464.29,123.98) .. (464.69,122.34) .. controls (466.02,116.89) and (470.5,110.52) .. (475.05,105.86) .. controls (476.38,104.51) and (485.17,97.27) .. (488.86,98.21) .. controls (491.5,98.89) and (492.83,106.26) .. (493.47,108.22) .. controls (495.6,114.77) and (499.71,121.76) .. (501.52,128.23) .. controls (502.14,130.43) and (501.41,135.24) .. (503.82,136.47) .. controls (504.67,136.9) and (508.8,127.85) .. (509.58,127.05) .. controls (515,121.51) and (517.12,111.91) .. (529.14,108.22) .. controls (532.25,107.26) and (532.04,110.24) .. (532.6,111.16) .. controls (534.26,113.89) and (535.84,116.63) .. (537.2,119.4) .. controls (540.3,125.74) and (543.16,132.06) .. (547.56,138.24) .. controls (547.62,138.32) and (551.56,134.61) .. (552.16,134.12) .. controls (552.17,134.1) and (569.42,119.87) .. (570,119.7) ;
+\draw [color=red,draw opacity=1 ][line width=0.75] [line join = round][line cap = round]   (107.34,149.42) .. controls (115.7,127.07) and (158,107.5) .. (157.91,12.84) .. controls (200,17.5) and (237,234.5) .. (265.58,237.92) .. controls (329,87.5) and (391,87.5) .. (415,61.5) .. controls (432,91.5) and (459.41,152.34) .. (471.91,167.84) .. controls (467,132.5) and (536.41,86.34) .. (536.91,88.09) .. controls (542,118.5) and (548.52,106.92) .. (554,113.5) .. controls (559.48,120.08) and (564.91,121.63) .. (570,119.7) ;
+\draw [color=red,draw opacity=1 ][line width=0.75] [line join = round][line cap = round]   (107.34,149.42) .. controls (108.91,149.09) and (166,142.5) .. (158.91,171.84) .. controls (243,178.5) and (279,61.5) .. (301.91,28.84) .. controls (302.33,29.33) and (373,278.5) .. (409.91,269.84) .. controls (449,254.5) and (457,101.5) .. (480.91,59.84) .. controls (521,64.5) and (549.67,164.67) .. (548.91,164.84) .. controls (549,164.67) and (569.09,130.36) .. (570,119.7) ;
+\draw [color=black,line width=1.5][line cap = round]    (107.34,149.42) .. controls (137.26,132.06) and (136.11,106.75) .. (184.45,104.39) .. controls (232.79,102.04) and (288.03,137.94) .. (324.86,139.71) .. controls (361.69,141.47) and (406.57,133.82) .. (435.34,119.11) .. controls (464.12,104.39) and (541.23,134.41) .. (570,119.7) ;
+\end{tikzpicture}
+\caption{The black line corresponds to the classical solution, $\phicl$. The blue lines describes the configurations which sum up coherently in the path integral, whereas red lines represent those configurations whose contributions to the path integral is suppressed by $Q(\chi)$ since they strongly deviate from the classical solution.}
+\label{fig:paths-localized-classical-solution}
+\end{figure}
+
+Notice that if such approximation holds, the soliton can be analized as a (extended) quantum mechanical particle localized around the classical solution. However, in order to give a complete QFT description, we should improve our description, in such a way that we are able to describe creation and annihilation of solitons. 
+
+\skipline
+
+Notice that in general each of the dominant classical configurations (blue lines in fig.~\ref{fig:paths-localized-classical-solution}) will not be associated to a specific solution of the equations of motion, because in different regions in the Euclidean space-time the field may be close to different local minima of the action, and we need to interpolate among them. For example, in our $\phi^4$ model in some regions $\phi$ may be close to the absolute minima $\phi_+$, in some other to the kink solution $\phi^S$. 
+
+In order to take into account this issue, we wish to find a set of classical configurations $\{\phi_i\}_{i\in I}$ and a partition $\{\consp_i\}_{i\in I}$ of the space $\consp$ of all configurations of $\phi$,\footnote{The space $\consp$ is very singular, for example in $\phi_2^4$ it may be $\schw'(\R^2)$.} with $\phi_i\in\consp_i$, such that\todo{Qui ho fatto delle modifiche poiché, se non vado errato, nella versione data in classe non veniva risolto il problema di configurazioni che interpolano tra più minimi dell'azione.}
+\begin{enumerate}[label=(\arabic*), start=0]
+	\item for each $\phi\in\consp$ and $i\in I$, expanding $\phi=\phi_i+\chi_i$ we can rewrite
+	\begin{eq}
+		S(\phi)=S(\phi_i)+Q_i(\chi_i)+R_i(\chi_i)
+	\end{eq}
+	with $Q_i(\chi_i)$ containing terms up to the second order in $\chi_i$ and $R_i(\chi_i)$ containing terms of higher order;
+	\item if $\phi\in\consp_i$ then $\vert e^{-R_i(\phi)}-1\vert\ll1$;
+	\item if $\phi\not\in\consp_i$ then $e^{-Q_i(\phi)}\ll1$ (i.e. $\phi$ strongly deviate from $\phi_i^\tcl$);
+	\item $\bigcup_i\consp_i$ is the configuration space of $\phi$;
+	\item $\consp_i\cap\consp_j=\emptyset$ for $i\neq j$.
+\end{enumerate}
+One should think at $\{\phi_i\}_{i\in I}$ as the union of all the classical solutions of equations of motion (vacuum configurations and local minima of the action) together with a set of ``inequivalent'' configurations which interpolate between different classical solutions. The meaning of ``inequivalent'' is specified by the above conditions. For instance, there may be a configuration $\phi_i$ which coincide with $\phi^S_+$ up to $x_0$ and coincide with $\phi^S_-$ for $x$ greater than $x_0$. Then using (1) and (2) we see that $R_i(\phi)$ is very close to zero if $\phi$ is close to $\phi_i$, and $e^{Q_i(\phi)}$ is almost zero if $\phi$ strongly deviates from $\phi_i$. The five properties together ensures that there are no other configurations $\phi_j\not\in\consp_i$ which are a slight deformation of $\phi_i$. 
+
+According to (3) and (4) we can defined a partition of unity
+\begin{eq}
+	1_\consp=\sum_i X_i(\phi)
+	\twith
+	X_i(\phi)=\begin{cases}
+		1\tif\phi\in\consp_i\\
+		0\tif\phi\not\in\consp_i
+	\end{cases}
+\end{eq}
+which can be inserted in the path integral obtaining an ``improved semi-classical approximation'':\footnote{Here we denote by $\int_{\consp_i-\phi}\pide\chi$ the integration over those configurations $\chi$ such that $\phi+\chi\in\consp_i$. The last step follows easily since $\consp$ contain all the possible configurations, hence $\consp-\phi=\consp$ for any $\phi$.}
+\begin{eq}\label{eq:improv-semiclass-approx}
+	\int_\consp\pide\phi\,e^{-S(\phi)}F(\phi)
+	&=\sum_{i\in I}\int_\consp\pide\phi\,e^{-S(\phi)}F(\phi)X_i(\phi)\\
+	&=\sum_{i\in I}\int_{\consp_i}\!\pide\phi\,e^{-S(\phi)}F(\phi)\\
+	&=\sum_{i\in I}\int_{\consp_i-\phi_i}\!\!\!\pide\chi_i\,e^{-S(\phi_i)-Q_i(\chi_i)-R_i(\chi_i)}F(\phi_i+\chi_i)\\
+	&\overset{(1)}{\approx}\sum_{i\in I}e^{-S(\phi_i)}\int_{\consp_i-\phi_i}\!\!\!\pide\chi_i\,e^{-Q_i(\chi_i)}F(\phi_i+\chi_i)\\
+	&\overset{(2)}{\approx}\sum_{i\in I}e^{-S(\phi_i)}\int_{\consp-\phi_i}\!\!\!\pide\chi_i\,e^{-Q_i(\chi_i)}F(\phi_i+\chi_i)\\
+	&=\sum_{i\in I}e^{-S(\phi_i)}\int_{\consp}\!\pide\chi_i\,e^{-Q_i(\chi_i)}F(\phi_i+\chi_i)\\
+\end{eq}
+Hence such approximation considers fluctuations around various possible local minima of the action, neglecting higher order contributions coming from the various $R_i(\chi_i)$'s. 
+
+\subsubsection{Defects in QFT}
+
+For a fixed configuration $\phi$ let $\Gamma$ be a region in the Euclidean space-time where the $\phi$ deviates strongly from the global minimum of the action (i.e. from the vacuum) but it is close to a local minimum (usually corresponding to a classical solution of the equations of motion). 
+If $\Gamma$ is connected it is said to be the support of a \emph{defect}.\footnote{The notion of defect comes from the study of crystals: a defect is an irregularity of the structure. Such irregularities usually create new energy levels, which have higher energy with respect to the ground state. Similarly, in QFT the notion of defect has been adapted, describing local minima of the action, disjointed from the global ones (the vacua).} 
+If the Euclidean space-time minus the support of the defect $\Gamma$ is contractible to the Euclidean space-time minus a $n$-dimensional manifold, then we call the defect a $n$-dimensional defect. In particular we can have a point defect, a line defect, etc. In mathematical language, $\Gamma$ is a point/line/surface/\ldots/n-dimensional defect if it is the tubular neighbourhood of a point/line/surface/\ldots/n-dimensional manifold. 
+
+In high energy language, sometimes one also use the word \emph{$p$-brane} for a $(p+1)$-dimensional defect, although often this terminology is deserved to cases in which the defect is strictly $(p+1)$-dimensional (without contracting its complement). 
+
+Notice that free theories has only one minimum, therefore in order to have defects we should consider interacting theories.
+
+\skipline
+
+For our $\phi_2^4$ theory the kink is a line defect. Indeed $\Gamma$ appears in the partition function when the field $\phi$ changes sign around a bounded region. The line where $\phi$ vanishes is called the \emph{locus of the defect} and is clearly a closed line. An example is shown in fig.~\ref{fig:defect}. 
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.7,xscale=0.7]
+\draw  [color=blue ,draw opacity=0.7 ][line width=6]  (197,110) .. controls (217,100) and (307,90) .. (287,110) .. controls (267,130) and (267,140) .. (287,170) .. controls (307,200) and (217,200) .. (197,170) .. controls (177,140) and (177,120) .. (197,110) -- cycle ;
+\draw  [color=black][line width=1] (197,110) .. controls (217,100) and (307,90) .. (287,110) .. controls (267,130) and (267,140) .. (287,170) .. controls (307,200) and (217,200) .. (197,170) .. controls (177,140) and (177,120) .. (197,110) -- cycle ;
+\draw   (127,50.33) -- (379.33,50.33) -- (356,220) -- (103.67,220) -- cycle ;
+\draw (234.67,130.07) node [anchor=north]   {$\phi< 0$};
+\draw (325.33,60.73) node [anchor=north]    {$\phi>0$};
+\draw (300,130) node [anchor=north][color=darkblue]   {$\Gamma$};
+\end{tikzpicture}
+\caption{The defect $\Gamma$ is represented by the blue thick line. The black line correspond to the locus of the defect, i.e. where $\phi=0$.}
+\label{fig:defect}
+\end{figure}
+
+For the classical kink discussed before in the quantum mechanical treatment, the locus of the defect is time independent and is parametrized by the modulus of the kink. A typical configuration of $\phi$ far away from the locus of the defect should be close to one of the two global minima $\phi_\pm$. Instead near the region $\phi=0$ typical configurations should be close to a kink, in order to maintain $S(\phi)$ close to a (local) minimum. 
+
+If the vacuum expectation value is positive, $\langle\phi\rangle>0$, which can be achieved by imposing $\phi_+$ boundary conditions at $\infty$, the situation is the one represented in fig.~\ref{fig:defects-positive-boundaries-conditions}. 
+
+\begin{figure}[h]
+\centering
+\tikzset{every picture/.style={line width=0.75pt}}  
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+
+\draw    [color=blue ,draw opacity=0.7 ][line width=6] (130,170) .. controls (150,160) and (240,150) .. (220,170) .. controls (200,190) and (200,200) .. (220,230) .. controls (240,260) and (150,260) .. (130,230) .. controls (110,200) and (110,180) .. (130,170) -- cycle ;
+\draw    [color=blue ,draw opacity=0.7 ][line width=6] (427.33,161) .. controls (449,131) and (451.67,158) .. (471,168) .. controls (490.33,178) and (514,181.67) .. (487.67,205.67) .. controls (461.33,229.67) and (447.33,251) .. (427.33,221) .. controls (407.33,191) and (405.67,191) .. (427.33,161) -- cycle ;
+\draw    [color=blue ,draw opacity=0.7 ][line width=6] (360.33,123.33) .. controls (380.33,113.33) and (400.67,105) .. (450.33,123.33) .. controls (500,141.67) and (582,179.67) .. (534.67,233.67) .. controls (487.33,287.67) and (333.33,234.33) .. (306.67,207.67) .. controls (280,181) and (340.33,133.33) .. (360.33,123.33) -- cycle ;
+\draw   [color=black][line width=1] (130,170) .. controls (150,160) and (240,150) .. (220,170) .. controls (200,190) and (200,200) .. (220,230) .. controls (240,260) and (150,260) .. (130,230) .. controls (110,200) and (110,180) .. (130,170) -- cycle ;
+\draw   [color=black][line width=1] (427.33,161) .. controls (449,131) and (451.67,158) .. (471,168) .. controls (490.33,178) and (514,181.67) .. (487.67,205.67) .. controls (461.33,229.67) and (447.33,251) .. (427.33,221) .. controls (407.33,191) and (405.67,191) .. (427.33,161) -- cycle ;
+\draw   [color=black][line width=1] (360.33,123.33) .. controls (380.33,113.33) and (400.67,105) .. (450.33,123.33) .. controls (500,141.67) and (582,179.67) .. (534.67,233.67) .. controls (487.33,287.67) and (333.33,234.33) .. (306.67,207.67) .. controls (280,181) and (340.33,133.33) .. (360.33,123.33) -- cycle ;
+
+\draw    (85.67,78.67) -- (567.67,78.67) -- (567.67,278.67) -- (85.67,278.67) -- cycle ;
+
+\draw (89.67,64) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (157.31,64) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (225.07,64) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (292.77,64) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (360.47,64) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (428.17,64) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (495.87,64) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (563.57,64) node [anchor=north west][inner sep=0.75pt]    {$+$};
+
+\draw (89.67,281.4) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (157.31,281.4) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (225.07,281.4) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (292.77,281.4) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (360.47,281.4) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (428.17,281.4) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (495.87,281.4) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (563.57,281.4) node [anchor=north west][inner sep=0.75pt]    {$+$};
+
+\draw (70,274.67) node [anchor= west][inner sep=0.75pt]    {$+$};
+\draw (70,226.67) node [anchor= west][inner sep=0.75pt]    {$+$};
+\draw (70,178.67) node [anchor= west][inner sep=0.75pt]    {$+$};
+\draw (70,130.67) node [anchor= west][inner sep=0.75pt]    {$+$};
+\draw (70,82.67) node [anchor= west][inner sep=0.75pt]    {$+$};
+
+\draw (574,274.67) node [anchor= west][inner sep=0.75pt]    {$+$};
+\draw (574,226.67) node [anchor= west][inner sep=0.75pt]    {$+$};
+\draw (574,178.67) node [anchor= west][inner sep=0.75pt]    {$+$};
+\draw (574,130.67) node [anchor= west][inner sep=0.75pt]    {$+$};
+\draw (574,82.67) node [anchor= west][inner sep=0.75pt]    {$+$};
+
+\draw (145.33,194.4) node [anchor=north west] {$\phi < 0$};
+\draw (335.67,181.07) node [anchor=north west] {$\phi < 0$};
+\draw (144,103.07) node [anchor=north west] {$\phi  >0$};
+\draw (432,183.07) node [anchor=north west] {$\phi  >0$};
+\draw (115,239.73) node [anchor=north west][color=darkblue] {$\Gamma _{1}$};
+\draw (338.67,237.4) node [anchor=north west][color=darkblue] {$\Gamma _{2}$};
+\draw (400,147) node [anchor=north west][color=darkblue] {$\Gamma _{3}$};
+
+\end{tikzpicture}
+\caption{Defects (blue lines) and their locus (black lines) in presence of $\langle\phi\rangle>0$ boundary conditions, in the finite volume regularization.}
+\label{fig:defects-positive-boundaries-conditions}
+\end{figure}
+
+In the lattice approximation (replacing $\phi^4$ by the Ising model) such defects are called \emph{Peierls contours}. 
+
+\skipline
+
+\todo{Qui ho un po reinterpretato perché non riuscivo a capire come $S(\Gamma_1,\ldots,\Gamma_N)$ fosse definito a partire dai defects, che sono regioni dello spazio tempo.}
+Let us consider again eq.~\eqref{eq:improv-semiclass-approx}. Notice that to each $\consp_i$ we can associate the defects $\Gamma_{i,1},\ldots,\Gamma_{i,n}$ appearing in the configurations $\phi\in\consp_i$. Then, we can consider 
+\begin{eq}
+	\int_{\consp_i-\phi_i}\pide\chi_i\,e^{-S(\phi_i)-Q_i(\chi_i)}
+\end{eq}
+as a Boltzmann weight of the \emph{gas of defects} $\{\Gamma_{i,1},\ldots,\Gamma_{i,N}\}$ appearing in the configurations of $\consp_i$. From such Boltzmann weight, we can define the action associated with the gas:
+\begin{eq}
+	S(\Gamma_{i,1},\ldots,\Gamma_{i,N})
+\end{eq}
+Similarly, we can define $S(\Gamma)$ by computing $\int\pide\phi\,e^{-S(\phi)}$ over all the configurations with support contained in $\Gamma$. 
+Notice that the same defect $\Gamma$ can be associated to different sets $\consp_j$, as in general classical configurations may interpolate between several local minima of the action, but each gas of defects $\{\Gamma_1,\ldots,\Gamma_N\}$ is uniquely associated to some $\consp_i$, for the same reasons which lead us to eq.~\eqref{eq:improv-semiclass-approx}. 
+
+We can now define the interaction between defects in the gas $\{\Gamma_1,\ldots,\Gamma_N\}$ as
+\begin{eq}
+	V(\Gamma_1,\ldots,\Gamma_N):=S(\Gamma_1,\ldots,\Gamma_N)-\sum_{k=1}^NS(\Gamma_k)
+\end{eq}
+One should notice that if the defects are separated enough each other, so that no configuration with non-zero measure interpolate between them, then $V(\Gamma_1,\ldots,\Gamma_N)=0$ and the defects do not interact among each other. 
+
+Finally, neglecting contributions coming from fluctuations around the vacuum, we get that in the ``improved semi-classical approximation'' the partition function of the system can be expressed as\todo{Qui ho modificato la formula data a lezione al fine di evitare di contare più volte il contributo dello stesso gas di defects.}
+\begin{eq}
+	\int_\consp\pide\phi\,e^{-S(\phi)}
+	&\approx\sum_{i\in I}e^{\displaystyle-S(\Gamma_{i,1},\ldots,\Gamma_{i,N})}\\
+	&=\sum_{i\in I}\underbrace{\prod_{k=1}^Ne^{\displaystyle-S(\Gamma_{i,k})}}_{\text{Non-interacting}\atop\text{gas of defects}}\,\underbrace{\vphantom{\prod_{k}}e^{\displaystyle-V(\Gamma_{i,1},\ldots,\Gamma_{i,N})}}_{\text{Interactions}\atop\text{among defects}}
+\end{eq}
+which can be interpreted as a partition function of the interacting gas of defects, which by construction have closed locus. 
+
+\skipline
+
+In the lattice line defects are close contours in the dual lattice, between sites in which the field $\phi$ has opposite sign, as shown in fig.~\ref{fig:defect-lattice-1} and fig.~\ref{fig:defect-lattice-2}. 
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[xscale=0.9,yscale=0.9]
+\draw (0,0) -- (3,0);
+\draw [color=blue ,draw opacity=0.7, line width=2, line cap = round](1.5,-1) -- (1.5,1);
+\draw (0,0) circle (2pt) node [anchor=south][inner sep=7pt]    {$\phi(i)>0$};
+\draw (0,0) circle (2pt)[fill=black] node [anchor=north][inner sep=5pt]    {$i$};
+\draw (3,0) circle (2pt) node [anchor=south][inner sep=7pt]    {$\phi(j)<0$};
+\draw (3,0) circle (2pt)[fill=black] node [anchor=north][inner sep=5pt]    {$j$};
+\end{tikzpicture}
+\caption{The elementary component (blue line) of a defect. Given a link in the lattice between two sites where $\phi$ has opposite sign, the defect is made by considering the orthogonal link in the dual lattice.}
+\label{fig:defect-lattice-1}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[xscale=0.7,yscale=0.7]
+\draw [color=blue ,draw opacity=0.7, line width=2, line cap = round, line join = round, rounded corners=2pt] (1.5,6.5) -- (4.5,6.5) -- (4.5,7.5) -- (1.5,7.5) -- cycle;
+\draw [color=blue ,draw opacity=0.7, line width=2, line cap = round, line join = round, rounded corners=2pt] (1.5,4.5) -- (2.5,4.5) -- (2.5,5.5) -- (1.5,5.5) -- cycle;
+\draw [color=blue ,draw opacity=0.7, line width=2, line cap = round, line join = round, rounded corners=2pt] (1.5,1.5) -- (3.5,1.5) -- (3.5,2.5) -- (2.5,2.5) -- (2.5,3.5) -- (1.5,3.5) -- cycle;
+\draw [color=blue ,draw opacity=0.7, line width=2, line cap = round, line join = round, rounded corners=2pt] (5.5,1.5) -- (7.5,1.5) -- (7.5,6.5) -- (6.5,6.5) -- (6.5,7.5) -- (5.5,7.5) -- (5.5,6.5) -- (4.5,6.5) -- (4.5,5.5) -- (3.5,5.5) -- (3.5,3.5) -- (4.5,3.5) -- (4.5,2.5) -- (5.5,2.5) -- cycle;
+\draw [color=blue ,draw opacity=0.7, line width=2, line cap = round, line join = round, rounded corners=2pt] (5.5,5.5) -- (6.5,5.5) -- (6.5,3.5) -- (5.5,3.5) -- cycle;
+\draw(1,1) node {$+$};\draw(2,1) node {$+$};\draw(3,1) node {$+$};\draw(4,1) node {$+$};\draw(5,1) node {$+$};\draw(6,1) node {$+$};\draw(7,1) node {$+$};\draw(8,1) node {$+$};
+\draw(1,2) node {$+$};\draw(2,2) node {$-$};\draw(3,2) node {$-$};\draw(4,2) node {$+$};\draw(5,2) node {$+$};\draw(6,2) node {$-$};\draw(7,2) node {$-$};\draw(8,2) node {$+$};
+\draw(1,3) node {$+$};\draw(2,3) node {$-$};\draw(3,3) node {$+$};\draw(4,3) node {$+$};\draw(5,3) node {$-$};\draw(6,3) node {$-$};\draw(7,3) node {$-$};\draw(8,3) node {$+$};
+\draw(1,4) node {$+$};\draw(2,4) node {$+$};\draw(3,4) node {$+$};\draw(4,4) node {$-$};\draw(5,4) node {$-$};\draw(6,4) node {$+$};\draw(7,4) node {$-$};\draw(8,4) node {$+$};
+\draw(1,5) node {$+$};\draw(2,5) node {$-$};\draw(3,5) node {$+$};\draw(4,5) node {$-$};\draw(5,5) node {$-$};\draw(6,5) node {$+$};\draw(7,5) node {$-$};\draw(8,5) node {$+$};
+\draw(1,6) node {$+$};\draw(2,6) node {$+$};\draw(3,6) node {$+$};\draw(4,6) node {$+$};\draw(5,6) node {$-$};\draw(6,6) node {$-$};\draw(7,6) node {$-$};\draw(8,6) node {$+$};
+\draw(1,7) node {$+$};\draw(2,7) node {$-$};\draw(3,7) node {$-$};\draw(4,7) node {$-$};\draw(5,7) node {$+$};\draw(6,7) node {$-$};\draw(7,7) node {$+$};\draw(8,7) node {$+$};
+\draw(1,8) node {$+$};\draw(2,8) node {$+$};\draw(3,8) node {$+$};\draw(4,8) node {$+$};\draw(5,8) node {$+$};\draw(6,8) node {$+$};\draw(7,8) node {$+$};\draw(8,8) node {$+$};
+\end{tikzpicture}
+\caption{The loci of the lattice are denoted by $+$ and $-$ depending on wether the field has positive or negative value on them. The blue lines represent defects which are supported in the dual lattice and are constructed according to fig.~\ref{fig:defect-lattice-1}.}
+\label{fig:defect-lattice-2}
+\end{figure}
+
+\subsubsection{Particle-antiparticle virtual pairs}
+
+Since the support of line defects locally looks like the world line of a particle, closed loops naturally correspond to particle-antiparticle virtual pairs.
+
+\tikzset{every picture/.style={line width=0.75pt}}   
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.8,xscale=0.8]
+\draw  [->]  (101,202) -- (101,85) ;
+\draw    (190.5,191) .. controls (160.91,171.11) and (160.97,113.12) .. (186.1,93.69) ;
+\draw [shift={(188.5,92)}, rotate = 507.53] [fill=black  ][line width=0.08]  (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+\draw    (188.5,92) .. controls (219.21,109.06) and (219.98,166.53) .. (192.66,189.32) ;
+\draw [shift={(190.5,191)}, rotate = 324] [fill=black  ][line width=0.08] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+\draw (143.5,172) node [anchor=north west][inner sep=0.75pt]  [rotate=90] [align=left] {particle};
+\draw (235.5,99) node [anchor=north west][inner sep=0.75pt]  [rotate=-90] [align=left] {antiparticle};
+\draw (80,90) node [anchor=north west][inner sep=0.75pt]    {$\tau $};
+\end{tikzpicture}
+\end{figure}
+
+A natural question is then how to construct quantum field operators creating and annihilating particles giving rise to the defects, as quantum particles. We first show that the Euclidean two-points function of a free massive field (we consider explicitly the case of $\phi_2^4$)
+\begin{eq}
+	\langle\phi(x)\phi(y)\rangle=(\Delta+m^2)^{-1}(x,y)
+\end{eq}
+can be written as a ``sum'' of open paths (worldlines) with boundaries $x,y$ with suitable Boltzmann weights, whereas the partition function of the same field can be written as a ``sum'' of closed paths (defects) with the same Boltzmann weights (but with different coefficients). 
+Actually, our description will be heuristic (with ill-defined measure in the path integral) but the same task can be done similarly in a formal way, using the Wigner measure. 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 15 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%% LECTURE 15 %%%%%%%%
+%%%%%%%% LECTURE 16 %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
