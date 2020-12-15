@@ -19,7 +19,7 @@ The original concept of topologically protected ``wave'' solitons has been later
 
 Since already classically solutions behaves as particles, one can naturally expect, correctly, that their quantized version provides a quantum particle, but as we will see later it is a peculiar one. 
 
-\subsection{Spontaneously broken symmetry}
+\section{Spontaneously broken symmetry}
 
 \cite[Chapter C.1]{Strocchi_1985}, \cite{Strocchi:2012}\\
 
@@ -87,13 +87,13 @@ Unfortunately sometimes one refers to SSB in the case in which the Hamiltonian i
 
 For field theories are basically equivalent from the practical point of view but for systems with finite degrees of freedom they are not. For instance consider a horizontal place where gravitational force applies in the vertical direction, and put a point particle at rest a point, then certainly this describes an equilibrium state. The Hamiltonian is invariant under horizontal space translations, nevertheless the equilibrium state is not, hence according to the latter definition the symmetry is spontaneously broken. On the other side, certainly this is not a SSB according to the first definition, because we can easily move to another equilibrium state by some physically allowed translation, since all the intermediate states are pure states of the system. 
 
-\section{Kinks}
+\chapter{Kinks}
 
 \cite[Chapter 2]{Shifman:2012}, \cite{Gousheh_2012}, \cite[Chapters 2,5,8]{Rajaraman:1982}\\
 
 The fist (topological) soliton that we consider is the \emph{kink} in $\phi^4_2$, i.e. the relativistic $\phi^4$ theory in 1+1 dimensions in the spontaneously broken phase. 
 
-\subsection{Classical treatment}
+\section{Classical treatment}
 
 The classical Hamiltonian we consider is on the real line $\R$, labelled by $x$, and if the system is described by a real scalar field $\phi(x,t)$ with conjugated momentum $\pi(x,t)$ (the dependence on time of the fields is understood) it reads
 \begin{eq}\label{eq:ham-kink}
@@ -294,7 +294,7 @@ Since (looking at the Hamiltonian) the theory is Lorentz invariant (on 1+1 dimen
 \end{eq}
 i.e. behaves like a particle with equation of motion $x=x_0+\textrm vt$.
 
-\subsection{Semi-classical treatment}
+\section{Semi-classical treatment}
 
 Up to now we just described the soliton at classical level. Let us turn to the quantum world. We first give a standard semi-classical (heuristic) Hamiltonian treatment, then we make some comments on a rigorous approach in the spirit of the reconstruction theorem previously discussed. 
 
@@ -542,7 +542,7 @@ which, by integration, give the mass one-loop correction
 \todo{Penso che il segno $-$ in $\delta\cenergy$ sia sbagliato, togliendolo il risultato cancella \eqref{eq:kink-div-bare-mass} visto che hanno segni opposti. }
 which is exactly the factor needed to cancel the divergence in the bare mass of $\chi$ in eq.~\eqref{eq:kink-div-bare-mass}. So the counterterm needed for the $\chi$ mass renormalization makes finite also the quantum correction (perturbatively) to the kink mass. 
 
-\subsection{Applications}
+\section{Applications}
 
 Before leaving the semi-classical treatment of the kink let us comment some physical applications. 
 
@@ -591,9 +591,9 @@ A kink interpolates between the two structures and in terms of the displacement 
 
 There are a lot of one-dimensional systems with $n$ ground states related by $\Z_n$ symmetry, spontaneously broken, which exhibits kinks interpolating between these ground states. 
 
-\subsection{Quantum field theory treatment}
+\section{Quantum field theory treatment}
 
-\cite{Marchetti:1986bda}, \cite{Marchetti:1987pz}, \cite{Frohlich:1987er}, \cite{Frohlich:1987gu}, \cite{Frohlich:1990tc}\\
+\cite{Frohlich:1987gu}, \cite{Frohlich:1990tc}, see also \cite{Marchetti:1986bda}, \cite{Marchetti:1987pz}, \cite{Frohlich:1987er}\\
 
 Up to now we have discussed classical and quantum mechanical treatment of kinks. What about a really QFT treatment?
 
@@ -882,8 +882,9 @@ Since the support of line defects locally looks like the world line of a particl
 \tikzset{every picture/.style={line width=0.75pt}}   
 \begin{figure}[H]
 \centering
+\tikzstyle{arrow} = [thick,->,>=stealth]
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.8,xscale=0.8]
-\draw  [->]  (101,202) -- (101,85) ;
+\draw  [arrow]  (101,202) -- (101,85) ;
 \draw    (190.5,191) .. controls (160.91,171.11) and (160.97,113.12) .. (186.1,93.69) ;
 \draw [shift={(188.5,92)}, rotate = 507.53] [fill=black  ][line width=0.08]  (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
 \draw    (188.5,92) .. controls (219.21,109.06) and (219.98,166.53) .. (192.66,189.32) ;
@@ -894,22 +895,419 @@ Since the support of line defects locally looks like the world line of a particl
 \end{tikzpicture}
 \end{figure}
 
-A natural question is then how to construct quantum field operators creating and annihilating particles giving rise to the defects, as quantum particles. We first show that the Euclidean two-points function of a free massive field (we consider explicitly the case of $\phi_2^4$)
-\begin{eq}
-	\langle\phi(x)\phi(y)\rangle=(\Delta+m^2)^{-1}(x,y)
+A natural question is then how to construct quantum field operators creating and annihilating particles giving rise to the defects, as quantum particles. We first show that the Euclidean two-points function of a free massive scalar field\footnote{The object $(-\Delta+m^2)^{-1}(x,y)$ is the kernel of the operator $(-\Delta+m^2)^{-1}$. If you are not familiar with the notion of the \emph{kernel of an integral operator} look at \url{https://encyclopediaofmath.org/wiki/Integral_operator} and \url{https://encyclopediaofmath.org/wiki/Kernel_of_an_integral_operator}.} 
+\begin{eq}\label{eq:two-point-func-open-closed-paths}
+	\langle\phi(x)\phi(y)\rangle=(-\Delta+m^2)^{-1}(x,y)
 \end{eq}
 can be written as a ``sum'' of open paths (worldlines) with boundaries $x,y$ with suitable Boltzmann weights, whereas the partition function of the same field can be written as a ``sum'' of closed paths (defects) with the same Boltzmann weights (but with different coefficients). 
 Actually, our description will be heuristic (with ill-defined measure in the path integral) but the same task can be done similarly in a formal way, using the Wigner measure. 
+
+In some sense we can go from partition functions to correlation functions ``opening'' the closed paths of the partition function in such a way that their boundaries correspond to the position of the insertion of the fields in the correlator in the Euclidean space-time. 
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% LECTURE 15 %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 
+Let us consider a massive scalar free field with two points function eq.~\eqref{eq:two-point-func-open-closed-paths}. 
+From the reconstruction theorem, if $\ophi(\vec x)$ is the time-0 quantum field ``operator'', $\ophi(x^0,\vec x)=e^{x^0H}\ophi(\vec x)e^{-x^0H}$ is the field operator, $H$ is the Hamiltonian and $\ket\Omega$ is the vacuum, then for $x^0<y^0$, then
+\begin{eq}
+	\langle\phi(x)\phi(y)\rangle=\bra\Omega\ophi(x^0,\vec x)\ophi(y^0,\vec y)\ket\Omega
+\end{eq}
+We can also write 
+\begin{eq}
+	(-\Delta+m^2)^{-1}(x,y)=\int_0^\infty\de s\,\left(e^{-s(-\Delta+m^2)}\right)(x,y)=\int_0^\infty\de s\,e^{-sm^2}e^{s\Delta }(x,y)
+\end{eq}
+where $e^{s\Delta }(x,y)$ is the Euclidean analogue of the kernel of the (real) time evolution $e^{-itH}$ for $H=\Delta$
+\begin{eq}
+	\left(e^{-itH}\psi\right)(x)=\int\de y\left(e^{-itH}\right)(x,y)\psi(y)
+\end{eq}
+We know that the above kernel can be represented in terms of a path integral
+\begin{eq}
+	\left(e^{-is\Delta}\right)(x,y)=\!\!\!\underset{\text{\footnotesize $q(0)=x$}\atop \text{\footnotesize $q(s)=y$}}\int\!\!\!\pide q(t)\,e^{\displaystyle \,  i\text{\footnotesize$\int_0^s$}\de t\,\dot q(t)/4}
+\end{eq}
+which implies
+\begin{eq}
+	\left(e^{s\Delta}\right)(x,y)=\!\!\!\underset{\text{\footnotesize $q(0)=x$}\atop \text{\footnotesize $q(s)=y$}}\int\!\!\!\pide q(t)\,e^{\displaystyle \,  -\text{\footnotesize$\int_0^s$}\de t\,\dot q(t)/4}
+\end{eq}
+so that finally
+\begin{eq}
+	\langle\phi(x)\phi(y)\rangle=\int_0^\infty\!\de s\,\!\!\!\underset{\text{\footnotesize $q(0)=x$}\atop \text{\footnotesize $q(s)=y$}}\int\!\!\!\pide q(t)\,\underbrace{\vphantom{\int}e^{\displaystyle \, -sm^2 -\text{\footnotesize$\int_0^s$}\de t\,\dot q(t)/4}}_{\text{Boltzmann weight}}
+\end{eq}
+that is, we expressed the two points function as a weighted ``sum'' over trajectories with boundary points $x$ and $y$.
 
+Analogously, for the partition function\footnote{In the third line we wrote, instead of the operator $\log(-\Delta+m^2)^{-1}$, its kernel.}\todo{Non mi è molto chiaro il terzo passaggio, penso derivi da qualche proprietà degli operatori integrali. }
+\begin{eq}
+	Z&={\det}^{-1}(-\Delta+m^2)\\
+	&=\exp(\Tr\log(-\Delta+m^2)^{-1})\\
+	&=\exp\Tr\left[\int_0^\infty\frac{\de s}s\,e^{-sm^2}e^{s\Delta }(x,y)\right]\\
+	&=\exp\left[\int\de^{d+1}x\int_0^\infty\frac{\de s}s\,e^{-sm^2}e^{s\Delta }(x,x)\right]\\
+	&=\exp\left[\int\de^{d+1}x\int_0^\infty\frac{\de s}s\,e^{-sm^2}\smash{\!\!\!\underset{\text{\footnotesize $q(0)=q(s)=x$}}\int\!\!\!\!\pide q(t)\,e^{\displaystyle \,  -\text{\footnotesize$\int_0^s$}\de t\,\dot q(t)/4}}\ \right]\\[1em]
+	&=\sum_{n=0}^\infty\frac1{n!}\left[\int\de^{d+1}x\int_0^\infty\frac{\de s}s\,\smash{\!\!\!\underset{\text{\footnotesize $q(0)=q(s)=x$}}\int\!\!\!\!\pide q(t)\,\underbrace{\vphantom{\int}e^{\displaystyle \,  -sm^2-\text{\footnotesize$\int_0^s$}\de t\,\dot q(t)/4}}_{\text{Boltzmann weight}}}\ \right]^n\\[2em]
+\end{eq}
+Hence $Z$ can be written as a weighted ``sum'' over closed paths, with the same weights as before. 
 
+\skipline
 
+Knowing the structure of the Boltzmann weight in the partition function, then the basic idea is to recover the two points function ``opening' the paths used in $Z$ in such a way that boundaries of the resulting lines coincides with points in the two points function. 
 
+Let us now turn to the description of kinks. As we have seen the partition function of $\phi_2^4$ in the broken symmetry phase can be written as a sum over closed line defects ``associated to kinks'', whose locus is the region of spacetime where $\phi$ changes sign. This suggests that the Green function of a quantum field kink operator can be constructed if we are able to introduce open line defects whose locus have boundary at the points of the insertion of the kink operator. 
 
+As in the previous example with the $\phi$ operator, the crucial point is that, although the correlation function is written in terms of (also\footnote{In the previous case we have seen that the correlation function can be written in terms of open line defects, but this is not completely true in genera, and different defects should be taken into account.}) open line defects, it should depend only on the boundary points of the locus of these defects. 
+
+\subsubsection{Construction of the 2-points correlation functions for the kink}
+
+In the following we will sketch the procedure to ``open'' the defects for the kinks in $\phi_2^4$ in the case of the 2-points function. In general the complete procedure is not so easy. 
+
+Let $x_1,x_2$ be the Euclidean spacetime points of the kink operator insertion, i.e. the points of the kink correlation function. Let $\gamma$ be a path with boundary points $x_1$ and $x_2$. Define the ``parallel transporter'' of $\gamma$ along an arbitrary path $\omega$ in $\R^2\setminus\{x_1,x_2\}$ by
+\begin{eq}\label{eq:parall-transp-kink}
+	U(\omega\vert\gamma):=(-1)^{I(\omega,\gamma)}
+\end{eq}
+where
+\begin{eq}
+	I(\omega,\gamma)=\text{number of intersections between $\omega$ and $\gamma$}
+\end{eq}
+This allow us to define a covariant derivative of $\phi$: let $e_\mu$ be the unit vector in the $\mu=0,1$ directions, then the covariant derivative is defined by
+\begin{eq}\label{eq:cov-der-path-kink}
+	\nabla_\mu^\gamma\phi(x)=\lim_{\epsilon\to0}\frac1\epsilon\left[\phi\left(x+\frac\epsilon2e_\mu\right)-U\left(\langle x-\frac\epsilon2e_\mu,x+\frac\epsilon2e_\mu\rangle\vert\gamma\right)\phi\left(x-\frac\epsilon2e_\mu\right)\right]
+\end{eq}
+where $\langle p,q\rangle$ denotes the straight line connecting $p$ and $q$. Look at fig.~\ref{fig.cov-der-kink} for a representation of such construction.
+
+\begin{figure}[h]
+\centering
+\tikzset{every picture/.style={line width=0.75pt}} 
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.8,xscale=0.8]
+\clip (50,60) rectangle + (420,180);
+\draw    (84,206.5) .. controls (192,247.5) and (274,210.5) .. (250,170) .. controls (226,129.5) and (289,56.5) .. (302,91.5) .. controls (315,126.5) and (257,274.5) .. (301,225.5) .. controls (345,176.5) and (357,199.5) .. (393,217.5) ;
+\draw    [color=red](190,170) -- (310,170) ;
+\draw (190,170) circle (2pt)[fill=black] ;
+\draw (250,170) circle (2pt)[fill=black] ;
+\draw (310,170) circle (2pt)[fill=black] ;
+\draw (282,62) node [anchor=north west][inner sep=0.75pt]    {$\gamma $};
+\draw (235.4,175) node [anchor=north west][inner sep=0.75pt]    {$x$};
+\draw (122.6,150) node [anchor=north west][inner sep=0.75pt]    {$x-\frac{\epsilon }{2} e_{1}$};
+\draw (320,150) node [anchor=north west][inner sep=0.75pt]    {$x+\frac{\epsilon }{2} e_{1}$};
+\draw (62,192) node [anchor=north west][inner sep=0.75pt]    {$x_1$};
+\draw (395,219.5) node [anchor=north west][inner sep=0.75pt]    {$x_2$};
+\end{tikzpicture}
+\caption{Construction of the covariant derivative $\nabla_\mu^\gamma\phi(x)$ in eq.~\eqref{eq:cov-der-path-kink}, where the black line is the path $\gamma$ and the red one is the line $\langle x-\frac\epsilon2e_\mu,x+\frac\epsilon2e_\mu\rangle$. In this case $I\left(\langle x-\frac\epsilon2e_\mu,x+\frac\epsilon2e_\mu\rangle,\gamma\right)=2$. The field $\phi$ computed at $x-\frac{\epsilon }{2} e_{1}$ is parallel transported using eq.~\eqref{eq:parall-transp-kink} along the red line to the final point $x+\frac{\epsilon }{2} e_{1}$ and then compared with $\phi$ evaluated at the same point. The resulting infinitesimal variation determines the value of $\nabla_\mu^\gamma\phi(x)$.}
+\label{fig.cov-der-kink}
+\end{figure}
+
+From fig.~\ref{fig.cov-der-kink} one can see that if $\gamma$ does not intersect itself in $x$, then taking $\epsilon$ arbitrarily small eventually $I\left(\langle x-\frac\epsilon2e_\mu,x+\frac\epsilon2e_\mu\rangle,\gamma\right)=1$. If $\phi$ is regular then
+\begin{eq}	
+	\lim_{\epsilon\to0}\frac{\phi\left(x+\frac\epsilon2e_\mu\right)+\phi\left(x-\frac\epsilon2e_\mu\right)}\epsilon\sim\lim_{\epsilon\to0}\frac{2\phi(x)}\epsilon
+\end{eq}
+and the existence of $\nabla_\mu^\gamma\phi(x)$ implies that $\phi$ vanishes on $x$, as otherwise $\lim_{\epsilon\to0}\frac{2\phi(x)}\epsilon$ diverges. 
+Hence, the introduction of the parallel transporter $U(\omega|\gamma)$ creates the locus of an open line defect on the regular curve $\gamma$, provided that $\gamma$ does not intersect itself. In the following we always assume that $\gamma$ do not intersect itself.
+Notice that this is not restrictive, indeed any loop in $\gamma$ describes a closed defect, hence we can decompose $\gamma$ as the union of open and closed defects. 
+
+\skipline
+
+We define the modified action introducing the parallel transporter in the original one
+\begin{eq}
+	S_\gamma(\phi)=\int\de^2x\,\vert\nabla^\gamma\phi\vert^2+\frac{g^2}4(\phi^2-v^2)^2
+\end{eq}
+and the two-points function\footnote{Using terminology of fibre bundle theory, the integration in the numerator $\int\pide\phi\,e^{-S_\gamma(\phi)}$ is performed over section distributions of a $\Z_2$ bundle over $\R^2\setminus\{x,y\}$ with holonomy $-1$ around $x$ and $y$.}
+\begin{eq}\label{eq:two-points-function-kink}
+	\langle s(x)s(y)\rangle:=\left(\frac{\displaystyle\int\pide\phi\,e^{-S_\gamma(\phi)}}{\displaystyle\int\pide\phi\,e^{-S(\phi)}}\right)_{\text{ren}}
+\end{eq}
+where $\gamma$ is a regular curve connecting $x$ and $y$ and $(\dots)_{\text{ren}}$ denotes a suitable renormalization. 
+
+We can represent $\langle s(x)s(y)\rangle$ in terms of defects, such representation in fact contains an open line defect with boundary of its locus $x$ and $y$. Typical configurations of the defects would be of the form shown in fig.~\ref{fig:open-closed-defects-kink}. 
+
+\begin{figure}[h]
+\centering
+\tikzset{every picture/.style={line width=0.75pt}}     
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.9,xscale=0.9]
+\draw   (10.5,78.5) -- (399.67,78.5) -- (399.67,292) -- (10.5,292) -- cycle ;
+\draw [color=blue ,draw opacity=0.7 ][line width=6] (48.67,194.33) .. controls (68.67,184.33) and (158.67,174.33) .. (138.67,194.33) .. controls (118.67,214.33) and (118.67,224.33) .. (138.67,254.33) .. controls (158.67,284.33) and (68.67,284.33) .. (48.67,254.33) .. controls (28.67,224.33) and (28.67,204.33) .. (48.67,194.33) -- cycle ;
+\draw   [color=blue ,draw opacity=0.7 ][line width=6, line cap = round] (89,227.33) .. controls (129,197.33) and (116,150.33) .. (156,120.33) .. controls (196,90.33) and (206,125.67) .. (231,100.67) ;
+\draw  [color=blue ,draw opacity=0.7 ][line width=6] (227.33,147.67) .. controls (247.33,137.67) and (264.33,200.67) .. (330.33,158.67) .. controls (396.33,116.67) and (373.67,234) .. (347,245.33) .. controls (320.33,256.67) and (247.33,237.67) .. (227.33,207.67) .. controls (207.33,177.67) and (207.33,157.67) .. (227.33,147.67) -- cycle ;
+\draw   (48.67,194.33) .. controls (68.67,184.33) and (158.67,174.33) .. (138.67,194.33) .. controls (118.67,214.33) and (118.67,224.33) .. (138.67,254.33) .. controls (158.67,284.33) and (68.67,284.33) .. (48.67,254.33) .. controls (28.67,224.33) and (28.67,204.33) .. (48.67,194.33) -- cycle ;
+\draw    (89,227.33) .. controls (129,197.33) and (116,150.33) .. (156,120.33) .. controls (196,90.33) and (206,125.67) .. (231,100.67) ;
+\draw   (227.33,147.67) .. controls (247.33,137.67) and (264.33,200.67) .. (330.33,158.67) .. controls (396.33,116.67) and (373.67,234) .. (347,245.33) .. controls (320.33,256.67) and (247.33,237.67) .. (227.33,207.67) .. controls (207.33,177.67) and (207.33,157.67) .. (227.33,147.67) -- cycle ;
+
+\draw (82,111.4) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (247.33,253.4) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (308.67,106.07) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (170,131.4) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (172.67,205.4) node [anchor=north west][inner sep=0.75pt]    {$+$};
+\draw (109.33,247.4) node [anchor=north west][inner sep=0.75pt]    {$-$};
+\draw (64.67,192.07) node [anchor=north west][inner sep=0.75pt]    {$-$};
+\draw (300.67,198.73) node [anchor=north west][inner sep=0.75pt]    {$-$};
+
+\draw (160,89.07) node [anchor=north west][inner sep=0.75pt]    {$\gamma $};
+\draw (72.67,222.73) node [anchor=north west][inner sep=0.75pt]    {$x$};
+\draw (234.67,84.73) node [anchor=north west][inner sep=0.75pt]    {$y$};
+
+\end{tikzpicture}
+\caption{Open and closed defects with their loci in the spacetime. The open defect is generated by the curve $\gamma$, connecting $x$ and $y$.}
+\label{fig:open-closed-defects-kink}
+\end{figure}
+
+A crucial point is to prove that $\langle s(x)s(y)\rangle$ in eq.~\eqref{eq:two-points-function-kink} depends only on $x$ and $y$ and not on $\gamma$ itself. This is a consequence of the $\Z_2$ gauge invariance, where the $\Z_2$-gauge transformations are defined as follows. Given a partition of $\R^2$ into two disjoint subsets $B$ and $B^C$ define the gauge transformation
+\begin{eq}
+	\big(\xi_B\phi\big)(x)=\begin{cases}
+		-\phi(x)\tif x\in B\\
+		+\phi(x)\tif x\in B^C
+	\end{cases}
+	\tand
+	\xi_B\gamma=\gamma\cup\partial B
+\end{eq}
+where $\partial B$ is the boundary of the region $B$, moreover since $\partial B$ is necessarily closed, then $\partial(\xi_B\gamma)=\partial\gamma$. Notice that if the intersection of $\gamma$ and $\partial B$ is non-empty, then we should either consider two times the overlapping piece of neglect it in $\xi_B\gamma$ depending on whether the orientations of $\gamma$ and $\partial B$ are in the same direction or in opposite directions, similarly to what happens in the case of simplicial homology.  
+
+Then is simple to prove that 
+\begin{eq}
+	\nabla^{\xi_B\gamma}(\xi_B\phi)=\xi_B(\nabla^\gamma\phi)
+\end{eq}
+and
+\begin{eq}
+	(\xi_B\phi)^{2n}=\phi^{2n}
+\end{eq}
+therefore
+\begin{eq}
+	S^{\xi_B\gamma}(\xi_B\phi)=S^\gamma(\phi)
+\end{eq}
+Furthermore, we clearly have
+\begin{eq}
+	\pide\phi=\pide(\xi_B\phi)
+\end{eq}
+provided that $B$ is compact.
+
+Since we can deform arbitrarily $\gamma$ acting on it with several $\Z_2$-transformations with different choices of $B$, provided that $x$ and $y$ are fixed (indeed $\partial(\xi_B\gamma)=\partial\gamma$ implies that $x$ and $y$ cannot change under $\xi_B$), then the invariance of $S^\gamma$ and $\pide\phi$ under $\xi_B$ implies that eq.~\eqref{eq:two-points-function-kink} depends only on $x$ and $y$ and not on $\gamma$, as desired. 
+
+\subsubsection{The reconstruction of the kink operator}
+
+One can prove that a natural generalization of the above construction of the correlator for an arbitrary even number of points (correlators of an odd number of points are set to zero) satisfy the OS axioms, hence we can reconstruct a quantum kink field operator $\op s(x)$ which create and destroy kinks, such that
+\begin{eq}
+	\bra\Omega\op s(\vec x)e^{-(x^0-y^0)H}\op s(\vec y)\ket\Omega=\langle s(x) s(y)\rangle
+\end{eq}
+
+\subsubsection{The insertion of the meson field - The dual algebra}
+
+Notice that up to now we only considered the QFT description of the soliton, but in our theory we can also describe the creation and the annihilation of particles associated to the original scalar field, not in the broken symmetry phase, i.e. the mesons. The QFT description of such particles is just the usual $\phi_4$ theory, and we can describe the associated operators without any difficulty computing the correlation functions in the Euclidean spacetime satisfying OS axioms. However describing a theory involving both kinks and mesons is more involved. 
+
+First of all, notice that the field $\phi(x)$ is not $\Z_2$-gauge invariant, however we can define a new field
+\begin{eq}
+	\phi_\gamma(x):=\phi(x)\,U(\omega_x\vert\gamma)
+\end{eq}
+ where $\omega_x$ is a straight line at constant Euclidean time from $x$ to $+\infty$, as shown in fig.~\ref{fig:omega_x}, which is $\Z_2$-gauge invariant. 
+
+\begin{figure}[h]
+\centering
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\begin{tikzpicture}[xscale=0.5,yscale=0.5]
+\draw [arrow] (0,0.5) -- (0,4.5);
+\draw (2,2) -- (8,2);
+\draw (8.2,2) -- (8.4,2);
+\draw (8.6,2) -- (8.8,2);
+\draw (-0.1,2) -- (0.1,2);
+\draw (2,2) circle (2pt)[fill=black] ;
+\draw (2,2.6) node {$x$};
+\draw (9.8,2) node {$+\infty$};
+\draw (7,1.5) node {$\omega_x$};
+\draw (-0.5,4.3) node {$\tau$};
+\draw (-0.5,2) node {$x^0$};
+\end{tikzpicture}
+\caption{Representation of the line $\omega_x$.}
+\label{fig:omega_x}
+\end{figure}
+
+With the insertion of $\phi_\gamma(x)$ the correlation functions
+\begin{eq}
+	\langle s(x)s(y)\phi(z)\phi(w)\rangle=\frac{\int\pide\phi\,e^{-S_\gamma(\phi)}\phi_\gamma(z)\phi_\gamma(w)}{\int\pide\phi\,e^{-s_\gamma(\phi)}}
+\end{eq}
+with $\gamma$ line from $x$ to $y$, satisfy OS axioms except for the symmetry property between kink and meson insertions, which means that the quantum field $\ophi( x)$ and $\op s(z)$ are not relatively local. 
+
+However it is easy to see that if we consider the insertion of the kink at $x^{\pm\epsilon}=(x^0=\pm\epsilon,x^1)$ and the insertion of the meson at $y=(y^0=0,t^1)$ and we denote by\footnote{The first $2n$ variables denotes the boundaries of $n$ curves $\gamma_1,\ldots,\gamma_n$, describing the solitons, and the last $m$ variables denotes the insertion points of the $m$ mesons.} $S^{2n,m}(x_1,\ldots,x_{2n};y_1,\ldots,y_m)$ the Schwinger functions for $2n$ kinks and $m$ mesons we get
+\begin{eq}\label{eq:schwinger-dual-algebra-kink}
+	\lim_{\epsilon\to0}S^{2n,m}(\ldots,x^\epsilon;y,\ldots)=\lim_{\epsilon\to0}(-1)^{\theta(x^1-y^1)}S^{2n,m}(\ldots,x^{-\epsilon};y,\ldots)
+\end{eq}
+so that the reconstructed fields satisfy a new commutation relation called \emph{dual algebra}\footnote{Such new algebra appeared for the first time in \cite{Frohlich1976}.}
+\begin{eq}\label{eq:dual-algebra}
+	\op s(x^1)\ophi(y^1)=(-1)^{\theta(x^1-y^1)}\ophi(y^1)\op s(x^1)
+\end{eq}
+where $\theta$ is the Heaviside step function, proving that among fields of a relativistic QFT are possible also such ``strange'' commutation relations in presence of solitons. 
+
+Let us motivate eq.~\eqref{eq:schwinger-dual-algebra-kink} at least graphically. We start from the case $x^1>y^1$. If we first insert a kink in $x^\epsilon$ and a meson at
+$y$, the situation is the following 
+
+\vspace{-0.5cm}
+\begin{figure}[H]
+\centering
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\begin{tikzpicture}[xscale=0.5,yscale=0.5]
+\clip (-1,0) rectangle + (12.5,5);
+\draw [arrow] (0,0) -- (0,4.5);
+\draw (2,2) -- (8,2);
+\draw (8.2,2) -- (8.4,2);
+\draw (8.6,2) -- (8.8,2);
+\draw (-0.1,2) -- (0.1,2);
+\draw (-0.1,2.7) -- (0.1,2.7);
+\draw (2,2) circle (2pt)[fill=black] ;
+\draw (4,2.7) circle (2pt)[fill=black] ;
+\draw (2,2.6) node {$y$};
+\draw (9.8,2) node {$+\infty$};
+\draw (7,1.5) node {$\omega_{y}$};
+\draw (-0.5,4.3) node {$\tau$};
+\draw (-0.5,2) node {$0$};
+\draw (-0.5,2.7) node {$\epsilon$};
+\draw (4.5,3.3) node {$x^{\epsilon}$};
+\end{tikzpicture}
+\end{figure}
+\vspace{-0.3cm}
+
+whereas, inserting the kink in $x^{-\epsilon}$ we get
+
+\begin{figure}[H]
+\centering
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\begin{tikzpicture}[xscale=0.5,yscale=0.5]
+\clip (-1,0) rectangle + (12.5,5);
+\draw [arrow] (0,0) -- (0,4.5);
+\draw (2,2) -- (8,2);
+\draw (8.2,2) -- (8.4,2);
+\draw (8.6,2) -- (8.8,2);
+\draw (-0.1,2) -- (0.1,2);
+\draw (-0.1,1.3) -- (0.1,1.3);
+\draw (2,2) circle (2pt)[fill=black] ;
+\draw (4,1.3) circle (2pt)[fill=black] ;
+\draw (2,2.6) node {$y$};
+\draw (9.8,2) node {$+\infty$};
+\draw (7,1.5) node {$\omega_{y}$};
+\draw (-0.5,4.3) node {$\tau$};
+\draw (-0.5,2) node {$0$};
+\draw (-0.7,1.3) node {$-\epsilon$};
+\draw (5,1.5) node {$x^{-\epsilon}$};
+\end{tikzpicture}
+\end{figure}
+
+Now we have to fix the second boundary point for the open defect of the kink, and suppose without loss of generality that such point has time coordinate smaller than 0. Then the we get
+
+\begin{figure}[H]
+\centering
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\begin{tikzpicture}[xscale=0.5,yscale=0.5]
+\clip (-1,0) rectangle + (12.5,5);
+\draw [arrow] (0,0) -- (0,4.5);
+\draw (2,2) -- (8,2);
+\draw (8.2,2) -- (8.4,2);
+\draw (8.6,2) -- (8.8,2);
+\draw (-0.1,2) -- (0.1,2);
+\draw (-0.1,2.7) -- (0.1,2.7);
+\draw (4,2.7) -- (4,0.8);
+\draw (4,0.6) -- (4,0.4);
+\draw (4,0.2) -- (4,0);
+\draw (2,2) circle (2pt)[fill=black] ;
+\draw (4,2.7) circle (2pt)[fill=black] ;
+\draw (2,2.6) node {$y$};
+\draw (9.8,2) node {$+\infty$};
+\draw (7,1.5) node {$\omega_{y}$};
+\draw (-0.5,4.3) node {$\tau$};
+\draw (-0.5,2) node {$0$};
+\draw (-0.5,2.7) node {$\epsilon$};
+\draw (4.5,3.3) node {$x^{\epsilon}$};
+\draw (3.5,1) node {$\gamma$};
+\end{tikzpicture}
+\end{figure}
+
+and
+
+\begin{figure}[H]
+\centering
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\begin{tikzpicture}[xscale=0.5,yscale=0.5]
+\clip (-1,0) rectangle + (12.5,5);
+\draw [arrow] (0,0) -- (0,4.5);
+\draw (2,2) -- (8,2);
+\draw (8.2,2) -- (8.4,2);
+\draw (8.6,2) -- (8.8,2);
+\draw (-0.1,2) -- (0.1,2);
+\draw (-0.1,1.3) -- (0.1,1.3);
+\draw (4,1.3) -- (4,0.8);
+\draw (4,0.6) -- (4,0.4);
+\draw (4,0.2) -- (4,0);
+\draw (2,2) circle (2pt)[fill=black] ;
+\draw (4,1.3) circle (2pt)[fill=black] ;
+\draw (2,2.6) node {$y$};
+\draw (9.8,2) node {$+\infty$};
+\draw (7,1.5) node {$\omega_{y}$};
+\draw (-0.5,4.3) node {$\tau$};
+\draw (-0.5,2) node {$0$};
+\draw (-0.7,1.3) node {$-\epsilon$};
+\draw (5,1.5) node {$x^{-\epsilon}$};
+\draw (3.5,0.8) node {$\gamma$};
+\end{tikzpicture}
+\end{figure}
+
+so that in the first case $U(\omega_y\vert\gamma)=-1$ whereas in the second one $U(\omega_y\vert\gamma)=1$. Taking the limit $\epsilon\to0$ this implies (see the references) eq.~\eqref{eq:schwinger-dual-algebra-kink} in the case $x^1>y^1$. Instead, in the case $x^1<y^1$, the situation in the following: 
+
+\begin{figure}[H]
+\centering
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\begin{tikzpicture}[xscale=0.5,yscale=0.5]
+\clip (-1,0) rectangle + (12.5,5);
+\draw [arrow] (0,0) -- (0,4.5);
+\draw (4,2) -- (8,2);
+\draw (8.2,2) -- (8.4,2);
+\draw (8.6,2) -- (8.8,2);
+\draw (-0.1,2) -- (0.1,2);
+\draw (-0.1,2.7) -- (0.1,2.7);
+\draw (2,2.7) -- (2,0.8);
+\draw (2,0.6) -- (2,0.4);
+\draw (2,0.2) -- (2,0);
+\draw (4,2) circle (2pt)[fill=black] ;
+\draw (2,2.7) circle (2pt)[fill=black] ;
+\draw (4,2.6) node {$y$};
+\draw (9.8,2) node {$+\infty$};
+\draw (7,1.5) node {$\omega_{y}$};
+\draw (-0.5,4.3) node {$\tau$};
+\draw (-0.5,2) node {$0$};
+\draw (-0.5,2.7) node {$\epsilon$};
+\draw (2.5,3.3) node {$x^{\epsilon}$};
+\draw (1.5,1) node {$\gamma$};
+\end{tikzpicture}
+\end{figure}
+
+and
+
+\begin{figure}[H]
+\centering
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\begin{tikzpicture}[xscale=0.5,yscale=0.5]
+\clip (-1,0) rectangle + (12.5,5);
+\draw [arrow] (0,0) -- (0,4.5);
+\draw (4,2) -- (8,2);
+\draw (8.2,2) -- (8.4,2);
+\draw (8.6,2) -- (8.8,2);
+\draw (-0.1,2) -- (0.1,2);
+\draw (-0.1,1.3) -- (0.1,1.3);
+\draw (2,1.3) -- (2,0.8);
+\draw (2,0.6) -- (2,0.4);
+\draw (2,0.2) -- (2,0);
+\draw (4,2) circle (2pt)[fill=black] ;
+\draw (2,1.3) circle (2pt)[fill=black] ;
+\draw (4,2.6) node {$y$};
+\draw (9.8,2) node {$+\infty$};
+\draw (7,1.5) node {$\omega_{y}$};
+\draw (-0.5,4.3) node {$\tau$};
+\draw (-0.5,2) node {$0$};
+\draw (-0.7,1.3) node {$-\epsilon$};
+\draw (3,1.5) node {$x^{-\epsilon}$};
+\draw (1.5,0.8) node {$\gamma$};
+\end{tikzpicture}
+\end{figure}
+
+In this case $U(\omega_y\vert\gamma)=U(\omega_y\vert\gamma)=1$, and we get eq.~\eqref{eq:schwinger-dual-algebra-kink} in the case $x^1<y^1$.
+
+\skipline
+
+Notice that eq.~\eqref{eq:dual-algebra} give a new type of commutation relations, different respect both bosonic and fermionic ones, which depend on the space coordinates. Such statistics is very similar to the \emph{braid statistic}, which differs from this case since in the case of braid statistic the phase introduced in the commutation relation depends on whether the particles are interchanged in the clockwise or in the anticlockwise direction.  
+It worth to highlight the fact that the existence of both these statistics depends on the possibility of give a well-define ordering of the points of our spacetime. For instance in $D=3+1$ such statistics cannot exists, at least for massive particles. 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 16 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -917,7 +1315,7 @@ Actually, our description will be heuristic (with ill-defined measure in the pat
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%% LECTURE 16 %%%%%%%%
+%%%%%%%% LECTURE 17 %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
