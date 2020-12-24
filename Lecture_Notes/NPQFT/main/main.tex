@@ -3,8 +3,14 @@
 \usepackage{subfiles}
 \input{../latex_settings_packages.tex}
 
-\title{Notes on Non-perturbative QFT}
-\author{Andrea Grossutti}
+%Struttura modulare
+\usepackage{subfiles}
+\newcommand{\onlyinsubfile}[1]{#1}
+\newcommand{\onlyinmainfile}[1]{
+
+\textsf{\red Part of the text is omitted from the compiled subfile, in order to make the compilation faster. You can find it in the main file. To avoid this, remove `` \textnormal{\textbackslash onlyinmainfile\{\ldots\}}'' from the code.}
+
+}
 
 \begin{document}
 
@@ -13,39 +19,31 @@
 \renewcommand{\onlyinmainfile}[1]{#1}
 
 \begin{titlepage}
-   \begin{center}
+\begin{center}
        \vspace*{5cm}
-
-       \textbf{\Huge Notes on Non-Perturbative Quantum Field Theory}
-
-       \vspace{0.5cm}
+       \textbf{\Huge Notes on Non-Perturbative\\[0.3em]
+       Quantum Field Theory}
+       
+       \vspace{1cm}
         {\LARGE Course held by Pieralberto Marchetti}
         
         \vspace{1.5cm}
-        
-        {\Large Written by Andrea Grossutti}
-            
-
+        {\Large Written by Andrea Grossutti}   
+                 
        \vfill
-       
-       {\large Compiled: \today}
-            
-       \vspace{2cm}     
-            
-       {\large University of Padua}
-            
+       {\large Compiled: \today} 
+           
+       \vspace{2cm}        
+       {\large University of Padua}  
+        
        \vspace{0.8cm}
-     
-      
-            
-       {\large Accademic year 2020-2021}
-            
-   \end{center}
+       {\large Academic year 2020-2021}
+\end{center}
 \end{titlepage}
 
 \tableofcontents
 
-\part{Formal introduction to QFT}
+\part{Formal QFT}
 \subfile{../chapters/Chap1.tex}
 \subfile{../chapters/Chap2.tex}
 \subfile{../chapters/Chap3.tex}
@@ -53,6 +51,7 @@
 
 \part{Topological structures in QFT}
 \subfile{../chapters/Chap5.tex}
+\subfile{../chapters/Chap6.tex}
 
 \nocite{*}
 \printbibliography
