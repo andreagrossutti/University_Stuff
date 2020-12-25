@@ -230,7 +230,11 @@ pattern radius = 0pt}
 
 \subsubsection{Gauge symmetry, energy density and Higgs mechanism}
 
-The model is invariant under the $U(1)$ gauge transformation\todo{Mi è chiaro che nella trasformazione di gauge di $A_\mu$ lei voglia rendere esplicita la forma di Maurer-Cartan, ma non comprendo perché invece la forma $\partial_\mu\beta$ dovrebbe essere imprecisa.}
+The model is invariant under the $U(1)$ gauge transformation\footnote{Notice that one cannot write
+\begin{eq}
+	e^{-i\beta(x)}\partial_\mu e^{i\beta(x)} = \partial_\mu\beta(x)
+\end{eq}
+since $\beta(x)$ may be defined with ``jumps'' of $2\pi$ (more formally, we have $\beta\, :\, \R^2\to\R/2\pi\Z$) hence its derivative is not completely well defined. Instead, $e^{i\beta(x)}$ is a smooth function, hence its derivative is well defined and smooth as well.}\todo{Mi è chiaro che nella trasformazione di gauge di $A_\mu$ lei voglia rendere esplicita la forma di Maurer-Cartan, ma non sono molto sicuro del  perché invece la forma $\partial_\mu\beta$ dovrebbe essere imprecisa. Nella nota a pié di pagina ho cercato di darci una giustificazione che mi sembrasse plausibile, anche se non completamente corretta dal punto di vista matematico.}
 \begin{eq}\label{eq:U(1)-gauge-vortex}
 	\begin{cases}\begin{aligned}
 		\phi(x)  \quad&\to\quad e^{i\beta(x)}\phi(x)\\
@@ -321,7 +325,7 @@ so $A_j$, asymptotically, is the pure gauge
 \end{eq}
 
 As a consequence of eq.~\eqref{eq:vorex-energy-finiteness-cond1} we have, asymptotically, the following map
-\begin{eq}
+\begin{eq}\label{eq:map-e-phi-vortex}
 	e(\vec x):=\frac{\phi(\vec x)}{\vert\phi(\vec x)\vert}\quad:\quad S^1&\quad\longrightarrow\quad S^1\\[-1em]
 	\alpha\,&\quad\longmapsto\quad e^{if(\alpha)}
 \end{eq}
@@ -336,14 +340,14 @@ From eq.~\eqref{eq:vorex-energy-finiteness-cond2} we have that
 	&=\frac1{n_e}\big(f(2\pi)-f(0)\big)=2\pi\frac n{n_e}
 \end{eq}
 hence we can compute $n$ starting from $A_j$. If $\beta(x)$ labels a gauge transformation globally defined in $\R^2$ and its derivative is continuous (i.e. $\beta\in \mathcal C^1$) then by Stokes theorem
-\begin{eq}
+\begin{eq}\label{eq:stokes-boundary-cond}
 	\oint_{\modx=R} \partial_j\beta(x)\de x^j=0
 \end{eq}
 hence, for a given $f(\alpha)$ and the corresponding $n$, we can take $\beta(x)$ such that
 \begin{eq}
 	\beta(x)\xrightarrow[\modx\to\infty]{}-f(\alpha)+n\alpha
 \end{eq}
-so that we can replace $f(\alpha)$ by $n\alpha$.
+so that we can replace $f(\alpha)$ by $n\alpha$. Such gauge transformation, even if it acts also at boundaries, do not change the boundary conditions, thanks to eq.~\eqref{eq:stokes-boundary-cond}, hence it is allowed in our gauge theory. 
 
 Using Stokes theorem one can also derive
 \begin{eq}
@@ -456,12 +460,288 @@ and, inserting $g_H(r)=r^\gamma\tilde g_H(r)$, we finally get the behaviour of $
 
 Hence both the magnetic field associated to $A_\mu$ and the scalar field $\phi$ approach the vacuum outside of a compact region of radius $O(m_A^{-1},m_H^{-1})$ around the center of the vortex, which therefore behaves as an ``extended particle''. 
 
-\subsubsection{Interactions among vortices}
+\subsubsection{Interactions among vortices - BPS limit}
 
 In general these vortices interact among each other, but for $m_H=m_A$, i.e. $\lambda=\half n_e^2e^2$ a clever inequality (again of the Bogomol'nyi type, sometimes called \emph{Bogomol'nyi-Prasad-Sommerfield (BPS)} in this context) show that they are free, non-interacting. 
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% LECTURE 18 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+To prove such inequality, let us start by rewriting the energy density as
+\begin{eq}\label{eq:vortex-energy-density-rewritten}
+	\cenergy(\vec A(\vec x),\phi(\vec x))
+	&=\int\de^2x\,\half\left[\frac Be+n_ee(|\phi|^2-v^2)\right]^2+|(D_1+iD_2)\phi|^2\\
+	&\qquad+\left(\lambda-\frac{n_e^2e^2}2\right)(|\phi|^2-v^2)^2+n_eeBv^2-i\partial_j(\lctens_{ij}\phi^*D_i\phi)
+\end{eq}
+Indeed using
+\begin{eq}
+	|(D_1+iD_2)\phi|^2
+	&=|D_i\phi|^2+i\lctens_{ij}\phi^*D_jD_i\phi+i\partial_j(\lctens_{ij}\phi^*D_i\phi)\\
+	&=|D_i\phi|^2-n_eeB|\phi|^2+i\partial_j(\lctens_{ij}\phi^*D_i\phi)\\
+	&=|D_i\phi|^2-n_eeB(|\phi|^2-v^2)+i\partial_j(\lctens\phi^*D_i\phi)-n_eeBv^2
+\end{eq}
+we get from eq.~\eqref{eq:vortex-energy-density-rewritten}
+\begin{eq}
+	\cenergy&=\frac1{2e^2}B^2+\frac{n_e^2e^2}2(|\phi|^2-v^2)^2+Bn_e(|\phi|^2-v^2)+|D_i\phi|^2-n_eeB(|\phi|^2-v^2)\\
+	&\qquad+i\partial_j(\lctens\phi^*D_i\phi)-n_eeBv^2+n_eeBv^2-i\partial_j(\lctens_{ij}\phi^*D_i\phi)+\left(\lambda-\frac{n_e^2e^2}2\right)(|\phi|^2-v^2)^2\\
+	&=\frac1{2e^2}B^2+|D_i\phi|^2+\lambda(|\phi|^2-v^2)^2
+\end{eq}
+hence eq.~\eqref{eq:vortex-energy-density-rewritten} really coincides with eq.~\eqref{eq:energy-density-vortex}. 
+
+Notice that
+\begin{eq}
+	\int_{\R^2}\de^2x\,\partial_j(\lctens_{ij}\phi^*D_i\phi)=\int_{S_\infty^1}\lctens_{ij}\phi^*D_i\phi\de x^j=0
+\end{eq}
+hence
+\begin{eq}
+	\cenergy&=\int\de^2x\,\half\left[\frac Be+n_ee(|\phi|^2-v^2)\right]^2+|(D_1+iD_2)\phi|^2+\left(\lambda-\frac{n_e^2e^2}2\right)(|\phi|^2-v^2)^2+n_eeBv^2
+\end{eq}
+and
+\begin{eq}\label{eq:BPS-bound-vortex}
+	\tif
+	\lambda\geq\frac{n_e^2e^2}2
+	\tthen
+	\cenergy\geq n_eev^2\int\de^2x\,B(x)
+\end{eq}
+In particular for the \emph{BPS limit} or \emph{Bogomol'nyi limit}, where $\lambda=\frac{n_e^2e^2}2$, i.e. $m_A=m_H$, and
+\begin{eq}
+	\begin{cases}
+		\frac1e|B|+n_ee(|\phi|^2-v^2)=0\\
+		(D_1+iD_2)\phi=0
+	\end{cases}
+\end{eq}
+then the energy is proportional to the vorticity:
+\begin{eq}
+	\cenergy=n_eev^2\int\de^2x\,B(x)=2\pi nv^2
+\end{eq}
+where we used the previous identity
+\begin{eq}
+	\int\de^2x\,B(x)n_ee=2\pi n
+\end{eq}
+Since $\cenergy\sim n$ this means that vortices are free in the BPS limit. 
+
+\skipline
+
+The configurations saturating the \emph{BPS bound} (in this case $m_A=m_H$) are called \emph{BPS states} and even in higher dimensions, where instead of vortices forming world-lines we have higher dimensional vortex defects, they play an important role in supersymmetric theories, since the preserve some supersymmetry generators and guarantees a special stability of the system (for instance, in our case, BPS states are non-interacting). 
+
+\skipline
+
+From eq.~\eqref{eq:BPS-bound-vortex} we see that for $\lambda>\frac{n_e^2e^2}2$ the energy density is greater than in the non-interacting case, hence vortices repels each others, whereas for $\lambda<\frac{n_e^2e^2}2$ the energy density is smaller and vortices attract each others. 
+
+For the BPS solution 
+\begin{eq}
+	|B|=n_ee^2(v^2-|\phi|^2)
+\end{eq}
+while for $\lambda<\frac{n_e^2e^2}2$ it turns out that 
+\begin{eq}\label{eq:magn-field-attract-vortices}
+	|B|\leq c(v^2-|\phi|^2)
+\end{eq}
+for some constant $c$. If vortices attracts each other, the value of $|B|$ increases and at some point we have a violation of eq.~\eqref{eq:magn-field-attract-vortices}, which implies that vortices cannot exists. Therefore for $\lambda>\frac{n_e^2e^2}2$ we have superconductors of type II, while for $\lambda<\frac{n_e^2e^2}2$ we have superconductors of type I. 
+
+\subsubsection{Sketch of semi-classical treatment}
+
+As for the position $x_0$ of the kink, the two coordinates of the center of the vortex are the moduli of the vortex, and break the translational invariance of the theory. A semi-classical quantization of the vortex can be obtained by promoting those coordinates to be quantum operators $\op{\vec x}_0(t):=(\op x_0^1(t),\op x_0^2(t))$ depending on $t$, restoring the translational invariance. 
+
+\section{Quantum field theory treatment}
+
+Let us now outline briefly the construction of the quantum vortex operator, using the path-integral formalism, analogously to the construction of the kink operator. 
+
+\subsubsection{Closed defects}
+
+In 3 Euclidean dimensions the vortex is a line defect $D$. In the path integral formulation of the partition function $D$ appears where $|\phi|=0$, which is the \emph{locus of the defect}. 
+
+In the partition function, for a typical configuration far away from the locus of a defect we have $|\phi|\sim v$ and $A_\mu\sim\partial_\mu\theta$, which implies $F_{\mu\nu}$, hence such configurations are close to the vacuum configurations. 
+
+Instead, near the locus of a defect, the configurations should be close to a vortex solution in order to maintain the action close to a minimum. 
+
+As for the kink, in fig.~\ref{fig:defects-vortex} we pictorically describe a typical field configuration of the improved semi-classical approximation for the partition function. 
+
+\begin{figure}[h]
+\centering
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.8,xscale=0.8]
+
+\draw   [color=blue ,draw opacity=0.7, line width=28, line cap = round] (551,249.25) .. controls (591,219.25) and (516.5,68.75) .. (556.5,38.75) ;
+\draw    (551,249.25) .. controls (591,219.25) and (516.5,68.75) .. (556.5,38.75) ;
+
+\draw   (47,69.5) -- (93,23.5) -- (447.67,23.5) -- (447.67,219.5) -- (401.67,265.5) -- (47,265.5) -- cycle ; \draw   (447.67,23.5) -- (401.67,69.5) -- (47,69.5) ; \draw   (401.67,69.5) -- (401.67,265.5) ;
+
+\draw   [->][line width=0.5pt] (557.73,158.2) .. controls (527.89,158.61) and (527.89,178.45) .. (557.89,178.61)(557.89,178.36) .. controls (587.29,178.28) and (587.88,159.23) .. (557.73,158.2) ;
+\draw   [->][line width=0.5pt]  (562,217.83) .. controls (532.17,218.25) and (532.17,238.08) .. (562.17,238.25) .. controls (591.57,237.92) and (592.15,218.87) .. (562,217.83);
+\draw    [->][line width=0.5pt]  (561.91,188.2) .. controls (532.08,188.61) and (532.08,208.45) .. (562.08,208.61) .. controls (591.48,208.28) and (592.06,189.23) .. (561.91,188.2) ;
+\draw    [->][line width=0.5pt]  (552.73,128.29) .. controls (522.89,128.7) and (522.89,148.54) .. (552.89,148.7) .. controls (582.29,148.37) and (582.88,129.32) .. (552.73,128.29) ;
+\draw   [->][line width=0.5pt]  (546.73,98.11) .. controls (516.89,98.52) and (516.89,118.36) .. (546.89,118.27) .. controls (576.29,118.19) and (576.88,99.14) .. (546.73,98.11) ;
+\draw   [->][line width=0.5pt]  (544.36,67.92) .. controls (514.53,68.34) and (514.53,88.17) .. (544.53,88.34) .. controls (573.93,88.01) and (574.52,68.96) .. (544.36,67.92) ;
+
+\draw   [color=blue ,draw opacity=0.7, line width=6, line cap = round] (224.33,100.33) .. controls (244.33,90.33) and (258.33,100.33) .. (283.67,112) .. controls (309,123.67) and (331.67,146.67) .. (314.33,160.33) .. controls (297,174) and (244.33,190.33) .. (224.33,160.33) .. controls (204.33,130.33) and (204.33,110.33) .. (224.33,100.33) -- cycle ;
+\draw   [color=blue ,draw opacity=0.7, line width=6, line cap = round] (275,145.67) .. controls (293,130.67) and (397.67,110.67) .. (385.67,131.33) .. controls (373.67,152) and (387.67,197.33) .. (375,219.33) .. controls (362.33,241.33) and (295,235.67) .. (275,205.67) .. controls (255,175.67) and (257,160.67) .. (275,145.67) -- cycle ;
+\draw   [color=blue ,draw opacity=0.7, line width=6, line cap = round](92,102) .. controls (112,92) and (202,82) .. (182,102) .. controls (162,122) and (153,134.5) .. (157,170.5) .. controls (161,206.5) and (112,192) .. (92,162) .. controls (72,132) and (72,112) .. (92,102) -- cycle ;
+
+\draw   (224.33,100.33) .. controls (244.33,90.33) and (258.33,100.33) .. (283.67,112) .. controls (309,123.67) and (331.67,146.67) .. (314.33,160.33) .. controls (297,174) and (244.33,190.33) .. (224.33,160.33) .. controls (204.33,130.33) and (204.33,110.33) .. (224.33,100.33) -- cycle ;
+\draw   (275,145.67) .. controls (293,130.67) and (397.67,110.67) .. (385.67,131.33) .. controls (373.67,152) and (387.67,197.33) .. (375,219.33) .. controls (362.33,241.33) and (295,235.67) .. (275,205.67) .. controls (255,175.67) and (257,160.67) .. (275,145.67) -- cycle ;
+\draw   (92,102) .. controls (112,92) and (202,82) .. (182,102) .. controls (162,122) and (153,134.5) .. (157,170.5) .. controls (161,206.5) and (112,192) .. (92,162) .. controls (72,132) and (72,112) .. (92,102) -- cycle ;
+
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (556.5,38.75) -- (385.67,131.33) ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (551,249.25) -- (375,219.33) ;
+
+\draw (63.67,82.8) node [anchor=north west][inner sep=0.75pt]    {$D_{1}$};
+\draw (200.33,77.73) node [anchor=north west][inner sep=0.75pt]    {$D_{2}$};
+\draw (269.67,226.4) node [anchor=north west][inner sep=0.75pt]    {$D_{3}$};
+\draw (63,215.4) node [anchor=north west][inner sep=0.75pt]    {$F_{\mu \nu } =0$};
+\draw (61.67,236.4) node [anchor=north west][inner sep=0.75pt]    {$| \phi | \sim v$};
+\end{tikzpicture}
+\caption{Defects (blue closed lines) and their loci (black closed lines). On the right side of the picture, is represented in more detail the vortex associated to the defect $D_3$.}
+\label{fig:defects-vortex}
+\end{figure}
+
+In order to understand how to ``open'' these line defects, let's first consider the restriction of the field strength $F$ of the vortex to a 2 dimensional disk crossing transversally the locus of the defect, such that the boundary of the disk identify the region where the configuration approximately approaches the vacuum one, as represented in fig.~\ref{fig:disk-defect}. 
+
+\begin{figure}[h]
+\centering
+
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 6pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 0pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@EllipsePattern}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{EllipsePattern}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.6,xscale=0.6]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Curve Lines [id:da33705367027161603] 
+\draw   [color=blue ,draw opacity=0.7, line width=21, line cap = round] (571,269.25) .. controls (611,239.25) and (536.5,88.75) .. (576.5,58.75) ;
+\draw   (571,269.25) .. controls (611,239.25) and (536.5,88.75) .. (576.5,58.75) ;
+
+%Curve Lines [id:da21282626058718623] 
+\draw   [->][line width=0.5pt] (577.73,178.2) .. controls (547.89,178.61) and (547.89,198.45) .. (577.89,198.61) .. controls (607.29,198.28) and (607.88,179.23) .. (577.73,178.2) ;
+%Curve Lines [id:da8259045720854306] 
+\draw   [->][line width=0.5pt] (582,237.83) .. controls (552.17,238.25) and (552.17,258.08) .. (582.17,258.25) .. controls (611.57,257.92) and (612.15,238.87) .. (582,237.83) ;
+%Curve Lines [id:da00807708837653065] 
+\draw   [->][line width=0.5pt] (581.91,208.2) .. controls (552.08,208.61) and (552.08,228.45) .. (582.08,228.36) .. controls (611.48,228.28) and (612.06,209.23) .. (581.91,208.2) ;
+%Curve Lines [id:da9551996169478982] 
+\draw  [->][line width=0.5pt]  (572.73,148.29) .. controls (542.89,148.7) and (542.89,168.54) .. (572.89,168.45) .. controls (602.29,168.37) and (602.88,149.32) .. (572.73,148.29) ;
+%Curve Lines [id:da6438432478749674] 
+\draw   [->][line width=0.5pt] (566.73,118.11) .. controls (536.89,118.52) and (536.89,138.36) .. (566.89,138.27) .. controls (596.29,138.19) and (596.88,119.14) .. (566.73,118.11) ;
+%Curve Lines [id:da09026447567603135] 
+\draw  [->][line width=0.5pt]  (564.36,87.92) .. controls (534.53,88.34) and (534.53,108.17) .. (564.53,108.34)(564.53,108.09) .. controls (593.93,108.01) and (594.52,88.96) .. (564.36,87.92) ;
+%Shape: Ellipse [id:dp059940750148450794] 
+\draw  [color=red][pattern=EllipsePattern, pattern color=red] [dash pattern={on 1pt off 0.5pt}, line width=0.5] (502.9,158.25) .. controls (502.9,136.16) and (534.24,118.25) .. (572.9,118.25) .. controls (611.56,118.25) and (642.9,136.16) .. (642.9,158.25) .. controls (642.9,180.34) and (611.56,198.25) .. (572.9,198.25) .. controls (534.24,198.25) and (502.9,180.34) .. (502.9,158.25) -- cycle ;
+
+\draw (572.5,158.25) circle (1pt)[color=red, fill=red] ;
+
+\end{tikzpicture}
+\caption{Disk crossing the locus of the defect, whose boundary identify the region where the configuration approaches the vacuum.}
+\label{fig:disk-defect}
+\end{figure}
+
+We then identify the points of the boundary to one-point, obtaining a closed 2-dimensional surface $S^2$, as represented in fig.~\ref{fig:compactification-Riemann-sphere}. 
+
+\begin{figure}[h]
+\centering
+\def\svgwidth{\columnwidth}
+\scalebox{0.5}{\adjustbox{trim={.0\width} {.15\height} {0.\width} {.32\height},clip}{\input{../img/riemann-sphere.pdf_tex}}}
+\caption{Compactification of the plane by identification of the boundaries. Source: \url{https://demonstrations.wolfram.com/TheRiemannSphereAsAStereographicProjection/}}
+\label{fig:compactification-Riemann-sphere}
+\end{figure}
+
+According to our previous discussion,
+\begin{eq}\label{eq:vorticity-compact-disk-in}
+	\frac1{2\pi}\int_{S^2}F_{\mu\nu}\de S^{\mu\nu} = n = \text{vorticity carried by the defect $D$}
+\end{eq}
+Let's see how $A_\mu$ behaves on such sphere. Using definition eq.~\eqref{eq:map-e-phi-vortex}, we get
+\begin{eq}
+	D_\mu\phi&=e^{i\theta}\partial_\mu|\phi|+|\phi|e^{i\theta}(e^{-i\theta}\partial_\mu e^{i\theta}-iA_\mu)\\
+	(D_\mu\phi)^*&=e^{-i\theta}\partial_\mu|\phi|+|\phi|e^{-i\theta}(e^{i\theta}\partial_\mu e^{-i\theta}+iA_\mu)
+\end{eq}
+where we set $n_ee=1$ in order to get rid of these coefficients. Hence we obtained\todo{Come mai il secondo termine può esser singolare?}
+\begin{eq}
+	A_\mu=\underbrace{\vphantom{\int_T}\frac i2\frac{e^{-i\theta}D_\mu\phi-e^{i\theta}(D_\mu\phi)^*}{|\phi|}}_{\text{regular term}}+\underbrace{\vphantom{\int_T}\frac i2(e^{i\theta}\partial_\mu e^{-i\theta}-e^{-i\theta}\partial_\mu e^{i\theta})}_{\text{singular term}}
+\end{eq}
+Recall that $\theta(x)$ is an angle around the center of the vortex, where $|\phi|=0$. Without loss of generality we can assume that the center of the vortex coincide with the origin of the space. In the sense of distributions, the field strength of the singular term above is
+\begin{eq}
+	\lctens^{\mu\nu}\partial_\mu\left(\frac i2(e^{i\theta}\partial_\mu e^{-i\theta}-e^{-i\theta}\partial_\mu e^{i\theta})\right)
+	=\frac1i\lctens^{\mu\nu}\partial_\mu\partial_\nu\log e^{i\theta}=2\pi\delta(\vec x)
+\end{eq}
+since the dependence of $\theta$ on the space coordinates goes with $\arctan\frac yx$. Hence such field strength is non zero (actually, singular) only in the center of the vortex. Therefore the complete field strength of $A_\mu$ is\todo{Che cos'è $a_\nu$? Forse intendeva $A_\nu$? Inoltre ho visto che nelle note ha modificato la formula data a lezione, volevo chiederle quale fosse la versione corretta (stessa cosa anche per la formula precedente).}
+\begin{eq}
+	F_{\mu\nu}(\vec x)=\partial_{[\mu}a_{\nu]}(\vec x)+2\pi\delta(|\phi|)\lctens_{\mu\nu}
+\end{eq}
+so that the support of $F_{\mu\nu}$ is given by the loci of defects, i.e. where $|\phi|=0$.
+
+We see then that one can identify the locus of the defect in $F_{\mu\nu}$ in terms of a ``singular current'' (i.e. ``$\delta$-like'') in the support where $|\phi|$ vanishes, which is necessarily closed because the boundary condition at infinity is $|\phi|=v$. 
+
+\subsubsection{Open defects}
+
+If we want to open a defect and $\vec x$ is a boundary of the locus of such defect, we need to construct a 2-tensor $F_{\mu\nu}^{\vec x}$ such that for a surface $S_{\vec x}^2$ centered at $\vec x$ and of arbitrarily small radius we have 
+\begin{eq}
+	\int_{S_{\vec x}^2}F_{\mu\nu}^{\vec x}\de x^\mu\de x^\nu=2\pi n
+\end{eq}
+and then if $B_{\vec x}^3$ is the ball centered in $\vec x$ whose boundary is $S^2_{\vec x}$, by Gauss theorem we have
+\begin{eq}
+	\int_{S^2_{\vec x}}F_{\mu\nu}^{\vec x}\de x^\mu\de x^\nu=\int_{B^3_{\vec x}}\lctens^{\mu\nu\rho}\partial_\mu F_{\nu\rho}^{\vec x}\de^3x=2\pi n
+\end{eq}
+which should hold for any arbitrarily small radius, so that
+\begin{eq}
+	\lctens^{\mu\nu\rho}\partial_\mu F_{\nu\rho}^{\vec x}(\vec y)=2\pi n\,\delta(\vec x-\vec y)
+\end{eq}
+or equivalently, using $\lctens^{\mu\nu\rho}F_{\nu\rho}^{\vec x}=B^\mu_{\vec x}$ where $B^\mu_{\vec x}$ is the magnetic field centered at $\vec x$, 
+\begin{eq}\label{eq:vorticity-compact-disk-bc}
+	\big(\vec\nabla\cdot\vec B_{\vec x}\big)(\vec y)=2\pi n\,\delta(\vec x-\vec y)
+\end{eq}
+This is precisely the magnetic field of a \emph{monopole} in $\R^3$, i.e. the analogue of a point-like electric charge of charge $q$ which obeys
+\begin{eq}
+	\big(\vec\nabla\cdot\vec E_{\vec x}\big)(\vec y)=q\,\delta(\vec x-\vec y)
+\end{eq}
+with the magnetic field replacing the electric field. 
+
+Therefore we can build open defects constructing line defects with monopoles at the boundaries. Respect to fig.~\ref{fig:disk-defect}, this is equivalent to the introduction of two compactified disks (hence they actually are 2-spheres) at the boundaries of the line, describing classical monopoles, as represented in fig.~\ref{fig:open-defect-vortex}. Comparing eq.~\eqref{eq:vorticity-compact-disk-in} and eq.~\eqref{eq:vorticity-compact-disk-bc} we see that such monopoles ``provide the right vorticity'' to the defect. 
+
+\begin{figure}[h]
+\centering
+\tikzset{every picture/.style={line width=0.75pt}}     
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.9,xscale=0.9]
+
+%Curve Lines [id:da8908477525317537] 
+\draw   [color=blue ,draw opacity=0.7, line width=4, line cap = round] (31,141.5) .. controls (71,111.5) and (1.5,54.5) .. (41.5,24.5) ;
+\draw    (31,141.5) .. controls (71,111.5) and (1.5,54.5) .. (41.5,24.5) ;
+%Shape: Circle [id:dp297621710933869] 
+\draw  [color=red, line width=1, fill=red, fill opacity=0.5] (24.25,141.5) .. controls (24.25,137.77) and (27.27,134.75) .. (31,134.75) .. controls (34.73,134.75) and (37.75,137.77) .. (37.75,141.5) .. controls (37.75,145.23) and (34.73,148.25) .. (31,148.25) .. controls (27.27,148.25) and (24.25,145.23) .. (24.25,141.5) -- cycle ;
+%Shape: Circle [id:dp807790352207095] 
+\draw  [color=red, line width=1, fill=red, fill opacity=0.5] (34.75,24.5) .. controls (34.75,20.77) and (37.77,17.75) .. (41.5,17.75) .. controls (45.23,17.75) and (48.25,20.77) .. (48.25,24.5) .. controls (48.25,28.23) and (45.23,31.25) .. (41.5,31.25) .. controls (37.77,31.25) and (34.75,28.23) .. (34.75,24.5) -- cycle ;
+
+\end{tikzpicture}
+\caption{Representation of an open defect, whose boundaries are described by monopoles (red circles).}
+\label{fig:open-defect-vortex}
+\end{figure}
+
+\subsubsection{Correlators}
+
+Similarly to what we have done for the kink, where we modified the action introducing a new parallel transporter to construct the open defects, now we should insert classical monopoles in the action at the positions in which we want to find the creation or the annihilation of the quantum vortices of our theory. Correlators of the quantum vortex field will have insertion points at the monopoles positions. 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 19 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 20 %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}

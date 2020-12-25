@@ -913,7 +913,15 @@ From the reconstruction theorem, if $\ophi(\vec x)$ is the time-0 quantum field 
 \begin{eq}
 	\langle\phi(x)\phi(y)\rangle=\bra\Omega\ophi(x^0,\vec x)\ophi(y^0,\vec y)\ket\Omega
 \end{eq}
-We can also write 
+We can also write\footnote{Let us write a function of a (semi-)definite positive operator $A$ as the linear combination $f(A)=\sum_nf(\lambda_n)\ket{\lambda_n}\bra{\lambda_n}$, where $\{\lambda_n\}$ is the set of (positive) eigenvalues of $A$ with eigenvectors $\ket{\lambda_n}$. 
+For $a>0$ we have 
+\begin{eq}\label{eq:integral-form-inverse-operator}
+	\int_0^\infty \de s\,e^{-as}=\frac1a
+	\quad\Rightarrow\quad
+	A^{-1}=\sum_n\frac1{\lambda_n}\ket{\lambda_n}\bra{\lambda_n}=\int_0^\infty \de s\,\sum_ne^{-\lambda_ns}\ket{\lambda_n}\bra{\lambda_n}
+	=\int_0^\infty \de s\,e^{-sA}
+\end{eq}
+}
 \begin{eq}
 	(-\Delta+m^2)^{-1}(x,y)=\int_0^\infty\de s\,\left(e^{-s(-\Delta+m^2)}\right)(x,y)=\int_0^\infty\de s\,e^{-sm^2}e^{s\Delta }(x,y)
 \end{eq}
@@ -935,14 +943,31 @@ so that finally
 \end{eq}
 that is, we expressed the two points function as a weighted ``sum'' over trajectories with boundary points $x$ and $y$.
 
-Analogously, for the partition function\footnote{In the third line we wrote, instead of the operator $\log(-\Delta+m^2)^{-1}$, its kernel.}\todo{Non mi è molto chiaro il terzo passaggio, penso derivi da qualche proprietà degli operatori integrali. }
+Analogously, for the partition function\footnote{Analogously to what we have done in eq.~\eqref{eq:integral-form-inverse-operator}, for $A$ (semi-)definite positive, a>0, we have
 \begin{eq}
-	Z&={\det}^{-1}(-\Delta+m^2)\\
-	&=\exp(\Tr\log(-\Delta+m^2)^{-1})\\
-	&=\exp\Tr\left[\int_0^\infty\frac{\de s}s\,e^{-sm^2}e^{s\Delta }(x,y)\right]\\
+	\der{}a\int_0^\infty\frac{\de s}se^{-sa}=-\int_0^\infty e^{-sa}=-\frac1a
+	\quad\Rightarrow\quad
+	\int_0^\infty\frac{\de s}se^{-sa}=-\log a
+	\quad\Rightarrow\quad
+	\log A=-\int_0^\infty\frac{\de s}se^{-sA}
+\end{eq}
+}
+\begin{eq}
+	Z&=\big({\det}(-\Delta+m^2)\big)^{-1}\\
+	&=\exp[\Tr\log(-\Delta+m^2)^{-1}]\\
+	&=\exp\left[\Tr\int_0^\infty\frac{\de s}s\,e^{-sm^2}e^{s\Delta}\right]\\
 	&=\exp\left[\int\de^{d+1}x\int_0^\infty\frac{\de s}s\,e^{-sm^2}e^{s\Delta }(x,x)\right]\\
 	&=\exp\left[\int\de^{d+1}x\int_0^\infty\frac{\de s}s\,e^{-sm^2}\smash{\!\!\!\underset{\text{\footnotesize $q(0)=q(s)=x$}}\int\!\!\!\!\pide q(t)\,e^{\displaystyle \,  -\text{\footnotesize$\int_0^s$}\de t\,\dot q(t)/4}}\ \right]\\[1em]
 	&=\sum_{n=0}^\infty\frac1{n!}\left[\int\de^{d+1}x\int_0^\infty\frac{\de s}s\,\smash{\!\!\!\underset{\text{\footnotesize $q(0)=q(s)=x$}}\int\!\!\!\!\pide q(t)\,\underbrace{\vphantom{\int}e^{\displaystyle \,  -sm^2-\text{\footnotesize$\int_0^s$}\de t\,\dot q(t)/4}}_{\text{Boltzmann weight}}}\ \right]^n\\[2em]
+\end{eq}
+where in the second line we used the identity $(\det A)^{-1}=\exp\left(\Tr \log A\right)$ and in the fourth line we used ($A$ operator in a space with orthonormal basis $\{\ket{\phi_n}\}$)
+\begin{eq}
+	\Tr A &= \sum_n\bra{\phi_n}A\ket{\phi_n}
+	= \sum_n\bra{\phi_n}\overbrace{\int\de x\ket x\bra x}^{\id}A\overbrace{\int\de y\ket y\langle y|}^\id\phi_n\rangle
+	=\int\de x\de y\,\bra xA\ket y\sum_n\braket y{\phi_n}\braket{\phi_n}{x}\\
+	&=\int\de x\de y\,\bra xA\ket y\braket y{x}
+	=\int\de x\,\bra xA\ket {x}
+	=\int\de x\,A(x,x)
 \end{eq}
 Hence $Z$ can be written as a weighted ``sum'' over closed paths, with the same weights as before. 
 
@@ -952,7 +977,7 @@ Knowing the structure of the Boltzmann weight in the partition function, then th
 
 Let us now turn to the description of kinks. As we have seen the partition function of $\phi_2^4$ in the broken symmetry phase can be written as a sum over closed line defects ``associated to kinks'', whose locus is the region of spacetime where $\phi$ changes sign. This suggests that the Green function of a quantum field kink operator can be constructed if we are able to introduce open line defects whose locus have boundary at the points of the insertion of the kink operator. 
 
-As in the previous example with the $\phi$ operator, the crucial point is that, although the correlation function is written in terms of (also\footnote{In the previous case we have seen that the correlation function can be written in terms of open line defects, but this is not completely true in genera, and different defects should be taken into account.}) open line defects, it should depend only on the boundary points of the locus of these defects. 
+As in the previous example with the $\phi$ operator, the crucial point is that, although the correlation function is written in terms of (also\footnote{In the previous case we have seen that the correlation function can be written in terms of open line defects, but this is not completely true in general, and different defects should be taken into account.}) open line defects, it should depend only on the boundary points of the locus of these defects. 
 
 \subsubsection{Construction of the 2-points correlation functions for the kink}
 
@@ -1406,6 +1431,8 @@ The direct sum (hence the non-interference between elements of the two spaces) i
 In the ``unbroken'' original $\Z_2$-phase, it turns out that $\hs$ cannot be separated in the direct sum of two subspaces. Let us show why. If the $\Z_2$ symmetry is restored, then all possible configurations are closed to the vacuum $\phi_0$, and since all transformations are physically allowed it is much easier to find configurations where $\phi$ vanishes. Hence there are much more defects respect to the broken-phase case, and typically the net of defects (the collection of regions where $\phi$ vanishes) reaches the boundary $\infty$ of the spacetime. If this is the case, then an additional line defect $\gamma$ from $z$ to $\infty$ cannot affect the correlation function. 
 
 But then by the cluster property the kink position sent to infinity is incompatible with $\bra{\Omega}\op s(x\to\infty)\ket{\Omega}=0$. Hence the Hilbert space $\hs$ has no superselection kink sectors, $\hs\equiv\hs_0$, and the phase in which the net of defects reaches the infinity corresponds to the unbroken $\Z_2$-symmetry.  
+
+The configuration, which appears in the unbroken phase, in which the defects almost covers the whole space time, is said \emph{condensation of kinks}. 
 
 \skipline
 
