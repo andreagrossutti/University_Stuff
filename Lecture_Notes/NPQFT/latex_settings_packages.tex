@@ -9,14 +9,14 @@
 \usepackage{latexsym}
 \usepackage{cases}
 \usepackage{mathtools}
-\usepackage{slashed}
+%\usepackage{slashed}
 \usepackage{physics}
 \usepackage{mathrsfs}
-\usepackage{quoting}
+%\usepackage{quoting}
 \usepackage{bbold} %identity symbol (double 1)
-\usepackage[framemethod=TikZ, nobreak=true]{mdframed}
-\usepackage{amsthm}
-\usepackage[compat=1.1.0]{tikz-feynman}
+%\usepackage[framemethod=TikZ, nobreak=true]{mdframed}
+%\usepackage{amsthm}
+%\usepackage[compat=1.1.0]{tikz-feynman}
 \usepackage{enumitem}
 	\setlist{nosep}
 	\setlist{label=(\roman*)}
@@ -26,23 +26,23 @@
 \usepackage[format=hang]{caption}
 %\usepackage{subcaption}
 %\usepackage{subfig}
-\usepackage{dsfont}
+%\usepackage{dsfont}
 \usepackage{float}
 \usepackage{tikz}
 \usepackage{chemfig}
 \usepackage{mathdots}
-\usepackage{yhmath}
+%\usepackage{yhmath}
 \usepackage[thicklines]{cancel}
 	\renewcommand{\CancelColor}{\color{lightgray}}
 \usepackage{color}
-\usepackage{siunitx}
-\usepackage{array}
-\usepackage{multirow}
+%\usepackage{siunitx}
+%\usepackage{array}
+%\usepackage{multirow}
 \usepackage{amssymb}
-\usepackage{gensymb}
-\usepackage{tabularx}
-\usepackage{booktabs}
-\usetikzlibrary{fadings}
+%\usepackage{gensymb}
+%\usepackage{tabularx}
+%\usepackage{booktabs}
+%\usetikzlibrary{fadings}
 \usetikzlibrary{patterns}
 \usepackage{adjustbox}
 \usetikzlibrary{shadows.blur}
@@ -65,7 +65,11 @@
 
 \newenvironment{eq}{\begin{equation}\begin{aligned}}{\end{aligned}\end{equation}\ignorespacesafterend}
 
-\newcommand{\skipline}{\bigskip}
+\newcommand{\skipline}{
+
+\bigskip
+
+}
 
 \newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
 

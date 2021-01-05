@@ -1,0 +1,214 @@
+\documentclass[../main/main.tex]{subfiles}
+\begin{document}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 20 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Monopoles}
+
+\todo{Qui non ho alcuna bibliografia, se mi suggerisce qualche titolo lo aggiungo volentieri}
+
+The last solitons we will take into account are the monopoles, in particular we will consider general monopoles and t'Hooft-Polyakov monopoles. As usual we start from its classical theory. 
+
+\section{Classical treatment}
+
+Let us first consider classical electrodynamics in empty space, Maxwell's equations can be written as (we set $c=1$)
+\begin{eq}
+	\begin{alignedat}{2}
+		\begin{cases}
+			\displaystyle-\pder{\vec E}{t}+\vec\nabla\times\vec B=0\\
+			\displaystyle\vec\nabla\cdot\vec E=0
+		\end{cases}
+		&&&\quad\leftrightarrow\quad
+		\partial_\mu F^{\mu\nu}=0\\
+		\begin{cases}
+			\displaystyle \pder{\vec B}{t}+\vec\nabla\times\vec E=0\\
+			\displaystyle\vec \nabla\cdot \vec B=0
+		\end{cases}
+		&&&\quad\leftrightarrow\quad
+		\lctens^{\mu\nu\rho\sigma}\partial_\nu F_{\rho\sigma=0}
+		\quad\leftrightarrow\quad
+		\partial_\mu \tilde F^{\mu\nu}=0
+	\end{alignedat}
+\end{eq}
+where $\tilde F$ is the dual of $F$: $\tilde F^{\mu\nu}:=\half\lctens^{\mu\nu\rho\sigma}F_{\rho\sigma}$. 
+This system of equations remains unchanged under the replacement
+\begin{eq}
+	\vec E\mapsto\vec B
+	\tcomma
+	\vec B\mapsto-\vec E
+\end{eq}
+or equivalently
+\begin{eq}\label{eq:em-duality}
+	F_{\mu\nu}\mapsto\tilde F_{\mu\nu}
+	\tcomma
+	\tilde F_{\mu\nu}\mapsto-F_{\mu\nu}
+\end{eq}
+Such transformation is called \emph{electromagnetic duality}. However, when we add electric sources via a current $j_e^\mu$ the invariance under duality is broken, because Maxwell's equations become
+\begin{eq}
+	\begin{cases}
+		\partial_\mu F^{\mu\nu}=j^\nu_e\\
+		\partial_\mu \tilde F^{\mu\nu}=0
+	\end{cases}
+\end{eq} 
+and clearly the first is no more invariant under eq.~\eqref{eq:em-duality}. 
+
+\skipline
+
+In 1931 Dirac had the idea to recover the duality invariance introducing also a ``magnetic current'', $j_m^\mu$, so that
+\begin{eq}\label{eq:modif-Maxw-eq}
+	\begin{cases}
+		\partial_\mu F^{\mu\nu}=j^\nu_e\\
+		\partial_\mu \tilde F^{\mu\nu}=j^\nu_m
+	\end{cases}
+\end{eq} 
+so that eq.~\eqref{eq:em-duality} still holds provided that under the transformation we exchange the currents $j^\nu_e\leftrightarrow j^\nu_m$. 
+
+However the introduction of the magnetic current raises a problem, since $j_m$ violates the Bianchi identity
+\begin{eq}
+	\lctens_{\mu\nu\rho\sigma}\partial^\nu F^{\rho\sigma}=0
+\end{eq}
+that guarantees the (global) existence of the gauge potential $A_\mu$, 
+\begin{eq}
+	F^{\mu\nu}=\partial^\mu A^\nu-\partial^\nu A^\mu
+\end{eq}
+In fact, assume for simplicity the temporal gauge $A^0=0$ and the existence of $\vec A$. Consider then the zero-component of the second of eq.~\eqref{eq:modif-Maxw-eq}, that is $j_m^0=\partial_\mu \tilde F^{\mu0}=\vec\nabla\cdot\vec B$, and integrate it at a fixed time over a ball $B^3$ containing a magnetic charge. Then we get
+\begin{eq}
+	q_m=\int_{B^3}\de^3x\,j_m^0
+	=\int_{B^3}\de^3x\,\vec\nabla\cdot\vec B  
+	=\oint_{\partial B^3=S^2}\vec B\cdot\de\vec S
+	=\oint_{S^2}\vec \nabla\times\vec A\cdot\de \vec S
+	=\oint_{\partial S^2=\emptyset}\vec A\cdot \de\vec\ell=0
+\end{eq}
+hence the magnetic charge associated to $j_m$ should vanish if the gauge potential exists globally.
+This problem can be avoided in two ways:
+\begin{enumerate}[label=\textbullet]
+	\item In the \emph{Wu-Yang approach} we can define $A^\mu$ only on patches (open sets) $\{U_\alpha\}_{\alpha\in A}$ covering $S^2$, then in $U_\alpha\cap U_\beta$ we have $F^{\mu\nu}_\alpha=F^{\mu\nu}_\beta$, $\alpha,\beta\in A$, but $A^\mu_\alpha=A^\mu_\beta+\partial^\mu\lambda_{\alpha\beta}$ for some gauge transformation $\delta A=\partial^\mu\lambda_{\alpha\beta}$. In this way $F^{\mu\nu}$ is still defined globally even if $A^\mu$ isn't, but this is enough in the classical description of physics. 
+
+	\item The other alternative is the one introduced by Dirac, that is the \emph{Dirac string} $j^{\mu\nu}$, introduced in the previous chapter for the quantization of vortices, such that
+	\begin{eq}
+		F^{\mu\nu}=\partial^\mu A^\nu-\partial^\nu A^\mu+j^{\mu\nu}
+	\end{eq}
+\end{enumerate}
+
+\subsubsection{The Wu-Yang approach}
+
+Let's make some comment about the Wu-Yang approach (as the Dirac solution has already been discussed in the last chapter).
+On the sphere $S^2$ centered on the position of the point-like magnetic charge (\emph{monopole}) we introduce spherical coordinates\footnote{Some relations for spherical coordinates which will be used in the following:
+\begin{eq}\label{eq:rel-sph-coord}
+	\de\vec x&=\pder{\vec x}r\de r+\pder{\vec x}\theta\de\theta+\pder{\vec x}\varphi\de\varphi
+	=\left|\pder{\vec x}{r}\right|\de r\vec e_r+\left|\pder{\vec x}\theta\right|\de\theta\vec e_\theta+\left|\pder{\vec x}{\varphi}\right|\de\varphi\vec e_\varphi
+	=\de r\vec e_r+r\de\theta\vec e_\theta+r\sin\theta\de\varphi\vec e_\varphi\\
+	%
+	\vec\nabla f\cdot\de\vec x&=\pder fr\de r+\pder f\theta\de\theta+\pder f\varphi\de\varphi
+	=\pder fr\vec e_r\cdot\de\vec x+\pder f\theta\frac1r\vec e_\theta\cdot\de\vec x+\pder f\varphi\frac1{r\sin\theta}\vec e_\varphi\cdot\de\vec x\\
+	%
+	\vec\nabla&=\vec e_r\pder{}r+\vec e_\theta\frac1r\pder{}\theta+\vec e_\varphi\frac{1}{r\sin\theta}\pder{}\varphi
+\end{eq}
+} $(r,\theta,\varphi)$ and define two patches whose union covers $S^2$:
+\begin{eq}
+	U_1=S^2\setminus\{\theta=\pi\}
+	\tcomma
+	U_2=S^2\setminus\{\theta=0\}
+\end{eq}
+On $U_1$ we define
+\begin{eq}
+	\vec A_1=\frac{q_m}{4\pi}\frac{\cos\theta-1}{r\sin\theta}\vec e_\phi
+\end{eq}
+where $q_m$ is the magnetic charge and $\vec e_\phi$ is the unit vector along $\varphi$: in Cartesian coordinates $\vec e_\phi=(-\sin\varphi,\cos\varphi,0)$. I is clear that $A_1$ is well defined on $S^2$ except for $\theta=\pi$. Analogously on $U_2$ we define
+\begin{eq}
+	\vec A_2=\frac{q_m}{4\pi}\frac{\cos\theta+1}{r\sin\theta}\vec e_\varphi
+\end{eq}
+Let us check that in the intersection of $U_1$ and $U_2$ the gauge potential $A_1$ and $A_2$ differ only by a gauge transformation. 
+Writing
+\begin{eq}
+	\vec A=A_r\vec e_r+A_\theta\vec e_\theta+A_\varphi\vec e_\varphi
+\end{eq}
+we find
+\begin{eq}
+	(\vec A_1-\vec A_2)\big|_{U_1\cap U_2}
+	=\frac{q_m}{2\pi}\left[\frac{\cos\theta+1}{r\sin\theta}-\frac{\cos\theta-1}{r\sin\theta}\right]\vec e_\varphi
+	=\frac{q_m}{2\pi}\frac1{r\sin\theta}\vec e_\varphi
+	=\frac1{2\pi i}e^{-iq_m\varphi}\vec\nabla e^{iq_m\varphi}
+\end{eq}
+where in the last line we used that $\varphi$ is periodic of period $2\pi$ and $q_m\in\Z$. In a not very \todo{Non è corretto matematicamente perché $\varphi$ è definita a meno di salti di $2\pi$?} formal notation we can also write the last result as ``$\vec\nabla\frac{q_m}{2\pi}\varphi$'', so that it is clear that we have a gauge transformation with $\lambda_{12}=\frac{q_m}{2\pi}\varphi$.  If we compute the magnetic field we get, using $\vec\nabla\times\vec\nabla=0$,
+\begin{eq}
+	\vec B_1=\vec\nabla\times\vec A_1=\vec \nabla\times\vec A_2=\vec B_2
+\end{eq}
+so $\vec B$ is well defined on $S^2$.
+
+Notice that by setting\footnote{Notice that $\vec a$ is the gauge potential with the normalization used in the previous chapter.} $\vec A=\frac1{2\pi}\vec a$, $\vec a_1$ differs from $\vec a_2$ in $U_1\cap U_2$ by a well defined $U(1)$ gauge transformation
+\begin{eq}
+	e^{-iq_m\varphi}\frac{\vec\nabla}ie^{iq_m\varphi}
+\end{eq}
+so that setting $F_{ij}=\frac1{2\pi}f_{ij}$ ($f_{ij}$ turns out to be the curvature of a $U(1)$ connection) and
+\begin{eq}
+	\int_{S^2}F_{ij}\de x^i\de x^j=\frac1{2\pi}\int f_{ij}\de x^i\de x^j=q_m
+\end{eq}
+is called the \emph{first Chern number}. We may also write 
+\begin{eq}\label{eq:field-strength-monopole-f}
+	f_{ij}\de x^i\de x^j=\frac{q_m}2\sin\theta\de\theta\de\varphi=\frac{q_m}2\frac{1}{r^3}\lctens_{ijk}x^i\de x^j\de x^k
+\end{eq} 
+
+
+\subsubsection{Topological constraints and problems in the quantization}
+
+Notice that by choosing $U_1$ as the upper semisphere $S_+^2$ and $U_2$ as the lower semisphere $S_-^2$, then $U_1\cap U_2$ is just the circle in the $z=0$ plane and
+\begin{eq}\label{eq:qm-constraint-gauge}
+	\int_{S^2}F_{ij}\de x^i\de x^j
+	&=\int_{S_+^2}F_{ij}\de x^i\de x^j+\int_{S_-^2}F_{ij}\de x^i\de x^j
+	=\int_{S_+^2}\vec\nabla\times\vec A_1\cdot\de\vec\Sigma+\int_{S_-^2}\vec\nabla\times\vec A_1\cdot\de\vec\Sigma\\
+	&=\oint_{S^1}(\vec A_1-\vec A_2)\de\vec x
+	=\oint_{S^1}e^{-iq_m\varphi}\frac{\vec\nabla}{2\pi i}e^{iq_m\varphi}\de\vec x
+	=q_m\int_0^{2\pi}\frac{\de\varphi}{2\pi}
+	=q_m
+\end{eq}
+Hence $q_m$ have a new interpretation, namely it counts how many times the gauge transformation $e^{iq_m\varphi}$ goes around the circle $S^1$ as $\varphi$ goes from $0$ to $2\pi$ (recall that an element of $U(1)$, the gauge group, can be identified with an element of $S^1$). In other words, $e^{iq_m\varphi}\in\pi_1(S^1)\simeq\Z$, where $\pi_1$ is again the first homotopy group. The fact that such $U(1)$ map cannot be deformed to a constant guarantees the stability of the monopole. 
+
+\skipline
+
+Up to now the monopole was considered at a fixed time. If we consider a $3+1$ dimensional theory one can quantize the theory, first considering a static monopole with 3 moduli corresponding to the 3 coordinates of the center of the monopole, so that the monopole worldline in a $3+1$ QFT produce line defects. However, in the case of monopoles we have a qualitative difference with respect to kinks and vortices: if we compute the energy of the monopole we find that it is UV divergent:
+\begin{eq}
+	E
+	\sim\int_{\R^3}\de^3x\,F_{ij}^2
+	\overset{\eqref{eq:field-strength-monopole-f}}\sim\int_0^\infty r^2\de r\,\frac1{r^4}
+\end{eq}
+so that for a 3-ball $B^3(R)$ centered on the monopole of radius $R$ we have
+\begin{eq}
+	\lim_{R\to0}\int_{\R^3\setminus B^3(R)}\de^3x\,F_{ij}^2\sim\lim_{R\to0}\int_R^\infty\frac{\de r}{r^2}=+\infty
+\end{eq}
+even if we excluded the singularity $r=0$ of $\frac1{r^2}$ from the integration domain.  
+
+Since at quantum level this implies divergence in the semi-classical approximation, this suggest that monopoles in the electrodynamic setting are only defined with a UV cutoff, e.g. on a lattice, as we will discuss later on. 
+
+\skipline
+
+Let us show where this singular behaviour of the monopole comes from. One can view this as a consequence of the impossibility of deforming the $U(1)$ transformation $e^{iq_m\varphi}$ to a constant over the circle $S^1$ of arbitrarily small radius, which means that the charge $q_m$ (which due to eq.~\eqref{eq:qm-constraint-gauge} gives such constraint on the possible deformations) is concentrated in a single point. Indeed, the same kind of divergence appears also in the classical description of the electric field, and is due to the fact that the charge of the electron is concentrated in a point. In the case of the electric field the problem is solved in QFT by replacing the electron to a quantum field, that is an operator valued distribution, which makes sense only when smeared with a test function. 
+The problem here is that  in the case of the monopole even the semi-classical approximation is inconsistent, hence we cannot solve this issue as in the case of the electric field. 
+
+\skipline
+
+Let us suppose that our $U(1)$ group is embedded in $SU(2)$, then a $4\pi$ rotation in $SU(2)$ can be deformed to the identity, since $SU(2)$ is a double cover of $SO(3)$. So suppose that we have a $SU(2)$ gauge theory, instead of the $U(1)$ discussed up to now, in which we are able to construct a solution of the previous equations of motion that behaves like a $U(1)$ monopole of charge\footnote{As we need a rotation of $4\pi$ to reach the identity in $SU(2)$.} 2 \todo{Dal nostro ragionamento mi verrebbe più spontaneo pensare che la carica del monopolo debba essere $q_m\in\Z_2$, visto che dopo $4\pi$ siamo nell'origine.}  at large distances from its center but near the center can explore the entire structure of $SU(2)$. 
+
+Then the previous argument implying infinite energy would not be valid anymore, and this is the basic idea which leads to the t'Hooft-Polyakov monopole. 
+
+\section{t'Hooft-Polyakov monopole}
+
+\cite[Chapter 4]{Shifman:2012}\\
+
+The T'Hooft-Polyakov monopole was first introduced in the \emph{Georgi-Glashow model}, which was one of the first attempts to get a unified theory of weak and electromagnetic interactions (now proved to be wrong, but so suggestive that Glashow shared the Nobel prize with the inventors of the Standard Model, Weinberg and Salam). The basic underlying idea was that the $U(1)$ gauge symmetry of QED was just a subgroup of a larger gauge symmetry, $SO(3)$, ``spontaneously broken''\footnote{Here the concept of ''spontaneous symmetry breaking'' apply either perturbatively, in some gauges, or using a non local order parameter, not as in section~\ref{sec:SSB}.} to $U(1)$. By the Anderson-Higgs mechanism the $U(1)$ component of the gauge field create massless photons, whereas the other 2 components, corresponding to the spontaneously broken symmetry, create massive vector mesons $W_\mu^\pm$.\footnote{The $Z^0$ massive uncharged meson was missing: it was introduced in the Standard Model to describe neutral currents, by replacing $SU(3)$ with $SU(2)\times U(1)$.} 
+
+
+
+
+
+%add comment from page 241 notes 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 21 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
