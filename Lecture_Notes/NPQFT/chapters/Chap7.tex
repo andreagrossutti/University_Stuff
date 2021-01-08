@@ -13,7 +13,7 @@
 
 The last solitons we will take into account are the monopoles, in particular we will consider general monopoles and t'Hooft-Polyakov monopoles. As usual we start from its classical theory. 
 
-\section{Classical treatment}
+\section{Introduction}
 
 Let us first consider classical electrodynamics in empty space, Maxwell's equations can be written as (we set $c=1$)
 \begin{eq}
@@ -48,7 +48,7 @@ or equivalently
 	\tilde F_{\mu\nu}\mapsto-F_{\mu\nu}
 \end{eq}
 Such transformation is called \emph{electromagnetic duality}. However, when we add electric sources via a current $j_e^\mu$ the invariance under duality is broken, because Maxwell's equations become
-\begin{eq}
+\begin{eq}\label{eq:Maxw-eqs-current}
 	\begin{cases}
 		\partial_\mu F^{\mu\nu}=j^\nu_e\\
 		\partial_\mu \tilde F^{\mu\nu}=0
@@ -77,7 +77,7 @@ that guarantees the (global) existence of the gauge potential $A_\mu$,
 \end{eq}
 In fact, assume for simplicity the temporal gauge $A^0=0$ and the existence of $\vec A$. Consider then the zero-component of the second of eq.~\eqref{eq:modif-Maxw-eq}, that is $j_m^0=\partial_\mu \tilde F^{\mu0}=\vec\nabla\cdot\vec B$, and integrate it at a fixed time over a ball $B^3$ containing a magnetic charge. Then we get
 \begin{eq}
-	q_m=\int_{B^3}\de^3x\,j_m^0
+	Q_m=\int_{B^3}\de^3x\,j_m^0
 	=\int_{B^3}\de^3x\,\vec\nabla\cdot\vec B  
 	=\oint_{\partial B^3=S^2}\vec B\cdot\de\vec S
 	=\oint_{S^2}\vec \nabla\times\vec A\cdot\de \vec S
@@ -93,6 +93,8 @@ This problem can be avoided in two ways:
 		F^{\mu\nu}=\partial^\mu A^\nu-\partial^\nu A^\mu+j^{\mu\nu}
 	\end{eq}
 \end{enumerate}
+
+\todo{Nelle sue note, a pag 241-242, c'era un commento sulla stringa di Dirac che non ha fatto a lezione. Per ora non l'ho riportato in queste note.}
 
 \subsubsection{The Wu-Yang approach}
 
@@ -116,11 +118,11 @@ On the sphere $S^2$ centered on the position of the point-like magnetic charge (
 \end{eq}
 On $U_1$ we define
 \begin{eq}
-	\vec A_1=\frac{q_m}{4\pi}\frac{\cos\theta-1}{r\sin\theta}\vec e_\phi
+	\vec A_1=\frac{Q_m}{4\pi}\frac{\cos\theta-1}{r\sin\theta}\vec e_\phi
 \end{eq}
-where $q_m$ is the magnetic charge and $\vec e_\phi$ is the unit vector along $\varphi$: in Cartesian coordinates $\vec e_\phi=(-\sin\varphi,\cos\varphi,0)$. I is clear that $A_1$ is well defined on $S^2$ except for $\theta=\pi$. Analogously on $U_2$ we define
+where $Q_m$ is the magnetic charge and $\vec e_\phi$ is the unit vector along $\varphi$: in Cartesian coordinates $\vec e_\phi=(-\sin\varphi,\cos\varphi,0)$. I is clear that $A_1$ is well defined on $S^2$ except for $\theta=\pi$. Analogously on $U_2$ we define
 \begin{eq}
-	\vec A_2=\frac{q_m}{4\pi}\frac{\cos\theta+1}{r\sin\theta}\vec e_\varphi
+	\vec A_2=\frac{Q_m}{4\pi}\frac{\cos\theta+1}{r\sin\theta}\vec e_\varphi
 \end{eq}
 Let us check that in the intersection of $U_1$ and $U_2$ the gauge potential $A_1$ and $A_2$ differ only by a gauge transformation. 
 Writing
@@ -130,11 +132,11 @@ Writing
 we find
 \begin{eq}
 	(\vec A_1-\vec A_2)\big|_{U_1\cap U_2}
-	=\frac{q_m}{2\pi}\left[\frac{\cos\theta+1}{r\sin\theta}-\frac{\cos\theta-1}{r\sin\theta}\right]\vec e_\varphi
-	=\frac{q_m}{2\pi}\frac1{r\sin\theta}\vec e_\varphi
-	=\frac1{2\pi i}e^{-iq_m\varphi}\vec\nabla e^{iq_m\varphi}
+	=\frac{Q_m}{2\pi}\left[\frac{\cos\theta+1}{r\sin\theta}-\frac{\cos\theta-1}{r\sin\theta}\right]\vec e_\varphi
+	=\frac{Q_m}{2\pi}\frac1{r\sin\theta}\vec e_\varphi
+	=\frac1{2\pi i}e^{-iQ_m\varphi}\vec\nabla e^{iQ_m\varphi}
 \end{eq}
-where in the last line we used that $\varphi$ is periodic of period $2\pi$ and $q_m\in\Z$. In a not very \todo{Non è corretto matematicamente perché $\varphi$ è definita a meno di salti di $2\pi$?} formal notation we can also write the last result as ``$\vec\nabla\frac{q_m}{2\pi}\varphi$'', so that it is clear that we have a gauge transformation with $\lambda_{12}=\frac{q_m}{2\pi}\varphi$.  If we compute the magnetic field we get, using $\vec\nabla\times\vec\nabla=0$,
+where in the last line we used that $\varphi$ is periodic of period $2\pi$ and $Q_m\in\Z$. In a not very \todo{Non è corretto matematicamente perché $\varphi$ è definita a meno di salti di $2\pi$?} formal notation we can also write the last result as ``$\vec\nabla\frac{Q_m}{2\pi}\varphi$'', so that it is clear that we have a gauge transformation with $\lambda_{12}=\frac{Q_m}{2\pi}\varphi$.  If we compute the magnetic field we get, using $\vec\nabla\times\vec\nabla=0$,
 \begin{eq}
 	\vec B_1=\vec\nabla\times\vec A_1=\vec \nabla\times\vec A_2=\vec B_2
 \end{eq}
@@ -142,15 +144,15 @@ so $\vec B$ is well defined on $S^2$.
 
 Notice that by setting\footnote{Notice that $\vec a$ is the gauge potential with the normalization used in the previous chapter.} $\vec A=\frac1{2\pi}\vec a$, $\vec a_1$ differs from $\vec a_2$ in $U_1\cap U_2$ by a well defined $U(1)$ gauge transformation
 \begin{eq}
-	e^{-iq_m\varphi}\frac{\vec\nabla}ie^{iq_m\varphi}
+	e^{-iQ_m\varphi}\frac{\vec\nabla}ie^{iQ_m\varphi}
 \end{eq}
 so that setting $F_{ij}=\frac1{2\pi}f_{ij}$ ($f_{ij}$ turns out to be the curvature of a $U(1)$ connection) and
 \begin{eq}
-	\int_{S^2}F_{ij}\de x^i\de x^j=\frac1{2\pi}\int f_{ij}\de x^i\de x^j=q_m
+	\int_{S^2}F_{ij}\de x^i\de x^j=\frac1{2\pi}\int f_{ij}\de x^i\de x^j=Q_m
 \end{eq}
 is called the \emph{first Chern number}. We may also write 
 \begin{eq}\label{eq:field-strength-monopole-f}
-	f_{ij}\de x^i\de x^j=\frac{q_m}2\sin\theta\de\theta\de\varphi=\frac{q_m}2\frac{1}{r^3}\lctens_{ijk}x^i\de x^j\de x^k
+	f_{ij}\de x^i\de x^j=\frac{Q_m}2\sin\theta\de\theta\de\varphi=\frac{Q_m}2\frac{1}{r^3}\lctens_{ijk}x^i\de x^j\de x^k
 \end{eq} 
 
 
@@ -162,22 +164,22 @@ Notice that by choosing $U_1$ as the upper semisphere $S_+^2$ and $U_2$ as the l
 	&=\int_{S_+^2}F_{ij}\de x^i\de x^j+\int_{S_-^2}F_{ij}\de x^i\de x^j
 	=\int_{S_+^2}\vec\nabla\times\vec A_1\cdot\de\vec\Sigma+\int_{S_-^2}\vec\nabla\times\vec A_1\cdot\de\vec\Sigma\\
 	&=\oint_{S^1}(\vec A_1-\vec A_2)\de\vec x
-	=\oint_{S^1}e^{-iq_m\varphi}\frac{\vec\nabla}{2\pi i}e^{iq_m\varphi}\de\vec x
-	=q_m\int_0^{2\pi}\frac{\de\varphi}{2\pi}
-	=q_m
+	=\oint_{S^1}e^{-iQ_m\varphi}\frac{\vec\nabla}{2\pi i}e^{iQ_m\varphi}\de\vec x
+	=Q_m\int_0^{2\pi}\frac{\de\varphi}{2\pi}
+	=Q_m
 \end{eq}
-Hence $q_m$ have a new interpretation, namely it counts how many times the gauge transformation $e^{iq_m\varphi}$ goes around the circle $S^1$ as $\varphi$ goes from $0$ to $2\pi$ (recall that an element of $U(1)$, the gauge group, can be identified with an element of $S^1$). In other words, $e^{iq_m\varphi}\in\pi_1(S^1)\simeq\Z$, where $\pi_1$ is again the first homotopy group. The fact that such $U(1)$ map cannot be deformed to a constant guarantees the stability of the monopole. 
+Hence $Q_m$ have a new interpretation, namely it counts how many times the gauge transformation $e^{iQ_m\varphi}$ goes around the circle $S^1$ as $\varphi$ goes from $0$ to $2\pi$ (recall that an element of $U(1)$, the gauge group, can be identified with an element of $S^1$). In other words, $e^{iQ_m\varphi}\in\pi_1(S^1)\simeq\Z$, where $\pi_1$ is again the first homotopy group. The fact that such $U(1)$ map cannot be deformed to a constant guarantees the stability of the monopole. 
 
 \skipline
 
 Up to now the monopole was considered at a fixed time. If we consider a $3+1$ dimensional theory one can quantize the theory, first considering a static monopole with 3 moduli corresponding to the 3 coordinates of the center of the monopole, so that the monopole worldline in a $3+1$ QFT produce line defects. However, in the case of monopoles we have a qualitative difference with respect to kinks and vortices: if we compute the energy of the monopole we find that it is UV divergent:
 \begin{eq}
-	E
+	\int\de^3x\,\cenergy
 	\sim\int_{\R^3}\de^3x\,F_{ij}^2
 	\overset{\eqref{eq:field-strength-monopole-f}}\sim\int_0^\infty r^2\de r\,\frac1{r^4}
 \end{eq}
 so that for a 3-ball $B^3(R)$ centered on the monopole of radius $R$ we have
-\begin{eq}
+\begin{eq}\label{eq:magn-charge-Dirac-monopole}
 	\lim_{R\to0}\int_{\R^3\setminus B^3(R)}\de^3x\,F_{ij}^2\sim\lim_{R\to0}\int_R^\infty\frac{\de r}{r^2}=+\infty
 \end{eq}
 even if we excluded the singularity $r=0$ of $\frac1{r^2}$ from the integration domain.  
@@ -186,29 +188,317 @@ Since at quantum level this implies divergence in the semi-classical approximati
 
 \skipline
 
-Let us show where this singular behaviour of the monopole comes from. One can view this as a consequence of the impossibility of deforming the $U(1)$ transformation $e^{iq_m\varphi}$ to a constant over the circle $S^1$ of arbitrarily small radius, which means that the charge $q_m$ (which due to eq.~\eqref{eq:qm-constraint-gauge} gives such constraint on the possible deformations) is concentrated in a single point. Indeed, the same kind of divergence appears also in the classical description of the electric field, and is due to the fact that the charge of the electron is concentrated in a point. In the case of the electric field the problem is solved in QFT by replacing the electron to a quantum field, that is an operator valued distribution, which makes sense only when smeared with a test function. 
+Let us show where this singular behaviour of the monopole comes from. One can view this as a consequence of the impossibility of deforming the $U(1)$ transformation $e^{iQ_m\varphi}$ to a constant over the circle $S^1$ of arbitrarily small radius, which means that the charge $Q_m$ (which due to eq.~\eqref{eq:qm-constraint-gauge} gives such constraint on the possible deformations) is concentrated in a single point. Indeed, the same kind of divergence appears also in the classical description of the electric field, and is due to the fact that the charge of the electron is concentrated in a point. In the case of the electric field the problem is solved in QFT by replacing the electron to a quantum field, that is an operator valued distribution, which makes sense only when smeared with a test function. 
 The problem here is that  in the case of the monopole even the semi-classical approximation is inconsistent, hence we cannot solve this issue as in the case of the electric field. 
 
 \skipline
 
-Let us suppose that our $U(1)$ group is embedded in $SU(2)$, then a $4\pi$ rotation in $SU(2)$ can be deformed to the identity, since $SU(2)$ is a double cover of $SO(3)$. So suppose that we have a $SU(2)$ gauge theory, instead of the $U(1)$ discussed up to now, in which we are able to construct a solution of the previous equations of motion that behaves like a $U(1)$ monopole of charge\footnote{As we need a rotation of $4\pi$ to reach the identity in $SU(2)$.} 2 \todo{Dal nostro ragionamento mi verrebbe più spontaneo pensare che la carica del monopolo debba essere $q_m\in\Z_2$, visto che dopo $4\pi$ siamo nell'origine.}  at large distances from its center but near the center can explore the entire structure of $SU(2)$. 
+Let us suppose that our $U(1)$ group is embedded in $SU(2)$, then a $4\pi$ rotation in $SU(2)$ can be deformed to the identity, since $SU(2)$ is a double cover of $SO(3)$. So suppose that we have a $SU(2)$ gauge theory, instead of the $U(1)$ discussed up to now, in which we are able to construct a solution of the previous equations of motion that behaves like a $U(1)$ monopole of charge\footnote{As we need a rotation of $4\pi$ to reach the identity in $SU(2)$.} 2 \todo{Dal nostro ragionamento mi verrebbe più spontaneo pensare che la carica del monopolo debba essere $Q_m\in\Z_2$, visto che dopo $4\pi$ siamo nell'origine.}  at large distances from its center but near the center can explore the entire structure of $SU(2)$. 
 
 Then the previous argument implying infinite energy would not be valid anymore, and this is the basic idea which leads to the t'Hooft-Polyakov monopole. 
 
-\section{t'Hooft-Polyakov monopole}
+\section{Classical treatment of the t'Hooft-Polyakov monopole}
 
 \cite[Chapter 4]{Shifman:2012}\\
 
-The T'Hooft-Polyakov monopole was first introduced in the \emph{Georgi-Glashow model}, which was one of the first attempts to get a unified theory of weak and electromagnetic interactions (now proved to be wrong, but so suggestive that Glashow shared the Nobel prize with the inventors of the Standard Model, Weinberg and Salam). The basic underlying idea was that the $U(1)$ gauge symmetry of QED was just a subgroup of a larger gauge symmetry, $SO(3)$, ``spontaneously broken''\footnote{Here the concept of ''spontaneous symmetry breaking'' apply either perturbatively, in some gauges, or using a non local order parameter, not as in section~\ref{sec:SSB}.} to $U(1)$. By the Anderson-Higgs mechanism the $U(1)$ component of the gauge field create massless photons, whereas the other 2 components, corresponding to the spontaneously broken symmetry, create massive vector mesons $W_\mu^\pm$.\footnote{The $Z^0$ massive uncharged meson was missing: it was introduced in the Standard Model to describe neutral currents, by replacing $SU(3)$ with $SU(2)\times U(1)$.} 
-
-
-
-
-
-%add comment from page 241 notes 
+The \emph{t'Hooft-Polyakov monopole} was first introduced in the \emph{Georgi-Glashow model}, which was one of the first attempts to get a unified theory of weak and electromagnetic interactions (now proved to be wrong, but so suggestive that Glashow shared the Nobel prize with the inventors of the Standard Model, Weinberg and Salam). The basic underlying idea was that the $U(1)$ gauge symmetry of QED was just a subgroup of a larger gauge symmetry, $SO(3)$, ``spontaneously broken''\footnote{Here the concept of ''spontaneous symmetry breaking'' apply either perturbatively, in some gauges, or using a non local order parameter, not as in section~\ref{sec:SSB}.} to $U(1)$. By the Anderson-Higgs mechanism the $U(1)$ component of the gauge field create massless photons, whereas the other 2 components, corresponding to the spontaneously broken symmetry, create massive vector mesons $W_\mu^\pm$.\footnote{The $Z^0$ massive uncharged meson was missing: it was introduced in the Standard Model to describe neutral currents, by replacing $SU(3)$ with $SU(2)\times U(1)$.} 
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% LECTURE 21 %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
+
+\skipline
+
+Let's start the description of the Georgi-Glashow model from the fields of the theory. The $SO(3)$ gauge field is described by 
+\begin{eq}
+	A\equiv A_\mu^a\frac{\tau^a}2
+	\tfor
+	a=1,2,3
+	\tand
+	\tau^a\  \text{Pauli matrices}
+\end{eq}
+and its field strength has components
+\begin{eq}
+	G_{\mu\nu}^a=\partial_\mu A_\nu^a-\partial_\nu A_\mu^a+\lctens^{abc}A_\mu^bA_\nu^c
+\end{eq}
+The model contains also a 3-components real scalar field 
+\begin{eq}
+	\phi\equiv\phi^a\frac{\tau^a}2
+\end{eq}
+and its $SO(3)$ covariant derivative is given by 
+\begin{eq}
+	D_\mu\phi^a:=\partial_\mu\phi^a+\lctens^{abc}A_\mu^b\phi^c
+\end{eq}
+The Euclidean Lagrangian in $3+1$ dimensions, a kind of non-Abelian generalization of the $2+1$ Higgs model discussed for vortices, is given by
+\begin{eq}
+	\lag=\frac1{4g^2}(G_{\mu\nu}^a)^2+\half(D_\mu\phi^a)^2+\lambda\big((\phi^a)^2-v^2\big)
+\end{eq}
+with $SO(3)$ breaking boundary conditions, e.g.
+\begin{eq}
+	\phi^a(\infty)=v\delta^{a3}
+	\quad\leftrightarrow\quad
+	\phi(\infty)=v\frac{\tau^3}2
+\end{eq}
+The direction of the vector $\phi^a(\infty)$ in the $SO(3)$ (inducing the $SO(3)$ breaking) can be chosen arbitrarily, but when fixed it still leaves a $U(1)$ subgroup of $SO(3)$, corresponding to rotations around the chosen axis, unbroken:
+\begin{eq}
+	e^{i\alpha\frac{\tau^3}2}\underbrace{v\frac{\tau^3}2}_{\phi(\infty)}e^{-i\alpha\frac{\tau_3}2}=\underbrace{v\frac{\tau^3}2}_{\phi(\infty)}
+\end{eq}
+From the action we can derive the following equations of motion
+\begin{eq}\label{eq:Georgi-Glashow-eom}
+	\begin{cases}
+		D_\mu G^{\mu\nu\,a}=-g^2\lctens^{abc}\phi^bD^\nu \phi^c\\
+		D_{[\mu}G_{\nu\rho]}^a=0\\
+		(D_\mu D^\mu\phi^a)=4\lambda\phi^a\big((\phi^b)^2-v^2\big)
+	\end{cases}
+\end{eq}
+where the first and the second equations corresponds to the first and the second of eq.~\eqref{eq:Maxw-eqs-current} respectively, and the third correspond to the equation of motion of the scalar field. 
+
+The action is invariant under the gauge transformations: for $g(x)\in SU(2)$\footnote{Actually the gauge transformations eq.~\eqref{eq:gauge-transf-georgi-glashow} leaves the center of $SU(2)$ invariant, hence they behaves as $SO(3)$ transformations. }
+\begin{eq}\label{eq:gauge-transf-georgi-glashow}
+	\begin{cases}\begin{aligned}
+		A_\mu&\quad\mapsto\quad g^{-1}A_\mu g+g^{-1}\partial_\mu g\\
+		\phi&\quad\mapsto\quad g^{-1}\phi g
+	\end{aligned}\end{cases}
+\end{eq}
+At least perturbatively one often perform a gauge transformation (\emph{unitary gauge}) reducing $\phi=v\frac{\tau^3}2$ everywhere. Then $A_\mu^3$ remains gapless and we identify it with the ``photon field'', whereas
+\begin{eq}
+	W_\mu^\pm=\frac1{\sqrt2}\frac1g(A_\mu^1\pm iA_\mu)^2 
+\end{eq}
+are the massive vector meson fields. 
+
+\subsubsection{Vacuum sector}
+
+The vacua of the theory are found by putting to zero all squares in the energy density $\cenergy$. Define $G^{a\,0i}:=E^{a\,i}$ and $G^a_{ij}:=-\half\lctens_{ijk}B^{ak}$, then for a static configuration, with $A_0^a=0$, 
+\begin{eq}\label{energy-GG-model}
+	\int\de^3x\,\cenergy
+	=\int\de^3x\,\half\left[\frac{(B^{ai})^2}{g^2}+(D_i\phi^a)^2\right]+\lambda\big((\phi^a)^2-v^2\big)^2
+\end{eq}
+The global minimum of the energy, for the given boundary conditions, is given by
+\begin{eq}
+	\begin{cases}
+		B^a=0\tso A_i^a=g^{-1}\partial_ig\\
+		\displaystyle\phi=v\frac{\tau^3}2\\
+		D_i\phi^a=0\tso A_i^a=0
+	\end{cases}
+\end{eq}
+where we used the first and the second conditions to obtain the third. 
+
+\subsubsection{Monopoles}
+
+Let's consider the monopole as a static field configuration. First, in order to find the monopole, we want to find the correct ``magnetic field'' of the model. The ``$SO(3)$-magnetic field'' $B_i^a$ is not gauge invariant, hence unphysical. But its projections on $\phi$ is gauge invariant, so a natural choice for the ``magnetic field'' is 
+\begin{eq}
+	B_i^a\frac{\phi^a}{|\phi|}=\half\lctens_{ijk}G_{jk}^a\frac{\phi^a}{|\phi|}
+\end{eq}
+and its ``magnetic charge'' in units of $g$ can be defined as
+\begin{eq}\label{eq:magn-charg-monop}
+	Q_m=\lim_{R\to\infty}\frac1g\int_{S_R^2}\de\Sigma^i\, B_i^a\frac{\phi^a}{|\phi|}
+\end{eq}
+
+\skipline
+
+We want to find some finite energy configuration with $Q_m\neq0$. From the finiteness of the energy eq.~\eqref{energy-GG-model} we have that as $r\to\infty$ we should have $(\phi^a(\infty))^2=v^2$ \todo{Ma non avevamo già fissato $\phi(\infty)=v\frac{\tau^3}2$? Possiamo rilassare la richiesta, prendendo $\phi(e^{i\alpha}\infty)=ve^{if(\alpha)}\frac{\tau^3}2$ con $f(\alpha)$ fissato?} hence $\phi$ on the sphere at $\infty$, $S^2_\infty$, takes values in a $2$-sphere $S_\phi^2$ of radius $|v|$. 
+
+The continuous maps between these spheres are labelled by an integer $n$ corresponding to an element of the homotopy group $\pi_2(S^2)\simeq\Z$, identifying how many times $\phi$ sweeps $S_\phi^2$ when $\vec x$ sweeps $S_\infty^2$. 
+
+Let us consider the case $N=1$, this clearly occours if at $\infty$ we have
+\begin{eq}	\label{eq:behav-phi-infty-monopole}
+	\phi^a\underset{r\to\infty}\sim v\frac{x^a}{r}=:vn^a
+\end{eq}
+We see that the group index ``$a$'' is referred to both as group index and as spatial index, hence gets ``entangled'' with a coordinate index of $\vec x$ (this is possible since it both cases it runs over $\R^3$, conversely this would be impossible in $U(1)$). 
+
+Furthermore finiteness of the energy imposes also that as $r\to\infty$ the derivative $D_i\phi^a$ decays faster than $r^{-3/2}$. For eq.~\eqref{eq:behav-phi-infty-monopole} this means that 
+\begin{eq}
+	\partial_i\phi^a=\partial_i\left(\frac{vx^a}r\right)=\frac vr(\delta^{ai}-n^an^i)\underset{r\to\infty}\sim\frac1r
+\end{eq}
+which is not enough to satisfy $D_i\phi^a\sim r^{-3/2}$. 
+Hence we must choose $A_i^b$ so that
+\begin{eq}
+	D_i\phi^a=\partial_i\phi^a+\lctens^{abc}A_i^b\phi^c\underset{r\to\infty}\sim O(r^{-3/2})
+\end{eq}
+This requires 
+\begin{eq}\label{eq:A-finite-energy-N-1}
+	A_i^a\underset{r\to\infty}\sim\lctens_{aij}\frac{n^j}r
+\end{eq}
+in fact for such choice of $A_i^a$\footnote{The following identity is needed:
+\begin{eq}
+\lctens^{ijk}\lctens_{ij'\!k'}=\delta^j_{j'}\delta^k_{k'}-\delta^j_{k'}\delta^k_{j'}
+\end{eq}
+We will also use
+\begin{eq}
+	\lctens^{ijk}\lctens_{ijk'}=\delta^k_{k'}
+\end{eq}}
+\begin{eq}
+	\lctens^{abc}A_i^b\phi^c=\lctens^{abc}\lctens^{bij}\frac{n_j}r\frac{x^c}rv=\frac vr(-\delta^{ai}+n^an^i)
+\end{eq}
+Again, in eq.~\eqref{eq:A-finite-energy-N-1} group and spatial indices are ``entangled''. 
+
+\skipline
+
+We obtained that in order to have a finite energy configuration with $Q_m$ such that $N=1$, eq.~\eqref{eq:behav-phi-infty-monopole} and eq.~\eqref{eq:A-finite-energy-N-1} should hold:
+\begin{eq}\label{eq:monop-finite-energy-N-1}
+	\phi^a\sim v\frac{x^a}{r}=vn^a
+	\tand
+	A_i^a\underset{r\to\infty}\sim\lctens^{aij}\frac{x_j}{r^2}=\lctens^{aij}\frac{n_j}r
+\end{eq}
+Let us compute $Q_m$ for such configuration using eq.~\eqref{eq:magn-charg-monop}. First notice that
+\begin{eq}
+	\frac{\phi^a}{|\phi|}B_i^a
+	&=\frac{x^a}rB_i^a
+	=\frac{x^a}r\left[-\half\lctens_{ijk}(\partial_j A_k^a-\partial_kA_j^a+\lctens^{abc}A_j^bA_k^c)\right]\\
+	&=\frac{x^a}r\left[-\lctens_{ijk}\delta^m_j\frac{\lctens^{akm}}{r^2}-\half\lctens_{ijk}\lctens^{abc}\lctens^{bjm}\frac{x_m}{r^2}\lctens^{ckn}{r^2}\right]
+	=\frac{x_i}{r^3}
+\end{eq}
+and then
+\begin{eq}
+	Q_m&=\lim_{R\to\infty}\frac1g\int_{S_R^2}\de\Sigma^i\, B_i^a\frac{\phi^a}{|\phi|}
+	=\lim_{R\to\infty}\frac1g\int_{S_R^2}\de\Sigma^i\, \frac{x_i}{r^3}
+	=\lim_{R\to\infty}\frac1g\int_{S_R^2}{r^2\sin\theta\,\de\theta\,\de\varphi}\,\frac{x^i}r\, \frac{x_i}{r^3}
+	=\frac{4\pi}g
+\end{eq}
+and this is exactly the expected \todo{Non mi è ben chiaro come mai questa sia la forma corretta della carica del monopolo.} magnetic charge for a $N=1$ monopole, hence fields as in eq.~\eqref{eq:monop-finite-energy-N-1} are very good candidates for the asymptotic description of the monopole. 
+
+\skipline
+
+In order to find the description of the fields associated to the monopole at finite distances, we introduce the following ansatz, analogous to the one used for the vortices,
+\begin{eq}\label{eq:ansatz-tH-P-monop}
+	A_i^a=\lctens^{aij}\frac{x_j}{r^2} (1-g_A(r))
+	\tcomma
+	\phi^a=v\frac{x^a}r(1-g_H(r))
+\end{eq}
+with $g_A$ and $g_H$ functions vanishing for $r\to\infty$. The requirement that the energy eq.~\eqref{energy-GG-model} is finite as $r\to0$ gives
+\begin{eq}
+	r^2B^2\underset{r\to0}\sim\frac{1}{r^{1-\epsilon}}
+	\tso
+	r^2\frac1{r^4}(1-g_A)^2\underset{r\to0}\sim\frac{1}{r^{1-\epsilon}}
+\end{eq}
+and 
+\begin{eq}
+	r^2(D_i\phi)^2\underset{r\to0}\sim\frac{1}{r^{1-\epsilon}}
+	\tso
+	r^2\frac1{r^2}(1-g_H)^2\underset{r\to0}\sim\frac{1}{r^{1-\epsilon}}
+\end{eq}
+where we used $B\sim\frac1{r^2}(1-g_A)$ and $D_i\phi\sim\frac1{r}(1-g_H)$. Requiring that $B$ and $\phi$ are regular, we obtain
+\begin{eq}
+	r^2B^2\underset{r\to0}\sim1
+	\tso
+	r^2\frac1{r^4}(1-g_A)^2\underset{r\to0}\sim1
+	\tso
+	1-g_A\underset{r\to0}\sim r
+\end{eq}
+and simultaneously
+\begin{eq}
+	r^2(D_i\phi)^2\underset{r\to0}\sim1
+	\tso
+	r^2\frac1{r^2}(1-g_H)^2\underset{r\to0}\sim1
+	\tso
+	1-g_H\underset{r\to0}\sim 1
+\end{eq}
+Hence for $1-g_A=O(r)$ and $1-g_H=O(1)$ the solution has finite energy. 
+
+These conditions give a different result for the magnetic charge respect to the case of the Dirac monopole, eq.~\eqref{eq:magn-charge-Dirac-monopole}, indeed
+\begin{eq}
+	\lim_{R\to0}\frac1g\int_{S_R^2}\de\Sigma^i\, B_i^a\frac{\phi^a}{|\phi|}=0
+\end{eq}
+so the ``magnetic charge density'' is not concentrated in a point like in the Dirac monopole, and this allows the finiteness of the energy. 
+Indeed eq.~\eqref{eq:ansatz-tH-P-monop} give really a static solution of the Georgi-Glashow equations of motion eq.~\eqref{eq:Georgi-Glashow-eom} for $1-g_A=O(r)$ and $1-g_H=O(1)$, and such solution is the (static) t'Hooft-Polyakov monopole. 
+
+\skipline
+
+Recall that a monopole, according to Dirac's description, should be related to a $U(1)$ symmetry. t'Hooft proved that one can define, starting from the non-Abelian field strength $G_{\mu\nu}^a$ of the Georgi-Glashow model, an Abelian $U(1)$ gauge invariant field strength whose singularity is exactly the one of the Dirac monopole. In this way it is possible to see the real monopole structure of the t'Hooft-Polyakov monopole, namely the one corresponding to the Dirac monopole. The correct $U(1)$ ``magnetic field'' found by t'Hooft is obtained by adding to $B_i^a\frac{\phi^a}{|\phi|}$ a contribution vanishing at $\infty$, still gauge invariant, so that instead of the regular structure defined up to now we have the singular structure of the Dirac monopole. 
+
+In order to simplify the notation, let's $e^a:=\frac{\phi^a}{|\phi|}$ defined on the points where $|\phi|\neq0$, i.e. outside the center ($r=0$) of the monopole. The $U(1)$ gauge ``magnetic field strength'', $SO(3)$ invariant, proposed by t'Hooft is
+\begin{eq}
+	F_{\mu\nu}^{U(1)}:=e^a\big[G_{\mu\nu}^a-\lctens^{abc}D_\mu e^b D_\nu e^c\big]
+\end{eq}
+Indeed, for $|\phi|\neq0$ (brackets are omitted, however the derivatives act only on the element on their side, e.g. $\partial_\mu e^b\partial_\nu e^c=(\partial_\mu e^b)(\partial_\nu e^c)$)
+\begin{eq}
+	F_{\mu\nu}^{U(1)}
+	&=e^a\big[\partial_\mu A_\nu^a-\partial_\nu A_\mu^a+\lctens^{abc}A_\mu^bA_\nu^c-\lctens^{abc}\partial_\mu e^b\partial_\nu e^c-\lctens^{abc}\lctens^{blm}A_\mu^le^m\partial_\nu e^c-\\
+	&\qquad-\lctens^{abc}\partial_\mu e^b\lctens^{crs}A_\nu^r e^s-\lctens^{abc}\lctens^{blm}A_\mu^l e^m\lctens^{crs}A_\nu^r e^s\big]\\
+	&=e^a\big[\partial_\mu A_\nu^a-\partial_\nu A_\mu^a+\lctens^{abc}A_\mu^bA_\nu^c-\lctens^{abc}\partial_\mu e^b\partial_\nu e^c+A_\mu^a\cancel{e^c\partial_\nu e^c}-A_\mu^ce^a\partial_\nu e^c-\\
+	&\qquad-\cancel{\partial_\mu e^be^b}A_\nu^a+\partial_\mu e^bA_\nu^be^a-\lctens^{blm}A_\mu^lA_\nu^ae^me^c+\lctens^{blm}A_\mu^lA_\nu^be^me^a\big]\\
+	&=\partial_\mu(e^aA_\nu^a)-\partial_\nu(e^aA_\mu^a)-\lctens^{abc}e^a\partial_\mu e^b\partial_\nu e^c
+\end{eq}
+notice that $e^aA_\mu^a$ is the projection of $A_\mu$ along $\phi$, and $F_{\mu\nu}^{U(1)}$ is defined everywhere, beside in the center of the monopole where $|\phi|=0$. Using eq.~\eqref{eq:ansatz-tH-P-monop} we see that for the monopole solution
+\begin{eq}
+	e^a=\frac{x^a}r
+	\tand
+	A_i^ae^a=\cancel{\lctens^{aij}\frac{x^a}r\frac{x_j}{r^2}}(1-g_A(r))=0
+\end{eq}
+hence, for the monopole solution
+\begin{eq}
+	F_{ij}^{U(1)}&=-\lctens^{abc}e^a\partial_\mu e^b\partial_\nu e^c\\
+	&=-\lctens^{abc}\frac{x^a}r\partial_i\frac{x^b}r\partial_j\frac{x^c}r\\
+	&=-\lctens^{abc}\frac{x^a}{r^3}\partial_i x^b\partial_jx^c
+\end{eq}
+where in the third line we used the antisymmetry of $\lctens^{abc}$. The result is up to an overall constant factor the field strength of the Dirac monopole, eq.~\eqref{eq:field-strength-monopole-f}. Hence $F_{ij}^{U(1)}$ has the same singularity at $r=0$ as in the case of the Dirac monopole, but we obtained it from a finite energy configuration starting from the Georgi-Glashow model. 
+
+\subsubsection{Mass of the monopole}
+
+Let's compute the mass of the classical monopole. This is particularly simple in the case $\lambda=0$ (but still $\phi^a(\infty)=v\delta^{a3}$ boundary conditions), called \emph{BPS limit}. In this case, in analogy to the Bogomol'nyi treatment of vortices, one can rewrite
+\begin{eq}
+	\int\de^3x\,\cenergy
+	=\int\de^3x\,\frac1{2g^2}(B_i^a-D_i\phi^a)^2+\frac1gB_i^aD_i\phi^a
+\end{eq}
+The second term, using the equation of motion $0=D_{[i}G_{jk]}=D_iB_i^a$, can be rewritten as 
+\begin{eq}
+	\int\de^3x\,\frac1gB_i^aD_i\phi^a=\frac1g\int\de^3x\,\partial_i(B_i^a\phi^a)-\frac1g\int\de^3x\,(\cancel{D_iB_i^a})\phi^a
+	=\lim_{R\to\infty}\frac1g\int_{S_R^2}\de\Sigma^i\,B_i^a\phi^a=vQ_m
+\end{eq}
+Hence if the monopole satisfies $B_i^a=D_i\phi^a$ as local minimum of the energy, we have
+\begin{eq}
+	\int\de^3x\,\cenergy=M_m=vQ_m
+\end{eq}
+This also implies that the t'Hooft-Polyakov monopole in the BPS limit is free and very heavy if $g$ is small. Even if $W^\pm$ mesons described by the Georgi-Glashow model are quite different respect those described by the Standard Model, we may assume that the mass of $W^\pm$ is the same in the two models, and in this case the expected mass of the monopole would be $M_m\sim10\text{TeV}/c^2$ (about the maximum energy reached by the LHC). It has not be found (yet).  
+
+\section{Quantum mechanical treatment of t'Hooft-Polyakov monopole}
+
+In the case of the t'Hooft-Polyakov monopole it is important to make some more comments about its quantum mechanical version, since up to now there is no agreed and  well defined QFT description of it. 
+
+The quantum mechanical version of the t'Hooft Polyakov monopole is obtained promoting the moduli of the the classical solution, corresponding to symmetries broken by the specific choice of the monopole solution, to quantum mechanical (time-dependent) variables. Three moduli correspond to the position of the center of the monopole $\vec x_0$ (up to now $\vec x_0=\vec 0$). There is however a fourth modulus, corresponding to the fact that the ``global''\footnote{Meaning that the symmetry is still described by gauge transformations, but whose group parameter are constant over the whole spacetime.} $U(1)$-electromagnetic symmetry is unbroken, but a fixed monopole solution breaks it. In fact let $e_m(\infty)$ denote the asymptotic behaviour of the normalized scalar field of the monopole. A $U(1)$ transformation of the form $e^{i\alpha e_m(x)}$, where $\alpha$ is constant, leave the boundary condition of $\phi_m$ (the monopole configuration of the scalar field) unchanged but modifies the gauge potential by 
+\begin{eq}\label{eq:gauge-pot-alpha-monop}
+	A_i\ \mapsto\  A_i^{(\alpha)}=e^{-i\alpha e_m}A_ie^{i\alpha e_m}+\frac1ie^{-i\alpha e_m}\partial_je^{i\alpha e_m}
+\end{eq}
+We should consider $\alpha$ as a new modulo associated to the specific monopole solution. Hence in the quantum mechanical treatment we should introduce 4 time dependent variables $\op{\vec x}_0(t)$ and $\op\alpha(t)$, together with their conjugated momenta $\op{\vec p}_0(t)$ and $\op p_\alpha(t)$, and then the quantum mechanical hamiltonian of the monopole in the quadratic approximation is
+\begin{eq}
+	H_m=M_m+\frac{\op{\vec p}_0(t)}{2M_m}+m_W^2\frac{\op p_\alpha^2(t)}{2M_m}
+\end{eq}
+where the factor $m_W$ is needed since $\alpha$ is an angle, hence $\frac1{2M_m}\op p_\alpha^2$ has not the right dimension in the Hamiltonian. Since $\op\alpha$ is periodic, then $\op p_\alpha$ has discrete spectrum: $\spec(\op p_\alpha)\subset\Z$ (for $\hbar=1$).
+
+To understend the meaning of these eigenvalues in the simplest case of a BPS solution, notice that 
+\begin{eq}
+	\op p_\alpha=\frac{M_m}{m_W}\der{\op\alpha}t
+\end{eq}
+where $m_W$ again comes from a power counting argument, and define the gauge invariant $SO(3)$ electric field for the monopole solution evaluated in the gauge $A_0^a=0$ as
+\begin{eq}
+	E_i=E_i^a\frac{\phi^a}{|\phi|}=\Tr(E_ie_m)
+	\twith 
+	E_i=\partial_0A_i^{(\alpha)}
+\end{eq}
+whose quantum version is 
+\begin{eq}
+	\op E_i
+	=\Tr\,(\partial_0\op A_i^{(\alpha)}\op e_m)
+	=\der{\op\alpha}t\Tr\,(\partial_\alpha\op A_i^{(\alpha)}\op e_m)
+	\overset{\eqref{eq:gauge-pot-alpha-monop}}=\der{\op\alpha}t\Tr\big(D_i\op \phi\,\op e_m\big)
+	\overset{\text{BPS}}=\der{\op\alpha}t\Tr\big(\op B_i\op e_m\big)
+	=\frac{m_W}{M_m}\op p_\alpha\Tr\,(\op B_i\op e_m)
+\end{eq}
+where we used $B_i^a=D_i\phi^a$, which holds in the BPS limit. \todo{Non mi è chiarissimo come otteniamo $\partial_\alpha\op A_i^{(\alpha)}=D_i\op e_m$. Penso che delle CCR tra $\op x$ e $\op p_\alpha$ siano necessarie.}\todo{Nel caso BPS, $B_i^a=D_i\phi^a$ oppure $B_i^a=D_ie_m^a$?}
+The electric charge in units of $g$ for the eigenvalue $k\in\Z$ of $\op p_\alpha$ is then given by
+\begin{eq}
+	Q_e=\lim_{R\to\infty}\frac1g\int_{S_R^2}\de\Sigma^i\,\op E_i
+	=\lim_{R\to\infty}\frac1g\int_{S_R^2}\de\Sigma^i\,\frac{m_W}{M_m}k\Tr\,(\op B_i\op e_m)
+	=\frac1gm_Wk\frac{Q_m}{M_m}
+	=k
+\end{eq}
+where we used $M_m=vQ_m$ and $m_W=vg$. Hence if $k\neq0$ then both $Q_m$ and $Q_E$ are non-vanishing. These solutions, where both electric and magnetic charge are not zero,  are called \emph{dyons}. By consistency, they should appear in the Georgi-Glashow model (meaning that they cannot be removed from the spectrum of the Hamiltonian). 
+
+Hence, while the first three moduli $\vec x_0$ become just the position variables of a quantum mechanical particle, the modulus connected with the symmetry which has been broken by a specific choice of a modulus solution in the internal space is just the information that the spectrum of the theory contains particles with both electric and magnetic charges different from 0. 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 22 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \end{document}
