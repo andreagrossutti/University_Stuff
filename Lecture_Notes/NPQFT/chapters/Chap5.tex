@@ -834,7 +834,7 @@ Finally, neglecting contributions coming from fluctuations around the vacuum, we
 	&\approx\sum_{i\in I}e^{\displaystyle-S(\Gamma_{i,1},\ldots,\Gamma_{i,N})}\\
 	&=\sum_{i\in I}\underbrace{\prod_{k=1}^Ne^{\displaystyle-S(\Gamma_{i,k})}}_{\text{Non-interacting}\atop\text{gas of defects}}\,\underbrace{\vphantom{\prod_{k}}e^{\displaystyle-V(\Gamma_{i,1},\ldots,\Gamma_{i,N})}}_{\text{Interactions}\atop\text{among defects}}
 \end{eq}
-which can be interpreted as a partition function of the interacting gas of defects, which by construction have closed locus. 
+which can be interpreted as a partition function of the interacting gas of defects, which by construction have closed locus. \todo{Qui ho un dubbio che è legato ad un'altra domanda che le ho fatto più sotto. Immagino che questa interazione tra defects risulta poi essere un'interazione tra kinks. Ha senso questo visto che kinks dovrebbero esser configurazioni solitarie (perlomeno a livello classico)? In tal caso, è possibile definire un'azione interagente per kink in QFT che tenga conto di questo tipo di interazioni?}
 
 \skipline
 
@@ -958,7 +958,7 @@ Analogously, for the partition function\footnote{Analogously to what we have don
 	&=\exp\left[\Tr\int_0^\infty\frac{\de s}s\,e^{-sm^2}e^{s\Delta}\right]\\
 	&=\exp\left[\int\de^{d+1}x\int_0^\infty\frac{\de s}s\,e^{-sm^2}e^{s\Delta }(x,x)\right]\\
 	&=\exp\left[\int\de^{d+1}x\int_0^\infty\frac{\de s}s\,e^{-sm^2}\smash{\!\!\!\underset{\text{\footnotesize $q(0)=q(s)=x$}}\int\!\!\!\!\pide q(t)\,e^{\displaystyle \,  -\text{\footnotesize$\int_0^s$}\de t\,\dot q(t)/4}}\ \right]\\[1em]
-	&=\sum_{n=0}^\infty\frac1{n!}\left[\int\de^{d+1}x\int_0^\infty\frac{\de s}s\,\smash{\!\!\!\underset{\text{\footnotesize $q(0)=q(s)=x$}}\int\!\!\!\!\pide q(t)\,\underbrace{\vphantom{\int}e^{\displaystyle \,  -sm^2-\text{\footnotesize$\int_0^s$}\de t\,\dot q(t)/4}}_{\text{Boltzmann weight}}}\ \right]^n\\[2em]
+	&=\sum_{n=0}^\infty\frac1{n!}\left[\int\de^{d+1}x\int_0^\infty\frac{\de s}s\,\smash{\!\!\!\underset{\text{\footnotesize $q(0)=q(s)=x$}}\int\!\!\!\!\pide q(t)\,\underbrace{\vphantom{\int}e^{\displaystyle \,  -sm^2-\text{\footnotesize$\int_0^s$}\de t\,\dot q(t)/4}}_{\text{Boltzmann weight}}}\ \right]^n\\[1em]
 \end{eq}
 where in the second line we used the identity $(\det A)^{-1}=\exp\left(\Tr \log A\right)$ and in the fourth line we used ($A$ operator in a space with orthonormal basis $\{\ket{\phi_n}\}$)
 \begin{eq}
@@ -1018,7 +1018,7 @@ where $\langle p,q\rangle$ denotes the straight line from $p$ to $q$. Look at fi
 \label{fig.cov-der-kink}
 \end{figure}
 
-From fig.~\ref{fig.cov-der-kink} one can see that if $\gamma$ does not intersect itself in $x$, then taking $\epsilon$ arbitrarily small eventually $I\left(\langle x-\frac\epsilon2e_\mu,x+\frac\epsilon2e_\mu\rangle,\gamma\right)=1$. If $\phi$ is regular then
+From fig.~\ref{fig.cov-der-kink} one can see that if $\gamma$ does not intersect itself in $x$\todo{e se o interseca?}, then taking $\epsilon$ arbitrarily small eventually $I\left(\langle x-\frac\epsilon2e_\mu,x+\frac\epsilon2e_\mu\rangle,\gamma\right)=1$. If $\phi$ is regular then
 \begin{eq}	
 	\lim_{\epsilon\to0}\frac{\phi\left(x+\frac\epsilon2e_\mu\right)+\phi\left(x-\frac\epsilon2e_\mu\right)}\epsilon\sim\lim_{\epsilon\to0}\frac{2\phi(x)}\epsilon
 \end{eq}
@@ -1032,7 +1032,7 @@ We define the modified action introducing the parallel transporter in the origin
 \begin{eq}
 	S_\gamma(\phi)=\int\de^2x\,\vert\nabla^\gamma\phi\vert^2+\frac{g^2}4(\phi^2-v^2)^2
 \end{eq}
-and the two-points function\footnote{Using terminology of fibre bundle theory, the integration in the numerator $\int\pide\phi\,e^{-S_\gamma(\phi)}$ is performed over section distributions of a $\Z_2$ bundle over $\R^2\setminus\{x,y\}$ with holonomy $-1$ around $x$ and $y$.}
+and the two-points function\footnote{Using terminology of fibre bundle theory, the integration in the numerator $\int\pide\phi\,e^{-S_\gamma(\phi)}$ is performed over section distributions of a $\Z_2$ bundle over $\R^2\setminus\{x,y\}$ with holonomy $-1$ around $x$ and $y$.}\todo{Parlando con un altro studente è emersa una questione: immaginiamo che per $n$ punti di inserzione il correlatore si ottenga prendendo la ``produttria'' del numeratore di \eqref{eq:two-points-function-kink} per $n/2$ possibili (locus of) defects $\gamma_i$, ove ogni $\gamma_i$ connette 2 punti di inserzione. Ma questo implica quindi che anche i kink interagiscano tra di loro se i $\gamma_i$ sono sufficientemente vicini? Nella teoria classica un kink interagente non ha senso per definizione, ma magari a livello quantistico si. Inoltre come teniamo conto dei possibili accoppiamenti tra vari punti di inserzione?}
 \begin{eq}\label{eq:two-points-function-kink}
 	\langle s(x)s(y)\rangle:=\left(\frac{\displaystyle\int\pide\phi\,e^{-S_\gamma(\phi)}}{\displaystyle\int\pide\phi\,e^{-S(\phi)}}\right)_{\!\text{ren}}
 \end{eq}
@@ -1099,7 +1099,7 @@ Furthermore, we clearly have
 \end{eq}
 provided that $B$ is compact.
 
-Since we can deform arbitrarily $\gamma$ acting on it with several $\Z_2$-transformations with different choices of $B$, provided that $x$ and $y$ are fixed (indeed $\partial(\xi_B\gamma)=\partial\gamma$ implies that $x$ and $y$ cannot change under $\xi_B$), then the invariance of $S^\gamma$ and $\pide\phi$ under $\xi_B$ implies that eq.~\eqref{eq:two-points-function-kink} depends only on $x$ and $y$ and not on $\gamma$, as desired. 
+Since we can deform arbitrarily \todo{Ma se due defect possono interagire solo se vicini, cosa succede se prendiamo due $\gamma_i$ vicini e li deformiamo fino ad averli arbitrariamente lontani? In un caso dovrebbero interagire mentre nell'altro no, ma ciò non è consistente con la nostra simmetria, quindi l'unica soluzione sarebbe che i defect non possano interagire...} $\gamma$ acting on it with several $\Z_2$-transformations with different choices of $B$, provided that $x$ and $y$ are fixed (indeed $\partial(\xi_B\gamma)=\partial\gamma$ implies that $x$ and $y$ cannot change under $\xi_B$), then the invariance of $S^\gamma$ and $\pide\phi$ under $\xi_B$ implies that eq.~\eqref{eq:two-points-function-kink} depends only on $x$ and $y$ and not on $\gamma$, as desired. 
 
 \subsubsection{The reconstruction of the kink operator}
 

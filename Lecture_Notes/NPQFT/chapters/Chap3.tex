@@ -8,9 +8,9 @@ Beside the literature present at the beginning of each section, have a look at \
 \section{How to avoid Haag's theorem}
 \cite[Section 2.5]{Strocchi_2013}\\
 
-Let's see how to avoid problems raised by Haag theorem. The idea is to start by introducing IR (volume) and UV cutoffs (the IR one is not needed for lattice models) so that the cutoff model describes a system of finite degrees of freedom, such that the interaction picture is still correct, thanks to von Neumann uniqueness theorem, which guarantees that free and interacting fields are unitarily equivalent and defined in the same Hilbert space. Moreover one can also require that free fields (and then also interacting ones due to Källen-Lehmann representation) satisfy CCR (or CAR) since no problem arises in this framework.
+Let's see how to avoid problems raised by Haag theorem. The idea is to start by introducing IR (volume) and UV cutoffs (the UV one is not needed for lattice models) so that the cutoff model describes a system of finite degrees of freedom, such that the interaction picture is still correct, thanks to von Neumann uniqueness theorem, which guarantees that free and interacting fields are unitarily equivalent and defined in the same Hilbert space. Moreover one can also require that the fields satisfy CCR (or CAR) since no problem arises in this framework.
 
-Consider a $T=0$ RQFT (the restriction $T=0$ is not really needed, but simplify the traction) and let $\ophi_0(\vec x):=\ophi(x^0=0,\vec x)$ be the $t=0$ field, then the cutoff field at arbitrary time is given by
+Consider a $T=0$ RQFT (the restriction $T=0$ is not really needed, but simplify the treatment) and let $\ophi_0(\vec x):=\ophi(x^0=0,\vec x)$ be the $t=0$ field, then the cutoff field at arbitrary time is given by
 \begin{eq}
 	\ophil_\#(x^0,\vec x)=e^{ix^0 H_\#}\ophi_0(\vec x)e^{-ix^0H_\#}
 \end{eq}
@@ -138,7 +138,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 	\begin{eq}\label{eq:reconstr_thm_scal_prod_hs}
 		(F,G):=\lim_{n\to\infty}(\eqclass{\varunderline{f_n}},\eqclass{\varunderline{g_n}})
 	\end{eq}
-	and $\mathfrak h_0$ its subspace given by vectors of zero norm, then $\hs:=\mathfrak h/\mathfrak h_0$. In the following we'll denote by $(\eqclass{\uf_1},\eqclass{\uf_2},\ldots)$ the elements of $\hs$ (i.e. as elements of $\mathfrak h$) rather then $[(\eqclass{\uf_1},\eqclass{\uf_2},\ldots)]$, we give as understood the fact that we refer to the associated equivalence class.
+	and $\mathfrak h_0$ its subspace given by vectors of zero norm, then $\hs:=\mathfrak h/\mathfrak h_0$. In the following we'll denote by $(\eqclass{\uf_1},\eqclass{\uf_2},\ldots)$ the elements of $\hs$ (i.e. as elements of $\mathfrak h$) rather then $[(\eqclass{\uf_1},\eqclass{\uf_2},\ldots)]$, we give as understood the fact that we refer to the associated equivalence class. Moreover, to simplify the notation we denote by $\eqclass\uf$ the trivial Cauchy sequence $(\eqclass\uf,\eqclass\uf,\ldots)$.
 	
 	Being $\schw$ separable so is $\uschw$, and since the latter is dense in $\hs$ also $\hs$ is separable. 
 	
@@ -163,16 +163,15 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 		&\quad\overset{\textit{(2)}}=\sum_{j,k=0}^\infty\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k f_j^*(x_1,\ldots,x_j)W_{j+k}(x_1,\ldots,x_j,y_1,\ldots,y_k)g_k(y_1,\ldots,y_k)\\
 		&\quad=(\uf,\ug)
 	\end{eq}
-	thus $U(a,\Lambda)$ leaves invariant also $\nuschw$, since $\norm\uf=0$ implies $\norm{ U(a,\Lambda)\uf}=0$. We have to check that $U(a,\Lambda)$ is actually a mapping of equivalence classes in $\qschw$. But due to the invariance of the scalar product if $\eqclass\uf=\eqclass\ug$ then $\eqclass{U(a,\Lambda)\uf}=\eqclass{U(a,\Lambda)\ug}$, hence $U(a,\Lambda)$ is well defined also in $\qschw$. Being bounded it extends by continuity to $\hs$, preserving the scalar product in $\hs$. Recall that by Wigner's theorem linear operators that preserves  the scalar products in a Hilbert space are unitary, then $U(a,\Lambda)$ is a unitary representation of $\poinc$ on $\hs$. 
-	\todo{Onestamente non mi ricordo bene questa parte sugli spazi di Hilbert, spero di non aver scritto scorrettezze.}
-	
+	thus $U(a,\Lambda)$ leaves invariant also $\nuschw$, since $\norm\uf=0$ implies $\norm{ U(a,\Lambda)\uf}=0$. We have to check that $U(a,\Lambda)$ is actually a mapping of equivalence classes in $\qschw$. But due to the invariance of the scalar product if $\eqclass\uf=\eqclass\ug$ then $\eqclass{U(a,\Lambda)\uf}=\eqclass{U(a,\Lambda)\ug}$, hence $U(a,\Lambda)$ is well defined also in $\qschw$. Being bounded it extends by continuity to $\hs$, preserving the scalar product in $\hs$, and since it admits the inverse it is unitary. It is easy to prove that $U(a,\Lambda)$ is a unitary representation of $\poinc$ on $\hs$. 
+
 	\skipline
 	\textit{(3')} Notice that
 	\begin{eq}
 		U(a,\Lambda)(1,0,\ldots,0,\ldots)=(1,0,\ldots,0,\ldots)=:\uid
 	\end{eq}
 	hence $\uid\in\uschw$ is translational invariant in $\uschw$ and the same holds for $\eqclass{\uid}$ in $\qschw$. Finally, the vacuum in $\hs$ is given by the Cauchy sequence
-	$\Omega:=(\eqclass{\uid},\eqclass{\uid},\ldots)$.
+	$\Omega:=\eqclass{\uid}$.
 	
 	\skipline
 	\textit{(4')} We introduce in $\uschw$ a linear operator $\ophi(h)$ for each test function $h\in\schw(\R^{d+1})$ by the equation
@@ -191,7 +190,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 	\begin{eq}
 		(\ophi(h)\uf,\ophi(h)\uf)=(\uf,\ophi(h^*)\ophi(h),\uf)\leq\cancel{\norm \uf}\,\norm{\ophi(h^*)\ophi(h)\uf}=0
 	\end{eq}
-	if $\norm \uf=0$. Therefore $\ophi(h)$ is well-defined also in $\qschw$, $\ophi(h)\eqclass\uf:=\eqclass{\ophi(h)\uf}$. For each $\eqclass\uf\in\qschw$, $\ophi(h)$ is well-defined also for the associated vectors in $\hs$, $\ophi(h)(\eqclass{\uf},\eqclass{\uf},\ldots):=(\ophi(h)\eqclass{\uf},\ophi(h)\eqclass{\uf},\ldots)$, hence $\ophi$ is defined in a dense subset $\dom$ of $\hs$, $\dom\iso\qschw$. In particular, being $\ket\Omega=(\eqclass{\uid},\eqclass{\uid},\ldots)\in\dom$, this defines $\ophi(h)$ on $\polyn(\ophi(h))\ket\Omega$. Notice that
+	if $\norm \uf=0$. Therefore $\ophi(h)$ is well-defined also in $\qschw$, $\ophi(h)\eqclass\uf:=\eqclass{\ophi(h)\uf}$. Hence $\ophi$ is defined in a dense subset $\dom$ of $\hs$, $\dom\iso\qschw$. In particular, being $\ket\Omega=\eqclass{\uid}\in\dom$, this defines $\ophi(h)$ on $\polyn(\ophi(h))\ket\Omega$. Notice that
 	\begin{eq}\label{eq:polyn_fields_on_vacuum}
 		\ophi(h_1)\cdots\ophi(h_n)\uid=\ophi(h_1)\cdots\ophi(h_{n-1})(0,h_n,0,0,\ldots)
 		=(\underbrace{0,\ldots,0}_n,h_1\tensp h_2\tensp\ldots\tensp h_n,0,0,\ldots)
@@ -262,32 +261,20 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 		\widetilde W_{n-1}(p_1,\ldots,p_{n-1}) = \bra\Omega\ophi(0)\ketbra{p_1}\ophi(0)\ket{p_2}\ldots\bra{p_{n-1}}\ophi(0)\ket\Omega
 	\end{eq}
 	Then the claim follows using property \textit{(3)}.
-	\todo{Mi sembra che l'argomentazione data a lezione non fosse sufficiente a dimostrare questo punto del teorema. Da qui in poi la dimostrazione l'ho fatta di sana pianta, quindi potrebbe essere molto sbagliata (spero di no).}
-	Indeed, take $p_2\not\in \overline V^+$ and $n=4$, then from \textit{(3)} we get 
+	Indeed, since 
 	\begin{eq}
-		\widetilde W_3(p_1,p_2,p_3)=\bra\Omega\ophi(0)\ketbra{p_1}\ophi(0)\ketbra{p_2}\ophi(0)\ketbra{p_3}\ophi(0)\ket\Omega=0\tforall p_1,p_3\in\R^{d+1}
+		\ketbra{p_i}{p_i}=\int_{\spec(\mom)}\de^4p\,\delta(p-p_i)\ketbra{p}{p}=\delta(\mom-p_i)
 	\end{eq}
-	This is possible only if
+	then from \textit{(3)} we get 
 	\begin{eq}
-		\bra p\ophi(0)\ket{p_2}=0\tforall p\in\R^{d+1}
-		\tiff 
-		\ophi(0)\ket{p_2}=0 
-		\overset{\eqref{eq:recons_thm_spec_stone}}\tiff
-		\ophi(x)\ket{p_2}=0
+		\delta(\mom-p_i)=0
+		\tif
+		p_i\not\in\overline V_+
 	\end{eq}
-	Hence for each $p\not\in\overline V^+$ we have $\ophi(x)\ket p=0$. Applying $\mom$ to any element of $\polyn(\ophi(x))\ket\Omega$ we get then
-	\begin{eq}
-		\mom\big(\polyn(\ophi(x))\ket\Omega\big) = \int\de p\,\ketbra p \big(\polyn(\ophi(x))\ket\Omega\big) = \int_{\overline V^+}\de p\,\ketbra p \big(\polyn(\ophi(x))\ket\Omega\big)
-	\end{eq}
-	which give the following spectral representation of $\mom$
-	\begin{eq}
-		\mom = \int_{\overline V^+}\de p\,\ketbra p \quad\tin\quad  \polyn(\ophi(x))\ket\Omega
-	\end{eq}
-	but since $\polyn(\ophi(x))\ket\Omega$ is dense in $\hs$ the previous spectral representation for $\mom$ holds in the whole $\hs$ (actually, in $D_P\subseteq\hs$). The claim follows immediately.
+	implying that $\spec(\mom)\subseteq\overline V_+$. 
 	
 	\skipline
 	\textit{(7')}
-	\todo{Anche qui ho cercato di completare la dimostrazione, mi faccia sapere se è giusta o devo correggerla.}
 	Take $f,g\in\schw(\R^{d+1})$ space-like separated, that is $\supp f\sls\supp g$, and $\{h_i\}_{i=0}^\infty$. Then from \textit{(4)} we know that, for each value of $n$,  
 	\begin{eq}
 		W_{n+2}(f,g,h_1,\ldots,h_n)=W_{n+2}(g,f,h_1,\ldots,h_n)
@@ -309,10 +296,10 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 	\begin{eq}
 		[\ophi(f),\ophi(g)]=0 
 	\end{eq}
-	meaning that the operator $[\ophi(f),\ophi(g)]$ maps all the elements of $\polyn(\ophi(h))\Omega$ into the zero vector. But then the claim extends to the whole Hilbert space $\hs$ due to the denseness of $\polyn(\ophi(h))\Omega$.
+	meaning that the operator $[\ophi(f),\ophi(g)]$ maps all the elements of $\polyn(\ophi(h))\Omega$ into the zero vector. But then the claim extends to the whole Hilbert space $\hs$ since $\polyn(\ophi(h))\Omega$ is dense in $\hs$.
 	
 	\skipline
-	\textit{(8')} Assume that, beside $\Omega=(\eqclass\uid,\eqclass\uid,\ldots)$ there is another translationally invariant state $\Omega'$. Without loss of generality we can orthonormalize $\Omega'$ respect to $\Omega$, i.e. we take $(\Omega',\Omega)=0$ and $(\Omega',\Omega')=1$. If $\Omega'\in\qschw$, $\Omega=\eqclass\uf$, then we would have an immediate contradiction because,
+	\textit{(8')} Assume that, beside $\Omega=\eqclass\uid$ there is another translationally invariant state $\Omega'$. Without loss of generality we can orthonormalize $\Omega'$ respect to $\Omega$, i.e. we take $(\Omega',\Omega)=0$ and $(\Omega',\Omega')=1$. If $\Omega'\in\qschw$, $\Omega=\eqclass\uf$, then we would have an immediate contradiction because,
 	\begin{eq}
 		1&=(\Omega',\Omega')\overset{\text{(a)}}
 		=\lim_{a\to\infty\atop a^2<0}(\Omega',U(a)\Omega')
@@ -338,7 +325,6 @@ Can also be proved that the reconstructed theory is unique, i.e. any other theor
 
 Finding a set of Wightman functions satisfying properties \textit{(1)-(5)} turned out to be a very hard problem, apart from the non-interacting case, also because it is difficult to satisfy the positivity condition, which has a non-linear structure, in contrast to the other properties, which have a linear structure. We will see in the following how this problem has been solved by computing Wightman functions in the Euclidean space, where properties \textit{(1)-(5)} take a more simple form.
 
-\todo{Non sono molto convinto di quanto scritto da qui in poi.}
 In the proof of the theorem we constructed the Hilbert space of the theory as (the completion of) finite sequences of test functions. In order to give a better interpretation of the Hilbert space, notice that if we define
 \begin{eq}
 	\ophi(\uf):= f_0+\int\de x_1\,\ophi(x_1)f_1(x_1)+\int\de x_1\de x_2\,\ophi(x_1)\ophi(x_2)f_2(x_1,x_2)+\ldots
@@ -361,7 +347,11 @@ Then the scalar product in $\uschw$ and $\qschw$ can be rewritten as\footnote{Th
 	\tcomma
 	(\eqclass\uf,\eqclass\ug)=\langle\ophi(\uf)\Omega,\ophi(\ug)\Omega\rangle
 \end{eq}
-Hence we can identify by unitary equivalence (i.e. up to representations) $\qschw$ with $\{\ophi(\uf)\Omega\st\uf\in\uschw\}$, since the scalar products defined in the two spaces are the same. This is related with the denseness of $\polyn(\ophi(f))\Omega$ in $\hs$. Then we are done: one can forget the structure underlying $\uf$ and $\Omega$ and define the Hilbert space by applying the operator $\ophi(\uf)$ on the vacuum $\Omega$, as usual. 
+Hence we can identify by unitary equivalence (i.e. up to representations) $\qschw$ with $\{\ophi(\uf)\Omega\st\uf\in\uschw\}$ by
+\begin{eq}
+	U\,:\,\eqclass\uf\,\mapsto\,\ophi(\uf)\Omega
+\end{eq}
+since the scalar products defined in the two spaces are the same. This is related with the density of $\polyn(\ophi(f))\Omega$ in $\hs$. Then we are done: one can forget the structure underlying $\uf$ and $\Omega$ and define the Hilbert space by applying the operator $\ophi(\uf)$ on the vacuum $\Omega$, as usual. 
 
 
 \section{Additional remarks}
@@ -399,7 +389,7 @@ This means that the information contained in fields localized in any, arbitraril
 
 \subsubsection{Non-commutativity of the algebra of interacting fields}
 
-As we already pointed out equal-time canonical (anti-)commutation relations cannot be used to quantize field equations for interacting theories. A natural question is whether and where a quantization condition is contained in the general requirements of Wightman's axioms, equivalently in the properties of Wightman functions. To this purpose, one may show that, as a consequence of the spectral condition, the field algebra of the reconstructed theory cannot be commutative, hence properties \textit{(1)-(5)} imply quantization. Since can be proved\footnote{\cite[Section 4.1]{Strocchi_2013}} that field obeying free fields equations satisfy either CCR of CAR, Wightman's properties qualify as he way of defining quantum fields by providing the correct substitute of canonical quantization in the interacting case. 
+As we already pointed out equal-time canonical (anti-)commutation relations cannot be used to quantize field equations for interacting theories. A natural question is whether and where a quantization condition is contained in the general requirements of Wightman's axioms, equivalently in the properties of Wightman functions. To this purpose, one may show that, as a consequence of the spectral condition, the field algebra of the reconstructed theory cannot be commutative, hence properties \textit{(1)-(5)} imply quantization. Since can be proved\footnote{\cite[Section 4.1]{Strocchi_2013}} that field obeying free fields equations satisfy either CCR of CAR, Wightman's properties qualify as the way of defining quantum fields by providing the correct substitute of canonical quantization in the interacting case. 
 
 \section{Haag-Ruelle scattering theory (massive case) and LSZ reduction formula}
 

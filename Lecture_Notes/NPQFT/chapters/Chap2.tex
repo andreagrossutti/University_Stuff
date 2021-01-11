@@ -32,9 +32,9 @@ one gets that the series eq.~\eqref{eq:pert-probl-int2} is absolutely divergent
 	\geq \sum_{n=0}^\infty\half\left(\frac\lambda{(2\alpha)^2}\right)^n n!=+\infty
 \end{eq}
 
-Obviously we saw that the perturbative prescription in this case didn't worked, but can be proved that the same issue appear also in higher dimension. Such problem is actually more general, indeed all the perturbation series needed to compute the collerator using Gell-Mann Low formula are divergent. 
+Obviously we saw that the perturbative prescription in this case didn't worked, but can be proved that the same issue appear also in higher dimension. Such problem is actually more general, indeed all the perturbation series needed to compute the correlator using Gell-Mann Low formula are divergent. 
 
-Nevertheless is well known that usually the perturbative approach works (for instance in QED it works very well, and allows to obtain extremely precise predictions) hence we wonder if it is somehow possible to obtain the right expression of the original correlator using the coefficients of the perturbative series. In other words we want to know if, although divergent, could the perturbative series at least determine uniquely the corresponding correlation function. 
+Nevertheless, it is well known that usually the perturbative approach works (for instance in QED it works very well, and allows to obtain extremely precise predictions) hence we wonder if it is somehow possible to obtain the right expression of the original correlator using the coefficients of the perturbative series. In other words we want to know if, although divergent, could the perturbative series at least determine uniquely the corresponding correlation function. 
 
 \subsubsection{The asymptotic series}
 
@@ -46,7 +46,7 @@ One says that a series $\sum_{n=0}^\infty a_n\lambda^n$, $\lambda>0$, is \emph{a
 \end{eq}
 This means that the absolute difference between $f(\lambda)$ and the truncated series at order $N$ is $O(\lambda^{N+1})$ so that for $\lambda\ll1$ small enough we can make the difference as mild as we prefer. 
 
-Apparently with the increase of the order of perturbation the truncated series approximate better and better $f(\lambda)$. This naive idea is obviously wrong, due to the fact that increasing the perturbation order one should also decrease the value of $\lambda$. Indeed if one fixes the value of $\lambda$ and increases the perturbation order $N$, the absolute difference between $f(\lambda)$ and the truncated series initially decreases, but eventually it reaches its minimum and starts to increase again, diverging as $N\to\infty$. At higher perturbative orders one should take values of $\lambda$ smaller and smaller to make the correction negligible. The fact that we can take $\lambda\ll1$ to make the difference negligible doesn't solve our problem, since in physical applications the role of $\lambda$ is done by $\hbar$, and decreasing its value below its physical value is meaningless. 
+Apparently with the increase of the order of perturbation the truncated series approximate better and better $f(\lambda)$. This naive idea is obviously wrong, due to the fact that increasing the perturbation order one should also decrease the value of $\lambda$. Indeed if one fixes the value of $\lambda$ and increases the perturbation order $N$, the absolute difference between $f(\lambda)$ and the truncated series initially decreases, but eventually it reaches its minimum and starts to increase again, diverging as $N\to\infty$. At higher perturbative orders one should take values of $\lambda$ smaller and smaller to make the correction negligible. The fact that we can take $\lambda\ll1$ to make the difference negligible doesn't solve our problem, since in physical applications the value of $\lambda$ is given by $\hbar$, and decreasing its value is meaningless. 
 
 \subsubsection{Non-analytical contributions}
 
@@ -66,7 +66,7 @@ This makes completely impossible any unique reconstruction of the original funct
 
 \subsubsection{Is the perturbative series asymptotic to the correlation function?}
 
-Even if it's impossible to reconstruct the correlator from its asymptotic series, at lest it has been shown that in many QFT where the ultraviolet renormalization does not involve coupling constants (the so called \emph{super-renormalizable theories}) the renormalized perturbation series is asymptotic to the non-perturbative defined correlation function (e.g. QED for $d<3+1$ and $\phi^4$ in $d<3+1$).
+Even if it's impossible to reconstruct the correlator from its asymptotic series, at least it has been shown that in many QFT where the ultraviolet renormalization does not involve coupling constants (the so called \emph{super-renormalizable theories}) the renormalized perturbation series is asymptotic to the non-perturbative defined correlation function (e.g. QED for $d<3+1$ and $\phi^4$ in $d<3+1$).
 
 Nevertheless if our theory is \emph{renormalizable} (hence not super-renormalizable) in the only case we have almost completely rigorous control of the RQFT, i.e. $\phi^4$ in $d=3+1$, it has been proved that the renormalized perturbation series is not asymptotic to the non-perturbative correlator. Even if we don't have a rigorous proof, this seems the case also for QED in $d=3+1$. 
 
@@ -74,7 +74,7 @@ Nevertheless if our theory is \emph{renormalizable} (hence not super-renormaliza
 
 In some cases, called \emph{Borel resummable theories}, even if the perturbative series is divergent it is possible to resum it via \emph{Borel resummation} obtaining a finite result. 
 
-The idea is ot introduce the identity
+The idea is to introduce the identity
 \begin{eq}
 	1=\frac1{n!}\int_0^\infty x^ne^{-x}\de x
 \end{eq}
@@ -84,7 +84,7 @@ inside the perturbative series
 \end{eq}
 In some instances, the introduction of the factor $\frac1{n!}$ inside the perturbative coefficients makes the new series converge: $\sum_n\frac1{n!}a_n(x\lambda)^n$ might converge even if $\sum_na_n\lambda^n$ does not. If the new coefficients are smooth enough to make the integral, we are then able to obtain the resummed series. 
 
-The first problem is that the resummed series is still not sensible to non-analytical terms (they cannot be reconstructed just resumming the analytical contributions), moreover a-posteriori one has to check that the resummed series is asymptotic to the non-perturbative result (up to non-analytical terms), since the right convergence is not ensured in general. 
+The first problem is that the resummed series is still not sensible to non-analytical terms (they cannot be reconstructed just resumming the analytical contributions), moreover a-posteriori one has to check that the resummed series is asymptotic to the non-perturbative result, since the right convergence is not ensured in general. 
 
 \subsubsection{Resurgence}
 
@@ -104,7 +104,7 @@ The second problem of the perturbative approach is related to the limit $\epsilo
 \end{eq}
 Indeed the limit $\epsilon\to0$ should be taken in a way compatible with physical properties of the interacting theory, in particular translational invariance and, in high energy physics, the Poincaré invariance. 
 
-In order to exploit the problem we first need to introduce the spectral representation of the Green functions (the same we introduced for Matsubara and reatarded correlators, but from a more general and deep point of view). 
+In order to exploit the problem we first need to introduce the spectral representation of the Green functions (the same we introduced for Matsubara and retarded correlators, but from a more general and deep point of view). 
 
 \subsubsection{Källen-Lehmann representation (relativistic case)}
 
@@ -138,12 +138,12 @@ which has some interesting properties:
 	\item $\rho_+(q)=0$ if $q\not\in\overline V_0^+$, thanks to $(3)$, the bar over the forward light cone indicate its closure;
 	\item $\rho_+(\Lambda q)=\rho_+(q)$, for $\Lambda\in\loren$, thanks to $(4)$.
 \end{enumerate}
-Therefore from all these conditions we get that the most general form for $\rho_+$ is
+Therefore from all these conditions we get that the most general form for $\rho_+$ is\footnote{The delta function is introduced to take into account possible non vanishing vacuum expectation values.}
 \begin{eq}\label{eq:rho_+_sigma}
 	\rho_+(q)=\sigma(q^2)\theta(q^0)+c\,\delta(q)
 	\twith \sigma(q^2)=0 \tif q^2<0 \tand c \text{\ constant}
 \end{eq}
-The delta function is introduced to compensate the ambiguity due to the sign of $q^0$ in $\theta(q^0)$ when $q^0=0$. Notice that property (a), $\rho_+(q)\geq0$, implies that $\sigma(q^2)$ is a semi-definite positive function, i.e. $\sigma(q^2)\geq0$ for any value of $q\in\overline V_0^+$. 
+Notice that property (a), $\rho_+(q)\geq0$, implies that $\sigma(q^2)$ is a semi-definite positive function, i.e. $\sigma(q^2)\geq0$ for any value of $q\in\overline V_0^+$. 
 
 Let's introduce the \emph{spectral function}\footnote{Notice that sometimes $\rho(q)$ is defined with an additional factor $2\pi$ in such a way that it is exactly the Fourier transform of $\bra0[\ophi(x),\ophi(y)]\ket0$. In some other cases it is defined (equivalently to eq.~\eqref{eq:spectral_func}) as 2 times the immaginary part of the retarded correlator, using the relations
 \begin{eq}\label{eq:spectral_func}
@@ -197,21 +197,20 @@ Recalling that $\sigma(q^2)\geq0$, we have that $q^0\rho(q)=|q^0|\sigma(q^2)\geq
 \begin{eq}
 	A(\omega,\vec q):= \omega\rho(\omega,\vec q) = q^0\rho(q)
 \end{eq}
-and $\sigma(m^2)$ are probability densities. In particular can be proved that $\sigma(m^2)$ is the probability density to find the state $\int e^{iqx}\ophi(x)\ket0$ in a state of mass $m^2$, while $A(\omega,\vec q)$ is the probability density to find the same state $\int e^{iqx}\ophi(x)\ket0$ in a state of energy $\omega$ for fixed value $\vec q$. 
+and $\sigma(m^2)$ are probability densities. In particular can be proved that $\sigma(m^2)$ is the probability density to find in the state $\int e^{iqx}\ophi(x)\ket0$ a state of mass $m^2$, while $A(\omega,\vec q)$ is the probability density to find in the same state $\int e^{iqx}\ophi(x)\ket0$ a state of energy $\omega$ for fixed value $\vec q$. 
 
 We just mention that for fermions the same sum rule eq.~\eqref{eq:sum_rule_spect_func} holds equivalently provided that we have the CAR $\{\ophi(\vec x,t),\dot\ophi(\vec y,t)\}=i\delta(\vec x-\vec y)$. 
 
-Now, suppose that we do not know if our interacting field satisfies CCR, but we are sure that the associated free theory does. Denoting by $\Delta_+(x-y;m)$ the 2-points function of the free scalar field of mass $m$, then inserting inside eq.~\eqref{eq:2-point-func-spec-repr} the equality $\int_0^{+\infty}\de m^2\,\delta(q^2-m^2)=1$ we get
+Now, suppose that we do not know if our interacting field satisfies CCR, although we are sure that the associated free theory does. Denoting by $\Delta_+(x-y;m)$ the 2-points function of the free scalar field of mass $m$, then inserting inside eq.~\eqref{eq:2-point-func-spec-repr} the equality $\int_0^{+\infty}\de m^2\,\delta(q^2-m^2)=1$ we get
 \begin{eq}
 	\bra0\phi(x)\phi(y)\ket0
 	&=\int\frac{\de^4q}{(2\pi)^3}\sigma(q^2)\theta(q^0)e^{-iq(x-y)}+|\bra0\ophi(0)\ket0|^2\\
 	&=\int_0^{+\infty}\de m^2\,\sigma(m^2)\int\frac{\de^4p}{(2\pi)^3}\delta(q^2-m^2)\theta(q^0)e^{-iq(x-y)}+|\bra0\ophi(0)\ket0|^2\\
 	&=\int_0^{+\infty}\de m^2\,\sigma(m^2)\Delta_+(x-y;m)+|\bra0\ophi(0)\ket0|^2
 \end{eq}
-where $|\bra0\ophi(0)\ket0|^2$ is an irrelevant constant which comes from eq.~\eqref{eq:rho_plus_deltas} when evaluated at $q=0$ due to the term $\delta(q)$ in eq.~\eqref{eq:rho_+_sigma}, and can be removed just shifting $\ophi(x)$. This means that even in the interacting theory we can write the 2-points function as an integral of free 2-points functions of the free fields with varying mass weighted by a suitable measure $\de m^2\,\sigma(m^2)$. This fact is a purely relativistic effect, and has no analogue for NRQFT, due to Lorentz invariance, and is no more true if we broke Lorentz symmetry. 
+where $|\bra0\ophi(0)\ket0|^2$ is the constant which comes from eq.~\eqref{eq:rho_plus_deltas} when evaluated at $q=0$ due to the term $\delta(q)$ in eq.~\eqref{eq:rho_+_sigma}, and can be formally removed just shifting $\ophi(x)$ (although physically the non-vanishing of $|\bra0\ophi(0)\ket0|^2$ is a non-trivial issue signalling a symmetry breaking). This means that even in the interacting theory we can write the 2-points function as an integral of free 2-points functions of the free fields with varying mass weighted by a suitable measure $\de m^2\,\sigma(m^2)$. This fact is a purely relativistic effect, and has no analogue for NRQFT, it is due to Lorentz invariance, and it is no more true if we break Lorentz symmetry. 
 
-One of the consequences is that, since the 2-point function of the interacting theory can be written in terms of weighted two point functions of free theories, which satisfies CCR, also the interacting theory should satisfy CCR, up to some constant factor $c$ which can be reabsorbed in the field:
-\todo{Non sono molto sicuro di quanto scritto qui, l'ho aggiunto per motivare quanto detto a fine capitolo riguardo a RQFT con Z=0. Non posso assumere c=1 senza richiedere la sum rule, che vale solo se già so che la teoria interagente soddisfa le CCR. Inoltre, se la sum rule non vale, c potrebbe essere divergente per quanto ne so, o uguale a Z.}
+One of the consequences is that, since the 2-point function of the interacting theory can be written in terms of weighted two point functions of free theories, which satisfies CCR, also the interacting theory should satisfy CCR, up to some constant factor $c$ which can be reabsorbed in the field if it is finite:
 \begin{eq}\label{eq:KL_repr_CCR_int}
 	\bra0[\ophi(\vec x,t),\dot\ophi(\vec y,t)]\ket0
 	&=\partial_{y^0}\bra0[\ophi(x),\ophi(y)]\ket0 \big|_{x_0=t \atop y_0=t}\\
@@ -257,7 +256,7 @@ In general in a QFT (relativistic or not) if there is a particle (or a quasi-par
 \end{eq}
 Notice that in the relativistic case there cannot be any dependence on $\vec q$ in Z due to Lorentz invariance. 
 
-Suppose that we have only one particle in the system (no other particles excitations), then in the non-relativistic case\footnote{The relativistic one is obtained imposing $q^2=m^2$.} since $A(\omega, \vec q)$ describe the probability density to find the state $\int e^{-iqx}\ophi(x)\ket0$ in a state of energy $\omega$ we have that in general
+Suppose that we have only one kind of particle excitation in the system, then in the non-relativistic case\footnote{The relativistic one is obtained imposing $q^2=m^2$.} since $A(\omega, \vec q)$ describes the probability density to measure energy $\omega$ in the state $\int e^{-iqx}\ophi(x)\ket0$ we have that in general
 \begin{eq}\label{eq:split_spect_func_delta_inc}
 	A(\omega,\vec q)=Z(\vec q)\delta(\omega-\omega(\vec q))+A_\tinc(\omega, \vec q)
 \end{eq}
@@ -275,7 +274,7 @@ where $A_\tinc$ is a regular (differently from $\delta$) ``featureless'' positiv
 \draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (95.5,188) .. controls (102.23,188) and (108.09,183.72) .. (114.5,185) .. controls (116.33,185.37) and (120.65,189.85) .. (123.5,190) .. controls (141.15,190.93) and (158.84,189.48) .. (176.5,189) .. controls (191.61,188.59) and (200.37,179.85) .. (216.5,181) .. controls (229.23,181.91) and (242.27,193.21) .. (255.5,191) .. controls (262.38,189.85) and (267.57,180.39) .. (274.5,179) .. controls (284.54,176.99) and (295.68,188.42) .. (305.5,189) .. controls (315,189.56) and (327.9,191.69) .. (337.5,191) .. controls (340.48,190.79) and (342.95,187.42) .. (346.5,186) .. controls (349.17,184.93) and (354.56,190.99) .. (359.5,190) .. controls (362.91,189.32) and (366.02,187) .. (369.5,187) ;
 \draw (296,53) node [anchor=north west][inner sep=0.75pt]    {$Z(\vec{q}) \delta (\omega-\omega(\vec q))$};
 \draw (187,45) node [anchor=north west][inner sep=0.75pt]    {$A( \omega ,\vec q)$};
-\draw (391,190) node [anchor=north west][inner sep=0.75pt]    {$\vec q$};
+\draw (391,190) node [anchor=north west][inner sep=0.75pt]    {$\omega$};
 \draw (123,170) node [anchor=north west][inner sep=0.75pt]    {$A_\tinc( \omega ,\vec q)$};
 \end{tikzpicture}}
 \caption{One-dimensional pictorially representation of the function $A( \omega ,\vec q)$ for a stable particle.}
@@ -283,9 +282,9 @@ where $A_\tinc$ is a regular (differently from $\delta$) ``featureless'' positiv
 \end{figure}
 %
 \noindent
-Just notice that since $A(\omega,\vec q)$ has an explicitly physical meaning as probability amplitude, the plot shown in Fig.~\ref{fig:sharp_behav_A_spect_func} can be obtained directly in experiments, up to uncertainties which turn the $\delta$-function into a smooth but very localized function. 
+Just notice that since $A(\omega,\vec q)$ has an explicitly physical meaning as probability density, the plot shown in Fig.~\ref{fig:sharp_behav_A_spect_func} can be obtained directly in experiments, up to experimental uncertainties which turn the $\delta$-function into a smooth but very localized function. 
 
-From the sum sule we get
+From the sum rule we get
 \begin{eq}
 	1=\int\de\omega\,A(\omega, \vec q)=Z(\vec q)+\underbrace{\int\de\omega\,A_\tinc(\omega, \vec q)}_{\geq 0}
 \end{eq}
@@ -300,9 +299,9 @@ Notice that the case $Z(\vec q)=1$ the theory is free, indeed for a free particl
 %%%%%%%% LECTURE 6 %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 
-We can weak a little the above requirement of a stable particle excitation: let's see what happen if we do not have a stable particle but a long-life resonance (i.e. a particle with a lifetime large respect to the typical time of the system). The $\delta$-function in eq.~\eqref{eq:stable_1_particle_term_in_spec_func} can be rewritten as
+We can weaken a little the above requirement of a stable particle excitation: let's see what happen if we do not have a stable particle but a long-life resonance (i.e. a particle with a lifetime large respect to the typical time of the system). The $\delta$-function in eq.~\eqref{eq:stable_1_particle_term_in_spec_func} can be rewritten as
 \begin{eq}
-	\delta(\omega-\omega(\vec q))\quad\mapsto\quad \frac1 \Im\frac1\pi{\omega-\omega(\vec q)+i\delta}
+	\delta(\omega-\omega(\vec q))\quad\mapsto\quad \frac1\pi \Im\frac1{\omega-\omega(\vec q)+i\delta}
 	\quad\text{where the limit $\delta\to 0^+$ is understood}
 \end{eq}
 and this implies that the retarded correlator has a pole at $\omega=\omega(\vec q)-i\delta$. Notice that $\delta$ essentially correspond to the inverse lifetime $\inv\tau$ of the particle, hence the limit $\delta\to0^+$ correspond to the infinite lifetime of the particle. 
@@ -313,7 +312,7 @@ A resonance is described through a Lorentzian distribution, by replacing the abo
 \end{eq}
 where $\omega=\Re f(\omega, \vec q)$ describes the dispersion relation of the unstable particle and $\Im f(\omega, \vec q)$ its inverse lifetime. 
 
-Then if we take $\Im f(\omega, \vec q)\to0^-$ then $\Im(\omega-f(\omega,\vec q)^{-1}\to\delta(\omega-f(\omega,\vec q))$ with $\omega(\vec q)$ solution of the equation $\omega-\Re f(\omega, \vec q)=0$:
+Then if we take $\Im f(\omega, \vec q)\to0^-$ then $\Im(\omega-f(\omega,\vec q)^{-1})\to\delta(\omega-f(\omega,\vec q))$ with $\omega(\vec q)$ solution of the equation $\omega-\Re f(\omega, \vec q)=0$:
 \begin{eq}
 	\delta(\omega-f(\omega, \vec q))=\frac{\displaystyle \delta(\omega-\omega(\vec q))}{\displaystyle \left|\pder f\omega(\omega, \vec q)\right|\Big|_{\omega=\omega(\vec q)}}
 	=Z(\vec q)\delta(\omega-\omega(\vec q))
@@ -380,7 +379,7 @@ but then using CCR for $\ophi_\tin$ and $\ophi$ we get
 \end{eq}
 which give $Z=1$, but this is wrong since we assumed that $\ophi$ is interacting. 
 
-Notice that the above argument about the inconsistency between CCR and eq.~\eqref{eq:free_int_unit_rela_Z} requires that both $x^0$ and $y^0$ are sent to $-\infty$ contemporaneily in eq.~\eqref{eq:limit_t_-inf_CCR}. Conversely it is still possible that $\ophi$ approaches $Z^{1/2}\ophi_\tin$ as $t\to-\infty$ in the weak sense $\ophi \xrightharpoonup[t\to-\infty]{}Z^{1/2}\ophi_\tin$, i.e. in matrix elements: taken a sequence $A_n$ of operators the \emph{weak limit} 
+Notice that the above argument about the inconsistency between CCR and eq.~\eqref{eq:free_int_unit_rela_Z} requires that both $x^0$ and $y^0$ are sent to $-\infty$ simultaneously in eq.~\eqref{eq:limit_t_-inf_CCR}. Conversely it is still possible that $\ophi$ approaches $Z^{1/2}\ophi_\tin$ as $t\to-\infty$ in the weak sense $\ophi \xrightharpoonup[t\to-\infty]{}Z^{1/2}\ophi_\tin$, i.e. in matrix elements: taken a sequence $A_n$ of operators the \emph{weak limit} 
 \begin{eq}
 	A_n\xrightharpoonup[n\to+\infty]{} A
 \end{eq}
@@ -392,13 +391,13 @@ Indeed taken $A_n\rightharpoonup A$ and $B_n\rightharpoonup B$ is not ensured th
 
 Notice that LSZ formula uses precisely such weak limit for $t\to-\infty$, so there is no inconstistence with it.\footnote{The derivation of the LSZ formula for the scalar theory can be found in \cite[Section 9.4]{Greiner_1996}.} 
 
-The serious problem arises when in perturbative approach is used the Gell-Mann Low formula, which requires the existence of a unitary operator $U^I=\lim_{\epsilon\to0^+}\uei$ interpolating between $\ophi$ and $\ophi_\tin$, but if $\ophi$ obeys CCR and translation invariance is recovered (i.e. we take the limit $\epsilon\to0^+$) we get from eq.~\eqref{eq:free_int_unit_rela_Z}  that such unitary operator does not exist (in order to get unitarity we should have $Z=1$, which is forbitten provided that $\ophi$ is interacting).
+The serious problem arises when in perturbative approach is used the Gell-Mann Low formula, which requires the existence of a unitary operator $U^I=\lim_{\epsilon\to0^+}\uei$ interpolating between $\ophi$ and $\ophi_\tin$, but if $\ophi$ obeys CCR and translation invariance is recovered (i.e. we take the limit $\epsilon\to0^+$) we get from eq.~\eqref{eq:free_int_unit_rela_Z}  that such unitary operator does not exist (in order to get unitarity we should have $Z=1$, which is forbidden provided that $\ophi$ is interacting).
 
 \section{The Haag's theorem}
 
 \cite[Section 3]{Earman:2005}; \cite[Section 4.5]{Streater:2000}; \cite[Pages 39-40, 95-96]{Strocchi_2013}\\
 
-The important argument from Haag\footnote{Original paper: \cite{Haag:1955}.} proves that the situation does not improves even if we do not require $\ophi$ to be canonical. Except very special non-relativistic cases, the Hilbert space of the free field is disjoint from the Hilbert space of the interacting field (i.e. don't exist any unitary operator which maps the states of one Hilbert spaces into the states of the other one). 
+The important argument from Haag\footnote{Original paper: \cite{Haag:1955}.} proves that the situation does not improves even if we do not require $\ophi$ to be canonical. Except very special non-relativistic cases, the Hilbert space of the free field is disjoint from the Hilbert space of the interacting field (i.e. doesn't exist any unitary operator which maps the states of one Hilbert spaces into the states of the other one). 
 
 \begin{theorem}[{Haag, \cite[Page 8]{Earman:2005}}]
 	Assume that the unique translationally invariant state of an interacting scalar QFT with Hilbert space $\hs$ and field $\ophi\in\hs$ is the vacuum $\ket0\in\hs$ \footnote{It is reasonable to assume that the only translationally invariant state should be the vacuum, as the presence of any particle should broke translational invariance. This is ensured if the underlying free theory has a mass gap, i.e. all particles of our theory are massive. In general these assumptions does not hold if the free theory has massless particles. See \cite[Section 3]{Earman:2005} for further comments about this fact.} (for lattice theories only discrete translations are considered).  Let $U(\vec x)$, $\vec x\in\R^d$, be the unitary representation of translations in $\hs$. Suppose that the Hamiltonian of the theory can be written as $H=H_0+H_I$, with $H_0$ free Hamiltonian. Then there is no state $\ket{0_F}\in\hs$ such that $H_0\ket{0_F}=0$ i.e. the vacuum of the free theory $\ket{0_F}$ is not an element of $\hs$.
@@ -412,7 +411,7 @@ The important argument from Haag\footnote{Original paper: \cite{Haag:1955}.} pro
 	\begin{eq}
 		0=U^\dagger(\vec x)a_F(\vec q)\ket{0_F}=U^\dagger(\vec x)a_F(\vec q)U(\vec x)U^\dagger(\vec x)\ket{0_F} = e^{i\vec q\cdot\vec x}a_F(\vec q))U^\dagger(\vec x)\ket{0_F}
 	\end{eq}
-	and this means that $)U^\dagger(\vec x)\ket{0_F}$ annihilates $U(\vec x)\ket{0_F}$, hence $\ket{0_F}$ is translationally invariant. By uniqueness of the translational invariant state $\ket{0_F}=c\ket0$ for some constan $c$ (actually if our states are normalized $c$ is just a phase). Then
+	and this means that $a_F(\vec q)$ annihilates $U^\dagger(\vec x)\ket{0_F}$, hence $U^\dagger(\vec x)\ket{0_F}$ is translationally invariant. By uniqueness of the translational invariant state $\ket{0_F}=c\ket0$ for some constant $c$ (actually if our states are normalized $c$ is just a phase). Then
 	\begin{eq}
 		0=H\ket0=(H_0+H_I)c\ket{0_F}=c\,H_I\ket{0_F}
 	\end{eq}
@@ -423,7 +422,7 @@ The important argument from Haag\footnote{Original paper: \cite{Haag:1955}.} pro
 	where $C$ is a $c$-number constant chosen to give to the ground state energy zero, and $:\quad:$ indicates the Wick normal product. This $H$ will not annihilate the bare vacuum $\ket{0_F}$ since the factor that follows the coupling constat $\lambda$ contains a term with a product of four creation operator $\sim (a^\dagger)^4$ (and there is only one term of this form, so it will not be canceled by another term).} Thus, we arrive at a contradiction: it follows from the announced assumptions that $H\ket{0_F}=0$, but for typical interaction Hamiltonians $H\ket{0_F}\neq0$.
 \end{proof}
 
-The relative simplicity of this first version of Haag's theorem is purchased at the expense of generality since it appeals to the fact that typical Hamiltonians for interacting fields do not annihilate $\ket{0_F}$. It was the ambition of the second version of his theorem to dispense with any reference to the particular form of the interacting field Hamiltonian. However, Haag's attempted proof of such general version was found ``inconclusive''. The gap was filled by a pair of theorems presented by Hall and Wightman\footnote{Original paper: \cite{Hall:1957}}, which together constitutes the so called \emph{Haag-Hall-Weightman (HHW) theorem}, and apply to any pair to neutral scalar field.
+The relative simplicity of this first version of Haag's theorem is purchased at the expense of generality since it appeals to the fact that typical Hamiltonians for interacting fields do not annihilate $\ket{0_F}$. It was the ambition of the second version of his theorem to dispense with any reference to the particular form of the interacting field Hamiltonian. However, Haag's attempted proof of such general version was found ``inconclusive''. The gap was filled by a pair of theorems presented by Hall and Wightman\footnote{Original paper: \cite{Hall:1957}}, which together constitutes the so called \emph{Haag-Hall-Weightman (HHW) theorem}, and apply to any pair of neutral scalar field.
 
 \begin{theorem}[{HHW, Part 1, \cite[Section 3, Thm. 1]{Hall:1957}, \cite[Thm. 4.14]{Streater:2000}}]\label{thm:HHW1}
 	Consider two QFTs with fields $\ophi_1$, $\ophi_2$ and Hilbert spaces $\hs_1$, $\hs_2$ and assume that
@@ -521,7 +520,7 @@ The immediate consequence of the latter is that, if the hypothesis holds, any in
 %%%%%%%% LECTURE 7 %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 
-The second part of the HHW theorem applies only to relativistic QFT, nevertheless the unitary operator $U^I$ interpolating between free and interacting fields does not exists also in most of the non-relativistic QFT, except for very special cases. Therefore almost always the perturbative approach is not consistent. 
+The second part of the HHW theorem applies only to relativistic QFT, nevertheless the unitary operator $U^I$ interpolating between free and interacting fields does not exists also in most of the non-relativistic QFT, except for very special cases. Therefore almost always the perturbative approach is not mathematically consistent. 
 
 \section{Ultraviolet singularities and canonical quantization}
 
@@ -539,13 +538,13 @@ where $\infty$ simply denotes some divergent quantity which has been removed thr
  \begin{eq}
 	\ophi(g)=\int\de^4x\,g(x)\ophi(x)
 \end{eq}
-Indeed suppose that $\ophi$ is the Heisenberg interacting field, and suppose that it is well defined at fixed time $x^0$, then according to Källen-Lehmann representation (recall eq.~\eqref{eq:KL_repr_CCR_int} \todo{Ho aggiunto questa formula ai paragrafi precedenti, non son sicuro sia giusta, ho qualche dubbio. Altrimenti non saprei come motivare che il campo interagente soddisfa le CCR.}) we get
+Indeed suppose that $\ophi$ is the Heisenberg interacting field, and suppose that it is well defined at fixed time $x^0$, then according to Källen-Lehmann representation (recall eq.~\eqref{eq:KL_repr_CCR_int}) we get
 \begin{eq}
-	\bra0[\ophi(x^0,\vec x),\dot\ophi(x^0,\vec y)]\ket0=i\delta(\vec x-\vec y)
+	\bra0[\ophi(x^0,\vec x),\dot\ophi(x^0,\vec y)]\ket0=c\,i\delta(\vec x-\vec y)
 \end{eq} 
 because and interacting 2-points function can be written in terms of free 2-points functions of different masses satisfying CCR. Therefore the ``renormalized'' field $\ophi_\tren=Z^{-1/2}\ophi$ which approaches weakly the $\ophi_\tin$ as $t\to-\infty$, satisfies
 \begin{eq}
-	\bra0[\ophi_\tren(x^0,\vec x),\dot\ophi_\tren(x^0,\vec y)]\ket0=\frac iZ\delta(\vec x-\vec y)
+	\bra0[\ophi_\tren(x^0,\vec x),\dot\ophi_\tren(x^0,\vec y)]\ket0=c\frac iZ\delta(\vec x-\vec y)
 \end{eq}
 Clearly if $Z=0$ this expression is ill-defined, but no assumption has been made except that $\ophi$ is well defined at fixed time, hence if $Z=0$ this assumption should be wrong, i.e. the renormalized field cannot be defined at fixed time. A Schrödinger picture requires that we have a definite space at a fixed time, hence we also proved that it is impossible to defined a picture of dynamics using Schrödinger idea if $Z=0$. 
 

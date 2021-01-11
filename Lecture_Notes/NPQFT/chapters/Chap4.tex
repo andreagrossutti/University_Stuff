@@ -7,8 +7,8 @@
 
 We now have to deal with the construction of the Wightman functions or their non relativistic counterpart, which as we have seen are the cornerstone of our formalism. It turns out that the easiest way to construct them is the following
 \begin{enumerate}[label=(\arabic*)]
-	\item go back to the Gell-Man - Low formula and introduce an IR cutoff (an in the relativistic case also an UV one) so that we avoid Haag's no-go theorem;
-	\item rewrite such formula using the path-integral formalism as described in Sec.~\ref{sec:PI_formalism} (when the cutoffs are introduce, we'll denote the action by $S_\Lambda$), in particular
+	\item go back to the Gell-Man - Low formula and introduce an IR cutoff (and in the relativistic case also an UV one) so that we avoid Haag's no-go theorem;
+	\item rewrite such formula using the path-integral formalism as described in Sec.~\ref{sec:PI_formalism} (when the cutoffs are introduced, we'll denote the action by $S_\Lambda$), in particular
 	\begin{enumerate}[label=(\alph*)]
 		\item for a relativistic theory the path integral is defined in an Euclidean space-time,
 		\item for a non relativistic theory the path integral is defined in an Euclidean space-time for an ``immaginary'' time;
@@ -54,7 +54,7 @@ We now list the properties of Schwinger functions needed to determine Wightman f
 	\end{eq}
 \end{enumerate}
 
-Notice that it is much more easy to verify this axioms (beside OS positivity) rather than properties of Schwinger functions. For instance in this case no spectral condition, since it is very cleverly hidden inside OS positivity. 
+Notice that it is much more easy to verify this axioms (beside OS positivity) rather than properties of Wightman functions. For instance in this case no spectral condition, since it is very cleverly hidden inside OS positivity. 
 
 To Schwinger functions satisfying OS axioms, one can apply a reconstruction theorem which is a variant of Wightman reconstruction theorem. Then Schwinger functions are directly related to Wightman functions (whose existence is now guaranteed by such theorem) by analytical continuation\footnote{Notice that in order to make an analytical continuation from immaginary time to real time one should prove that no obstruction in the complex plane such as poles or cuts.} in the time variable.
 
@@ -321,7 +321,7 @@ then
 
 Suppose that we have a set of Matsubara functions $S_n$ depending on creation and annihilation operators $a_{\alpha_i}^\#$, where $\,^\#$ denotes either annihilation $a_{\alpha_i}$ or creation $a_{\alpha_i}^\dagger$ operators, and euclidean times $\tau_i$, time ordered. 
 
-This are constructed starting from some expectation values of ladder operators at finite volume $V$, where we have finite degrees of freedom,
+These functions are constructed starting from some expectation values of ladder operators at finite volume $V$, where we have finite degrees of freedom,
 \begin{eq}
 	\langle a^\#_{\alpha_1}(\tau_1)\ldots a^\#_{\alpha_n}(\tau_n)\rangle^\beta_V
 \end{eq}

@@ -16,20 +16,20 @@ Propagators and vertices are then embodied in diagrams, describing the quantum p
 
 At the same time for a process describing an electron decelerating by emitting photons (which took away the electron kinetic energy) the number of photons emitted can be arbitrarily high, again QM of finite degrees of freedom is insufficient to describe such process. 
 
-Another case in which QM turns out to be insufficient arise in the so called thermodynamic limit in solid state systems. In real physical systems the number of electrons and ions is finite, although usually very big, $N\sim10^{23}$, and the volume $V$ is finte (infrared (IR) cutoff). Furthermore in a crystal the lattice constant $a$ is finite (ultraviolet (UV) cutoff). However, usually we are interested in universal properties, independent of detail$V$ and $a$. Therefore it is convenient also in these case to consider the limit $N\to\infty$, $V\to\infty$ with $N/V$ (or its expectation value) constant (thermodynamic IR limit) and $a\to0$ (continuum UV limit). These limits are not only technically useful, for the non-analyticity appearing the phase transitions, or the appearance of Euclidean invariance, but e.g. the thermodynamic limit guaranteers that the theory does not depend on specific details of $V$ and $N$. 
+Another case in which QM turns out to be insufficient arises in the so called thermodynamic limit in solid state systems. In real physical systems the number of electrons and ions is finite, although usually very big, $N\sim10^{23}$, and the volume $V$ is finite (infrared (IR) cutoff). Furthermore in a crystal the lattice constant $a$ is finite (ultraviolet (UV) cutoff). However, usually we are interested in universal properties, independent on details of $V$ and $a$. Therefore it is convenient also in these case to consider the limit $N\to\infty$, $V\to\infty$ with $N/V$ (or its expectation value) constant (thermodynamic IR limit) and $a\to0$ (continuum UV limit). These limits are not only technically useful, for the non-analyticity appearing the phase transitions, or the appearance of Euclidean invariance, but e.g. the thermodynamic limit guarantees that the theory does not depend on specific details of $V$ and $N$. 
 
 Notice that if the removal of the IR or the UV cutoff is impossible and we assumed that the theory without the cutoff is the physical one (hence effective field theories in the modern sense are excluded), then the non-existence of the limit implies that the physical theory depends on details at infinite distances (IR) or infinite momentum (UV) in a manner not controllable by regularization. 
 
 Furthermore in relativistic QFT (RQFT) a cutoff breaks the Poincaré invariance, and the only possible regularization which does not break such symmetry, the dimensional regularization, has no non-perturbative realization. 
 
-Many of the key results of QFT are obtained through a perturbative expansion, which are serious mathematical problems, and there are crucial ares of applications that do not rely on perturbative methods. 
+Many of the key results of QFT are obtained through a perturbative expansion, which has serious mathematical problems, and there are crucial ares of applications that do not rely on perturbative methods. 
 
-The aim of this course is to provide a view of some results in these areas, with examples both from elementary particle and condensed matter physics, emphasising the underlying common features. 
+The aim of this course is to provide a view of some results in these areas, with examples both from elementary particle and condensed matter physics, emphasizing the underlying common features. 
 
 \chapter{Review of QFT}
 \section{Fock space}
 
-\textsf{Ref.~\cite[Chapters 3,4]{Greiner_1996}; \cite[Chapters 1,2]{Bogoliubov:1980}}\\
+\textsf{Ref.~\cite{John-W.-Negele:1998aa}; \cite[Chapters 3,4]{Greiner_1996}; \cite[Chapters 1,2]{Bogoliubov:1980}}\\
 
 In $d=3$ space dimensions, quantum particles are either bosons or fermions (in lower dimensions other braid statistics may arise, but we'll not discuss them here). 
 
@@ -41,9 +41,9 @@ The Hilbert space of states for $N$ identical particles $\hs_N$ is constructed a
 \end{eq}
 then
 \begin{eq}
-	\hs_N^\pm := P^\pm(\hs_1\dir\dots\dir\hs_1)
+	\hs_N^\pm := P^\pm(\hs_1\otimes\dots\otimes\hs_1)
 \end{eq}
-More concretely let $A$ be a complete set of compatible observables in the one-particle Hilbert space of an elementary quantum particle $\hs_1$ (we assume for the momenta discrete spectrum for these observables), and $\{\ket{\alpha_i},i\in I\}$ the corresponding eigenstates, where $\alpha_i$ is the set of common eigenvalues of $A$. Then an orthonormal basis in $\hs_N^\pm$ is given by
+More concretely let $A$ be a complete set of compatible observables in the one-particle Hilbert space of an elementary quantum particle $\hs_1$ (we assume for the moment discrete spectrum for these observables), and $\{\ket{\alpha_i},i\in I\}$ the corresponding eigenstates, where $\alpha_i$ is the set of common eigenvalues of $A$. Then an orthonormal basis in $\hs_N^\pm$ is given by
 \begin{eq}
 	\ket{\alpha_{i_1}\dots\alpha_{i_N}}^\epsilon:=\sqrt{\frac{N!}{\prod_in_i!}}P^\epsilon\ket{\alpha_{i_1}}\ten\dots\ten\ket{\alpha_{i_N}}
 \end{eq}
@@ -63,7 +63,7 @@ A generic vector in $\hs_N^\epsilon$, then can be written as the linear combinat
 \end{eq}
 with the conditions
 \begin{eq}
-	\sum_{\{n_i\}}\abs{\Psi(\{n_i\})}^2<\infty	\tcomma	\sum_{i\in I}=N
+	\sum_{\{n_i\}}\abs{\Psi(\{n_i\})}^2<\infty	\tcomma	\sum_{i\in I}n_i=N
 \end{eq}
 
 \subsubsection{Variable number of particles, $N\to\infty$ limit}
@@ -98,15 +98,15 @@ for the bosons and
 \end{eq} 
 for fermions. 
 
-In follows from the definition that
+It follows from the definition that
 \begin{enumerate}[label=(\roman*)]
 	\item $a_i^\dagger$ is the adjoint of $a_i$;
 	\item $a_i\ket{\Psi_0}=0$;
-	\item for bosons hold the \textbf{canonical commutation relations} (CCR)
+	\item for bosons the \textbf{canonical commutation relations} (CCR) hold:
 	\begin{eq}
 		[a_i,a_j]=0=[a_i^\dagger,a_j^\dagger] \tcomma [a_i,a_j^\dagger]=\delta_{ij}
 	\end{eq}
-	while for fermions hold the \textbf{canonical anticommutation relations} (CAR)
+	while for fermions the \textbf{canonical anticommutation relations} (CAR) hold:
 	\begin{eq}
 		\{a_i,a_j\}=0=\{a_i^\dagger,a_j^\dagger\}\tcomma\{a_i,a_j^\dagger\}=\delta_{ij}
 	\end{eq}
@@ -135,7 +135,7 @@ implying
 	b_j^\dagger=\sum_{i_\in I}\braket{\alpha_i}{\beta_j}a_i^\dagger
 \end{eq}
 
-These ideas extends to the case of complete sets of commuting observables with continuum (or mixed) spectrum in $\hs_1$ using
+These ideas extends to the case of complete sets of commuting observables with continuum (or mixed, with suitable modifications) spectrum in $\hs_1$ using
 \begin{eq}
 	\int\de\alpha\,\ket\alpha\bra\alpha=\id_{\hs_1}
 \end{eq}
@@ -172,11 +172,11 @@ If the particle we are interested in is not elementary the situation is lightly 
 
 \subsubsection{Relativistic case, $N\to\infty$ limit}
 
-Notice that moving from non-relativistic context (where space coordinates and time are treated differently) to the relativistic one, some problems arises. Dirac formulation of relativistic quantum mechanics treats time and space in the same way, making the space coordinate a label like the time rather than an observable. Indeed we have to take care of the consequences of the Heisenberg principle: due to uncertainty on the energy we are able to produce particle-antiparticle pairs, but if we are interested in measuring the position as better as possible, then the uncertainty on the momentum become huge and lot of pairs are produced, and we are no more able to identify which is  the particle we want to measure. Therefore the position is no more an observable in the relativistic framework, and can only be used as a label to describe the evolution of a state, as we do for the time. 
+Notice that moving from non-relativistic context (where space coordinates and time are treated differently) to the relativistic one, some problems arises. Dirac formulation of relativistic quantum mechanics treats time and space in the same way, making also the time an observable. However, in presence of interactions we have to take care of the consequences of the Heisenberg principle: due to uncertainty on the energy we are able to produce particle-antiparticle pairs, but if we are interested in measuring the position as better as possible, then the uncertainty on the momentum become huge and lot of pairs are produced, and we are no more able to identify which is  the particle we want to measure. Therefore the position is no more an observable in the relativistic framework, and can only be used as a label to describe the evolution of a state, as we do for the time in quantum mechanics. 
 
-Since we cannot characterize particles using position as an observable in a complete set of compatible observables (as we do in the non-relativistic case, where position, energy and spin provides an irreducible set of compatible observables), we need to understand how to choose a new complete set of compatible observables which allows us to build an Fock space for elementary particles using eigenvectors. 
+Since we cannot characterize elementary particles using position as an observable in an irreducible set of observables (as we do in the non-relativistic case, where position, momentum and spin provide an irreducible set of observables), we need to understand how to choose a new set of observables which allows us to build a Fock space for elementary particles using eigenvectors. 
 
-A celebrated theorem of Wigner states that the one-particle Hilbert space of an elementary particle should be the representation space of an irreducible unitary representation of space-time symmetries (i.e. the universal covering of the restricted Poincaré group) and internal symmetries (e.g. EM charge conservation, we do not discuss them here).
+A celebrated theorem of Wigner states that in a relativistic QFT the one-particle Hilbert space of an elementary particle should be the representation space of an irreducible unitary representation of space-time symmetries (i.e. the universal covering of the restricted Poincaré group) and internal symmetries (e.g. EM charge, but we do not discuss them here).
 
 Irreducible unitary representations of space-time symmetries, according to Wigner's theorem, are characterized by the mass $m\in\R_+$ and either the spin $s\in\N/2$ if $m>0$ or the helicity (projection of the spin in the direction of the motion\footnote{Notice that helicity is well defined only if the particle moves at the speed of light, otherwise through a change of frame one can reverse the projection direction.}) $h\in\Z/2$ if $m=0$. 
 
@@ -186,7 +186,7 @@ Let's consider for simplicity the case of a massive ($m>0$) scalar ($s=0$) parti
 \end{eq}
 i.e. the momentum should be contained in the \emph{positive hyperboloid of mass $m$}, denoted by $V_m^+$. Notice that if $m=0$ we have that the momentum should be contained in the \emph{forward light cone}. 
 
-Since we want to have a representation of the (covering of the) Poincaré group all the points in the hyperboloid should be weighted by the same weight, and we cannot use the position as an observable, then a natural choice for our Hilbert space for one particle is provided by 
+Since we want to have a representation of the (covering of the) Poincaré group all the points in the hyperboloid should be weighted by the same weight, then a natural choice for our Hilbert space for one particle is provided by 
 \begin{eq}
 	\hs_1=L^2\left(\R^4,\frac{\de^4p}{(2\pi)^4}\,2\pi\delta(p_\mu p^\mu-m^2)\theta(p^0)\right)
 	=L^2\left(V_m^+,\frac{\de^3p}{(2\pi)^3}\frac{1}{2\sqrt{\vec p^2+m^2}}\right)
@@ -208,11 +208,11 @@ therefore in order to get consistency the following commutation relation should 
 	[a(p),a^\dagger(p')]=(2\pi)^32\sqrt{\vec p^2+m^2}\delta(\vec p-\vec {p'})
 \end{eq}
 
-Notice that if $\{f_i\}_{i\in I}$ is an orthonormal basis for $\hs_1$, then we define
+Notice that if $\{f_i\}_{i\in I}$ is an orthonormal basis for $\hs_1$ and we define
 \begin{eq}
 	a_i:=\int\frac{\de^4p}{(2\pi)^3}\delta(p^2-m^2)\theta(p^0)f_i(p)a(p)
 \end{eq}
-and it satisfies the canonical $[a_i,a_j^\dagger]=\delta_{ij}$, hence also in the relativistic case it is possible to obtain canonical commutation relation by smearing $a$ and $a^\dagger$ with an orthonormal basis of the Hilbert space.  
+then CCR are satisfied, $[a_i,a_j^\dagger]=\delta_{ij}$, hence also in the relativistic case it is possible to obtain canonical commutation relation by smearing $a$ and $a^\dagger$ with an orthonormal basis of the Hilbert space.  
 
 The new factor $2\sqrt{\vec p^2+m^2}$ in eq.~\eqref{eq:locality-brock-comm}, which wasn't present in the non-relativistic case, lead to non-locality problems if one proceeds defining quantum field operators as in the non-relativistic case.
 If we try to apply the previous idea to define quantum field operators, i.e.
@@ -226,7 +226,7 @@ then
 	&=\int\frac{\de^3p}{(2\pi)^3\,2\sqrt{\vec p^2+m^2}}\frac{\de^3p'}{(2\pi)^3\,2\sqrt{\vec {p'}^2+m^2}}e^{-i(\vec p\cdot\vec x -\vec {p'}\cdot \vec y)}\,(2\pi)^32\sqrt{\vec p^2+m^2}\delta(\vec p-\vec {p'})\\
 	&=\int\frac{\de^3p}{(2\pi)^3\,2\sqrt{\vec p^2+m^2}}e^{-i\vec p\cdot (\vec x-\vec y)}\neq0
 \end{eq}
-even for $\vec x\neq\vec y$. This violates the ``locality'' even in the weak non-relativistic form we showed before. Actually, since the concept of ``present'' (or equivalently of ``simultaneity'') is not universal in relativity, the vanishing of the commutator (for observable fields at least) should hold for $x$ and $y$ space-like separated (we denoted space-like separated coordinates $x$ and $y$ by $x\sls y$). 
+even for $\vec x\neq\vec y$. This violates the ``locality'' even in the weak non-relativistic form shown before. In fact, since the concept of ``present'' (or equivalently of ``simultaneity'') is not universal in relativity, the vanishing of the commutator (for observable fields at least) should hold for $x$ and $y$ space-like separated (we denoted space-like separated coordinates $x$ and $y$ by $x\sls y$). 
 
 Actually in general the fields are not observable (e.g. the charged scalar field is not, since it is not self-adjoint) but  a remarkable theorem of Doplicher-Roberts (essentially) shows that in a massive RQFT if the observables commute at space-like distances, then the fields of the corresponding QFT either commute or anticommute at space-like distances in $d=3+1$. Moreover the spin-statistics theorem proves that fields with integer spin are bosons and those with half-integer spin are fermions. Hence we know that in the massive case fields with integer spin commute and those with half-integer spin anticommute. 
 
@@ -243,7 +243,7 @@ or more precisely
 	[\phi(f),\phi(g)]=0 \tif \supp f\sls\supp g
 \end{eq}
 
-It is however clear that even if the above sense of $\phi(x)$ is ``localized in $x$'' (so that it cannot affect points space like separated) or better the sense of $\phi(f)$ is ``localized in $\supp f$'' (using Doplicher-Roberts theorem), conversely the state $\phi(x)\ket0$ is not localized in $x$ and $\phi(f)\ket0$ is not localized in $\supp f$. In fact the \emph{two point correlation function} for a real field reads
+It is however clear that even if $\phi(x)$ is ``localized in $x$'' (so that it cannot affect points space like separated) or better $\phi(f)$ is ``localized in $\supp f$'', conversely the state $\phi(x)\ket0$ is not localized in $x$ and $\phi(f)\ket0$ is not localized in $\supp f$. In fact the \emph{two point correlation function} for a real field reads
 \begin{eq}
 	\bra0\phi(x)\phi(y)\ket0
 	&=\bra0\psi(x)\psi^\dagger(y)\ket0
@@ -288,9 +288,9 @@ Differently from NRQFT case, where
 \end{eq}
 holds, in RQFT $a^\dagger(p)$ applied at the vacuum creates a one-particle state with 4-momentum $p^\mu$, but $\phi(x)$ applied to the vacuum does not create a particle localized in $x^\mu$ (i.e. with ``wave function'' given by a $\delta$ localized in $x^\mu$). 
 
-Now it's very clear that $\op x^\mu$ is not a good observable in RQFT, whereas $\op p^\mu$ is a good observable. It is indeed possible to create a particle with well defined momentum $p^\mu$ but is impossible to create a particle with well defined momentum $x^\mu$.
+Now it's very clear that $\op x^\mu$ is not a good observable in RQFT, whereas $\op p^\mu$ is a good observable in the one particle Hilbert state $\hs_1$. It is indeed possible to create a particle with well defined momentum $p^\mu$ (in an improper state) but is impossible to create a particle with well defined position $x^\mu$.
 
-The physical underlying reason as we already mentioned is that the measure of $\op x^\mu$ would produce a diverging fluctuation in $p$ due to Heisenberg principle $\Delta x^\mu\Delta p^\mu\gtrsim\hbar$, allowing the production of particle-hole pairs. Thus the ``space-time coordinate $x$'' looses its meaning, since it is impossible to understand to which particle it refers. 
+The physical underlying reason as we already mentioned is that the measure of $\op x^\mu$ would produce a diverging fluctuation in $p$ due to Heisenberg principle $\Delta\op x^\mu\Delta\op p^\mu\gtrsim\hbar$, allowing the production of particle-hole pairs. Thus the ``space-time coordinate $x$'' looses its meaning, since it is impossible to understand to which particle it refers. 
 
 Finally notice that from its definition $\phi(x)$ satisfies the homogeneous Klein-Gordon equation
 \begin{eq}
@@ -300,7 +300,7 @@ If we replace $c$ with the phonon velocity this is the same equation appearing i
 
 \section{Characteristic features of Fock space}
 
-\textsf{Ref.~\cite[Section 5.2]{Bratteli_1997}}\\
+\textsf{Ref.~\cite{John-W.-Negele:1998aa}; \cite[Section 5.2]{Bratteli_1997}}\\
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% LECTURE 2 %%%%%%%%
@@ -310,7 +310,7 @@ The aim of this section is to understand how CCR and CAR affects the properties 
 \begin{eq}
 	[a_i,a_j^\dagger]=\delta_{ij} \tcomma \{a_i,a_j^\dagger\}=\delta_{ij}
 \end{eq}
-Since such relations are purely algebraic, can be thought as the caracterizing rules for an algebra (i.e. a vector space where we defined the multiplication) endowed with an involution denoted by $\dagger$ (which promote the algebra to a $^*$-algebra), generated by $\{a_i\}_{i\in I}$. In this point of view $a$ and $a^\dagger$ are then just representations of this algebra as operators acting on $\fock^\pm$ ($\fock^\pm$ are representation spaces of the algebra). 
+Since such relations are purely algebraic, they can be thought as the caracterizing rules for an algebra (i.e. a vector space where we defined the multiplication) endowed with an involution denoted by $\dagger$ (which promote the algebra to a $^*$-algebra), generated by $\{a_i\}_{i\in I}$. From this point of view $a$ and $a^\dagger$ are then just representations of this algebra as operators acting on $\fock^\pm$ ($\fock^\pm$ are representation spaces of the algebra). 
 
 If the set $I$ is finite, i.e. the algebra is finitely generated, then the \emph{von Neumann uniqueness theorem} ensures that all the representation of CCR and CAR are unitarily equivalent, hence all possible representations live in the same abstract Hilbert space. 
 
@@ -347,14 +347,14 @@ If $\sum_i|\beta_i|^2<\infty$ then such transformation is allowed and since it i
 	hence for any polynomial in $a_i^\dagger$ eventually $\op N'$ hit the vacuum producing a divergence.} %
 	Therefore if for $\sum_i|\beta_i|^2=\infty$ the Fock space for $\{a_i\}_{i\in I}$ is not the right space for the excitations described by $a_i'$. Actually we proved something more, we proved that the Fock space for $a_i$ and $a_i^\dagger$ are completely disjoint since no state of one of the two spaces is contained in the other one. 
 
-This actually happens in practice also in some simple situations such as for \emph{Fermi gas}.\footnote{This example is presented in \cite[Part B, sec. 1.1]{Strocchi:1985aa}.} Let's consider $N$ fermions in a finite volume $V$ and zero temperature $T=0$. In such conditions the density of states is 
+This actually happens in practice also in some simple situations such as for \emph{(spin $1/2$) Fermi gas}.\footnote{This example is presented in \cite[Part B, sec. 1.1]{Strocchi:1985aa}.} Let's consider $N$ fermions in a finite volume $V$ and zero temperature $T=0$. In such conditions the density of states is 
 \begin{eq}
 	n(\vec k)=\begin{cases}\begin{aligned}
 		2 &\tfor \modk\leq k_F\\
 		0 &\tfor \modk>k_F
 	\end{aligned}\end{cases}
 \end{eq}
-where we have two particles for each momentum state due to the Fermi statistic. Recall that $k_F$ is the Fermi momentum. Clearly the ground state $\ket{\psi_0}$ corresponding to such configuration $u(\vec k)$ is not a vacuum for the annihilation operators $a(\vec k,s)$ when $\modk\leq k_F$ because $a(\vec k,s)\ket{\psi_0}\neq0$, since it just annihilate a particle which certainly exists in the whole ensemble where all configurations for $\vec k\leq k_F$ are occupied. 
+where we have two particles for each momentum state due to the Fermi statistic. Recall that $k_F$ is the Fermi momentum. Clearly the ground state $\ket{\psi_0}$ corresponding to such configuration $n(\vec k)$ is not a vacuum for the annihilation operators $a(\vec k,s)$ when $\modk\leq k_F$ because $a(\vec k,s)\ket{\psi_0}\neq0$, since $a(\vec k,s)$ just annihilates a particle which certainly exists in the whole ensemble where all configurations for $\vec k\leq k_F$ are occupied. 
 
 Nevertheless if one defines the Bogoliubov transformation
 \begin{eq}
@@ -387,13 +387,13 @@ The problem is that the electric field of the radiation behaves in the infrared 
 \begin{eq}
 	N\sim\int\de^3k\,\frac{1}{\modk}\left(\frac{1}{\modk}\right)^2=\infty
 \end{eq}
-therefore the Hilbert space of photons at the end of the process is not the fock space $\fock_\tin$ of the initial photons. 
+therefore the Hilbert space of photons at the end of the process is not the Fock space $\fock_\tin$ of the initial photons. 
 
 \section{Interacting fields}
 
-\textsf{Ref.~\cite[Chapter 8,9]{Greiner_1996}; \cite[Section 1.9, Chapter 10]{Kleinert_2015}; \cite[Chapter 4]{Bogoliubov:1980}}\\
+\textsf{Ref.~\cite{John-W.-Negele:1998aa}; \cite[Chapter 8,9]{Greiner_1996}; \cite[Section 1.9, Chapter 10]{Kleinert_2015}; \cite[Chapter 4]{Bogoliubov:1980}}\\
 
-Up to now we have considered only ``free'' fields whose Hilbert space is a fock space, however to obtain physical informations we need interactions. Now, starting from the particle physics case (zero temperature $T=0$, zero density $n=0$, relativistic case), and then moving to the condensed matter case, we will introduce the perturbative calculation of the interactions. We are mainly interested in understand which are the problems that arise in the perturbative approach and in general the need of non-perturbative techniques.
+Up to now we have considered only ``free'' fields whose Hilbert space is a Fock space, however to obtain physical informations we need interactions. Now, starting from the particle physics case (zero temperature $T=0$, zero density $n=0$, relativistic case), and then moving to the condensed matter case, we will introduce the perturbative calculation of the interactions. We are mainly interested in understand which are the problems that arise in the perturbative approach and in general the need of non-perturbative techniques.
 
 In particle physics most of the informations are extracted from scattering experiments. As a very simple model we can consider the $\phi^4$ model, which in its complex version describe the (low energy of the) Higgs field with only quartic self-interactions taken into account, in the unbroken symmetry phase (which we presume was present in the early universe). 
 
@@ -418,7 +418,7 @@ where the canonical momentum is $\pi(x)=\dot\phi(x)$ and the canonical quantizat
 	[\ophi(\vec x,t),\dot\ophi(\vec y,t)]=i\hbar\delta(\vec x-\vec y)
 \end{eq}
 
-Now one may wonder in which Hilbert space $\ophi$ is defined as an operator-valued distribution, and if such space is the same as the Fock space of the free scalar field. Such question is actually very non-trivial. To gain the maximum support from our knowledge of the free field let us first suppost that we switch-off the interaction term $H_I$ for large $|t|$, i.e. we replace $\lambda$ by a $\cinf$ function of $t$, $\lambda_\epsilon(t)$, such that
+Now one may wonder in which Hilbert space $\ophi$ is defined as an operator-valued distribution, and if such space is the same as the Fock space of the free scalar field. Such question is actually very non-trivial. To gain the maximum support from our knowledge of the free field let us first suppose that we switch-off the interaction term $H_I$ for large $|t|$, i.e. we replace $\lambda$ by a $\cinf$ function of $t$, $\lambda_\epsilon(t)$, such that
 \begin{eq}
 	\lambda_\epsilon(t)=\begin{cases}\begin{aligned}
 		&\lambda&&|t|\leq\inv\epsilon\\
@@ -444,7 +444,7 @@ where (since $\uei$ is unitary) $\scate$ is a unitary operator called \emph{Scat
 	\scate^\dagger\ophi_\tin\scate=\ophi_\tout
 \end{eq}
 
-Notice that by consistency, if $U(t)=\exp{-\frac{itH}\hbar}$ denotes the unitary evolution in Heisenberg picture of $\ophi$ using the complete Hamiltonian, then eq.~\eqref{eq:evol-phiin-uei} implies 
+Notice that by consistency, if $U(t)=\exp{-\frac{itH}\hbar}$ denotes the unitary evolution in Heisenberg picture of $\ophi$ using the complete Hamiltonian, then eq.~\eqref{eq:evol-phiin-uei} implies that
 \begin{eq}
 	\ueid(t)e^{+\frac{itH_0}\hbar}\ophi_\tin(\vec x,0)e^{-\frac{itH_0}\hbar}\uei(t)=U^\dagger(t)\ophi(\vec x,0)U(t)
 \end{eq}
@@ -522,10 +522,7 @@ and
 	&=\bra0\ueid(t)\uei(t,t_1)\ophi_\tin(x_1)\ldots\ophi_\tin(x_n)\uei(t_n,-t)\uei(-t)\ket0\\
 	&=\bra0\ueid(t)\tp[\ophi_\tin(x_1)\ldots\ophi_\tin(x_n)e^{-\frac i\hbar\int_{-t}^t\de t\,H_\epsilon^I(t)}]\uei(-t)\ket0
 \end{eq}
-where in the last step we moved all the unitary operators on the right (since they are inside the time ordering the result is the same) and we used
-\begin{eq}
-	\uei(t,t_1)\uei(t_1)\ueid(t_2)\uei(t_2)\ldots\ueid(t_n)\uei(t_n,-t)=\uei(t)\ueid(-t)=\tp [e^{-\frac i\hbar\int_{-t}^t\de t\,H_\epsilon^I(t)}]
-\end{eq}
+where in the last step we moved all the unitary operators on the right (since they are inside the time ordering the result is the same).
 Now since 
 \begin{eq}
 	\uei(t)\ket0\xrightarrow[t\to-\infty]{}\ket{0_\tin}
@@ -562,7 +559,7 @@ Resumming our steps, we expressed the scattering amplitudes in terms of correlat
 
 \section{Condensed matter systems}
 
-\textsf{\cite[Sections 1.16, 2.17-2.19, 10.9]{Kleinert_2015}; \cite{Fjaerestad_2013}}\\
+\textsf{\cite{John-W.-Negele:1998aa}, \cite[Sections 1.16, 2.17-2.19, 10.9]{Kleinert_2015}; \cite{Fjaerestad_2013}}\\
 
 Let us turn to condensed matter systems. A source of information on the physical properties (typically transport properties) are the correlation functions of local observables, such as spin, density, current, etc; in particular two-points functions. Hence in this case physical informations are much more involved than just scattering amplitudes in particle physics. These two-points functions appear naturally in particular when one studies the \emph{linear response}, i.e. the response to a test (i.e. infinitesimal) perturbation. 
 
@@ -584,7 +581,7 @@ and we want to rewrite this in terms of the evolution generated by $H$ in an ``i
 \begin{eq}
 	O_1^{H+V_\epsilon}(t)={U_\epsilon^{V}}^\dagger(t)O_1^H(t)U^V_\epsilon(t)
 \end{eq}
-where $U^V_\epsilon(t)$ gives the contribution of the interaction $V_\epsilon(t)$ to the free evolution described by $O_1^H(t)$.
+where $U^V_\epsilon(t)$ gives the contribution of the interaction $V_\epsilon(t)$ to the ``free'' evolution described by $O_1^H(t)$.
 
 The situation in this respect is similar to the one considered before in RQFT, just replacing of $H_I^\epsilon$ by $V_\epsilon$ we get that
 \begin{eq}\label{eq:evol-op-solid-state}
@@ -615,7 +612,7 @@ where
 \begin{eq}\label{eq:ret-corr-hermit}
 	\retc^{\,O_1O_2}(t,t'):=-i\theta(t-t')\langle[O_1^H(t),O_2^H(t')]\rangle_\beta
 \end{eq}
-is called \emph{retarded correlation function}. Also in this case, similarly to what happens in RQFT, that experimental data are obtained from particular correlation functions. 
+is called \emph{retarded correlation function}. Also in this case, similarly to what happens in RQFT, the experimental data are obtained from particular correlation functions. 
 
 Of curse if $O_1$, $O_2$ and $\xi_\epsilon$ depend also on space coordinates then eq.~\eqref{eq:pert_ret_corr} becomes:
 \begin{eq}\label{eq:pert_ret_corr_x}
@@ -628,12 +625,12 @@ where
 	\retc^{\,O_1O_2}(\vec x,t,\vec{x'},t'):=-i\theta(t-t')\langle[O_1^H(\vec x,t),O_2^H(\vec{x'},t')]\rangle_\beta
 \end{eq}
 
-Assuming translational invariance, i.e. $\retc^{\,O_1O_2}$ depends only on $t,t'$, and the space difference $\vec x-\vec{x'}$, we can easily perform the Fourier transform, since eq.~\eqref{eq:pert_ret_corr_x} corresponds to a convolution:
+Assuming translational invariance, i.e. $\retc^{\,O_1O_2}$ depends only on $t-t'$, and the space difference $\vec x-\vec{x'}$, we can easily perform the Fourier transform, since eq.~\eqref{eq:pert_ret_corr_x} corresponds to a convolution:
 \begin{eq}
 	\delta \langle O_1^{H+V_\epsilon}(\vec q,\omega)\rangle_\beta=\tilde\xi_\epsilon(\vec q,\omega)\,\fretc^{\,O_1O_2}(\vec q,\omega)
 \end{eq}
 
-The retarded correlators are typically directed connected to experiments. For example suppose to measure the magnetization of a spin system, with spin $\vec S(\vec x)$ in presence of a test magnetic field $\vec B(\vec x,t)$. The coupling between the magnetic field and the spin is given by 
+The retarded correlators are typically directly connected to experiments. For example suppose to measure the magnetization of a spin system, with spin $\vec S(\vec x)$ in presence of a test magnetic field $\vec B(\vec x,t)$. The coupling between the magnetic field and the spin is given by 
 \begin{eq}
 	\int\de^3x\,\vec B(\vec x,t)\cdot\vec S(\vec x)
 \end{eq}
@@ -834,8 +831,7 @@ Can be proved\footnote{Original proof by Baym and Mermin (1960): \url{https://do
 
 \section{Path integral formalism}
 
-\cite{Zhang:1999}, \cite{Zinn-Justin:2002}, \cite[Chapter 14]{Kleinert_2015}\\
-\todo{Se ha qualche altra referenza per QFT a $T>0$ la aggiungo.}
+\cite{John-W.-Negele:1998aa}, \cite{Zhang:1999}, \cite[Chapter 14]{Kleinert_2015}\\
 
 In this section we just sketch in an ``heuristic way'', without details, how the path-integral is defined, with some more details in the non relativistic setting and $T>0$.
 
@@ -847,7 +843,7 @@ The key ingredients of Feynman path-integrals both in real and imaginary time ar
 
 \subsubsection{Path integral for bosonic fields}\label{sec:PI_formalism}
 
-For bosonic fields the completeness employees the \emph{coherent states}. We just recall that for the harmonic QM oscillator the coherent states $\ket z$, $z\in\C$, are of the form (with $a$ annihilation operator)
+For bosonic fields the completeness employes the \emph{coherent states}. We just recall that for the harmonic QM oscillator the coherent states $\ket z$, $z\in\C$, are of the form (with $a$ annihilation operator)
 \begin{eq}\label{eq:coh_stat_dfn}
 	a\ket z=z\ket z
 	\tcomma
@@ -859,48 +855,46 @@ One easily verifies that
 	\tcomma
 	\braket z{z'}=e^{z^*z'}
 	\tcomma
-	\int_\C\de z\,\de z^*\,\ketbra z{z}e^{-|z|^2}=\id
+	\int_\C\frac{\de z\,\de z^*}{2\pi i}\,\ketbra z{z}e^{-|z|^2}=\int_{\R^2}\frac{\de \Re(z)\,\de\Im(z)}{\pi}\,\ketbra z{z}e^{-|z|^2}=\id
 \end{eq}
 
 The concept of coherent states easily generalizes to fields, just replacing the single annihilation operator in QM with a set of annihilation operators $\{a_\alpha\}_{\alpha\in A}$. Indeed a generic field can be written as\footnote{We consider the field at $t=0$ in analogy with QM, the evolution can be recovered according to Heisenberg picture.}
 \begin{eq}\label{eq:coh_field_exp}
 	\ophi(\vec x)=\sum_{\alpha\in A}\phia(\vec x)a_\alpha
 \end{eq}
-The set $\{a_\alpha\}_{\alpha\in A}$ is commuting, hence all the operators admits a common eigenbasis $\big\{\ket\phib\}_{\beta\in B}$, $\ket\phib:=\ket{\{\phib_{\alpha'}\}_{\alpha'\in A}}$, such that for any $\alpha\in A$
+The set $\{a_\alpha\}_{\alpha\in A}$ is commuting, hence all the operators admits a common eigenbasis made of eigenvectors in the form $\ket\phi:=\ket{\{\phia\}_{\alpha\in A}}$, such that for any $\alpha\in A$
 \begin{eq}
-	a_\alpha\ket\phib=\phiab\ket{\phib}
+	a_\alpha\ket\phi=\phia\ket{\phi}
 	\quad\text{with eigenvalues}\quad
-	\phia^\beta\in\C
+	\phia\in\C
 \end{eq}
 Moreover, using commutation relations for ladder operators, this implies
 \begin{eq}
-	\ket\phib=e^{\sum_\alpha\phiab a_\alpha^\dagger}\ket0
+	\ket\phi=e^{\sum_\alpha\phia a_\alpha^\dagger}\ket0
 	\tand
-	\langle{\phib}\vert{\phi^{\beta'}}\rangle=e^{\sum_\alpha{\phiab}^*\phia^{\beta'}}
+	\langle{\phi}\vert{\phi'}\rangle=e^{\sum_\alpha\phia^*\phia'}
 \end{eq}
 
-It is clear that vectors $\big\{\ket\phib\big\}$ are eigenvectors also for the field operator
+It is clear that vectors $\big\{\ket\phi\big\}$ are eigenvectors also for the field operator:\footnote{Notice the difference between $\phi_\alpha$ and $\phi_\alpha(\vec x)$: the former is the eigenvalue of $a_\alpha$ on $\ket\phi$, whereas the latter comes from eq.~\eqref{eq:coh_field_exp}.}
 \begin{eq}
-	\ophi(\vec x)\ket{\phib}=\sum_{\alpha\in A}\phia(\vec x)\phiab\ket{\phib}=\phib(\vec x)\ket{\phib}
+	\ophi(\vec x)\ket{\phi}=\sum_{\alpha\in A}\phia(\vec x)\phia\ket{\phi}=\phi(\vec x)\ket{\phi}
 \end{eq}
-with eigenvalue $\phib(\vec x):=\sum_{\alpha\in A}\phia(\vec x)\phiab$ (is a function). In particular, for a RQFT we have the operator
+with eigenvalue $\phi(\vec x):=\sum_{\alpha\in A}\phia(\vec x)\phia$ (is a function). In particular, for a RQFT we have the operator
 \begin{eq}
 	\ophi(\vec x)=\sum_\alpha\phia(\vec x)a_\alpha+\phia^*(\vec x)a_\alpha^\dagger
 \end{eq}
 and correspondingly we have the eigenvalues
 \begin{eq}
-	\phib(\vec x)=\sum_\alpha\phia(\vec x)\phiab+\phia^*(\vec x){\phiab}^*
+	\phi(\vec x)=\sum_\alpha\phia(\vec x)\phia+\phia^*(\vec x)\phia^*
 \end{eq}
 Notice that up to now we have properly generalized eq.~\eqref{eq:coh_stat_dfn} in the case of fields.
 
 Let's see how the last identity in eq.~\eqref{eq:coh_stat_prop} generalizes in this setting. The following Dirac completeness can be proved:
-\todo{Ci va davvero il fattore $i$ a denominatore? Nella referenza che ho trovato non c'è.}
 \begin{eq}\label{eq:complet_coh_states}
 	\int\frac{\de\phi\,\de\phi^*}{2\pi i}e^{-\phi^*\phi}\ket\phi\bra\phi
-	:= \sum_{\beta\in B}\frac1{2\pi i}e^{-\sum_\alpha{\phiab}^*\phiab}\ket\phib\bra{\phib}=\id
+	:= \int\prod_{\alpha\in A}\frac{\de\phi_\alpha\de\phi_\alpha^*}{2\pi i}e^{-\sum_\alpha\phia^*\phia}\ket\phi\bra{\phi}=\id
 \end{eq}
-where on the l.h.s. we defined ${\phib}^*\phib:=\langle\phib|\phib\rangle$ and suppressed the label $\beta$ by replacing $\sum_\beta f(\phib,{\phib}^*) \to\int\de{\phi}\,\de{\phi}^*\,f(\phi,\phi^*)$.
-\todo{É possibile provare ${\phib}^*\phib=\langle\phib|\phib\rangle$ o è da considerarsi una definizione per semplificare la notazione?}
+(from now on we will often suppress the label $\alpha\in A$).
 
 For each operator $A$ and a basis $\{\ket n\}$ satisfying Dirac completeness $\sum_n\ketbra{n}{n}=\id$ we have
 \begin{eq}
@@ -910,7 +904,7 @@ For each operator $A$ and a basis $\{\ket n\}$ satisfying Dirac completeness $\s
 	&=\int\frac{\de\phi\,\de\phi^*}{2\pi i}e^{-\phi^*\phi}\bra \phi A\ket\phi
 \end{eq}
 
-Beside the fields at fixed time $\ophi(\vec x)$ in the Gell-Mann - Low formula or in the Matsubara formalism (to which we now address our effort) there are also the time-evolution operators. Let us consider an infinitesimal one: for $H$ the Hamiltonian in terms of free fields, $\Delta\tau$ infinitesimal ``immaginary time'' interval, the infinitesimal time-evolution operator is 
+Besides the fields at fixed time $\ophi(\vec x)$ in the Gell-Mann - Low formula or in the Matsubara formalism (to which we now address our effort) there are also the time-evolution operators. Let us consider an infinitesimal one: for $H$ the Hamiltonian in terms of free fields, $\Delta\tau$ infinitesimal ``immaginary time'' interval, the infinitesimal time-evolution operator is 
 \begin{eq}
 	e^{-\Delta\tau H(a_\alpha^\dagger, a_\alpha)}
 \end{eq}
@@ -978,15 +972,15 @@ If we have fermions the above procedure needs a little modification since now an
 \begin{eq}
 	\{a_\alpha,a_{\alpha'}\}=0
 \end{eq}
-so that for each common eigenstate $\ket\phib$ of the annihilation operators we have
+so that for each common eigenstate $\ket\phi$ of the annihilation operators we have
 \begin{eq}
-	\{a_\alpha,a_{\alpha'}\}\ket\phib=\{\phiab,\phib_{\alpha'}\}\ket\phib\neq0
+	\{a_\alpha,a_{\alpha'}\}\ket\phi=\{\phia,\phi_{\alpha'}\}\ket\phi\neq0
 \end{eq}
-hence the eigenvalues $\phiab,\phib_{\alpha'}$ of the annihilation operators cannot be complex numbers, and we need to introduce some \emph{Grassmann variables}, i.e. anticommuting objects such that
+hence the eigenvalues $\phia,\phi_{\alpha'}$ of the annihilation operators cannot be complex numbers, and we need to introduce some \emph{Grassmann variables}, i.e. anticommuting objects such that
 \begin{eq}
 	\xi_\alpha\xi_{\alpha'}+\xi_{\alpha'}\xi_\alpha=0
 \end{eq}
-A strategy similar to the one previously sketched replacing bosonic operators $\ophi$ by complex functions $\phib$ can be adapted, replacing fermionic operators $\ophi$ by Grassmann functions $\xi$. For instance the trace of an operator now reads
+A strategy similar to the one previously sketched replacing bosonic operators $\ophi$ by complex functions $\phi$ can be adapted, replacing fermionic operators $\ophi$ by Grassmann functions $\xi$. For instance the trace of an operator now reads (omitting indices $\alpha\in A$)
 \begin{eq}
 	\Tr A=\int\de\xi^*\de\xi\,e^{\sum_\alpha\xi_\alpha^*\xi_\alpha}\bra{-\xi}A\ket{\xi}
 \end{eq}
@@ -1039,7 +1033,7 @@ where in the last step we put the operators in the original order, killing in th
 
 Completely analogour formulas holds in the relativistic case, where $S(\phi^*,\phi)$ is replaced by the Euclidean relativistic action. For instance for the massive bosonic field it is given by
 \begin{eq}
-	S(\phi^*,\phi)=\frac1\hbar\int\de^{d+1}x\,\half(\partial_\mu\phi\partial^\mu\phi^*+m^2\phi^*\phi)(x,\tau)
+	S(\phi^*,\phi)=\frac1\hbar\int\de^{d+1}x\,\half(\partial_\mu\phi\,\partial^\mu\phi^*+m^2\phi^*\phi)(x,\tau)
 \end{eq}
 
 \end{document}
