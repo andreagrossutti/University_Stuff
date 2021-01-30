@@ -22,6 +22,9 @@
 \renewcommand{\onlyinsubfile}[1]{}
 \renewcommand{\onlyinmainfile}[1]{#1}
 
+%uncomment to remove annotation boxes 
+\renewcommand{\todo}[1]{}
+
 \begin{titlepage}
 \begin{center}
        \vspace*{5cm}
@@ -32,7 +35,10 @@
         {\LARGE Course held by prof. Pieralberto Marchetti}
         
         \vspace{1.5cm}
-        {\Large Written by Andrea Grossutti}   
+        {\Large Written by Andrea Grossutti} 
+        
+        \vspace{1.5cm}
+        {\Large Supervised by prof. Pieralberto Marchetti}   
                  
        \vfill
        {\large Compiled: \today} 
@@ -47,7 +53,7 @@
 
 \tableofcontents
 
-\part{Formal QFT}
+\part{Foundations of QFT}
 \subfile{../chapters/Chap1.tex}
 \subfile{../chapters/Chap2.tex}
 \subfile{../chapters/Chap3.tex}

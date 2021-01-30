@@ -71,11 +71,11 @@ However the introduction of the magnetic current raises a problem, since $j_m$ v
 \begin{eq}
 	\lctens_{\mu\nu\rho\sigma}\partial^\nu F^{\rho\sigma}=0
 \end{eq}
-that guarantees the (global) existence of the gauge potential $A_\mu$, 
+that guarantees the global existence of the gauge potential $A_\mu$, 
 \begin{eq}
 	F^{\mu\nu}=\partial^\mu A^\nu-\partial^\nu A^\mu
 \end{eq}
-In fact, assume for simplicity the temporal gauge $A^0=0$ and the existence of $\vec A$. Consider then the zero-component of the second of eq.~\eqref{eq:modif-Maxw-eq}, that is $j_m^0=\partial_\mu \tilde F^{\mu0}=\vec\nabla\cdot\vec B$, and integrate it at a fixed time over a ball $B^3$ containing a magnetic charge. Then we get
+In fact, assume for simplicity the temporal gauge $A^0=0$ and the global existence of $\vec A$. Consider then the zero-component of the second of eq.~\eqref{eq:modif-Maxw-eq}, that is $j_m^0=\partial_\mu \tilde F^{\mu0}=\vec\nabla\cdot\vec B$, and integrate it at a fixed time over a ball $B^3$ containing a magnetic charge. Then we get
 \begin{eq}
 	Q_m=\int_{B^3}\de^3x\,j_m^0
 	=\int_{B^3}\de^3x\,\vec\nabla\cdot\vec B  
@@ -234,7 +234,7 @@ The Euclidean Lagrangian in $3+1$ dimensions, a kind of non-Abelian generalizati
 	\lag=\frac1{4g^2}(G_{\mu\nu}^a)^2+\half(D_\mu\phi^a)^2+\lambda\big((\phi^a)^2-v^2\big)
 \end{eq}
 with $SO(3)$ breaking boundary conditions, e.g.
-\begin{eq}
+\begin{eq}\label{eq:monopole-boundary-conditions-vacuum}
 	\phi^a(\infty)=v\delta^{a3}
 	\quad\leftrightarrow\quad
 	\phi(\infty)=v\frac{\tau^3}2
@@ -296,7 +296,7 @@ and its ``magnetic charge'' in units of $g$ can be defined as
 
 \skipline
 
-We want to find some finite energy configuration with $Q_m\neq0$. From the finiteness of the energy eq.~\eqref{energy-GG-model} we have that as $r\to\infty$ we should have $(\phi^a(\infty))^2=v^2$ \todo{Ma non avevamo già fissato $\phi(\infty)=v\frac{\tau^3}2$? Possiamo rilassare la richiesta, prendendo $\phi(e^{i\alpha}\infty)=ve^{if(\alpha)}\frac{\tau^3}2$ con $f(\alpha)$ fissato?} hence $\phi$ on the sphere at $\infty$, $S^2_\infty$, takes values in a $2$-sphere $S_\phi^2$ of radius $|v|$. 
+We want to find some finite energy configuration with $Q_m\neq0$. From the finiteness of the energy eq.~\eqref{energy-GG-model} we have that as $r\to\infty$ we should have\footnote{The boundary condition eq.~\eqref{eq:monopole-boundary-conditions-vacuum} was imposed in the vacuum configuration.} $(\phi^a(\infty))^2=v^2$ hence $\phi$ on the sphere at $\infty$, $S^2_\infty$, takes values in a $2$-sphere $S_\phi^2$ of radius $|v|$. 
 
 The continuous maps between these spheres are labelled by an integer $n$ corresponding to an element of the homotopy group $\pi_2(S^2)\simeq\Z$, identifying how many times $\phi$ sweeps $S_\phi^2$ when $\vec x$ sweeps $S_\infty^2$. 
 
@@ -304,7 +304,7 @@ Let us consider the case $N=1$, this clearly occours if at $\infty$ we have
 \begin{eq}	\label{eq:behav-phi-infty-monopole}
 	\phi^a\underset{r\to\infty}\sim v\frac{x^a}{r}=:vn^a
 \end{eq}
-We see that the group index ``$a$'' is referred to both as group index and as spatial index, hence gets ``entangled'' with a coordinate index of $\vec x$ (this is possible since it both cases it runs over $\R^3$, conversely this would be impossible in $U(1)$). 
+We see that the group index ``$a$'' is referred to both as group index and as spatial index, hence gets ``entangled'' with a coordinate index of $\vec x$ (this is possible since in both cases it runs over $\R^3$, conversely this would be impossible in $U(1)$). 
 
 Furthermore finiteness of the energy imposes also that as $r\to\infty$ the derivative $D_i\phi^a$ decays faster than $r^{-3/2}$. For eq.~\eqref{eq:behav-phi-infty-monopole} this means that 
 \begin{eq}
@@ -395,7 +395,7 @@ and simultaneously
 \end{eq}
 Hence for $1-g_A=O(r)$ and $1-g_H=O(1)$ the solution has finite energy. 
 
-These conditions give a different result for the magnetic charge respect to the case of the Dirac monopole, eq.~\eqref{eq:magn-charge-Dirac-monopole}, indeed
+These conditions give a different result for the magnetic charge density respect to the case of the Dirac monopole, eq.~\eqref{eq:magn-charge-Dirac-monopole}, indeed
 \begin{eq}
 	\lim_{R\to0}\frac1g\int_{S_R^2}\de\Sigma^i\, B_i^a\frac{\phi^a}{|\phi|}=0
 \end{eq}
@@ -435,10 +435,10 @@ where in the third line we used the antisymmetry of $\lctens^{abc}$. The result 
 
 \subsubsection{Mass of the monopole}
 
-Let's compute the mass of the classical monopole. This is particularly simple in the case $\lambda=0$ (but still $\phi^a(\infty)=v\delta^{a3}$ boundary conditions), called \emph{BPS limit}. In this case, in analogy to the Bogomol'nyi treatment of vortices, one can rewrite
+Let's compute the mass of the classical monopole. This is particularly simple in the case $\lambda=0$ (but still $\phi^a(\infty)=v\delta^{a3}$ boundary conditions in the vacuum, eq.~\eqref{eq:monopole-boundary-conditions-vacuum}), called \emph{BPS limit}. In this case, in analogy to the Bogomol'nyi treatment of vortices, one can rewrite
 \begin{eq}
 	\int\de^3x\,\cenergy
-	=\int\de^3x\,\frac1{2g^2}(B_i^a-D_i\phi^a)^2+\frac1gB_i^aD_i\phi^a
+	=\int\de^3x\,\frac1{2g^2}(B_i^a-gD_i\phi^a)^2+\frac1gB_i^aD_i\phi^a
 \end{eq}
 The second term, using the equation of motion $0=D_{[i}G_{jk]}=D_iB_i^a$, can be rewritten as 
 \begin{eq}
@@ -455,40 +455,49 @@ This also implies that the t'Hooft-Polyakov monopole in the BPS limit is free an
 
 In the case of the t'Hooft-Polyakov monopole it is important to make some more comments about its quantum mechanical version, since up to now there is no agreed and  well defined QFT description of it. 
 
-The quantum mechanical version of the t'Hooft Polyakov monopole is obtained promoting the moduli of the the classical solution, corresponding to symmetries broken by the specific choice of the monopole solution, to quantum mechanical (time-dependent) variables. Three moduli correspond to the position of the center of the monopole $\vec x_0$ (up to now $\vec x_0=\vec 0$). There is however a fourth modulus, corresponding to the fact that the ``global''\footnote{Meaning that the symmetry is still described by gauge transformations, but whose group parameter are constant over the whole spacetime.} $U(1)$-electromagnetic symmetry is unbroken, but a fixed monopole solution breaks it. In fact let $e_m(\infty)$ denote the asymptotic behaviour of the normalized scalar field of the monopole. A $U(1)$ transformation of the form $e^{i\alpha e_m(x)}$, where $\alpha$ is constant, leave the boundary condition of $\phi_m$ (the monopole configuration of the scalar field) unchanged but modifies the gauge potential by 
+The quantum mechanical version of the t'Hooft Polyakov monopole is obtained promoting the moduli of the the classical solution, corresponding to symmetries broken by the specific choice of the monopole solution, to quantum mechanical (time-dependent) variables. Three moduli correspond to the position of the center of the monopole $\vec x_0$ (up to now $\vec x_0=\vec 0$). There is however a fourth modulus, corresponding to the fact that the ``global''\footnote{Meaning that the symmetry is still described by gauge transformations, but whose group parameter are constant over the whole spacetime.} $U(1)$-electromagnetic symmetry is unbroken, but a fixed monopole solution breaks it. In fact let $e_m(\infty)$ denote the asymptotic behaviour of the normalized scalar field of the monopole. A $U(1)$ transformation of the form $e^{i\alpha e_m(x)}$, where $\alpha$ is constant, leaves the boundary condition of $\phi_m$ (the monopole configuration of the scalar field) unchanged but modifies the gauge potential by 
 \begin{eq}\label{eq:gauge-pot-alpha-monop}
 	A_i\ \mapsto\  A_i^{(\alpha)}=e^{-i\alpha e_m}A_ie^{i\alpha e_m}+\frac1ie^{-i\alpha e_m}\partial_je^{i\alpha e_m}
 \end{eq}
-We should consider $\alpha$ as a new modulo associated to the specific monopole solution. Hence in the quantum mechanical treatment we should introduce 4 time dependent variables $\op{\vec x}_0(t)$ and $\op\alpha(t)$, together with their conjugated momenta $\op{\vec p}_0(t)$ and $\op p_\alpha(t)$, and then the quantum mechanical hamiltonian of the monopole in the quadratic approximation is
+We should consider $\alpha$ as a new modulus associated to the specific monopole solution. Hence in the quantum mechanical treatment we should introduce 4 time dependent variables $\op{\vec x}_0(t)$ and $\op\alpha(t)$, together with their conjugated momenta $\op{\vec p}_0(t)$ and $\op p_\alpha(t)$, and then the quantum mechanical hamiltonian of the monopole in the quadratic approximation is
 \begin{eq}
 	H_m=M_m+\frac{\op{\vec p}_0(t)}{2M_m}+m_W^2\frac{\op p_\alpha^2(t)}{2M_m}
 \end{eq}
 where the factor $m_W$ is needed since $\alpha$ is an angle, hence $\frac1{2M_m}\op p_\alpha^2$ has not the right dimension in the Hamiltonian. Since $\op\alpha$ is periodic, then $\op p_\alpha$ has discrete spectrum: $\spec(\op p_\alpha)\subset\Z$ (for $\hbar=1$).
 
-To understend the meaning of these eigenvalues in the simplest case of a BPS solution, notice that 
+To understand the meaning of these eigenvalues in the simplest case of a BPS solution, notice that 
 \begin{eq}
-	\op p_\alpha=\frac{M_m}{m_W}\der{\op\alpha}t
+	\op p_\alpha=\frac{M_m}{m_W^2}\der{\op\alpha}t
 \end{eq}
-where $m_W$ again comes from a power counting argument, and define the gauge invariant $SO(3)$ electric field for the monopole solution evaluated in the gauge $A_0^a=0$ as
+where $m_W^2$ again comes from a power counting argument, and define the gauge invariant $SO(3)$ electric field for the monopole solution evaluated in the gauge $A_0^a=0$ as
 \begin{eq}
 	E_i=E_i^a\frac{\phi^a}{|\phi|}=\Tr(E_ie_m)
 	\twith 
 	E_i=\partial_0A_i^{(\alpha)}
 \end{eq}
-whose quantum version is 
+whose quantum mechanical version is 
 \begin{eq}
 	\op E_i
-	=\Tr\,(\partial_0\op A_i^{(\alpha)}\op e_m)
-	=\der{\op\alpha}t\Tr\,(\partial_\alpha\op A_i^{(\alpha)}\op e_m)
-	\overset{\eqref{eq:gauge-pot-alpha-monop}}=\der{\op\alpha}t\Tr\big(D_i\op \phi\,\op e_m\big)
-	\overset{\text{BPS}}=\der{\op\alpha}t\Tr\big(\op B_i\op e_m\big)
-	=\frac{m_W}{M_m}\op p_\alpha\Tr\,(\op B_i\op e_m)
+	=\Tr\,(\partial_0\op A_i^{(\alpha)}e_m)
+	=\der{\op\alpha}t\Tr\,(\partial_\alpha\op A_i^{(\alpha)}e_m)
+	\overset{\eqref{eq:gauge-pot-alpha-monop}}=\der{\op\alpha}t\Tr\big(D_i\op e_m\,e_m\big)
 \end{eq}
-where we used $B_i^a=D_i\phi^a$, which holds in the BPS limit. \todo{Non mi è chiarissimo come otteniamo $\partial_\alpha\op A_i^{(\alpha)}=D_i\op e_m$. Penso che delle CCR tra $\op x$ e $\op p_\alpha$ siano necessarie.}\todo{Nel caso BPS, $B_i^a=D_i\phi^a$ oppure $B_i^a=D_ie_m^a$?}
+At large distances, since $|\phi|=v$, we can replace $e_m$ by $\frac\phi v$ allowing to write the behaviour of the electric field as
+\begin{eq}
+	\op E_i
+	=\der{\op\alpha}t\frac1v\Tr(D_i\phi\,e_m)
+\end{eq}
+Then using the BPS equation $B_i^a=D_i\phi^a$ in this limit one can write 
+\begin{eq}
+	\op E_i
+	=\der{\op\alpha}t\frac1{vg}\Tr\,(B_ie_m)
+	=\der{\op\alpha}t\frac1{m_W}\Tr\,(B_ie_m)
+	=\frac{m_W}{M_m}\op p_\alpha\Tr\,(B_ie_m)
+\end{eq}
 The electric charge in units of $g$ for the eigenvalue $k\in\Z$ of $\op p_\alpha$ is then given by
 \begin{eq}
 	Q_e=\lim_{R\to\infty}\frac1g\int_{S_R^2}\de\Sigma^i\,\op E_i
-	=\lim_{R\to\infty}\frac1g\int_{S_R^2}\de\Sigma^i\,\frac{m_W}{M_m}k\Tr\,(\op B_i\op e_m)
+	=\lim_{R\to\infty}\frac1g\int_{S_R^2}\de\Sigma^i\,\frac{m_W}{M_m}k\Tr\,(B_ie_m)
 	=\frac1gm_Wk\frac{Q_m}{M_m}
 	=k
 \end{eq}
@@ -498,6 +507,243 @@ Hence, while the first three moduli $\vec x_0$ become just the position variable
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% LECTURE 22 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Quantum field theory treatment of Dirac monopoles}
+
+Unfortunately there is no well understood quantum field thery of the 't Hooft-Polyakov monopoles, so in order to discuss a quantum field theory of monopoles we turn again to Dirac monopoles. As previously discussed an UV cutoff is needed for the description of such monopoles, and it is understood in the following of the chapter. However, formally we will write formulas in the continuum notation. 
+
+Again we construct monopole quantum field operators from Euclidean monopole correlators using OS reconstruction. To construct monopole correlation functions it is easier to exploit the duality invariance discussed at the beginning of this chapter: we first construct the correlation functions of charged fields in a scalar electrodynamic without monopoles and then by duality we obtain the Dirac monopole correlators (at least in a theory without electric charges). 
+
+\subsubsection{Strocchi's theorem}
+
+The electric charge in the first model appears as the generator of a global subgroup of a local gauge invariance, this implies an important difference with respect to the topological charges previously discussed. 
+Up to now starting from the fields of the correlation functions, via reconstruction theorems, we have constructed a Hilbert space of states which was naturally endowed with a positive definite scalar product, in case via reconstruction. 
+However for gauge theories, both relativistic (such as QED) and non-relativistic cases, the situation is not so simple. The key issue is that a local gauge invariance implies a Gauss law. 
+
+Let us first consider the problem classically. The Noether's theorem for a global (gauge) invariance yields a conserved current $j_\mu$, using equations of motions (of both the gauge field and the charge field). However, if we mimic its standard proof in the case of local gauge invariance we get the conservation of the current without using the equations of motions of the charged field and the corresponding charge can be determined from measurements at infinity. 
+
+\skipline
+
+To simplify the discussion we consider the Abelian case, a scalar electrodynamic in the charged field $\phi$, but the non Abelian case can be treated similarly. In order to simplify the notation we assume unit charge. 
+
+From the gauge invariance of the Lagrangian density 
+\begin{eq}
+	\lag(\phi,\phi^*,\partial_\mu\phi,\partial_\mu\phi^*,A_\nu,\partial_\mu A_\nu)
+\end{eq}
+for an infinitesimal gauge transformation parametrized by $\Lambda(x)$ such that
+\begin{eq}
+	\delta\phi(x)=i\Lambda(x)\phi(x)
+	\tcomma
+	\delta\phi^*(x)=-i\Lambda(x)\phi^*(x)
+	\tcomma
+	\delta A_\mu(x)=-i\partial_\mu\Lambda(x)
+\end{eq}
+we get
+\begin{eq}\label{eq:Noether-proof}
+	0
+	&=\left[\fder\lag\phi\delta\phi+\fder\lag{\phi^*}\delta\phi^*+\fder\lag{\partial_\mu\phi}\partial_\mu\delta\phi+\fder\lag{\partial_\mu\phi^*}\partial_\mu\delta\phi^*+\fder\lag{A^\nu}\delta A^\nu+\fder\lag{\partial_\mu A_\nu}\partial_\mu\delta A_\nu\right]\\
+	&=i\left[\fder\lag\phi\phi-\fder\lag{\phi^*}\phi^*+\fder\lag{\partial_\mu\phi}\partial_\mu\phi+\fder\lag{\partial_\mu\phi}\partial_\mu\phi+\fder\lag{\partial_\mu\phi^*}\partial_\mu\phi^*\right]\Lambda+\\
+	&\quad+i\left[\fder\lag{\partial_\mu\phi}\phi-\fder\lag{\partial_\mu\phi^*}-\fder\lag{A_\mu}\right]\partial_\mu\Lambda-i\fder\lag{\partial_\mu A_\nu}\partial_\mu\partial_\nu\Lambda
+\end{eq}
+for $\Lambda(x)$ arbitrary. 
+In the case of global symmetry $\Lambda(x)$ is independent on $x$, and using equations of motion of $\phi$ and $\phi^*$
+\begin{eq}
+	\fder\lag\phi=\partial_\mu\fder\lag{\partial_\mu\phi}
+	\tand
+	\fder\lag{\phi^*}=\partial_\mu\fder\lag{\partial_\mu\phi^*}
+\end{eq}
+we get
+\begin{eq}
+	\partial_\mu\left[\fder\lag{\partial_\mu\phi}\phi-\fder\lag{\partial_\mu\phi^*}\phi^*\right]=0
+\end{eq}
+so that the Noether current
+\begin{eq}
+	j^\mu=\fder\lag{\partial_\mu\phi}\phi-\fder\lag{\partial_\mu\phi^*}\phi^*
+\end{eq}
+is conserved: $\partial_\mu j^\mu=0$. 
+
+\skipline
+
+But if $\Lambda$ is arbitrary, also coefficients of $\partial_\mu\Lambda$ and $\partial_\mu\partial_\nu\Lambda$ in eq.~\eqref{eq:Noether-proof} should vanish, hence we should have also
+\begin{eq}\label{eq:Noether-result-local}
+	j^\mu-\fder\lag{A_\mu}=0
+	\tand
+	\fder\lag{\partial_\mu A_\nu}\partial_\mu\partial_\nu \Lambda=0
+\end{eq}
+and the latter is satisfied only if 
+\begin{eq}
+	G^{\mu\nu}:=-\fder\lag{\partial_\mu A_\nu}
+\end{eq}
+is antisymmetric, $G^{\mu\nu}=G^{[\mu\nu]}$. But then from the first of eq.~\eqref{eq:Noether-result-local} and the equation of motion of $A$ we have
+\begin{eq}\label{eq:conserved-curr-em-FS}
+	j^\nu=\partial_\mu G^{\mu\nu}
+\end{eq}
+and by antisymmetry
+\begin{eq}
+	\partial_\nu j^\nu=\partial_\nu\partial_\mu G^{\mu\nu}=0
+\end{eq}
+hence $j^\nu$ is automatically conserved without using equations of motion of $\phi$ and $\phi^*$. Moreover, defining the charge
+\begin{eq}
+	Q:=\int\de^dx\,j^0=\int\de^dx\,\partial_iG^{i0}=\lim_{R\to\infty}\int_{S_R^{d-1}}\!\!\!\de\Sigma_i\,G^{i0}
+\end{eq}
+associated to $j^\nu$, we see that such global charge does not depend on the local behaviour of the density $j^0$ but only upon the behaviour at infinity of the ``electromagnetic'' field strength $G^{\mu\nu}$. 
+
+\skipline
+
+Since property eq.~\eqref{eq:conserved-curr-em-FS} is a key consequence of the local gauge invariance we must impose it also at quantum level at least in the weakest possible sense, as we are going to see. 
+
+Denote by $\op j_\mu$ and $\op G_{\mu\nu}$ the field operator corresponding to classical $j_\mu$ and $G_{\mu\nu}$, and by $\ket\psi$, $\ket\chi$ vectors in the space $\vs$ of vector states generated by quantum fields of a quantum gauge theory. According to the previous discussion we require that at least for a subspace\footnote{Due to the gauge invariance there are unphysical states, which are elements of $\vs$ but not of $\vsp$.} $\vsp\subseteq\vs$ of physical states the matrix elements satisfy
+\begin{eq}
+	\bra\psi(\op j^\nu-\partial_\mu G^{\mu\nu})(f)\ket\chi=0
+	\tfor
+	\ket\psi,\ket\chi\in\vsp
+\end{eq}
+and
+\begin{eq}
+	\tif 
+	\ket\chi\in\vsp
+	\tthen
+	(\op j^\nu-\partial_\mu\op G^{\mu\nu})(f)\ket\chi\in\vsp
+\end{eq}
+for $f$ smearing test function needed in the continuum. Then if $\vs $ has a semi-definite positive inner product, this implies the stronger statement
+\begin{eq}\label{eq:op-Gauss-law}
+	(\op j^\nu-\partial_\mu\op G^{\mu\nu})(f)\ket{\chi}=0
+	\tforall
+	\ket\chi\in\vsp
+\end{eq}
+In fact, for $\ket\psi\in\vs$ and $\ket\chi\in\vsp$, using Schwartz inequality
+\begin{eq}
+	0\leq\vert\bra\psi(\op j^\nu-\partial_\mu G^{\mu\nu})(f)\ket\chi\vert^2
+	\leq\braket{\psi}{\psi}\underbrace{\bra\chi(\op j^\nu -\partial_\mu \op G^{\mu\nu})^\dagger(f)}_{\in\vsp}(\op j^\nu-\partial_\mu\op G^{\mu\nu})\!\!\!\underbrace{\!\ket\chi\!}_{\in\vsp}=0
+\end{eq}
+hence eq.~\eqref{eq:op-Gauss-law}, i.e. the Gauss law as an operator identity, automatically holds. 
+
+Let's consider the transformation of the field $\op\phi$, charged with respect to the global gauge group, i.e. (modulo smearings)
+\begin{eq}
+	[Q,\ophi(y)]=\lim_{R\to\infty}\int_{B_R^d}\de^dx[\op j^0(x),\ophi(y)]=\delta\ophi(y)\neq0
+\end{eq}
+If $\vs$ has a semi-definite inner product and $\ophi(y)$ is local, or at least localized in a bounded region, then for $\ket\psi,\ket\chi\in\vsp$ we have
+\begin{eq}
+	\bra\psi\lim_{R\to\infty}\int_{B_R^d}\de^dx\,[\op j^0(x),\op\phi(y)]\ket\chi
+	=\bra\psi\delta\ophi(y)\ket\chi\neq0
+\end{eq}
+but also
+\begin{eq}
+	\bra\psi\lim_{R\to\infty}\int_{B_R^d}\de^dx\,[\op j^0(x),\op\phi(y)]\ket\chi=\bra\psi\lim_{R\to\infty}\int_{S_R^{d-1}}\de\Sigma_i\,[G^{i0}(\vec x),\ophi(y)]\ket\chi=0
+\end{eq}
+where the vanishing of the commutator is a consequence of locality, contraddicting $\bra\psi\delta\ophi\ket\chi\neq0$.
+
+Hence positivity of $\vs$ and locality (in a bounded region) of charged fields are incompatible in a gauge theory. This result in known as \emph{Strocchi's theorem}, and can be rephrased as the impossibility in a gauge theory of having both positivity of the Hilbert space and locality of the charged field.
+
+\skipline
+
+At least formally (neglecting UV problems) the quantity
+\begin{eq}
+	Q(\Lambda):=\int\de\vec x\,\Lambda(\vec x)(\op j^0(\vec x)-\partial_i G^{i0}(\vec x))
+\end{eq}
+generates the time-independent gauge transformations of parameters $\Lambda(\vec x)$. In fact defining
+\begin{eq}
+	\delta\ophi(\vec y):=[Q(\lambda),\ophi(\vec y)]
+	=\int\de^3\vec x\,\Lambda(\vec x)[\op j^0(\vec x)-\partial_i G^{i0}(\vec x),\ophi(\vec y)]
+\end{eq}
+and using
+\begin{eq}
+	\op j^0=(\ophi^*\partial_0\ophi-\ophi\partial_0\ophi^*)
+	\tand
+	[\partial_0\ophi^*(\vec x),\ophi(\vec y)]=-i\delta(\vec x-\vec y)
+\end{eq}
+we get
+\begin{eq}
+	\delta\ophi(\vec y)=\int\de^3\vec x\,\Lambda(\vec x)\ophi(\vec x)\delta(\vec x-\vec y)
+	=i\Lambda(\vec y)\ophi(\vec y)
+\end{eq}
+Similarly, for the gauge field
+\begin{eq}
+	\delta A_j(\vec y):=[Q(\Lambda),\Lambda_j(\vec y)]
+	=\int\de^3\vec x\,\Lambda(\vec x)[-\partial_iF^{i0}(\vec x),A_j(\vec y)]
+	=\int\de^3\vec x\,\Lambda(\vec x)i\partial_i\delta(\vec x-\vec y)\delta_{ij}
+	=-i\partial_j\Lambda(\vec y)
+\end{eq}
+
+This suggest that if in the reconstruction theorem we use only fields invariant under local gauge transformations vanishing at infinity, in the reconstructed space of states the Gauss law is automatically implemented. If OS positivity holds this must be a Hilbert space, but then charged field operators are non-local, reaching $\infty$ even at fixed time. 
+
+This is not the standard approach based on covariant quantization, gauge-fixing and locality, but for the consistency of the monopole, in particular for the unphysical nature of the Dirac string, preserving the gauge invariance appears to be crucial and this approach based on positivity but not locality is the most natural for charged fields.
+
+Therefore we try to get the monopole quantum field starting from a charged non-local quantum field, easier to define, in the dual theory obtained via OS reconstruction from its correlators. Then we apply to these correlators the duality transformation. Let us show how to do this.
+
+\subsubsection{Duality transformation in the path integral}
+
+Notice that in the path integral formalism there is a simple way to derive the duality, starting from the free theory. 
+
+Consider the free photon partition function in the Lorenz gauge (with simplified notation for integrals over $x$)
+\begin{eq}
+	Z_A&=\int\pide A_\mu\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\delta(\partial^\mu A_\mu)=\\
+	&=\text{const}\cdot\int\pide A_\mu^T\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]}^T)^2}=\\
+	&=\text{const}\cdot\int\pide A_\mu^T\int\pide B_{\mu\nu}\,e^{-\frac{e^2}2\int B_{\mu\nu}^2}\,e^{i\int B_{\mu\nu}\partial^{[\mu}A_T^{\nu]}}=\\
+	&=\text{const}\cdot\int\pide A_\mu^T\int\pide B_{\mu\nu}\,e^{-\frac{e^2}2\int B_{\mu\nu}^2}\,e^{-i\int (\partial^{[\mu}B_{\mu\nu})A_T^{\nu]}}=\\
+	&=\text{const}\cdot\int\pide B_{\mu\nu}\,e^{-\frac{e^2}2\int B_{\mu\nu}^2}\,\delta(\partial^{\mu}B_{\mu\nu})\\
+\end{eq}
+where in the first step we splitted $A_\mu=A_\mu^L+A_\mu ^T$ with $\partial^\mu A_\mu^T=0$ and $\partial^\mu A_\mu=\partial^\mu A_\mu^L$, in the second step we performed a Gaussian transformation with antisymmetric tensor\footnote{Notice that the tensor $B_{\mu\nu}$ plays the role of a Lagrange multiplier.} $B_{\mu\nu}$ (can be checked by integrating over $B_{\mu\nu}$ from the second to the first line), in the third step we integrated by parts in the second exponential, and in the last step we integrated over $A_\mu^T$. 
+
+The constraint $\partial^{\mu}B_{\mu\nu}=0$ can be solved writing $B_{\mu\nu}=\lctens_{\mu\nu\rho\sigma}\partial^\rho\tilde A^\sigma$, for some gauge potential $\tilde A^\sigma$, with possible gauge-fixing $\partial_\mu\tilde A^\mu=0$ which fixes the correspondence $B_{\mu\nu}\leftrightarrow\tilde A_\mu$. In this way the partition function become
+\begin{eq}
+	Z_A&=\text{const}\cdot\int\pide \tilde A_\mu\,e^{-\frac{e^2}2\int (\lctens_{\mu\nu\rho\sigma}\partial^\rho\tilde A^\sigma)^2}\,\delta(\partial^{\mu}\tilde A_\mu)\\
+	&=\text{const}\cdot\int\pide \tilde A_\mu\,e^{-\frac{e^2}2\int (\partial^{[\rho}\tilde A^{\sigma]})^2}\,\delta(\partial^{\mu}\tilde A_\mu)\\
+\end{eq}
+Varying with respect to $B_{\mu\nu}$ in the mixed $B_{\mu\nu}$-$A_\mu$ action one finds, using saddle point approximation (which works since the action is quadratic),
+\begin{eq}\label{eq:duality_PI}
+	\frac ie\partial^{[\mu}A^{\nu]}=eB_{\mu\nu}=\lctens_{\mu\nu\rho\sigma}\partial^\rho\tilde A^\sigma
+\end{eq}
+(notice that in Minkowski space the first $i$ is missing). We can now construct field strengths of $A$ and $\tilde A$
+\begin{eq}
+	F^{\mu\nu}=\partial^{[\mu}A^{\nu]}
+	\tand
+	\tilde F^{\mu\nu}=\partial^{[\mu}A^{\nu]}
+\end{eq}
+which satisfy equations of motion
+\begin{eq}
+	\partial_\mu F^{\mu\nu}=0
+	\quad&\overset{\eqref{eq:duality_PI}}\longleftrightarrow\quad
+	\lctens_{\mu\nu\rho\sigma}\partial^\nu\tilde F^{\rho\sigma}=0\\
+	\lctens_{\mu\nu\rho\sigma}\partial^\nu F^{\rho\sigma}=0
+	\quad&\overset{\eqref{eq:duality_PI}}\longleftrightarrow\quad
+	\partial_\mu\tilde F^{\mu\nu}=0
+\end{eq}
+thus recovering the duality for the free theory. Thus we see how in the free theory the duality arises from a clever change of variables, performing a Gaussian (Fourier) transformation together with the introduction of $B_{\mu\nu}$ and the solution of the constraint on $B_{\mu\nu}$ by means of the field $\tilde A_\mu$. Such procedure is general and can be applied to more general situations.
+
+\skipline
+
+Let us now see how by duality we obtain an electrodynamic with monopoles. We start from the Stückelberg model (for high-energy physics) or the gauged XY model (for condensed matter physics). Fields of the model are the angular field $\theta(x)$ and the abelian gauge field $A_\mu(x)$. The Euclidean Lagrangian is 
+\begin{eq}
+	\frac1{2e^2}(\partial_{[\mu}A_{\nu]})^2+\frac\lambda2(-ie^{i\theta}\partial_\mu e^{i\theta}-A_\mu)^2
+\end{eq}
+One can write (\emph{Hodge decomposition})
+\begin{eq}	
+	\frac1ie^{-i\theta}\partial_\mu e^{i\theta}=\partial_\mu\Lambda+2\pi n_\mu
+\end{eq}
+where $\Lambda$ is real and globally defined and $2\pi n_\mu$ is a singular current corresponding to the jump $0\to2\pi$ in $\theta(x)$, so that $n_\mu(x)\in\Z$. 
+
+Let's state the Poisson resummation formula: for and angle $\varphi$ we have the Fourier transform
+\begin{eq}
+	\sum_{n\in\Z}e^{-\frac\lambda2(\varphi+2\pi n)^2}=\sum_{j\in\Z}e^{-\frac1{2\lambda}j^2}\,e^{i\varphi j}
+\end{eq}
+We can apply its $x$-dependent version to the Lagrangian:
+\begin{eq}
+	\sum_n e^{-\frac\lambda2\int(\partial_\mu\Lambda+A_\mu+2\pi n_\mu)^2}=\sum_je^{-\frac1{2\lambda}\int_\mu^2}e^{i\int(\partial_\mu\Lambda-A_\mu)j^\mu}
+\end{eq}
+where now $n_\mu(x)$ and $j^\mu(x)$ are integer valued line-currents (i.e. supported on lines). 
+Integrating over the scalar field $\Lambda(x)$ gives
+\begin{eq}
+	\int\pide\Lambda\,e^{i\int\de^4x\,(\partial_\mu\Lambda) j}=\prod_{x\in\R^4}\delta(\partial^\mu j_\mu)=:\delta(\partial^\mu j_\mu)
+\end{eq}
+implying that the support of the current $j_\mu$ is made of closed lines. We then see that the term $\exp(-i\de^4x\,A_\mu j^\mu)$ describes the world line of charged particle-antiparticle pairs. The closed lines in the support of $j_\mu$ then correspond to boundaries of surfaces. The partition function then become
+\begin{eq}
+	Z_{\text{Stückenberg}}=\int\pide A_\mu\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\sum_{j_\mu}e^{-i\int A_\mu j^\mu}\delta(\partial_\mu j^\mu)
+\end{eq}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 23 %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 
 
