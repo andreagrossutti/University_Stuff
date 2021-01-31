@@ -677,7 +677,7 @@ Therefore we try to get the monopole quantum field starting from a charged non-l
 Notice that in the path integral formalism there is a simple way to derive the duality, starting from the free theory. 
 
 Consider the free photon partition function in the Lorenz gauge (with simplified notation for integrals over $x$)
-\begin{eq}
+\begin{eq}\label{eq:duality-free-photon}
 	Z_A&=\int\pide A_\mu\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\delta(\partial^\mu A_\mu)=\\
 	&=\text{const}\cdot\int\pide A_\mu^T\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]}^T)^2}=\\
 	&=\text{const}\cdot\int\pide A_\mu^T\int\pide B_{\mu\nu}\,e^{-\frac{e^2}2\int B_{\mu\nu}^2}\,e^{i\int B_{\mu\nu}\partial^{[\mu}A_T^{\nu]}}=\\
@@ -712,11 +712,11 @@ which satisfy equations of motion
 \end{eq}
 thus recovering the duality for the free theory. Thus we see how in the free theory the duality arises from a clever change of variables, performing a Gaussian (Fourier) transformation together with the introduction of $B_{\mu\nu}$ and the solution of the constraint on $B_{\mu\nu}$ by means of the field $\tilde A_\mu$. Such procedure is general and can be applied to more general situations.
 
-\skipline
+\subsubsection{The closed defects}
 
-Let us now see how by duality we obtain an electrodynamic with monopoles. We start from the Stückelberg model (for high-energy physics) or the gauged XY model (for condensed matter physics). Fields of the model are the angular field $\theta(x)$ and the abelian gauge field $A_\mu(x)$. The Euclidean Lagrangian is 
+Let us now see how by duality we obtain an electrodynamic with monopoles. We start from the Stückelberg model (for high-energy physics) or the gauged XY model (for condensed matter physics). Monopoles will correspond to the charges of these models. Fields of the model are the angular field $\theta(x)$ and the abelian gauge field $A_\mu(x)$. The Euclidean Lagrangian is 
 \begin{eq}
-	\frac1{2e^2}(\partial_{[\mu}A_{\nu]})^2+\frac\lambda2(-ie^{i\theta}\partial_\mu e^{i\theta}-A_\mu)^2
+	\lag=\frac1{2e^2}(\partial_{[\mu}A_{\nu]})^2+\frac\lambda2(-ie^{i\theta}\partial_\mu e^{i\theta}-A_\mu)^2
 \end{eq}
 One can write (\emph{Hodge decomposition})
 \begin{eq}	
@@ -725,26 +725,344 @@ One can write (\emph{Hodge decomposition})
 where $\Lambda$ is real and globally defined and $2\pi n_\mu$ is a singular current corresponding to the jump $0\to2\pi$ in $\theta(x)$, so that $n_\mu(x)\in\Z$. 
 
 Let's state the Poisson resummation formula: for and angle $\varphi$ we have the Fourier transform
-\begin{eq}
+\begin{eq}\label{eq:Poisson-resummation}
 	\sum_{n\in\Z}e^{-\frac\lambda2(\varphi+2\pi n)^2}=\sum_{j\in\Z}e^{-\frac1{2\lambda}j^2}\,e^{i\varphi j}
 \end{eq}
 We can apply its $x$-dependent version to the Lagrangian:
 \begin{eq}
-	\sum_n e^{-\frac\lambda2\int(\partial_\mu\Lambda+A_\mu+2\pi n_\mu)^2}=\sum_je^{-\frac1{2\lambda}\int_\mu^2}e^{i\int(\partial_\mu\Lambda-A_\mu)j^\mu}
+	\sum_n e^{-\frac\lambda2\int(\partial_\mu\Lambda+A_\mu+2\pi n_\mu)^2}=\sum_je^{-\frac1{2\lambda}\int j_\mu^2}e^{i\int(\partial_\mu\Lambda-A_\mu)j^\mu}
 \end{eq}
-where now $n_\mu(x)$ and $j^\mu(x)$ are integer valued line-currents (i.e. supported on lines). 
+where now $n_\mu(x)$ and $j^\mu(x)$ are integer valued line-currents (i.e. supported on lines). In particular $j^\mu$ is the current of charged particles in the Stückelberg model. 
 Integrating over the scalar field $\Lambda(x)$ gives
 \begin{eq}
 	\int\pide\Lambda\,e^{i\int\de^4x\,(\partial_\mu\Lambda) j}=\prod_{x\in\R^4}\delta(\partial^\mu j_\mu)=:\delta(\partial^\mu j_\mu)
 \end{eq}
-implying that the support of the current $j_\mu$ is made of closed lines. We then see that the term $\exp(-i\de^4x\,A_\mu j^\mu)$ describes the world line of charged particle-antiparticle pairs. The closed lines in the support of $j_\mu$ then correspond to boundaries of surfaces. The partition function then become
-\begin{eq}
-	Z_{\text{Stückenberg}}=\int\pide A_\mu\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\sum_{j_\mu}e^{-i\int A_\mu j^\mu}\delta(\partial_\mu j^\mu)
-\end{eq}
-
+and $\partial_\mu j^\mu=0$ implies that the support of the current $j_\mu$ is made of closed lines. We then see that the term $\exp(-i\int\de^4x\,A_\mu j^\mu)$ describes the world line of charged particle-antiparticle pairs. The closed lines in the support of $j_\mu$ then correspond to boundaries of surfaces. 
+%
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% LECTURE 23 %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
+%
+Let's denote by $S^{\rho\sigma}(x)$ the integer current with support on one of these surfaces for fixed $j_\mu$, so that 
+\begin{eq}
+	j_\mu=\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}(x)
+\end{eq}
+(of course there are many possible choices for the surface, but all these possible choice are equivalent). According to the summation formula eq.~\eqref{eq:Poisson-resummation} the partition function of the Stückelberg model then become
+\begin{eq}
+	Z_\lambda&=\int\pide A_\mu\sum_{n_\mu}\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}e^{-\frac\lambda2\int(\partial_\mu\Lambda-A_\mu+2\pi n_\mu)^2}\delta(\partial^\mu A_\mu)\\
+	&=\int\pide A_\mu^T\int\pide\Lambda\sum_{j_\mu}\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]}^T)^2}\,e^{-\frac1{2\lambda}\int j_\mu^2}e^{i\int (-A_\mu^T+\partial_\mu\Lambda) j^\mu}\\
+	&=\int\pide A_\mu^T\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]}^T)^2}\,e^{-\frac1{2\lambda}\int (\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma})^2}e^{-i\int A^\mu_T\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}}\\
+	&=\int\pide A_\mu\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\,e^{-\frac1{2\lambda}\int (\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma})^2}e^{-i\int A^\mu\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}}\delta(\partial^\mu A_\mu)\\
+\end{eq}
+Applying then the duality procedure as in eq.~\eqref{eq:duality-free-photon} we have 
+\begin{eq}
+	Z_\lambda&=\int\pide A_\mu^T\int\pide B_{\mu\nu}\sum_{S^{\rho\sigma}}\,e^{-\frac{e^2}2\int B_{\mu\nu}^2}e^{i\int B_{\mu\nu}\partial^\mu A^\nu_T}e^{-\frac1{2\lambda}\int(\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma})^2}e^{-i\int A^\mu_T\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}}
+\end{eq}
+and then integrating out $A_\mu^T$ and taking the limit $\lambda\to\infty$ we get
+\begin{eq}
+	Z_\infty=\int\pide B_{\mu\nu}\sum_{S^{\rho\sigma}}e^{-\frac{e^2}2\int B_{\mu\nu}^2}\delta(\partial^\nu B_{\mu\nu}-\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}))
+\end{eq}
+The constraint on $B_{\mu\nu}$ can be solved introducing a gauge field $\tilde A_\mu$ such that
+\begin{eq}
+	B_{\mu\nu}-\lctens_{\mu\nu\rho\sigma}S^{\rho\sigma}=\lctens_{\mu\nu\rho\sigma}\partial^\rho\tilde A^\sigma
+\end{eq}
+so that 
+\begin{eq}
+	Z_\infty&=\int\pide \tilde A^\mu\sum_{S^{\rho\sigma}}e^{-\frac{e^2}2\int(\lctens_{\mu\nu\rho\sigma}(\partial^\rho\tilde A^\sigma+S^{\rho\sigma}))^2}\delta(\partial^\mu\tilde A_\mu)\\
+	&=\int\pide\tilde A_\mu\sum_{S^{\rho\sigma}}e^{-\frac{e^2}2\int(\partial^{[\rho}\tilde A^{\sigma]}+S^{\rho\sigma})^2}\delta(\partial^\mu\tilde A_\mu)
+\end{eq}
+If we define the field strength
+\begin{eq}
+	\tilde{\mathcal F}^{\rho\sigma}=\partial^{[\rho}\tilde A^{\sigma]}+S^{\rho\sigma}
+\end{eq}
+we see that it satisfies
+\begin{eq}
+	\lctens_{\mu\nu\rho\sigma}\partial^\nu\tilde{\mathcal F}^{\rho\sigma}=\lctens_{\mu\nu\rho\sigma}\partial^\nu\partial^{[\rho}\tilde A^{\sigma]}+\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}=j_\mu
+\end{eq}
+This proves that $j^\mu$ are monopole currents with respect to $\tilde A^\mu$, i.e. the worldlines of monopole-antimonopole pairs. 
+Accordingly $S^{\rho\sigma}$ should describe the 2-dimensional worldsheet spanned by the Dirac string between the monopole and the antimonopole of the pair. The arbitrariness of the choice of $S^{\rho\sigma}$ reflects the arbitrariness of the Dirac string. Hence the monopole current are the locus of the defects of the electrodynamics of the monopoles. 
 
+\subsubsection{Open defects and correlators}
+
+Let us see how to ``open'' such line defects using duality. A charged gauge-invariant non-local field in the Stückelberg model can be constructed using a recipe suggested by Dirac in the operator setting (for QED), adapted to the path-integral formalism. 
+
+The charged field of the Stückelberg model (given by quantization of the complex field $\phi$ with $|\phi|=1$) is $e^{i\op\theta(\vec x)}$, clearly not-gauge invariant under the gauge transformation (if the field has unit charge $e=1$)
+\begin{eq}
+	e^{i\op\theta(\vec x)}\quad\to\quad e^{i(\op\theta(\vec x)+e\Lambda(\vec x))}
+\end{eq}
+Dirac suggested\footnote{The idea of Dirac, qualitatively, it that an electron, even asymptotically, carries with it also its Coulomb field, hence when an electron is created its Coulomb field should be created as well. Applying this idea to the scalar field (rather than to the electron field) we get the procedure we are describing in the following.} to make it gauge invariant by multiplying it by
+\begin{eq}
+	e^{ie\int\de^3\vec y\, E_i^{\vec x}(\vec y)\op A^i(\vec y)}
+\end{eq}
+where $\op A^i$ is the gauge potential of the quantum ``photon'' field and $E_i^{\vec x}$ denote the (classical) electric field generated by a unit charge at the position $\vec x$, so that by the classical Gauss law
+\begin{eq}
+	\partial^iE_i^{\vec x}(\vec y)=\delta(\vec x-\vec y)
+\end{eq}
+In fact, under a gauge transformation $\Lambda(\vec x)$ vanishing at $\infty$
+\begin{eq}
+	e^{ie\int\de^3\vec y\, E_i^{\vec x}(\vec y)\op A^i(\vec y)}
+	\quad\to\quad
+	&e^{ie\int\de^3\vec y\, E_i^{\vec x}(\vec y)(\op A^i(\vec y)+\partial_i\Lambda(\vec y))}=\\
+	&\quad=e^{ie\int\de^3\vec y\,e_i^{\vec x}(\vec y)\op A_i(\vec y)}e^{-ie\int\partial^u E_i^{\vec x}(\vec y)\Lambda(\vec y)}=\\
+	&\quad=e^{ie\int\de^3\vec y\,e_i^{\vec x}(\vec y)\op A_i(\vec y)}e^{-ie\Lambda(\vec x)}
+\end{eq}
+so that 
+\begin{eq}
+	e^{i\op\theta(\vec x)}e^{ie\int\de^3\vec y\, E_i^{\vec x}(\vec y)\op A^i(\vec y)}
+\end{eq}
+is gauge invariant but still charged, hence it is physical and should be added to the Hilbert space of the theory due to completeness. The second term in Dirac recipe describe the Coulomb field always attached to a charged particle.
+
+It is easy to define the corresponding Euclidean field (now in $\R^4$). Define
+\begin{eq}
+	E_i^{ x}( y)=\delta(x^0-y^0)E_i^{\vec x}(\vec y)
+	\tcomma
+	E_o^x(y)=0
+\end{eq}
+then the charged non-local Euclidean field is given by 
+\begin{eq}
+	e^{i\theta(x)}e^{ie\int\de^4y\,E_\mu^x(y)A^\mu(y)}
+\end{eq}
+Then the Euclidean correlator of such fields naturally satisfy the OS positivity, hence using the OS reconstruction it is possible to obtain a charged quantum field operator (in the lattice). 
+
+However we are interested in the quantum field operator for the monopole, so let's apply the duality transformation
+\begin{eq}\label{eq:exp-value-monopole-duality}
+	\langle e^{i\theta(x)}e^{ie\int\de^4z\,E_\mu^x(z)A^\mu(z)}e^{-i\theta(y)}e^{-ie\int\de^4w\,E_\mu^y(w)A^\mu(w)}\rangle_\lambda
+\end{eq}
+where $\langle\quad\rangle_\lambda$ denotes the expectation value in the model with the fixed value $\lambda$.
+To apply the duality transfomration we need to reexpress the $\theta$-dependence appearing in the exprectation value in terms of $-ie^{-i\theta}\partial_\mu e^{i\theta}=\partial_\mu\Lambda+2\pi n_\mu$. This can be achieved introducing a current $j_\mu^{xy}$ satisfying
+\begin{eq}
+	\partial^\mu j_\mu^{xy}(w)=\delta(y-w)-\delta(x-w)
+\end{eq}
+Then
+\begin{eq}
+	e^{i(\theta(x)-\theta(y))}=e^{\int\de^4w\,j_\mu^{xy}(w)e^{-i\theta(w)}\partial_\mu e^{i\theta(w)}}
+\end{eq}
+in fact
+\begin{eq}
+	e^{\int\de^4w\,j_\mu^{xy}(w)e^{-i\theta(w)}\partial_\mu e^{i\theta(w)}}
+	=e^{\int\de^4w\,j_\mu^{xy}(w)\partial_\mu\log e^{i\theta(w)}}
+	=e^{-\int\de^4w\,\partial^\mu j_\mu^{xy}(w)\log e^{i\theta(w)}}
+	=e^{-\log e^{i\theta(y)}+\log e^{i\theta(x)}}
+\end{eq}
+Then our 2-point function eq.~\eqref{eq:exp-value-monopole-duality} becomes
+\begin{eq}
+	&\langle e^{i\theta(x)}e^{ie\int\de^4z\,E_\mu^x(z)A^\mu(z)}e^{-i\theta(y)}e^{-ie\int\de^4w\,E_\mu^y(w)A^\mu(w)}\rangle_\lambda=\\
+	&\qquad=\langle e^{ie\int\de^4w\,(E_\mu^x(w)-E_\mu^y(w))A_\mu(w)}e^{i\int\de^4w\,j_\mu^{xy}(w)(\partial_\mu\Lambda+2\pi n_\mu)(w)}\rangle_\lambda
+\end{eq}
+Note that 
+\begin{eq}
+	e^{i\int\de^4w\,j_\mu^{xy}(w)2\pi n_\mu(w)}=1
+\end{eq}
+since both $j_\mu^{xy}$ and $n_\mu$ are integer valued. Then the integration over $\Lambda$ in the partition function gives
+\begin{eq}
+	\int\pide\Lambda\,e^{i\int j_\mu(\partial_\mu\Lambda+2\pi n_\mu-A_\mu)e^{i j_\mu^{xy}\partial_\mu\Lambda}}
+	=e^{-i\int j_\mu A_\mu}\delta(\partial^\mu j_\mu+\partial^\mu j_\mu^{xy})
+\end{eq}
+hence $\partial^\mu j_\mu(w)=-\partial^\mu j_\mu^{xy}(w)=\delta(w-x)-\delta(w-y)$, or equivalently $\partial^\mu j_\mu=\delta_x-\delta_y$, where we defined $\delta_x(w):=\delta(w-x)$. 
+Finally in the limit $\lambda\to\infty$, which we have seen is dueal to the electrodynamic with a monopole, the correlation function become
+\begin{eq}\label{eq:monop-correlat-lambda-infty}
+	&\langle e^{i\theta(x)}e^{ie\int\de^4z\,E_\mu^x(z)A^\mu(z)}e^{-i\theta(y)}e^{-ie\int\de^4w\,E_\mu^y(w)A^\mu(w)}\rangle_\infty=\\
+	&\qquad=\frac1Z\int\pide A_\mu\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\delta(\partial^\mu A_\mu)\sum_{j_\mu\,:\,\partial^\mu j_\mu=\delta_x-\delta_y}e^{i\int A_\mu(-j_\mu+E_\mu^x-E_\mu^y)}=\\
+	&\qquad=\frac1Z\int\pide A_\mu\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\delta(\partial^\mu A_\mu)\sum_{j_\mu\,:\,\partial^\mu j_\mu=0}e^{i\int A_\mu(-j_\mu+j_\mu^{xy}+E_\mu^x-E_\mu^y)}\\
+\end{eq}
+The situation is represented in fig.~\ref{fig:monop-correlator}.
+%
+\begin{figure}[h]
+\centering
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.75,xscale=0.75]
+
+%Curve Lines [id:da34763408485182423] 
+\draw [line width=1.5]    (215.33,247.83) .. controls (231.33,177.08) and (196.5,145.75) .. (230,57.5) ;
+\draw [shift={(215.49,151.69)}, rotate = 445.45] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (10.45,-5.02) -- (0,0) -- (10.45,5.02) -- cycle    ;
+%Straight Lines [id:da9536377690303859] 
+\draw    (230,57.5) -- (309,89.33) ;
+\draw [shift={(269.5,73.42)}, rotate = 201.95] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da5956258746113772] 
+\draw    (230,57.5) -- (309,12) ;
+\draw [shift={(269.5,34.75)}, rotate = 510.06] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da40651481967876824] 
+\draw    (141,42.67) -- (230,57.5) ;
+\draw [shift={(185.5,50.08)}, rotate = 9.46] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da20641993760547628] 
+\draw    (178.33,6) -- (230,57.5) ;
+\draw [shift={(204.17,31.75)}, rotate = 44.91] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da12391154990815179] 
+\draw    (157.67,89.33) -- (230,57.5) ;
+\draw [shift={(193.83,73.42)}, rotate = 336.25] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da21526296373902576] 
+\draw    (230,57.5) -- (315.67,56) ;
+\draw [shift={(272.83,56.75)}, rotate = 539] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da8937832289395333] 
+\draw    (230,57.5) -- (272.33,111.33) ;
+\draw [shift={(251.17,84.42)}, rotate = 231.82] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da9575622782574718] 
+\draw    (215.33,247.83) -- (294.33,279.67) ;
+\draw [shift={(254.83,263.75)}, rotate = 21.95] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da6034055373922615] 
+\draw    (215.33,247.83) -- (294.33,202.33) ;
+\draw [shift={(254.83,225.08)}, rotate = 330.06] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da15166429129257053] 
+\draw    (126.33,233) -- (215.33,247.83) ;
+\draw [shift={(170.83,240.42)}, rotate = 189.46] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da3975888310879898] 
+\draw    (163.67,196.33) -- (215.33,247.83) ;
+\draw [shift={(189.5,222.08)}, rotate = 224.91] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da004602224665434473] 
+\draw    (143,279.67) -- (215.33,247.83) ;
+\draw [shift={(179.17,263.75)}, rotate = 516.25] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da6747402885776581] 
+\draw    (215.33,247.83) -- (301,246.33) ;
+\draw [shift={(258.17,247.08)}, rotate = 359] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da7626517334341056] 
+\draw    (215.33,247.83) -- (257.67,301.67) ;
+\draw [shift={(236.5,274.75)}, rotate = 51.82] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Shape: Polygon Curved [id:ds005057235324020137] 
+\draw  [line width=1.5]  (375,117) .. controls (395,107) and (448,100.17) .. (465,117) .. controls (482,133.83) and (479,148.5) .. (465,177) .. controls (451,205.5) and (395,207) .. (375,177) .. controls (355,147) and (355,127) .. (375,117) -- cycle ;
+%Straight Lines [id:da26027023119900883] 
+%\draw [line width=1.5]    (351.33,113.5) -- (422.02,107.03) ;
+\draw [shift={(426,106.67)}, rotate = 534.77] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (10.45,-5.02) -- (0,0) -- (10.45,5.02) -- cycle    ;
+
+% Text Node
+\draw (226.67,40.73) node [anchor=north west][inner sep=0.75pt]    {$x$};
+\draw (206.67,253.73) node [anchor=north west][inner sep=0.75pt]    {$y$};
+\draw (312,32.4) node [anchor=north west][inner sep=0.75pt]    {$E^{x}$};
+\draw (299.33,250.73) node [anchor=north west][inner sep=0.75pt]    {$-E^{y}$};
+\draw (230,138.4) node [anchor=north west][inner sep=0.75pt]    {$j^{xy}$};
+\draw (344,144.4) node [anchor=north west][inner sep=0.75pt]    {$j$};
+\end{tikzpicture}
+%
+\caption{One dimensionless representation of currents and fields in eq.~\eqref{eq:monop-correlat-lambda-infty}.}
+\label{fig:monop-correlator}
+\end{figure}
+
+Since $\partial^\mu(j_\mu^{xy}+E_\mu^x-E_\mu^y)=0$, it exists a tensor 
+\begin{eq}
+	S^{\rho\sigma}(z|j^{xy},E^x,E^y)
+	\tsuchthat
+	-(j_\mu^{xy}+E_\mu^x-E_\mu^y)(z)=\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}(z|j^{xy},E^x,E^y)
+\end{eq}
+Using the Hodge decomposition one can give a more explicit expression for this tensor
+\begin{eq}
+	S^{\rho\sigma}(z|j^{xy},E^x,E^y)=\int\de w\,\lctens^{\rho\sigma\alpha\beta}\partial_\alpha\Delta^{-1}(z-w)(j^{xy}+E^x-E^y)_\beta
+\end{eq}
+in fact, using $\lctens^{\rho\sigma\alpha\beta}\lctens_{\mu\nu\rho\sigma}=\delta_\mu^\alpha\delta_\nu^\beta-\delta_\nu^\alpha\delta_\mu^\beta$, we get
+\begin{eq}
+	\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}(z|j^{xy},E^x,E^y)
+	&=\int\de^4w\,\lctens_{\mu\nu\rho\sigma}\lctens^{\rho\sigma\alpha\beta}\partial^\nu\partial_\alpha\Delta^{-1}(z-w)(j^{xy}+E^x-E^y)_\beta(w)\\
+	&=\int\de^4w\,\partial_\mu\Delta^{-1}(z-w)\cancel{\partial^\beta(j^{xy}+E^x-E^y)_\beta(w)}-\\
+	&\qquad-\int\de^4w\,\underbrace{\partial_\nu\partial^\nu\Delta^{-1}(z-w)}_{\delta(z-w)}(j^{xy}+E^x-E^y)_\mu(w)\\
+	&=-(j^{xy}+E^x-E^y)_\mu(z)
+\end{eq}
+Since $j_\mu$ appearing in eq.~\eqref{eq:monop-correlat-lambda-infty} could be rewritten as in the partition function using $j_\mu=\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}$ one can rewrite
+\begin{eq}
+	&\langle e^{i\theta(x)}e^{ie\int\de^4z\,E_\mu^x(z)A^\mu(z)}e^{-i\theta(y)}e^{-ie\int\de^4w\,E_\mu^y(w)A^\mu(w)}\rangle_\infty=\\
+	&\qquad=\frac1Z\int\pide A_\mu\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\delta(\partial^\mu A_\mu)\sum_{S^{\rho\sigma}}e^{-i\int A_\mu\lctens_{\mu\nu\rho\sigma}\partial^\nu(S^{\rho\sigma}+S^{\rho\sigma}(j^{xy},E^x,E^y))}\\
+	&\qquad=\frac1Z\int\pide A_\mu^T\int\pide B_{\mu\nu}e^{-\frac{e^2}2\int B_{\mu\nu}^2}\,e^{i\int A^\mu_T\partial^\nu(B_{\mu\nu}-\lctens_{\mu\nu\rho\sigma}(S^{\rho\sigma}+S^{\rho\sigma}(j^{xy}E^x,E^y)))}
+\end{eq}
+where in the third step we applied duality. We should solve the constraint which arises integrating out $A_\mu^T$: for a gauge field $\tilde A^\mu$ we get
+\begin{eq}
+	B_{\mu\nu}-\lctens_{\mu\nu\rho\sigma}S^{\rho\sigma}+S^{\rho\sigma}(j^{xy},E^x,E^y)=\lctens_{\mu\nu\rho\sigma}\partial^\rho\tilde A^\sigma
+\end{eq}
+and then we finally get
+\begin{eq}
+	&\langle e^{i\theta(x)}e^{ie\int\de^4z\,E_\mu^x(z)A^\mu(z)}e^{-i\theta(y)}e^{-ie\int\de^4w\,E_\mu^y(w)A^\mu(w)}\rangle_\infty=\\
+	&\qquad=\frac
+	{\displaystyle\int\pide\tilde A_\mu\,\delta(\partial^\mu\tilde A_\mu)\sum_{S^{\mu\nu}}e^{-\frac i2\int(\partial_{[\mu}\tilde A_{\nu]}+S_{\mu\nu}+S_{\mu\nu}(j^{xy},E^x,E^y))^2}}
+	{\displaystyle\int\pide\tilde A_\mu\,\delta(\partial^\mu\tilde A_\mu)e^{-\frac i2\int(\partial_{[\mu}\tilde A_{\nu]}+S_{\mu\nu})^2}}\\
+	&\qquad=:\langle M(x)M^\dagger (y)\rangle
+\end{eq}
+as the correlation function of the monopole in the dual theory of electrodynamic with monopoles. 
+
+Notice that the additional ``monopole current''introduced in the correlation is 
+\begin{eq}
+	\lctens^{\mu\nu\rho\sigma}\partial_\nu S_{\rho\sigma}(j^{xy},E^x,E^y)=j^{xy}+E^x-E^y
+\end{eq}
+hence here the ``classical electric fields'' $E^x$ and $E^y$ in the dual theory play the role of the classical magnetic field of the monopole, which is expected on the basis of duality since in the Stückelberg model $E^x$ and $E^y$ were just the classical electric field describing the Coulomb interaction associated to the charged field. 
+
+\subsubsection{Reconstruction of the theory}
+
+Since the charged correlator of the Stückelberg model satisfy OS positivity, in spite of the appearance the same must be true for the monopole correlator. Therefore we can apply OS reconstruction theorem and construct a non-local monopole field operator $\op M(\vec x)$ (it is supported in the $t=0$ plane due to the non-locality of $E^x$ and $E^y$), so that in the electrodynamic with monopoles 
+\begin{eq}
+	\langle M(x)M(y)\rangle=\bra0\op M(\vec x)e^{-H(x^0-y^0)}\op M^\dagger(\vec y)\ket0
+\end{eq}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% LECTURE 24 %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+In fig.~\ref{eq:locality-monopole-vortex} one clearly sees the difference in locality between vortices and monopoles as consequence of the gauge invariance resulting in a Coulomb interaction for charged particles.
+%
+\begin{figure}[h]
+\centering
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.6,xscale=0.6]
+
+%Curve Lines [id:da8302434049369163] 
+\draw [line width=1.5]    (142.8,220.53) .. controls (156.54,162.74) and (126.62,137.15) .. (155.4,65.07) ;
+\draw [shift={(142.93,142)}, rotate = 445.15] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (10.45,-5.02) -- (0,0) -- (10.45,5.02) -- cycle    ;
+%Straight Lines [id:da23152433957140084] 
+\draw    (155.4,65.07) -- (223.27,91.07) ;
+\draw [shift={(189.34,78.07)}, rotate = 200.96] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da7521717768429035] 
+\draw    (155.4,65.07) -- (223.27,27.9) ;
+\draw [shift={(189.34,46.48)}, rotate = 511.3] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da3813203099802065] 
+\draw    (78.93,52.95) -- (155.4,65.07) ;
+\draw [shift={(117.17,59.01)}, rotate = 9] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da7123700488843085] 
+\draw    (111.01,23) -- (155.4,65.07) ;
+\draw [shift={(133.2,44.03)}, rotate = 43.46] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da03896854735361477] 
+\draw    (93.25,91.07) -- (155.4,65.07) ;
+\draw [shift={(124.33,78.07)}, rotate = 337.3] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da9329409978551189] 
+\draw    (155.4,65.07) -- (229,63.84) ;
+\draw [shift={(192.2,64.45)}, rotate = 539.05] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da610320029346342] 
+\draw    (155.4,65.07) -- (191.77,109.04) ;
+\draw [shift={(173.58,87.05)}, rotate = 230.4] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da7334778053588917] 
+\draw    (142.8,220.53) -- (210.67,246.53) ;
+\draw [shift={(176.73,233.53)}, rotate = 20.96] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da9378344826057308] 
+\draw    (142.8,220.53) -- (210.67,183.36) ;
+\draw [shift={(176.73,201.95)}, rotate = 331.3] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da9881097931142797] 
+\draw    (66.33,208.41) -- (142.8,220.53) ;
+\draw [shift={(104.57,214.47)}, rotate = 189] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da4582833618389974] 
+\draw    (98.41,178.46) -- (142.8,220.53) ;
+\draw [shift={(120.6,199.5)}, rotate = 223.46] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da8348848056585603] 
+\draw    (80.65,246.53) -- (142.8,220.53) ;
+\draw [shift={(111.73,233.53)}, rotate = 517.3] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da08880361463986741] 
+\draw    (142.8,220.53) -- (216.4,219.3) ;
+\draw [shift={(179.6,219.92)}, rotate = 359.05] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Straight Lines [id:da8383003573879682] 
+\draw    (142.8,220.53) -- (179.17,264.5) ;
+\draw [shift={(160.98,242.51)}, rotate = 50.4] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (6.25,-3) -- (0,0) -- (6.25,3) -- cycle    ;
+%Shape: Parallelogram [id:dp246128323677548] 
+\draw   (74.4,13.07) -- (271.17,13.07) -- (236.4,117.07) -- (39.62,117.07) -- cycle ;
+%Shape: Parallelogram [id:dp8791964421429035] 
+\draw   (61.79,168.53) -- (258.57,168.53) -- (223.8,272.53) -- (27.02,272.53) -- cycle ;
+%Curve Lines [id:da06968415810535933] 
+\draw [line width=1.5]    (462.8,221) .. controls (476.54,163.21) and (446.62,137.62) .. (475.4,65.54) ;
+\draw [shift={(475.4,65.54)}, rotate = 291.77] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]      (0, 0) circle [x radius= 3.92, y radius= 3.92]   ;
+\draw [shift={(462.93,142.47)}, rotate = 445.15] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (10.45,-5.02) -- (0,0) -- (10.45,5.02) -- cycle    ;
+\draw [shift={(462.8,221)}, rotate = 283.38] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]      (0, 0) circle [x radius= 3.92, y radius= 3.92]   ;
+%Shape: Parallelogram [id:dp7681509431387952] 
+\draw   (394.4,13.54) -- (591.17,13.54) -- (556.4,117.54) -- (359.62,117.54) -- cycle ;
+%Shape: Parallelogram [id:dp4460236924384613] 
+\draw   (381.79,169) -- (578.57,169) -- (543.8,273) -- (347.02,273) -- cycle ;
+
+\end{tikzpicture}
+
+\caption{One dimensionless representation of the typical structure of ``monopole currents'' and ``vortex currents'' in 2-point correlators}
+\label{eq:locality-monopole-vortex}
+\end{figure}
 
 \end{document}
