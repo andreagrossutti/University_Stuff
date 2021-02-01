@@ -1065,4 +1065,327 @@ In fig.~\ref{eq:locality-monopole-vortex} one clearly sees the difference in loc
 \label{eq:locality-monopole-vortex}
 \end{figure}
 
+One can almost rigorously prove that for $e^2$ large enough (strong coupling limit) the monopole quantum field operator $\op M(\vec x)$ couple the vacuum $\ket0$ to a 1-particle state together with an infrared Coulomb tail (called \emph{one-infraparticle state}\footnote{One cannot think about such state as a pole of the Green function, since the mass hyperboloid associated to the monopole interacts with the rest for the froward light cone, due to the presence of the field $E^x$, so that the pole of the Green function is blurred by the photon. This cannot be proved perturbatively, but using the non-perturbative Bloch-Nordick treatment.}), hence $\op M(\vec x)$ creates and annihilates monopole infra-particles. 
+
+Furthermore the mass of the monopole turns out to be $O(e^2)$, hence, similarly to the case of vortices, monopole correlators with non-vanishing total monopole charge vanish, so that the Hilbert space of states of electrodynamic with monopoles for large $e^2$ develops monopole superselection setor $\hs_q$ labelled by the total magnetic charge. Therefore the total Hilbert space of the theory is given by
+\begin{eq}
+	\hs=\bigoplus_{q\in\Z}\hs_q
+\end{eq}
+with
+\begin{eq}
+	\op M^\dagger \,:\,\hs_1\to\hs_{q+1}
+\end{eq}
+Conversely to the case $e^2\gg1$, where opening a closed defect ``costs a lot'', for $e^2$ small enough (weak coupling limit) the monopole ``condense'', i.e. there is a huge amount of open line defects in the partition function, and such defects ``hides'' the monopoles, so that $\hs=\hs_0$. 
+
+\section{Spin ice}
+
+\cite{Castelnovo:2008aa}\\
+
+Although Dirac monopoles have not been found as elementary particles, and in fact they suffer of an UV problem, in 2008 a kind of exotic magnets called \emph{spin ice} have been studied, in which there seems to appear excitations similar to Dirac monopoles.\footnote{Original work: \cite{Castelnovo:2008aa}.}  The name comes from the fact that their structure is reminiscent of that of the ice. 
+
+The structure appearing in the portion of oxygen and hydrogen in ice is tetrahedral, as represented in fig.~\ref{fig:ice}.
+%
+\begin{figure}[h]
+\centering
+
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.8,xscale=0.8]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da7779340734598339] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (195.4,8.31) -- (85,242.55) ;
+\draw [shift={(84,244.68)}, rotate = 115.24] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(196.41,6.19)}, rotate = 115.24] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da2094013016890539] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (197.28,8.37) -- (253.8,149.83) ;
+\draw [shift={(254.67,152.01)}, rotate = 68.22] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(196.41,6.19)}, rotate = 68.22] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da22391521746858856] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (278.36,295.39) -- (197.05,8.45) ;
+\draw [shift={(196.41,6.19)}, rotate = 254.18] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(279,297.65)}, rotate = 254.18] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da7440698596174549] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (196.42,8.54) -- (197.05,149.01) ;
+\draw [shift={(197.06,151.36)}, rotate = 89.74] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(196.41,6.19)}, rotate = 89.74] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da12830230249803742] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (195.25,152.85) -- (85.81,243.18) ;
+\draw [shift={(84,244.68)}, rotate = 140.46] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(197.06,151.36)}, rotate = 140.46] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da10677579926867731] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (198.21,153.41) -- (277.85,295.6) ;
+\draw [shift={(279,297.65)}, rotate = 60.75] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(197.06,151.36)}, rotate = 60.75] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da08291812818968824] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (199.41,151.38) -- (252.32,151.98) ;
+\draw [shift={(254.67,152.01)}, rotate = 0.65] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(197.06,151.36)}, rotate = 0.65] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da8215533424387143] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (86.27,245.3) -- (276.73,297.04) ;
+\draw [shift={(279,297.65)}, rotate = 15.2] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(84,244.68)}, rotate = 15.2] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da32221379808607975] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (86.07,243.56) -- (252.6,153.13) ;
+\draw [shift={(254.67,152.01)}, rotate = 331.5] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(84,244.68)}, rotate = 331.5] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da9880502250610932] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (255.06,154.33) -- (278.61,295.33) ;
+\draw [shift={(279,297.65)}, rotate = 80.52] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(254.67,152.01)}, rotate = 80.52] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Shape: Circle [id:dp4408572844254719] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (208.75,177.7) .. controls (208.75,175.91) and (210.21,174.45) .. (212,174.45) .. controls (213.79,174.45) and (215.25,175.91) .. (215.25,177.7) .. controls (215.25,179.49) and (213.79,180.95) .. (212,180.95) .. controls (210.21,180.95) and (208.75,179.49) .. (208.75,177.7) -- cycle ;
+%Shape: Circle [id:dp8591579522801442] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (237.7,151.92) .. controls (237.7,150.13) and (239.16,148.67) .. (240.95,148.67) .. controls (242.75,148.67) and (244.2,150.13) .. (244.2,151.92) .. controls (244.2,153.72) and (242.75,155.17) .. (240.95,155.17) .. controls (239.16,155.17) and (237.7,153.72) .. (237.7,151.92) -- cycle ;
+%Shape: Circle [id:dp9270340091397358] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (193.25,35.4) .. controls (193.25,33.61) and (194.71,32.15) .. (196.5,32.15) .. controls (198.29,32.15) and (199.75,33.61) .. (199.75,35.4) .. controls (199.75,37.19) and (198.29,38.65) .. (196.5,38.65) .. controls (194.71,38.65) and (193.25,37.19) .. (193.25,35.4) -- cycle ;
+%Shape: Circle [id:dp42417247389203117] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (172.85,168.4) .. controls (172.85,166.61) and (174.31,165.15) .. (176.1,165.15) .. controls (177.89,165.15) and (179.35,166.61) .. (179.35,168.4) .. controls (179.35,170.19) and (177.89,171.65) .. (176.1,171.65) .. controls (174.31,171.65) and (172.85,170.19) .. (172.85,168.4) -- cycle ;
+%Straight Lines [id:da7591368397307141] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (462.4,7.66) -- (352,241.9) ;
+\draw [shift={(351,244.03)}, rotate = 115.24] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(463.41,5.54)}, rotate = 115.24] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da3444542785016118] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (464.28,7.72) -- (520.8,149.18) ;
+\draw [shift={(521.67,151.36)}, rotate = 68.22] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(463.41,5.54)}, rotate = 68.22] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da3886783094945634] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (545.36,294.74) -- (464.05,7.8) ;
+\draw [shift={(463.41,5.54)}, rotate = 254.18] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(546,297)}, rotate = 254.18] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da295775823341778] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (463.42,7.89) -- (464.05,148.35) ;
+\draw [shift={(464.06,150.7)}, rotate = 89.74] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(463.73,78.12)}, rotate = 89.74] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (10.72,-5.15) -- (0,0) -- (10.72,5.15) -- (7.12,0) -- cycle    ;
+\draw [shift={(463.41,5.54)}, rotate = 89.74] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da7853830909468005] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (462.25,152.2) -- (352.81,242.53) ;
+\draw [shift={(351,244.03)}, rotate = 140.46] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(407.53,197.37)}, rotate = 140.46] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (10.72,-5.15) -- (0,0) -- (10.72,5.15) -- (7.12,0) -- cycle    ;
+\draw [shift={(464.06,150.7)}, rotate = 140.46] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da027134956928842158] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (465.21,152.75) -- (544.85,294.95) ;
+\draw [shift={(546,297)}, rotate = 60.75] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(505.03,223.85)}, rotate = 60.75] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (10.72,-5.15) -- (0,0) -- (10.72,5.15) -- (7.12,0) -- cycle    ;
+\draw [shift={(464.06,150.7)}, rotate = 60.75] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da17976783307978605] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (466.41,150.73) -- (519.32,151.33) ;
+\draw [shift={(521.67,151.36)}, rotate = 0.65] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(492.87,151.03)}, rotate = 180.65] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (10.72,-5.15) -- (0,0) -- (10.72,5.15) -- (7.12,0) -- cycle    ;
+\draw [shift={(464.06,150.7)}, rotate = 0.65] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da9878093991830288] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (353.27,244.64) -- (543.73,296.38) ;
+\draw [shift={(546,297)}, rotate = 15.2] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(351,244.03)}, rotate = 15.2] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da3384465595014927] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (353.07,242.91) -- (519.6,152.48) ;
+\draw [shift={(521.67,151.36)}, rotate = 331.5] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(351,244.03)}, rotate = 331.5] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+%Straight Lines [id:da9910775832584819] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (522.06,153.68) -- (545.61,294.68) ;
+\draw [shift={(546,297)}, rotate = 80.52] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(521.67,151.36)}, rotate = 80.52] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+
+\draw [shift={(280.86,31.14)}, rotate = 68.22] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(280.86,71.14)}, rotate = 68.22] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] [line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+
+ 
+
+% Text Node
+\draw (290.86,21.14) node [anchor=north west][inner sep=0.75pt]   [align=left] {Oxygen\\\\Hydrogen};
+
+
+\end{tikzpicture}
+
+\caption{Tetrahedral structure of the ice: one oxygen is connected to other oxygens along the direction of a tetrahedron, and in between two oxygens there is an hydrogen. However of these four hydrogens contained in the tetrahedron two are nearer to the central oxygen and their bound is covariant, and two are more far, and their bound is of hydrogen type. In the second picture we represented the positions of the hydrogens by means of displacement vectors, pointing in the direction of the displacement of the hydrogen atom with respect to the center of the bound. Hence in a tetrahedron two displacement vectors are inword and two are outword.}
+\label{fig:ice}
+\end{figure}
+
+In spin ice materials the hydrogen is replaced is replaced by rare-earth ions and the displacement vector is replaced by a spin vector, each spin vector has only one possible direction and two possible orientations, i.e. Ising-like spins, along the bound. 
+
+The Hamiltonian can be taken as 
+\begin{eq}
+	H=-J\sum_{\langle i,j\rangle}\vec S_i^{\hat z_i}\cdot\vec S_j^{\hat z_j}+D\sum_{i,j}\left[\frac{\vec S_i^{\hat z_i}\cdot\vec S_j^{\hat z_j}}{ r_{ij}^3}-3\frac{(\vec S_i^{\hat z_i}\cdot \vec r_{ij})(\vec S^{\op z_j}\cdot\vec r_{ij})}{ r_{ij}^5}\right]
+\end{eq}
+where $\vec S_i^{\op z_i}$ is the spin along the $\op z_i$ direction in the radial direction from the center of the tetrahedron towards its vertex labelled by the site $i$, $\vec r_{ij}$ is the vector connecting the site $i$ and the site $j$. Furthermore the orientation of the spins in the first term are favouring the combination 2-in/2-out for each tetrahedron, as this is the minimal energy configuration. Indeed, since the angle between bounds give $\cos\theta=\frac13$, we get the following energy contributions for the short range interaction:
+\begin{eq}\begin{cases}
+	\displaystyle\cenergy(\text{2 in, 2 out})=-2\frac J3S^2\\[0.7em] 
+	\displaystyle\cenergy(\text{1 in, 3 out})=\cenergy(\text{3 in, 1 out})=0\frac J3S^2 \\[0.7em]
+	\displaystyle\cenergy(\text{0 in, 4 out})=\cenergy(\text{4 in, 0 out})=2\frac J3S^2
+\end{cases}\end{eq}
+Notice that the minimal energy configuration of such a system is highly degenerate. 
+The long-range part of the Hamiltonian is reminiscent of the dipolar interaction: the potential of a dipole $\vec p=q\vec d$ is 
+\begin{eq}
+	\phi(\vec x)=\frac{\vec p\cdot\vec x}{|\vec x|^3}
+\end{eq}
+where $q$ is the charge and $\vec d$ is the vector connecting the two charges of the dipole. At large distances the potential energy of two interacting dipoles $\vec p_1$ and $\vec p_2$ in electrodynamics is given up to a sign by the scalar product of a dipole for the electric field generated by the other. 
+
+Therefore for $\vec r$ the vector from $\vec p_1$ to $\vec p_2$ the energy reads
+\begin{eq}
+	\cenergy=\vec p_1\cdot\vec\nabla\phi_2(\vec r)=\vec p_1\cdot\left(\frac{\vec p_2}{ r^3}-3\frac{(\vec r\cdot\vec p_2)\vec x}{r^5}\right)
+	=\frac{\vec p_i\cdot\vec p_2}{r^3}-3\frac{(\vec r\cdot\vec p_1)(\vec r\cdot\vec p_2)}{r^5}
+\end{eq}
+Then we can replace the spins in the spin ice by dipoles ``at the end of the spin vectors", so that the $+$ charge corresponds to the tail and the $-$ charge to the head of the vector, and such charges interact via a Coulomb potential. It is natural to think of these charges as magnetic ones since the spin is naturally related to magnetism. In this way at the center of each tetrahedron the nearer charges of the 4 dipoles accumulate. More precisely, if the site center of the tetrahedron is labelled by $i$ we have for its charge
+\begin{eq}
+	Q_i=q_{i1}+q_{i2}+q_{i3}+q_{i4}
+\end{eq}
+where $q_{i\ell}$ is the charge of the $\ell$-dipole which is closer to the site $i$. Charges of the centers interact via Coulomb interaction
+\begin{eq}\label{eq:Coulomb}
+	V=\frac{Q_iQ_j}{r_{ij}}
+\end{eq}
+Imposing an onsite energy $v_0\sum_i Q_i^2$, so that $Q_i=0$ on the ground state, enforces the ice rule, that is the configuration 2 in/2 out for each tetrahedron, as in the case of fig.~\ref{fig:spin-ice-dipole}. 
+
+\begin{figure}[h]
+\centering
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.75,xscale=0.75]
+
+%Straight Lines [id:da973693891465115] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (175.41,6.54) -- (176.06,151.7) ;
+%Straight Lines [id:da16774706075400037] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (176.06,151.7) -- (63,245.03) ;
+%Straight Lines [id:da7656517139199785] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (176.06,151.7) -- (258,298) ;
+%Straight Lines [id:da06940031014704706] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (176.06,151.7) -- (233.67,152.36) ;
+%Straight Lines [id:da27365231738136764] 
+\draw [line width=1.5]    (175.58,43.77) -- (175.87,110.25) ;
+\draw [shift={(175.89,114.47)}, rotate = 89.75] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]      (0, 0) circle [x radius= 5.23, y radius= 5.23]   ;
+\draw [shift={(175.58,43.77)}, rotate = 89.75] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]      (0, 0) circle [x radius= 5.23, y radius= 5.23]   ;
+%Straight Lines [id:da6738627227445009] 
+\draw [line width=1.5]    (196.39,151.94) -- (217.57,152.18) ;
+\draw [shift={(217.57,152.18)}, rotate = 0.65] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]      (0, 0) circle [x radius= 5.23, y radius= 5.23]   ;
+\draw [shift={(192.16,151.89)}, rotate = 0.65] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]      (0, 0) circle [x radius= 5.23, y radius= 5.23]   ;
+%Straight Lines [id:da5182178087232998] 
+\draw [line width=1.5]    (149.33,173.77) -- (92.99,220.27) ;
+\draw [shift={(89.73,222.97)}, rotate = 140.46] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]      (0, 0) circle [x radius= 5.23, y radius= 5.23]   ;
+\draw [shift={(149.33,173.77)}, rotate = 140.46] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]      (0, 0) circle [x radius= 5.23, y radius= 5.23]   ;
+%Straight Lines [id:da04996416143259297] 
+\draw [line width=1.5]    (194.23,184.15) -- (238.19,262.63) ;
+\draw [shift={(239.83,265.55)}, rotate = 60.75] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+\draw [shift={(194.23,184.15)}, rotate = 60.75] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+%Shape: Polygon Curved [id:ds026298236726155277] 
+\draw  [dash pattern={on 0.84pt off 2.51pt}] (175.73,79.12) .. controls (199.8,79) and (204.73,126.26) .. (204.87,152.03) .. controls (205,177.8) and (244.6,207) .. (217.03,224.85) .. controls (189.46,242.7) and (139.53,228.37) .. (119.53,198.37) .. controls (99.53,168.37) and (151.67,79.24) .. (175.73,79.12) -- cycle ;
+
+\draw [shift={(217.2,23.2)}, rotate = 60.75] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+\draw [shift={(217.2,65.2)}, rotate = 60.75] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+
+% Text Node
+\draw (85.8,95.6) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle Q=0$};
+\draw (229.2,12.2) node [anchor=north west][inner sep=0.75pt]   [align=left] {positive charge\\\\negative charge};
+
+\end{tikzpicture}
+
+\caption{The tetrahedral cell of spin ice in the ``dipole'' representation, in the minimal energy configuration (2 in-2out). Notice that in the region close to the center of the tetrahedron the total charge is $Q=1+1-1-1=0$.}
+\label{fig:spin-ice-dipole}
+\end{figure}
+
+If we split a spin, in one of the two tetrahedron connected by the spin the total charge become 2, and in the other become -2. The defect in the partition function of the model correspond to a chain of spin flips. If a site is intermediate between two spin flips cleverly chosen, then two charges of opposite charge in the dipole picture have changed their sign, so still we have $Q=0$ in this site. However at the ends of a chain of spin flips we have 3 charges of the same sign and one with the opposite one, so that $Q\neq0$. Since these charges interact according to the Coulomb interaction eq.~\eqref{eq:Coulomb}, they can be interpreted as monopoles. Therefore at each end of a chain of spin flips we have a ``magnetic monopole'' if $Q>0$ of a ``magnetic antimonopole'' if $Q<0$. The string of spin flips is nothing but a ``Dirac string''. Such situation is represented in fig.~\ref{fig:spin-flips}
+
+\begin{figure}[h]
+\centering
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Polygon [id:ds3373611249685007] 
+\draw   (60.9,105.8) -- (95.2,140.1) -- (129.5,174.4) -- (163.8,140.1) -- (26.6,140.1) -- cycle ;
+%Straight Lines [id:da567703536540205] 
+\draw [line width=1.5]    (82.26,140.1) -- (104.14,140.1) ;
+\draw [shift={(108.14,140.1)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (11.61,-5.58) -- (0,0) -- (11.61,5.58) -- cycle    ;
+%Shape: Polygon [id:ds4302598258410022] 
+\draw   (252.92,117.5) -- (275.5,140.08) -- (298.08,162.67) -- (320.67,140.08) -- (230.33,140.08) -- cycle ;
+%Straight Lines [id:da7575750767564635] 
+\draw [line width=1.5]    (263.66,140.08) -- (283.34,140.08) ;
+\draw [shift={(287.34,140.08)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (11.61,-5.58) -- (0,0) -- (11.61,5.58) -- cycle    ;
+%Shape: Polygon [id:ds7760452095741674] 
+\draw   (343.25,117.5) -- (365.83,140.08) -- (388.42,162.67) -- (411,140.08) -- (320.67,140.08) -- cycle ;
+%Shape: Polygon [id:ds19799972468632188] 
+\draw   (433.58,117.5) -- (456.17,140.08) -- (478.75,162.67) -- (501.33,140.08) -- (411,140.08) -- cycle ;
+%Shape: Polygon [id:ds2643613467242225] 
+\draw   (523.92,117.5) -- (546.5,140.08) -- (569.08,162.67) -- (591.67,140.08) -- (501.33,140.08) -- cycle ;
+%Straight Lines [id:da48819086642356235] 
+\draw [line width=1.5]    (308.82,140.08) -- (328.51,140.08) ;
+\draw [shift={(332.51,140.08)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (11.61,-5.58) -- (0,0) -- (11.61,5.58) -- cycle    ;
+%Straight Lines [id:da14801558177916063] 
+\draw [line width=1.5]    (353.99,140.08) -- (373.68,140.08) ;
+\draw [shift={(377.68,140.08)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (11.61,-5.58) -- (0,0) -- (11.61,5.58) -- cycle    ;
+%Straight Lines [id:da7637986970069108] 
+\draw [line width=1.5]    (399.16,140.08) -- (418.84,140.08) ;
+\draw [shift={(422.84,140.08)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (11.61,-5.58) -- (0,0) -- (11.61,5.58) -- cycle    ;
+%Straight Lines [id:da5140113640305328] 
+\draw [line width=1.5]    (444.32,140.08) -- (464.01,140.08) ;
+\draw [shift={(468.01,140.08)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (11.61,-5.58) -- (0,0) -- (11.61,5.58) -- cycle    ;
+%Straight Lines [id:da13967326849119188] 
+\draw [line width=1.5]    (489.49,140.08) -- (509.18,140.08) ;
+\draw [shift={(513.18,140.08)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (11.61,-5.58) -- (0,0) -- (11.61,5.58) -- cycle    ;
+%Straight Lines [id:da5971180607342266] 
+\draw [line width=1.5]    (534.66,140.08) -- (554.34,140.08) ;
+\draw [shift={(558.34,140.08)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (11.61,-5.58) -- (0,0) -- (11.61,5.58) -- cycle    ;
+%Shape: Circle [id:dp441711292376024] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (227.37,140.08) .. controls (227.37,138.44) and (228.69,137.12) .. (230.33,137.12) .. controls (231.97,137.12) and (233.3,138.44) .. (233.3,140.08) .. controls (233.3,141.72) and (231.97,143.05) .. (230.33,143.05) .. controls (228.69,143.05) and (227.37,141.72) .. (227.37,140.08) -- cycle ;
+%Shape: Circle [id:dp22948531046480758] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (588.7,140.08) .. controls (588.7,138.44) and (590.03,137.12) .. (591.67,137.12) .. controls (593.31,137.12) and (594.63,138.44) .. (594.63,140.08) .. controls (594.63,141.72) and (593.31,143.05) .. (591.67,143.05) .. controls (590.03,143.05) and (588.7,141.72) .. (588.7,140.08) -- cycle ;
+
+% Text Node
+\draw (193.6,146.6) node [anchor=north west][inner sep=0.75pt]    {$Q=-2$};
+% Text Node
+\draw (578.27,116.2) node [anchor=north west][inner sep=0.75pt]    {$Q=+2$};
+
+
+\end{tikzpicture}
+
+\caption{On the left, the two triangles represent two close tetrahedrons, and the arrow represent a spin flip in the spin shared between them. On the right, we have the representation of a chain of spin flips, chosen so that it represent a ``Dirac string'' whose boundaries constitute a ``monopole-antimonopole pair''. }
+\label{fig:spin-flips}
+\end{figure}
+
+If we introduce the time dimension these configurations describes precisely worldlines of  virtual monopole-antimonopole pairs with a Dirac string between them spanning a surface bounded by that worldline. 
+
+\section{Condensation of defects}
+
+We close the discussion about solitons with a final remark about phase transitions. We have seen that quantum solitons correspond in their Euclidean description to line-defects. We also remarked that it may happen that line-defects reach $\infty$ with finite probability, i.e. give raise to the phenomenon called \emph{condensation of defects}. When condensation of defects occur the soliton sectors disappear. The transition from a situation where configurations allowed are only with finite defects (``dilute gas of defects'') to a situation where also infinitely extended defects appear corresponds to a phase transition. 
+
+\skipline
+
+As we said, defects can have arbitrary dimension\footnote{Recall that the dimensin of the defect is the dimension of its locus, where the singularity appears.} $k$. We now show heuristically that for $k>0$ condensation of defects is a general mechanism of phase transition. Suppose for simplicity that only one species of defects appear in the model under consideration, but the extension to multiple species is straightforward. 
+
+For $k>0$ the mean action $\bar S$ of a $k$-dimensional defect, denoted by $D^k$, is typically proportional to the volume of its locus, i.e.
+\begin{eq}
+	\bar S(D^k)\sim c_k\beta|D^k|
+\end{eq}
+where $\beta$ is the relevant coupling constant of the model, $c_k>0$ is a suitable constant and $|D^k|$ is the volume of the locus of the defect suitably discretized. 
+
+The number of such defects which contain a fixed point, say the origin, and with fixed discretized volume $|D^k|$, is bounded by $e^{d_k|D^k|}$, for some constant $d_k>0$. To get a hint of this bound consider the simplest case of a line defect in dimension $d=2$. Consider a kink containing the origin, since we are considering a discretized space, it is trivial to notice that the first ``piece'' of the kink can be chosen is $2d$ ways, since there are $2d$ possible locus around the origin which can be connected with it. Then we may add another ``piece'' of kink in $2d-1$ ways, as we cannot "go back'', and the same is true for all other ``pieces'',\footnote{Actually, in some cases it may happen that we have less than $2d-1$ possible choices, as otherwise we get a closed defect, but we ignore this issue as we are looking for an higher bound to the number of possible defects.} obtaining in this way a line defect of dimension $L=|D^1|$ after $L-1$ steps. Hence if the length of the defect we consider is $L$ there are at most 
+\begin{eq}
+	2d(2d-1)^{L-1}\leq e^{L\log 2d}
+\end{eq}
+line defects of such length containing the origin. 
+
+As discussed for the kink in $\phi_2^4$, one can write in general the partition function of the model with $k$-defects, denoted $D$ from now on for simplicity, as the partition function of an interacting gas of defects. Assuming they are weakly interacting
+\begin{eq}
+	Z\approx\sum_{N=0}^\infty\ \sum_{\{D_1,\ldots,D_N\}}\ \prod_{i=1}^Ne^{-\bar S(D_i)}
+\end{eq}
+Let's now consider the contribution of the defects of volume $|D|$ containing the origin. By the esitmate above it goes like
+\begin{eq}
+	e^{-\bar S(D)}e^{d_k|D|}\approx e^{(d_k-c_k\beta)|D|}
+\end{eq}
+We immediately see that for $|D|\to\infty$
+\begin{eq}
+	e^{(d_k-c_k\beta)|D|}
+	\xrightarrow[|D|\to\infty]{}
+	\begin{cases}
+		0&\tif d_k-c_k\beta<0\\
+		\infty&\tif d_k-c_k\beta>0
+	\end{cases}
+\end{eq}
+The first case implies that there are no defects of infinite volume containing the origin, the second instead suggests that there are defects containing the origin reaching infinity with finite probability and that there is a critical value $\beta_c$ for $\beta$ where the transition occur. 
+
+One can heuristically interpret in this way the transition from the symmetry breaking phase to the unbroken phase in the case of kinks, from superconductors with massive photon to the usual Coulomb phase with massless photons in the case of vortices, and so on. 
+
+Although this mechanism of phase transition is quite general, specific for the line defects is the related appearance of soliton sectors and usually of quantum soliton particles in the phase where the gas of defects is dilute, i.e. where there are no infinite-long defects. 
+
 \end{document}
