@@ -511,21 +511,21 @@ Hence, while the first three moduli $\vec x_0$ become just the position variable
 
 \section{Quantum field theory treatment of Dirac monopoles}
 
-Unfortunately there is no well understood quantum field thery of the 't Hooft-Polyakov monopoles, so in order to discuss a quantum field theory of monopoles we turn again to Dirac monopoles. As previously discussed an UV cutoff is needed for the description of such monopoles, and it is understood in the following of the chapter. However, formally we will write formulas in the continuum notation. 
+Unfortunately there is no well understood quantum field theory of the 't Hooft-Polyakov monopoles, so in order to discuss a quantum field theory of monopoles we turn again to Dirac monopoles. As previously discussed an UV cutoff is needed for the description of such monopoles, and it is understood in the following of the chapter. However, formally we will write formulas in the continuum notation. 
 
 Again we construct monopole quantum field operators from Euclidean monopole correlators using OS reconstruction. To construct monopole correlation functions it is easier to exploit the duality invariance discussed at the beginning of this chapter: we first construct the correlation functions of charged fields in a scalar electrodynamic without monopoles and then by duality we obtain the Dirac monopole correlators (at least in a theory without electric charges). 
 
 \subsubsection{Strocchi's theorem}
 
-The electric charge in the first model appears as the generator of a global subgroup of a local gauge invariance, this implies an important difference with respect to the topological charges previously discussed. 
-Up to now starting from the fields of the correlation functions, via reconstruction theorems, we have constructed a Hilbert space of states which was naturally endowed with a positive definite scalar product, in case via reconstruction. 
-However for gauge theories, both relativistic (such as QED) and non-relativistic cases, the situation is not so simple. The key issue is that a local gauge invariance implies a Gauss law. 
+The electric charge in scalar electrodynamic appears as the generator of a global subgroup of a local gauge invariance, this implies an important difference with respect to the topological charges previously discussed. 
+Up to now, starting from the correlation functions of the (Euclidean) fields, via reconstruction theorems, we have constructed a Hilbert space of states which was naturally endowed with a positive definite scalar product. 
+However for gauge theories, both in the relativistic (such as QED) and non-relativistic cases, the situation is not so simple. The key issue is that a local gauge invariance implies a Gauss law. 
 
-Let us first consider the problem classically. The Noether's theorem for a global (gauge) invariance yields a conserved current $j_\mu$, using equations of motions (of both the gauge field and the charge field). However, if we mimic its standard proof in the case of local gauge invariance we get the conservation of the current without using the equations of motions of the charged field and the corresponding charge can be determined from measurements at infinity. 
+Let us first consider the problem classically. The Noether's theorem for a global (gauge) invariance yields a conserved current $j_\mu$, using equations of motions (of both the gauge field and the charged field). However, if we mimic its standard proof in the case of local gauge invariance we get the conservation of the current without using the equations of motions of the charged field and the corresponding charge can be determined from measurements at infinity. 
 
 \skipline
 
-To simplify the discussion we consider the Abelian case, a scalar electrodynamic in the charged field $\phi$, but the non Abelian case can be treated similarly. In order to simplify the notation we assume unit charge. 
+To simplify the discussion we consider the Abelian case, a scalar electrodynamic with charged field $\phi$, but the non Abelian case can be treated similarly. In order to simplify the notation we assume unit charge. 
 
 From the gauge invariance of the Lagrangian density 
 \begin{eq}
@@ -606,7 +606,7 @@ and
 	\tthen
 	(\op j^\nu-\partial_\mu\op G^{\mu\nu})(f)\ket\chi\in\vsp
 \end{eq}
-for $f$ smearing test function needed in the continuum. Then if $\vs $ has a semi-definite positive inner product, this implies the stronger statement
+for a smearing test function $f$ needed in the continuum. Then if $\vs $ has a semi-definite positive inner product, this implies the stronger statement
 \begin{eq}\label{eq:op-Gauss-law}
 	(\op j^\nu-\partial_\mu\op G^{\mu\nu})(f)\ket{\chi}=0
 	\tforall
@@ -617,7 +617,7 @@ In fact, for $\ket\psi\in\vs$ and $\ket\chi\in\vsp$, using Schwartz inequality
 	0\leq\vert\bra\psi(\op j^\nu-\partial_\mu G^{\mu\nu})(f)\ket\chi\vert^2
 	\leq\braket{\psi}{\psi}\underbrace{\bra\chi(\op j^\nu -\partial_\mu \op G^{\mu\nu})^\dagger(f)}_{\in\vsp}(\op j^\nu-\partial_\mu\op G^{\mu\nu})\!\!\!\underbrace{\!\ket\chi\!}_{\in\vsp}=0
 \end{eq}
-hence eq.~\eqref{eq:op-Gauss-law}, i.e. the Gauss law as an operator identity, automatically holds. 
+hence eq.~\eqref{eq:op-Gauss-law}, i.e. the Gauss law as an operator identity, automatically holds in the subspace of physical states. 
 
 Let's consider the transformation of the field $\op\phi$, charged with respect to the global gauge group, i.e. (modulo smearings)
 \begin{eq}
@@ -676,7 +676,7 @@ Therefore we try to get the monopole quantum field starting from a charged non-l
 
 Notice that in the path integral formalism there is a simple way to derive the duality, starting from the free theory. 
 
-Consider the free photon partition function in the Lorenz gauge (with simplified notation for integrals over $x$)
+Consider the free photon partition function in the Lorenz gauge (with simplified notation for integrals over $x$)\footnote{In the following for simplicity we often don't write explicitly the measure $\de^4x$ in the integrals.}
 \begin{eq}\label{eq:duality-free-photon}
 	Z_A&=\int\pide A_\mu\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\delta(\partial^\mu A_\mu)=\\
 	&=\text{const}\cdot\int\pide A_\mu^T\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]}^T)^2}=\\
@@ -699,7 +699,7 @@ Varying with respect to $B_{\mu\nu}$ in the mixed $B_{\mu\nu}$-$A_\mu$ action on
 \begin{eq}
 	F^{\mu\nu}=\partial^{[\mu}A^{\nu]}
 	\tand
-	\tilde F^{\mu\nu}=\partial^{[\mu}A^{\nu]}
+	\tilde F^{\mu\nu}=\partial^{[\mu}\tilde A^{\nu]}
 \end{eq}
 which satisfy equations of motion
 \begin{eq}
@@ -714,7 +714,7 @@ thus recovering the duality for the free theory. Thus we see how in the free the
 
 \subsubsection{The closed defects}
 
-Let us now see how by duality we obtain an electrodynamic with monopoles. We start from the Stückelberg model (for high-energy physics) or the gauged XY model (for condensed matter physics). Monopoles will correspond to the charges of these models. Fields of the model are the angular field $\theta(x)$ and the abelian gauge field $A_\mu(x)$. The Euclidean Lagrangian is 
+Let us now see how by duality we obtain an electrodynamic with monopoles. We start from the Stückelberg model (for high-energy physics) or the gauged XY model (for condensed matter physics). Monopoles will correspond to the charges of these models by duality. Fields of the model are the angular field $\theta(x)$ and the abelian gauge field $A_\mu(x)$. The Euclidean Lagrangian is 
 \begin{eq}
 	\lag=\frac1{2e^2}(\partial_{[\mu}A_{\nu]})^2+\frac\lambda2(-ie^{i\theta}\partial_\mu e^{i\theta}-A_\mu)^2
 \end{eq}
@@ -735,7 +735,7 @@ We can apply its $x$-dependent version to the Lagrangian:
 where now $n_\mu(x)$ and $j^\mu(x)$ are integer valued line-currents (i.e. supported on lines). In particular $j^\mu$ is the current of charged particles in the Stückelberg model. 
 Integrating over the scalar field $\Lambda(x)$ gives
 \begin{eq}
-	\int\pide\Lambda\,e^{i\int\de^4x\,(\partial_\mu\Lambda) j}=\prod_{x\in\R^4}\delta(\partial^\mu j_\mu)=:\delta(\partial^\mu j_\mu)
+	\int\pide\Lambda\,e^{i\int\de^4x\,(\partial_\mu\Lambda) j^\mu}=\prod_{x\in\R^4}\delta(\partial^\mu j_\mu)(x)=:\delta(\partial^\mu j_\mu)
 \end{eq}
 and $\partial_\mu j^\mu=0$ implies that the support of the current $j_\mu$ is made of closed lines. We then see that the term $\exp(-i\int\de^4x\,A_\mu j^\mu)$ describes the world line of charged particle-antiparticle pairs. The closed lines in the support of $j_\mu$ then correspond to boundaries of surfaces. 
 %
@@ -745,9 +745,9 @@ and $\partial_\mu j^\mu=0$ implies that the support of the current $j_\mu$ is ma
 %
 Let's denote by $S^{\rho\sigma}(x)$ the integer current with support on one of these surfaces for fixed $j_\mu$, so that 
 \begin{eq}
-	j_\mu=\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}(x)
+	j_\mu(x)=\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}(x)
 \end{eq}
-(of course there are many possible choices for the surface, but all these possible choice are equivalent). According to the summation formula eq.~\eqref{eq:Poisson-resummation} the partition function of the Stückelberg model then become
+(of course there are many possible choices for the surface, but all these possible choices are equivalent). According to the summation formula eq.~\eqref{eq:Poisson-resummation} the partition function of the Stückelberg model then become
 \begin{eq}
 	Z_\lambda&=\int\pide A_\mu\sum_{n_\mu}\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}e^{-\frac\lambda2\int(\partial_\mu\Lambda-A_\mu+2\pi n_\mu)^2}\delta(\partial^\mu A_\mu)\\
 	&=\int\pide A_\mu^T\int\pide\Lambda\sum_{j_\mu}\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]}^T)^2}\,e^{-\frac1{2\lambda}\int j_\mu^2}e^{i\int (-A_\mu^T+\partial_\mu\Lambda) j^\mu}\\
@@ -822,7 +822,7 @@ then the charged non-local Euclidean field is given by
 \begin{eq}
 	e^{i\theta(x)}e^{ie\int\de^4y\,E_\mu^x(y)A^\mu(y)}
 \end{eq}
-Then the Euclidean correlator of such fields naturally satisfy the OS positivity, hence using the OS reconstruction it is possible to obtain a charged quantum field operator (in the lattice). 
+The Euclidean correlator of such fields naturally satisfy the OS positivity, hence using the OS reconstruction it is possible to obtain a charged quantum field operator (in the lattice). 
 
 However we are interested in the quantum field operator for the monopole, so let's apply the duality transformation
 \begin{eq}\label{eq:exp-value-monopole-duality}
@@ -835,31 +835,31 @@ To apply the duality transfomration we need to reexpress the $\theta$-dependence
 \end{eq}
 Then
 \begin{eq}
-	e^{i(\theta(x)-\theta(y))}=e^{\int\de^4w\,j_\mu^{xy}(w)e^{-i\theta(w)}\partial_\mu e^{i\theta(w)}}
+	e^{i(\theta(x)-\theta(y))}=e^{\int\de^4w\,j_\mu^{xy}(w)e^{-i\theta(w)}\partial^\mu e^{i\theta(w)}}
 \end{eq}
 in fact
 \begin{eq}
-	e^{\int\de^4w\,j_\mu^{xy}(w)e^{-i\theta(w)}\partial_\mu e^{i\theta(w)}}
-	=e^{\int\de^4w\,j_\mu^{xy}(w)\partial_\mu\log e^{i\theta(w)}}
+	e^{\int\de^4w\,j_\mu^{xy}(w)e^{-i\theta(w)}\partial^\mu e^{i\theta(w)}}
+	=e^{\int\de^4w\,j_\mu^{xy}(w)\partial\mu\log e^{i\theta(w)}}
 	=e^{-\int\de^4w\,\partial^\mu j_\mu^{xy}(w)\log e^{i\theta(w)}}
 	=e^{-\log e^{i\theta(y)}+\log e^{i\theta(x)}}
 \end{eq}
 Then our 2-point function eq.~\eqref{eq:exp-value-monopole-duality} becomes
 \begin{eq}
 	&\langle e^{i\theta(x)}e^{ie\int\de^4z\,E_\mu^x(z)A^\mu(z)}e^{-i\theta(y)}e^{-ie\int\de^4w\,E_\mu^y(w)A^\mu(w)}\rangle_\lambda=\\
-	&\qquad=\langle e^{ie\int\de^4w\,(E_\mu^x(w)-E_\mu^y(w))A_\mu(w)}e^{i\int\de^4w\,j_\mu^{xy}(w)(\partial_\mu\Lambda+2\pi n_\mu)(w)}\rangle_\lambda
+	&\qquad=\langle e^{ie\int\de^4w\,(E_\mu^x(w)-E_\mu^y(w))A^\mu(w)}e^{i\int\de^4w\,j_\mu^{xy}(w)(\partial^\mu\Lambda+2\pi n^\mu)(w)}\rangle_\lambda
 \end{eq}
 Note that 
 \begin{eq}
-	e^{i\int\de^4w\,j_\mu^{xy}(w)2\pi n_\mu(w)}=1
+	e^{i\int\de^4w\,j_\mu^{xy}(w)2\pi n^\mu(w)}=1
 \end{eq}
 since both $j_\mu^{xy}$ and $n_\mu$ are integer valued. Then the integration over $\Lambda$ in the partition function gives
 \begin{eq}
-	\int\pide\Lambda\,e^{i\int j_\mu(\partial_\mu\Lambda+2\pi n_\mu-A_\mu)e^{i j_\mu^{xy}\partial_\mu\Lambda}}
-	=e^{-i\int j_\mu A_\mu}\delta(\partial^\mu j_\mu+\partial^\mu j_\mu^{xy})
+	\int\pide\Lambda\,e^{i\int j_\mu(\partial_\mu\Lambda+2\pi n_\mu-A_\mu)e^{i \int j_\mu^{xy}\partial^\mu\Lambda}}
+	=e^{-i\int j_\mu A^\mu}\delta(\partial^\mu j_\mu+\partial^\mu j_\mu^{xy})
 \end{eq}
 hence $\partial^\mu j_\mu(w)=-\partial^\mu j_\mu^{xy}(w)=\delta(w-x)-\delta(w-y)$, or equivalently $\partial^\mu j_\mu=\delta_x-\delta_y$, where we defined $\delta_x(w):=\delta(w-x)$. 
-Finally in the limit $\lambda\to\infty$, which we have seen is dueal to the electrodynamic with a monopole, the correlation function become
+Finally in the limit $\lambda\to\infty$, which we have seen is dual to the electrodynamic with monopoles, the correlation function becomes
 \begin{eq}\label{eq:monop-correlat-lambda-infty}
 	&\langle e^{i\theta(x)}e^{ie\int\de^4z\,E_\mu^x(z)A^\mu(z)}e^{-i\theta(y)}e^{-ie\int\de^4w\,E_\mu^y(w)A^\mu(w)}\rangle_\infty=\\
 	&\qquad=\frac1Z\int\pide A_\mu\,e^{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\delta(\partial^\mu A_\mu)\sum_{j_\mu\,:\,\partial^\mu j_\mu=\delta_x-\delta_y}e^{i\int A_\mu(-j_\mu+E_\mu^x-E_\mu^y)}=\\
@@ -933,7 +933,7 @@ The situation is represented in fig.~\ref{fig:monop-correlator}.
 \draw (344,144.4) node [anchor=north west][inner sep=0.75pt]    {$j$};
 \end{tikzpicture}
 %
-\caption{One dimensionless representation of currents and fields in eq.~\eqref{eq:monop-correlat-lambda-infty}.}
+\caption{Representation of currents and fields in eq.~\eqref{eq:monop-correlat-lambda-infty} in one dimension less.}
 \label{fig:monop-correlator}
 \end{figure}
 
@@ -983,7 +983,7 @@ hence here the ``classical electric fields'' $E^x$ and $E^y$ in the dual theory 
 
 \subsubsection{Reconstruction of the theory}
 
-Since the charged correlator of the Stückelberg model satisfy OS positivity, in spite of the appearance the same must be true for the monopole correlator. Therefore we can apply OS reconstruction theorem and construct a non-local monopole field operator $\op M(\vec x)$ (it is supported in the $t=0$ plane due to the non-locality of $E^x$ and $E^y$), so that in the electrodynamic with monopoles 
+Since the charged correlator of the Stückelberg model satisfy OS positivity, in spite of the appearance the same must be true for the monopole correlator. Therefore we can apply OS reconstruction theorem and construct a non-local monopole field operator $\op M(\vec x)$ (it is supported in the entire $t=0$ 3-plane due to the non-locality of $E^x$ and $E^y$), so that in the electrodynamic with monopoles 
 \begin{eq}
 	\langle M(x)M(y)\rangle=\bra0\op M(\vec x)e^{-H(x^0-y^0)}\op M^\dagger(\vec y)\ket0
 \end{eq}
@@ -1061,11 +1061,11 @@ In fig.~\ref{eq:locality-monopole-vortex} one clearly sees the difference in loc
 
 \end{tikzpicture}
 
-\caption{One dimensionless representation of the typical structure of ``monopole currents'' and ``vortex currents'' in 2-point correlators}
+\caption{Representation in one dimension less of the typical structure of ``monopole currents'' and ``vortex currents'' in 2-point correlators}
 \label{eq:locality-monopole-vortex}
 \end{figure}
 
-One can almost rigorously prove that for $e^2$ large enough (strong coupling limit) the monopole quantum field operator $\op M(\vec x)$ couple the vacuum $\ket0$ to a 1-particle state together with an infrared Coulomb tail (called \emph{one-infraparticle state}\footnote{One cannot think about such state as a pole of the Green function, since the mass hyperboloid associated to the monopole interacts with the rest for the froward light cone, due to the presence of the field $E^x$, so that the pole of the Green function is blurred by the photon. This cannot be proved perturbatively, but using the non-perturbative Bloch-Nordick treatment.}), hence $\op M(\vec x)$ creates and annihilates monopole infra-particles. 
+One can almost rigorously prove that for $e^2$ large enough (strong coupling limit) the monopole quantum field operator $\op M(\vec x)$ couple the vacuum $\ket0$ to a 1-particle state together with an infrared Coulomb tail (called \emph{one-infraparticle state}\footnote{One cannot think about such state as a pole of the Green function, since the mass hyperboloid associated to the monopole interacts with the rest for the froward light cone, due to the presence of the field $E^x$, so that the pole of the Green function is blurred by the photon. This cannot be proved perturbatively, but using the non-perturbative Bloch-Nordsieck treatment.}), hence $\op M(\vec x)$ creates and annihilates monopole infra-particles. 
 
 Furthermore the mass of the monopole turns out to be $O(e^2)$, hence, similarly to the case of vortices, monopole correlators with non-vanishing total monopole charge vanish, so that the Hilbert space of states of electrodynamic with monopoles for large $e^2$ develops monopole superselection setor $\hs_q$ labelled by the total magnetic charge. Therefore the total Hilbert space of the theory is given by
 \begin{eq}
@@ -1073,7 +1073,7 @@ Furthermore the mass of the monopole turns out to be $O(e^2)$, hence, similarly 
 \end{eq}
 with
 \begin{eq}
-	\op M^\dagger \,:\,\hs_1\to\hs_{q+1}
+	\op M^\dagger \,:\,\hs_q\to\hs_{q+1}
 \end{eq}
 Conversely to the case $e^2\gg1$, where opening a closed defect ``costs a lot'', for $e^2$ small enough (weak coupling limit) the monopole ``condense'', i.e. there is a huge amount of open line defects in the partition function, and such defects ``hides'' the monopoles, so that $\hs=\hs_0$. 
 
@@ -1283,7 +1283,7 @@ Imposing an onsite energy $v_0\sum_i Q_i^2$, so that $Q_i=0$ on the ground state
 \label{fig:spin-ice-dipole}
 \end{figure}
 
-If we split a spin, in one of the two tetrahedron connected by the spin the total charge become 2, and in the other become -2. The defect in the partition function of the model correspond to a chain of spin flips. If a site is intermediate between two spin flips cleverly chosen, then two charges of opposite charge in the dipole picture have changed their sign, so still we have $Q=0$ in this site. However at the ends of a chain of spin flips we have 3 charges of the same sign and one with the opposite one, so that $Q\neq0$. Since these charges interact according to the Coulomb interaction eq.~\eqref{eq:Coulomb}, they can be interpreted as monopoles. Therefore at each end of a chain of spin flips we have a ``magnetic monopole'' if $Q>0$ of a ``magnetic antimonopole'' if $Q<0$. The string of spin flips is nothing but a ``Dirac string''. Such situation is represented in fig.~\ref{fig:spin-flips}
+If we flip a spin, in one of the two tetrahedron connected by the spin the total charge become 2, and in the other become -2. The defect in the partition function of the model correspond to a chain of spin flips. If a site is intermediate between two spin flips cleverly chosen, then two charges of opposite charge in the dipole picture have changed their sign, so still we have $Q=0$ in this site. However at the ends of a chain of spin flips we have 3 charges of the same sign and one with the opposite one, so that $Q\neq0$. Since these charges interact according to the Coulomb interaction eq.~\eqref{eq:Coulomb}, they can be interpreted as monopoles. Therefore at each end of a chain of spin flips we have a ``magnetic monopole'' if $Q>0$ of a ``magnetic antimonopole'' if $Q<0$. The string of spin flips is nothing but a ``Dirac string''. Such situation is represented in fig.~\ref{fig:spin-flips}
 
 \begin{figure}[h]
 \centering
@@ -1347,7 +1347,7 @@ If we introduce the time dimension these configurations describes precisely worl
 
 \section{Condensation of defects}
 
-We close the discussion about solitons with a final remark about phase transitions. We have seen that quantum solitons correspond in their Euclidean description to line-defects. We also remarked that it may happen that line-defects reach $\infty$ with finite probability, i.e. give raise to the phenomenon called \emph{condensation of defects}. When condensation of defects occur the soliton sectors disappear. The transition from a situation where configurations allowed are only with finite defects (``dilute gas of defects'') to a situation where also infinitely extended defects appear corresponds to a phase transition. 
+We close the discussion about solitons with a final remark about phase transitions. We have seen that quantum solitons correspond in their Euclidean description to line-defects. We also remarked that it may happen that line-defects reach $\infty$ with finite probability, i.e. they give raise to the phenomenon called \emph{condensation of defects}. When condensation of defects occurs the soliton sectors disappear. The transition from a situation where configurations allowed are only with finite defects (``dilute gas of defects'') to a situation where also infinitely extended defects appear corresponds to a phase transition. 
 
 \skipline
 

@@ -29,7 +29,7 @@ The aim of this course is to provide a view of some results in these areas, with
 \chapter{Review of QFT}
 \section{Fock space}
 
-\textsf{Ref.~\cite{John-W.-Negele:1998aa}; \cite[Chapters 3,4]{Greiner_1996}; \cite[Chapters 1,2]{Bogoliubov:1980}}\\
+\textsf{\cite{John-W.-Negele:1998aa}; \cite[Chapters 3,4]{Greiner_1996}; \cite[Chapters 1,2]{Bogoliubov:1980}}\\
 
 In $d=3$ space dimensions, quantum particles are either bosons or fermions (in lower dimensions other braid statistics may arise, but we'll not discuss them here). 
 
@@ -37,13 +37,13 @@ In $d=3$ space dimensions, quantum particles are either bosons or fermions (in l
 
 The Hilbert space of states for $N$ identical particles $\hs_N$ is constructed as follows: let $\hs_1$ be the single-particle Hilbert space, $\Sigma_N$ the permutations group of $N$ objects, $\pi\in\Sigma_N$ and $P_\pi$ the corresponding operators, $\sigma(\pi)$ the number of exchanges made by $\pi$, $\epsilon$ a constant which takes the value $+1$ for bosons and $-1$ for fermions, then define
 \begin{eq}
-	P^\epsilon := \frac1{N!}\sum_{\pi\in\Sigma_N}(\epsilon)^{\sigma(\pi)}P_{\pi}
+	P^\epsilon := \frac1{N!}\sum_{\pi\in\Sigma_N}\epsilon^{\sigma(\pi)}P_{\pi}
 \end{eq}
 then
 \begin{eq}
 	\hs_N^\pm := P^\pm(\hs_1\otimes\dots\otimes\hs_1)
 \end{eq}
-More concretely let $A$ be a complete set of compatible observables in the one-particle Hilbert space of an elementary quantum particle $\hs_1$ (we assume for the moment discrete spectrum for these observables), and $\{\ket{\alpha_i},i\in I\}$ the corresponding eigenstates, where $\alpha_i$ is the set of common eigenvalues of $A$. Then an orthonormal basis in $\hs_N^\pm$ is given by
+More concretely, let $A$ be a complete set of compatible observables in the one-particle Hilbert space of an elementary quantum particle $\hs_1$ (we assume for the moment discrete spectrum for these observables), and $\{\ket{\alpha_i},i\in I\}$ the corresponding eigenstates, where $\alpha_i$ is the set of common eigenvalues of $A$. Then an orthonormal basis in $\hs_N^\pm$ is given by
 \begin{eq}
 	\ket{\alpha_{i_1}\dots\alpha_{i_N}}^\epsilon:=\sqrt{\frac{N!}{\prod_in_i!}}P^\epsilon\ket{\alpha_{i_1}}\ten\dots\ten\ket{\alpha_{i_N}}
 \end{eq}
@@ -51,7 +51,7 @@ where $n_i$ is the number of one-particle states with eigenvalue $\alpha_i$ in $
 \begin{eq}
  \ket{\alpha_{i_1}\dots\alpha_{i_N}}^\epsilon=\pm\ket{\alpha_{j_1}\dots\alpha_{j_N}}^\epsilon
 \end{eq}
-and we can label states by their \textbf{occupation numbers} $\{n_i\}_{i\in I}$, once the one-particle basis $\{\ket{\alpha_i},i\in I\}$ has been fixed:
+and we can label states by their \emph{occupation numbers} $\{n_i\}_{i\in I}$, once the one-particle basis $\{\ket{\alpha_i},i\in I\}$ has been fixed:
 \begin{eq}
 	\ket{\alpha_{i_1}\dots\alpha_{i_N}}=: \ket{n_1,\dots,n_i,\dots}=\ket{\{n_i,i\in I\}}
 \end{eq}
@@ -82,11 +82,11 @@ with $N_\tmax$ arbitrary but finite. In this space of direct sum of finite seque
 \begin{eq}
 	\left(\bigdir_{N=0}^{N_\tmax}\ket{\Psi_N},\bigdir_{N'=0}^{N'_\tmax}\ket{\Phi_{N'}}\right):= \sum_{N=0}^\infty\braket{\Psi_N}{\Phi_N}
 \end{eq}
-where the sum is formally extended to infinity as only a finite number of terms is non zero. Together with this inner product the space $\mathcal D$ is pre-Hilbert, and then $\fock^\epsilon$ is defined as the Hilbert space obtained by completion od $\mathcal D$, i.e. the space of sequences $\bigdir_{N=0}^\infty\ket{\Psi_N}$ such that $\sum_{N=0}^\infty\braket{\Psi_N}{\Psi_N}<\infty$. Notice that $\mathcal D$ is dense in $\fock^\epsilon$, as required by the definition of Hilbert space. 
+where the sum is formally extended to infinity as only a finite number of terms is non zero. Together with this inner product the space $\mathcal D$ is pre-Hilbert, and then $\fock^\epsilon$ is defined as the Hilbert space obtained by completion of $\mathcal D$, i.e. the space of sequences $\bigdir_{N=0}^\infty\ket{\Psi_N}$ such that $\sum_{N=0}^\infty\braket{\Psi_N}{\Psi_N}<\infty$. Notice that $\mathcal D$ is dense in $\fock^\epsilon$, as required by the definition of Hilbert space. 
 
-Then, the space $\fock^\epsilon$ allows the description of processes with non-conserved number of particles. 
+Then, the space $\fock^\epsilon$ allows the description of processes with non-conserved number of particles, and will be called \emph{Fock space}. 
 
-In $\dom$ we can define the \textbf{annihilation and creation operators}
+In $\mathcal D$ we can define the \emph{annihilation and creation operators}
 \begin{eq}
 	a_i\ket{\{n_j\}}^+&:=\sqrt{n_i}\ket{\{n_{j\neq i},n_i-1\}}^+\\
 	a_i^\dagger\ket{\{n_j\}}^+&:=\sqrt{n_i+1}\ket{\{n_{j\neq i},n_i+1\}}^+
@@ -102,11 +102,11 @@ It follows from the definition that
 \begin{enumerate}[label=(\roman*)]
 	\item $a_i^\dagger$ is the adjoint of $a_i$;
 	\item $a_i\ket{\Psi_0}=0$;
-	\item for bosons the \textbf{canonical commutation relations} (CCR) hold:
+	\item for bosons the \emph{canonical commutation relations} (CCR) hold:
 	\begin{eq}
 		[a_i,a_j]=0=[a_i^\dagger,a_j^\dagger] \tcomma [a_i,a_j^\dagger]=\delta_{ij}
 	\end{eq}
-	while for fermions the \textbf{canonical anticommutation relations} (CAR) hold:
+	while for fermions the \emph{canonical anticommutation relations} (CAR) hold:
 	\begin{eq}
 		\{a_i,a_j\}=0=\{a_i^\dagger,a_j^\dagger\}\tcomma\{a_i,a_j^\dagger\}=\delta_{ij}
 	\end{eq}
@@ -117,7 +117,7 @@ It follows from the definition that
 	and $\op N:=\sum_{i\in I}\op N_i$ is well defined in $\mathcal D$;
 	\item any vector can be constructed by means of applications of creation operators
 	\begin{eq}
-		\ket{\{n_j\}}=\frac1{\sqrt{\prod_jn_j!}}\prod_j(a_j^\dagger)^{n_j}\ket0
+		\ket{\{n_j\}}=\frac1{\sqrt{\vphantom{\prod}\smash[b]{\prod_jn_j!}}}\prod_j(a_j^\dagger)^{n_j}\ket0
 	\end{eq}
 \end{enumerate} 
 
@@ -132,7 +132,7 @@ as follows
 \end{eq} 
 implying
 \begin{eq}
-	b_j^\dagger=\sum_{i_\in I}\braket{\alpha_i}{\beta_j}a_i^\dagger
+	b_j^\dagger=\sum_{i\in I}\braket{\alpha_i}{\beta_j}a_i^\dagger
 \end{eq}
 
 These ideas extends to the case of complete sets of commuting observables with continuum (or mixed, with suitable modifications) spectrum in $\hs_1$ using
@@ -145,15 +145,15 @@ Formally we can set $a^\dagger(\alpha)\ket0=\ket\alpha$ and then
 \end{eq}
 but since $\ket\alpha$ is only an improper state ($\braket{\alpha}{\alpha'}\sim\delta(\alpha-\alpha')$) then $a^\dagger(\alpha)$ is not a true operator, it is an \emph{operator valued distribution}, i.e. is a true operator only if smeared out with a test function $f$:
 \begin{eq}
-	a(f)=\int a(\alpha)f(\alpha)\de\alpha
+	a(f):=\int a(\alpha)f(\alpha)\de\alpha
 \end{eq}
 
 A typical example is given for an elementary particle with classical analogue (in $d=3$) by $\ket\alpha=\ket{\vec x}$ or $\ket\alpha=\ket{\vec p}$. If we define $a^\dagger(\vec p)\ket0=\ket{\vec p}$ with $[a(\vec p),a^\dagger(\vec p')]=\delta(\vec p-\vec p')$, then is clear that this is not an ordinary operator, rather an operator valued distribution. When we turn to the $\vec x$-representation of $a$ (i.e. we smear $a(\vec p)$ with $f(\vec p) = \braket{\vec x}{\vec p}$) we get
-\begin{eq}
-	\psi(\vec x)=\int\de^3p\,\braket{\vec x}{\vec p}a(\vec p)=\int\frac{\de^3p}{(2\pi)^3}e^{\frac i\hbar \vec x\cdot\vec p}a(\vec p)
+\begin{eq}\label{eq:qf_operator}
+	\psi(\vec x):=\int\de^3p\,\braket{\vec x}{\vec p}a(\vec p)=\int\frac{\de^3p}{(2\pi)^3}e^{\frac i\hbar \vec x\cdot\vec p}a(\vec p)
 \end{eq}
-and $\psi(\vec x)$ is called a \textbf{quantum field operator} and it satisfies (for bosons)
-\begin{eq}	
+and $\psi(\vec x)$ is called a \emph{quantum field operator} and it satisfies (for bosons)
+\begin{eq}	\label{eq:locality-weak}
 	[\psi(\vec x),\psi^\dagger(\vec y)]=\delta(\vec x-\vec y)
 \end{eq}
 where all the trivial (anti)commutation relation will be always omitted from now on. 
@@ -167,6 +167,7 @@ creates a particle with wave function  $f(\vec x)$. Notice that if in $\hs_1$ we
 \begin{eq}
 	[a(f_i),a^\dagger(f_j)]=(f_i,f_j)=\delta_{ij}
 \end{eq}
+where $(f_i,f_j)$ denotes the scalar product defined in $L^2(\R^3,\de^3x)$.
 
 If the particle we are interested in is not elementary the situation is lightly nore complex, but we will not discuss it. 
 
@@ -178,7 +179,7 @@ Since we cannot characterize elementary particles using position as an observabl
 
 A celebrated theorem of Wigner states that in a relativistic QFT the one-particle Hilbert space of an elementary particle should be the representation space of an irreducible unitary representation of space-time symmetries (i.e. the universal covering of the restricted Poincaré group) and internal symmetries (e.g. EM charge, but we do not discuss them here).
 
-Irreducible unitary representations of space-time symmetries, according to Wigner's theorem, are characterized by the mass $m\in\R_+$ and either the spin $s\in\N/2$ if $m>0$ or the helicity (projection of the spin in the direction of the motion\footnote{Notice that helicity is well defined only if the particle moves at the speed of light, otherwise through a change of frame one can reverse the projection direction.}) $h\in\Z/2$ if $m=0$. 
+Irreducible unitary representations of space-time symmetries, according to Wigner's theorem, are characterized by the mass $m\in\R_+$ and either the spin $s\in\half\N$ if $m>0$ or the helicity (projection of the spin in the direction of the motion\footnote{Notice that helicity is well defined only if the particle moves at the speed of light, otherwise through a change of frame one can reverse the projection direction.}) $h\in\half\Z$ if $m=0$. 
 
 Let's consider for simplicity the case of a massive ($m>0$) scalar ($s=0$) particle. We know that for a relativistic particle the dispersion relation is 
 \begin{eq}
@@ -186,7 +187,7 @@ Let's consider for simplicity the case of a massive ($m>0$) scalar ($s=0$) parti
 \end{eq}
 i.e. the momentum should be contained in the \emph{positive hyperboloid of mass $m$}, denoted by $V_m^+$. Notice that if $m=0$ we have that the momentum should be contained in the \emph{forward light cone}. 
 
-Since we want to have a representation of the (covering of the) Poincaré group all the points in the hyperboloid should be weighted by the same weight, then a natural choice for our Hilbert space for one particle is provided by 
+Since we want to have a representation of the (covering of the) Poincaré group all the points in the hyperboloid should be weighted by the same weight, then a natural choice for our one-particle Hilbert space is provided by 
 \begin{eq}
 	\hs_1=L^2\left(\R^4,\frac{\de^4p}{(2\pi)^4}\,2\pi\delta(p_\mu p^\mu-m^2)\theta(p^0)\right)
 	=L^2\left(V_m^+,\frac{\de^3p}{(2\pi)^3}\frac{1}{2\sqrt{\vec p^2+m^2}}\right)
@@ -198,12 +199,13 @@ Let $a^\dagger(p)\ket0=:\ket p$ be the (generalized) eigenvector of the four-mom
 \end{eq}
 It immediately follows multiplying by $\ket{p'}$, $p'\in V_m^+$ that 
 \begin{eq}
-	\ket{p'}=\ket{\vec {p'},\sqrt{\vec{p'}^2+m^2}}
+	\ket{p'}=\ket{\sqrt{\vec{p'}{}^2+m^2},\vec {p'}}
 	&=\int\frac{\de^4p}{(2\pi)^3}\delta(p^2-m^2)\theta(p^0)\ket p\braket{p}{p'}\\
 	&=\int\frac{\de^4p}{(2\pi)^3}\delta(p^2-m^2)\theta(p^0)\ket p\bra0a(p)a^\dagger(p')\ket0\\
-	&=\int\frac{\de^3p}{(2\pi)^3}\frac1{2\sqrt{\vec p^2+m^2}}\ket{\vec {p},\sqrt{\vec p^2+m^2}}\bra0[a(p)a^\dagger(p')]\ket0 
+	&=\int\frac{\de^3p}{(2\pi)^3}\frac1{2\sqrt{\vec p^2+m^2}}\ket{\sqrt{\vec p^2+m^2},\vec {p}}\bra0[a(p)a^\dagger(p')]\ket0 
 \end{eq}
-therefore in order to get consistency the following commutation relation should be satisfied:
+where from the second to the third line we integrated over $p^0$ and we used $\bra0a^\dagger(p')a(p)\ket0=0$.
+Therefore in order to get consistency the following commutation relation should be satisfied:
 \begin{eq}\label{eq:locality-brock-comm}
 	[a(p),a^\dagger(p')]=(2\pi)^32\sqrt{\vec p^2+m^2}\delta(\vec p-\vec {p'})
 \end{eq}
@@ -212,10 +214,10 @@ Notice that if $\{f_i\}_{i\in I}$ is an orthonormal basis for $\hs_1$ and we def
 \begin{eq}
 	a_i:=\int\frac{\de^4p}{(2\pi)^3}\delta(p^2-m^2)\theta(p^0)f_i(p)a(p)
 \end{eq}
-then CCR are satisfied, $[a_i,a_j^\dagger]=\delta_{ij}$, hence also in the relativistic case it is possible to obtain canonical commutation relation by smearing $a$ and $a^\dagger$ with an orthonormal basis of the Hilbert space.  
+then eq.~\eqref{eq:locality-brock-comm} implies that CCR are satisfied, $[a_i,a_j^\dagger]=\delta_{ij}$, hence also in the relativistic case it is possible to obtain canonical commutation relation by smearing $a$ and $a^\dagger$ with an orthonormal basis of the Hilbert space.  
 
 The new factor $2\sqrt{\vec p^2+m^2}$ in eq.~\eqref{eq:locality-brock-comm}, which wasn't present in the non-relativistic case, lead to non-locality problems if one proceeds defining quantum field operators as in the non-relativistic case.
-If we try to apply the previous idea to define quantum field operators, i.e.
+If we try to apply the previous idea to define quantum field operators, i.e. we adapt eq.~\eqref{eq:qf_operator}
 \begin{eq}
 	\psi(x)=\int\frac{\de^4p}{(2\pi)^3}\delta(p^2-m^2)\theta(p^0)a(p)e^{ip\cdot x}
 \end{eq}
@@ -223,18 +225,18 @@ then
 \begin{eq}
 	[\psi(\vec x,0),\psi^\dagger(\vec y,0)]
 	&=\int\frac{\de^4p}{(2\pi)^3}\frac{\de^4p'}{(2\pi)^3}\delta(p^2-m^2)\delta(p'^2-m^2)\theta(p^0)\theta(p'^0)e^{-i\vec p\cdot \vec x}e^{i\vec {p'}\cdot \vec y}[a(p),a^\dagger(p')]\\
-	&=\int\frac{\de^3p}{(2\pi)^3\,2\sqrt{\vec p^2+m^2}}\frac{\de^3p'}{(2\pi)^3\,2\sqrt{\vec {p'}^2+m^2}}e^{-i(\vec p\cdot\vec x -\vec {p'}\cdot \vec y)}\,(2\pi)^32\sqrt{\vec p^2+m^2}\delta(\vec p-\vec {p'})\\
+	&=\int\frac{\de^3p}{(2\pi)^3\,2\sqrt{\vec p^2+m^2}}\frac{\de^3p'}{(2\pi)^3\,2\sqrt{\vec {p'}{}^2+m^2}}e^{-i(\vec p\cdot\vec x -\vec {p'}\cdot \vec y)}\,(2\pi)^32\sqrt{\vec p^2+m^2}\delta(\vec p-\vec {p'})\\
 	&=\int\frac{\de^3p}{(2\pi)^3\,2\sqrt{\vec p^2+m^2}}e^{-i\vec p\cdot (\vec x-\vec y)}\neq0
 \end{eq}
-even for $\vec x\neq\vec y$. This violates the ``locality'' even in the weak non-relativistic form shown before. In fact, since the concept of ``present'' (or equivalently of ``simultaneity'') is not universal in relativity, the vanishing of the commutator (for observable fields at least) should hold for $x$ and $y$ space-like separated (we denoted space-like separated coordinates $x$ and $y$ by $x\sls y$). 
+even for $\vec x\neq\vec y$. This violates the ``locality'' even in the weak non-relativistic form of eq.~\eqref{eq:locality-weak}. In fact, according to the concept of ``present'' (or equivalently of ``simultaneity'') in relativity, the vanishing of the commutator (for observable fields at least) should hold for $x$ and $y$ space-like separated (we denoted space-like separated coordinates $x$ and $y$ by $x\sls y$). 
 
-Actually in general the fields are not observable (e.g. the charged scalar field is not, since it is not self-adjoint) but  a remarkable theorem of Doplicher-Roberts (essentially) shows that in a massive RQFT if the observables commute at space-like distances, then the fields of the corresponding QFT either commute or anticommute at space-like distances in $d=3+1$. Moreover the spin-statistics theorem proves that fields with integer spin are bosons and those with half-integer spin are fermions. Hence we know that in the massive case fields with integer spin commute and those with half-integer spin anticommute. 
+Actually in general the fields are not observable (e.g. the charged scalar field is not, since it is not self-adjoint) hence one may argue that they are not forced to satisfy locality, nevertheless a remarkable theorem of Doplicher-Roberts (essentially) shows that in a massive RQFT if the observables commute at space-like distances, then the fields of the corresponding QFT either commute or anticommute at space-like distances in $d=3+1$. Moreover the spin-statistics theorem proves that fields with integer spin are bosons and those with half-integer spin are fermions. Hence we know that in the massive case fields with integer spin commute and those with half-integer spin anticommute at space-like distances. 
 
 Therefore we need to impose such (anti)commutation relations for our relativistic fields at space-like separated coordinates. Since $a(p)\ket0=0$, the state obtained applying $\psi^\dagger(x)$ to $\ket0$ is the same if one add an additional contribution $\sim a$ to $\psi^\dagger(x)$. Let's define 
 \begin{eq}
 	\phi(x)=\psi(x)+\psi^\dagger(x)
 \end{eq}
-where the presence of both $\psi$ and $\psi^\dagger$ is reminiscent of the fact that the dispersion relation $p_\mu p^\mu=m^2$ has two solutions $\pm\sqrt{\vec p^2+m^2}$, one to one associated to $\psi$ and $\psi^\dagger$. Then $\phi^\dagger\ket0=\psi^\dagger\ket0$, $\phi$ is a self-adjoint field operator and as we desired
+where the presence of both $\psi$ and $\psi^\dagger$ is reminiscent of the fact that the dispersion relation $p_\mu p^\mu=m^2$ has two solutions $\pm\sqrt{\vec p^2+m^2}$, one to one associated to $\psi$ and $\psi^\dagger$. Then $\phi^\dagger\ket0=\psi^\dagger\ket0$, $\phi$ is a self-adjoint field operator and, as we desired,
 \begin{eq}
 	[\phi(x),\phi(y)]=0 \tif (x-y)^2<0
 \end{eq}
@@ -243,7 +245,7 @@ or more precisely
 	[\phi(f),\phi(g)]=0 \tif \supp f\sls\supp g
 \end{eq}
 
-It is however clear that even if $\phi(x)$ is ``localized in $x$'' (so that it cannot affect points space like separated) or better $\phi(f)$ is ``localized in $\supp f$'', conversely the state $\phi(x)\ket0$ is not localized in $x$ and $\phi(f)\ket0$ is not localized in $\supp f$. In fact the \emph{two point correlation function} for a real field reads
+However, it is clear that even if $\phi(x)$ is ``localized in $x$'' (so that it cannot affect points space like separated) or better $\phi(f)$ is ``localized in $\supp f$'', conversely the state $\phi(x)\ket0$ is not localized in $x$ and $\phi(f)\ket0$ is not localized in $\supp f$. In fact the \emph{two point correlation function} for a real field reads
 \begin{eq}
 	\bra0\phi(x)\phi(y)\ket0
 	&=\bra0\psi(x)\psi^\dagger(y)\ket0
@@ -300,7 +302,7 @@ If we replace $c$ with the phonon velocity this is the same equation appearing i
 
 \section{Characteristic features of Fock space}
 
-\textsf{Ref.~\cite{John-W.-Negele:1998aa}; \cite[Section 5.2]{Bratteli_1997}}\\
+\textsf{\cite{John-W.-Negele:1998aa}; \cite[Section 5.2]{Bratteli_1997}}\\
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% LECTURE 2 %%%%%%%%
@@ -322,7 +324,7 @@ The point is now understand what actually characterizes a specific $\fock$, sinc
 
 Mathematically, $\op N:=\sum_{i\in I}a_i^\dagger a_i$ is well defined in $\hs$ if exists a domain $\dom$ dense in $\hs$ containing $\ket0$ in which $\op N$ is self-adjoint. This also implies that its spectrum is $\spec(\op N)=\N$ by the standard argument seen for the harmonic oscillator in QM. 
 
-Representations of CCR or CAR on which $\op N$ is not well defined are called \emph{non-Fock representation}. We know wonder whether is possible or not to create non-Fock representations. A simple example of this is given by \emph{Bogoliubov transformations}: starting from given $a_i$, $a_i^\dagger$, we define
+Representations of CCR or CAR on which $\op N$ is not well defined are called \emph{non-Fock representation}. We now wonder whether is possible or not to create non-Fock representations. A simple example of this is given by \emph{Bogoliubov transformations}: starting from given $a_i$, $a_i^\dagger$, we define
 \begin{eq}
 	a'_i&:=\alpha_ia_i+\beta_ia_i^\dagger\\
 	a_i^{\prime\dagger}&:=\alpha_i^*a_i^\dagger+\beta_i^*a_i
@@ -339,22 +341,22 @@ from which we see that $\{a'_i\}_i$ gives a new representation of CAR provided t
 \begin{eq}
 	\bra0\op N'\ket0=\sum_{i\in I}\bra0(\alpha_i^*a_i^\dagger+\beta_i^*a_i)(\alpha_ia_i+\beta_ia_i^\dagger)\ket0=\sum_{i\in N}|\beta_i|^2
 \end{eq}
-If $\sum_i|\beta_i|^2<\infty$ then such transformation is allowed and since it is unitary then the Fock space of $a_i$ is a Fock space for $a'_i$ too (even if states, including the vacuum, may not be the same). Otherwise, for $\sum_i|\beta_i|^2=\infty$, the vacuum $\ket0$ in the $a_i$ representation is not even an element of $\dom(\op N'):=\{\ket{\psi}\,\varst\,||\op N'\ket{\psi}||<\infty\}$, nor is any $a_i^\dagger$ excitation created from $\ket0$.\footnote{
+If $\sum_i|\beta_i|^2<\infty$ then such transformation is allowed and since it is unitary then the Fock space of $a_i$ is a Fock space for $a'_i$ too (even if states, including the vacuum, may not be the same). Otherwise, for $\sum_i|\beta_i|^2=\infty$, the vacuum $\ket0$ in the $a_i$ representation is not even an element of $\dom(\op N'):=\{\ket{\psi}\,\varst\,||\op N'\ket{\psi}||<\infty\}$, nor is any excitation created from $\ket0$ using $a_i^\dagger$.\footnote{
 	Indeed using CCR and CAR one obtains
 	\begin{eq}
 		\op N' a_i^\dagger = \alpha_ia_i^{\prime\dagger}\pm\beta_i^*a_i'+a_i^\dagger\op N'
 	\end{eq} 
 	hence for any polynomial in $a_i^\dagger$ eventually $\op N'$ hit the vacuum producing a divergence.} %
-	Therefore if for $\sum_i|\beta_i|^2=\infty$ the Fock space for $\{a_i\}_{i\in I}$ is not the right space for the excitations described by $a_i'$. Actually we proved something more, we proved that the Fock space for $a_i$ and $a_i^\dagger$ are completely disjoint since no state of one of the two spaces is contained in the other one. 
+	Therefore if for $\sum_i|\beta_i|^2=\infty$ the Fock space for $\{a_i\}_{i\in I}$ is not the right space for the excitations described by $a_i'$. Actually we proved something more, we proved that the Fock space for $a_i$ and $a_i'$ are completely disjoint since no state of one of the two spaces is contained into the other one. 
 
-This actually happens in practice also in some simple situations such as for \emph{(spin $1/2$) Fermi gas}.\footnote{This example is presented in \cite[Part B, sec. 1.1]{Strocchi:1985aa}.} Let's consider $N$ fermions in a finite volume $V$ and zero temperature $T=0$. In such conditions the density of states is 
+This actually happens in practice also in some simple situations such as for \emph{(spin $1/2$) Fermi gas}.\footnote{This example is presented in \cite[Part B, sec. 1.1]{Strocchi_1985}.} Let's consider $N$ fermions in a finite volume $V$ and zero temperature $T=0$. In such conditions the density of particles in the ground state $\ket{\psi_0}$ is 
 \begin{eq}
 	n(\vec k)=\begin{cases}\begin{aligned}
 		2 &\tfor \modk\leq k_F\\
 		0 &\tfor \modk>k_F
 	\end{aligned}\end{cases}
 \end{eq}
-where we have two particles for each momentum state due to the Fermi statistic. Recall that $k_F$ is the Fermi momentum. Clearly the ground state $\ket{\psi_0}$ corresponding to such configuration $n(\vec k)$ is not a vacuum for the annihilation operators $a(\vec k,s)$ when $\modk\leq k_F$ because $a(\vec k,s)\ket{\psi_0}\neq0$, since $a(\vec k,s)$ just annihilates a particle which certainly exists in the whole ensemble where all configurations for $\vec k\leq k_F$ are occupied. 
+where we have two particles for each momentum state due to the Fermi statistics. Recall that $k_F$ is the Fermi momentum. Clearly when $\modk\leq k_F$ the ground state $\ket{\psi_0}$ corresponding to such configuration $n(\vec k)$ is not a vacuum for the annihilation operators $a(\vec k,s)$  because $a(\vec k,s)\ket{\psi_0}\neq0$, since $a(\vec k,s)$ just annihilates a particle which certainly exists in the whole ensemble where all configurations for $|\vec k|\leq k_F$ are occupied. 
 
 Nevertheless if one defines the Bogoliubov transformation
 \begin{eq}
@@ -369,17 +371,17 @@ with
 		\end{aligned}
 	\end{cases}
 \end{eq}
-in such a way that the ground state is a Fock vacuum for the $a'(\vec k,s)$:
+in such a way that the ground state is a Fock vacuum for $a'(\vec k,s)$:
 \begin{eq}
 	a'(\vec k,s)\ket{\psi_0}=0
 \end{eq}
-According to the previous argument we know that $\ket{\psi_0}\in\fock$ (for $a(\vec k,s)$) if and only if $\sum_{\vec k,s}|\beta(\vec k,s)|^2<\infty$. This is clearly true if $N<\infty$, but it is false in the limit $N\to\infty$, $V\to\infty$, $N/V$ fixed. Therefore, in the thermodynamic limit the Hilbert space of a quantum Fermi gas (the one built with $a'(\vec k,s)$ is not in the Fock space of the non-relativistic fermions (the one built with $a(\vec k, s)$). 
+According to the previous argument we know that $\ket{\psi_0}\in\fock$ (for $a(\vec k,s)$) if and only if $\sum_{\vec k,s}|\beta(\vec k,s)|^2<\infty$. This is clearly true if $N<\infty$, but it is false in the limit $N\to\infty$, $V\to\infty$, $N/V$ fixed. Therefore, in the thermodynamic limit the Hilbert space of a quantum Fermi gas (the one built with $a'(\vec k,s)$) is not equivalent to the Fock space of the non-relativistic fermions (the one built with $a(\vec k, s)$). 
 
 Another example of non-Fock space is provided by the radiation emitted by a charged particle changing its momentum $\vec p\mapsto\vec{p'}$. A simple qualitative argument goes as follows: the energy emitted by radiation goes like 
 \begin{eq}
 	\cenergy=\int\de^3k\,|\efield_\trad(\vec k)|^2
 \end{eq}
-and we know that is is a finite number, moreover since photons asymptotically (where they are free) have energy $\omega(\vec k)=c\modk$ then the number of emitted photons is
+and we know that is is a finite number, moreover since photons asymptotically (where they are free) have energy $\omega(\vec k)=c\modk$, then the number of emitted photons is
 \begin{eq}
 	N=\int\de^3k\frac{|\efield_\trad(\vec k)|^2}{c\modk}
 \end{eq}
@@ -391,9 +393,9 @@ therefore the Hilbert space of photons at the end of the process is not the Fock
 
 \section{Interacting fields}
 
-\textsf{Ref.~\cite{John-W.-Negele:1998aa}; \cite[Chapter 8,9]{Greiner_1996}; \cite[Section 1.9, Chapter 10]{Kleinert_2015}; \cite[Chapter 4]{Bogoliubov:1980}}\\
+\textsf{\cite{John-W.-Negele:1998aa}; \cite[Chapter 8,9]{Greiner_1996}; \cite[Section 1.9, Chapter 10]{Kleinert_2015}; \cite[Chapter 4]{Bogoliubov:1980}}\\
 
-Up to now we have considered only ``free'' fields whose Hilbert space is a Fock space, however to obtain physical informations we need interactions. Now, starting from the particle physics case (zero temperature $T=0$, zero density $n=0$, relativistic case), and then moving to the condensed matter case, we will introduce the perturbative calculation of the interactions. We are mainly interested in understand which are the problems that arise in the perturbative approach and in general the need of non-perturbative techniques.
+Up to now we have considered only ``free'' fields whose Hilbert space is a Fock space, however to obtain physical informations we need interactions. Now, starting from the case of particle physics (zero temperature $T=0$, zero density $n=0$, relativistic case), and then moving to the condensed matter case, we will introduce the perturbative calculation of the interactions. We are mainly interested in the understanding of the problems that arise in the perturbative approach and in general in the need of non-perturbative techniques.
 
 In particle physics most of the informations are extracted from scattering experiments. As a very simple model we can consider the $\phi^4$ model, which in its complex version describe the (low energy of the) Higgs field with only quartic self-interactions taken into account, in the unbroken symmetry phase (which we presume was present in the early universe). 
 
@@ -405,7 +407,7 @@ To be concrete we consider a real field $\phi(x)$ with canonical lagrangian dens
 \end{eq}
 The corresponding Hamiltonian is 
 \begin{eq}
-	H=H_0+H_I=\int\de\vec x\,\left(\ham_0(\vec x)+\ham_I(\vec x)\right)
+	H=H_0+H_I=\int\de^3\vec x\,\left(\ham_0(\vec x)+\ham_I(\vec x)\right)
 \end{eq}
 with
 \begin{eq}
@@ -414,22 +416,22 @@ with
 	\ham_I(\vec x)=\frac\lambda4\phi^4(\vec x)
 \end{eq}
 where the canonical momentum is $\pi(x)=\dot\phi(x)$ and the canonical quantization would give
-\begin{eq}
+\begin{eq}\label{eq:canonical-quant}
 	[\ophi(\vec x,t),\dot\ophi(\vec y,t)]=i\hbar\delta(\vec x-\vec y)
 \end{eq}
 
-Now one may wonder in which Hilbert space $\ophi$ is defined as an operator-valued distribution, and if such space is the same as the Fock space of the free scalar field. Such question is actually very non-trivial. To gain the maximum support from our knowledge of the free field let us first suppose that we switch-off the interaction term $H_I$ for large $|t|$, i.e. we replace $\lambda$ by a $\cinf$ function of $t$, $\lambda_\epsilon(t)$, such that
+Now one may wonder in which Hilbert space the field $\ophi$ is defined as an operator-valued distribution, and if such space is the same as the Fock space of the free scalar field. Such question is actually very non-trivial. To gain the maximum support from our knowledge of the free field let us first suppose that we switch-off the interaction term $H_I$ for large $|t|$, i.e. we replace $\lambda$ by a $\cinf$ function of $t$, $\lambda_\epsilon(t)$, such that
 \begin{eq}
 	\lambda_\epsilon(t)=\begin{cases}\begin{aligned}
 		&\lambda&&|t|\leq\inv\epsilon\\
 		&0&&|t|\to\infty
 	\end{aligned}\end{cases}
 \end{eq}
-and we denoted the new interacting Hamiltonian with $H_\epsilon^I$. Then we will take the limit $\epsilon\to0$ to restore the physical situation. For any finite $\epsilon>0$ in the limit $t\to-\infty$ the field $\ophi(\vec x,t)$ tends to the free field $\ophi_\tin$, defined in the Fock space $\fock_\tin$ and in the limit $t\to+\infty$ to the free field $\ophi_\tout$ defined in $\fock_\tout$. 
+and we denote the new interacting Hamiltonian with $H_\epsilon^I$. Then we will take the limit $\epsilon\to0$ to restore the physical situation. For any finite $\epsilon>0$ in the limit $t\to-\infty$ the field $\ophi(\vec x,t)$ tends to the free field $\ophi_\tin$, defined in the Fock space $\fock_\tin$ and in the limit $t\to+\infty$ to the free field $\ophi_\tout$ defined in $\fock_\tout$. 
 
-Notice that in general (as we will comment later on) to have a well defined expression we need to cutoff also in the spatial direction, so that $\epsilon$ become an infrared regulator of space time, and possibly we need to introduce also ultraviolet counterterms. 
+Notice that in general (as we will comment later on) in order to have a well defined expression we need to cutoff also in the spatial direction, so that $\epsilon$ become an infrared regulator of spacetime, and possibly we need to introduce also ultraviolet counterterms. 
 
-Since we \emph{assumed} that $\ophi$ (using the Heisenberg picture) satisfies the CCR (but this assumption is not guaranteed) and by definition CCR are obeyed also by $\ophi_\tin$ and $\ophi_\tout$ since they are free, then it exists a unitary one-parameter group $\uei(t)$ such that
+Since we \emph{assumed} that $\ophi$ (using the Heisenberg picture) satisfies the CCR eq.~\eqref{eq:canonical-quant} (but this assumption is not guaranteed) and by definition CCR are obeyed also by $\ophi_\tin$ and $\ophi_\tout$ since these are free fields, then it exists a unitary one-parameter group $\uei(t)$ such that
 \begin{eq}\label{eq:evol-phiin-uei}
 	\ueid(t)\ophi_\tin(\vec x,t)\uei(t)=\ophi(\vec x,t)\\
 	\ueid(t)\opi_\tin(\vec x,t)\uei(t)=\opi(\vec x,t)
@@ -462,20 +464,21 @@ In order to determine $\uei(t)$, we can differentiate respect to $t$ in eq.~\eqr
 	\der{\uei(t)}t&=\frac i\hbar H_0e^{\frac{itH_0}\hbar}U(t)-\frac i\hbar e^{\frac{itH_0}\hbar}(H_0+H_\epsilon^I)U(t)\\
 	&=-\frac i\hbar e^{\frac{itH_0}\hbar}H_\epsilon^IU(t)
 	=-\frac i\hbar e^{\frac{itH_0}\hbar}H_\epsilon^Ie^{-\frac{itH_0}\hbar}\uei(t)
+	=-\frac i\hbar H_\epsilon^I(t)\uei(t)
 \end{eq}
 and using the boundary condition $\uei(-\infty)=\id$ we finally get the integral equation
 \begin{eq}\label{eq:integral-eq-uei}
 	\uei(t)=\id-\frac i\hbar\int_{-\infty}^tH_\epsilon^I(t')\uei(t')\de t'
 \end{eq}
-and by successively re-inserting the l.h.s. of eq.~\eqref{eq:integral-eq-uei} we get
+By successively re-inserting the l.h.s. of eq.~\eqref{eq:integral-eq-uei} we get
 \begin{eq}
-	\uei(t)=\sum_{n=0}^\infty\left(-\frac i\hbar\right)^n\frac1{n!}\int_{-\infty}^t\de t_1\ldots\int_{-\infty}^t\de t_n \,\tp[H_\epsilon^I(t_1)\dots H_\epsilon^I(t_n)]=:\tp\exp[-\frac i\hbar\int_{-\infty}^tH_\epsilon^I(t')\de t']
+	\uei(t)=\sum_{n=0}^\infty\left(-\frac i\hbar\right)^n\frac1{n!}\int_{-\infty}^t\de t_1\cdots\int_{-\infty}^t\de t_n \,\tp[H_\epsilon^I(t_1)\dots H_\epsilon^I(t_n)]=:\tp\exp[-\frac i\hbar\int_{-\infty}^tH_\epsilon^I(t')\de t']
 \end{eq}
-where $\tp[A_1(t_1)\dots A_n(t_n)]$ is the \emph{time-ordering} defined by
+where $\tp[A_1(t_1)\cdots A_n(t_n)]$ is the \emph{time-ordering} defined by
 \begin{eq}
-	\tp[A_1(t_1)\dots A_n(t_n)]=\sum_{\pi\in\Sigma_n}\Theta(t_{\pi(1)},\dots,t_{\pi(n)})\varepsilon^{\sigma(\pi)}A_{\pi(1)}(t_{\pi(1)})\dots A_{\pi(n)}(t_{\pi(n)})
+	\tp[A_1(t_1)\cdots A_n(t_n)]=\sum_{\pi\in\Sigma_n}\Theta(t_{\pi(1)},\ldots,t_{\pi(n)})\varepsilon^{\sigma(\pi)}A_{\pi(1)}(t_{\pi(1)})\cdots A_{\pi(n)}(t_{\pi(n)})
 \end{eq}
-with
+where $\epsilon=\pm1$ according to the statistics of the operators and
 \begin{eq}
 	\Theta(t_{\pi(1)},\dots,t_{\pi(n)})=\begin{cases}
 		1\tif t_{\pi(1)}\geq t_{\pi(2)}\geq\dots\geq t_{\pi(n)}\\
@@ -487,26 +490,28 @@ By construction $\fock_\tin,\fock_\tout\subset\hs$ (the space of $\ophi$) and if
 \begin{eq}
 	|\braket{\tin}{\tout'}|^2=|\bra\tin\scate\ket{\tin'}|^2
 \end{eq}
-Hence the scattering is analyzed in terms of these matrix elements.
+Hence the scattering process can be analyzed in terms of the matrix elements of $\scate$.
 
-These matrix elements are in turn related to the \emph{correlation or Green functions} of $\ophi$
+These matrix elements are in turn related to the \emph{correlation functions or Green functions} of $\ophi$
 \begin{eq}
-	G^{(n)}(x_1,\ldots,x_n):=\bra0\tp[\ophi(x_1)\ldots\ophi(x_n)]\ket0
+	G^{(n)}(x_1,\ldots,x_n):=\bra0\tp[\ophi(x_1)\cdots\ophi(x_n)]\ket0
 \end{eq} 
-by the LSZ (Lehmann-Symanzik-Zimmermann) formula: if the in-state is given by particles with momenta $q_1,\dots,q_m$ and the out state by particles with momenta $p_1,\dots,p_n$, then
+by the \emph{LSZ (Lehmann-Symanzik-Zimmermann) formula}: if the in-state is given by particles with momenta $q_1,\dots,q_m$ and the out state by particles with momenta $p_1,\dots,p_n$, then
 \begin{eq}
 	&\braket{q_1,\dots,q_m\,\tin}{p_1,\dots,p_n\,\tout}=\\
 	&\qquad= i^{m+n}\int\de^4x_1\ldots\de^4x_m\int\de^4y_1\ldots\de^4y_n \times\\
 	&\qquad\quad\times e^{-i(q_1x_1+\ldots+ q_mx_m)}e^{i(p_1y_1+\ldots+ p_ny_n)}\times\\
-	&\qquad\quad\times (\square_{x_1}+m^2)\ldots(\square_{x_m}+m^2)(\square_{y_1}+m^2)\ldots(\square_{y_n}+m^2) \times \\
-	&\qquad\quad\times \bra0\tp[\ophi(y_1)\ldots\ophi(y_n)\ophi(x_1)\ldots\ophi(x_m)]\ket0 +\\
+	&\qquad\quad\times (\square_{x_1}+m^2)\cdots(\square_{x_m}+m^2)(\square_{y_1}+m^2)\cdots(\square_{y_n}+m^2) \times \\
+	&\qquad\quad\times \bra0\tp[\ophi(y_1)\cdots\ophi(y_n)\ophi(x_1)\cdots\ophi(x_m)]\ket0 +\\
 	&\qquad\quad+\text{\small disconnected terms without interactions not contributing to the cross section }
 \end{eq}
 
-The perturbative approach tries to compute the correlation functions $\bra0\tp[\ophi(x_1)\ldots\ophi(x_n)]\ket0$ of interacting Heisenberg fields in terms of the free in-fields $\ophi_\tin(x)$. Using the expression of $\uei(t_1,t_2):=\uei(t_1)\uei{}^{-1}(t_2)$ one can prove the Gell-Mann - Low formula providing the above connection. Let $\ket0$ be the vacuum state in $\hs$, then
+The perturbative approach tries to compute the correlation functions $\bra0\tp[\ophi(x_1)\cdots\ophi(x_n)]\ket0$ of interacting Heisenberg fields in terms of the free in-fields $\ophi_\tin(x)$. Using the expression of $\uei(t_1,t_2):=\uei(t_1)\uei{}^{-1}(t_2)$ one can prove the following identity, called \emph{Gell-Mann - Low formula}. Let $\ket0$ be the vacuum state in $\hs$, then
 \begin{eq}\label{eq:gell-man-low}
-	\bra0\tp[\ophi(x_1)\ldots\ophi(x_n)]\ket0 = \frac{\bra{0_\tin}\tp[\ophi_\tin(x_1)\ldots\ophi_\tin(x_n)e^{-\frac i\hbar\int\de t\,H_\epsilon^I(t)}]\ket{0_\tin}}{\bra{0_\tin}\tp[e^{-\frac i\hbar\int\de t\,H_\epsilon^I(t)}]\ket{0_\tin}}
+	\bra0\tp[\ophi(x_1)\ldots\ophi(x_n)]\ket0 = \frac{\bra{0_\tin}\tp[\ophi_\tin(x_1)\cdots\ophi_\tin(x_n)e^{-\frac i\hbar\int\de t\,H_\epsilon^I(t)}]\ket{0_\tin}}{\bra{0_\tin}\tp[e^{-\frac i\hbar\int\de t\,H_\epsilon^I(t)}]\ket{0_\tin}}
 \end{eq}
+where integrations in $t$ go from $-\infty$ to $+\infty$.
+
 This formula connects interacting Heisenberg fields $\ophi$ with in-fields $\ophi_\tin$ assuming that we have a finite infrared cutoff $\epsilon$ in time.
 
 We now give a sketch of the proof of this result.\footnote{Reference: \url{https://authors.library.caltech.edu/60474/1/PhysRev.84.350.pdf}} Assume $t\gg t_1>t_2>\ldots>t_n$, then using  unitarity 
@@ -517,12 +522,13 @@ We now give a sketch of the proof of this result.\footnote{Reference: \url{https
 \end{eq}
 and
 \begin{eq}
-	\bra0\tp[\ophi(x_1)\ldots\ophi(x_n)]\ket0&=\bra0\ophi(x_1)\ldots\ophi(x_n)\ket0\\
-	&=\bra0\ueid(t_1)\ophi_\tin(x_1)\uei(t_1)\ldots \ueid(t_n)\ophi_\tin(x_n)\uei(t_n)\ket0\\
-	&=\bra0\ueid(t)\uei(t,t_1)\ophi_\tin(x_1)\ldots\ophi_\tin(x_n)\uei(t_n,-t)\uei(-t)\ket0\\
-	&=\bra0\ueid(t)\tp[\ophi_\tin(x_1)\ldots\ophi_\tin(x_n)e^{-\frac i\hbar\int_{-t}^t\de t\,H_\epsilon^I(t)}]\uei(-t)\ket0
+	\bra0\tp[\ophi(x_1)\cdots\ophi(x_n)]\ket0
+	&=\bra0\ophi(x_1)\cdots\ophi(x_n)\ket0\\
+	&=\bra0\ueid(t_1)\ophi_\tin(x_1)\uei(t_1)\cdots \ueid(t_n)\ophi_\tin(x_n)\uei(t_n)\ket0\\
+	&=\bra0\ueid(t)\uei(t,t_1)\ophi_\tin(x_1)\cdots\ophi_\tin(x_n)\uei(t_n,-t)\uei(-t)\ket0\\
+	&=\bra0\ueid(t)\tp[\ophi_\tin(x_1)\cdots\ophi_\tin(x_n)e^{-\frac i\hbar\int_{-t}^t\de t\,H_\epsilon^I(t)}]\uei(-t)\ket0
 \end{eq}
-where in the last step we moved all the unitary operators on the right (since they are inside the time ordering the result is the same).
+where in the last step we moved on the right all the unitary operators inside the time ordering (since they are inside the time ordering the result is the same).
 Now since 
 \begin{eq}
 	\uei(t)\ket0\xrightarrow[t\to-\infty]{}\ket{0_\tin}
@@ -531,9 +537,9 @@ Now since
 \end{eq}
 we have
 \begin{eq}
-	\bra0\tp[\ophi(x_1)\ldots\ophi(x_n)]\ket0=\bra{0_\tout}\tp[\ophi_\tin(x_1)\ldots\ophi_\tin(x_n)e^{-\frac i\hbar\int_{-t}^t\de t\,H_\epsilon^I(t)}]\ket{0_\tin}
+	\bra0\tp[\ophi(x_1)\cdots\ophi(x_n)]\ket0=\bra{0_\tout}\tp[\ophi_\tin(x_1)\cdots\ophi_\tin(x_n)e^{-\frac i\hbar\int_{-t}^t\de t\,H_\epsilon^I(t)}]\ket{0_\tin}
 \end{eq}
-If we assume that the vacuum is non degenerate, we expect that by adiabatic evolution (i.e. changing the value of $\epsilon$) it cannot go in another state, hence 
+If we assume that the vacuum is non degenerate, we expect that under adiabatic evolution (i.e. changing the value of $\epsilon$) the initial free state cannot evolve in another state, hence 
 \begin{eq}
 	\ket{0_\tout}=e^{iL}\ket{0_\tin}
 \end{eq}
@@ -545,13 +551,13 @@ and taking $t\to+\infty$ we finally get eq.~\eqref{eq:gell-man-low}.
 
 In general is very hard to evaluate expressions like eq.~\eqref{eq:gell-man-low}. In order to make this effort, the perturbative approach consists in replacing
 \begin{eq}\begin{gathered}
-	\bra{0_\tin}\tp[\ophi_\tin(x_1)\ldots\ophi_\tin(x_n)\sum_{\ell=0}^\infty\frac1{\ell!}\left(-\frac i\hbar\int_{-\infty}^{+\infty}\de t'\,H_\epsilon^I(t')\right)^\ell]\ket{0_\tin}\\
+	\bra{0_\tin}\tp[\ophi_\tin(x_1)\cdots\ophi_\tin(x_n)\sum_{\ell=0}^\infty\frac1{\ell!}\left(-\frac i\hbar\int_{-\infty}^{+\infty}\de t'\,H_\epsilon^I(t')\right)^\ell]\ket{0_\tin}\\
 	\downarrow\\
-	\sum_{\ell=0}^\infty\frac1{\ell!}\bra{0_\tin}\tp[\ophi_\tin(x_1)\ldots\ophi_\tin(x_n)\left(-\frac i\hbar\int_{-\infty}^{+\infty}\de t'\,H_\epsilon^I(t')\right)^\ell]\ket{0_\tin}
+	\sum_{\ell=0}^\infty\frac1{\ell!}\bra{0_\tin}\tp[\ophi_\tin(x_1)\cdots\ophi_\tin(x_n)\left(-\frac i\hbar\int_{-\infty}^{+\infty}\de t'\,H_\epsilon^I(t')\right)^\ell]\ket{0_\tin}
 \end{gathered}\end{eq}
 i.e. moving the infinite series outside the expectation value. The terms inside the sum can now be computed in terms of in-fields using Wick theorem or equivalently Feynman diagrams. 
 
-Resumming our steps, we expressed the scattering amplitudes in terms of correlators of interacting fields using LSZ formula, then Gell-Mann - Low formula allows us to express such correlators in terms of correlators of in-fields (free). Finally the perturbative approach prescripts the extraction of the infinite series outside the expectation value, in such a way that we can obtain our result computing expectation values of free fields through Feynman diagrams. We'll see in the following how dangerous is perturbative approach prescription. 
+Resumming our steps, we expressed the scattering amplitudes in terms of correlators of interacting fields using LSZ formula, then Gell-Mann - Low formula allows us to express such correlators in terms of correlators of in-fields (free). Finally the perturbative approach prescripts the extraction of the infinite series outside the expectation value, in such a way that we can obtain our result computing expectation values of free fields through Feynman diagrams. We'll see in the next chapter how dangerous is the perturbative approach prescription. 
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% LECTURE 3 %%%%%%%%
@@ -561,13 +567,13 @@ Resumming our steps, we expressed the scattering amplitudes in terms of correlat
 
 \textsf{\cite{John-W.-Negele:1998aa}, \cite[Sections 1.16, 2.17-2.19, 10.9]{Kleinert_2015}; \cite{Fjaerestad_2013}}\\
 
-Let us turn to condensed matter systems. A source of information on the physical properties (typically transport properties) are the correlation functions of local observables, such as spin, density, current, etc; in particular two-points functions. Hence in this case physical informations are much more involved than just scattering amplitudes in particle physics. These two-points functions appear naturally in particular when one studies the \emph{linear response}, i.e. the response to a test (i.e. infinitesimal) perturbation. 
+Let us turn to condensed matter systems. A source of information on the physical properties (typically transport properties) are the correlation functions of local observables, such as spin, density, currents, etc; in particular two-points functions. Hence in this case physical informations are much more involved than just scattering amplitudes in particle physics. These two-points functions appear naturally in particular when one studies the \emph{linear response}, that is the response to a test (i.e. infinitesimal) perturbation. 
 
-Let us consider a system with Hamiltonian $H$ (which might include the classical potential term $\mu N$) and we want to see the effect on the mean value of an observable $O_1$ or a field (in general not self-adjoint) of a test perturbation typically generated by another observable $O_2$ in the form 
+Let us consider a system with Hamiltonian $H$ (which might include the classical chemical potential term $\mu N$), we want to see the effect on the mean value of an observable $O_1$ or a field (in general not self-adjoint) of a test perturbation typically generated by another observable $O_2$ in the form 
 \begin{eq}
 	V^\epsilon(t):=\xi_\epsilon(t)O_2^H(t)
 \end{eq}
-with $\xi_\epsilon(t)$ vanishing as $|t|\to\infty$ as the previous considered $\lambda_\epsilon(t)$ and $O_2^H(t)=e^{itH}O_2e^{-itH}$. Notice that however we do not assume $H$ to be free as in the scattering case. 
+where $\xi_\epsilon(t)$ is a coupling vanishing as $|t|\to\infty$ similarly to $\lambda_\epsilon(t)$ previously considered and $O_2^H(t)=e^{itH}O_2e^{-itH}$. Notice that we do not assume $H$ to be free as in the scattering case. 
 
 Let $\{\ket n\}$ be the set of eigenfunctions of $H$ ($H\ket n=\cenergy_n\ket n$) generating a Dirac completeness in $\hs$ and consider the first order modification induced by the perturbation in
 \begin{eq}
@@ -577,8 +583,8 @@ The time evolution in the presence of the perturbation of $O_1$ is
 \begin{eq}
 	O_1^{H+V_\epsilon}(t)={U^{H+V_\epsilon}}^\dagger(t)O_1U^{H+V_\epsilon}(t)
 \end{eq}
-and we want to rewrite this in terms of the evolution generated by $H$ in an ``interaction picture'', i.e.
-\begin{eq}
+We want to rewrite this in terms of the evolution generated by $H$ in an ``interaction picture'', i.e.
+\begin{eq}\label{eq:pert-ansatz}
 	O_1^{H+V_\epsilon}(t)={U_\epsilon^{V}}^\dagger(t)O_1^H(t)U^V_\epsilon(t)
 \end{eq}
 where $U^V_\epsilon(t)$ gives the contribution of the interaction $V_\epsilon(t)$ to the ``free'' evolution described by $O_1^H(t)$.
@@ -588,18 +594,18 @@ The situation in this respect is similar to the one considered before in RQFT, j
 	U_\epsilon^V(t)=\tp[e^{-i\int_{-\infty}^t V_\epsilon(t')\de t'}]
 \end{eq}
 
-We calculate the response to the perturbation through a variation, using the perturbative ansatz and then taking only first order contribution of $V_\epsilon$ in the perturbative expansion:
+We calculate the response to the perturbation through a variation, using the perturbative ansatz eq.~\eqref{eq:pert-ansatz} together with eq.~\eqref{eq:evol-op-solid-state} and then taking only first order contribution of $V_\epsilon$ in the perturbative expansion:
 \begin{eq}
 	&\delta\bra nO_1^{H+V_\epsilon}(t)\ket n
 	=\der{}{\epsilon'}\bra nO_1^{H+\epsilon'V_\epsilon}(t)\ket n\big|_{\epsilon'=0}
 	=\lim_{\epsilon'\to0}\frac{\bra n O_1^{H+\epsilon'V_\epsilon}(t)\ket n-\bra nO_1^H(t)\ket n}{\epsilon'}=\\
 	&\qquad=\lim_{\epsilon'\to0}\frac1{\epsilon'}\bra n\bigg[\left(1+i\epsilon'\int_{-\infty}^tV_\epsilon(t')\de t'+O(\epsilon')^2\right)O_1^H(t)\left(1-i\epsilon'\int_{-\infty}^tV_\epsilon(t')\de t'+O(\epsilon')^2\right)-O_1^H(t)\bigg]\ket n=\\
 	&\qquad=i\int_{-\infty}^{t}\de t'\,\xi_\epsilon(t')\bra n[O_2^H(t'),O_1^H(t)]\ket n
-	=-i\int_{-\infty}^{+\infty}\de t'\,\xi_\epsilon(t')\theta(t-t')\bra n[O_1^H(t'),O_2^H(t)]\ket n\\
+	=-i\int_{-\infty}^{+\infty}\de t'\,\xi_\epsilon(t')\theta(t-t')\bra n[O_1^H(t),O_2^H(t')]\ket n\\
 \end{eq}
 One can now just sum over $\{\ket n\}$ to perform the thermal expectation value 
 \begin{eq}\label{eq:thermal-average}
-	\langle(\bullet)\rangle_{\beta:=\frac1{kT}}
+	\langle(\bullet)\rangle_{\beta:=\frac1{k_bT}}
 	=\frac{\sum_n\bra n(\bullet)\ket ne^{-\beta\cenergy_n}}{\sum_ne^{-\beta\cenergy_n}}
 \end{eq}
 obtaining the expectation value at a given temperature $T$
@@ -614,10 +620,10 @@ where
 \end{eq}
 is called \emph{retarded correlation function}. Also in this case, similarly to what happens in RQFT, the experimental data are obtained from particular correlation functions. 
 
-Of curse if $O_1$, $O_2$ and $\xi_\epsilon$ depend also on space coordinates then eq.~\eqref{eq:pert_ret_corr} becomes:
+If $O_1$, $O_2$ and $\xi_\epsilon$ depend also on space coordinates then eq.~\eqref{eq:pert_ret_corr} becomes:
 \begin{eq}\label{eq:pert_ret_corr_x}
 	\delta\langle O_1^{H+V_\epsilon}(\vec x, t)\rangle_T
-	&=\int\de^3x'\,\de t'\,\xi_\epsilon(\vec {x'}, t')(-i\theta(t-t')\langle[O_1^H(\vec {x'}, t),O_2^H(\vec {x'}, t')]\rangle_\beta)=\\
+	&=\int\de^3x'\,\de t'\,\xi_\epsilon(\vec {x'}, t')(-i\theta(t-t')\langle[O_1^H(\vec {x}, t),O_2^H(\vec {x'}, t')]\rangle_\beta)=\\
 	&=\int\de^3x'\,\de t'\,\xi_\epsilon(\vec {x'}, t')\,\retc^{\,O_1O_2}(\vec x,t,\vec{x'},t')
 \end{eq}
 where
@@ -625,12 +631,12 @@ where
 	\retc^{\,O_1O_2}(\vec x,t,\vec{x'},t'):=-i\theta(t-t')\langle[O_1^H(\vec x,t),O_2^H(\vec{x'},t')]\rangle_\beta
 \end{eq}
 
-Assuming translational invariance, i.e. $\retc^{\,O_1O_2}$ depends only on $t-t'$, and the space difference $\vec x-\vec{x'}$, we can easily perform the Fourier transform, since eq.~\eqref{eq:pert_ret_corr_x} corresponds to a convolution:
+Assuming translational invariance, i.e. $\retc^{\,O_1O_2}$ depends only on $t-t'$, and the space difference $\vec x-\vec{x'}$, we can easily perform the Fourier transform of eq.~\eqref{eq:pert_ret_corr_x}, since it corresponds to a convolution:
 \begin{eq}
 	\delta \langle O_1^{H+V_\epsilon}(\vec q,\omega)\rangle_\beta=\tilde\xi_\epsilon(\vec q,\omega)\,\fretc^{\,O_1O_2}(\vec q,\omega)
 \end{eq}
 
-The retarded correlators are typically directly connected to experiments. For example suppose to measure the magnetization of a spin system, with spin $\vec S(\vec x)$ in presence of a test magnetic field $\vec B(\vec x,t)$. The coupling between the magnetic field and the spin is given by 
+The retarded correlators are typically directly connected to experiments. For example, suppose to measure the magnetization of a spin system, with spin $\vec S(\vec x)$, in presence of a test magnetic field $\vec B(\vec x,t)$. The coupling between the magnetic field and the spin is given by 
 \begin{eq}
 	\int\de^3x\,\vec B(\vec x,t)\cdot\vec S(\vec x)
 \end{eq}
@@ -640,7 +646,7 @@ The linear response to the perturbation is determined by
 \end{eq}
 whose Fourier transform is precisely the dynamic magnetic susceptibility $\chi_s(\vec q,\omega)$ measurable by neutrons. 
 
-Analogously charged particles are coupled to the electromagnetic field (in the gauge $A_0=0$) by
+Analogously, charged particles are coupled to the electromagnetic field (in the gauge $A_0=0$) by
 \begin{eq}
 	\int\de^3x\,\vec A(\vec x,t)\cdot\vec j(\vec x)
 \end{eq}
@@ -653,7 +659,7 @@ and the \emph{conductivity} $\sigma_{\alpha\beta}$ is directly related to the Fo
 	-i\theta(t_1-t_2)\langle[\vec j_\alpha^H(\vec {x_1},t_1),\vec j_\beta^H(\vec {x_2},t_2)]\rangle_\beta
 \end{eq}
 
-Notice that if $O_1$ and $O_2$ are fermionic fields, since the Hamiltonian is a scalar we get that $\xi_\epsilon(t)$ must be an anticommuting function so that 
+Notice that since the Hamiltonian should be a scalar, we get that if $O_1$ and $O_2$ are fermionic fields then $\xi_\epsilon(t)$ must be an anticommuting function so that 
 \begin{eq}
 	O_1^H\xi_\epsilon O_2^H-\xi_\epsilon O_2^HO_1^H=-\xi_\epsilon(O_1^HO_2^H+O_2^HO_1^H)
 \end{eq}
@@ -662,20 +668,20 @@ and in fact the retarded correlation function for fermionic fields $O_1$ and $O_
 	\retc^{\,O_1O_2}=i\theta(t_1-t_2)\langle\{O_1^H(t_1),O_2^H(t_2)\}\rangle_\beta
 \end{eq}
 
-For example the intensity of response in metals by high frequency photons (if the direction of the photon is chosen then the determination of such intensity is called \emph{Angle-Resolved Photoemission Spectroscopy} (\emph{ARPES})) is related to the immaginary part of the Fourier transform of 
+For example the intensity of response in metals to high frequency photons (if the direction of the photon is fixed then the determination of such intensity is called \emph{Angle-Resolved Photoemission Spectroscopy} (\emph{ARPES})) is related to the immaginary part of the Fourier transform of 
 \begin{eq}
 	i\theta(t_1-t_2)\langle\{\psi^\dagger(\vec{x_1},t_1),\psi(\vec {x_2},t_2)\}\rangle_\beta
 \end{eq}
 
 \subsubsection{Matsubara formalism}
 
-If $H$ is not free the next question is how to compute the correlation functions. Let $H=H_0+H_I$, with $H_0$ ``free'' (typically this means that contains only the quadratic terms in the fields, with no mixed components). For $T=0$ one just have to replace
+If $H$ is not free the next question is how to compute the retarded correlation functions. Let $H=H_0+H_I$, with $H_0$ ``free'' (typically this means that contains only the quadratic terms in the fields, with no mixed components). For $T=0$ one just have to replace
 \begin{eq}
 	\langle(\bullet)\rangle_\beta \to \bra0(\bullet)\ket0
 \end{eq}
-and the Gell-Mann Low formula applies as before with adiabatic switching as in the relativistic case and the perturbative approach is completely similar. 
+and the Gell-Mann Low formula applies as before with adiabatic switching as in the relativistic case and the perturbative approach is completely analogous. 
 
-For $T>0$ the situation is more complicated because $H_I$ would appear in two places: in the time evolution eq.~\eqref{eq:evol-op-solid-state} as in $T=0$ but also in the Boltzmann weight $e^{-\beta(H_0+H_I)}$. This makes the standard perturbative treatment inapplicable, since we need to disentangle a perturbation in these two places. The way to solve this issue is due to Matsubara, and for this reason called the \emph{Matsubara formalism}. Let's see how it works. 
+For $T>0$ the situation is more complicated because $H_I$ would appear in two places: in the time evolution eq.~\eqref{eq:evol-op-solid-state} as in $T=0$ but also in the Boltzmann weight $e^{-\beta(H_0+H_I)}$. This makes the standard perturbative treatment inapplicable, since we need to disentangle a perturbation in these two places. The way to solve this issue is due to Matsubara, and for this reason called the \emph{Matsubara formalism}. It consist in defining new correlators for which an analogue of the Gell-Mann Low formula applies, and then relate these new correlators to the retarded correlators by analytic continuation. Let's see how this works. 
 
 We define an ``evolution'' of the operators by a new parameter $\tau$:
 \begin{eq}
@@ -685,9 +691,9 @@ We define an ``evolution'' of the operators by a new parameter $\tau$:
 \end{eq}
 and then instead of computing correlation functions at ordinary time $t$, we compute them using the modified evolution and the parameters $\tau_i$:
 \begin{eq}	
-	\langle O_1^H(\tau_1)\ldots O^H_n(\tau_n)\rangle_\beta
+	\langle O_1^H(\tau_1)\cdots O^H_n(\tau_n)\rangle_\beta
 \end{eq}
-Suppose that $H=H_0+H_I$ (notice that the cutoff $\epsilon$ is not required here since the domain of $\tau$ is already finite, $\tau\in[0,\beta]$) and write again the evolution separating the contribution of $H_0$ and $H_I$ as in the interaction picture
+Suppose that $H=H_0+H_I$ (notice that the cutoff $\epsilon$ is not required here since the domain of $\tau$ is already finite, $\tau\in[0,\beta]$) and write again the evolution separating the contributions of $H_0$ and $H_I$ as in the interaction picture
 \begin{eq}
 	O^H(\tau)=U^I(\tau)O^{H_0}(\tau)U^I(\tau)
 \end{eq}
@@ -704,17 +710,17 @@ and again
 
 We define \emph{Matsubara correlator / Green function} the object
 \begin{eq}
-	G_M^{\,O_1\ldots O_n}(\tau_1,\ldots, \tau_n):=-\langle\tp_\tau[O_1^{H}(\tau_1) \ldots O_n^{H}(\tau_n)]\rangle_\beta
+	G_M^{\,O_1\cdots O_n}(\tau_1,\ldots, \tau_n):=-\langle\tp_\tau[O_1^{H}(\tau_1) \cdots O_n^{H}(\tau_n)]\rangle_\beta
 \end{eq}
-Now for the analogue of the Gell-Mann Low formula
-\begin{eq}
-	\langle\tp_\tau[O_1^H(\tau_1)\ldots O_n^H(\tau_n)]\rangle_\beta=
-	\frac{\langle\tp_\tau[O_1^{H_0}(\tau_1)\ldots O_n^{H_0}(\tau_n)e^{-\int_0^\beta\de\tau'\,H_I(\tau')}]\rangle_\beta^0}
+Differently from the case of retarded Green functions, for Matsubara Green functions an analogue of the Gell-Mann Low formula applies
+\begin{eq}\label{eq:Gell-Man-Low-Temp}
+	\langle\tp_\tau[O_1^H(\tau_1)\cdots O_n^H(\tau_n)]\rangle_\beta=
+	\frac{\langle\tp_\tau[O_1^{H_0}(\tau_1)\cdots O_n^{H_0}(\tau_n)e^{-\int_0^\beta\de\tau'\,H_I(\tau')}]\rangle_\beta^0}
 	{\langle\tp_\tau[e^{-\int_0^\beta\de\tau'\,H_I(\tau')}]\rangle_\beta^0}
 \end{eq}
-with $\langle\bullet\rangle_\beta^0$ the thermal average computed using $H_0$ as Hamiltonian. In comparison with the Gell-Mann Low formula for particles physics, in this case the vacuum expectation values are replaced by the Boltzmann-weighted thermal traces, and the vacuum expectation value of the $S$-matrix operator $U_\epsilon^I(+\infty)$ in the denominator is replaced by the Boltzmann-weighted trace of the interaction operator $U^I(\beta)$ along the euclidean time axis $\tau$. 
+with $\langle\bullet\rangle_\beta^0$ the thermal average computed using $H_0$ as Hamiltonian. In comparison with the Gell-Mann Low formula for particles physics, in this case the vacuum expectation values are replaced by the Boltzmann-weighted thermal traces, and the vacuum expectation value of the $S$-matrix operator $U_\epsilon^I(+\infty)$ in the denominator is replaced by the Boltzmann-weighted trace of the interaction operator $U^I(\beta)$ along the euclidean time axis $\tau$. Moreover, the integration over $\tau$ goes up to $\beta$, since $0\leq\tau\leq\beta$. 
 
-Finally perturbative treatment then prescripts
+Finally, the perturbative treatment prescripts
 \begin{eq}
 	\langle\tp_\tau[O_1^{H_0}(\tau_1)\ldots O_n^{H_0}(\tau_n)e^{-\int_0^\beta\de\tau'\,H_I(\tau')}]\rangle_\beta^0
 	= \sum_{\ell=0}^\infty\frac{(-1)^\ell}{\ell!}\langle\tp_\tau[O_1^{H_0}(\tau_1)\ldots O_n^{H_0}(\tau_n)\Big(\int_0^\beta\de\tau'\,H_I(\tau')\Big)^\ell]\rangle_\beta^0
@@ -723,7 +729,7 @@ This leads to a series of thermally averaged products of many fields which move 
 
 To be precise in most cases one also need to use an infrared cutoff $\epsilon$, which in this case (the domain of $\tau$ is finite) is required only in the space coordinates, and will be removed at the end of the calculation.
 
-Now the question is how this thermal averaged operator can be related to the retarded correlators needed to compute the linear response of our system. Using thermal average formula eq.~\eqref{eq:thermal-average} and $Z:=\Tr_\hs e^{-\beta H}$ the \emph{partition function} computed taking the trace over the whole Hilbert space of the system $\hs$\footnote{Notice that at this point we do not know whether this space is Fock or non-Fock.} (not only the 1-particle Hilbert space $\hs_1$), the 2-points Matsubara correlator (the only needed in the perturbative approach) reads:
+Now the question is how this thermal averaged operator can be related to the retarded correlators needed to compute the linear response of our system. Using thermal average formula eq.~\eqref{eq:thermal-average}, the Gell-Mann Low formula eq.~\eqref{eq:Gell-Man-Low-Temp} and the \emph{partition function} $Z:=\Tr_\hs e^{-\beta H}$ (which coincides with the denominator in eq.~\eqref{eq:Gell-Man-Low-Temp}) computed taking the trace over the whole Hilbert space of the system $\hs$\footnote{Notice that at this point we do not know whether $\hs$ is Fock or non-Fock.} (not only the 1-particle Hilbert space $\hs_1$), the 2-points Matsubara correlator (the only needed in the perturbative approach) reads:
 \begin{eq}	\label{eq:Matsu-corr-tau12}
 	G_M^{\,O_1O_2}(\tau_1,\tau_2)&=-\frac1Z\big\{\Tr_\hs[e^{-\beta H}e^{\tau_1H}O_1 e^{-\tau_1H}e^{\tau_2H}O_2e^{-\tau_2H}]\theta(\tau_1-\tau_2)\\
 	&\qquad \pm \Tr_\hs[e^{-\beta H}e^{\tau_2H}O_2 e^{-\tau_2H}e^{\tau_1H}O_1e^{-\tau_1H}]\theta(\tau_2-\tau_1)\big\}=\\
@@ -742,7 +748,7 @@ By construction $0\leq\tau_i\leq\beta$, $i=1,2$, hence we get that $\tau\in[-\be
 \end{eq}
 hence $G_M^{\,O_1O_2}(\tau)=\pm \,G_M^{\,O_1O_2}(\tau+\beta)$ and we can regard $G_M^{\,O_1O_2}(\tau)$ as an (anti)periodic function of period $\beta$ defined for any $\beta\in\R$. 
 
-Notice that in general traces can be infinite or the limit $\epsilon\to0$ of the cutoff might not exists, making the perturbative approach not working (notice that an infinite trace is the thermal-equivalent of a divergent vacuum expectation value of the theoretical field case). Nevertheless the periodicity of the Matsubara correlator is a non-perturbative result which hold anyway, even if the definition of the trace lose its meaning. Such relation is called \emph{Kubo-Martin-Schwinger (KMS) condition}:
+In general traces can be infinite or the limit $\epsilon\to0$ of the cutoff might not exists, making the perturbative approach not working (notice that an infinite trace is the thermal-equivalent of a divergent vacuum expectation value of the theoretical field case). Nevertheless the periodicity of the Matsubara correlator is a non-perturbative result which hold anyway, even if the definition of the trace lose its meaning. Such relation is called \emph{Kubo-Martin-Schwinger (KMS) condition}:
 \begin{eq}\label{eq:KMS-condition}
 	G_M(\tau)=\pm\, G_M(\tau+\beta)
 \end{eq}
@@ -771,7 +777,7 @@ Notice that as $T\to0$ Matsubara coefficients become continuous and eq.~\eqref{e
 
 \subsubsection{Lehmann spectral representation of the correlators ($T>0$)}
 
-The Wick rotation of the $t$-axis in eq.~\eqref{eq:ret-corr-func} exactly coincides with the axis on which $\tau$ is defined, and the Wick rotation send the energies in the field theoretic Green functions eq.~\eqref{eq:ret-corr-func} to the axis along which Matsubara frequencies are situated. The retarded Green functions are related to the imaginary-time Matsubara Green functions by an analytical continuation. 
+The Wick rotation of the $t$-axis in eq.~\eqref{eq:ret-corr-hermit} exactly coincides with the axis on which $\tau$ is defined, and the Wick rotation send the energies in the field theoretic Green functions eq.~\eqref{eq:ret-corr-hermit} to the axis along which Matsubara frequencies are situated. The retarded Green functions are related to the imaginary-time Matsubara Green functions by an analytical continuation. 
 
 To see this relation we introduce a Dirac completeness of eigenstates $\{\ket n\}$ of $H$ inside the coefficients of the Fourier series eq.~\eqref{eq:Matsubara-Fourier-coefficents} (we change the label for the Fourier coefficients from $n$ to $s$) using eq.~\eqref{eq:Matsu-corr-tau}:
 \begin{eq}\label{eq:Mats-corr-coeff-complet}
@@ -780,8 +786,8 @@ To see this relation we introduce a Dirac completeness of eigenstates $\{\ket n\
 \end{eq}
 Using $\int_0^\beta\de\tau\,e^{\alpha\tau}=\frac1\alpha(e^{\alpha\beta}-1)$ we can integrate:
 \begin{eq}
-	G_M(\omega_s)&=-\frac1Z\sum_{m,n}e^{-\beta\cenergy_n}\frac{e^{i\omega_s\beta+\beta(\cenergy_n-\cenergy_m)}-1}{i\omega_s+\cenergy_n-\cenergy_m}\bra nO_1\ket m\bra mO_2\ket n\\
-	&=-\frac1Z\sum_{m,n}\frac{e^{i\omega_s\beta-\beta\cenergy_m}-e^{-\beta\cenergy_n}}{i\omega_s+\cenergy_n-\cenergy_m}\bra nO_1\ket m\bra mO_2\ket n
+	G_M(\omega_s)&=-\frac1Z\sum_{m,n}e^{-\beta\cenergy_n}\frac{e^{\beta(i\omega_s+\cenergy_n-\cenergy_m)}-1}{i\omega_s+\cenergy_n-\cenergy_m}\bra nO_1\ket m\bra mO_2\ket n\\
+	&=-\frac1Z\sum_{m,n}\frac{e^{\beta(i\omega_s-\cenergy_m)}-e^{-\beta\cenergy_n}}{i\omega_s+\cenergy_n-\cenergy_m}\bra nO_1\ket m\bra mO_2\ket n
 \end{eq}
 Finally using the explicit values of Matsubara frequencies eq.~\eqref{eq:Matsu-freq}, one gets
 \begin{eq}\label{eq:Lehm_Mats_corr}
@@ -790,9 +796,9 @@ Finally using the explicit values of Matsubara frequencies eq.~\eqref{eq:Matsu-f
 	\tfor
 	G_M(\tau)=\pm\, G_M(\tau+\beta)
 \end{eq}
-Such expression for the Green function is called \emph{Lehmann representation} (of $G_M$, in this case). Notice that in this representation the Fourier series coefficients can be computed in terms of $H$ eigenvalues and the matrix elements of $O_1$ and $O_2$ only (for this reason such representation is also called ``spectral'' representation). Notice that these coefficients have poles along the imaginary axis. 
+Such expression for the Green function is called \emph{Lehmann representation} (of $G_M$, in this case). Notice that in this representation the Fourier series coefficients can be computed in terms of the eigenvalues of $H$ and the matrix elements of $O_1$ and $O_2$ only (for this reason such representation is also called ``spectral'' representation). Notice that these coefficients have poles along the imaginary axis. 
 
-Let's try to find the Lehmann representation of the retarded Green function we introduced before. Actually a more generic definition respect to eq.~\eqref{eq:ret-corr-hermit} of the retarded correlator is used:
+Let's try to find the Lehmann representation of the retarded Green function we introduced before. Actually a more generic definition respect to eq.~\eqref{eq:ret-corr-hermit} of the retarded correlator is used
 \begin{eq}\label{eq:ret-corr}
 	\retc^{\,O_1O_2}(t,t'):=-i\theta(t-t')\langle[O_1^H(t),O_2^{H}(t')]_\mp\rangle_\beta
 \end{eq}
@@ -805,7 +811,7 @@ Rewriting eq.~\eqref{eq:ret-corr} introducing a Dirac completeness as in eq.~\eq
 	&=-\frac iZ\theta(t)\sum_{m,n}(e^{-\beta\cenergy_n}\mp e^{-\beta\cenergy_m})e^{it(\cenergy_n-\cenergy_m)}\bra nO_1\ket m\bra mO_2\ket n
 \end{eq}
 where $t:=t_1-t_2$ and in the third step we used the cyclicity of the trace. 
-Using the Fourier Transform of the following functions (the limit $\delta\to0$, $\delta>0$, is understood)
+Using the Fourier Transform of the following functions (the limit $\delta\to0^+$ is understood)
 \begin{eq}
 	\fourier[\theta(t)](\omega)=\frac i{\omega+i\delta}
 	\tcomma
@@ -833,7 +839,7 @@ Can be proved\footnote{Original proof by Baym and Mermin (1960): \url{https://do
 
 \cite{John-W.-Negele:1998aa}, \cite{Zhang:1999}, \cite[Chapter 14]{Kleinert_2015}\\
 
-In this section we just sketch in an ``heuristic way'', without details, how the path-integral is defined, with some more details in the non relativistic setting and $T>0$.
+In this section we just sketch in a ``heuristic way'', without details, how the path-integral is defined, with some more details in the non relativistic setting and $T>0$.
 
 The key ingredients of Feynman path-integrals both in real and imaginary time are 
 \begin{enumerate}[label=(\arabic*)]
@@ -843,7 +849,7 @@ The key ingredients of Feynman path-integrals both in real and imaginary time ar
 
 \subsubsection{Path integral for bosonic fields}\label{sec:PI_formalism}
 
-For bosonic fields the completeness employes the \emph{coherent states}. We just recall that for the harmonic QM oscillator the coherent states $\ket z$, $z\in\C$, are of the form (with $a$ annihilation operator)
+For bosonic fields the completeness employs the \emph{coherent states}. Recall that for the harmonic QM oscillator the coherent states $\ket z$, $z\in\C$, are of the form (with $a$ annihilation operator)
 \begin{eq}\label{eq:coh_stat_dfn}
 	a\ket z=z\ket z
 	\tcomma
@@ -875,7 +881,7 @@ Moreover, using commutation relations for ladder operators, this implies
 	\langle{\phi}\vert{\phi'}\rangle=e^{\sum_\alpha\phia^*\phia'}
 \end{eq}
 
-It is clear that vectors $\big\{\ket\phi\big\}$ are eigenvectors also for the field operator:\footnote{Notice the difference between $\phi_\alpha$ and $\phi_\alpha(\vec x)$: the former is the eigenvalue of $a_\alpha$ on $\ket\phi$, whereas the latter comes from eq.~\eqref{eq:coh_field_exp}.}
+It is clear that vectors $\big\{\ket\phi\big\}$ are eigenvectors also for the field operator:\footnote{Notice the difference between $\phi_\alpha$ and $\phi_\alpha(\vec x)$: the former is the eigenvalue of $a_\alpha$ on $\ket\phi$, whereas the latter comes from the decomposition eq.~\eqref{eq:coh_field_exp}.}
 \begin{eq}
 	\ophi(\vec x)\ket{\phi}=\sum_{\alpha\in A}\phia(\vec x)\phia\ket{\phi}=\phi(\vec x)\ket{\phi}
 \end{eq}
@@ -889,7 +895,7 @@ and correspondingly we have the eigenvalues
 \end{eq}
 Notice that up to now we have properly generalized eq.~\eqref{eq:coh_stat_dfn} in the case of fields.
 
-Let's see how the last identity in eq.~\eqref{eq:coh_stat_prop} generalizes in this setting. The following Dirac completeness can be proved:
+Let's see how the last identity in eq.~\eqref{eq:coh_stat_prop} generalizes in this setting. The following Dirac completeness can be proved:\footnote{\label{ft:phi_vect}Here $\phi$ should be regarded as a vector in $\C^{|A|}$ whose components are $\{\phi_\alpha\}_{\alpha\in A}$ with scalar product $\phi^*\phi'=\sum_\alpha\phi_\alpha^*\phi_\alpha'$.}
 \begin{eq}\label{eq:complet_coh_states}
 	\int\frac{\de\phi\,\de\phi^*}{2\pi i}e^{-\phi^*\phi}\ket\phi\bra\phi
 	:= \int\prod_{\alpha\in A}\frac{\de\phi_\alpha\de\phi_\alpha^*}{2\pi i}e^{-\sum_\alpha\phia^*\phia}\ket\phi\bra{\phi}=\id
@@ -904,7 +910,7 @@ For each operator $A$ and a basis $\{\ket n\}$ satisfying Dirac completeness $\s
 	&=\int\frac{\de\phi\,\de\phi^*}{2\pi i}e^{-\phi^*\phi}\bra \phi A\ket\phi
 \end{eq}
 
-Besides the fields at fixed time $\ophi(\vec x)$ in the Gell-Mann - Low formula or in the Matsubara formalism (to which we now address our effort) there are also the time-evolution operators. Let us consider an infinitesimal one: for $H$ the Hamiltonian in terms of free fields, $\Delta\tau$ infinitesimal ``immaginary time'' interval, the infinitesimal time-evolution operator is 
+In the Gell-Mann - Low formula or in the Matsubara formalism (to which we now address our effort) beside the fields at fixed time $\ophi(\vec x)$ there are also the time-evolution operators. Let us consider an infinitesimal one in the non-relativistic case: for $H$ the Hamiltonian in terms of free fields, $\Delta\tau$ infinitesimal ``immaginary time'' interval, the infinitesimal time-evolution operator is 
 \begin{eq}
 	e^{-\Delta\tau H(a_\alpha^\dagger, a_\alpha)}
 \end{eq}
@@ -913,17 +919,17 @@ We rewrite it in ``normal order'' $\nord\quad$ form, i.e. with all the creation 
 	e^{-\Delta\tau H(a_\alpha^\dagger, a_\alpha)}=\nord{e^{-\Delta\tau H(a_\alpha^\dagger, a_\alpha)}}+O((\Delta\tau)^2)
 \end{eq}
 
-Let us now study the partition function of the system. It reads (from now on $\beta$ is no more a label, rather it is the Boltzmann factor $\beta:=1/(k_bT)$)
+Let us now study the partition function of the system. It reads (where $\beta:=1/(k_bT)$ is the Boltzmann factor)
 \begin{eq}
 	Z:=\Tr e^{-\beta H}=\int\frac{\de\phi\,\de\phi^*}{2\pi i}e^{-\phi^*\phi}\bra \phi e^{-\beta H}\ket\phi
 \end{eq}
-We now split the interval $[0,\beta]$ into $N$ small interval of length $\beta/N=:\Delta\tau$ and at the ``immaginary times'' multiples of $\Delta\tau$ we insert the Dirac completeness eq.~\eqref{eq:complet_coh_states}. Finally we take the limit $N\to\infty$ so that the intervals becomes arbitrarily small. We get
+We now split the interval $[0,\beta]$ into $N$ small interval of length $\beta/N=:\Delta\tau$ and at the ``immaginary times'' multiples of $\Delta\tau$ we insert the Dirac completeness eq.~\eqref{eq:complet_coh_states}. Finally we take the limit $N\to\infty$ so that the intervals becomes arbitrarily small. We get\footnote{Here $\phi_j$ are vectors as in the footnote~\ref{ft:phi_vect}.}
 \begin{eq}
 	Z=\lim_{N\to\infty}\int\prod_{j=1}^N\frac{\de\phi_j\,\de\phi_j^*}{2\pi i}e^{-\phi_j^*\phi_j}\bra{\phi_j}e^{-\Delta\tau H}\ket{\phi_{j-1}}
 	\twhere
 	\phi_0:=\phi_N
 \end{eq}
-For each $\ket{\phi_j}$, $j=1,\ldots,N$, the integral runs over all possible states of the completeness eq.~\eqref{eq:complet_coh_states}. Due to the limit $N\to\infty$ and eq.~\eqref{eq:norm_ord_inf_t_evol_coh} we have
+For each $\ket{\phi_j}$, $j=1,\ldots,N$, the integral runs over all possible states of the completeness eq.~\eqref{eq:complet_coh_states}. Due to the limit $N\to\infty$ and eq.~\eqref{eq:norm_ord_inf_t_evol_coh} we have $\Delta\tau\approx0$ and then
 \begin{eq}
 	&\bra{\phi_j}e^{-\Delta\tau H(a_\alpha^\dagger, a_\alpha)}\ket{\phi_{j-1}}
 	\simeq\bra{\phi_j}\nord{e^{-\Delta\tau H(a_\alpha^\dagger, a_\alpha)}}\ket{\phi_{j-1}}=\\
@@ -947,7 +953,7 @@ We now define the \emph{path integral measure} $\pide\phi(\tau)$ such that
 \end{eq}
 and taking the limit on $S_N$ as a Riemann integral, the label $j$ is replaced by a continuous variable $\tau$:
 \begin{eq}
-	S_N\xrightarrow[N\to\infty]{} \int_0^\beta\de\tau\,\Big(\phi^*(\tau)\pder{}\tau\phi(\tau)+H(\phi^*(\tau),\phi(\tau)\Big)=: S(\phi^*,\phi)
+	S_N\xrightarrow[N\to\infty]{} \int_0^\beta\de\tau\,\Big(\phi^*(\tau)\pder{}\tau\phi(\tau)+H(\phi^*(\tau),\phi(\tau))\Big)=: S(\phi^*,\phi)
 	\twhere
 	\phi(0)=\phi(\beta)
 \end{eq}
@@ -960,11 +966,11 @@ We can interpret $e^{-S(\phi^*,\phi)}$ as a Boltzmann weight for field configura
 \begin{eq}
 	\pide\phi(\tau)\pide\phi^*(\tau)\,e^{-S(\phi^*,\phi)}
 \end{eq}
-as a gaussian measure (notice that for free fields the action is quadratic), and then the whole integral is well defined. 
+as a Gaussian measure (notice that for free fields the action is quadratic), and then the whole integral is well defined. 
 
 The original non-commutativity of the field operators $\ophi$ is replaced here by the integration over all possible ``alternatives'' of the function fields $\phi$, without the classical constraint of the equation of motion. 
 
-It worth to notice that in general the expansion in annihilation operators eq.~\eqref{eq:coh_field_exp} is performed in momentum space, hence the labels $\{\alpha\in A\}$ are the three momentum vectors $\vec p\in\R^3$. Since each element $\phi(\tau)$ should be meant as a collection $\{\phi_\alpha(\tau)\}_{\alpha\in A}=\{\phi_{\vec p}(\tau)\}_{\vec p\in\R^3}$, then we can define a function $\phi(\tau,\vec p)$ defined by $\phi(\tau,\vec p):=\phi_{\vec p}(\tau)$. Similarly, the expansion of $\ophi$ can be done in the standard space of elements $\{\vec x\in\R^3\}$, defining in this way the functions $\phi(\tau,\vec x)$. Therefore the path-integral measure can be thought as an integration over all possible functions defined on $\R^4$, periodic in $\tau$, and the summation $\sum_\alpha$ can always be replaced by $\int\de^3x$ or $\int\de^3p$.
+It worth to notice that in general the expansion in annihilation operators eq.~\eqref{eq:coh_field_exp} is performed in momentum space, hence the labels $\{\alpha\in A\}$ are the momentum vectors $\vec p\in\R^3$. Since each element $\phi(\tau)$ should be meant as a collection $\{\phi_\alpha(\tau)\}_{\alpha\in A}=\{\phi_{\vec p}(\tau)\}_{\vec p\in\R^3}$, then we can define a function $\phi(\tau,\vec p):=\phi_{\vec p}(\tau)$. Similarly, the expansion of $\ophi$ can be done in the standard space of elements $\{\vec x\in\R^3\}$, defining in this way the functions $\phi(\tau,\vec x)$. Therefore the path-integral measure can be thought as an integration over all possible functions defined on $\R^4$, periodic in $\tau$, and the summation $\sum_\alpha$ can always be replaced by $\int\de^3x$ or $\int\de^3p$.
 
 \subsubsection{Path integral for fermionic fields}
 
@@ -974,7 +980,7 @@ If we have fermions the above procedure needs a little modification since now an
 \end{eq}
 so that for each common eigenstate $\ket\phi$ of the annihilation operators we have
 \begin{eq}
-	\{a_\alpha,a_{\alpha'}\}\ket\phi=\{\phia,\phi_{\alpha'}\}\ket\phi\neq0
+	0=\{a_\alpha,a_{\alpha'}\}\ket\phi=\{\phia,\phi_{\alpha'}\}\ket\phi
 \end{eq}
 hence the eigenvalues $\phia,\phi_{\alpha'}$ of the annihilation operators cannot be complex numbers, and we need to introduce some \emph{Grassmann variables}, i.e. anticommuting objects such that
 \begin{eq}
@@ -994,7 +1000,7 @@ with the \emph{Euclidean action} defined in terms of Grassmann fields
 	S(\xi^*,\xi):=\int_0^\beta\Big(\xi^*(\tau)\pder{}\tau\xi(\tau)+H(\xi^*(\tau),\xi(\tau)\Big)
 \end{eq}
 
-Again one can give a rigorous meaning to the above formulas for free by proving that $\pide\xi^*(\tau)\pide\xi(\tau)\,e^{-S(\xi^*,\xi)}$ is a ``Grassmann Gaussian integral''. 
+Again one can give a rigorous meaning to the above formulas for free fields by proving that $\pide\xi^*(\tau)\pide\xi(\tau)\,e^{-S(\xi^*,\xi)}$ is a ``Grassmann Gaussian integral''. 
 
 In the following we denote by $\phi$ both the complex fields in the bosonic case and Grassmann fields in the fermionic case.
 
@@ -1006,26 +1012,26 @@ In the following we denote by $\phi$ both the complex fields in the bosonic case
 \end{eq}
 Then in Fock space the Matsubara green functions are defined by
 \begin{eq}\label{eq:matsu_GF_PI}
-	\langle\tp[a_{\alpha_1}(\tau_1)\ldots a_{\alpha_n}a_{\alpha_{n+1}}^\dagger\ldots a_{\alpha_{2n}}]\rangle_\beta
+	\langle\tp[a_{\alpha_1}(\tau_1)\ldots a_{\alpha_n}(\tau_n)a_{\alpha_{n+1}}^\dagger(\tau_{n+1})\ldots a_{\alpha_{2n}}^\dagger(\tau_{2n})]\rangle_\beta
 	:= \frac%
-		{\Tr_{\fock^\pm}\tp\big[e^{-\beta H}\tp[a_{\alpha_1}(\tau_1)\ldots a_{\alpha_n}a_{\alpha_{n+1}}^\dagger\ldots a_{\alpha_{2n}}]\big]}
+		{\Tr_{\fock^\pm}\tp_\tau\big[e^{-\beta H}\tp_\tau[a_{\alpha_1}(\tau_1)\ldots a_{\alpha_n}a_{\alpha_{n+1}}^\dagger\ldots a^\dagger_{\alpha_{2n}}]\big]}
 		{\Tr_{\fock^\pm}e^{-\beta H}}
 \end{eq}
-where the time ordering $\tp[-]$ is considered in the Euclidean time $\tau$, and we consider $\fock^+$ for bosonic fields and $\fock^-$ for fermionic fields. The previous formula holds provided that $\Tr_{\fock^\pm}e^{-\beta H}$ is finite. The requirement of finite volume makes this assumption more easily satisfied, but obviously this can raise easily problems in the thermodynamic limit. 
+where the time ordering $\tp_\tau[-]$ is considered in the Euclidean time $\tau$, and we consider $\fock^+$ for bosonic fields and $\fock^-$ for fermionic fields. The previous formula holds provided that $\Tr_{\fock^\pm}e^{-\beta H}$ is finite. The requirement of finite volume makes this assumption more easily satisfied, but obviously this can raise easily problems in the thermodynamic limit. 
 
 The time ordering product can be removed by means of a permutation $\pi$ that puts the immaginary times in chronological order, $\tau_{\pi(i)}>\tau_{\pi(i+1)}$, then using notation
 \begin{eq}
 	\tilde a_{\alpha_i}(\tau_i)=\begin{cases}
 		a_{\alpha_i}(\tau_i)\quad\tif i\leq n\\
-		a_{\alpha_i}^\dagger(\tau_i)\quad\tif i<n
+		a_{\alpha_i}^\dagger(\tau_i)\quad\tif i>n
 	\end{cases}
 \end{eq}
 then
 \begin{eq}
-	&\langle\tp[a_{\alpha_1}(\tau_1)\ldots a_{\alpha_n}a_{\alpha_{n+1}}^\dagger\ldots a_{\alpha_{2n}}]\rangle_\beta=\\
-	&\qquad=\frac1Z\varepsilon^{\sigma(\pi)}\Tr\big[e^{-\beta H}\tilde a_{\alpha_{\pi(1)}}(\tau_{\pi(1)})\ldots \tilde a_{\alpha_{\pi(2n)}}(\tau_{\pi(2n)})\big]\\
-	&\qquad=\frac1Z\varepsilon^{\sigma(\pi)}\int_{\phi(0)=\pm\phi(\beta)}\pide\phi(\tau)\pide\phi^*(\tau)\,e^{-S(\phi^*,\phi)}\tilde\phi_{\alpha_{\pi(1)}}(\tau_{\pi(1)})\ldots\tilde\phi_{\alpha_{\pi(2n)}}(\tau_{\pi(2n)})\\
-	&\qquad=\frac1Z\int_{\phi(0)=\pm\phi(\beta)}\pide\phi(\tau)\pide\phi^*(\tau)\,e^{-S(\phi^*,\phi)}\tilde\phi_{\alpha_{1}}(\tau_{1})\ldots\tilde\phi_{\alpha_{2n}}(\tau_{2n})
+	&\langle\tp[a_{\alpha_1}(\tau_1)\cdots a_{\alpha_n}a_{\alpha_{n+1}}^\dagger\cdots a_{\alpha_{2n}}]\rangle_\beta=\\
+	&\qquad=\frac1Z\varepsilon^{\sigma(\pi)}\Tr\big[e^{-\beta H}\tilde a_{\alpha_{\pi(1)}}(\tau_{\pi(1)})\cdots \tilde a_{\alpha_{\pi(2n)}}(\tau_{\pi(2n)})\big]\\
+	&\qquad=\frac1Z\varepsilon^{\sigma(\pi)}\int_{\phi(0)=\pm\phi(\beta)}\pide\phi(\tau)\pide\phi^*(\tau)\,e^{-S(\phi^*,\phi)}\tilde\phi_{\alpha_{\pi(1)}}(\tau_{\pi(1)})\cdots\tilde\phi_{\alpha_{\pi(2n)}}(\tau_{\pi(2n)})\\
+	&\qquad=\frac1Z\int_{\phi(0)=\pm\phi(\beta)}\pide\phi(\tau)\pide\phi^*(\tau)\,e^{-S(\phi^*,\phi)}\tilde\phi_{\alpha_{1}}(\tau_{1})\cdots\tilde\phi_{\alpha_{2n}}(\tau_{2n})
 \end{eq}
 where in the last step we put the operators in the original order, killing in this way the factor $\varepsilon^{\sigma(\pi)}$. We saw in this way that the path integral is very useful to avoid problems related to the time ordering inside the Gell-Mann Low formula. 
 
