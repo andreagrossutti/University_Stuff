@@ -14,19 +14,19 @@ Consider a $T=0$ RQFT (the restriction $T=0$ is not really needed, but simplify 
 \begin{eq}
 	\ophil_\#(x^0,\vec x)=e^{ix^0 H_\#}\ophi_0(\vec x)e^{-ix^0H_\#}
 \end{eq}
-where $\#$ denotes either the free of the interacting theory and $\Lambda$ denotes the cutoffs. The previous time evolution is ensured by the von Newman theorem, assuming that the free and the interacting fields coincides at the initial time $t=0$.  Let $\ket{0^\Lambda_I}$ be the vacuum of the interacting Hamiltonian, which is still in the Fock space of the free field. 
+where $\#$ denotes either the free ($\#=0$) of the interacting ($\#=I$) theory and $\Lambda$ denotes the introduced cutoffs. The consistency of the previous time evolution is ensured by the von Newman theorem, assuming that the free and the interacting fields coincides at the initial time $t=0$.  Let $\ket{0^\Lambda_I}$ be the vacuum of the interacting theory, which is still in the Fock space of the free field. 
 
 We construct the following functions (actually they are distributions, but with abuse of terminology, we call ``functions'' also these expectation values)
 \begin{eq}
 	W^\Lambda_n(x_1,\ldots,x_n):= \bra{0^\Lambda_I}\ophil_I(x_1)\cdots\ophil_I(x_n)\ket{0^\Lambda_I}
 \end{eq}
-We stress the fact that since translational invariance (and thus also Poincaré invariance) is broken, Haag's theorem does not apply. 
+We stress the fact that since translational invariance (and thus also Poincaré invariance) is broken by the IR cutoff, Haag's theorem does not apply. 
 
 Then we identify the necessary counterterms to be added to the Hamiltonian (or to the Lagrangian if the path integral approach is used) and the field renormalization $Z_\Lambda$ (called \emph{wave-function renormalization constant}) leading to ``\emph{renormalized fields}'', for which the correlation functions have a well-defined limit when IR an UV cutoffs are removed from outside\footnote{It is important to notice that the limit should be removed from outside, otherwise Haag's theorem apply and we are stuck.} of the correlation function, i.e. such that the following limit
 \begin{eq}
 	\limcutrem Z^{-n}_\UVcut \bra{0^\Lambda_I}\ophil_I(x_1)\cdots\ophil_I(x_n)\ket{0^\Lambda_I}
 \end{eq}
-exists in a suitable space of functions or distributions, e.g. $\schw'(\R^d)$. This is possible since the previous limit is a functions limit, hence much weaker than the operator limit (for the fields) which cannot exists due to Haag's theorem. 
+exists in a suitable space of functions or distributions, e.g. $\schw'(\R^d)$. This is possible since the previous limit is a limit of functions, hence much weaker than the operator limit (for the fields) which cannot exists due to Haag's theorem. 
 
 The crucial fact is that if the limiting functions satisfy certain properties we can reconstruct quantum fields acting in an appropriate Hilbert space, such that their expectation values are precisely the functions we started from. The reconstructed field $\ophi$ now has no reasons to be equivalent to a free field, nor the Hilbert space of $\ophi$ has reason to be the same Fock space we started from (actually in general it could even not be a Fock space), hence the reconstruction is not in conflict with Haag's argument. 
  
@@ -46,8 +46,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 	Let $\{W_n\}_{n=0}^\infty$ be a sequence of (tempered) distributions, $W_n\in\schw'(\R^{(d+1)n})$ for all $n>0$, $W_0:=1$. Suppose that they satisfy the following properties:
 	\todo{La condizione di hermiticità non è necessaria per definire un campo reale?}
 	\begin{enumerate}[label=(\arabic*)]
-		\item (\emph{Positive Definiteness}) For any finite sequence of $N$ test functions $\uf=(f_0,f_1(x_1),f_2(x_1,x_2),\ldots)$, $f_n\in\schw(\R^{(d+1)n})$, then
-		\todo{Qui ho usato la definizione di Streater-Wight e Jost, differente da quella data a lezione, non mi sembra che le due definizioni siano equivalenti (quella data a lezione sembra più forte, visto che la serie diventa infinita).}
+		\item (\emph{Positive Definiteness}) For any finite sequence of $N$ test functions $\uf=(f_0,f_1(x_1),f_2(x_1,x_2),\ldots)$, $f_n\in\schw(\R^{(d+1)n})$, the following inequality holds:
 		\begin{eq}
 			\sum_{j,k=0}^N\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k \,f_n^*(x_1,\ldots,x_j)W_{j+k}(x_1,\ldots,x_j,y_1,\ldots,y_k)f_k(y_1,\ldots,y_k)\geq0
 		\end{eq}
@@ -59,7 +58,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 		for all $n\in\N$.
 		\item (\emph{Spectral condition}) For each $W_n$, $n>0$, exists $\widetilde W_n$ such that
 		\begin{eq}\label{eq:reconstr_thm_hp_3}
-			W_n(x_1,\ldots,x_n)=\int\de p_1\ldots\de p_n\,\widetilde W_{n-1}(p_1,\ldots,p_{n-1})\, e^{ i(x_n-x_{n-1})p_{n-1}}\ldots e^{i(x_2-x_1)p_1}
+			W_n(x_1,\ldots,x_n)=\int\de p_1\ldots\de p_{n-1}\,\widetilde W_{n-1}(p_1,\ldots,p_{n-1})\, e^{ i(x_n-x_{n-1})p_{n-1}}\ldots e^{i(x_2-x_1)p_1}
 		\end{eq}
 		with $\widetilde W_{n-1}(p_1,\ldots,p_{n-1})=0$ if $p_j\not\in \overline V^+$ for some $j$, $1\leq j\leq n-1$. 
 		\item (\emph{Local commutativity condition / Symmetry}) If $x_i$ and $x_{i+1}$ are space-like separated for some $i$, that is $(x_i-x_{i+1})^2<0$, then for all $n>i$
@@ -71,12 +70,12 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 			\lim_{a\to\infty\atop a^2<0} W_n(x_1,\ldots x_j,x_{j+1}+a,\ldots,x_n+a)=W_j(x_1,\ldots,x_j)W_{n-j}(x_{j+1},\ldots,x_n)
 		\end{eq}
 	\end{enumerate}
-	Then exists
+	Then exist
 	\begin{enumerate}[label=(\arabic*')]
 		\item a separable Hilbert space $\hs$,
 		\item a continuous unitary representation $U(a,\Lambda)$ of $\poinc$\footnote{In the case of fields with half-integer spin $\poinc$ is replaced by $\cpoinc$.} in $\hs$,
 		\item a state $\Omega\in\hs$, translationally invariant, called \emph{vacuum},
-		\item an operator-valued distribution field $\ophi(x)$ such that, given a test function $f$, $\ophi(f):=\int\de x\,f(x)\ophi(x)$ is an operator with domain $\dom$, $\dom$ dense in $\hs$ and $\ket\Omega\in\dom$, and denoting by $\polyn(\ophi(f))$ the set of polynomials of $\ophi(f)$\footnote{It is important to notice that $\polyn(\ophi(f))$ denotes polynomials of fields smeared (in general) with different test functions, not only one test function $f$, for instance $\ophi(f_1)\ophi(f_2)\ldots\ophi(f_n)\in\polyn(\ophi(f))$.}, the subspace of $\hs$ generated applying polynomials of the smeared fields to the vacuum, $\polyn(\ophi(f))\ket\Omega$, is dense in $\hs$
+		\item an operator-valued distribution $\ophi(x)$ such that $\ophi(f):=\int\de x\,f(x)\ophi(x)$ is an operator with domain $\dom$ dense in $\hs$ for any test function $f$; moreover $\Omega\in\dom$, and denoting by $\polyn(\ophi(f))$ the set of polynomials of $\ophi(f)$,\footnote{It is important to notice that $\polyn(\ophi(f))$ denotes polynomials of fields smeared (in general) with different test functions, not only one test function $f$, for instance $\ophi(f_1)\ophi(f_2)\ldots\ophi(f_n)\in\polyn(\ophi(f))$.} the subspace of $\hs$ generated by $\polyn(\ophi(f))\ket\Omega$ is dense in $\hs$
 	\end{enumerate}
 	and the following properties hold:
 	\begin{enumerate}[label=(\arabic*'), resume]
@@ -105,12 +104,12 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 \begin{proof}(\textit{sketch})
 	\todo{Ho cercato di completare la dimostrazione, ora mi sembra completa, non più ``abbozzata''.}
 	
-	\textit{(1')} Consider the vector space $\uschw$ of sequences of test functions $\uf=(f_0,f_1(x_1),f_2(x_1,x_2),\ldots)$, $f_0\in\C$ and $f_k\in\schw(\R^{(d+1)k})$, with finite number of non-vanishing elements. Addition and multiplication by complex scalars are definite by
+	\textit{(1')} Consider the vector space $\uschw$ of sequences of test functions $\uf=(f_0,f_1(x_1),f_2(x_1,x_2),\ldots)$, $f_0\in\C$ and $f_k\in\schw(\R^{(d+1)k})$, with finite number of non-vanishing elements.\footnote{Equivalently, for each $\uf\in\uschw$ exists $N\in\N$ such that $f_k=0$ for all $k\geq N$.} Addition and multiplication by complex scalars are definite by
 	\begin{eq}
 		(f_0,f_1,\ldots)+(g_0,g_1,\ldots)&=(f_0+g_0,f_1+g_1,\ldots)\\
 		\alpha(f_0,f_1,\ldots)&=(\alpha f_1,\alpha f_2,\ldots)
 	\end{eq}
-	Next we introduce a scalar product defined on pairs of vectors of the vector space
+	Next we introduce a scalar product defined on pairs of vectors of $\uschw$
 	\begin{eq}\label{eq:reconstr_thm_scalar_prod}
 		(\uf,\ug):=\sum_{j,k=0}^\infty\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k f_j^*(x_1,\ldots,x_j)W_{j+k}(x_1,\ldots,x_j,y_1,\ldots,y_k)g_k(y_1,\ldots,y_k)
 	\end{eq}
@@ -122,15 +121,15 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 	\begin{eq}
 		\nuschw:=\{\uf\in\uschw\varst \norm\uf=0\}\subseteq\uschw
 	\end{eq}
-	is an isotropic subspace of $\uschw$, that is, a subspace in which each vector is orthogonal to every other vector, indeed
+	is an isotropic subspace of $\uschw$, that is, a subspace in which each vector is orthogonal to every other vector, indeed by the Schwartz inequality (which is valid as long as the scalar product is non-negative)
 	\begin{eq}
-		|(\uf,\ug)|\leq\norm\uf\,\norm\ug=0
+		|(\uf,\ug)|\leq\norm\uf\,\norm\ug
 	\end{eq}
-	by the Schwartz inequality (which is valid as long as the scalar product is non-negative). Thus, if $\uf$ and $\ug$ are of zero norm, then $\uf$ is orthogonal to $\ug$ and $\alpha\uf+\beta\ug$ is of zero norm. We now form equivalence classes of sequences $\uf$, two sequences being equivalent if they differ by a sequence of zero norm. These equivalence classes form in a natural way a vector space, denoted by $\qschw$, on which the scalar product induced by $\uschw$ is well-defined and positive definite, since $\norm{\eqclass\uf}=0$ implies $\eqclass\uf=\eqclass{\varunderline0}$. Therefore $\uschw$ is a pre-Hilbert space. A generic element of $\qschw$ is of the form
+	thus, if $\uf$ and $\ug$ are of zero norm, then $\uf$ is orthogonal to $\ug$ and $\alpha\uf+\beta\ug$ is of zero norm. We now form equivalence classes of sequences $\uf$, two sequences being equivalent if they differ by a sequence of zero norm. These equivalence classes form in a natural way a vector space, denoted by $\qschw$, on which the scalar product induced by $\uschw$ is well-defined and positive definite, since $\norm{\eqclass\uf}=0$ implies $\eqclass\uf=\eqclass{\varunderline0}$. Therefore $\uschw$ is a pre-Hilbert space. A generic element of $\qschw$ is of the form
 	\begin{eq}
 		\qschw\ni\eqclass\uf=\{\ug\in\uschw\st\uf-\ug\in\nuschw\}
 	\end{eq}
-	Then we can finally define the Hilbert space $\hs$ by completion\footnote{The completion procedure is described in \cite[Pages 121-122]{Streater:2000}.} of $\qschw$ respect to the induced norm:
+	Then we can finally define the Hilbert space $\hs$ by completion\footnote{The completion procedure is described in \cite[pages 121-122]{Streater:2000}.} of $\qschw$ respect to the induced norm:
 	\begin{eq}
 		\hs:=\overline\qschw
 	\end{eq}
@@ -171,7 +170,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 		U(a,\Lambda)(1,0,\ldots,0,\ldots)=(1,0,\ldots,0,\ldots)=:\uid
 	\end{eq}
 	hence $\uid\in\uschw$ is translational invariant in $\uschw$ and the same holds for $\eqclass{\uid}$ in $\qschw$. Finally, the vacuum in $\hs$ is given by the Cauchy sequence
-	$\Omega:=\eqclass{\uid}$.
+	$\ket\Omega:=\eqclass{\uid}$.
 	
 	\skipline
 	\textit{(4')} We introduce in $\uschw$ a linear operator $\ophi(h)$ for each test function $h\in\schw(\R^{d+1})$ by the equation
@@ -182,7 +181,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 	\begin{eq}
 		(h\tensp f_k)(x_1,\ldots,x_{k+1}):= h(x_1)f_k(x_2,x_3,\ldots,x_{k+1})
 	\end{eq}
-	is clearly a test function. As functionals of $h$ the matrix elements $(\uf,\ophi(h)\ug)$ are tempered distributions since they are finite sums of $W$'s, and further
+	is clearly a test function. As functionals of $h$ the matrix elements $(\uf,\ophi(h)\ug)$ are tempered distributions since they are finite sums of $W$'s, and furthermore
 	\begin{eq}\label{eq:recons_th_self_adj_phi}
 		(\uf,\ophi(h)\ug)=(\ophi(h^*)\uf,\ug)
 	\end{eq}
@@ -198,7 +197,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 	hence $\polyn(\ophi(h))\,\uid\iso\uschw$ and then $\polyn(\ophi(h))\ket\Omega\iso\dom$ is dense in $\hs$. 
 	
 	\skipline
-	\textit{(9')} Notice that the vacuum expectation value in $\hs$ reads
+	\textit{(9')} The vacuum expectation value in $\hs$ reads
 	\begin{eq}
 		(\Omega,\ophi(h_1)\ldots\ophi(h_n)\Omega)
 		&=(\eqclass{\uid},\ophi(h_1)\ldots\ophi(h_n)\eqclass\uid)\qquad\text{scalar product in $\qschw$}\\
@@ -255,7 +254,8 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 		&\qquad=\bra\Omega\ophi(0)e^{i\mom	(x_2-x_1)}\ophi(0)\ldots \ophi(0)e^{i\mom(x_n-x_{n-1})}\ophi(0)\ket\Omega\\
 		&\qquad=\int\de p_1\ldots\de p_{n-1}\,\bra\Omega\ophi(0)e^{i\mom(x_2-x_1)}\ketbra{p_1}\ophi(0)\ldots \ophi(0)e^{i\mom(x_n-x_{n-1})}\ketbra{p_{n-1}}\ophi(0)\ket\Omega\\
 		&\qquad=\int\de p_1\ldots\de p_{n-1}\,e^{ip_1(x_2-x_1)}\ldots e^{ip_{n-1}(x_n-x_{n-1})}\bra\Omega\ophi(0)\ketbra{p_1}\ophi(0)\ket{p_2}\ldots\bra{p_{n-1}}\ophi(0)\ket\Omega
-	\end{eq}	
+	\end{eq}
+	where $\{\ket{p_i}\}$ denotes an orthonormal basis of generalized eigenvectors of $\mom$, with generalized eigenvalues $\{p_i\}$.
 	Comparing this expression with eq.~\eqref{eq:reconstr_thm_hp_3} we get
 	\begin{eq}\label{eq:recon_thm_spectra_step1}
 		\widetilde W_{n-1}(p_1,\ldots,p_{n-1}) = \bra\Omega\ophi(0)\ketbra{p_1}\ophi(0)\ket{p_2}\ldots\bra{p_{n-1}}\ophi(0)\ket\Omega
@@ -275,7 +275,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 	
 	\skipline
 	\textit{(7')}
-	Take $f,g\in\schw(\R^{d+1})$ space-like separated, that is $\supp f\sls\supp g$, and $\{h_i\}_{i=0}^\infty$. Then from \textit{(4)} we know that, for each value of $n$,  
+	Take $f,g\in\schw(\R^{d+1})$ space-like separated, that is $\supp f\sls\supp g$, and a sequence of test functions $\{h_i\}_{i=0}^\infty$. Then from \textit{(4)} we know that, for each value of $n$,  
 	\begin{eq}
 		W_{n+2}(f,g,h_1,\ldots,h_n)=W_{n+2}(g,f,h_1,\ldots,h_n)
 	\end{eq}
@@ -310,7 +310,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 		&=\bigg(\sum_{j=0}^\infty\int\de x_1\ldots\de x_j\,f_j^*(x_1,\ldots,x_j)W_j(x_1,\ldots,x_j)\bigg)\bigg(\sum_{k=0}^\infty\int\de y_1\ldots\de y_k\,W_k(y_1,\ldots,y_k)f_k(y_1,\ldots,y_k)\bigg)\\
 		&=(\Omega',\Omega)(\Omega,\Omega')=0
 	\end{eq}
-	where in (a) we used the translational invariance of $\Omega'$. In general $\Omega'$ is not an element of $\qschw$, but because the latter is dense then $\Omega'$ can be approximated by elements of $\qschw$ by arbitrary accuracy, then the contradiction easily extends for $\Omega'\in\hs$, see \cite[Page 124]{Streater:2000} for the details.
+	where in (a) we used the translational invariance of $\Omega'$. In general $\Omega'$ is not an element of $\qschw$, but because the latter is dense then $\Omega'$ can be approximated by elements of $\qschw$ by arbitrary accuracy, then the contradiction easily extends for $\Omega'\in\hs$, see \cite[page 124]{Streater:2000} for the details.
 \end{proof}
 
 The most important consequence of the theorem is that in order to exhibit a relativistic quantum field theory model, it is enough to give a set of Wightman functions satisfying properties \textit{(1)-(5)}. As we'll discuss in the next section, these properties provide a non-perturbative substitute for canonical quantization, since allow to construct a quantum field theory without use the canonical quantization procedure and CCR (or CAR) which are inconsistent in the interacting case due to Haag's theorem. 
@@ -319,11 +319,11 @@ Properties \textit{(1') - (8')} are called \emph{Wightman axioms}\footnote{These
 
 Notice that property \textit{(9')} tells us that the vacuum expectation values of the reconstructed theory are exactly the Wightman function we started from. 
 
-Conversely, the vacuum expectation values of any theory satisfying Wightman axioms satisfy themselves the properties required in the reconstruction theorem.\footnote{See \cite[Theorems 3.1-3.4]{Streater:2000} and \cite[Section 3.3]{Jost.:1965}.}  In particular, if $\ophi_F$ is a free theory defined in a Fock space, then the vacuum expectation values $\bra0\ophi_F(x_1)\ldots\ophi_F(x_n)\ket0$ satisfy properties \textit{(1)-(5)} and the reconstructed theory coincide with the initial one, $\ophi_{\text{rec}}=\ophi_F$. On the other side, a reconstructed interacting theory is defined in a Hilbert space disjoint from the Fock space of the free theory, due to Haag's theorem. 
+Conversely, if a theory satisfy Wightman axioms then its vacuum expectation values satisfy the properties required in the reconstruction theorem.\footnote{See \cite[Theorems 3.1-3.4]{Streater:2000} and \cite[Section 3.3]{Jost.:1965}.}  In particular, if $\ophi_F$ is a free theory defined in a Fock space, then the vacuum expectation values $\bra0\ophi_F(x_1)\ldots\ophi_F(x_n)\ket0$ satisfy properties \textit{(1)-(5)} and the reconstructed theory coincide with the initial one, $\ophi_{\text{rec}}=\ophi_F$. On the other side, a reconstructed interacting theory is defined in a Hilbert space disjoint from the Fock space of the free theory, due to Haag's theorem. 
 
-Can also be proved that the reconstructed theory is unique, i.e. any other theory satisfying properties \textit{(1') - (9')} (in particular with same vacuum expectation values $\{W_n\}_{n=0}^\infty$) is unitarily equivalent to the one reconstructed in the proof of the theorem.\footnote{Actually this claim is included in the reconstruction theorem, see \cite[Thm. 3.7]{Streater:2000} and \cite[Section 3.4, Thm. 1]{Jost.:1965}.} 
+Can also be proved that the reconstructed theory is unique, i.e. any other theory satisfying properties \textit{(1') - (9')} (in particular with same vacuum expectation values $\{W_n\}_{n=0}^\infty$) is unitarily equivalent to the one reconstructed in the proof of the theorem.\footnote{Actually this claim is usually included in the statement of the reconstruction theorem, see \cite[Thm. 3.7]{Streater:2000} and \cite[Section 3.4, Thm. 1]{Jost.:1965}.} 
 
-Finding a set of Wightman functions satisfying properties \textit{(1)-(5)} turned out to be a very hard problem, apart from the non-interacting case, also because it is difficult to satisfy the positivity condition, which has a non-linear structure, in contrast to the other properties, which have a linear structure. We will see in the following how this problem has been solved by computing Wightman functions in the Euclidean space, where properties \textit{(1)-(5)} take a more simple form.
+Finding a set of Wightman functions satisfying properties \textit{(1)-(5)} turned out to be a very hard problem, apart from the non-interacting case, also because it is difficult to satisfy the positivity condition, which has a non-linear structure, in contrast to the other properties, which have a linear structure. We will see in the following how this problem has been solved by computing Wightman functions in the Euclidean space, where properties \textit{(1)-(5)} take a simpler form.
 
 In the proof of the theorem we constructed the Hilbert space of the theory as (the completion of) finite sequences of test functions. In order to give a better interpretation of the Hilbert space, notice that if we define
 \begin{eq}
@@ -335,7 +335,7 @@ such that
 	\tcomma
 	\ophi(\uf)\eqclass\ug:=\eqclass{\ophi(\uf)\ug}
 \end{eq}
-and in particular (let $\Omega:=\eqclass\uid$ in this instance, since we do not consider the completion of $\qschw$)
+and in particular
 \begin{eq}
 	\ophi(\uf)\uid=(f_0,f_1,f_2,\ldots)=\uf
 	\tcomma
@@ -349,7 +349,8 @@ Then the scalar product in $\uschw$ and $\qschw$ can be rewritten as\footnote{Th
 \end{eq}
 Hence we can identify by unitary equivalence (i.e. up to representations) $\qschw$ with $\{\ophi(\uf)\Omega\st\uf\in\uschw\}$ by
 \begin{eq}
-	U\,:\,\eqclass\uf\,\mapsto\,\ophi(\uf)\Omega
+	U\,:\,\qschw\,&\to\,\{\ophi(\uf)\Omega\st\uf\in\uschw\}\\
+	\eqclass\uf\,&\mapsto\,\ophi(\uf)\Omega
 \end{eq}
 since the scalar products defined in the two spaces are the same. This is related with the density of $\polyn(\ophi(f))\Omega$ in $\hs$. Then we are done: one can forget the structure underlying $\uf$ and $\Omega$ and define the Hilbert space by applying the operator $\ophi(\uf)$ on the vacuum $\Omega$, as usual. 
 
@@ -362,7 +363,7 @@ By exploiting the analyticity properties of the Wightman's functions, general re
 
 \subsubsection{Spin-statistics theorem}
 
-The connection between spin and statistics, which is at the basis of Pauli principle (namely, in the alternative of anti/commutation relations at space-like points, fields carrying half-integer/integer spin must anti-commute/commute), have been first derived by Pauli for free theories in Fock space. It's generalization to interacting theories holds in the Wightman axiomatic formalism, and is a consequence of Lorentz covariance, as has been proved in \emph{spin-statistics theorem}:
+The connection between spin and statistics, which is at the basis of Pauli principle (namely, in the alternative of (anti)commutation relations at space-like separated points, fields carrying half-integer/integer spin must anti-commute/commute), have been first derived by Pauli for free theories in Fock space. It's generalization to interacting theories holds in the Wightman axiomatic formalism, and is a consequence of Lorentz covariance, as it has been proved in \emph{spin-statistics theorem}:
 \begin{theorem}[{Spin-statistics, \cite[Section 4.2]{Strocchi_2013}, \cite[Section 4.4]{Streater:2000}, \cite[Section 5.3]{Jost.:1965}}]
 	Let $\psi_{\alpha,\dot\beta}$ be a spinor field\footnote{Here we consider a spinor field since it can describe the most general case, i.e. both integer and half integer fields. We will do the same also for the spin-statistics theorem.} transforming as $\mathcal D^{j/2,k/2}$, and therefore carrying a integer/half-integer spin, corresponding to $j+k=$even/odd, then the wrong connection between spin and statistics, i.e., for integer/half-integer spin the field anti-commutes/commutes at space-like separations, implies that $\psi\Omega=0$ and, if locality holds, $\psi=0$.
 \end{theorem}
@@ -378,7 +379,7 @@ The (up to now experimentally established) \emph{PCT symmetry} also follows from
 
 Wightman's functions analyticity can be proved\footnote{\cite[Sections 3.4.1-3.4.3]{Strocchi_2013}, \cite[Chapter 4]{Streater:2000}}  and imply that the knowledge of the Wightman functions of the fields localized in a given open set $\mathcal O\subset\R^4$, however small, completely determines the theory. In fact, if $\polyn(\mathcal O)$ denotes the polynomial algebra of the fields smeared with test functions with support in $\mathcal O$, one has
 \begin{theorem}[{Reeh-Schlieder, \cite[Section 4.2]{Streater:2000}, \cite[Section 4.8]{Jost.:1965}, \cite[Section 3.4.4]{Strocchi_2013}, \cite[Section II.5.3]{Haag_1996}}] 
-	For any $\mathcal O\subset \R$, the vacuum is cyclic with respect to the algebra $\polyn(\mathcal O)$, i.e.
+	For any open set $\mathcal O\subset \R^4$, the vacuum is cyclic with respect to the algebra $\polyn(\mathcal O)$, i.e.
 	\begin{eq}
 		\{\polyn(\ophi(f))\varst \supp(f)\subset\mathcal O\}\Omega
 	\end{eq}
@@ -389,33 +390,34 @@ This means that the information contained in fields localized in any, arbitraril
 
 \subsubsection{Non-commutativity of the algebra of interacting fields}
 
-As we already pointed out equal-time canonical (anti-)commutation relations cannot be used to quantize field equations for interacting theories. A natural question is whether and where a quantization condition is contained in the general requirements of Wightman's axioms, equivalently in the properties of Wightman functions. To this purpose, one may show that, as a consequence of the spectral condition, the field algebra of the reconstructed theory cannot be commutative, hence properties \textit{(1)-(5)} imply quantization. Since can be proved\footnote{\cite[Section 4.1]{Strocchi_2013}} that field obeying free fields equations satisfy either CCR of CAR, Wightman's properties qualify as the way of defining quantum fields by providing the correct substitute of canonical quantization in the interacting case. 
+As we already pointed out equal-time canonical (anti-)commutation relations cannot be used to quantize field equations for interacting theories. A natural question is whether and where a quantization condition is contained in the general requirements of Wightman's axioms, or equivalently in the properties of Wightman functions. To this purpose, one may show that, as a consequence of the spectral condition, the field algebra of the reconstructed theory cannot be commutative, hence properties \textit{(1)-(5)} imply quantization. Since can be proved\footnote{\cite[Section 4.1]{Strocchi_2013}} that field obeying free fields equations satisfy either CCR of CAR, Wightman's properties qualify as the way of defining quantum fields by providing the correct substitute of canonical quantization in the interacting case. 
 
 \section{Haag-Ruelle scattering theory (massive case) and LSZ reduction formula}
 
 \cite{Ruelle:1962}; \cite{Hepp:1965}; \cite[Chapter II.4]{Haag_1996}; \cite[Chapters 6]{Jost.:1965}; \cite[Sections 6.1-6.2]{Strocchi_2013}\\
 
-Another important consequence of properties \textit{(1)-(5)} for relativistic QFT's is the existence of asymptotic fields which provide a non-perturbative definition of the $S$-matrix, which is unitary if asymptotic completeness holds. Also the LSZ asymptotic condition and the LSZ reduction formulas can be derived from the same properties, as proved by Hepp; furthermore, one can prove dispersion relations for scattering amplitudes, yielding experimentally measurable relations. 
+Another important consequence of properties \textit{(1)-(5)} for relativistic QFT's is the existence of asymptotic fields which provide a non-perturbative definition of the $S$-matrix, which is unitary if asymptotic completeness holds. Also the LSZ asymptotic condition and the LSZ reduction formula can be derived from the same properties, as proved by Hepp; furthermore, one can prove dispersion relations for scattering amplitudes, yielding experimentally measurable relations. 
 
 \skipline%
 
 One should notice that the axioms of Wightman do not introduce the notion of a particle. The particle notion is, however, of crucial importance if any connection of the theory with realities of physics is to be achieved. The principal observable of elementary particle physics, the $S$-matrix, depends essentially on the possibility of defining asymptotic incoming and outgoing states, which themselves can be described by free particles and their corresponding free fields. 
 
-It is highly gratifying that, under natural conditions, a Wightman field theory allows the precise definition of such asymptotic fields. This was proved by Ruelle, who applied Haag's idea of construct asymptotic ingoing and outgoing states as strong limits in Hilbert space, if certain ``space like asymptotic condition'' is verified by the vacuum expectation values of products of field operators. 
+It is highly gratifying that, under natural conditions, a Wightman field theory allows the precise definition of such asymptotic fields. This was proved by Ruelle, who applied Haag's idea of construct asymptotic ingoing and outgoing states as strong limits in Hilbert space, if certain ``space-like asymptotic condition'' is verified by the vacuum expectation values of products of field operators. 
 
-In his theory, Ruelle has to make some natural additional assumptions which go beyond axioms of Wightman. This is not astonishing, it is easily seen that in a theory which allows a complete particle interpretation the spectrum of the energy momentum vector must have special properties. 
+In his theory, Ruelle had to make some natural additional assumptions which go beyond axioms of Wightman. This is not astonishing, it is easily seen that in a theory which allows a complete particle interpretation the spectrum of the energy-momentum vector must have special properties. 
 
 \skipline%
 
-We shall not present the general theory in this section. The special case to which we shall restrict ourselves, however, shows most of the interesting aspects of the general case. Let's assume that our theory have a \emph{mass gap}. This means that the spectrum of the generators of the spacetime translations, as determined by the Wightman functions and the reconstruction theorem, satisfies the following:
+We shall not present the general theory in this section. The special case to which we shall restrict ourselves, however, shows most of the interesting aspects of the general case. Let's assume that our theory has a \emph{mass gap}. This means that the spectrum of the generators of the spacetime translations, as determined by the Wightman functions and the reconstruction theorem, satisfies the following:
 
-\emph{Mass gap condition}: Above the isolated point $p=0$ (corresponding to the vacuum state) there is a gap up to an isolated hyperboloid $p^2=m^2$ (\emph{mass gap}) denoted by $V_m^+\subset\spec(\mom^\mu)\subseteq\overline V^+$, with finite multiplicity (one-particle state), followed by a continuous spectrum starting at $p^2=(2m)^2$ (two-particles states). It suffices that such a mass gap condition holds in the subspace characterized by the conserved quantum numbers of the asymptotic states under investigation. 
+\emph{Mass gap condition}: Above the isolated point $p=0$ (corresponding to the vacuum state) there is a gap up to an isolated hyperboloid $p^2=m^2$ denoted by $V_m^+$ ($V_m^+\subset\spec(\mom^\mu)\subseteq\overline V^+$), with finite multiplicity (one-particle state), followed by a continuous spectrum starting at $p^2=(2m)^2$ (two-particles states). 
 
+It suffices that such a mass gap condition holds in the subspace characterized by the conserved quantum numbers of the asymptotic states under investigation. 
 Notice that such condition cannot be satisfied if theories admits massless particles, for instance it does not apply to QED. 
 
 \skipline%
 
-Let us restrict to the one-body problem, i.e. the description of the asymptotic sate for a one particle system. The existence of free asymptotic fields of mass $m$ should be related to the existence of an isolated hyperboloid $p^2=m^2$ in the two-point spectral function of the field $\ophi$. 
+Let us restrict to the one-body problem, i.e. the description of the asymptotic state for a one particle system. The existence of free asymptotic fields of mass $m$ should be related to the existence of an isolated hyperboloid $p^2=m^2$ in the two-point spectral function of the field $\ophi$. 
 
 Let $\hs_m$ be the improper\footnote{It is an improper subspace since it is made of generalized vectors, in the sense of Dirac's formalism.} subspace of $\hs$, which is eigenspace of the operator $\mom^\mu\mom_\mu$ associated to the eigenvalue $m^2$. 
 Suppose that our (possibly renormalized, if needed) field $\ophi$ when applied to the vacuum has a non-empty intersection with $\hs_m$, that is $\ophi(x)\Omega\not\perp\hs_m$. 
@@ -447,7 +449,7 @@ Due to condition \eqref{eq:disj_velocit_condit}, for very large values of $t$ th
 \end{eq}
 have their supports separated by large distances, hence in the asymptotic limit $t\to\pm\infty$ they are free (since interactions decay exponentially for $m>0$, see \cite[Section 6.2.2]{Strocchi_2013}). Then we can ``bring them back'' using free evolution, i.e. using the standard dispersion relation $\sqrt{\vec p^2+m^2}$:
 \begin{eq}
-	\ophi_m(h,t):=\int\de p\,e^{it\sqrt{\vec p^2+m^2}}\tilde h(p) e^{-itH}\ophi_m(p)e^{itH}
+	\ophi_m(h,t):=\int\de p\,e^{it\sqrt{\vec p^2+m^2}}\tilde h(p) e^{-itH}\tilde\ophi_m(p)e^{itH}
 \end{eq}
 Such field behaves for $t\to\pm\infty$ as a free field. 
 \todo{Non capisco il senso di ``portare indietro'' il campo utilizzando l'evoluzione libera, non potevamo utilizzare direttamente $e^{-itH}\ophi_m(h_i)e^{itH}$? Inizialmente pensavo che servisse a definire un campo libero per $t$ generico, ma $\ophi_m(h,t)$ è libero solo per $t\to\pm\infty$... Suppongo allora che tale definizione serva per dimostrare il teorema di Ruelle. Mi chiedo inoltre se $\ophi_m(h,t)$ in genere possa considerarsi un elemento di uno spazio di Fock per $t\to\pm\infty$ o abbia qualche peculiarità che non lo permette, in particolare nel teorema diciamo che $\hs_{\tin/\tout}\subseteq\hs$ quindi immagino di no.} 
@@ -466,9 +468,9 @@ The final result is provided by the following theorem
 	\end{eq}
 \end{theorem}
 
-Let's see what happens if abandon the restriction on the support of the test function, i.e. if we define
+Let's see what happens if we abandon the restriction on the support of the test function, i.e. if we define
 \begin{eq}
-	\ophi(f,t)=\int\de p\,f(p)e^{itH}\tilde\ophi(p)e^{-itH}e^{it\sqrt{\vec p^2+m^2}}
+	\ophi(f,t)=\int\de p\,\tilde f(p)e^{itH}\tilde\ophi(p)e^{-itH}e^{it\sqrt{\vec p^2+m^2}}
 \end{eq}
 for some (generic) test function $f$. Hepp proved that it admits a weak limit $t\to\pm\infty$ on scattering states, and can be used as asymptotic fields in the LSZ formula 
 \begin{theorem}[{Hepp, \cite{Hepp:1965}}]
@@ -477,13 +479,9 @@ for some (generic) test function $f$. Hepp proved that it admits a weak limit $t
 		\lim_{t\to-\infty}\,_\tin\langle h_1,\ldots,h_n|\ophi(f,t)\ket{h_1',\ldots,h_n'}_\tin&=\,_\tin\langle h_1,\ldots,h_n|\ophi_\tin(f)\ket{h_1',\ldots,h_n'}_\tin\\
 		\lim_{t\to+\infty}\,_\tout\langle h_1,\ldots,h_n|\ophi(f,t)\ket{h_1',\ldots,h_n'}_\tout&=\,_\tout\langle h_1,\ldots,h_n|\ophi_\tout(f)\ket{h_1',\ldots,h_n'}_\tout
 	\end{eq}
-	and defined scattering fields $\ophi_{\tin/\tout}$. These fields can be used inside the LSZ reduction formula, hence the reduction formalism work even in this axiomatic framework starting from Wightman functions. 
+	and define scattering fields $\ophi_{\tin/\tout}$. These fields can be used inside the LSZ reduction formula, hence the reduction formalism works even in this axiomatic framework starting from Wightman functions. 
 \end{theorem}
 
-%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%% LECTURE 9B %%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%% 
-
-Hence within Wightman theory all the formalism of asymptotic states and fields is mathematically well defined. 
+Hence all the formalism of asymptotic states and fields is mathematically well defined within Wightman theory. 
 
 \end{document}
