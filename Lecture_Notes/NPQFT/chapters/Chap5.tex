@@ -9,7 +9,7 @@
 
 \section{Introduction to topological objects}
 
-The first appearance of a classical \emph{soliton} was in a report by J. Scott Russel in 1842, he was in a boat in a channel and noticed ``a solitary elevation, a rounded, smooth and well-defined heap of water which continued in course along the channel apparently without change of form (i.e. without dispersion/dissipation) or diminution of speed (i.e. constant velocity). 
+The first appearance of a classical \emph{soliton} was in a report by J. Scott Russel in 1842, he was in a boat in a channel and noticed ``a solitary elevation, a rounded, smooth and well-defined heap of water which continued in course along the channel apparently without change of form (i.e. without dispersion/dissipation) or diminution of speed (i.e. constant velocity)''. 
 
 The term ``soliton'' (which comes from ``solitary wave'') was much later introduced to characterize solutions of wave equations that do not dispense and preserve their form during the propagation. Hence in a sense a classical soliton behaves as a particle in spite of being a wave. 
 
@@ -36,7 +36,7 @@ For instance consider the Ising model: take a finite lattice of volume $V$, wher
 
 \skipline
 
-We can now distinguish different kinds of symmetries. An \emph{algebraic symmetry} is an invertible algebra homomorphism $\obsalg\to\obsalg$ (i.e. a map preserving the algebraic relations, e.g.  equations of motion are preserved in form and also (in quantum setting) the commutation relations between observables). A \emph{physical symmetry} is an algebraic symmetry together with an invertible map $\purstate\to\purstate$, where $\purstate$ is the space of pure states, which preserves the expectation values:
+We can now distinguish different kinds of symmetries. An \emph{algebraic symmetry} is an invertible algebra homomorphism $\obsalg\to\obsalg$ (i.e. a map preserving the algebraic relations, e.g. equations of motion are preserved in form and also (in quantum setting) the commutation relations between observables). A \emph{physical symmetry} is an algebraic symmetry together with an invertible map $\purstate\to\purstate$, where $\purstate$ is the space of pure states, which preserves the expectation values:
 \begin{eq}
 	\begin{aligned} 
 		\alpha:\obsalg&\longrightarrow\obsalg\\
@@ -69,15 +69,15 @@ which clearly implies
 \begin{eq}
 	\langle A\rangle_\Sigma=\langle\alpha(A)\rangle_{\tilde\alpha(\Sigma)}=\langle A'\rangle_{\Sigma'}
 \end{eq}
-What goes wrong is that such map $\tilde\alpha:\Sigma\mapsto\Sigma'$ in principle may send the space $\purstate$ not in itself, i.e. in principle $\tilde\alpha(\Sigma)\not\in\purstate$, but belongs to another space of states not realizable by means of physical operations on the system starting from the initial states in $\purstate$.
+What goes wrong is that such map $\tilde\alpha:\Sigma\mapsto\Sigma'$ in principle may send the space $\purstate$ not in itself, i.e. $\tilde\alpha(\Sigma)\not\in\purstate$, but in another space of states not realizable by acting on $\purstate$ with physical operations.
 
 \skipline
 
-Take for instance the Heisenberg model of a ferromagnet in three dimension, where the spin is classically described by a unit vector in a lattice. Let's then consider the thermodynamic limit. It is well known that such system has a critical temperature $T_c$, such that for $T<T_c$ the ground states have an expectation value $\langle\vec s_i\rangle\neq0$. For $T=0$ in the ground state all the spin are aligned in the same direction. The Hamiltonian for this system is 
+Take for instance the Heisenberg model of a ferromagnet in three dimension, where the spin is classically described by a unit vector in a lattice. Let's then consider the thermodynamic limit. It is well known that such system has a critical temperature $T_c$, such that for $T<T_c$ the ground states have an expectation value $\langle\vec S_i\rangle\neq0$. For $T=0$ in the ground state all the spin are aligned in the same direction. The Hamiltonian for this system is 
 \begin{eq}
-	H=J\sum_{\langle i,j\rangle}(\vec s_i-\vec s_j)^2
+	H=J\sum_{\langle i,j\rangle}(\vec S_i-\vec S_j)^2
 \end{eq} 
-which is clearly invariant under rotations. Consider two ground states at $T=0$ which differs for the orientation of the spins, and let's see if these can be related by some allowed transformation or not, if not we would have a spontaneous symmetry breaking. We are allowed to do only physical allowed (in particular, local) transformations, at least by some limiting procedure. Nevertheless we already took the thermodynamic limit, therefore we are not allowed to move all the spins (including those at infinity) at the same time with a single transformation. We are forced to use some limiting procedure, for instance we can consider neighbourhoods of circles of radius $R$ and smoothly rotate the spins in these regions, while we increase $R$ from 0 to $\infty$. But as $R$ approaches $\infty$ there are infinitely many spins rotated simultaneously, hence due to the non trivial interacting energy between spins, one can expect that such procedure requires an infinite amount of energy. If the explicit computation of the energy actually give us an infinite energy cost, then spontaneous symmetry breaking occured. 
+which is clearly invariant under rotations. Consider two ground states at $T=0$ which differs for the orientation of the spins, and let's see if these could be related by some allowed transformation or not, if not we would have a spontaneous symmetry breaking. We are allowed to do only physical (in particular, local) transformations, at least by some limiting procedure. Nevertheless we already took the thermodynamic limit, therefore we are not allowed to move all the spins (including those at infinity) at the same time with a single transformation. We are forced to use some limiting procedure, for instance we can consider neighbourhoods of circles of radius $R$ and smoothly rotate the spins in these regions, while we increase $R$ from 0 to $\infty$. But as $R$ approaches $\infty$ there are infinitely many spins rotated simultaneously, hence due to the non trivial interacting energy between spins, one can expect that such procedure requires an infinite amount of energy. If the explicit computation of the energy actually give us an infinite energy cost, then spontaneous symmetry breaking occured. 
 
 Notice that in general one cannot guess whether we have SSB or not, a computation of the energy (or some other relevant physical quantity) is needed. 
 
@@ -85,7 +85,7 @@ Notice that in general one cannot guess whether we have SSB or not, a computatio
 
 Unfortunately sometimes one refers to SSB in the case in which the Hamiltonian is invariant under a symmetry $\alpha$, but each of its pure equilibrium states are not invariant under $\tilde\alpha$, hence restricting the non-invariance to equilibrium states. 
 
-For field theories the two definitions are basically equivalent from the practical point of view but for systems with finite degrees of freedom they are not. For instance consider a horizontal plane where gravitational force applies in the vertical direction, and put a point particle at rest a point, then certainly this describes an equilibrium state. The Hamiltonian is invariant under horizontal space translations, nevertheless the equilibrium state is not, hence according to the latter definition the symmetry is spontaneously broken. On the other side, certainly this is not a SSB according to the first definition, because we can easily move to another equilibrium state by some physically allowed translation, since all the intermediate states are pure states of the system. 
+For field theories the two definitions are basically equivalent from the practical point of view but for systems with finite degrees of freedom they are not. For instance consider a horizontal plane where gravitational force applies in the vertical direction, and put a point particle at rest on the plane, then certainly this describes an equilibrium state. The Hamiltonian is invariant under horizontal space translations, nevertheless the equilibrium state is not, hence according to the latter definition the symmetry is spontaneously broken. On the other side, certainly this is not a SSB according to the first definition, because we can easily move to another equilibrium state by some physically allowed translation, since all the intermediate states are pure states of the system. 
 
 \chapter{Kinks}
 
