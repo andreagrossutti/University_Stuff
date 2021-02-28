@@ -471,14 +471,14 @@ and using the boundary condition $\uei(-\infty)=\id$ we finally get the integral
 	\uei(t)=\id-\frac i\hbar\int_{-\infty}^tH_\epsilon^I(t')\uei(t')\de t'
 \end{eq}
 By successively re-inserting the l.h.s. of eq.~\eqref{eq:integral-eq-uei} we get
-\begin{eq}
+\begin{eq}\label{eq:uei-time-ord}
 	\uei(t)=\sum_{n=0}^\infty\left(-\frac i\hbar\right)^n\frac1{n!}\int_{-\infty}^t\de t_1\cdots\int_{-\infty}^t\de t_n \,\tp[H_\epsilon^I(t_1)\dots H_\epsilon^I(t_n)]=:\tp\exp[-\frac i\hbar\int_{-\infty}^tH_\epsilon^I(t')\de t']
 \end{eq}
 where $\tp[A_1(t_1)\cdots A_n(t_n)]$ is the \emph{time-ordering} defined by
 \begin{eq}
 	\tp[A_1(t_1)\cdots A_n(t_n)]=\sum_{\pi\in\Sigma_n}\Theta(t_{\pi(1)},\ldots,t_{\pi(n)})\varepsilon^{\sigma(\pi)}A_{\pi(1)}(t_{\pi(1)})\cdots A_{\pi(n)}(t_{\pi(n)})
 \end{eq}
-where $\epsilon=\pm1$ according to the statistics of the operators and
+with $\epsilon=\pm1$ according to the statistics of the operators and
 \begin{eq}
 	\Theta(t_{\pi(1)},\dots,t_{\pi(n)})=\begin{cases}
 		1\tif t_{\pi(1)}\geq t_{\pi(2)}\geq\dots\geq t_{\pi(n)}\\
@@ -493,7 +493,7 @@ By construction $\fock_\tin,\fock_\tout\subset\hs$ (the space of $\ophi$) and if
 Hence the scattering process can be analyzed in terms of the matrix elements of $\scate$.
 
 These matrix elements are in turn related to the \emph{correlation functions or Green functions} of $\ophi$
-\begin{eq}
+\begin{eq}\label{eq:Green-function}
 	G^{(n)}(x_1,\ldots,x_n):=\bra0\tp[\ophi(x_1)\cdots\ophi(x_n)]\ket0
 \end{eq} 
 by the \emph{LSZ (Lehmann-Symanzik-Zimmermann) formula}: if the in-state is given by particles with momenta $q_1,\dots,q_m$ and the out state by particles with momenta $p_1,\dots,p_n$, then
@@ -603,9 +603,10 @@ We calculate the response to the perturbation through a variation, using the per
 	&\qquad=i\int_{-\infty}^{t}\de t'\,\xi_\epsilon(t')\bra n[O_2^H(t'),O_1^H(t)]\ket n
 	=-i\int_{-\infty}^{+\infty}\de t'\,\xi_\epsilon(t')\theta(t-t')\bra n[O_1^H(t),O_2^H(t')]\ket n\\
 \end{eq}
-One can now just sum over $\{\ket n\}$ to perform the thermal expectation value 
+One can now just sum over $\{\ket n\}$ to perform the thermal expectation value ($\hs$ is the multiparticle Hilbert space of the system\footnote{For $\epsilon>0$ such space can be regarded as a Fock space, even though in the thermodynamic limit is not ensured that it is still a Fock space.})
 \begin{eq}\label{eq:thermal-average}
 	\langle(\bullet)\rangle_{\beta:=\frac1{k_bT}}
+	=\frac{\Tr_\hs(\bullet)e^{-\beta H}}{\Tr_\hs e^{-\beta H}}
 	=\frac{\sum_n\bra n(\bullet)\ket ne^{-\beta\cenergy_n}}{\sum_ne^{-\beta\cenergy_n}}
 \end{eq}
 obtaining the expectation value at a given temperature $T$
@@ -668,7 +669,7 @@ and in fact the retarded correlation function for fermionic fields $O_1$ and $O_
 	\retc^{\,O_1O_2}=i\theta(t_1-t_2)\langle\{O_1^H(t_1),O_2^H(t_2)\}\rangle_\beta
 \end{eq}
 
-For example the intensity of response in metals to high frequency photons (if the direction of the photon is fixed then the determination of such intensity is called \emph{Angle-Resolved Photoemission Spectroscopy} (\emph{ARPES})) is related to the immaginary part of the Fourier transform of 
+For example the intensity of response in metals to high frequency photons (if the direction of the photon is fixed then the determination of such intensity is called \emph{Angle-Resolved Photoemission Spectroscopy} (\emph{ARPES})) is related to the imaginary part of the Fourier transform of 
 \begin{eq}
 	i\theta(t_1-t_2)\langle\{\psi^\dagger(\vec{x_1},t_1),\psi(\vec {x_2},t_2)\}\rangle_\beta
 \end{eq}
@@ -681,7 +682,7 @@ If $H$ is not free the next question is how to compute the retarded correlation 
 \end{eq}
 and the Gell-Mann Low formula applies as before with adiabatic switching as in the relativistic case and the perturbative approach is completely analogous. 
 
-For $T>0$ the situation is more complicated because $H_I$ would appear in two places: in the time evolution eq.~\eqref{eq:evol-op-solid-state} as in $T=0$ but also in the Boltzmann weight $e^{-\beta(H_0+H_I)}$. This makes the standard perturbative treatment inapplicable, since we need to disentangle a perturbation in these two places. The way to solve this issue is due to Matsubara, and for this reason called the \emph{Matsubara formalism}. It consist in defining new correlators for which an analogue of the Gell-Mann Low formula applies, and then relate these new correlators to the retarded correlators by analytic continuation. Let's see how this works. 
+For $T>0$ the situation is more complicated because $H_I$ would appear in two places: in the time evolution eq.~\eqref{eq:evol-op-solid-state} as in $T=0$ but also in the Boltzmann weight $e^{-\beta(H_0+H_I)}$. This makes the standard perturbative treatment inapplicable, since we need to disentangle a perturbation in these two places. The way to solve this issue \todo{Non mi `e chiara una cosa, anche nel formalismo di Matsubara abbiamo lo stesso problema con $H_I$, quello che cambia è che c'è una versione funzionante di Gell-Mann Low  nel caso in cui l'evoluzione temporale sia data da $e^{-\tau H}$ giusto?} is due to Matsubara, and for this reason called the \emph{Matsubara formalism}. It consists in defining new correlators for which an analogue of the Gell-Mann Low formula applies, and then relate these new correlators to the retarded correlators by analytic continuation. Let's see how this works. 
 
 We define an ``evolution'' of the operators by a new parameter $\tau$:
 \begin{eq}
@@ -694,31 +695,41 @@ and then instead of computing correlation functions at ordinary time $t$, we com
 	\langle O_1^H(\tau_1)\cdots O^H_n(\tau_n)\rangle_\beta
 \end{eq}
 Suppose that $H=H_0+H_I$ (notice that the cutoff $\epsilon$ is not required here since the domain of $\tau$ is already finite, $\tau\in[0,\beta]$) and write again the evolution separating the contributions of $H_0$ and $H_I$ as in the interaction picture
-\begin{eq}
+\begin{eq}\label{eq:Mats1}
 	O^H(\tau)=U^I(\tau)O^{H_0}(\tau)U^I(\tau)
 \end{eq}
 getting as before
-\begin{eq}
+\begin{eq}\label{eq:Mats2}
 	U^I(\tau)=e^{\tau H_0}e^{-\tau H}
 	\twith
 	U^I(0)=\id
 \end{eq}
 and again
-\begin{eq}
+\begin{eq}\label{eq:Mats3}
 	U^I(\tau)=\tp_\tau[e^{-\int_0^\tau\de\tau'\,H_I(\tau')}]
 \end{eq}
+Note that equations~\eqref{eq:Mats1}, \eqref{eq:Mats2} and \eqref{eq:Mats3} are the analogous of equations~\eqref{eq:evol-phiin-uei}, \eqref{eq:rel-uei-U} and \eqref{eq:uei-time-ord} respectively (and can be obtained in with the same procedure).
 
-We define \emph{Matsubara correlator / Green function} the object
-\begin{eq}
-	G_M^{\,O_1\cdots O_n}(\tau_1,\ldots, \tau_n):=-\langle\tp_\tau[O_1^{H}(\tau_1) \cdots O_n^{H}(\tau_n)]\rangle_\beta
+We define, in analogy to eq.~\eqref{eq:Green-function}, the \emph{Matsubara correlator / Green function} by
+\begin{eq}\label{eq:dfn-Mats-Green}
+	G_M^{\,O_1\cdots O_n}(\tau_1,\ldots, \tau_n)
+	&:=-\langle\tp_\tau[O_1^{H}(\tau_1) \cdots O_n^{H}(\tau_n)]\rangle_\beta\\
+	&\ \overset{\mathclap{\eqref{eq:thermal-average}}}=\ -\frac1Z\Tr_\hs\big(\tp_\tau[O_1^{H}(\tau_1) \cdots O_n^{H}(\tau_n)]e^{-\beta H}\big)
 \end{eq}
+where $Z$ is the \emph{partition function} defined by
+\begin{eq}
+	Z:=\Tr_\hs e^{-\beta H}
+\end{eq}
+with the trace summing over all the multiparticle states of the system. 
+
 Differently from the case of retarded Green functions, for Matsubara Green functions an analogue of the Gell-Mann Low formula applies
 \begin{eq}\label{eq:Gell-Man-Low-Temp}
 	\langle\tp_\tau[O_1^H(\tau_1)\cdots O_n^H(\tau_n)]\rangle_\beta=
 	\frac{\langle\tp_\tau[O_1^{H_0}(\tau_1)\cdots O_n^{H_0}(\tau_n)e^{-\int_0^\beta\de\tau'\,H_I(\tau')}]\rangle_\beta^0}
 	{\langle\tp_\tau[e^{-\int_0^\beta\de\tau'\,H_I(\tau')}]\rangle_\beta^0}
 \end{eq}
-with $\langle\bullet\rangle_\beta^0$ the thermal average computed using $H_0$ as Hamiltonian. In comparison with the Gell-Mann Low formula for particles physics, in this case the vacuum expectation values are replaced by the Boltzmann-weighted thermal traces, and the vacuum expectation value of the $S$-matrix operator $U_\epsilon^I(+\infty)$ in the denominator is replaced by the Boltzmann-weighted trace of the interaction operator $U^I(\beta)$ along the euclidean time axis $\tau$. Moreover, the integration over $\tau$ goes up to $\beta$, since $0\leq\tau\leq\beta$. 
+where $\langle\ \rangle_\beta^0$ the thermal average computed using $H_0$ as Hamiltonian.
+In comparison with the Gell-Mann Low formula for particle physics, in this case the vacuum expectation values are replaced by the Boltzmann-weighted thermal traces, and the vacuum expectation value of the $S$-matrix operator $U_\epsilon^I(+\infty)$ in the denominator is replaced by the Boltzmann-weighted trace of the interaction operator $U^I(\beta)$ along the euclidean time axis $\tau$. Moreover, the integration over $\tau$ goes up to $\beta$, since $0\leq\tau\leq\beta$. 
 
 Finally, the perturbative treatment prescripts
 \begin{eq}
@@ -729,7 +740,9 @@ This leads to a series of thermally averaged products of many fields which move 
 
 To be precise in most cases one also need to use an infrared cutoff $\epsilon$, which in this case (the domain of $\tau$ is finite) is required only in the space coordinates, and will be removed at the end of the calculation.
 
-Now the question is how this thermal averaged operator can be related to the retarded correlators needed to compute the linear response of our system. Using thermal average formula eq.~\eqref{eq:thermal-average}, the Gell-Mann Low formula eq.~\eqref{eq:Gell-Man-Low-Temp} and the \emph{partition function} $Z:=\Tr_\hs e^{-\beta H}$ (which coincides with the denominator in eq.~\eqref{eq:Gell-Man-Low-Temp}) computed taking the trace over the whole Hilbert space of the system $\hs$\footnote{Notice that at this point we do not know whether $\hs$ is Fock or non-Fock.} (not only the 1-particle Hilbert space $\hs_1$), the 2-points Matsubara correlator (the only needed in the perturbative approach) reads:
+\subsubsection{KMS condition and Matsubara frequencies}
+
+According to the definition eq.~\eqref{eq:dfn-Mats-Green}, the 2-points Matsubara correlator (the only related to the computation of retarded correlators) reads:
 \begin{eq}	\label{eq:Matsu-corr-tau12}
 	G_M^{\,O_1O_2}(\tau_1,\tau_2)&=-\frac1Z\big\{\Tr_\hs[e^{-\beta H}e^{\tau_1H}O_1 e^{-\tau_1H}e^{\tau_2H}O_2e^{-\tau_2H}]\theta(\tau_1-\tau_2)\\
 	&\qquad \pm \Tr_\hs[e^{-\beta H}e^{\tau_2H}O_2 e^{-\tau_2H}e^{\tau_1H}O_1e^{-\tau_1H}]\theta(\tau_2-\tau_1)\big\}=\\
@@ -776,6 +789,8 @@ Notice that as $T\to0$ Matsubara coefficients become continuous and eq.~\eqref{e
 %%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Lehmann spectral representation of the correlators ($T>0$)}
+
+Now the question is how this thermal averaged operator can be related to the retarded correlators needed to compute the linear response of our system. 
 
 The Wick rotation of the $t$-axis in eq.~\eqref{eq:ret-corr-hermit} exactly coincides with the axis on which $\tau$ is defined, and the Wick rotation send the energies in the field theoretic Green functions eq.~\eqref{eq:ret-corr-hermit} to the axis along which Matsubara frequencies are situated. The retarded Green functions are related to the imaginary-time Matsubara Green functions by an analytical continuation. 
 
@@ -910,11 +925,11 @@ For each operator $A$ and a basis $\{\ket n\}$ satisfying Dirac completeness $\s
 	&=\int\frac{\de\phi\,\de\phi^*}{2\pi i}e^{-\phi^*\phi}\bra \phi A\ket\phi
 \end{eq}
 
-In the Gell-Mann - Low formula or in the Matsubara formalism (to which we now address our effort) beside the fields at fixed time $\ophi(\vec x)$ there are also the time-evolution operators. Let us consider an infinitesimal one in the non-relativistic case: for $H$ the Hamiltonian in terms of free fields, $\Delta\tau$ infinitesimal ``immaginary time'' interval, the infinitesimal time-evolution operator is 
+In the Gell-Mann - Low formula or in the Matsubara formalism (to which we now address our effort) beside the fields at fixed time $\ophi(\vec x)$ there are also the time-evolution operators. Let us consider an infinitesimal one in the non-relativistic case: for $H$ the Hamiltonian in terms of free fields, $\Delta\tau$ infinitesimal ``imaginary time'' interval, the infinitesimal time-evolution operator is 
 \begin{eq}
 	e^{-\Delta\tau H(a_\alpha^\dagger, a_\alpha)}
 \end{eq}
-We rewrite it in ``normal order'' $\nord\quad$ form, i.e. with all the creation operators on the left of the annihilation ones:
+We rewrite it in ``normal order'' $\nord\;$ form, i.e. with all the creation operators on the left of the annihilation ones:
 \begin{eq}\label{eq:norm_ord_inf_t_evol_coh}
 	e^{-\Delta\tau H(a_\alpha^\dagger, a_\alpha)}=\nord{e^{-\Delta\tau H(a_\alpha^\dagger, a_\alpha)}}+O((\Delta\tau)^2)
 \end{eq}
@@ -923,7 +938,7 @@ Let us now study the partition function of the system. It reads (where $\beta:=1
 \begin{eq}
 	Z:=\Tr e^{-\beta H}=\int\frac{\de\phi\,\de\phi^*}{2\pi i}e^{-\phi^*\phi}\bra \phi e^{-\beta H}\ket\phi
 \end{eq}
-We now split the interval $[0,\beta]$ into $N$ small interval of length $\beta/N=:\Delta\tau$ and at the ``immaginary times'' multiples of $\Delta\tau$ we insert the Dirac completeness eq.~\eqref{eq:complet_coh_states}. Finally we take the limit $N\to\infty$ so that the intervals becomes arbitrarily small. We get\footnote{Here $\phi_j$ are vectors as in the footnote~\ref{ft:phi_vect}.}
+We now split the interval $[0,\beta]$ into $N$ small interval of length $\beta/N=:\Delta\tau$ and at the ``imaginary times'' multiples of $\Delta\tau$ we insert the Dirac completeness eq.~\eqref{eq:complet_coh_states}. Finally we take the limit $N\to\infty$ so that the intervals becomes arbitrarily small. We get\footnote{Here $\phi_j$ are vectors as in the footnote~\ref{ft:phi_vect}.}
 \begin{eq}
 	Z=\lim_{N\to\infty}\int\prod_{j=1}^N\frac{\de\phi_j\,\de\phi_j^*}{2\pi i}e^{-\phi_j^*\phi_j}\bra{\phi_j}e^{-\Delta\tau H}\ket{\phi_{j-1}}
 	\twhere
@@ -992,34 +1007,34 @@ A strategy similar to the one previously sketched replacing bosonic operators $\
 \end{eq}
 so that
 \begin{eq}
-	Z&=\lim_{N\to\infty}\int\prod_{j=1}^N\de\xi^*_j\de\xi_j\,e^{-S_N(\xi^*,\xi)}
-	=:\int_{\xi(0)=-\xi(\beta)}\pide\xi^*(\tau)\pide\xi(\tau)\,e^{-S(\xi^*,\xi)}
+	Z&=\lim_{N\to\infty}\int\prod_{j=1}^N\de\xi^*_j\de\xi_j\,e^{-S_N(\xi^*\!,\xi)}
+	=:\int_{\xi(0)=-\xi(\beta)}\pide\xi^*(\tau)\pide\xi(\tau)\,e^{-S(\xi^*\!,\xi)}
 \end{eq}
 with the \emph{Euclidean action} defined in terms of Grassmann fields
 \begin{eq}
-	S(\xi^*,\xi):=\int_0^\beta\Big(\xi^*(\tau)\pder{}\tau\xi(\tau)+H(\xi^*(\tau),\xi(\tau)\Big)
+	S(\xi^*\!,\xi):=\int_0^\beta\Big(\xi^*(\tau)\pder{}\tau\xi(\tau)+H(\xi^*(\tau),\xi(\tau)\Big)
 \end{eq}
 
 Again one can give a rigorous meaning to the above formulas for free fields by proving that $\pide\xi^*(\tau)\pide\xi(\tau)\,e^{-S(\xi^*,\xi)}$ is a ``Grassmann Gaussian integral''. 
 
 In the following we denote by $\phi$ both the complex fields in the bosonic case and Grassmann fields in the fermionic case.
 
- \subsubsection{Computation of Matsubara Green functions}
- 
- As an example, let's see how to compute Matsubara Green functions using the path integral formalism in the Fock space in the finite volume case. Since we are working in the Fock space we can use for the free field the ladder operators $\{a_\alpha, a_\alpha^\dagger\}_{\alpha\in A}$, and using the Matsubara formalism we can introduce a dependence on $\tau$ for these operators:
+\subsubsection{Computation of Matsubara Green functions}
+
+As an example, let's see how to compute Matsubara Green functions using the path integral formalism in the Fock space in the finite volume case. Since we are working in the Fock space we can use for the free field the ladder operators $\{a_\alpha, a_\alpha^\dagger\}_{\alpha\in A}$, and using the Matsubara formalism we can introduce a dependence on $\tau$ for these operators:
 \begin{eq}
  	a_\alpha(\tau)=e^{\tau H}a_\alpha e^{-\tau H}
 \end{eq}
-Then in Fock space the Matsubara green functions are defined by
+Then according to eq.~\eqref{eq:dfn-Mats-Green} in Fock space the Matsubara Green functions are defined (up to a sign) by
 \begin{eq}\label{eq:matsu_GF_PI}
-	\langle\tp[a_{\alpha_1}(\tau_1)\ldots a_{\alpha_n}(\tau_n)a_{\alpha_{n+1}}^\dagger(\tau_{n+1})\ldots a_{\alpha_{2n}}^\dagger(\tau_{2n})]\rangle_\beta
-	:= \frac%
-		{\Tr_{\fock^\pm}\tp_\tau\big[e^{-\beta H}\tp_\tau[a_{\alpha_1}(\tau_1)\ldots a_{\alpha_n}a_{\alpha_{n+1}}^\dagger\ldots a^\dagger_{\alpha_{2n}}]\big]}
+	&\langle\tp_\tau[a_{\alpha_1}(\tau_1)\cdots a_{\alpha_n}(\tau_n)a_{\alpha_{n+1}}^\dagger(\tau_{n+1})\cdots a_{\alpha_{2n}}^\dagger(\tau_{2n})]\rangle_\beta:=\\
+	&\hspace{2cm}:= \frac%
+		{\Tr_{\fock^\pm}\big(e^{-\beta H}\tp_\tau[a_{\alpha_1}(\tau_1)\cdots a_{\alpha_n}(\tau_n)a_{\alpha_{n+1}}^\dagger(\tau_{n+1})\cdots a^\dagger_{\alpha_{2n}}(\tau_{2n})]\big)}
 		{\Tr_{\fock^\pm}e^{-\beta H}}
 \end{eq}
-where the time ordering $\tp_\tau[-]$ is considered in the Euclidean time $\tau$, and we consider $\fock^+$ for bosonic fields and $\fock^-$ for fermionic fields. The previous formula holds provided that $\Tr_{\fock^\pm}e^{-\beta H}$ is finite. The requirement of finite volume makes this assumption more easily satisfied, but obviously this can raise easily problems in the thermodynamic limit. 
+where we consider $\fock^+$ for bosonic fields and $\fock^-$ for fermionic fields. This formula holds provided that $Z=\Tr_{\fock^\pm}e^{-\beta H}$ is finite. The requirement of finite volume makes this assumption more easily satisfied, but obviously there may be problems thermodynamic limit. 
 
-The time ordering product can be removed by means of a permutation $\pi$ that puts the immaginary times in chronological order, $\tau_{\pi(i)}>\tau_{\pi(i+1)}$, then using notation
+The time ordering product can be removed by means of a permutation $\pi$ that puts the imaginary times in chronological order, $\tau_{\pi(i)}>\tau_{\pi(i+1)}$, then using notation
 \begin{eq}
 	\tilde a_{\alpha_i}(\tau_i)=\begin{cases}
 		a_{\alpha_i}(\tau_i)\quad\tif i\leq n\\
@@ -1028,16 +1043,17 @@ The time ordering product can be removed by means of a permutation $\pi$ that pu
 \end{eq}
 then
 \begin{eq}
-	&\langle\tp[a_{\alpha_1}(\tau_1)\cdots a_{\alpha_n}a_{\alpha_{n+1}}^\dagger\cdots a_{\alpha_{2n}}]\rangle_\beta=\\
-	&\qquad=\frac1Z\varepsilon^{\sigma(\pi)}\Tr\big[e^{-\beta H}\tilde a_{\alpha_{\pi(1)}}(\tau_{\pi(1)})\cdots \tilde a_{\alpha_{\pi(2n)}}(\tau_{\pi(2n)})\big]\\
+	&\langle\tp_\tau[a_{\alpha_1}(\tau_1)\cdots a_{\alpha_n}(\tau_n)a_{\alpha_{n+1}}^\dagger(\tau_{n+1})\cdots a_{\alpha_{2n}}^\dagger(\tau_{2n})]\rangle_\beta=\\
+	&\qquad=\frac1Z\varepsilon^{\sigma(\pi)}\Tr\big(e^{-\beta H}\tilde a_{\alpha_{\pi(1)}}(\tau_{\pi(1)})\cdots \tilde a_{\alpha_{\pi(2n)}}(\tau_{\pi(2n)})\big)\\
 	&\qquad=\frac1Z\varepsilon^{\sigma(\pi)}\int_{\phi(0)=\pm\phi(\beta)}\pide\phi(\tau)\pide\phi^*(\tau)\,e^{-S(\phi^*,\phi)}\tilde\phi_{\alpha_{\pi(1)}}(\tau_{\pi(1)})\cdots\tilde\phi_{\alpha_{\pi(2n)}}(\tau_{\pi(2n)})\\
-	&\qquad=\frac1Z\int_{\phi(0)=\pm\phi(\beta)}\pide\phi(\tau)\pide\phi^*(\tau)\,e^{-S(\phi^*,\phi)}\tilde\phi_{\alpha_{1}}(\tau_{1})\cdots\tilde\phi_{\alpha_{2n}}(\tau_{2n})
+	&\qquad=\frac1Z\int_{\phi(0)=\pm\phi(\beta)}\pide\phi(\tau)\pide\phi^*(\tau)\,e^{-S(\phi^*,\phi)}\tilde\phi_{\alpha_{1}}(\tau_{1})\cdots\tilde\phi_{\alpha_{2n}}(\tau_{2n})\\
+	&\qquad=\frac1Z\int_{\phi(0)=\pm\phi(\beta)}\pide\phi(\tau)\pide\phi^*(\tau)\,e^{-S(\phi^*,\phi)}\phi_{\alpha_1}(\tau_1)\cdots \phi_{\alpha_n}(\tau_n)\phi_{\alpha_{n+1}}^*(\tau_{n+1})\cdots \phi_{\alpha_{2n}}^*(\tau_{2n})
 \end{eq}
 where in the last step we put the operators in the original order, killing in this way the factor $\varepsilon^{\sigma(\pi)}$. We saw in this way that the path integral is very useful to avoid problems related to the time ordering inside the Gell-Mann Low formula. 
 
 \subsubsection{Relativistic case}
 
-Completely analogour formulas holds in the relativistic case, where $S(\phi^*,\phi)$ is replaced by the Euclidean relativistic action. For instance for the massive bosonic field it is given by
+Completely analogous formulas holds in the relativistic case, where $S(\phi^*,\phi)$ is replaced by the Euclidean relativistic action. For instance for the massive bosonic field it is given by
 \begin{eq}
 	S(\phi^*,\phi)=\frac1\hbar\int\de^{d+1}x\,\half(\partial_\mu\phi\,\partial^\mu\phi^*+m^2\phi^*\phi)(x,\tau)
 \end{eq}
