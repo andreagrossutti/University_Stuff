@@ -95,7 +95,7 @@ The fist (topological) soliton that we consider is the \emph{kink} in $\phi^4_2$
 
 \section{Classical treatment}
 
-The classical Hamiltonian we consider is on the real line $\R$, labelled by $x$, and if the system is described by a real scalar field $\phi(x,t)$ with conjugate momentum $\pi(x,t)$ (the dependence on time of the fields is understood) it reads
+The classical Hamiltonian we consider is on the real line $\R$, labelled by $x$, and if the system is described by a real scalar field $\phi(x,t)$ with conjugate momentum $\pi(x,t)$ it reads
 \begin{eq}\label{eq:ham-kink}
 	H=\int\de x\,\ham\big(\pi,\phi\big)=\int\de x\,\left[\half\pi^2+\half\left(\der{\phi} x\right)^2+\frac{g^2}4\big(\phi^2-v^2\big)^2\right]
 \end{eq}
@@ -120,7 +120,7 @@ Clearly, from the structure of the Hamiltonian, finite energy solutions must sat
 	\tfor
 	x\to\pm\infty
 \end{eq}
-as otherwise $H$ is divergent. Indeed all the terms inside $H$ are strictly positive, hence both the term depending on $\pi$ and the term depending on $\phi$ should vanish identically at infinite. The absolute minima of $H$ are given by the two configurations
+as otherwise $H$ is divergent. Indeed all the terms inside $H$ are strictly positive, hence both the term depending on $\pi$ and the one depending on $\phi$ should vanish identically at infinite. The absolute minima of $H$ are given by the two configurations
 \begin{eq}
 	\phi_+^0=+v \tcomma \pi^0=0
 	\tand
@@ -135,9 +135,7 @@ In such cases $H$ vanishes, hence both these solutions are called \emph{vacuum}.
 
 The Hamiltonian is invariant under the symmetry $\alpha$
 \begin{eq}\label{eq:symm_kink}
-	\phi\mapsto-\phi
-	\tcomma
-	\pi\mapsto-\pi
+	\alpha:(\phi,\pi)\mapsto(-\phi,-\pi)
 \end{eq}
 We see that in order to satisfy
 \begin{eq}
@@ -148,9 +146,9 @@ for $\Sigma=(\phi^0_\pm,\pi^0)$ we should have
 	\pm v=\langle-\phi\rangle_{\tilde\alpha(\phi^0_\pm, \pi^0)}
 \end{eq}
 which is satisfied for $\tilde\alpha(\phi^0_\pm,\pi^0)=(\phi^0_\mp,\pi^0)$.
-However it is impossible to reach continuously $\phi_-^0$ from $\phi_+^0$ and vice versa, since the set of boundary conditions at infinity, $\{+v,-v\}$, is not connected and to reach one minimum from the other with (the limit of) a local transformation we need to cross infinite energy states. Therefore symmetry eq.~\eqref{eq:symm_kink} is spontaneously broken, and the two minima that we found lives in disjoint space of states related by a parity transformation.
+However it is impossible to reach continuously $\phi_-^0$ from $\phi_+^0$ and vice versa, since the set of boundary conditions at infinity, $\{+v,-v\}$, is not connected and to reach one minimum from the other with (the limit of) local transformations we need to cross infinite energy states. Therefore symmetry eq.~\eqref{eq:symm_kink} is spontaneously broken, and the two minima that we found live in disjoint spaces of states related by a parity transformation.
 
-\subsubsection{First-order equation}
+\subsubsection{The kink solution}
 
 However there are two local minima in the space of finite-energy solutions: we can find them with the following trick. For $\pi=\dphi=0$ the equation of motion reduces to
 \begin{eq}\label{eq:eom-kink}
@@ -165,7 +163,7 @@ where the vanishing of the energy is due to the boundary condition eq.~\eqref{eq
 	\der qt=\pm\frac g{\sqrt2}(q^2-v^2)
 \end{eq}
 i.e.
-\begin{eq}
+\begin{eq}\label{eq:diff-eq-kink}
 	\der\phi x=\pm\frac g{\sqrt2}(\phi^2-v^2)
 \end{eq}
 These are standard first order equations trivially solved by 
@@ -180,20 +178,20 @@ i.e.
 \begin{eq}
 	\phi_\pm^S(x)=\pm v\tanh\left(\frac{gv}{\sqrt2}(x-x_0)\right)
 \end{eq}
-where we denoted the two solutions by $S$, which means ``soliton''. In fig.~\ref{fig:kink-solution} one can find a plot of the function $\phi_+^S(x)$. The value $x_0$ is called \emph{collective coordinate} or the \emph{modulus} of the soliton, called (classical) \emph{kink} ($\phi_+^S(x)$) or (classical) \emph{anti-kink} ($\phi_-^S(x)$).
+where we denoted the two solutions by $S$, which means ``soliton''. In fig.~\ref{fig:kink-solution} one can find a plot of the function $\phi_+^S(x)$. The value $x_0$ is called \emph{collective coordinate} or \emph{modulus} of the soliton, called (classical) \emph{kink} ($\phi_+^S(x)$) or (classical) \emph{anti-kink} ($\phi_-^S(x)$).
 
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}
   \draw[->] (-4, 0) -- (5, 0) node[at={(5.1,0.25)}] {$x$};
-  \draw[->] (0, -2.2) -- (0, 2.5) node[at={(0.7,2.6)}] {$\phi_+^S(x)$};
+  \draw[->] (0, -2.2) -- (0, 2.5) node[at={(0.7,2.6)}] {$\phi_\pm^S(x)$};
   \draw[scale=0.5, domain=-7:9, smooth, variable=\x, blue, very thick] plot ({\x}, {3*tanh(0.5*(\x-1))});
     \draw[scale=0.5, domain=-7:9, smooth, variable=\x, red, very thick] plot ({\x}, {-3*tanh(0.5*(\x-1))});
   \draw[scale=0.5, domain=-7:9, smooth, variable=\x, dash pattern=on 2pt off 2pt] plot ({\x}, {3});
   \draw[scale=0.5, domain=-7:9, smooth, variable=\x, dash pattern=on 2pt off 2pt] plot ({\x}, {-3});
   \draw (4.5,1.8) node {$+v$};
   \draw (4.5,-1.25) node {$-v$};
-  \draw (0.7,-0.2) node {$x_0$};
+  \draw (0.85,-0.14) node {$x_0$};
 \end{tikzpicture}
 \caption{Shape of the solutions $\phi_+^S(x)$ (blue) and $\phi_-^S(x)$ (red).} %parameters: x_0=1, v=3, g=1/3sqrt2 
 \label{fig:kink-solution}
@@ -203,7 +201,7 @@ We see that $\phi_+^S$, $\phi_-^S$, $\phi_+^0$ and $\phi_-^0$ cannot be deformed
 \begin{eq}\label{eq:cons-charge-kink}
 	Q=\int\de x\der{}{x}\phi=\phi(+\infty)-\phi(-\infty)
 \end{eq}
-which is topological (only the behaviour at infinity is relevant). The corresponding conserved current is 
+which is topological (only the behaviour of $\phi$ at infinity is relevant). The corresponding conserved current is 
 \begin{eq}
 	J_\mu(x)=\lctens_{\mu\nu}\partial^\nu\phi
 \end{eq}
@@ -224,7 +222,7 @@ therefore the kink in this model is a topological soliton.
 
 \subsubsection{The Bogomol'nyi bound}
 
-There is a more instructive way to prove that $\phi_\pm^S$ are the local minima at $(\mp v,\pm v)$ boundary conditions. Let's write the potential $V(\phi)$ in terms of a function $\suppot(\phi)$ called \emph{superpotential} (since it is largely used in supersymmetric theories) by
+There is a more instructive way to prove that $\phi_\pm^S$ are the local minima at $(\mp v,\pm v)$ boundary conditions (b.c.). Let's write the potential $V(\phi)$ in terms of a function $\suppot(\phi)$ called \emph{superpotential} (since it is largely used in supersymmetric theories)
 \begin{eq}
 	V(\phi)=\half\left(\der\suppot\phi\right)^2
 \end{eq}
@@ -237,16 +235,16 @@ Since $V(\phi)=\frac{g^2}4(\phi^2-v^2)^2$ this implies that
 The Hamiltonian can be rewritten for $\pi=0$ as
 \begin{eq}\label{eq:Ham-kink-suppot}
 	H=\int\de x\,\left[\half\left(\der\phi x\pm\der\suppot\phi\right)^2\mp\der\phi x\der\suppot\phi\right]
-	\quad\text{for boundary conditions }(\mp v,\pm v)
+	\quad\text{for b.c. }(\mp v,\pm v)
 \end{eq}
 Now notice that the last term gives
 \begin{eq}
-	&\int\de x\,\der\suppot\phi\der\phi x=\suppot(\phi(+\infty))-\suppot(\phi(-\infty)
-	=\pm\Delta\suppot\quad\text{for boundary conditions }(\mp v,\pm v)
+	&\int\de x\,\der\suppot\phi\der\phi x=\suppot(\phi(+\infty))-\suppot(\phi(-\infty))
+	=\pm\Delta\suppot\quad\text{for b.c. }(\mp v,\pm v)
 \end{eq}
 with
 \begin{eq}
-	\Delta\suppot=\suppot(v)-\suppot(-v)=-\frac4{3\sqrt2}gv^3<0
+	\Delta\suppot:=\suppot(v)-\suppot(-v)=-\frac4{3\sqrt2}gv^3<0
 \end{eq}
 hence we get that
 \begin{eq}\label{eq:Bogom-bound}
@@ -256,14 +254,14 @@ for both the possible boundary conditions. This lower bound  is called \emph{Bog
 \begin{eq}\label{eq:Bogom-bound-cond}
 	\der\phi x=\pm\der\suppot\phi
 \end{eq}
-which coincides exactly with eq.~\eqref{eq:eom-kink}. Hence the solutions $\phi_\pm^S$ are local minima for which the energy coincides with the Bogomol'nyi bound. 
+which coincides exactly with eq.~\eqref{eq:eom-kink}. Hence the solutions $\phi_\pm^S$ are local minima for which the energy coincides with the Bogomol'nyi bound, notice also that such solutions are the ones with minimal energy given the b.c. $(\mp v,\pm v)$. 
 
-\skipline
+\subsubsection{Mass and position of the kink}
 
 The energy density associated to $\phi_\pm^S(x_0)$, depending on the modulus $x_0$, is given by the Hamiltonian density evaluated for the field $\phi_\pm^S(x_0)$ (it obviously depends on the spatial coordinate $x$ and on the choice of $x_0$):
 \begin{eq}\label{eq:kink-classic-energy-density}
 	\cenergy^\tcl&=\half\left(\der{\phi_\pm^S}x\right)^2+\frac{g^2}4\left(\phi_\pm^{S\,2}-v^2\right)^2
-	\overset{\eqref{eq:Bogom-bound-cond}}=2\cdot\half\left(\der{\phi_\pm^S}x\right)^2=\left(\der{\phi_\pm^S}x\right)^2
+	\overset{\eqref{eq:diff-eq-kink}}=2\cdot\half\left(\der{\phi_\pm^S}x\right)^2=\left(\der{\phi_\pm^S}x\right)^2
 \end{eq}
 In fig.~\ref{fig:kink-energy} one can see the shape of $\cenergy(x)$ associated to the field of fig.~\ref{fig:kink-solution}. It is clearly localized near $x_0$. Hence the soliton exhibits an energy density profile as a `` dump'' around $x_0$, thus behaving ``like a particle'' localized around $x_0$. The integral 
 \begin{eq}\label{eq:mass-classical-kink}
@@ -293,11 +291,11 @@ Since (looking at the Hamiltonian) the theory is Lorentz invariant (on 1+1 dimen
 \begin{eq}
 	\phi_\pm^S(x,x_0,\textrm v)=\pm v\tanh\left(\frac{gv}{\sqrt2}\,\frac{x-x_0-\textrm vt}{\sqrt{1-\textrm v^2}}\right)
 \end{eq}
-i.e. behaves like a particle with equation of motion $x=x_0+\textrm vt$.
+Then the kink behaves like a particle with equation of motion $x=x_0+\textrm vt$.
 
 \section{Semi-classical treatment}
 
-Up to now we just described the soliton at classical level. Let us turn to the quantum world. We first give a standard semi-classical (heuristic) Hamiltonian treatment, then we make some comments on a rigorous approach in the spirit of the reconstruction theorem previously discussed. 
+Up to now we just described the soliton at classical level. Let us turn to the quantum world. We first give a standard semi-classical (heuristic) Hamiltonian treatment, then in section~\ref{sec:qft-kink} we'll make some comments on a rigorous approach in the spirit of the reconstruction theorem previously discussed. 
 
 \subsubsection{Semi-classical description of fluctuations around the vacuum}
 
@@ -305,16 +303,16 @@ Let us start from the quantization of fluctuations around one vacuum. To quantiz
 \begin{eq}
 	\ophi(x)=v+\ochi(x)
 \end{eq}
-Formally (in principle regularizations are needed) expanding in $\ochi$ in the Hamiltonian we get
+Formally (in principle regularizations are needed) inserting the previous expansion in the Hamiltonian we get
 \begin{eq}	
 	H&=\int\de x\,\left[\frac12\opi^2+\frac12\left(\der\ochi x\right)^2+\frac{g^2}4\left(2v\ochi+\ochi^2\right)^2\right]\\
 	&=\int\de x\,\left[\frac12\opi+\frac12\left(\der\ochi x\right)^2+\frac{2(gv)^2}2\ochi^2+\polyn(\ochi)\right]
 \end{eq}
 where $\polyn(\ochi)$ is a polynomial in $\ochi$ of order higher than 2. Integrating by part we get
 \begin{eq}
-	H_2=\int\de x\,\left[\frac12\opi+\frac12\ochi\left(-\der{^2}{x^2}+2(gv)^2\right)\ochi\right]
+	H_{\leq2}=\int\de x\,\left[\frac12\opi+\frac12\ochi\left(-\der{^2}{x^2}+2(gv)^2\right)\ochi\right]
 \end{eq}
-($H_2$ denotes the quadratic part on $H$, describing the free field). One can then expand $\ochi$ in terms of the complete set of solutions of the differential equation
+($H_{\leq2}$ is obtained from $H$ neglecting $\polyn(\ochi)$). One can then expand $\ochi$ in terms of the complete set of solutions of the differential equation
 \begin{eq}
 	\left(-\der{^2}{x^2}+2(gv)^2\right)\chi_k=\omega^2(k)\chi_k
 \end{eq}
@@ -322,11 +320,11 @@ which we know are just the complex exponentials $e^{ikx}$ with eigenvalues
 \begin{eq}
 	\omega^2(k)=k^2+2(gv)^2
 \end{eq}
-and then one can write
+so that one can write
 \begin{eq}
 	\ochi(x)=\sum_k\op a(k)\chi_k(x)
 \end{eq}
-From the quadratic terms we see that $\ochi$ is a massive field with (bare) mass $m=\sqrt2gv$, such that we recover the usual dispersion relation $\omega(k)=\sqrt{k^2+m^2}$, and polynomial interaction given by $\polyn(\ochi)$.
+From the quadratic terms of $H$ we see that $\ochi$ is a massive field with (bare) mass $m=\sqrt2gv$, hence we recover the usual dispersion relation $\omega(k)=\sqrt{k^2+m^2}$. Self-interaction are given by $\polyn(\ochi)$.
 
 Perturbatively we impose the CCR on $\ochi$ and $\opi=\dot\ochi$
 \begin{eq}
@@ -356,18 +354,18 @@ where $4\cdot 3$ is a combinatorial factor\footnote{Notice that the coupling $\f
 \begin{eq}\label{eq:classical-mass-kink}
 	m^2_R=m^2-\frac{3g^2}{2\pi}\log(\frac{\Lambda^2}{m^2})
 \end{eq}
-where we multiplied the correction coming from \eqref{eq:correct-mass-kink-vacuum} by 2 in order to take into account the factor 1/2 in the mass term of the Hamiltonian. The quantity $m^2_R$ is exactly the square of the mass that one detects if perform an experimental measure of the mass of the fluctuation $\chi$ around the vacuum. 
+where we multiplied the correction coming from \eqref{eq:correct-mass-kink-vacuum} by 2 in order to take into account the factor 1/2 in the mass term of the Hamiltonian. The quantity $m^2_R$ is exactly the square of the mass that one detects performing an experimental measure of the mass of the fluctuation $\chi$ around the vacuum. 
 
 \subsubsection{Semi-classical description of fluctuations around soliton solution}
 
-Let us now turn to the quantization around the soliton solution, consider for instance $\phi_+^S$. Since this is a local minima, we can still expand around such solution very similarly to what we did for the fluctuations around the vacuum. First notice that, expressed in terms of the bare mass $m=\sqrt2gv$, the classical mass of the kink eq.~\eqref{eq:mass-classical-kink} reads
+Let us now turn to the quantization around the soliton solutions $\phi_\pm^S$, consider for instance $\phi_+^S$. Since this is a local minima, we can still expand around such solution very similarly to what we did for the fluctuations around the vacuum. First notice that, expressed in terms of the bare mass $m=\sqrt2gv$, the classical mass of the kink eq.~\eqref{eq:mass-classical-kink} reads
 \begin{eq}
 	M^\tcl_S=\frac {m^3}{3g^2}\sim\frac1{g^2}
 \end{eq}
-hence it cannot be recovered by a perturbation theory around $g=0$, the perturbative expansion in $g^{-2}$ is not well defined for $g\approx0$. The behaviour $\sim g^{-2}$ of the energy or the action is typical of the soliton solutions. 
+hence it cannot be recovered by perturbations around $g=0$, since the perturbative expansion in $g^{-2}$ is not well defined for $g\approx0$. The behaviour $\sim g^{-2}$ of the energy or the action is typical of the soliton solutions. 
 
 A naive approach to quantization would be to write
-\begin{eq}
+\begin{eq}\label{eq:exp-kink-fluct}
 	\ophi(x,t)=\phi_+^S(x)+\ochi(x,t)
 \end{eq}
 Inserting in the Hamiltonian we get
@@ -380,7 +378,7 @@ By integrating by parts with boundary conditions $\ochi(\pm\infty)=0$ (otherwise
 	H&= \int\de x\bigg[\,\half{{\dot\phi^S_+}{}}^2+\dot\phi^S_+\dot\ochi+\half\dot\ochi^2+\half\left(\der{{\phi_+^S}}x\right)^2-\der{^2\phi_+^S}{x^2}\,\ochi-\half\ochi\,\der{^2\ochi}{x^2}+\\
 	&\qquad+\frac{g^2}4\left[({\phi_+^S}^2-v^2)^2+(4{\phi_+^S}^3-4v^2{\phi_+^S})\ochi+(6{\phi_+^S}^2-2v^2)\ochi^2+4{\phi_+^S}\ochi^3+\ochi^4\right]\bigg]
 \end{eq}
-first notice that the terms linear in $\ochi$ vanish due to the equation of motion of $\phi_+^S$:
+The terms linear in $\ochi$ vanish due to the equation of motion of $\phi_+^S$
 \begin{eq}
 	\left(\der{^2\phi_+^S}{x^2}-{g^2}({\phi_+^S}^3-v^2\phi_+^S)\right)\ochi=0
 \end{eq}
@@ -393,7 +391,7 @@ with
 \begin{eq}
 	L_2=\frac{g^2}2(6{\phi_+^S}^2-2v^2)-\der{^2}{x^2}=\frac{m^2}{2}\left(3\tanh^2\frac{mx}2-1\right)-\der{^2}{x^2}
 \end{eq}
-Up to now we kept terms proportional to $\dot\phi^S_+$ because in the following we will introduce a time dependence in $\phi^S_+$, nevertheless at this stage the field is constant, hence taking the terms quadratic in $\ochi$ we get
+Up to now we kept terms proportional to $\dot\phi^S_+$ because in the following we will introduce a time dependence in $\phi^S_+$. However at this stage the field is constant, hence setting $\phi^S_+=0$ the terms quadratic in $\ochi$ give
 \begin{eq}\label{eq:kink-H_2-fluct}
 	H_2=\int\de x\,\left(\half\dot\ochi^2+\frac12\ochi L_2\ochi\right)
 \end{eq}
@@ -403,7 +401,7 @@ Now the problem is similar to the free one, except for the fact that the operato
 \begin{eq}
 	L_2\chi_n(x)=\omega_n^2\chi_n(x)
 \end{eq}
-where $n$ and $\chi_n$ play the previous roles of $k$  and $e^{ikx}$ respectively. Then we can rewrite
+where $n$ and $\chi_n$ play the previous roles of $k$  and $e^{ikx}$ respectively. Then we can expand
 \todo{A lezione lei aveva preso $n\in\N$. Assumendo invece $n\in\Z$ otteniamo il fattore 2 necessario a rendere esatto il risultato a fine sezione, di cui le parlavo quando ci siamo sentiti.}
 \begin{eq}
 	\ochi(x,t)=\sum_{n\in\Z}\op a_n(t)\chi_n(x)
@@ -412,21 +410,21 @@ We can rewrite the Hamiltonian as
 \begin{eq}
 	H_2=\sum_{n\in\Z}\frac{\dot{\op a}_n^2}2+\frac{\omega_n^2}2\op a_n^2
 \end{eq}
-i.e. naively as a sum of uncoupled oscillator, as in the free case. 
+i.e. naively as a sum of uncoupled oscillators, as in the free case. 
 
 \skipline
 
-This would actually be true if $\omega_n>0$, but one can prove that there is one vanishing eigenvalue $\omega_0$, it is a ``zero mode'' and must be treated separately because the fluctuations along the direction of this mode are not small.\footnote{Fluctuations associated to $\omega_n=0$ are not limited by any physical argument, as the kinetic energy is identically vanishing for this mode. Even worse, $\omega_n<0$ would imply that the system is unstable, as fluctuations naturally become arbitrarily large. Luckily, the last case does not occur in our treatment.} Such zero mode is associated to fluctuations of the modulus of kink solution: changing the value of $x_0$ the solution has the same energy as the original one, hence this do not contribute to the Hamiltonian, moreover there is no limit of this kind of fluctuations, as all possible values of $x_0$ give  kink solutions with the same energy. 
+This would actually be true if $\omega_n>0$, but one can prove that there is one vanishing eigenvalue $\omega_0$, it is a ``zero mode'' and must be treated separately because the fluctuations along the direction of this mode are not small.\footnote{Fluctuations associated to $\omega_n=0$ are not limited by any physical argument, as the kinetic energy is identically vanishing for this mode. Even worse, $\omega_n<0$ would imply that the system is unstable, as fluctuations naturally become arbitrarily large. Luckily, the  case $\omega_n<0$ does not occur in the treatment of the kink.} Such zero mode is associated to fluctuations of the modulus of the kink solution: changing the value of $x_0$ the solution has the same energy as the original one, hence this do not contribute to the Hamiltonian, moreover there is no limit of this kind of fluctuations, as all possible values of $x_0$ give  kink solutions with the same energy. 
 
-The occurrence of the zero mode can be understood by a general argument. The kink solution depend on the fixed value $x_0$, hence fixing the solution the translational invariance has been explicitly broken in the space of equilibrium states.\footnote{This is very similar to the previous example of a classical particle in a flat plane, subject to a gravitational force.} Such invariance is recovered by taking into account all possible values of $x_0$, and the standard approach, called \emph{adiabatic}, to recover the invariance is to convert the position $x_0$ of the soliton into a quantum dynamical variable $\op x_0(t)$ (a quantum position variable cannot assume a sharp value, hence there is no breaking of translational invariance) and to assume that the only dependence on time of the kink solution enter trough its modulus\footnote{Adiabaticity means ``very slow changes'' of the system, in this way translations of the modulus are slow enough to leave invariant the shape of the field during the variation of $x_0$. This motivates the dependence on time of the kink only through $x_0(t)$.}
+The occurrence of the zero mode can be understood by a general argument. Expansion eq.~\eqref{eq:exp-kink-fluct} depends on the arbitrary choice of $x_0$, hence fixing the solution the translational invariance has been explicitly broken in the space of equilibrium states.\footnote{This is very similar to the previous example of a classical particle in a flat plane, subject to a gravitational force.} Such invariance is recovered by taking into account all possible values of $x_0$, and the standard approach, called \emph{adiabatic}, to recover the invariance is to convert the position $x_0$ of the soliton into a quantum dynamical variable $\op x_0(t)$ (a quantum position variable cannot assume a sharp value, hence there is no breaking of translational invariance) and to assume that the only dependence on time of the kink solution enter through its modulus\footnote{Adiabaticity means ``very slow changes'' of the system, in this way translations of the modulus are slow enough to leave invariant the shape of the field during the variation of $x_0$. This motivates the dependence on time of the kink only through $x_0(t)$.}
 \begin{eq}\label{eq:adiabatic-solution-kink}
 	\phi_+^S(x)\longmapsto \phi_+^S(x-\op x_0(t))
 	\tand
-	\chi_n(x)\longmapsto\chi_n(x-\op x_0(t))
+	\chi_n(x,t)\longmapsto\chi_n(x-\op x_0(t),t)
 \end{eq}
-Notice this is in agreement with the previous interpretation of the classical kink as a localized particle, indeed moving to a quantum mechanical description a semi-classical\footnote{I.e. without any other quantum number.} particle should only depend on a quantum operator describing its position. 
+This is in agreement with the previous interpretation of the classical kink as a localized particle, indeed moving to a quantum mechanical description a semi-classical\footnote{I.e. without any other quantum numbers.} particle should only depend on a quantum operator describing its position. 
 
-Expanding $\ophi$ in $\op x_0$ we are able to recover the quantum mechanics of the kink. The same adiabatic strategy apply in general for the description of the solitons, but we will discuss it in details only in this instance. For example the time derivative of $\ophi$ is given by (notice that using the adiabatic approach we eliminated the zero mode $\omega_0$)\footnote{Let $\Z^*:=\Z\setminus\{0\}$ be the set of non-zero integers.}
+Expanding $\ophi$ in $\op x_0$ we are able to recover the quantum mechanics of the kink. The same adiabatic strategy applies in general for the description of the solitons, but we will discuss it in details only in this instance. The time derivative of $\ophi$ is given by (notice that using the adiabatic approach we eliminated the zero mode $\omega_0$)\footnote{Let $\Z^*:=\Z\setminus\{0\}$ be the set of non-zero integers.}
 \begin{eq}\label{eq:kink-time-der-adiab}
 	\dot\ophi(x,t)
 	&=\der{}{t}\left(\phi_+^S(x-\op x_0(t))+\ochi(x-\op x_0(t),t)\right)
@@ -435,19 +433,18 @@ Expanding $\ophi$ in $\op x_0$ we are able to recover the quantum mechanics of t
 	&=\left[-\der{\phi_+^S(x-\op x_0(t))}x-\der{\ochi(x-\op x_0(t),t)}x\right]\dot{\op x}_0(t)+\sum_{n\in\Z^*}\dot{\op a}_n(t)\chi_n(x-\op x_0(t))\\
 	&=-\der{\ophi(x,t)}x\dot{\op x}_0(t)+\sum_{n\in\Z^*}\dot{\op a}_n(t)\chi_n(x-\op x_0(t))
 \end{eq}
-Notice that the second term in the square bracket, when multiplied with $\dot{\op x}_0(t)$, give a product of operators and in general it gives a negligible contribution respect to the other terms.\footnote{A better motivation of this claim will be given in the following.} 
-The Hamiltonian around the soliton up to quadratic terms is
+The Hamiltonian around the soliton solution up to quadratic terms is
 \begin{eq}
 	H_{\leq2} &\smash{\overset{\eqref{eq:full_ham_fluc}}=}M_S^\tcl+\int\de x\bigg[\,\half{{\dot\phi^S_+}\hspace{0cm}}^2+\dot\phi^S_+\dot\ochi+\half\dot\ochi^2+\half\ochi L_2\ochi\bigg]\\
 	&\smash{\overset{\eqref{eq:kink-time-der-adiab}}=}M_S^\tcl+\int\de x\,\bigg[\,\left(\der{\phi_+^S}x\right)^2\dot{\op x}\hspace{0cm}^2_0-\der{\phi_+^S}x\dot{\op x}_0\dot\ochi+\half\dot\ochi^2+\half\ochi L_2\ochi\bigg]
 \end{eq}
-As a consequence of the adiabaticity assumption\footnote{From the practical point of view, this consist in assuming that our ``particle'' moves very slowly, in such a way that the motion do not affect the shape of the field.} the effect of the time dependence of the modulus and the presence of the fluctuations should be considered separately in the Hamiltonian, i.e. the term $\dot{\op x}_0\dot\ochi$ gives higher order corrections which we can neglect. From another point of view, typically the Fourier transform of $\dot{\op x}_0$ should have low frequencies components, whereas typically fluctuations highly oscillate, hence the support in the Fourier space of $\op\ochi$ is typically charaterized by high frequencies. Since Fourier components of different wavelengths are orthogonal we get $\int\de x\,\dot{\op x}_0\dot\ochi\approx0$. For the same reason, we neglected $\der\chi x\dot{\op x}_0$ in \eqref{eq:kink-time-der-adiab}. Using eq.~\eqref{eq:kink-classic-energy-density} we finally get
+As a consequence of the adiabaticity assumption\footnote{Recall that from the practical point of view, adiabaticity consists in assuming that our ``particle'' moves very slowly, in such a way that the motion do not affect the shape of the field.} the effect of the time dependence of the modulus and the presence of the fluctuations should be considered separately in the Hamiltonian, i.e. the term $\dot{\op x}_0\dot\ochi$ gives higher order corrections which we can neglect. From another point of view, typically the Fourier transform of $\dot{\op x}_0$ should be characterized by low frequencies, whereas typically fluctuations highly oscillate, hence the support in the Fourier space of $\dot\ochi$ is typically charaterized by high frequencies. Since Fourier components of different wavelengths are orthogonal we get $\int\de x\,\dot{\op x}_0\dot\ochi\approx0$. For the same reason, we can neglect $\der\chi x\dot{\op x}_0$ in \eqref{eq:kink-time-der-adiab}. Using eq.~\eqref{eq:kink-classic-energy-density} we finally get
 \begin{eq}\label{eq:quadr-ham-quantum-kink}
 	H_{\leq2} &=M_S^\tcl+\half M_S^\tcl \,\dot{\op x}\hspace{0cm}^2_0+\int\de x\,\bigg[\half\dot\ochi^2+\half\ochi L_2\ochi\bigg]\\
 	&=M_S^\tcl+\half M_S^\tcl \,\dot{\op x}\hspace{0cm}^2_0+\sum_{n\in\Z^*}\frac{\dot{\op a}_n^2}2+\frac{\omega_n^2}2\op a_n^2\\
 	&=M_S^\tcl+\frac{\op p_0^2}{2M_S^\tcl}+\sum_{n\in\Z^*}\frac{\dot{\op a}_n^2}2+\frac{\omega_n^2}2\op a_n^2
 \end{eq}
-where we introduced the momentum $\op p_0:=M_S^\tcl\dot{\op x}_0$. In this expression we have three contribution: the classical mass of the soliton, a term corresponding to the kinetic energy of the soliton as a quantum particle, and a set of oscillators describing the effect of oscillations around the classical solution. Recall that we made an expansion in $\dot {\op x}_0$ in a relativistic framework, hence we can reconstruct the complete energy of the soliton meant as a quantum particle:
+where we introduced the momentum $\op p_0:=M_S^\tcl\dot{\op x}_0$. In this expression we have three contribution: the classical mass of the soliton, a term corresponding to the kinetic energy of the soliton as a quantum particle, and a set of oscillators describing the effect of fluctuations around the classical solution. Recall that we made an expansion in $\dot {\op x}_0$ in a relativistic framework, hence we can reconstruct the complete energy of the soliton meant as a quantum particle (no fluctuations):
 \begin{eq}
 	 M_S^\tcl+\frac{\op p_0^2}{2M_S^\tcl} \quad\longrightarrow\quad \sqrt{\smash[b]{M_S^{\tcl\,2}+\op p_0^2}}
 \end{eq}
@@ -455,19 +452,19 @@ where we introduced the momentum $\op p_0:=M_S^\tcl\dot{\op x}_0$. In this expre
 Notice that there is no potential for $\op x_0$, because consistently with translational invariance $H$ cannot depend on $\op x_0$ itself but only on $\op p_0$.
 Quantization is finally archived imposing commutation relations
 \begin{eq}
-	[\op x_0,\op p_0]=i
+	[\op x_0,\op p_0]=i\hbar
 	\tand
-	[\op a_n,\dot{\op a}_m]=i\delta_{nm}
+	[\op a_n,\dot{\op a}_m]=i\hbar\delta_{nm}
 \end{eq}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% LECTURE 13 %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 
-Using eq.~\eqref{eq:quadr-ham-quantum-kink} one can approximatively compute the renormalization of the mass $M_S^\tcl$ due to the quantum modes. First notice that since non-zero modes are oscillatory modes we know that
+Using eq.~\eqref{eq:quadr-ham-quantum-kink} one can approximatively compute the renormalization of the mass $M_S^\tcl$ due to the quantum modes. Since non-zero modes are oscillatory modes we know that
 \begin{eq}
-	\spec\left(\sum_{\in\Z^*}\frac{\dot{\op a}_n^2}2+\frac{\omega_n^2}2\op a_n^2\right)=\sum_{n\in\Z^*}\left(N_n+\half\right)\omega_n
-	\twith N_n\in\N \tforall n\in\Z^*
+	\spec\left(\sum_{n\in\Z^*}\frac{\dot{\op a}_n^2}2+\frac{\omega_n^2}2\op a_n^2\right)=\sum_{n\in\Z^*}\left(N_n+\half\right)\omega_n
+	\twith N_n\in\N
 \end{eq}
 Hence in its ground state ($N_n=0$, $p_0=0$) the energy of the kink becomes
 \begin{eq}
@@ -475,16 +472,16 @@ Hence in its ground state ($N_n=0$, $p_0=0$) the energy of the kink becomes
 \end{eq}
 However we should remember that in RQFT the Hamiltonian is defined so that the vacuum is annihilated by $H$, hence we have to subtract to the previous expression the vacuum expectation value of the ``unrenormalized'' Hamiltonian $H_{\leq2}$. Therefore, the energy of the ground state for the Hamiltonian is 
 \begin{eq}\label{eq:kink-quantum-mass-renorm}
- 	M_S^\tq=M_S^\tcl+\sum_{n\in\Z^*} \frac{\omega_n}2-\frac{\omega_{\tvac,n}}2
+ 	M_S^\tq=M_S^\tcl+\sum_{n\in\Z^*} \Big(\frac{\omega_n}2-\frac{\omega_{\tvac,n}}2\Big)
 \end{eq}
-where $\omega_{\tvac,n}$ are the frequencies of the oscillator modes in the vacuum (which in the previous subsection we denoted simply by $\omega_n$, a symbol here used for the oscillator modes in the presence of the kink). In the thermodynamic limit $L\to\infty$ these are labelled by a continuum index $p$ are since we are in a relativistic context the on-shell condition implies $\omega_n\to\omega(p)=\sqrt{p^2+m^2}$. To get a well defined subtraction in $M_S^\tq$ we first put the system in a region of length $L$ finite, and then we take the limit $L\to\infty$. One can fix the boundary conditions in some different ways provided that in the thermodynamic limit they coincide with the previous ones. We use the (Dirichlet) vanishing boundary conditions at the boundary of $L$, such that
+where $\omega_{\tvac,n}$ are the frequencies of the oscillatory modes in the vacuum (which in the previous subsection we denoted simply by $\omega_n$, a symbol here used for the oscillator modes in the presence of the kink). In the thermodynamic limit $L\to\infty$ these frequencies are labelled by a continuum index $p$ and since we are in a relativistic context the on-shell condition implies $\omega_n\to\omega(p)=\sqrt{p^2+m^2}$. To get a well defined subtraction in $M_S^\tq$ we first put the system in a region of finite length $L$, and then we take the limit $L\to\infty$. One can fix the boundary conditions in some different ways provided that in the thermodynamic limit they coincide with the previous ones. We use the (Dirichlet) vanishing boundary conditions at the boundary of $L$, such that
 \begin{eq}
 	\omega_{\tvac,n}=\sqrt{p_n^2+m^2}
 	\twith
 	p_nL=\pi n
 \end{eq}
 
-For $H_2$, apart from the eigenvalue 0, there is an eigenvalue $\omega_1=\frac{\sqrt3}2m$ while all the other eigenvalues lie above $m^2$. In the thermodynamic limit the eigenvalues larger than $m^2$ are still given by a continuum $\omega(\tilde p)=\sqrt{\smash{\tilde p}^2+m^2}$ corresponding to the asymptotic behaviour of the eigenfunctions of the operator $L_2$
+For the modes around the kink solution, apart from the eigenvalue 0, there is another isolated eigenvalue $\omega_1=\frac{\sqrt3}2m$, while all the other eigenvalues lie above $m^2$. In the thermodynamic limit the eigenvalues larger than $m^2$ are given by a continuum $\omega(\tilde p)=\sqrt{\smash{\tilde p}^2+m^2}$ corresponding to the asymptotic behaviour of the eigenfunctions of the operator $L_2$
 \begin{eq}	
 	\chi_{\tilde p}(x)&\xrightarrow[x\to+\infty]{}e^{\pm i\tilde p x}\\
 	&\xrightarrow[x\to-\infty]{}e^{\pm i(\tilde px+\delta(\tilde p))}
@@ -493,19 +490,19 @@ where $e^{i\delta(\tilde p)}$ is a correction called \emph{phase shift} (as it g
 \begin{eq}\label{eq:kink-phase-shift}
 	e^{i\delta(\tilde p)}=e^{ i\big[2\arctan\frac{\tilde p}m+2\arctan\frac{2\tilde p}m\big]}
 \end{eq}
-For the system at finite length with 0-boundary conditions the phase shift is given by
+For the system at finite length with vanishing boundary conditions the phase shift is given by
 \begin{eq}
-	\tilde p_nL-\delta(\tilde p_n)=\pi n=p_nL
-	\tfor
-	n\in\N
+	\tilde p_nL-\delta(\tilde p_n)=\pi n
+	\tso
+	\tilde p_n=p_n+\frac{\delta(\tilde p_n)}{L}\overset{L\gg1}\approx p_n+\frac{\delta(p_n)}{L}
 \end{eq}
 Then eq.~\eqref{eq:kink-quantum-mass-renorm} reads (discarding the finite difference due to the eigenvalue $\omega_0$ and $\omega_1$, as we are interested in the divergent terms)
 \begin{eq}
 	 M_S^\tq-M_S^\tcl&\approx\sum_{n\in\Z^*}\left(\frac{\sqrt{\tilde p^2_n+m^2}}2-\frac{\sqrt{p^2_n+m^2}}2\right)
 \end{eq}
-Going to the thermodynamic limit and using $n=p_nL/\pi=(\tilde p_nL-\delta(\tilde p_n))/\pi$ we can replace\footnote{The value $p=0$ has zero measure, hence we can include it in the integral.}
+Going to the thermodynamic limit and using $n=p_nL/\pi$ we can replace, according to Riemann integration\footnote{The value $p=0$ has zero measure, hence we can include it in the integral.}
 \begin{eq}
-	\sum_{n\in\Z^*}\quad\longmapsto\quad\int_{-\infty}^\infty\frac{\de p\,L}\pi
+	\sum_{n\in\Z^*}f(p_n)\quad\longmapsto\quad\int_{-\infty}^\infty\frac{\de p\,L}\pi f(p)
 \end{eq}
 and then we get
 \begin{eq}
@@ -517,31 +514,30 @@ and then we get
 where in the third step we expanded around $\delta(p)/L\approx 0$ and in the last we used $\delta(p)=-\delta(-p)$.
 Integrating by parts with boundary conditions $\delta(0)=\delta(\infty)=0$ (directly follows from eq.~\eqref{eq:kink-phase-shift}) we finally get
 \begin{eq}
-	 M_S^\tq-M_S^\tcl&=-\int_0^\infty\frac{\de p}{\pi}\sqrt{p^2+m^2}\,\der{\delta(p)}p
+	 M_S^\tq-M_S^\tcl&\approx-\int_0^\infty\frac{\de p}{\pi}\sqrt{p^2+m^2}\,\der{\delta(p)}p
 	\smash{\overset{\eqref{eq:kink-phase-shift}}=}-\int_0^\infty\frac{\de p}{\pi}\sqrt{p^2+m^2}\left(\frac{2m}{p^2+m^2}+\frac{4m}{4p^2+m^2}\right)\\
 	&=-\frac{2m}{\pi}\int_0^\infty\de y\,\sqrt{y^2+1}\left(\frac1{y^2+1}+\frac2{4y^2+1}\right)
 	\quad\twith y=\frac pm
 \end{eq}
-The last integral is clearly logarithmically divergent. Introducing a cutoff $\Lambda$ the divergent term is indeed (the previous integral is well defined for small $p$, hence we consider only the high energy part)
+The last integral is clearly logarithmically divergent. Introducing a cutoff $\Lambda$ the divergent term is indeed (the previous integral is finite for small $p$, hence we consider only the high energy part)
 \begin{eq}\label{eq:kink-div-bare-mass}
 	 M_S^\tq-M_S^\tcl\approx-\frac{3m}{\pi}\int^{\Lambda/m}\frac{\de y}{y}=-\frac{3m}{\pi}\log\frac\Lambda m=-\frac{3m}{2\pi}\log\frac{\Lambda^2}{m^2}
 \end{eq}
 This divergence arises since we considered the unrenormalized mass rather than the renormalized one, indeed in our discussion so far we did not take into account higher order interactions. We should take into account divergences due to third and quartic coupling, as we have done for the fluctuations around the vacuum.
 
-Using the result eq.~\eqref{eq:classical-mass-kink} for $\delta m^2$, this correction to the mass implies a corresponding correction to the energy density:
-\todo{Non capisco come si ottenga la seguente formula. Mi sembrerebbe più naturale usare $\half\delta m(\phi_{\text{kink}}^2-\phi_{\text{vac}}^2)$}
+The one-loop correction $\delta m$ to the bare mass, given by eq.~\eqref{eq:classical-mass-kink} and due to higher order interactions, implies the following correction to the kink energy density:
+\todo{Ho cambiato il segno di $\delta\cenergy$, mi sembra più corretto così (e cancella \eqref{eq:kink-div-bare-mass})}
 \begin{eq}
-	\delta\cenergy=-\half\delta m^2(\phi_{\text{kink}}^2-\phi_{\text{vac}}^2)=\half\delta m^2v^2\left(1-\tanh^2\frac{gv(x-x_0)}{\sqrt2}\right)
+	\delta\cenergy=\half\delta m^2(\phi_{\text{kink}}^2-\phi_{\text{vac}}^2)=\half\delta m^2v^2\left(\tanh^2\frac{gv(x-x_0)}{\sqrt2}-1\right)
 \end{eq}
-which, by integration, give the mass one-loop correction
-\begin{eq}
-	\delta M&=\half\delta m^2\frac{m^2}{2g^2}\int_{-\infty}^{+\infty}\de x\,\left(1-\tanh^2\frac m2(x-x_0)\right)\\
-	&=\delta m^2\,\frac{m}{2g^2}\int_{-\infty}^{+\infty}\de y\,\der{}y\tanh y	\quad\twith y=\half m(x-x_0)\\
-	&=\delta m^2\,\frac{m}{g^2}\ 
-	\smash{\overset{\eqref{eq:classical-mass-kink}}=}\, -\frac{3m}{2\pi}\log\frac{\Lambda^2}{m^2}
+which, by integration, give the one-loop correction to the mass of the kink
+\begin{eq}\label{eq:kink-div-mass-inter}
+	\delta M_S&=\half\delta m^2\frac{m^2}{2g^2}\int_{-\infty}^{+\infty}\de x\,\left(\tanh^2\frac m2(x-x_0)-1\right)\\
+	&=-\delta m^2\,\frac{m}{2g^2}\int_{-\infty}^{+\infty}\de y\,\der{}y\tanh y	\quad\twith y=\half m(x-x_0)\\
+	&=-\delta m^2\,\frac{m}{g^2}\ 
+	\smash{\overset{\eqref{eq:classical-mass-kink}}=}\, \frac{3m}{2\pi}\log\frac{\Lambda^2}{m^2}
 \end{eq}
-\todo{Penso che il segno $-$ in $\delta\cenergy$ sia sbagliato, togliendolo il risultato cancella \eqref{eq:kink-div-bare-mass} visto che hanno segni opposti. }
-which is exactly the factor needed to cancel the divergence in the bare mass of $\chi$ in eq.~\eqref{eq:kink-div-bare-mass}. So the counterterm needed for the $\chi$ mass renormalization makes finite also the quantum correction (perturbatively) to the kink mass. 
+which is exactly the factor needed to cancel the divergence in the bare mass of $\chi$ in eq.~\eqref{eq:kink-div-bare-mass}. So, at least at first order, (the divergent part of) the correction due to the kinetic energy of fluctuations (eq.~\eqref{eq:kink-div-bare-mass}) cancels exactly (the divergent part of) the correction coming from the renormalization of the bare mass (eq.~\eqref{eq:kink-div-mass-inter}).\todo{Controllare affermazione, mi sembra più chiara così.}
 
 \section{Applications}
 
@@ -592,15 +588,15 @@ A kink interpolates between the two structures and in terms of the displacement 
 
 There are a lot of one-dimensional systems with $n$ ground states related by $\Z_n$ symmetry, spontaneously broken, which exhibits kinks interpolating between these ground states. 
 
-\section{Quantum field theory treatment}
+\section{Quantum field theory treatment}\label{sec:qft-kink}
 
 \cite{Frohlich:1987gu}, \cite{Frohlich:1990tc}, \cite{Marchetti:1988yi}, see also \cite{Marchetti:1986bda}, \cite{Marchetti:1987pz}, \cite{Frohlich:1987er}\\
 
-Up to now we have discussed classical and quantum mechanical treatment of kinks. What about a really QFT treatment?
+Up to now we have discussed classical and quantum mechanical treatment of kinks. Let's now really consider a QFT treatment.
 
-\subsubsection{The space of configurations of the path integral - The semi-classical approximation}
+\subsubsection{The space of configurations of the path integral}
 
-We start by asking how much the classical solution of a field theory is relevant for understanding the corresponding QFT behaviour. 
+We start by asking how relevant is the classical solution of a field theory for the understanding of the corresponding QFT behaviour. 
 In the path-integral approach the configurations of the field $\phi(x)$ are weighted by $e^{-\frac1\hbar S(\phi)}$, where $S(\phi)$ is the classical action, and the classical equations of motion can be derived as minima of $S(\phi)$. 
 
 The naive answer to the above question is that classical solutions give the dominant contribution to the path integral at least in the semi-classical limit of small $\hbar$ or more in general if the action contribution $e^{-S(\phi)}$ dominates over the measure $\pide\phi$, e.g. when one can rewrite the action in the form $\beta S(\phi)$ with $\beta$ sufficiently large.\footnote{This is often the case for supersymmetric theories, at least in low dimensions.} In our $\phi^4$ model this is achieved rescaling
@@ -617,7 +613,7 @@ However, if there is no UV cutoff, this naive reasoning is wrong, because the ty
 \begin{eq}
 	C(x-y)\equiv\langle\phi(x)\phi(y)\rangle_2:=\frac{\displaystyle\int\pide\phi\,e^{-Q(\phi)}\phi(x)\phi(y)}{\displaystyle\int\pide\phi\,e^{-Q(\phi)}}
 \end{eq}
-usually called \emph{covariance}, then assuming translational invariance we can perform the Fourier transform of $C$, $\tilde C(k)$, and then there is a theorem proving that typical configurations of $\phi$ satisfy with probability 1 the estimate
+usually called \emph{covariance}, then assuming translational invariance we can perform the Fourier transform of $C$, $\tilde C(k)$, and then there is a theorem \todo{Come si chiama il teorema? (O dove si può trovare?)} proving that typical configurations of $\phi$ satisfy with probability 1 the estimate
 \begin{eq}\label{eq:property-covariance}
 	|\phi(x)-\phi(y)|<\text{const}\cdot|x-y|^\alpha
 \end{eq}
@@ -643,24 +639,24 @@ For arbitrary $D$ and
 \begin{eq}
 	\tilde C( k)=\frac1{ k^2+m^2}
 \end{eq}
-condition eq.~\eqref{eq:property-covariance-cond} is satisfied provided that $D+2\alpha<2$ holds. This means that $\phi(x)$ is not even continuous for $D\geq2$. For this reason our initial claim is wrong, and classical solutions are not the dominant contributions to the path integral. Notice that the situation become worse and worse as we increase $D$, since greater values of $D$ implies smaller values of $\alpha$. The reason behind this is that higher is the dimension, stronger are the ultraviolet effects, as one can easily see this fact from dimensional analysis. 
+condition eq.~\eqref{eq:property-covariance-cond} is satisfied provided that $D+2\alpha<2$ holds. This means that $\phi(x)$ is not even continuous for $D\geq2$. For this reason our initial claim is wrong, and classical solutions are not the dominant contributions to the path integral. Notice that the situation become worse and worse as we increase $D$, since greater values of $D$ implies smaller values of $\alpha$. The reason behind this is that higher is the dimension, stronger are the ultraviolet effects, as one can easily see from dimensional analysis. 
 
-Typical configurations of $\phi$ are distributions. In a sense we should expect this, since quantum fields are described by operator-valued distributions in the operator formalism. It turns out that configurations with finite action are of measure 0 in the space of all field configurations over which the path integral is performed. 
+Typical configurations of $\phi$ are distributions. In a sense we should have expected this, since quantum fields are described by operator-valued distributions in the operator formalism. It turns out that configurations with finite action are of measure 0 in the space of all field configurations over which the path integral is performed. 
 
-Summarizing, for a theory where the ultraviolet cutoff is pushed to infinity and the translational invariance holds, we can apply the previous theorem, which tells us exactly what happens when the path integral is Gaussian, i.e. when the action si quadratic, described by $Q$.  In particular, we know that typical configurations are extremely singular: they are mostly continuous only in $D=1$, whereas in all dimensions are not differentiable. As we will see, this suggest which configurations dominate the path integral, and the description of such configuration will lead us to the notion of \emph{defects}, which is the corner stone for the description of solitons in QFT. 
+Summarizing, for a theory where the ultraviolet cutoff is pushed to infinity and the translational invariance holds, we can apply the previous theorem, which tells us exactly what happens when the path integral is Gaussian, i.e. when the action si quadratic, described by $Q$.  In particular, we know that typical configurations are extremely singular: they are mostly continuous only in $D=1$, whereas in all greater dimensions they are almost always not differentiable. As we will see, this suggest which configurations dominate the path integral, and the description of such configuration will lead us to the notion of \emph{defect}, which is the cornerstone for the description of solitons in QFT. 
 
-\skipline
+\subsubsection{The semi-classical approximation}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% LECTURE 14 %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 
-The reason why classical field solutions are relevant, is that they can be useful as a starting point for the following approximation. In analogy to the procedure we followed before, we expand the field $\phi$ around a minima $\phicl$ of the action, $\phi\to\phicl+\chi$, as
+The reason why classical field solutions are relevant, is that they can be used as a starting point for the following approximation. In analogy to the procedure we followed before, we expand the field $\phi$ around a minima $\phicl$ of the action, $\phi\to\phicl+\chi$, as
 \begin{eq}
 	S(\phi)=S(\phicl)+Q(\chi)+R(\chi)
 \end{eq}
 where $Q(\chi)$ contains quadratic (and possibly linear) terms in $\chi$ and $R(\chi)$ is the reminder (contains all higher order terms in $\chi$). 
-The semi-classical approximation is based on the idea that the contribution of $R(\chi)$ is typically small respect to $S(\phicl)+Q(\chi)$, hence configurations which differ significantly from the classical solutions are suppressed by the quadratic term $Q(\chi)$, and in the path integration the only configurations whose contributions sum up coherently in a non-zero result are those which are ``near'' to the classical one. \todo{Qui non mi era molto chiaro quanto detto a lezione, ho rielaborato un po in base alle mie conoscenze.} Therefore, the main contribution to the path integral is given by those configuration localized around the classical solution, in the configurations space. Such situation is represented in fig.~\ref{fig:paths-localized-classical-solution}.
+The semi-classical approximation is based on the idea that the contribution of $R(\chi)$ is typically small respect to the one of $S(\phicl)+Q(\chi)$, hence configurations which differ significantly from the classical solutions are suppressed by the quadratic term $Q(\chi)$ and in the path integration the only configurations whose contributions sum up coherently in a non-zero result are those which are ``close'' to the classical one. \todo{Qui non mi era molto chiaro quanto detto a lezione, ho rielaborato un po in base alle mie conoscenze.} Therefore, the main contribution to the path integral is given by those configuration localized around the classical solution, in the configurations space. Such situation is represented in fig.~\ref{fig:paths-localized-classical-solution}.
 
 \begin{figure}[h]
 \centering
@@ -681,7 +677,7 @@ Notice that if such approximation holds, the soliton can be analized as a (exten
 
 \skipline
 
-Notice that in general each of the dominant classical configurations (blue lines in fig.~\ref{fig:paths-localized-classical-solution}) will not be associated to a specific solution of the equations of motion, because in different regions in the Euclidean space-time the field may be close to different local minima of the action, and we need to interpolate among them. For example, in our $\phi^4$ model in some regions $\phi$ may be close to the absolute minima $\phi_+$, in some other to the kink solution $\phi^S$. 
+Notice that in general each of the dominant classical configurations (blue lines in fig.~\ref{fig:paths-localized-classical-solution}) will not be associated to a specific solution of the equations of motion, because in different regions of the Euclidean space-time the field may be close to different local minima of the action, and we need to interpolate among them. For example, in our $\phi^4$ model the field $\phi$ in some regions may be close to the absolute minima $\phi_+$, and in others to the kink solution $\phi^S$. 
 
 In order to take into account this issue, we wish to find a set of classical configurations $\{\phi_i\}_{i\in I}$ and a partition $\{\consp_i\}_{i\in I}$ of the space $\consp$ of all configurations of $\phi$,\footnote{The space $\consp$ is very singular, for example in $\phi_2^4$ it may be $\schw'(\R^2)$.} with $\phi_i\in\consp_i$, such that\todo{Qui ho fatto delle modifiche poiché, se non vado errato, nella versione data in classe non veniva risolto il problema di configurazioni che interpolano tra più minimi dell'azione.}
 \begin{enumerate}[label=(\arabic*), start=0]
@@ -690,14 +686,14 @@ In order to take into account this issue, we wish to find a set of classical con
 		S(\phi)=S(\phi_i)+Q_i(\chi_i)+R_i(\chi_i)
 	\end{eq}
 	with $Q_i(\chi_i)$ containing terms up to the second order in $\chi_i$ and $R_i(\chi_i)$ containing terms of higher order;
-	\item if $\phi\in\consp_i$ then $\vert e^{-R_i(\phi)}-1\vert\ll1$;
-	\item if $\phi\not\in\consp_i$ then $e^{-Q_i(\phi)}\ll1$ (i.e. $\phi$ strongly deviate from $\phi_i^\tcl$);
+	\item if $\phi_i+\chi\in\consp_i$ then $\vert e^{-R_i(\chi)}-1\vert\ll1$;
+	\item if $\phi_i+\chi\not\in\consp_i$ then $e^{-Q_i(\chi)}\ll1$ (i.e. $\phi$ strongly deviate from $\phi_i$);
 	\item $\bigcup_i\consp_i$ is the configuration space of $\phi$;
 	\item $\consp_i\cap\consp_j=\emptyset$ for $i\neq j$.
 \end{enumerate}
 One should think at $\{\phi_i\}_{i\in I}$ as the union of all the classical solutions of equations of motion (vacuum configurations and local minima of the action) together with a set of ``inequivalent'' configurations which interpolate between different classical solutions. The meaning of ``inequivalent'' is specified by the above conditions. For instance, there may be a configuration $\phi_i$ which coincide with $\phi^S_+$ far to the left of $x_0$, coincide with $\phi^S_-$ far to the right of $x_0$ and near $x_0$ behaves approximately as a classical kink. Then using (1) and (2) we see that $R_i(\phi)$ is very close to zero if $\phi$ is close to $\phi_i$, and $e^{Q_i(\phi)}$ is almost zero if $\phi$ strongly deviates from $\phi_i$. The five properties together ensures that there are no other configurations $\phi_j\not\in\consp_i$ which are a slight deformation of $\phi_i$. 
 
-According to (3) and (4) we can defined a partition of unity
+According to (3) and (4) we can define a partition of unity
 \begin{eq}
 	1_\consp=\sum_i X_i(\phi)
 	\twith
@@ -706,7 +702,7 @@ According to (3) and (4) we can defined a partition of unity
 		0\tif\phi\not\in\consp_i
 	\end{cases}
 \end{eq}
-which can be inserted in the path integral obtaining an ``improved semi-classical approximation'':\footnote{Here we denote by $\int_{\consp_i-\phi}\pide\chi$ the integration over those configurations $\chi$ such that $\phi+\chi\in\consp_i$. The last step follows easily since $\consp$ contain all the possible configurations, hence $\consp-\phi=\consp$ for any $\phi$.}
+which can be inserted in the path integral obtaining an ``improved semi-classical approximation'':\footnote{Here we denote by $\int_{\consp_i-\phi}\pide\chi$ the integration over those configurations $\chi$ such that $\phi+\chi\in\consp_i$. The last step follows easily since $\consp$ contains all the possible configurations, hence $\consp-\phi=\consp$ for any $\phi$.}
 \begin{eq}\label{eq:improv-semiclass-approx}
 	\int_\consp\pide\phi\,e^{-S(\phi)}F(\phi)
 	&=\sum_{i\in I}\int_\consp\pide\phi\,e^{-S(\phi)}F(\phi)X_i(\phi)\\
@@ -722,15 +718,15 @@ Hence such approximation considers fluctuations around various possible local mi
 
 For a fixed configuration $\phi$ let $\Gamma$ be a region in the Euclidean space-time where the $\phi$ deviates strongly from the global minimum of the action (i.e. from the vacuum) but it is close to a local minimum (usually corresponding to a classical solution of the equations of motion). 
 If $\Gamma$ is connected it is said to be the support of a \emph{defect}.\footnote{The notion of defect comes from the study of crystals: a defect is an irregularity of the structure. Such irregularities usually create new energy levels, which have higher energy with respect to the ground state. Similarly, in QFT the notion of defect has been adapted, describing local minima of the action, disjointed from the global ones (the vacua).} 
-If the Euclidean space-time minus the support of the defect $\Gamma$ is contractible to the Euclidean space-time minus a $n$-dimensional manifold, then we call the defect a $n$-dimensional defect. In particular we can have a point defect, a line defect, etc. In mathematical language, $\Gamma$ is a point/line/surface/\ldots/n-dimensional defect if it is the tubular neighbourhood of a point/line/surface/\ldots/n-dimensional manifold. 
+If the Euclidean space-time minus the support of the defect $\Gamma$ is contractible to the Euclidean space-time minus a $n$-dimensional manifold, then we call the defect a $n$-dimensional defect. In particular we can have a point defect, a line defect, etc. In mathematical language, $\Gamma$ is a point/line/surface/\ldots/$n$-dimensional defect if it is the tubular neighbourhood of a point/line/surface/\ldots/$n$-dimensional manifold. 
 
-In high energy language, sometimes one also use the word \emph{$p$-brane} for a $(p+1)$-dimensional defect, although often this terminology is deserved to cases in which the defect is strictly $(p+1)$-dimensional (without contracting its complement). 
+In high energy language, sometimes one also uses the word \emph{$p$-brane} for a $(p+1)$-dimensional defect, although often this terminology is deserved to cases in which the defect is strictly $(p+1)$-dimensional (without contracting its complement). 
 
 Notice that free theories has only one minimum, therefore in order to have defects we should consider interacting theories.
 
 \skipline
 
-For our $\phi_2^4$ theory the kink is a line defect. Indeed $\Gamma$ appears in the partition function when the field $\phi$ changes sign around a bounded region. The line where $\phi$ vanishes is called the \emph{locus of the defect} and is clearly a closed line. An example is shown in fig.~\ref{fig:defect}. 
+For our $\phi_2^4$ theory the kink is a line defect. Indeed $\Gamma$ appears in the partition function when the field $\phi$ changes sign around a bounded region. The line where $\phi$ vanishes is called the \emph{locus of the defect} and is clearly a closed line, unless it reaches the boundaries of the spacetime. \todo{Qui ho fatto delle modifiche, da controllare.} For the classical kink discussed before in the quantum mechanical treatment, the locus of the defect is time independent and is parametrized by the modulus of the kink, therefore it reaches infinities and it is not closed. However, for the moment let's restrict ourselves on defects whose loci have compact support, an example is shown in fig.~\ref{fig:defect}. A typical configuration of $\phi$ far away from the locus of the defect should be close to one of the two global minima $\phi_\pm$. Instead near the region $\phi=0$ typical configurations should be close to a kink, in order to maintain $S(\phi)$ close to a (local) minimum. 
 
 \begin{figure}[h]
 \centering
@@ -742,13 +738,11 @@ For our $\phi_2^4$ theory the kink is a line defect. Indeed $\Gamma$ appears in 
 \draw (325.33,60.73) node [anchor=north]    {$\phi>0$};
 \draw (300,130) node [anchor=north][color=darkblue]   {$\Gamma$};
 \end{tikzpicture}
-\caption{The defect $\Gamma$ is represented by the blue thick line. The black line correspond to the locus of the defect, i.e. where $\phi=0$.}
+\caption{The defect $\Gamma$ is represented by the blue thick line. The black line correspond to the locus of the defect, i.e. where $\phi=0$. In the white regions the configuration is close to the vacuum, $|\phi|\approx v$.}
 \label{fig:defect}
 \end{figure}
 
-For the classical kink discussed before in the quantum mechanical treatment, the locus of the defect is time independent and is parametrized by the modulus of the kink. A typical configuration of $\phi$ far away from the locus of the defect should be close to one of the two global minima $\phi_\pm$. Instead near the region $\phi=0$ typical configurations should be close to a kink, in order to maintain $S(\phi)$ close to a (local) minimum. 
-
-If the vacuum expectation value is positive, $\langle\phi\rangle>0$, which can be achieved by imposing $\phi_+$ boundary conditions at $\infty$, the situation is the one represented in fig.~\ref{fig:defects-positive-boundaries-conditions}. 
+If the vacuum expectation value is positive, $\langle\phi\rangle>0$, which can be achieved by imposing $\phi_+$ boundary conditions at $\infty$, the situation is the one represented in fig.~\ref{fig:defects-positive-boundaries-conditions}. Notice that for such boundary conditions it is impossible to have defects reaching $\infty$. 
 
 \begin{figure}[h]
 \centering
@@ -812,13 +806,13 @@ In the lattice approximation (replacing $\phi^4$ by the Ising model) such defect
 \skipline
 
 \todo{Qui ho un po reinterpretato perché non riuscivo a capire come $S(\Gamma_1,\ldots,\Gamma_N)$ fosse definito a partire dai defects, che sono regioni dello spazio tempo.}
-Let us consider again eq.~\eqref{eq:improv-semiclass-approx}. Notice that to each $\consp_i$ we can associate the defects with support\footnote{For simplicity we will now denote also the defects by their support, assuming no ambiguity arises from this simplification.} $\Gamma_{i,1},\ldots,\Gamma_{i,n}$ appearing in the configurations $\phi\in\consp_i$. Then, we can consider 
+Let us consider again eq.~\eqref{eq:improv-semiclass-approx}. Notice that to each $\consp_i$ we can associate the defects with support\footnote{For simplicity we will now denote also the defects by their support, assuming that no ambiguity arises from this simplification.} $\Gamma_{i,1},\ldots,\Gamma_{i,n}$ appearing in the configurations $\phi\in\consp_i$. Then, we can consider 
 \begin{eq}
 	\int_{\consp_i-\phi_i}\pide\chi_i\,e^{-S(\phi_i)-Q_i(\chi_i)}
 \end{eq}
-as a Boltzmann weight of the \emph{gas of defects} $\{\Gamma_{i,1},\ldots,\Gamma_{i,N}\}$ appearing in the configurations of $\consp_i$. From such Boltzmann weight, we can define the action associated with the gas:
+as a Boltzmann weight of the \emph{gas of defects} $\{\Gamma_{i,1},\ldots,\Gamma_{i,N}\}$ appearing in the configurations of $\consp_i$. From such Boltzmann weight, we can define the action $S(\Gamma_{i,1},\ldots,\Gamma_{i,N})$ associated to the gas\todo{Controllare}
 \begin{eq}
-	S(\Gamma_{i,1},\ldots,\Gamma_{i,N})
+	e^{\displaystyle -S(\Gamma_{i,1},\ldots,\Gamma_{i,N})}=\int_{\consp_i-\phi_i}\pide\chi_i\,e^{-S(\phi_i)-Q_i(\chi_i)}
 \end{eq}
 Notice that the same defect $\Gamma$ can be associated to different sets $\consp_j$, as in general classical configurations may interpolate between several local minima of the action, but each gas of defects $\{\Gamma_1,\ldots,\Gamma_N\}$ is uniquely associated to some $\consp_i$, for the same reasons which lead us to eq.~\eqref{eq:improv-semiclass-approx}. 
 
@@ -826,15 +820,20 @@ We can now define the interaction between defects in the gas $\{\Gamma_1,\ldots,
 \begin{eq}
 	V(\Gamma_1,\ldots,\Gamma_N):=S(\Gamma_1,\ldots,\Gamma_N)-\sum_{k=1}^NS(\Gamma_k)
 \end{eq}
-One should notice that if the defects are separated enough each other, so that no configuration with non-zero measure interpolate between them, then $V(\Gamma_1,\ldots,\Gamma_N)=0$ and the defects do not interact among each other. 
+One should notice that if the defects are separated enough from each others, so that no configuration with non-zero measure interpolate between them, then $V(\Gamma_1,\ldots,\Gamma_N)=0$ and the defects do not interact. 
 
-Finally, neglecting contributions coming from fluctuations around the vacuum, we get that in the ``improved semi-classical approximation'' the partition function of the system can be expressed as\todo{Qui ho modificato la formula data a lezione al fine di evitare di contare più volte il contributo dello stesso gas di defects.}
+Finally, neglecting contributions coming from fluctuations around the vacuum, we get that in the ``improved semi-classical approximation'' (s.c.) the partition function of the system can be expressed as
 \begin{eq}
-	\int_\consp\pide\phi\,e^{-S(\phi)}
+	Z_{\text{s.c.}}:=\int_\consp\pide\phi\,e^{-S(\phi)}
 	&\approx\sum_{i\in I}e^{\displaystyle-S(\Gamma_{i,1},\ldots,\Gamma_{i,N})}\\
 	&=\sum_{i\in I}\underbrace{\prod_{k=1}^Ne^{\displaystyle-S(\Gamma_{i,k})}}_{\text{Non-interacting}\atop\text{gas of defects}}\,\underbrace{\vphantom{\prod_{k}}e^{\displaystyle-V(\Gamma_{i,1},\ldots,\Gamma_{i,N})}}_{\text{Interactions}\atop\text{among defects}}
 \end{eq}
-which can be interpreted as a partition function of the interacting gas of defects, which by construction have closed locus. \todo{Qui ho un dubbio che è legato ad un'altra domanda che le ho fatto più sotto. Immagino che questa interazione tra defects risulta poi essere un'interazione tra kinks. Ha senso questo visto che kinks dovrebbero esser configurazioni solitarie (perlomeno a livello classico)? In tal caso, è possibile definire un'azione interagente per kink in QFT che tenga conto di questo tipo di interazioni?}
+or equivalently, setting formally $e^{S(\Gamma_1,\ldots,\Gamma_N)}=0$ if $\{\Gamma_1,\ldots,\Gamma_N\}$ does not correspond to any $\consp_i$,\todo{Controllare}
+\begin{eq}\label{eq:Zsc}
+	Z_{\text{s.c.}}\approx\sum_{N=0}^\infty\sum_{\{\Gamma_1,\ldots,\Gamma_N\}}e^{\displaystyle-S(\Gamma_{1},\ldots,\Gamma_{N})}
+\end{eq}
+where the sum over $\{\Gamma_1,\ldots,\Gamma_N\}$ considers all possible combinations of $N$ defects.
+From eq.~\eqref{eq:Zsc} we see that $Z_{\text{s.c.}}$ can be interpreted as a partition function of the interacting gas of defects, which by construction have closed locus. \todo{Qui ho un dubbio che è legato ad un'altra domanda che le ho fatto più sotto. Immagino che questa interazione tra defects risulta poi essere un'interazione tra kinks. Ha senso questo visto che kinks dovrebbero esser configurazioni solitarie (perlomeno a livello classico)? In tal caso, è possibile definire un'azione interagente per kink in QFT che tenga conto di questo tipo di interazioni o tali interazioni sono già ``gratuite'' visto che il path integral tiene conto di tutte le possibili configurazioni di $\phi$?}
 
 \skipline
 
@@ -871,7 +870,7 @@ In the lattice line defects are close contours in the dual lattice, between site
 \draw(1,7) node {$+$};\draw(2,7) node {$-$};\draw(3,7) node {$-$};\draw(4,7) node {$-$};\draw(5,7) node {$+$};\draw(6,7) node {$-$};\draw(7,7) node {$+$};\draw(8,7) node {$+$};
 \draw(1,8) node {$+$};\draw(2,8) node {$+$};\draw(3,8) node {$+$};\draw(4,8) node {$+$};\draw(5,8) node {$+$};\draw(6,8) node {$+$};\draw(7,8) node {$+$};\draw(8,8) node {$+$};
 \end{tikzpicture}
-\caption{The sites of the lattice are denoted by $+$ and $-$ depending on wether the field has positive or negative value on them. The blue lines represent defects which are supported in the dual lattice and are constructed according to fig.~\ref{fig:defect-lattice-1}.}
+\caption{The sites of the lattice are denoted by $+$ and $-$ depending on whether the field has positive or negative value on them. The blue lines represent defects which are supported in the dual lattice and are constructed according to fig.~\ref{fig:defect-lattice-1}.}
 \label{fig:defect-lattice-2}
 \end{figure}
 
@@ -970,15 +969,15 @@ where in the second line we used the identity $(\det A)^{-1}=\exp\left(\Tr \log 
 	=\int\de x\,\bra xA\ket {x}
 	=\int\de x\,A(x,x)
 \end{eq}
-Hence $Z$ can be written as a weighted ``sum'' over closed paths, with the same weights as before. 
+Hence $Z$ can be written as a weighted ``sum'' over closed paths, with the same weights as for the 2-points function. 
 
 \skipline
 
-Knowing the structure of the Boltzmann weight in the partition function, then the basic idea is to recover the two points function ``opening' the paths used in $Z$ in such a way that boundaries of the resulting lines coincides with points in the two points function. 
+Knowing the structure of the Boltzmann weight in the partition function, the basic idea is to recover the two points function ``opening' the paths used in $Z$ in such a way that boundaries of the resulting lines coincides with points in the two points function. 
 
-Let us now turn to the description of kinks. As we have seen the partition function of $\phi_2^4$ in the broken symmetry phase can be written as a sum over closed line defects ``associated to kinks'', whose locus is the region of spacetime where $\phi$ changes sign. This suggests that the Green function of a quantum field kink operator can be constructed if we are able to introduce open line defects whose locus have boundary at the points of the insertion of the kink operator. 
+Let us now turn to the description of kinks. As we have seen the partition function of $\phi_2^4$ in the broken symmetry phase can be written as a sum over closed line defects ``associated to kinks'', whose locus is the region of spacetime where $\phi$ changes sign. This suggests that the Green function of a quantum field kink operator can be constructed if we are able to introduce open line defects whose loci have boundaries at the points of the insertion of the kink operator. 
 
-As in the previous example with the $\phi$ operator, the crucial point is that, although the correlation function is written in terms of (also\footnote{In the previous case we have seen that the correlation function can be written in terms of open line defects, but this is not completely true in general, and different defects should be taken into account.}) open line defects, it should depend only on the boundary points of the locus of these defects. 
+As in the previous example with the $\phi$ operator, the crucial point is that, although the correlation function is written in terms of (also\footnote{In the previous case we have seen that the correlation function can be written in terms of open line defects, but this is not completely true, in general different defects should be taken into account.}) open line defects, it should depend only on the boundary points of the locus of these defects. 
 
 \subsubsection{Construction of the 2-points correlation functions for the kink}
 
@@ -1019,27 +1018,29 @@ where $\langle p,q\rangle$ denotes the straight line from $p$ to $q$. Look at fi
 \label{fig.cov-der-kink}
 \end{figure}
 
-From fig.~\ref{fig.cov-der-kink} one can see that if $\gamma$ does not intersect itself in $x$\todo{e se o interseca?}, then taking $\epsilon$ arbitrarily small eventually $I\left(\langle x-\frac\epsilon2e_\mu,x+\frac\epsilon2e_\mu\rangle,\gamma\right)=1$. If $\phi$ is regular then
+From fig.~\ref{fig.cov-der-kink} one can see that if $x\in\gamma$ but $\gamma$ does not intersect itself in $x$, then taking $\epsilon$ arbitrarily small eventually $I\left(\langle x-\frac\epsilon2e_\mu,x+\frac\epsilon2e_\mu\rangle,\gamma\right)=1$. If $\phi$ is regular then
 \begin{eq}	
 	\lim_{\epsilon\to0}\frac{\phi\left(x+\frac\epsilon2e_\mu\right)+\phi\left(x-\frac\epsilon2e_\mu\right)}\epsilon\sim\lim_{\epsilon\to0}\frac{2\phi(x)}\epsilon
 \end{eq}
 and the existence of $\nabla_\mu^\gamma\phi(x)$ implies that $\phi$ vanishes on $x$, as otherwise $\lim_{\epsilon\to0}\frac{2\phi(x)}\epsilon$ diverges. 
-Hence, the introduction of the parallel transporter $U(\omega|\gamma)$ creates the locus of an open line defect on the regular curve $\gamma$, provided that $\gamma$ does not intersect itself. In the following we always assume that $\gamma$ do not intersect itself.
+Hence, the introduction of the parallel transporter $U(\omega|\gamma)$ creates the locus of an open line defect on the regular curve $\gamma$. In the following we always assume that $\gamma$ does not intersect itself (which is the case we are interested in, since we want to build open defects).
 Notice that this is not restrictive, indeed any loop in $\gamma$ describes a closed defect, hence we can decompose $\gamma$ as the union of open and closed defects. 
+
+For $x\not\in\gamma$ we have $\lim_{\epsilon\to0}I\left(\langle x-\frac\epsilon2e_\mu,x+\frac\epsilon2e_\mu\rangle,\gamma\right)=0$ and the covariant derivative coincides with the ordinary one: $\nabla_\mu^\gamma\phi(x)=\partial_\mu\phi(x)$.\todo{Controllare}
 
 \skipline
 
-We define the modified action introducing the parallel transporter in the original one
+We define the modified action introducing the parallel transporter in the original one, so that we have an open defects with locus $\gamma$:
 \begin{eq}
 	S_\gamma(\phi)=\int\de^2x\,\vert\nabla^\gamma\phi\vert^2+\frac{g^2}4(\phi^2-v^2)^2
 \end{eq}
-and the two-points function\footnote{Using the terminology of fibre bundle theory, the integration in the numerator $\int\pide\phi\,e^{-S_\gamma(\phi)}$ is performed over section distributions of a $\Z_2$ bundle over $\R^2\setminus\{x,y\}$ with holonomy $-1$ around $x$ and $y$.}\todo{Parlando con un altro studente è emersa una questione: immaginiamo che per $n$ punti di inserzione il correlatore si ottenga prendendo la ``produttria'' del numeratore di \eqref{eq:two-points-function-kink} per $n/2$ possibili (locus of) defects $\gamma_i$, ove ogni $\gamma_i$ connette 2 punti di inserzione. Ma questo implica quindi che anche i kink interagiscano tra di loro se i $\gamma_i$ sono sufficientemente vicini? Nella teoria classica un kink interagente non ha senso per definizione, ma magari a livello quantistico si. Inoltre come teniamo conto dei possibili accoppiamenti tra vari punti di inserzione?}
+Then the two-points function reads\footnote{Using the terminology of fibre bundle theory, the integration in the numerator $\int\pide\phi\,e^{-S_\gamma(\phi)}$ is performed over distributions of a $\Z_2$ bundle over $\R^2\setminus\{x,y\}$ with holonomy $-1$ around $x$ and $y$.}\todo{Come si può generalizzare la definizione nel caso di correlatori di $n$ punti (n pari)? Vanno prese in considerazione tutti i possibili accoppiamenti dei punti?}
 \begin{eq}\label{eq:two-points-function-kink}
 	\langle s(x)s(y)\rangle:=\left(\frac{\displaystyle\int\pide\phi\,e^{-S_\gamma(\phi)}}{\displaystyle\int\pide\phi\,e^{-S(\phi)}}\right)_{\!\text{ren}}
 \end{eq}
-where $\gamma$ is a regular curve connecting $x$ and $y$ and $(\dots)_{\text{ren}}$ denotes a suitable renormalization. 
+where $\gamma$ is a regular curve connecting $x$ and $y$ and $(\ldots)_{\text{ren}}$ denotes a suitable renormalization. 
 
-We can represent $\langle s(x)s(y)\rangle$ in terms of defects, such representation in fact contains an open line defect with boundary of its locus $x$ and $y$. Typical configurations of the defects would be of the form shown in fig.~\ref{fig:open-closed-defects-kink}. 
+We can represent $\langle s(x)s(y)\rangle$ in terms of defects, such representation in fact contains an open line defect whose locus has boundaries $x$ and $y$. Typical configurations of the defects in the numerator of eq.~\eqref{eq:two-points-function-kink} would be of the form shown in fig.~\ref{fig:open-closed-defects-kink}. 
 
 \begin{figure}[h]
 \centering
@@ -1080,7 +1081,7 @@ A crucial point is to prove that $\langle s(x)s(y)\rangle$ in eq.~\eqref{eq:two-
 	\tand
 	\xi_B\gamma=\gamma\cup\partial B
 \end{eq}
-where $\partial B$ is the boundary of the region $B$, moreover since $\partial B$ is necessarily closed, then $\partial(\xi_B\gamma)=\partial\gamma$. Notice that if the intersection of $\gamma$ and $\partial B$ is non-empty, then we should neglect it in $\xi_B\gamma$ since the curves in eq.~\eqref{eq:gauge-transf-kink-PI} are not oriented, similarly to what happens in the case of simplicial homology $\Z_2$ valued.  
+where $\partial B$ is the boundary of the region $B$, moreover since $\partial B$ is necessarily \todo{Questo perché consideriamo un volume finito giusto?} closed, then $\partial(\xi_B\gamma)=\partial\gamma$. Notice that if the intersection of $\gamma$ and $\partial B$ is non-empty, then we should neglect it in $\xi_B\gamma$ since the curves in eq.~\eqref{eq:gauge-transf-kink-PI} are not oriented, similarly to what happens in the case of $\Z_2$-valued\footnote{Meaning that the overlapping of two simplices, instead of being counted twice, is neglected, since $\eqclass2=\eqclass0$ in $\Z_2$.} simplicial homology.  
 
 Then is simple to prove that 
 \begin{eq}
@@ -1100,21 +1101,21 @@ Furthermore, we clearly have
 \end{eq}
 provided that $B$ is compact.
 
-Since we can deform arbitrarily \todo{Ma se due defect possono interagire solo se vicini, cosa succede se prendiamo due $\gamma_i$ vicini e li deformiamo fino ad averli arbitrariamente lontani? In un caso dovrebbero interagire mentre nell'altro no, ma ciò non è consistente con la nostra simmetria, quindi l'unica soluzione sarebbe che i defect non possano interagire...} $\gamma$ acting on it with several $\Z_2$-transformations with different choices of $B$, provided that $x$ and $y$ are fixed (indeed $\partial(\xi_B\gamma)=\partial\gamma$ implies that $x$ and $y$ cannot change under $\xi_B$), then the invariance of $S^\gamma$ and $\pide\phi$ under $\xi_B$ implies that eq.~\eqref{eq:two-points-function-kink} depends only on $x$ and $y$ and not on $\gamma$, as desired. 
+Since we can deform arbitrarily \todo{Ma se due defect possono interagire solo se vicini, cosa succede se prendiamo due $\gamma_i$ vicini e li deformiamo fino ad averli arbitrariamente lontani?} $\gamma$ acting on it with several $\Z_2$-transformations with different choices of $B$, provided that $x$ and $y$ are fixed (indeed $\partial(\xi_B\gamma)=\partial\gamma$ implies that $x$ and $y$ cannot change under $\xi_B$), then the invariance of $S^\gamma$ and $\pide\phi$ under $\xi_B$ implies that eq.~\eqref{eq:two-points-function-kink} depends only on $x$ and $y$ and not on $\gamma$, as desired. 
 
 \subsubsection{The reconstruction of the kink operator}
 
-One can prove that a natural generalization of the above construction of the correlator for an arbitrary even number of points (correlators of an odd number of points are set to zero) satisfy the OS axioms, hence we can reconstruct a quantum kink field operator $\op s(x)$ which create and destroy kinks, such that
+One can prove that a natural generalization of the above construction of the correlator for an arbitrary even number of points (correlators of an odd number of points are set to zero) satisfy the OS axioms, hence we can reconstruct a quantum kink field operator $\op s(x)$ which creates and destroy kinks, such that
 \begin{eq}
 	\bra\Omega\op s(\vec x)e^{-(x^0-y^0)H}\op s(\vec y)\ket\Omega=\langle s(x) s(y)\rangle
 \end{eq}
 
-One can prove (rigorously in the lattice approximation) that $\op s(x)$ couple to the vacuum $\ket\Omega$ to a one-particle state, so that $\op s(x)$ really creates and annihilate kink particles, which for this reason should be included in scattering states. 
+One can prove (rigorously in the lattice approximation) that $\op s(x)$ couples to the vacuum $\ket\Omega$ to a one-particle state, so that $\op s(x)$ really creates and annihilate kink particles, which for this reason should be included in scattering states.\todo{Nella teoria ricostruita tramite OS reconstruction esiste un'interazione tra defect come descritto precedentemente?}
 
 
 \subsubsection{The insertion of the meson field - The dual algebra}
 
-Notice that up to now we only considered the QFT description of the soliton, but in our theory we can also describe the creation and the annihilation of particles associated to the original scalar field describing the mesons. The QFT description of such particles is just the usual $\phi_4$ theory, and we can describe the associated operators without any difficulty computing the correlation functions in the Euclidean spacetime satisfying OS axioms. However describing a theory involving both kinks and mesons is more involved. 
+Notice that up to now we only considered the QFT description of the soliton, but in our theory we can also describe the creation and the annihilation of particles associated to the original scalar field describing the mesons. The QFT description of such particles is just the usual $\phi^4$ theory, and we can describe the associated operators without any difficulty computing the correlation functions in the Euclidean spacetime satisfying OS axioms. However describing a theory involving both kinks and mesons is more involved. 
 
 First of all, notice that the field $\phi(x)$ is not $\Z_2$-gauge invariant, however we can define a new field
 \begin{eq}
@@ -1143,7 +1144,7 @@ First of all, notice that the field $\phi(x)$ is not $\Z_2$-gauge invariant, how
 \end{figure}
 
 With the insertion of $\phi_\gamma(x)$ the correlation functions become
-\begin{eq}
+\begin{eq}\label{eq:4-point-kink-meson}
 	\langle s(x)s(y)\phi(z)\phi(w)\rangle=\frac{\int\pide\phi\,e^{-S_\gamma(\phi)}\phi_\gamma(z)\phi_\gamma(w)}{\int\pide\phi\,e^{-S_\gamma(\phi)}}
 \end{eq}
 with $\gamma$ line from $x$ to $y$, and satisfy OS axioms except for the symmetry property between kink and meson insertions, which means that the quantum field $\ophi( x)$ and $\op s(z)$ are not relatively local. 
@@ -1268,7 +1269,9 @@ and
 \end{tikzpicture}
 \end{figure}
 
-so that in the first case $U(\omega_y\vert\gamma)=-1$ whereas in the second one $U(\omega_y\vert\gamma)=1$. Taking the limit $\epsilon\to0$ this implies (see the references) eq.~\eqref{eq:schwinger-dual-algebra-kink} in the case $x^1>y^1$. Instead, in the case $x^1<y^1$, the situation in the following: 
+so that in the first case $U(\omega_y\vert\gamma)=-1$ whereas in the second one $U(\omega_y\vert\gamma)=1$. In terms of the field $\phi_\gamma$ we get $\phi_\gamma(y)=-\phi(y)$ if the boundary point of $\gamma$ is $x^\epsilon$, and $\phi_\gamma(y)=\phi(y)$ if the boundary point is $x^{-\epsilon}$. Hence in the limit $\epsilon\to0$ we get eq.~\eqref{eq:schwinger-dual-algebra-kink} for $x^1>y^1$ (consider for instance the simplest case of eq.~\eqref{eq:4-point-kink-meson}). 
+
+Instead, in the case $x^1<y^1$, the situation in the following: 
 
 \begin{figure}[H]
 \centering
@@ -1326,11 +1329,11 @@ and
 \end{tikzpicture}
 \end{figure}
 
-In this case $U(\omega_y\vert\gamma)=U(\omega_y\vert\gamma)=1$, and we get eq.~\eqref{eq:schwinger-dual-algebra-kink} in the case $x^1<y^1$.
+In this case $U(\omega_y\vert\gamma)=U(\omega_y\vert\gamma)=1$, so $\phi_\gamma(y)=\phi(y)$ for both $x^\epsilon$ and $x^{-\epsilon}$ and we get eq.~\eqref{eq:schwinger-dual-algebra-kink} for $x^1<y^1$.
 
 \skipline
 
-Notice that eq.~\eqref{eq:dual-algebra} give a new type of commutation relations, different respect both bosonic and fermionic ones, which depend on the space coordinates. Such statistics is the \emph{braid statistic} in 1 dimension, it differs from that in 2 dimensions since there the phase introduced in the commutation relation depends on whether the particles are interchanged in the clockwise or in the anticlockwise direction, whereas in 1 dimension it depends on whether the order of the quantum fields agrees with the order of their position in $\R$. 
+Notice that eq.~\eqref{eq:dual-algebra} give a new type of commutation relations, different respect to both bosonic and fermionic ones, which depend on the space coordinates. Such statistics is the \emph{braid statistic} in 1 dimension, it differs from that in 2 dimensions since there the phase introduced in the commutation relation depends on whether the particles are interchanged in the clockwise or in the anticlockwise direction, whereas in 1 dimension it depends on whether the order of the quantum fields agrees with the order of their position in $\R$. 
 It worth to highlight the fact that the existence of both these statistics depends on the possibility of give a well-define ordering of the points of our spacetime. For instance in $D=3+1$ such statistics cannot exists, at least for massive particles. 
 The factor $(-1)^{\theta(x^1-y^1)}$ in eq.~\eqref{eq:dual-algebra} provides the $R$-matrix representation of an oriented exchange, a generator of the braid group. 
 
@@ -1351,17 +1354,17 @@ then we have (writing $x^1$ instead of $(0,x^1)$, same for $y_1$)
 	&=(-1)^{\theta(x^1-y^1)}\ophi(x^1)\ophi(y^1)\op s(x^1)\op s(y^1)\\
 	&=(-1)^{\theta(x^1-y^1)}\ophi(y^1)\ophi(x^1)\op s(y^1)\op s(x^1)\\
 	&=(-1)^{\theta(x^1-y^1)}(-1)^{\theta(y^1-x^1)}\ophi(y^1)\op s(y^1)\ophi(x^1)\op s(x^1)\\
-	&=-\opsi(x^1)\opsi(y^1)
+	&=-\opsi(y^1)\opsi(x^1)
 \end{eq}
-hence $\opsi$ describes a fermionic field, hence the theory admits fermionic excitations. 
+hence $\opsi$ describes a fermionic field, and the theory admits fermionic excitations. 
 
 The operator $\opsi$ is the analogue of the Onsager fermion field at the critical point in the Ising model, with the difference that the Onsager field is free whereas $\opsi$ describes a strongly interacting field. 
 
 \subsubsection{The reconstructed Hilbert space}
 
-We now discuss which is the relation between the kink operator and the classical kink solution. Let us compute the expectation value of $\ophi(y^1)$ in presence of the kink operator, in particular we compute\footnote{The factor $e^{-\epsilon H}$ comes from the proof the the OS reconstruction theorem.}
+We now discuss which is the relation between the kink operator and the classical kink solution. Let us compute the expectation value of $\ophi(y^1)$ in presence of the kink operator, in particular we compute (we are still writing $x^1$ instead of $(0,x^1)$, same for $y_1$)\footnote{The factor $e^{-\epsilon H}$ comes from the proof the the OS reconstruction theorem, in particular is required to have a well defined expression since $\ophi$ is defined in the domain eq.~\eqref{eq:dom-phi-OS}.}
 \begin{eq}\label{eq:exp-value-QFT-kink}
-	\tilde\phi_S(x^1,y^1)
+	\tilde\phi_S(x^1,y^1):=
 	\frac { \bra{e^{-\epsilon H}\op s(x^1)\Omega}\ophi(y^1)\ket{e^{-\epsilon H}\op s(x^1)\Omega} }
 	        { \braket{e^{-\epsilon H}\op s(x^1)\Omega}{e^{-\epsilon H}\op s(x^1)\Omega} }
 \end{eq}
@@ -1397,9 +1400,9 @@ The numerator in the previous expression can be represented by
 \end{figure}
 %
 so that $\tilde \phi_S$ must have a zero at $x^1$, since at the defect $\gamma$ the field changes sign. 
-If we impose positive boundaries conditions for the field: $\bra\Omega\ophi\ket\Omega=\phi_+$, then
+Moreover, if we impose positive boundaries conditions for the field: $\bra\Omega\ophi\ket\Omega=\phi_+$, then
 \begin{eq}
-	\phi_\gamma(y^1)=\phi(y^1)U(\omega_y,\gamma)\to\pm\phi(y^1)
+	\phi_\gamma(y^1)=\phi(y^1)U(\omega_y\vert\gamma)\to\pm\phi(y^1)
 	\tfor
 	y^1\to\pm\infty
 \end{eq}
@@ -1409,10 +1412,11 @@ since $\omega_y$ either does not intersect $\gamma$ or intersect it certainly. T
 	\quad\to\quad
 	\phi_\pm \braket{e^{-\epsilon H}\op s(x^1)\Omega}{e^{-\epsilon H}\op s(x^1)\Omega}
 \end{eq}
-so that $\phi_S(x,y)$ defined in eq.~\eqref{eq:exp-value-QFT-kink} behaves topologically (that is, at boundaries) as the classical kink with coordinate $y^1$ and modulus $x^1$, which we denoted by $\phi_S(y^1-x^1)$:
+so that $\tilde\phi_S(x^1,y^1)$ defined in eq.~\eqref{eq:exp-value-QFT-kink} behaves topologically (that is, at boundaries) as the classical kink with coordinate $y^1$ and modulus $x^1$, which we denoted by $\phi_S(y^1-x^1)$:
 \begin{eq}
-	\tilde \phi_S(x,y) \simeq \phi_S(y^1-x^1)
+	\tilde \phi_S(x^1,y^1) \simeq \phi_S(y^1-x^1)
 \end{eq}
+Moreover both the objects vanish at $y^1=x^1$.
 
 \skipline
 
@@ -1424,16 +1428,15 @@ With positive boundaries conditions the reconstruction theorem proves that the H
 	\tand
 	\op s(x)\ket\Omega\in\hs_S
 \end{eq}
-The direct sum (hence the non-interference between elements of the two spaces) is due to the fact that there are no inner products between an even and an odd number of solitons states, because the correlation function with an odd number of kink insertion vanish, and clearly $\op s$ maps vectors of $\hs_+$ in vectors of $\hs_S$, $\op s(x):\hs_+\to\hs_S$. This can be equivalently stated saying that $\hs_S$ is a \emph{superselection sector}. 
+The direct sum (hence the non-interference between elements of the two spaces) is due to the fact that there are no inner products between states with an even and an odd number of solitons, because the correlation function with an odd number of kink insertion vanish. Moreover clearly $\op s$ maps vectors of $\hs_+$ in vectors of $\hs_S$, $\op s(x):\hs_+\to\hs_S$. The splitting $\hs=\hs_+\oplus\hs_S$ can be equivalently stated saying that $\hs_S$ is a \emph{superselection sector}. 
 
 The fact that a correlator with an odd number of insertion points vanishes can be motivated as follows: we know that a kink is described by a open line defect, hence is associated to two points. The only configuration of the defects which allows for an odd number of insertion points is the one where one (or more) open defect $\gamma$ connects a point $z$ in the spacetime to the boundary $\infty$. However, since the kink carries a mass, the energy required to move the kink from $z$ to $\infty$ is proportional to $m_{\text{kink}}\cdot\text{length}(\gamma)=\infty$.
 
 \skipline
 
-\todo{Temo che in questo paragrafo non sia ben chiaro il concetto, penso che qualche chiarimento sia utile.}
-In the ``unbroken'' phase with $\Z_2$-global symmetry, it turns out that $\hs$ cannot be separated in the direct sum of two subspaces. Let us show intuitively why. If the $\Z_2$ symmetry is restored, then all typical configurations are closed to the vacuum $\phi_0$, which now vanishes. Therefore it is much easier to find configurations where $\phi$ vanishes. Hence there are much more defects respect to the broken-phase case, and typically the net of defects (the collection of regions where $\phi$ vanishes) reaches the boundary $\infty$ of the spacetime. If this is the case, then an additional line defect $\gamma$ from $z$ to $\infty$ cannot affect the correlation function. 
 
-But then by the cluster property the kink position sent to infinity is incompatible with $\bra{\Omega}\op s(x\to\infty)\ket{\Omega}=0$. Hence the Hilbert space $\hs$ has no superselection kink sectors, $\hs\equiv\hs_0$, and the phase in which the net of defects reaches the infinity corresponds to the unbroken $\Z_2$-symmetry.  
+In the ``unbroken'' phase with $\Z_2$-global symmetry, it turns out that $\hs$ cannot be separated in the direct sum of two subspaces. Let us show intuitively why. If the $\Z_2$ symmetry is restored, then all typical configurations are closed to the vacuum $\phi_0$, which now vanishes.\footnote{Analogously, in the Ising model the $\Z_2$ symmetry is restored in the paramagnetic phase, where $\langle S_i\rangle=0$.} Therefore it is much easier to find configurations where $\phi$ vanishes. Hence there are much more defects respect to the broken-phase case, and typically the net of defects (the collection of regions where $\phi$ vanishes) reaches the boundary $\infty$ of the spacetime. If this is the case, then an additional line defect $\gamma$ from $z$ to $\infty$ cannot affect the correlation function. 
+\todo{Questa frase non mi è chiara.} But then by the cluster property the kink position sent to infinity is incompatible with $\bra{\Omega}\op s(x\to\infty)\ket{\Omega}=0$. Hence the Hilbert space $\hs$ has no superselection kink sectors, $\hs\equiv\hs_0$, and the phase in which the net of defects reaches the infinity corresponds to the unbroken $\Z_2$-symmetry.  
 
 The configuration, which appears in the unbroken phase, in which the defects almost covers the whole space time, is said \emph{condensation of kinks}. 
 
