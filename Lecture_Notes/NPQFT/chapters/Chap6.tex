@@ -7,7 +7,7 @@
 
 \chapter{Vortices}
 
-The second quantum soliton that we consider is the vortex in $2+1$ dimensions in a model\footnote{In this chapter $x\equiv(x^0,x^1,x^2)\equiv(x^0,\vec x)$.} that in high-energy is the \emph{Abelian Higgs model} and in $3+1$ dimensions was the first model proposed to make massive gauge fields in a gauge theory without losing gauge-invariance. 
+The second quantum soliton that we consider is the vortex in $2+1$ dimensions in a model\footnote{In this chapter $x\equiv(x^0,x^1,x^2)\equiv(x^0,\vec x)$.} that in high-energy is known as \emph{Abelian Higgs model} and in its version in $3+1$ dimensions was the first model proposed to make massive gauge fields in a gauge theory without losing gauge-invariance. 
 
 In its non-relativistic version in condensed matter is described by the \emph{Landau-Ginzburg model} and in 3 space dimensions it was proposed as a phenomenological model for superconductors. 
 
@@ -43,7 +43,7 @@ The vortices that will be discussed later in fact really appear in nature.
 
 A lattice configuration of such vortices, called \emph{Abrikosov\footnote{Nobel prize in the 2003.} vortices}, is the equilibrium state of a class of superconductors in the presence of a magnetic field, orthogonal to the surface of the superconductors, whose direction will be denoted by $z$. The $z$-dependence is then trivial, and in the gauge $A_z=0$ the $3+1$ model reduces to a $2+1$ model. 
 
-Notice that a typical characteristics of superconductors is the expulsion of the magnetic field (\emph{Meissner effect}), but there are two behaviours of superconducting materials in this respect, called \emph{type I} and \emph{type II}. In type I the magnetic flux is completely expelled from the bulk of the material, whereas in type II it penetrates in the superconductor in tubes whose two-dimensional cross section are the vortices, as shown in fig.~\ref{fig:vortices-type-II-superconductor}. Each of these tubes contains a flux $\frac he$ and at equilibrium if they are sufficiently many\footnote{In order to increase the number of tubes one can increase the strength of the magnetic field.} they are arranged in a triangular lattice, the \emph{Abrikosov lattice}. 
+Notice that a typical characteristics of superconductors is the expulsion of the magnetic field (\emph{Meissner effect}), but there are two behaviours of superconducting materials in this respect, called \emph{type I} and \emph{type II}. In type I the magnetic flux is completely expelled from the bulk of the material, whereas in type II it penetrates in the superconductor in tubes whose two-dimensional cross section are the vortices, as shown in fig.~\ref{fig:vortices-type-II-superconductor}. Each of these tubes contains a flux $\frac he$ and if they are sufficiently many\footnote{In order to increase the number of tubes one can increase the strength of the magnetic field.} at equilibrium they are arranged in a triangular lattice, the \emph{Abrikosov lattice}. 
 
 \begin{figure}[h]
 \centering
@@ -230,11 +230,11 @@ pattern radius = 0pt}
 
 \subsubsection{Gauge symmetry, energy density and Higgs mechanism}
 
-The model is invariant under the $U(1)$ gauge transformation\footnote{Notice that one cannot write
+The model is invariant under the $U(1)$ gauge transformation\footnote{Notice that the r.h.s. of
 \begin{eq}
 	e^{-i\beta(x)}\partial_\mu e^{i\beta(x)} = i\partial_\mu\beta(x)
 \end{eq}
-since $\beta(x)$ may be defined with ``jumps'' of $2\pi$ (more formally, we have $\beta\, :\, \R^2\to\R/2\pi\Z$) hence its derivative is not completely well defined on $\R$. Instead, $e^{i\beta(x)}$ is a smooth function, hence its derivative is well defined and smooth as well.}\todo{Mi è chiaro che nella trasformazione di gauge di $A_\mu$ lei voglia rendere esplicita la forma di Maurer-Cartan, ma non sono molto sicuro del  perché invece la forma $\partial_\mu\beta$ dovrebbe essere imprecisa. Nella nota a pié di pagina ho cercato di darci una giustificazione che mi sembrasse plausibile, anche se non completamente corretta dal punto di vista matematico.}
+is not really well defined, since $\beta(x)$ may be defined with ``jumps'' of $2\pi$ (more formally, we have $\beta\, :\, \R^2\to\R/2\pi\Z$) hence its derivative is not completely well defined on $\R$. Instead, $e^{i\beta(x)}$ is a smooth function, hence its derivative is well defined and smooth as well. However we'll sometime use such notation since it is more compact.}
 \begin{eq}\label{eq:U(1)-gauge-vortex}
 	\begin{cases}\begin{aligned}
 		\phi(x)  \quad&\to\quad e^{i\beta(x)}\phi(x)\\
@@ -242,11 +242,11 @@ since $\beta(x)$ may be defined with ``jumps'' of $2\pi$ (more formally, we have
 	\end{aligned}\end{cases}
 \end{eq}
 
-Let us first consider static configurations in the \emph{temporal} gauge $A_0=0$, so that there is no difference between relativistic and non-relativistic models. 
+Let us first consider static configurations (no dependence on $x^0$) in the \emph{temporal} gauge $A_0=0$, so that there is no difference between relativistic and non-relativistic models. 
 The energy is given by
 \begin{eq}\label{eq:energy-density-vortex}
 	\cenergy\big(\vec A(\vec x),\phi(\vec x)\big)
-	=\int\de^2x\,\frac1{4e^2}F^2_{ij}+\vert D_i\phi\vert^2+\lambda\big(|\phi|^2-v^2\big)^2
+	=\int\de^2x\,\bigg[\frac1{4e^2}F^2_{ij}+\vert D_i\phi\vert^2+\lambda\big(|\phi|^2-v^2\big)^2\bigg]
 \end{eq}
 and it has global minima at
 \begin{eq}
@@ -289,23 +289,15 @@ the Higgs field $\chi(x)$ acquires a mass gap , whose inverse in condensed matte
 This can be easily proved: inserting the expansion eq.~\eqref{eq:vortex-Higgs-field-expansion} in the Lagrangian eq.~\eqref{eq:lag-vortex} we get
 \begin{eq}
 	\lag&=-\frac1{4e^2}F_{\mu\nu}^2+\vert (\partial_\mu-in_eA_\mu)[\left(v+\chi\right)e^{i\theta}]\vert^2-\lambda(\vert\left(v+\chi\right)e^{i\theta}\vert^2-v^2)^2\\
-	&=-\frac1{4e^2}F_{\mu\nu}^2+\vert iv\partial_\mu\theta +\partial_\mu\chi-in_eA_\mu(v+\chi)\vert^2-\lambda(2v\chi+\chi^2)^2
+	&=-\frac1{4e^2}F_{\mu\nu}^2+\vert i(v+\chi)\partial_\mu\theta +\partial_\mu\chi-in_eA_\mu(v+\chi)\vert^2-\lambda(2v\chi+\chi^2)^2
 \end{eq}
-In terms of eq.~\eqref{eq:vortex-Higgs-field-expansion} the gauge transformation \eqref{eq:U(1)-gauge-vortex} become
-\begin{eq}\label{eq:U(1)-gauge-vortex-Higgs}
-	\begin{cases}\begin{aligned}
-		\chi(x) \quad&\to\quad \chi(x)\\[0.7em]
-		\theta(x)  \quad&\to\quad \theta(x)+\beta(x)\\[0.2em]
-		A_\mu(x) \quad&\to\quad  A_\mu(x)+\frac1{n_e}\partial_\mu\beta(x)
-	\end{aligned}\end{cases}
-\end{eq}
-hence acting on $\lag$ with a transformation of the form eq.~\eqref{eq:U(1)-gauge-vortex-Higgs} with $\beta(x)=-\theta(x)$ we finally get 
+Defining $\tilde A_\mu(x):=A_\mu(x)-\frac1{n_e}\partial_\mu\theta(x)$ we finally get 
 \begin{eq}\label{eq:vortex-no-mixing-terms-SSB}
-	\lag&=-\frac1{4e^2}F_{\mu\nu}^2+\vert\partial_\mu\chi-in_ev A_\mu-in_e A_\mu\chi\vert^2-\lambda(2v\chi+\chi^2)^2\\
-	&=-\frac1{4e^2}F_{\mu\nu}^2+(\partial_\mu\chi)^2+n_e^2v^2 A_\mu^2+2n_e^2vA_\mu^2\chi-4\lambda v^2\chi^2-4\lambda v\chi^3-\lambda\chi^4\\
-	&=\underbrace{-\frac1{4e^2}F_{\mu\nu}^2+\frac1{2e^2} m_A^2 A_\mu^2+(\partial_\mu\chi)^2-\half m_H^2\chi^2}_{\text{kinetic term}}\underbrace{\vphantom{\half}+2n_e^2vA_\mu^2\chi-4\lambda v\chi^3-\lambda\chi^4}_{\text{interaction term}}\\
+	\lag&=-\frac1{4e^2}\tilde F_{\mu\nu}^2+\vert\partial_\mu\chi-in_ev \tilde A_\mu-in_e \tilde A_\mu\chi\vert^2-\lambda(2v\chi+\chi^2)^2\\
+	&=-\frac1{4e^2}\tilde F_{\mu\nu}^2+(\partial_\mu\chi)^2+n_e^2v^2 \tilde A_\mu^2+2n_e^2v\tilde A_\mu^2\chi-4\lambda v^2\chi^2-4\lambda v\chi^3-\lambda\chi^4\\
+	&=\underbrace{-\frac1{4e^2}\tilde F_{\mu\nu}^2+\frac1{2e^2} m_A^2 \tilde A_\mu^2+(\partial_\mu\chi)^2-\half m_H^2\chi^2}_{\text{kinetic term}}\underbrace{\vphantom{\half}+2n_e^2v\tilde A_\mu^2\chi-4\lambda v\chi^3-\lambda\chi^4}_{\text{interaction term}}\\
 \end{eq}
-hence the masses of $A_\mu$ and the $\chi$ are exactly $m_A$ and $m_H$, as we claimed above. Notice that the previous expression of the Lagrangian, eq.~\eqref{eq:vortex-no-mixing-terms-SSB}, holds in the specific gauge where $\theta$ vanishes, which is usually called \emph{unitary gauge}.  
+At this point one can change the notation $\tilde A\mapsto A$ and then the masses of $A_\mu$ and the $\chi$ are exactly $m_A$ and $m_H$, as we claimed above. Notice that in order to get rid of the field $\theta$ in eq.~\eqref{eq:vortex-no-mixing-terms-SSB} we had to absorb it in the gauge potential, the new gauge choice for the potential is usually referred to as \emph{unitary gauge}. The strange factor $e^{-2}$ in $\frac1{2e^2} m_A^2 \tilde A_\mu^2$ should be inserted for dimensional reasons. 
 
 \subsubsection{Finite energy solutions - Vortices}
 
@@ -313,7 +305,7 @@ Let us now impose the finiteness of the energy. The last term in eq.~\eqref{eq:e
 \begin{eq}\label{eq:vorex-energy-finiteness-cond1}
 	|\phi|\xrightarrow[\modx\to\infty]{}ve^{if(\alpha)}
 \end{eq}
-where $\alpha$ is the angle in polar coordinates of $\vec x$ at $\infty$, $\vec x=\modx e^{i\alpha}$, and $f$ is a real function satisfying $e^{if(2\pi)}=e^{if(0)}$. The first term in eq.~\eqref{eq:energy-density-vortex} implies that at $\infty$, $F_{ij}=0$, i.e. $A_i$ is a pure gauge. The second term in eq.~\eqref{eq:energy-density-vortex} implies that 
+where $\alpha$ is the angle in polar coordinates of $\vec x$ at $\infty$, $\vec x=\modx e^{i\alpha(\vec x)}$, and $f$ is a real function satisfying $e^{if(2\pi)}=e^{if(0)}$. The first term in eq.~\eqref{eq:energy-density-vortex} implies that $F_{ij}=0$ at $\infty$, i.e. $A_i$ is a pure gauge at the boundaries. The second term in eq.~\eqref{eq:energy-density-vortex} implies that 
 \begin{eq}
 	|e^{if(\alpha)}\partial_je^{if(\alpha)}-in_eA_j|\xrightarrow[\modx\to\infty]{}0
 \end{eq}
@@ -329,7 +321,7 @@ As a consequence of eq.~\eqref{eq:vorex-energy-finiteness-cond1} we have, asympt
 	e(\vec x):=\frac{\phi(\vec x)}{\vert\phi(\vec x)\vert}\quad:\quad S^1&\quad\longrightarrow\quad S^1\\[-1em]
 	\alpha\,&\quad\longmapsto\quad e^{if(\alpha)}
 \end{eq}
-which, if continuous, define a homotopy class in $\pi_1(S^1)\simeq\Z$.\footnote{The homotopy class $\pi_1(S^1)$ is the set of equivalent maps from $S^1$ to $S^1$, where the equivalence is defined as follows: two maps are said equivalent if it is possible to deform one map into the other continuously, or better, if exists a continuous map interpolating between the two initial ones. The set $\pi_1(S^1)$ is isomorphic to $\Z$ since to each equivalence class in $\pi_1(S^1)$ can be associated the number of windings of the map around the second circle.} These maps are classified by the number of times that $e^{if(\alpha)}$ covers the circle labelled by $\alpha$. For example, if $f(\alpha)=n\alpha$, the homotopy class of $e^{if(\alpha)}$ is $[e^{if(\alpha)}]=n\in\pi_1(S^1)$. 
+which, if continuous, define a homotopy class in $\pi_1(S^1)\cong\Z$.\footnote{The homotopy class $\pi_1(S^1)$ is the set of equivalent maps from $S^1$ to $S^1$, where the equivalence is defined as follows: two maps are said equivalent if it is possible to deform one map into the other continuously, or better, if exists a continuous map interpolating between the two initial ones. The set $\pi_1(S^1)$ is isomorphic to $\Z$ since to each equivalence class in $\pi_1(S^1)$ can be associated the number of windings of the map around the second circle when the argument of the map goes from $0$ to $2\pi$ once.} These maps are classified by the number of times that $e^{if(\alpha)}$ covers the circle labelled by $\alpha$. For example, if $f(\alpha)=n\alpha$, the homotopy class of $e^{if(\alpha)}$ is $[e^{if(\alpha)}]=n\in\pi_1(S^1)$. 
 
 In fact, using continuous gauge transformations one can always put $f(\alpha)$ in the form $n\alpha$ for some $n\in\Z$. Let's prove this.
 From eq.~\eqref{eq:vorex-energy-finiteness-cond2} we have that 
@@ -343,11 +335,11 @@ hence we can compute $n$ starting from $A_j$. If $\beta(x)$ labels a gauge trans
 \begin{eq}\label{eq:stokes-boundary-cond}
 	\oint_{\modx=R} \partial_j\beta(x)\de x^j=0
 \end{eq}
-hence, for a given $f(\alpha)$ and the corresponding $n$, we can take $\beta(x)$ such that
-\begin{eq}
+hence, for a given $f(\alpha)$ and the corresponding $n$, we can perform a gauge transformation of $A_j$ with $\beta(x)\in \mathcal C^1$ such that
+\begin{eq}\label{eq:gauge-tfm-f-na}
 	\beta(x)\xrightarrow[\modx\to\infty]{}-f(\alpha)+n\alpha
 \end{eq}
-so that we can replace $f(\alpha)$ by $n\alpha$. Such gauge transformation, even if it acts also at boundaries, do not change the boundary conditions, thanks to eq.~\eqref{eq:stokes-boundary-cond}, hence it is allowed in our gauge theory. 
+so that $f(\alpha)$ is replaced by $n\alpha$ in eq.~\eqref{eq:vorex-energy-finiteness-cond2}. Such gauge transformation, even if it acts also at boundaries, do not change the boundary conditions, thanks to eq.~\eqref{eq:stokes-boundary-cond}, hence it is allowed in our gauge theory. 
 
 Using Stokes theorem one can also derive
 \begin{eq}\label{eq:field-strength-vortex-magn-field}
@@ -361,7 +353,7 @@ where $B(x)$ is the magnetic field associated to $F^{ij}$ (pointing along the th
 \end{eq}
 where we restored $\hbar$. Notice that $\frac he$ is the unit of quantum flux. The number $n$ is also called \emph{vorticity} and its topological origin is at the basis of the stability of the vortices that we will now discuss in details. 
 
-The configurations minimizing the energy for $n=\pm1$ are called \emph{vortex} and \emph{anti-vortex} respectively. Plotting the complex field $\phi$ as a vector, we get fig.~\ref{fig:vortex-plot-phi}, which shows clearly the analogy between our discussion and well known vortices in water. 
+The configurations minimizing the energy for $n=\pm1$ are called \emph{vortex} and \emph{anti-vortex} respectively. Plotting the complex field $\phi$ as a vector, after the gauge transformation eq.~\eqref{eq:gauge-tfm-f-na} we get fig.~\ref{fig:vortex-plot-phi}, which shows clearly the analogy between our discussion and well known vortices in water. 
 \onlyinmainfile{
 \begin{figure}[h]
 \centering
@@ -396,12 +388,12 @@ We claim that a characteristic feature of vortex configurations is that $F_{ij}$
 	\tfor
 	\modx\to\infty
 \end{eq}
-We will show this with some simplifications. Furthermore, continuity at 0 implies that 
+We will show this with some simplifications. Continuity at 0 implies that 
 \begin{eq}
 	g_A(0)=1=g_H(0)
 \end{eq}
-so that
-\begin{eq}
+so that $\phi$ vanishes at the center of the vortex
+\begin{eq}\label{eq:phi-vanish-center}
 	\phi(0)=0
 \end{eq}
 
@@ -427,7 +419,7 @@ Introducing our ansatz eq.~\eqref{eq:approx-vortex-solution} we get
 \begin{eq}	
 	r\der{}r\frac1r\der{}rg_A(r)-2n_e^2e^2v^2(1-g_H(r))^2g_A(r)=0
 \end{eq}
-and linearizing at large $r$ (hence $g_H\sim0$) we get
+and linearizing at large $r$ (hence $g_H\sim0\sim g_A$) we get
 \begin{eq}	
 	r\der{}r\frac1r\der{}rg_A(r)-m_A^2g_A(r)=0
 \end{eq}
@@ -439,13 +431,13 @@ We see that the piece in the square brackets gives the exponential behaviour, an
 \begin{eq}
 	g_A(r)\sim \sqrt re^{-m_Ar}
 \end{eq}
-It worth to notice that $g_A(r)$ decay exponentially with the penetration depth $m_A^{-1}$. 
+hence $g_A(r)$ decays exponentially with the penetration depth $m_A^{-1}$. 
 
 Doing the same for the $\phi$, we have the following equation of motion:
 \begin{eq}
 	\Delta_A\phi+m_e^2e^2\phi(|\phi|^2-v^2)=0
 \end{eq}
-where the covariant laplacian $\Delta_A$ (recall that $A_r=0$) can be written in polar coordinate as
+where the covariant Laplacian $\Delta_A$ (recall that $A_r=0$) can be written in polar coordinate as
 \begin{eq}
 	\Delta_A=\frac1r\der{}rr\der{}r+\frac1{r^2}\left(\pder{}\varphi-iA_\varphi\right)^2
 \end{eq}
@@ -462,7 +454,7 @@ and, inserting $g_H(r)=r^\gamma\tilde g_H(r)$, we finally get the behaviour of $
 	g_H(r)\sim\frac1{\sqrt r}e^{-m_Hr}
 \end{eq}
 
-Hence both the magnetic field associated to $A_\mu$ and the scalar field $\phi$ approach the vacuum outside of a compact region of radius $O(m_A^{-1},m_H^{-1})$ around the center of the vortex, which therefore behaves as an ``extended particle''. 
+Hence outside of a compact region of radius $O(m_A^{-1},m_H^{-1})$ around the center of the vortex both the magnetic field associated to $A_\mu$ and the scalar field $\phi$ approach the vacuum, and therefore the vortex behaves as an ``extended particle'' in the region $O(m_A^{-1},m_H^{-1})$. 
 
 \subsubsection{Interactions among vortices - BPS limit}
 
@@ -475,8 +467,8 @@ In general these vortices interact among each other, but for $m_H=m_A$, i.e. $\l
 To prove such inequality, let us start by rewriting the energy density as
 \begin{eq}\label{eq:vortex-energy-density-rewritten}
 	\cenergy(\vec A(\vec x),\phi(\vec x))
-	&=\int\de^2x\,\half\left[\frac Be+n_ee(|\phi|^2-v^2)\right]^2+|(D_1+iD_2)\phi|^2\\
-	&\qquad+\left(\lambda-\frac{n_e^2e^2}2\right)(|\phi|^2-v^2)^2+n_eeBv^2-i\partial_j(\lctens_{ij}\phi^*D_i\phi)
+	&=\int\de^2x\,\bigg[\half\left(\frac Be+n_ee(|\phi|^2-v^2)\right)^2+|(D_1+iD_2)\phi|^2\\
+	&\qquad+\left(\lambda-\frac{n_e^2e^2}2\right)(|\phi|^2-v^2)^2+n_eeBv^2-i\partial_j(\lctens_{ij}\phi^*D_i\phi)\bigg]
 \end{eq}
 Indeed using
 \begin{eq}
@@ -487,9 +479,9 @@ Indeed using
 \end{eq}
 we get from eq.~\eqref{eq:vortex-energy-density-rewritten}
 \begin{eq}
-	\cenergy&=\frac1{2e^2}B^2+\frac{n_e^2e^2}2(|\phi|^2-v^2)^2+Bn_e(|\phi|^2-v^2)+|D_i\phi|^2-n_eeB(|\phi|^2-v^2)\\
-	&\qquad+i\partial_j(\lctens\phi^*D_i\phi)-n_eeBv^2+n_eeBv^2-i\partial_j(\lctens_{ij}\phi^*D_i\phi)+\left(\lambda-\frac{n_e^2e^2}2\right)(|\phi|^2-v^2)^2\\
-	&=\frac1{2e^2}B^2+|D_i\phi|^2+\lambda(|\phi|^2-v^2)^2
+	\cenergy&=\int\de^2x\,\bigg[\frac1{2e^2}B^2+\frac{n_e^2e^2}2(|\phi|^2-v^2)^2+Bn_e(|\phi|^2-v^2)+|D_i\phi|^2-n_eeB(|\phi|^2-v^2)\\
+	&\qquad+i\partial_j(\lctens\phi^*D_i\phi)-n_eeBv^2+n_eeBv^2-i\partial_j(\lctens_{ij}\phi^*D_i\phi)+\left(\lambda-\frac{n_e^2e^2}2\right)(|\phi|^2-v^2)^2\bigg]\\
+	&=\int\de^2x\,\bigg[\frac1{2e^2}B^2+|D_i\phi|^2+\lambda(|\phi|^2-v^2)^2\bigg]
 \end{eq}
 hence eq.~\eqref{eq:vortex-energy-density-rewritten} really coincides with eq.~\eqref{eq:energy-density-vortex}. 
 
@@ -499,29 +491,31 @@ Notice that
 \end{eq}
 hence
 \begin{eq}
-	\cenergy&=\int\de^2x\,\half\left[\frac Be+n_ee(|\phi|^2-v^2)\right]^2+|(D_1+iD_2)\phi|^2+\left(\lambda-\frac{n_e^2e^2}2\right)(|\phi|^2-v^2)^2+n_eeBv^2
+	\cenergy&=\int\de^2x\,\bigg[\half\left(\frac Be+n_ee(|\phi|^2-v^2)\right)^2+|(D_1+iD_2)\phi|^2+\left(\lambda-\frac{n_e^2e^2}2\right)(|\phi|^2-v^2)^2+n_eeBv^2\bigg]
 \end{eq}
 and
 \begin{eq}\label{eq:BPS-bound-vortex}
 	\tif
-	\lambda\geq\frac{n_e^2e^2}2
+	\lambda\geq\frac{(n_ee)^2}2
 	\tthen
-	\cenergy\geq n_eev^2\int\de^2x\,B(x)
+	\cenergy\geq n_eev^2\int\de^2x\,B
 \end{eq}
-In particular for the \emph{BPS limit} or \emph{Bogomol'nyi limit}, where $\lambda=\frac{n_e^2e^2}2$, i.e. $m_A=m_H$, and
+since the other terms in $\cenergy$ are strictly positive. 
+
+In particular for the \emph{BPS limit} or \emph{Bogomol'nyi limit}, where $\lambda=\half (n_ee)^2$ (i.e. $m_A=m_H$) and
 \begin{eq}
 	\begin{cases}
 		\frac1e|B|+n_ee(|\phi|^2-v^2)=0\\
 		(D_1+iD_2)\phi=0
 	\end{cases}
 \end{eq}
-then the energy is proportional to the vorticity:
+then the energy is proportional to the vorticity
 \begin{eq}
-	\cenergy=n_eev^2\int\de^2x\,B(x)=2\pi nv^2
+	\cenergy=n_eev^2\int\de^2x\,B=2\pi nv^2
 \end{eq}
 where we used the previous identity
 \begin{eq}
-	\int\de^2x\,B(x)n_ee=2\pi n
+	\int\de^2x\,B=\frac{2\pi n}{n_ee}
 \end{eq}
 Since $\cenergy\sim n$ this means that vortices are free in the BPS limit. 
 
@@ -531,17 +525,17 @@ The configurations saturating the \emph{BPS bound} (in this case $m_A=m_H$) are 
 
 \skipline
 
-From eq.~\eqref{eq:BPS-bound-vortex} we see that for $\lambda>\frac{n_e^2e^2}2$ the energy density is greater than in the non-interacting case, hence vortices repels each others, whereas for $\lambda<\frac{n_e^2e^2}2$ the energy density is smaller and vortices attract each others. 
+From eq.~\eqref{eq:BPS-bound-vortex} we see that for $\lambda>\half (n_ee)^2$ the energy density is greater than in the non-interacting case, hence vortices repels each others, whereas for $\lambda<\half (n_ee)^2$ the energy density is smaller and vortices attract each others. 
 
 For the BPS solution 
 \begin{eq}
 	|B|=n_ee^2(v^2-|\phi|^2)
 \end{eq}
-while for $\lambda<\frac{n_e^2e^2}2$ it turns out that 
+while for $\lambda<\half (n_ee)^2$ it turns out that 
 \begin{eq}\label{eq:magn-field-attract-vortices}
 	|B|\leq c(v^2-|\phi|^2)
 \end{eq}
-for some constant $c$. If vortices attracts each other, the value of $|B|$ increases and at some point we have a violation of eq.~\eqref{eq:magn-field-attract-vortices}, which implies that vortices cannot exists. Therefore for $\lambda>\frac{n_e^2e^2}2$ we have superconductors of type II, while for $\lambda<\frac{n_e^2e^2}2$ we have superconductors of type I. 
+for some constant $c$. If vortices attracts each other, the value of $|B|$ increases and at some point we have a violation of eq.~\eqref{eq:magn-field-attract-vortices}, which implies that vortices cannot exists. Therefore for $\lambda>\half (n_ee)^2$ we have superconductors of type II, while for $\lambda<\half (n_ee)^2$ we have superconductors of type I. 
 
 \subsubsection{Sketch of semi-classical treatment}
 
@@ -558,7 +552,6 @@ Let us now outline briefly the construction of the quantum vortex operator, usin
 In 3 Euclidean dimensions the vortex is a line defect $D$. In the path integral formulation of the partition function $D$ appears where $|\phi|=0$, which is the \emph{locus of the defect}. 
 
 In the partition function, for a typical configuration far away from the locus of a defect we have $|\phi|\sim v$ and $A_\mu\sim\partial_\mu\theta$, which implies that $F_{\mu\nu}$ vanishes, hence such configurations are close to the vacuum configurations. 
-
 Instead, near the locus of a defect, the configurations should be close to a vortex solution in order to maintain the action close to a minimum. 
 
 As for the kink, in fig.~\ref{fig:defects-vortex} we pictorically describe a typical field configuration of the improved semi-classical approximation for the partition function. 
@@ -672,17 +665,18 @@ According to eq.~\eqref{eq:field-strength-vortex-magn-field} and eq.~\eqref{eq:i
 \begin{eq}\label{eq:vorticity-compact-disk-in}
 	\frac1{2\pi}\int_{S^2}F_{ij}\de S^{ij} = n = \text{vorticity carried by the defect $D$}
 \end{eq}
+where we set $n_ee=1$ in order to get rid of the coupling constant between $\phi$ and $A$.
 Let's see how $A_{i}$ behaves on such sphere. Using definition eq.~\eqref{eq:cov-der-vortex} and writing $\phi=|\phi|e^{i\theta}$, we get
 \begin{eq}
 	D_{i}\phi&=e^{i\theta}\partial_{i}|\phi|+|\phi|e^{i\theta}(e^{-i\theta}\partial_{i} e^{i\theta}-iA_{i})\\
 	(D_{i}\phi)^*&=e^{-i\theta}\partial_{i}|\phi|+|\phi|e^{-i\theta}(e^{i\theta}\partial_{i} e^{-i\theta}+iA_{i})
 \end{eq}
-where we set $n_ee=1$ in order to get rid of these coefficients. Hence we obtained\todo{Come mai il secondo termine può esser singolare? É dovuto a possibili discontinuità di $\theta$ nel centro del vortice? In tal caso non sarebbe singolare anche il primo?}
+and then
 \begin{eq}\label{eq:vortex-gauge-potential-singular-current}
-	A_{i}=\underbrace{\vphantom{\int_T}\frac i2\frac{e^{-i\theta}D_{i}\phi-e^{i\theta}(D_{i}\phi)^*}{|\phi|}}_{\text{regular term}}+\underbrace{\vphantom{\int_T}\frac i2(e^{i\theta}\partial_{i} e^{-i\theta}-e^{-i\theta}\partial_{i} e^{i\theta})}_{\text{singular term}}
+	A_{i}=\underbrace{\vphantom{\int_T}\frac i2\frac{e^{-i\theta}D_{i}\phi-e^{i\theta}(D_{i}\phi)^*}{|\phi|}}_{\text{regular term $a_i$}}+\underbrace{\vphantom{\int_T}\frac i2(e^{i\theta}\partial_{i} e^{-i\theta}-e^{-i\theta}\partial_{i} e^{i\theta})}_{\text{singular term}}
 \end{eq}
-where the first term is gauge-invariant, hence globally defined, and the curl of the second term is non-vanishing if and only if it is singular. 
-Recall that $\theta(x)$ is an angle around the center of the vortex, where $|\phi|=0$. Without loss of generality we can assume that the center of the vortex coincide with the origin of the space. In the sense of distributions, the spatial components of the field strength of the singular term above is\footnote{The distribution $\delta_{|\phi|^{-1}(0)}( x)$ is made of a $\delta$-distributions centered at points of $|\phi|^{-1}(0)$.}
+where the first term is gauge-invariant, hence globally defined, and the curl of the second term is non-vanishing if and only if such term is singular (which may happen for $|\phi|=0$, since $\theta$ is ill defined at this point). 
+Recall that $\theta(x)$ is an angle around the center of the vortex, where $|\phi|=0$ due to eq.~\eqref{eq:phi-vanish-center}. Without loss of generality we can assume that the center of the vortex coincide with the origin of the space. In the sense of distributions, the spatial components of the field strength of the singular term above is\footnote{The distribution $\delta_{|\phi|^{-1}(0)}( x)$ is made of $\delta$-distributions centered at points of $|\phi|^{-1}(0)$.}
 \begin{eq}
 	\lctens^{ij}\partial_i\left(\frac i2(e^{i\theta}\partial_j e^{-i\theta}-e^{-i\theta}\partial_j e^{i\theta})\right)
 	=\frac1i\lctens^{ij}\partial_i\partial_j\log e^{i\theta}=2\pi\,\delta_{|\phi|^{-1}(0)}(x)
@@ -691,7 +685,7 @@ since the dependence of $\theta$ on the space coordinates goes with $\arctan\fra
 \begin{eq}\label{eq:vortex-field-strength-transverse-plane}
 	F_{ij}( x)=\partial_{[i}a_{j]}(x)+2\pi\,\delta_{|\phi|^{-1}(0)}(|\phi|)\lctens_{ij}
 \end{eq}
-where $a_\nu$ denotes some regular configuration. 
+where $a_\nu$ denotes the regular term of eq.~\eqref{eq:vortex-gauge-potential-singular-current}. 
 
 We see then that one can identify the locus of the defect in $F_{\mu\nu}$ in terms of a ``singular current'' (i.e. ``$\delta$-like'') having the support where $|\phi|$ vanishes, which is necessarily closed because the boundary condition at infinity is $|\phi|=v$. 
 
@@ -701,11 +695,11 @@ If we want to open a defect and $ x$ is a boundary of the locus of such defect, 
 \begin{eq}
 	\int_{S_{ x}^2}F_{\mu\nu}^{ x}\de y^\mu\de y^\nu=2\pi n
 \end{eq}
-and then if $B_{ x}^3$ is the ball centered in $ x$ whose boundary is $S^2_{ x}$, by Gauss theorem we have
+as required by eq.~\eqref{eq:vorticity-compact-disk-in}. Then if $B_{ x}^3$ is the ball centered in $ x$ whose boundary is $S^2_{ x}$, by Gauss theorem we have
 \begin{eq}
 	\int_{S^2_{ x}}F_{\mu\nu}^{ x}\de y^\mu\de y^\nu=\int_{B^3_{ x}}\lctens^{\mu\nu\rho}\partial_\mu F_{\nu\rho}^{ x}\de^3y=2\pi n
 \end{eq}
-which should hold for any arbitrarily small radius, so that
+and this should hold for any arbitrarily small radius, which implies
 \begin{eq}\label{eq:condition-field-strength-vorticity}
 	\lctens^{\mu\nu\rho}\partial_\mu F_{\nu\rho}^{ x}( y)=2\pi n\,\delta(x-y)
 \end{eq}
@@ -713,7 +707,7 @@ or equivalently, using $\lctens^{\mu\nu\rho}F_{\nu\rho}^{x}=B^\mu_{x}$ where $B^
 \begin{eq}\label{eq:vorticity-compact-disk-bc}
 	\big(\nabla\cdot B_{ x}\big)( y)=2\pi n\,\delta( x- y)
 \end{eq}
-This is precisely the magnetic field of a \emph{monopole} in $\R^3$, i.e. the analogue of a point-like electric charge of charge $q$ which obeys
+This is precisely the magnetic field of a \emph{monopole} in $\R^3$, i.e. the analogue of a point-like electric charge $q$ which obeys
 \begin{eq}
 	\big(\nabla\cdot E_{ x}\big)( y)=q\,\delta( x- y)
 \end{eq}
@@ -741,7 +735,7 @@ Therefore we can build open defects constructing line defects with monopoles at 
 
 \subsubsection{Correlators}
 
-Similarly to what we have done for the kink, where we modified the action introducing a new parallel transporter to construct the open defects, now we should insert classical monopole-antimonopole pairs at the points where we create and annihilated the quantum vortices of our theory. Correlators of the quantum vortex field will have insertion points at the monopoles positions. As usual, our construction can be made rigorous in the lattice approximation. 
+Similarly to what we have done for the kink, where we modified the action introducing a new parallel transporter to construct the open defects, now we should insert classical monopole-antimonopole pairs at the points where we create and annihilate the quantum vortices of our theory. Correlators of the quantum vortex field will have insertion points at the monopoles positions. As usual, our construction can be made rigorous in the lattice approximation. 
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% LECTURE 19 %%%%%%%%
@@ -749,14 +743,14 @@ Similarly to what we have done for the kink, where we modified the action introd
 
 \skipline
 
-Let $F_{\mu\nu}^{xy}$ be the field strength of a monopole at $ y$ ($n=1$) and a antimonopole ($n=-1$) at $ x$ and let $A_\mu^{xy}$ be the corresponding gauge potential. A possible choice for $F_{\mu\nu}^{xy}$ and $A_\mu^{xy}$ is the following. Let $\gamma_{xy}$ be a curve with boundary $ x$ and $ y$ in $\R^3$ oriented from $ y$ to $ x$ and define the current\footnote{This is the \emph{Poincaré dual} of $\gamma_{xy}$.}
+Let $F_{\mu\nu}^{xy}$ be the field strength of a monopole at $ y$ ($n=1$) and a antimonopole ($n=-1$) at $ x$ and let $A_\mu^{xy}$ be the corresponding gauge potential. A possible choice for $F_{\mu\nu}^{xy}$ and $A_\mu^{xy}$ is the following. Let $\gamma_{xy}$ be a curve with boundary $ x$ and $ y$ in $\R^3$ oriented from $ y$ to $ x$ and define the singular current\footnote{This is the \emph{Poincaré dual} of $\gamma_{xy}$.}
 \begin{eq}
 	j_{\mu\nu}^{xy}( z):=\int_{\gamma_{xy}}\de w^\alpha\,\lctens_{\alpha\mu\nu}\delta( z- w)
 \end{eq}
-and we take
+and take
 \begin{eq}\label{eq:field-strength-monopole-v}
 	F_{\mu\nu}^{xy}( z)&:=-2\pi\int\de^3 w\,\partial^\alpha\Delta^{-1}( z- w)\,\half\partial_{[\alpha}j_{\mu\nu]}^{xy}( w)\\
-	&=2\pi\int\de^3 w\,\partial^\alpha\Delta^{-1}( z- w)\lctens_{\alpha\mu\nu}[\delta( w- x)-\delta( w- y)]
+	&\;=2\pi\int\de^3 w\,\partial^\alpha\Delta^{-1}( z- w)\lctens_{\alpha\mu\nu}[\delta( w- x)-\delta( w- y)]
 \end{eq}
 where $\Delta^{-1}( x)$ is the kernel of the inverse of the Laplacian in 3 dimensions, and in the second line we used Gauss theorem to evaluate the integral at the boundaries of $\gamma_{xy}$ (the change of sign is due to the orientation of $\gamma_{xy}$). 
 For the gauge potential we can choose
@@ -764,28 +758,26 @@ For the gauge potential we can choose
 	A_\mu^{xy}( z):=2\pi\int\de^3w\,\partial^\alpha\Delta^{-1}( z- w)j_{\alpha\mu}^{xy}( w)
 \end{eq}
 
-Let us check that $A_\mu^{xy}$ and $F_{\nu\rho}^{xy}$ really describe monopoles at the boundaries of the vortex, i.e. satisfy eq.~\eqref{eq:condition-field-strength-vorticity}, which reads
+Let us check that $A_\mu^{xy}$ and $F_{\nu\rho}^{xy}$ really describe monopoles at the boundaries of the vortex, i.e. satisfy eq.~\eqref{eq:condition-field-strength-vorticity}, which now reads
 \begin{eq}
 	\lctens^{\mu\nu\rho}\partial_\mu F_{\nu\rho}^{xy}( z)=2\pi \big(\delta( z- x)-\delta( z- y)\big)
 \end{eq}
-According to our definitions we have\footnote{From the second to the third line we used integration by parts together with
+According to our definitions we have\footnote{In the third identity we used integration by parts together with
 \begin{eq}
-	\int\de^3w\,\Delta^{-1}( z- w)\partial_\alpha^{( w)}( w)=-\int\de^3w\,\partial_\alpha^{( w)}\Delta^{-1}( z- w)j( w)=\int\de^3w\,\partial_\alpha^{( z)}\Delta^{-1}( z- w)j( w)
+	\int\de^3w\,\Delta^{-1}( z- w)\partial_\alpha^{( w)}j(w)=-\int\de^3w\,\partial_\alpha^{(w)}\Delta^{-1}( z- w)j(w)=\int\de^3w\,\partial_\alpha^{(z)}\Delta^{-1}( z- w)j( w)
 \end{eq}
-From the third to the fourth we exchanged the labels $\nu\leftrightarrow\rho$ in the third term and we used $\lctens^{\mu\nu\rho}=-\lctens^{\mu\rho\nu}$. From the fifth to the sixth we used $\partial^\alpha\partial_\alpha=-\Delta$ (according to our mostly minus signature), so that $\partial_\alpha\partial^\alpha\Delta^{-1}( z- w)=-\delta( z- w)$. 
+In the fourth we exchanged the labels $\nu\leftrightarrow\rho$ in the third term and we used $\lctens^{\mu\nu\rho}=-\lctens^{\mu\rho\nu}$. In the fifth we used $j_{\mu\nu}^{xy}=-j_{\nu\mu}^{xy}$. In the sixth we used $\partial^\alpha\partial_\alpha=-\Delta$ (according to our mostly minus signature), so that $\partial_\alpha\partial^\alpha\Delta^{-1}( z- w)=-\delta( z- w)$, and $\lctens^{\mu\nu\rho}\partial_\mu\partial_\nu=0$. 
 }
 \begin{eq}
-	\lctens^{\mu\nu\rho}\partial_\mu F_{\nu\rho}^{xy}( z)
+	\hspace{0.5cm}&\hspace{-0.5cm}\lctens^{\mu\nu\rho}\partial_\mu F_{\nu\rho}^{xy}( z)=\\
 	&=-2\pi\lctens^{\mu\nu\rho}\partial_\mu\int\de^3 w\,\partial^\alpha\Delta^{-1}( z- w)\,\half\partial_{[\alpha}j_{\nu\rho]}^{xy}( w)\\
 	&=-2\pi\lctens^{\mu\nu\rho}\partial_\mu\int\de^3 w\,\partial^\alpha\Delta^{-1}( z- w)\,\big(\partial_{\alpha}j_{\nu\rho}^{xy}( w)+\partial_{\nu}j_{\rho\alpha}^{xy}( w)+\partial_{\rho}j_{\alpha\nu}^{xy}( w)\big)\\
-	&=-2\pi\lctens^{\mu\nu\rho}\partial_\mu\int\de^3 w\,\big(\partial_\alpha\partial^\alpha\Delta^{-1}( z- w)j_{\nu\rho}^{xy}( w)+\\
-	&\hspace{2cm}+{\partial_{\nu}\partial^\alpha\Delta^{-1}( z- w)j_{\rho\alpha}^{xy}( w)+\partial_{\rho}\partial^\alpha\Delta^{-1}( z- w)j_{\alpha\nu}^{xy}( w)\big)}\\
-	&=-2\pi\lctens^{\mu\nu\rho}\partial_\mu\int\de^3 w\,\partial_\alpha\partial^\alpha\Delta^{-1}( z- w)j_{\nu\rho}^{xy}( w)+\\
-	&\hspace{2cm}+{\partial_{\nu}\partial^\alpha\Delta^{-1}( z- w)j_{\rho\alpha}^{xy}( w)-\partial_{\nu}\partial^\alpha\Delta^{-1}( z- w)j_{\alpha\rho}^{xy}( w)\big)}\\
-	&=-2\pi\lctens^{\mu\nu\rho}\partial_\mu\int\de^3 w\,\partial_\alpha\partial^\alpha\Delta^{-1}( z- w)j_{\nu\rho}^{xy}\\
+	&=-2\pi\lctens^{\mu\nu\rho}\partial_\mu\int\de^3 w\,\big(\partial_\alpha\partial^\alpha\Delta^{-1}( z- w)j_{\nu\rho}^{xy}( w)+{\partial_{\nu}\partial^\alpha\Delta^{-1}( z- w)j_{\rho\alpha}^{xy}( w)+\partial_{\rho}\partial^\alpha\Delta^{-1}( z- w)j_{\alpha\nu}^{xy}( w)\big)}\\
+	&=-2\pi\lctens^{\mu\nu\rho}\partial_\mu\int\de^3 w\,\big(\partial_\alpha\partial^\alpha\Delta^{-1}( z- w)j_{\nu\rho}^{xy}( w)+\partial_{\nu}\partial^\alpha\Delta^{-1}( z- w)j_{\rho\alpha}^{xy}( w)-\partial_{\nu}\partial^\alpha\Delta^{-1}( z- w)j_{\alpha\rho}^{xy}( w)\big)\\
+	&=-2\pi\lctens^{\mu\nu\rho}\partial_\mu\int\de^3 w\,\big(\partial_\alpha\partial^\alpha\Delta^{-1}( z- w)j_{\nu\rho}^{xy}(w)+2\partial_{\nu}\partial^\alpha\Delta^{-1}( z- w)j_{\rho\alpha}^{xy}( w)\big)\\
 	&=2\pi\lctens^{\mu\nu\rho}\partial_\mu\int\de^3 w\,\delta( z- w)j_{\nu\rho}^{xy}( w)\\
-	&=2\pi\lctens^{\mu\nu\rho}\partial_\mu\, j_{\nu\rho}^{xy}( z)\\[-4pt]
-	&=2\pi\,\partial_\mu\, \int_{\gamma_{xy}}\de w^\alpha\,\overbrace{\lctens^{\mu\nu\rho}\lctens_{\alpha\nu\rho}}^{\delta^\mu_\alpha}\delta( z- w)\\
+	&=2\pi\lctens^{\mu\nu\rho}\partial_\mu\, j_{\nu\rho}^{xy}( z)\\
+	&=2\pi\,\partial_\mu\, \int_{\gamma_{xy}}\de w^\alpha\,\smash{\overbrace{\lctens^{\mu\nu\rho}\lctens_{\alpha\nu\rho}}^{\delta^\mu_\alpha}}\delta( z- w)\\
 	&=2\pi\, \int_{\gamma_{xy}}\de w^\alpha\,\partial_\alpha\delta( z- w)\\
 	&=2\pi\,\big(\delta( z- x)-\delta( z- y)\big)
 \end{eq}
@@ -794,9 +786,9 @@ as we claimed.
 Now, let's derive the relation between $F_{\mu\nu}^{xy}$ and $A_\mu^{xy}$. One can write
 \begin{eq}\label{eq:QFT-vertex-F-A-relation}
 	F_{\mu\nu}^{xy}( z)&=-2\pi\int\de^3 w\,\partial^\alpha\Delta^{-1}( z- w)\,\half\partial_{[\alpha}j_{\mu\nu]}^{xy}( w)\\
-	&=-2\pi\int\de^3 w\,\big(\partial_\alpha\partial^\alpha\Delta^{-1}( z- w)j_{\mu\nu}^{xy}( w)+\\
-	&\hspace{2cm}+{\partial_{\mu}\partial^\alpha\Delta^{-1}( z- w)j_{\nu\alpha}^{xy}( w)+\partial_{\nu}\partial^\alpha\Delta^{-1}( z- w)j_{\alpha\mu}^{xy}( w)\big)}\\
-	&=2\pi\,j_{\mu\nu}^{xy}( z)+\partial_\mu A_\nu^{xy}( z)-\partial_{\nu} A_\mu^{xy}( z)
+	&=-2\pi\int\de^3 w\,\big(\partial_\alpha\partial^\alpha\Delta^{-1}( z- w)j_{\mu\nu}^{xy}( w)+{\partial_{\mu}\partial^\alpha\Delta^{-1}( z- w)j_{\nu\alpha}^{xy}( w)+\partial_{\nu}\partial^\alpha\Delta^{-1}( z- w)j_{\alpha\mu}^{xy}( w)\big)}\\
+	&=2\pi\,j_{\mu\nu}^{xy}( z)+\partial_\mu A_\nu^{xy}( z)-\partial_{\nu} A_\mu^{xy}( z)\\
+	&=2\pi\,j_{\mu\nu}^{xy}( z)+\partial_{[\mu} A_{\nu]}^{xy}( z)
 \end{eq}
 Hence the field strength of $A_\mu$ is equal to the usual curl of the gauge potential, $2\,\partial_{[\mu} A_{\nu]}^{xy}( z)$, up to a singular current $2\pi\,j_{\mu\nu}^{xy}( z)$. Such current is called \emph{Dirac string}, and was introduced by Dirac, in order to write the field strength of a monopole. 
 
@@ -808,19 +800,16 @@ From the calculation we see that $F_{\mu\nu}^{xy}$ is independent on the choice 
 \end{eq}
 with $\xi_\nu$ and integer current. But then
 \begin{eq}
-	\partial_{[\mu}A^{\prime{xy}}_{\nu]}( z)-\partial_{[\mu}A_{\nu]}^{xy}( z)
+	\hspace{0.5cm}&\hspace{-0.5cm}\partial_{[\mu}A^{\prime{xy}}_{\nu]}( z)-\partial_{[\mu}A_{\nu]}^{xy}( z)\\
 	&=2\pi\,\partial_{[\mu}\int\de^3w\,\partial^\alpha\Delta^{-1}( z- w)(j^{\prime{xy}}_{\nu]\alpha}( w)-j^{xy}_{\nu]\alpha}( w))\\
-	&=2\pi\,\partial_{[\mu}\int\de^3w\,\partial^\alpha\Delta^{-1}( z- w)\partial_{\nu]}\xi_\alpha( w)-\\
-	&\qquad-2\pi\,\partial_{[\mu}\int\de^3w\,\partial^\alpha\Delta^{-1}( z- w)\partial_{\alpha}\xi_{\nu]}( w)\\
-	&=2\pi\int\de^3w\,\partial_{[\mu}\partial^\alpha\Delta^{-1}( z- w)\partial_{\nu]}\xi_\alpha( w)+\\
-	&\qquad+2\pi\,\partial_{[\mu}\int\de^3w\,\partial^\alpha\Delta^{-1}( z- w)\cancel{\partial_{[\mu}\partial_{\nu]}}\xi_\alpha( w)-\\
+	&=2\pi\,\partial_{[\mu}\int\de^3w\,\partial^\alpha\Delta^{-1}( z- w)\partial_{\nu]}\xi_\alpha( w)-2\pi\,\partial_{[\mu}\int\de^3w\,\partial^\alpha\Delta^{-1}( z- w)\partial_{\alpha}\xi_{\nu]}( w)\\
+	&=2\pi\int\de^3w\,\partial_{[\mu}\partial^\alpha\Delta^{-1}( z- w)\partial_{\nu]}\xi_\alpha( w)+2\pi\,\partial_{[\mu}\int\de^3w\,\partial^\alpha\Delta^{-1}( z- w)\cancel{\partial_{[\mu}\partial_{\nu]}}\xi_\alpha( w)-\\
 	&\qquad-2\pi\,\partial_{[\mu}\int\de^3w\,\partial_{\alpha}\partial^\alpha\Delta^{-1}( z- w)\xi_{\nu]}( w)\\
-	&=2\pi\int\de^3w\,\cancel{\partial_{[\mu}\partial_{\nu]}}\partial^\alpha\Delta^{-1}( z- w)\xi_\alpha( w)+\\
-	&\qquad+2\pi\,\partial_{[\mu}\int\de^3w\,\delta( z- w)\xi_{\nu]}( w)\\
+	&=2\pi\int\de^3w\,\cancel{\partial_{[\mu}\partial_{\nu]}}\partial^\alpha\Delta^{-1}( z- w)\xi_\alpha( w)+2\pi\,\partial_{[\mu}\int\de^3w\,\delta( z- w)\xi_{\nu]}( w)\\
 	&=2\pi\,\partial_{[\mu}\xi_{\nu]}( z)\\
 	&=2\pi\big( j_{\mu\nu}^{\prime{xy}}( z)-j_{\mu\nu}^{xy}( z)\big)
 \end{eq}
-where in the second line $\alpha$ is not included in the antisymmetrization of the indices. Hence we see from eq.~\eqref{eq:QFT-vertex-F-A-relation} that $F_{\mu\nu}^{xy}$ is unchanged. 
+where in the second line $\alpha$ is not included in the antisymmetrization of the indices. Hence we see from eq.~\eqref{eq:QFT-vertex-F-A-relation} that $F_{\mu\nu}^{xy}$ is unchanged under the replacement $\gamma^{xy}\mapsto\gamma^{\prime xy}$. 
 
 From eq.~\eqref{eq:QFT-vertex-F-A-relation} we see also that $F_{\mu\nu}^{xy}$ has the same structure of the field strength of closed defects, eq.~\eqref{eq:vortex-field-strength-transverse-plane}, when restricted to the transverse plane. The difference is that now $j_{\mu\nu}$ has a boundary: the location of the monopole-antimonopole pairs. 
 
@@ -836,7 +825,7 @@ and, in the non-relativistic case case, we substitute
 	\quad\to\quad
 	\phi^*(\partial_0-i(A_0+A_0^{xy}))\phi
 \end{eq}
-Moreover we denote by $S^{xy}$ the associated action. 
+We denote by $S^{xy}$ the action associated to $\lag^{xy}$. 
 Notice that
 \begin{eq}
 	\int\de^3z\,F^{\mu\nu}F_{\mu\nu}^{xy}
@@ -855,7 +844,9 @@ where we used $\partial^{\mu}F_{\mu\nu}^{xy}=0$, which follows directly from the
 	&=(2\pi)^2\int\de^3z\,\de^3w\,\Delta^{-1}( z- w)[\delta( w- x)-\delta( w- y)][\delta( {z}- x)-\delta( {z}- y)]\\
 	&=(2\pi)^2\int\de^3z\,\big[\Delta^{-1}( z- x)-\Delta^{-1}( z- y)\big][\delta( {z}- x)-\delta( {z}- y)]\\
 \end{eq}
-where from the second to the third line we integrated by parts in $ z$ and then we used $\partial^\alpha\partial_\alpha\Delta^{-1}( z- {\tilde w})=-\delta( z- {\tilde w})$. The last line is clearly divergent since both $\int\de^3z\,\Delta^{-1}( z- x)\delta( {z}- x)$ and $\int\de^3z\,\Delta^{-1}( z- y)\delta( {z}- y)$ are divergent quantities. However, such divergent quantities do not depend on the spacetime points, hence can be eliminated with an appropriate counternterm.
+where from the second to the third line we integrated by parts in $ z$ and then we used $\partial^\alpha\partial_\alpha\Delta^{-1}( z- {\tilde w})=-\delta( z- {\tilde w})$. The last line is clearly divergent since both $\int\de^3z\,\Delta^{-1}( z- x)\delta( {z}- x)$ and $\int\de^3z\,\Delta^{-1}( z- y)\delta( {z}- y)$ are divergent quantities. However, (once integrated over $z$) such divergent quantities do not depend on the spacetime points, hence can be eliminated with an appropriate counternterm.
+
+\skipline
 
 Finally the 2-point correlation function of the vortex in the path integral formalism is given by
 \begin{eq}
@@ -863,7 +854,7 @@ Finally the 2-point correlation function of the vortex in the path integral form
 \end{eq}
 where $[\ldots]_{\text{ren}}$ denote the previous renormalization and $v_{n}( x)$ denotes the vortex insertion at $ x$ with the monopole at $ x$ providing the vorticity $n$ of the vortex. 
 
-One can generalize this construction to an arbitrary number of vortex insertions, provided that the total charge of the monopoles is zero. We can also include insertion of ordinary gauge invariant field, such as the electromagnetic field field strength of the Wilson loop. However such insertion need a modification with respect to the insertion in the vacuum, as it happened in the kinks case. For example,  in order to introduce the $ x,  y$ vortex insertion in a electromagnetic field correlator we should replace the electromagnetic field strength by
+One can generalize this construction to an arbitrary number of vortex insertions, provided that the total charge of the monopoles is zero. We can also include insertion of ordinary gauge invariant field, such as the electromagnetic field strength of the Wilson loop. However such insertion need a modification with respect to the insertion in the vacuum, as it happened in the kinks case. For example,  in order to introduce the $ x,  y$ vortex insertion in a electromagnetic field correlator we should replace the electromagnetic field strength by
 \begin{eq}
 	F_{\mu\nu}
 	\quad\to\quad
@@ -883,19 +874,19 @@ These correlators satisfy OS axioms and the reconstructed vortex field operator 
 \begin{eq}
 	\langle v_{+1}(x)v_{-1}(y)\rangle=\bra\Omega\op v_{-1}(\vec y)\,e^{-(x^0-\,y^0)t}\,\op v_{+1}(\vec x)\ket\Omega
 \end{eq}
-The Wilson loop operator $\op W_\alpha(\Sigma)$ reconstructed from $W_\alpha(\Sigma)$ can be used to define the topological charge $\op Q$ measuring the vorticity $n$ of the vortex. Indeed we define the $\op Q$ by
+The Wilson loop operator $\op W_\alpha(\Sigma)$ reconstructed from $W_\alpha(\Sigma)$ can be used to define the topological charge $\op Q$ measuring the vorticity $n$ of the vortex. Indeed we can define $\op Q$ by
 \begin{eq}
 	e^{i\alpha2\pi\op Q}=\lim_{R\to\infty}\frac{\op W_\alpha(\contour_R)}{\bra\Omega\op W_\alpha(\contour_R)\ket\Omega}
 \end{eq}
-where $\contour_R$ is a circle of radius $R$ and time coordinate 0, and the limit is taken in the weak topology. Let $\Sigma_R$ be a flat surface bounded by $\contour_R$ and $r$ by the reflection in the Euclidean time 0 plane, and take $x^0>0,y^0>0$, then we have\todo{Qui è corretto $F_{\mu\nu}^{xy}$ o dovremmo avere $ry$ al posto di $y$? (questo risolverebbe alcuni dei problemi che ho riportato nel box successivo)}
+where $\contour_R$ is a circle of radius $R$ and time coordinate 0, and the limit is taken in the weak topology. Let $\Sigma_R$ be a flat surface bounded by $\contour_R$ and $r$ by the reflection respect to the Euclidean time 0 plane. Then for $x^0>0,y^0>0$ we have
 \begin{eq}\label{eq:vortex-average-charge-op}
 	\bra{\op v_1(y)\Omega}e^{i\alpha2\pi\op Q}\ket{\op v_1(x)\Omega}
 	&=\lim_{R\to\infty}\frac{\displaystyle\langle v_{-1}(ry)\exp[ i\alpha\left(\oint_{\contour_R} A_\mu\de x^\mu+\int_\Sigma F_{\mu\nu}^{x(ry)}\de x^\mu\de x^\nu\right)] v_{+1}(x)\rangle}{\displaystyle\langle \exp[ i\alpha\oint_{\contour_R} A_\mu\de x^\mu] \rangle}\\
 	&=\lim_{R\to\infty}\frac{\displaystyle\langle v_{-1}(ry)\exp[ i\alpha\left(\oint_{\contour_R} A_\mu\de x^\mu+2\pi\int_\Sigma j_{\mu\nu}^{x(ry)}\de x^\mu\de x^\nu\right)] v_{+1}(x)\rangle}{\displaystyle\langle \exp[ i\alpha\oint_{\contour_R} A_\mu\de x^\mu] \rangle}\\
-	&=\exp[2\pi i\alpha\int_\Sigma j_{\mu\nu}^{x(ry)}\de x^\mu\de x^\nu]\frac{\displaystyle\cancel{\langle \exp[ i\alpha\oint_{\contour_R} A_\mu\de x^\mu] \rangle}\langle v_{-1}(ry)v_{+1}(x)\rangle}{\displaystyle\langle \cancel{\exp[ i\alpha\oint_{\contour_R} A_\mu\de x^\mu] \rangle}}\\
+	&=\exp\bigg[2\pi i\alpha\underbrace{\int_\Sigma j_{\mu\nu}^{x(ry)}\de x^\mu\de x^\nu}_n\bigg]\frac{\displaystyle\cancel{\langle \exp[ i\alpha\oint_{\contour_R} A_\mu\de x^\mu] \rangle}\langle v_{-1}(ry)v_{+1}(x)\rangle}{\displaystyle\langle \cancel{\exp[ i\alpha\oint_{\contour_R} A_\mu\de x^\mu] \rangle}}\\
 	&=e^{i\alpha2\pi n}\braket{\op v_1(y)\Omega}{\op v_1(x)\Omega}
 \end{eq}
-where from the first line to the second one we changed variable in the path integral of the numerator from $A$ to $\tilde A=A+A^{x(ry)}$, and from the second line to the third we used cluster property, as represented in fig.~\ref{fig:vortex-average-charge-op}. As it is clear from the figure, $\int_\Sigma j_{\mu\nu}^{x(ry)}\de x^\mu\de x^\nu$ equals the number of intersection between the curve $\gamma^{xy}$ and $\Sigma_R$ counted with signs depending on the orientation.
+where from the first line to the second one we used eq.~\eqref{eq:QFT-vertex-F-A-relation} and we changed variable in the path integral of the numerator from $A$ to $\tilde A=A+A^{x(ry)}$, and from the second line to the third we used cluster property, as represented in fig.~\ref{fig:vortex-average-charge-op}. As it is clear from the figure, $\int_\Sigma j_{\mu\nu}^{x(ry)}\de x^\mu\de x^\nu$ equals the number of intersection between the curve $\gamma^{x(ry)}$ and $\Sigma_R$ counted with signs depending on the orientation (as expected in our case $n=1$).
 
 \begin{figure}[h]
 \centering
@@ -947,7 +938,7 @@ pattern radius = 0pt}
 
 \skipline
 
-If the total sum of topological charge (vorticity) of the vortices in a correlator is non-vanishing, e.g. $n\in\Z^*$, we can define the correlator with a compensating charge $-n$ and send it to $\infty$, as in fig.~\ref{fig:combination-of-vorticities}. Since the mass of the vortex is finite, the contribution in the action of the defect associated to the compensating charge is infinite. This implies that all correlation functions with vanishing total charge are $0$, or in other wordk there are no coherent superposition of states with different total vorticity. Since these correlators can be interpreted as scalar products between states with quantum vortices in the reconstructed Hilbert space, this means that the Hilbert space obtained by OS reconstruction is splitted in superselection sectors, $\hs_n$, labelled by the total vorticity charge $n\in\Z$:
+If the total sum of topological charges (vorticity) of the vortices in a correlator is non-vanishing, e.g. $n\in\Z^*$, we can define the correlator with a compensating charge $-n$ and send it to $\infty$, as in fig.~\ref{fig:combination-of-vorticities}. Since the mass of the vortex is finite, the contribution in the action of the defect associated to the compensating charge is infinite. This implies that all correlation functions with vanishing total charge are $0$, or in other words there are no coherent superposition of states with different total vorticity. Since these correlators can be interpreted as scalar products between states with quantum vortices in the reconstructed Hilbert space, this means that the Hilbert space obtained by OS reconstruction is splitted in superselection sectors, $\hs_n$, labelled by the total vorticity charge $n\in\Z$:
 \begin{eq}	
 	\hs=\bigoplus_{n\in\Z}\hs_n
 \end{eq}
@@ -995,10 +986,10 @@ Notice that all the above discussion was in absence of external magnetic field. 
 
 \skipline
 
-If we have no symmetry breaking of the global $U(1)$, both in the relativistic and the non-relativistic case, at the minima we have $|\phi|\sim0$ instead of $|\phi|\sim v$, and we have a condensation of defects reaching the infinity, making the additional defect from $x_3$ to $\infty$ in fig.~\ref{fig:combination-of-vorticities} invisible. So the Hilbert space of states cannot be splitted into superselection sectors and 
+If we have no symmetry breaking of the global $U(1)$, both in the relativistic and the non-relativistic case, at the minima we have $|\phi|\sim0$ instead of $|\phi|\sim v$, and we have a condensation of defects reaching the infinity, making the additional defect from $x_3$ to $\infty$ in fig.~\ref{fig:combination-of-vorticities} invisible. So the Hilbert space of states cannot be splitted into superselection sectors 
 \begin{eq}
 	\hs=\hs_0
 \end{eq}
-and the presence of vortices is completely irrelevant. 
+and the presence of vortices in the partition function is completely irrelevant. 
 
 \end{document}
