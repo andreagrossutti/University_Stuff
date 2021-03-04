@@ -656,7 +656,7 @@ The reason why classical field solutions are relevant, is that they can be used 
 	S(\phi)=S(\phicl)+Q(\chi)+R(\chi)
 \end{eq}
 where $Q(\chi)$ contains quadratic (and possibly linear) terms in $\chi$ and $R(\chi)$ is the reminder (contains all higher order terms in $\chi$). 
-The semi-classical approximation is based on the idea that the contribution of $R(\chi)$ is typically small respect to the one of $S(\phicl)+Q(\chi)$, hence configurations which differ significantly from the classical solutions are suppressed by the quadratic term $Q(\chi)$ and in the path integration the only configurations whose contributions sum up coherently in a non-zero result are those which are ``close'' to the classical one. \todo{Qui non mi era molto chiaro quanto detto a lezione, ho rielaborato un po in base alle mie conoscenze.} Therefore, the main contribution to the path integral is given by those configuration localized around the classical solution, in the configurations space. Such situation is represented in fig.~\ref{fig:paths-localized-classical-solution}.
+The semi-classical approximation is based on the idea that the contribution of $R(\chi)$ is typically small respect to the one of $S(\phicl)+Q(\chi)$, hence configurations which differ significantly from the classical solutions are suppressed by the quadratic term $Q(\chi)$ and in the path integration the only configurations whose contributions sum up coherently in a non-zero result are those which are ``close'' to the classical one. Therefore, the main contribution to the path integral is given by those configuration localized around the classical solution, in the configurations space. Such situation is represented in fig.~\ref{fig:paths-localized-classical-solution}.
 
 \begin{figure}[h]
 \centering
@@ -805,7 +805,6 @@ In the lattice approximation (replacing $\phi^4$ by the Ising model) such defect
 
 \skipline
 
-\todo{Qui ho un po reinterpretato perché non riuscivo a capire come $S(\Gamma_1,\ldots,\Gamma_N)$ fosse definito a partire dai defects, che sono regioni dello spazio tempo.}
 Let us consider again eq.~\eqref{eq:improv-semiclass-approx}. Notice that to each $\consp_i$ we can associate the defects with support\footnote{For simplicity we will now denote also the defects by their support, assuming that no ambiguity arises from this simplification.} $\Gamma_{i,1},\ldots,\Gamma_{i,n}$ appearing in the configurations $\phi\in\consp_i$. Then, we can consider 
 \begin{eq}
 	\int_{\consp_i-\phi_i}\pide\chi_i\,e^{-S(\phi_i)-Q_i(\chi_i)}
@@ -825,12 +824,12 @@ One should notice that if the defects are separated enough from each others, so 
 Finally, neglecting contributions coming from fluctuations around the vacuum, we get that in the ``improved semi-classical approximation'' (s.c.) the partition function of the system can be expressed as
 \begin{eq}
 	Z_{\text{s.c.}}:=\int_\consp\pide\phi\,e^{-S(\phi)}
-	&\approx\sum_{i\in I}e^{\displaystyle-S(\Gamma_{i,1},\ldots,\Gamma_{i,N})}\\
-	&=\sum_{i\in I}\underbrace{\prod_{k=1}^Ne^{\displaystyle-S(\Gamma_{i,k})}}_{\text{Non-interacting}\atop\text{gas of defects}}\,\underbrace{\vphantom{\prod_{k}}e^{\displaystyle-V(\Gamma_{i,1},\ldots,\Gamma_{i,N})}}_{\text{Interactions}\atop\text{among defects}}
+	&\approx\sum_{i\in I}\lexp{-S(\Gamma_{i,1},\ldots,\Gamma_{i,N})}\\
+	&=\sum_{i\in I}\underbrace{\prod_{k=1}^N\lexp{-S(\Gamma_{i,k})}}_{\text{Non-interacting}\atop\text{gas of defects}}\,\underbrace{\vphantom{\prod_{k}}\lexp{-V(\Gamma_{i,1},\ldots,\Gamma_{i,N})}}_{\text{Interactions}\atop\text{among defects}}
 \end{eq}
 or equivalently, setting formally $e^{S(\Gamma_1,\ldots,\Gamma_N)}=0$ if $\{\Gamma_1,\ldots,\Gamma_N\}$ does not correspond to any $\consp_i$,\todo{Controllare}
 \begin{eq}\label{eq:Zsc}
-	Z_{\text{s.c.}}\approx\sum_{N=0}^\infty\sum_{\{\Gamma_1,\ldots,\Gamma_N\}}e^{\displaystyle-S(\Gamma_{1},\ldots,\Gamma_{N})}
+	Z_{\text{s.c.}}\approx\sum_{N=0}^\infty\sum_{\{\Gamma_1,\ldots,\Gamma_N\}}\lexp{-S(\Gamma_{1},\ldots,\Gamma_{N})}
 \end{eq}
 where the sum over $\{\Gamma_1,\ldots,\Gamma_N\}$ considers all possible combinations of $N$ defects.
 From eq.~\eqref{eq:Zsc} we see that $Z_{\text{s.c.}}$ can be interpreted as a partition function of the interacting gas of defects, which by construction have closed locus. \todo{Qui ho un dubbio che è legato ad un'altra domanda che le ho fatto più sotto. Immagino che questa interazione tra defects risulta poi essere un'interazione tra kinks. Ha senso questo visto che kinks dovrebbero esser configurazioni solitarie (perlomeno a livello classico)? In tal caso, è possibile definire un'azione interagente per kink in QFT che tenga conto di questo tipo di interazioni o tali interazioni sono già ``gratuite'' visto che il path integral tiene conto di tutte le possibili configurazioni di $\phi$?}
@@ -922,7 +921,7 @@ For $a>0$ we have
 \end{eq}
 }
 \begin{eq}
-	(-\Delta+m^2)^{-1}(x,y)=\int_0^\infty\de s\,\left(e^{-s(-\Delta+m^2)}\right)(x,y)=\int_0^\infty\de s\,e^{-sm^2}e^{s\Delta }(x,y)
+	(-\Delta+m^2)^{-1}(x,y)=\int_0^\infty\de s\,\left(\lexp{-s(-\Delta+m^2)}\right)(x,y)=\int_0^\infty\de s\,\lexp{-sm^2}\lexp{s\Delta }(x,y)
 \end{eq}
 where $e^{s\Delta }(x,y)$ is the Euclidean analogue of the kernel of the (real) time evolution $e^{-itH}$ for $H=\Delta$
 \begin{eq}

@@ -6,16 +6,14 @@
 \setlength{\parindent}{0pt} %no indentation
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{latexsym}
 \usepackage{cases}
-\usepackage{mathtools}
 %\usepackage{slashed}
 \usepackage{physics}
 \usepackage{mathrsfs}
 %\usepackage{quoting}
 \usepackage{bbold} %identity symbol (double 1)
-%\usepackage[framemethod=TikZ, nobreak=true]{mdframed}
-%\usepackage{amsthm}
 %\usepackage[compat=1.1.0]{tikz-feynman}
 \usepackage{enumitem}
 	\setlist{nosep}
@@ -243,6 +241,13 @@
 
 \newcommand{\vs}{\mathcal V}%vector space of states
 \newcommand{\vsp}{\mathcal V_{\text{phys}}}%vector subspace of physical states
+
+\newif\ifinsideexp\insideexpfalse
+\let\temp\int
+\renewcommand\int{\ifinsideexp{\scalemath{1.2}{\textstyle\temp}}\else\temp\fi}%smaller integral when inside the exp
+\let\tempp\frac
+\renewcommand\frac[2]{\ifinsideexp{\scalemath{0.85}{\tempp{#1}{#2}}}\else\tempp{#1}{#2}\fi}%smaller fraction when inside the exp
+\newcommand\lexp[1]{e^{\scalemath{0.8}{\insideexptrue#1}}}%exp with larger argument
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

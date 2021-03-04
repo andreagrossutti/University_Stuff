@@ -245,7 +245,7 @@ is not really well defined, since $\beta(x)$ may be defined with ``jumps'' of $2
 Let us first consider static configurations (no dependence on $x^0$) in the \emph{temporal} gauge $A_0=0$, so that there is no difference between relativistic and non-relativistic models. 
 The energy is given by
 \begin{eq}\label{eq:energy-density-vortex}
-	\cenergy\big(\vec A(\vec x),\phi(\vec x)\big)
+	\int\de^2x\,\cenergy\big(\vec A(\vec x),\phi(\vec x)\big)
 	=\int\de^2x\,\bigg[\frac1{4e^2}F^2_{ij}+\vert D_i\phi\vert^2+\lambda\big(|\phi|^2-v^2\big)^2\bigg]
 \end{eq}
 and it has global minima at
@@ -466,7 +466,7 @@ In general these vortices interact among each other, but for $m_H=m_A$, i.e. $\l
 
 To prove such inequality, let us start by rewriting the energy density as
 \begin{eq}\label{eq:vortex-energy-density-rewritten}
-	\cenergy(\vec A(\vec x),\phi(\vec x))
+	\int\de^2x\,\cenergy(\vec A(\vec x),\phi(\vec x))
 	&=\int\de^2x\,\bigg[\half\left(\frac Be+n_ee(|\phi|^2-v^2)\right)^2+|(D_1+iD_2)\phi|^2\\
 	&\qquad+\left(\lambda-\frac{n_e^2e^2}2\right)(|\phi|^2-v^2)^2+n_eeBv^2-i\partial_j(\lctens_{ij}\phi^*D_i\phi)\bigg]
 \end{eq}
@@ -479,7 +479,7 @@ Indeed using
 \end{eq}
 we get from eq.~\eqref{eq:vortex-energy-density-rewritten}
 \begin{eq}
-	\cenergy&=\int\de^2x\,\bigg[\frac1{2e^2}B^2+\frac{n_e^2e^2}2(|\phi|^2-v^2)^2+Bn_e(|\phi|^2-v^2)+|D_i\phi|^2-n_eeB(|\phi|^2-v^2)\\
+	\int\de^2x\,\cenergy&=\int\de^2x\,\bigg[\frac1{2e^2}B^2+\frac{n_e^2e^2}2(|\phi|^2-v^2)^2+Bn_e(|\phi|^2-v^2)+|D_i\phi|^2-n_eeB(|\phi|^2-v^2)\\
 	&\qquad+i\partial_j(\lctens\phi^*D_i\phi)-n_eeBv^2+n_eeBv^2-i\partial_j(\lctens_{ij}\phi^*D_i\phi)+\left(\lambda-\frac{n_e^2e^2}2\right)(|\phi|^2-v^2)^2\bigg]\\
 	&=\int\de^2x\,\bigg[\frac1{2e^2}B^2+|D_i\phi|^2+\lambda(|\phi|^2-v^2)^2\bigg]
 \end{eq}
@@ -491,14 +491,14 @@ Notice that
 \end{eq}
 hence
 \begin{eq}
-	\cenergy&=\int\de^2x\,\bigg[\half\left(\frac Be+n_ee(|\phi|^2-v^2)\right)^2+|(D_1+iD_2)\phi|^2+\left(\lambda-\frac{n_e^2e^2}2\right)(|\phi|^2-v^2)^2+n_eeBv^2\bigg]
+	\int\de^2x\,\cenergy&=\int\de^2x\,\bigg[\half\left(\frac Be+n_ee(|\phi|^2-v^2)\right)^2+|(D_1+iD_2)\phi|^2+\left(\lambda-\frac{n_e^2e^2}2\right)(|\phi|^2-v^2)^2+n_eeBv^2\bigg]
 \end{eq}
 and
 \begin{eq}\label{eq:BPS-bound-vortex}
 	\tif
 	\lambda\geq\frac{(n_ee)^2}2
 	\tthen
-	\cenergy\geq n_eev^2\int\de^2x\,B
+	\int\de^2x\,\cenergy\geq n_eev^2\int\de^2x\,B
 \end{eq}
 since the other terms in $\cenergy$ are strictly positive. 
 
@@ -511,13 +511,13 @@ In particular for the \emph{BPS limit} or \emph{Bogomol'nyi limit}, where $\lamb
 \end{eq}
 then the energy is proportional to the vorticity
 \begin{eq}
-	\cenergy=n_eev^2\int\de^2x\,B=2\pi nv^2
+	\int\de^2x\,\cenergy=n_eev^2\int\de^2x\,B=2\pi nv^2
 \end{eq}
 where we used the previous identity
 \begin{eq}
 	\int\de^2x\,B=\frac{2\pi n}{n_ee}
 \end{eq}
-Since $\cenergy\sim n$ this means that vortices are free in the BPS limit. 
+Since $\int\de^2x\,\cenergy\sim n$ this means that vortices are free in the BPS limit. 
 
 \skipline
 
