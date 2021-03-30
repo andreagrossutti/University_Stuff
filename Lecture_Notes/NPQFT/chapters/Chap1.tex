@@ -41,7 +41,7 @@ The Hilbert space of states for $N$ identical particles $\hs_N$ is constructed a
 \end{eq}
 then
 \begin{eq}
-	\hs_N^\pm := P^\pm(\hs_1\otimes\dots\otimes\hs_1)
+	\hs_N^\pm := P^\pm(\underbrace{\vphantom{\big\vert}\hs_1\otimes\dots\otimes\hs_1}_{\text{$N$ times}})
 \end{eq}
 More concretely, let $A$ be a complete set of compatible observables in the one-particle Hilbert space of an elementary quantum particle $\hs_1$ (we assume for the moment discrete spectrum for these observables), and $\{\ket{\alpha_i},i\in I\}$ the corresponding eigenstates, where $\alpha_i$ is the set of common eigenvalues of $A$. Then an orthonormal basis in $\hs_N^\pm$ is given by
 \begin{eq}
@@ -187,7 +187,7 @@ Let's consider for simplicity the case of a massive ($m>0$) scalar ($s=0$) parti
 \end{eq}
 i.e. the momentum should be contained in the \emph{positive hyperboloid of mass $m$}, denoted by $V_m^+$. Notice that if $m=0$ we have that the momentum should be contained in the \emph{forward light cone}. 
 
-Since we want to have a representation of the (covering of the) Poincaré group all the points in the hyperboloid should be weighted by the same weight, then a natural choice for our one-particle Hilbert space is provided by 
+Since we want to have a representation of the (covering of the) Poincaré group all the points in the hyperboloid should be weighted by the same weight by the measure defined in the representation space, then a natural choice for our one-particle Hilbert space is provided by 
 \begin{eq}
 	\hs_1=L^2\left(\R^4,\frac{\de^4p}{(2\pi)^4}\,2\pi\delta(p_\mu p^\mu-m^2)\theta(p^0)\right)
 	=L^2\left(V_m^+,\frac{\de^3p}{(2\pi)^3}\frac{1}{2\sqrt{\vec p^2+m^2}}\right)
@@ -339,7 +339,7 @@ from which we see that $\{a'_i\}_i$ gives a new representation of CCR provided t
 \end{eq}
 from which we see that $\{a'_i\}_i$ gives a new representation of CAR provided that $|\alpha_i|^2+|\beta_i|^2=1$. Let $\ket0$ be the vacuum in the $a_i$ representation, then
 \begin{eq}
-	\bra0\op N'\ket0=\sum_{i\in I}\bra0(\alpha_i^*a_i^\dagger+\beta_i^*a_i)(\alpha_ia_i+\beta_ia_i^\dagger)\ket0=\sum_{i\in N}|\beta_i|^2
+	\bra0\op N'\ket0=\sum_{i\in I}\bra0(\alpha_i^*a_i^\dagger+\beta_i^*a_i)(\alpha_ia_i+\beta_ia_i^\dagger)\ket0=\sum_{i\in I}|\beta_i|^2
 \end{eq}
 If $\sum_i|\beta_i|^2<\infty$ then such transformation is allowed and since it is unitary then the Fock space of $a_i$ is a Fock space for $a'_i$ too (even if states, including the vacuum, may not be the same). Otherwise, for $\sum_i|\beta_i|^2=\infty$, the vacuum $\ket0$ in the $a_i$ representation is not even an element of $\dom(\op N'):=\{\ket{\psi}\,\varst\,||\op N'\ket{\psi}||<\infty\}$, nor is any excitation created from $\ket0$ using $a_i^\dagger$.\footnote{
 	Indeed using CCR and CAR one obtains
@@ -508,10 +508,9 @@ by the \emph{LSZ (Lehmann-Symanzik-Zimmermann) formula}: if the in-state is give
 
 The perturbative approach tries to compute the correlation functions $\bra0\tp[\ophi(x_1)\cdots\ophi(x_n)]\ket0$ of interacting Heisenberg fields in terms of the free in-fields $\ophi_\tin(x)$. Using the expression of $\uei(t_1,t_2):=\uei(t_1)\uei{}^{-1}(t_2)$ one can prove the following identity, called \emph{Gell-Mann - Low formula}. Let $\ket0$ be the vacuum state in $\hs$, then
 \begin{eq}\label{eq:gell-man-low}
-	\bra0\tp[\ophi(x_1)\ldots\ophi(x_n)]\ket0 = \frac{\bra{0_\tin}\tp[\ophi_\tin(x_1)\cdots\ophi_\tin(x_n)e^{-\frac i\hbar\int\de t\,H_\epsilon^I(t)}]\ket{0_\tin}}{\bra{0_\tin}\tp[e^{-\frac i\hbar\int\de t\,H_\epsilon^I(t)}]\ket{0_\tin}}
+	\bra0\tp[\ophi(x_1)\ldots\ophi(x_n)]\ket0 = \frac{\bra{0_\tin}\tp[\ophi_\tin(x_1)\cdots\ophi_\tin(x_n)\,\lexp{-\frac i\hbar\int\de t\,H_\epsilon^I(t)}]\ket{0_\tin}}{\bra{0_\tin}\tp[\,\lexp{-\frac i\hbar\int\de t\,H_\epsilon^I(t)}]\ket{0_\tin}}
 \end{eq}
 where integrations in $t$ go from $-\infty$ to $+\infty$.
-
 This formula connects interacting Heisenberg fields $\ophi$ with in-fields $\ophi_\tin$ assuming that we have a finite infrared cutoff $\epsilon$ in time.
 
 We now give a sketch of the proof of this result.\footnote{Reference: \url{https://authors.library.caltech.edu/60474/1/PhysRev.84.350.pdf}} Assume $t\gg t_1>t_2>\ldots>t_n$, then using  unitarity 
@@ -698,7 +697,7 @@ and then instead of computing correlation functions at ordinary time $t$, we com
 \end{eq}
 Suppose that $H=H_0+H_I$ (notice that the cutoff $\epsilon$ is not required here since the domain of $\tau$ is already finite, $\tau\in[0,\beta]$) and write again the evolution separating the contributions of $H_0$ and $H_I$ as in the interaction picture
 \begin{eq}\label{eq:Mats1}
-	O^H(\tau)=U^I(\tau)O^{H_0}(\tau)U^I(\tau)
+	O^H(\tau)=U^{I\,\dagger}(\tau)O^{H_0}(\tau)U^I(\tau)
 \end{eq}
 getting as before
 \begin{eq}\label{eq:Mats2}
@@ -734,10 +733,12 @@ where $\langle\ \rangle_\beta^0$ the thermal average computed using $H_0$ as Ham
 In comparison with the Gell-Mann Low formula for particle physics, in this case the vacuum expectation values are replaced by the Boltzmann-weighted thermal traces, and the vacuum expectation value of the $S$-matrix operator $U_\epsilon^I(+\infty)$ in the denominator is replaced by the Boltzmann-weighted trace of the interaction operator $U^I(\beta)$ along the euclidean time axis $\tau$. Moreover, the integration over $\tau$ goes up to $\beta$, since $0\leq\tau\leq\beta$. 
 
 Finally, the perturbative treatment prescripts
-\begin{eq}
-	\langle\tp_\tau[O_1^{H_0}(\tau_1)\ldots O_n^{H_0}(\tau_n)e^{-\int_0^\beta\de\tau'\,H_I(\tau')}]\rangle_\beta^0
-	= \sum_{\ell=0}^\infty\frac{(-1)^\ell}{\ell!}\langle\tp_\tau[O_1^{H_0}(\tau_1)\ldots O_n^{H_0}(\tau_n)\Big(\int_0^\beta\de\tau'\,H_I(\tau')\Big)^\ell]\rangle_\beta^0
-\end{eq}
+\begin{eq}\begin{gathered}
+	\langle\tp_\tau[O_1^{H_0}(\tau_1)\ldots O_n^{H_0}(\tau_n)e^{-\int_0^\beta\de\tau'\,H_I(\tau')}]\rangle_\beta^0\\
+	\downarrow\\
+	\sum_{\ell=0}^\infty\frac{(-1)^\ell}{\ell!}\langle\tp_\tau[O_1^{H_0}(\tau_1)\ldots O_n^{H_0}(\tau_n)\Big(\int_0^\beta\de\tau'\,H_I(\tau')\Big)^\ell]\rangle_\beta^0
+\end{gathered}\end{eq}
+
 This leads to a series of thermally averaged products of many fields which move according to the free field equations. Therefore Wick's theorem can be applied and we obtain an expansion of the Matsubara Green function completely analogous to the field theoretic one. The only difference is the finite-time interaction. Now everything is again expressed in terms of the free fields and can be computed using Feynman diagrams. 
 
 To be precise in most cases one also need to use an infrared cutoff $\epsilon$, which in this case (the domain of $\tau$ is finite) is required only in the space coordinates, and will be removed at the end of the calculation.
@@ -747,9 +748,9 @@ To be precise in most cases one also need to use an infrared cutoff $\epsilon$, 
 According to the definition eq.~\eqref{eq:dfn-Mats-Green}, the 2-points Matsubara correlator (the only related to the computation of retarded correlators) reads:
 \begin{eq}	\label{eq:Matsu-corr-tau12}
 	G_M^{\,O_1O_2}(\tau_1,\tau_2)&=-\frac1Z\big\{\Tr_\hs[e^{-\beta H}e^{\tau_1H}O_1 e^{-\tau_1H}e^{\tau_2H}O_2e^{-\tau_2H}]\theta(\tau_1-\tau_2)\\
-	&\qquad \pm \Tr_\hs[e^{-\beta H}e^{\tau_2H}O_2 e^{-\tau_2H}e^{\tau_1H}O_1e^{-\tau_1H}]\theta(\tau_2-\tau_1)\big\}=\\
+	&\qquad\qquad \pm \Tr_\hs[e^{-\beta H}e^{\tau_2H}O_2 e^{-\tau_2H}e^{\tau_1H}O_1e^{-\tau_1H}]\theta(\tau_2-\tau_1)\big\}=\\
 	&=-\frac1Z\big\{\Tr_\hs[e^{-\beta H}O_1e^{-(\tau_1-\tau_2)H}O_2e^{(\tau_1-\tau_2)H}]\theta(\tau_1-\tau_2)\\
-	&\qquad  \pm \Tr_\hs[e^{-\beta H}O_2e^{-(\tau_2-\tau_1)H}O_1e^{(\tau_2-\tau_1)H}]\theta(\tau_2-\tau_1)\big\}
+	&\qquad\qquad  \pm \Tr_\hs[e^{-\beta H}O_2e^{-(\tau_2-\tau_1)H}O_1e^{(\tau_2-\tau_1)H}]\theta(\tau_2-\tau_1)\big\}
 \end{eq}
 where in the second step we used the cyclicity of the trace and the choice of the sign depends on the commutation relation between $O_1^H$ and $O_2^H$ ($+$ if they commute or $-$ if they anticommute). This computation shows that the two points correlator is just a function of the difference $\tau:=\tau_1-\tau_2$. 
 \begin{eq}\label{eq:Matsu-corr-tau}

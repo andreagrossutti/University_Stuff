@@ -108,7 +108,7 @@ In order to exploit the problem we first need to introduce the spectral represen
 
 \subsubsection{Källen-Lehmann representation (relativistic case)}
 
-If $\hs$ is the Hilbert space of the interacting theory, in order to have translational and Poincaré invariance, some properties has to be satisfied: in particular we need in $\hs$
+If $\hs$ is the Hilbert space of the interacting theory, in order to have Poincaré invariance, some properties has to be satisfied: in particular we need in $\hs$
 \begin{enumerate}[label=(\arabic*)]
 	\item A unitary representation of the covering of the restricted Poincaré group $\cpoinc$. Let's denote by $\op P^\mu$ the corresponding generators of space-time translations.
 	\item A vacuum vector $\ket0$ invariant under the representation of spacetime translations $U(a)$, $a\in\R^{d+1}$ ($d=3$) (invariance is due to homogeneity of spacetime).
@@ -130,7 +130,7 @@ Consider the 2-points function of a scalar RQFT
 \end{eq}
 where in the last step we used the identity $1=\int\de^4 q\,\delta(q-p_\alpha)$ and we defined the Fourier transform (up to a factor $2\pi$) of the 2-point function
 \begin{eq}\label{eq:rho_plus_deltas}
-	\rho_+(q)=(2\pi)^3\sum_\alpha \delta(q-p_\alpha) |\bra0\ophi(0)\ket\alpha|^2
+	\rho_+(q):=(2\pi)^3\sum_\alpha \delta(q-p_\alpha) |\bra0\ophi(0)\ket\alpha|^2
 \end{eq}
 which has some interesting properties:
 \begin{enumerate}[label=(\alph*)]
@@ -140,10 +140,9 @@ which has some interesting properties:
 \end{enumerate}
 Therefore from all these conditions we get that the most general form for $\rho_+$ is\footnote{The delta function is introduced to take into account possible non vanishing vacuum expectation values.}
 \begin{eq}\label{eq:rho_+_sigma}
-	\rho_+(q)=\sigma(q^2)\theta(q^0)+c\,\delta(q)
-	\twith \sigma(q^2)=0 \tif q^2<0 \tand c \text{\ constant}
+	\rho_+(q)=\sigma(q^2)\theta(q^0)+\text{const}\cdot\delta(q)
 \end{eq}
-Notice that property (a), $\rho_+(q)\geq0$, implies that $\sigma(q^2)$ is a semi-definite positive function, i.e. $\sigma(q^2)\geq0$ for any value of $q\in\overline V_0^+$. 
+Notice that property (a), $\rho_+(q)\geq0$, implies that $\sigma(q^2)$ is a semi-definite positive function, i.e. $\sigma(q^2)\geq0$ for any value of $q\in\overline V_0^+$. Moreover from (b) we see that $\sigma(q^2)=0$ if $q^2<0$.
 
 Let's introduce the \emph{spectral function}\footnote{Sometimes $\rho(q)$ is defined with an additional factor $2\pi$ in such a way that it is exactly the Fourier transform of $\bra0[\ophi(x),\ophi(y)]\ket0$. In some other cases it is defined (equivalently to eq.~\eqref{eq:spectral_func}) as 2 times the immaginary part of the retarded correlator, using the relations
 \begin{eq}\label{eq:spectral_func}
@@ -153,9 +152,13 @@ Let's introduce the \emph{spectral function}\footnote{Sometimes $\rho(q)$ is def
 \end{eq}
 where $\omega=q_0$.}
 \begin{eq}
-	\rho(q)=\rho_+(q)-\rho_+(-q)
+	\rho(q):=\rho_+(q)-\rho_+(-q)
 \end{eq}
-which due to eq.~\eqref{eq:2-point-func-spec-repr} is the Fourier transform (up to a factor $2\pi$) of $\bra0[\ophi(x),\ophi(y)]\ket0$: using eq.~\eqref{eq:2-point-func-spec-repr} we get
+Using expression eq.~\eqref{eq:rho_+_sigma} we get
+\begin{eq}\label{eq:rho_sigma}
+	\rho(q)=\rho_+(q)-\rho_+(-q)=\sigma(q^2)\theta(q^0)+\cancel{c\,\delta(q)}-\sigma(q^2)\theta(-q^0)-\cancel{c\,\delta(-q)}=\sign(q^0)\sigma(q^2)
+\end{eq}
+Due to eq.~\eqref{eq:2-point-func-spec-repr} the spectral function $\rho$ is the Fourier transform (up to a factor $2\pi$) of the correlator $\bra0[\ophi(x),\ophi(y)]\ket0$, indeed using eq.~\eqref{eq:2-point-func-spec-repr} we get
 \begin{eq}\label{eq:2-point-func-spec-repr-comm}
 	\bra0[\ophi(x),\ophi(y)]\ket0
 	&=\bra0\ophi(x)\ophi(y)\ket0-\bra0\ophi(y)\ophi(x)\ket0\\
@@ -163,10 +166,11 @@ which due to eq.~\eqref{eq:2-point-func-spec-repr} is the Fourier transform (up 
 	&=\int\frac{\de^4q}{(2\pi)^3}\,\rho_+(q)e^{-iq(x-y)}-\int\frac{\de^4q}{(2\pi)^3}\,\rho_+(-q)e^{-iq(x-y)}\\
 	&=\int\frac{\de^4q}{(2\pi)^3}\,\rho(q)e^{-iq(x-y)}
 \end{eq}
-Using expression eq.~\eqref{eq:rho_+_sigma} we get
-\begin{eq}\label{eq:rho_sigma}
-	\rho(q)=\rho_+(q)-\rho_+(-q)=\sigma(q^2)\theta(q^0)+\cancel{c\,\delta(q)}-\sigma(q^2)\theta(-q^0)-\cancel{c\,\delta(-q)}=\sign(q^0)\sigma(q^2)
-\end{eq}
+
+
+Representation of correlation functions given by eq.~\eqref{eq:2-point-func-spec-repr} and eq.~\eqref{eq:2-point-func-spec-repr-comm} are called \emph{Källen-Lehmann representations} since they was firstly derived by these two physicist.\footnote{Källen: \url{https://doi.org/10.5169\%2Fseals-112316}, Lehmann: \url{https://doi.org/10.1007\%2Fbf02783624}.} They are also known as \emph{spectral representations}, since $\rho_+$, $\rho$ and $\sigma$ can be expressed in terms of the matrix elements of $\ophi(0)$. 
+
+\skipline
 
 If $\ophi$ obeys the CCR $[\ophi(\vec x,t),\dot\ophi(\vec y,t)]=i\delta(\vec x-\vec y)$ then $\rho$ satisfies the \emph{sum sule}
 \begin{eq}\label{eq:sum_rule_spect_func}
@@ -183,8 +187,7 @@ Indeed consider the identity
 	&=\int\frac{\de^4q}{(2\pi)^3}\,q^0\rho(q)e^{i\vec q\cdot(\vec x-\vec y)}
 \end{eq}
 then comparing the left and the right side of the previous identity one gets exactly eq.~\eqref{eq:sum_rule_spect_func}.
-
-Moreover using eq.~\eqref{eq:rho_sigma} one can rewrite
+Moreover, using eq.~\eqref{eq:rho_sigma} one can rewrite
 \begin{eq}\label{eq:sum_rule_sigma}
 	1=\int_{-\infty}^{+\infty}\de q^0\,q^0\rho(q)
 	=\int_{-\infty}^{+\infty}\de q^0\,|q^0|\sigma(q^2)
@@ -195,17 +198,23 @@ where using $m^2=q^2=(q^0)^2-\vec q^2$ and the fact that in our integration $\ve
 
 Recalling that $\sigma(q^2)\geq0$, we have that $q^0\rho(q)=|q^0|\sigma(q^2)\geq0$ too, hence using eq.~\eqref{eq:sum_rule_spect_func} and eq.~\eqref{eq:sum_rule_sigma} we get that both
 \begin{eq}
-	A(\omega,\vec q):= \omega\rho(\omega,\vec q) = q^0\rho(q)
+	A(q):= q^0\rho(q)\overset{\eqref{eq:rho_sigma}}=|q^0|\,\sigma(q^2)
 \end{eq}
-and $\sigma(m^2)$ are probability densities. In particular can be proved that $\sigma(m^2)$ is the probability density to find in the state $\int e^{iqx}\ophi(x)\ket0$ a state of mass $m^2$, while $A(\omega,\vec q)$ is the probability density to find in the same state $\int e^{iqx}\ophi(x)\ket0$ a state of energy $\omega$ for fixed value $\vec q$. 
+and $\sigma(m^2)$ are probability densities. In particular can be proved that $\sigma(m^2)$ is the probability density to find in the state $\int e^{iqx}\ophi(x)\ket0$ a state of mass $m^2$, while $A(q)$ is the probability density to find in the same state $\int e^{iqx}\ophi(x)\ket0$ a state of energy $q^0$ for fixed value $\vec q$. 
 
 We just mention that for fermions the same sum rule eq.~\eqref{eq:sum_rule_spect_func} holds equivalently provided that we have the CAR $\{\ophi(\vec x,t),\dot\ophi(\vec y,t)\}=i\delta(\vec x-\vec y)$. 
 
-Now, suppose that we do not know if our interacting field satisfies CCR (hence eq.~\eqref{eq:sum_rule_spect_func} does not apply to it), although we are sure that the associated free theory does. Denoting by $\Delta_+(x-y;m)$ the 2-points function of the free scalar field of mass $m$, then inserting inside eq.~\eqref{eq:2-point-func-spec-repr} the equality $\int_0^{+\infty}\de m^2\,\delta(q^2-m^2)=1$ we get
+\skipline
+
+Now, suppose that we do not know if our interacting field satisfies CCR (hence eq.~\eqref{eq:sum_rule_spect_func} does not apply to it), although we are sure that the associated free theory does. Denoting by 
+\begin{eq}
+	\Delta_+(x-y;m):=\int\frac{\de^4q}{(2\pi)^3}\delta(q^2-m^2)\theta(q^0)e^{-iq(x-y)}
+\end{eq}
+the 2-points function of the free scalar field of mass $m$, then inserting inside eq.~\eqref{eq:2-point-func-spec-repr} the equality $\int_0^{+\infty}\de m^2\,\delta(q^2-m^2)=1$ we get
 \begin{eq}
 	\bra0\phi(x)\phi(y)\ket0
 	&=\int\frac{\de^4q}{(2\pi)^3}\sigma(q^2)\theta(q^0)e^{-iq(x-y)}+|\bra0\ophi(0)\ket0|^2\\
-	&=\int_0^{+\infty}\de m^2\,\sigma(m^2)\int\frac{\de^4p}{(2\pi)^3}\delta(q^2-m^2)\theta(q^0)e^{-iq(x-y)}+|\bra0\ophi(0)\ket0|^2\\
+	&=\int_0^{+\infty}\de m^2\,\sigma(m^2)\int\frac{\de^4q}{(2\pi)^3}\delta(q^2-m^2)\theta(q^0)e^{-iq(x-y)}+|\bra0\ophi(0)\ket0|^2\\
 	&=\int_0^{+\infty}\de m^2\,\sigma(m^2)\Delta_+(x-y;m)+|\bra0\ophi(0)\ket0|^2
 \end{eq}
 where $|\bra0\ophi(0)\ket0|^2$ is the constant which comes from eq.~\eqref{eq:rho_plus_deltas} when evaluated at $q=0$ due to the term $\delta(q)$ in eq.~\eqref{eq:rho_+_sigma}, and can be formally removed just shifting $\ophi(x)$ (although physically the non-vanishing of $|\bra0\ophi(0)\ket0|^2$ is a non-trivial issue signalling a symmetry breaking). This means that even in the interacting theory we can write the 2-points function as an integral of free 2-points functions of the free fields with varying mass weighted by a suitable measure $\de m^2\,\sigma(m^2)$. This fact is a purely relativistic effect, and has no analogue for NRQFT, it is due to Lorentz invariance, and it is no more true if we break Lorentz symmetry. 
@@ -218,20 +227,21 @@ One of the consequences is that, since the 2-point function of the interacting t
 	&=\int_0^{+\infty}\de m^2\,\sigma(m^2)\,i\delta(\vec x-\vec y)
 	=c\,i\delta(\vec x-\vec y)
 \end{eq}
-with $c=\int_0^{+\infty}\de m^2\,\sigma(m^2)$.
-
-Representation of correlation functions given by eq.~\eqref{eq:2-point-func-spec-repr} and eq.~\eqref{eq:2-point-func-spec-repr-comm} are called \emph{Källen-Lehmann representations} since they was firstly derived by these two physicist.\footnote{Källen: \url{https://doi.org/10.5169\%2Fseals-112316}, Lehmann: \url{https://doi.org/10.1007\%2Fbf02783624}.} They are also known as \emph{spectral representations}, since $\rho_+$, $\rho$ and $\sigma$ can be expressed in terms of the matrix elements of $\ophi(0)$. Lehmann applied such representation also to the non-relativistic case, as we now show.
+with $c=\int_0^{+\infty}\de m^2\,\sigma(m^2)$ typically strictly positive.
 
 \subsubsection{Lehmann representation (non-relativistic case)}
 
-Let's see how to generalize the previous representation without assuming Lorentz invariance. In this case in the Hilbert space $\hs$ of our theory we need:
+Lehmann applied the previous procedure also to the non-relativistic case.
+Let's see how to generalize the previous representation without assuming Lorentz invariance.
+
+In this case in the Hilbert space $\hs$ of our theory we need:
 \begin{enumerate}[label=(\arabic*')]
 	\item A unitary representation $U$ of spacetime translations (one can also add rotational invariance).
-	\item The field $\ophi$ should transform under an irreducible representation of transformations under $U$.\footnote{For lattice theories $U$ is restricted to discrete spatial lattice translations and typically the time lattice translations are represented contractively, i.e. through terms of the form $e^{-tH}$ (continuum variation of the transfer matrix).} We assume that $\ophi$ transforms as a scalar. 
+	\item The field $\ophi$ should transform under an irreducible representation of translations under $U$.\footnote{For lattice theories $U$ is restricted to discrete spatial lattice translations and typically the time lattice translations are represented contractively, i.e. through terms of the form $e^{-tH}$ (continuum variation of the transfer matrix).} We assume that $\ophi$ transforms as a scalar. 
 \end{enumerate}
 As in the relativistic case, (1') implies that exists a Dirac completeness for the generators $\op{\vec P}$, $ H$ of $U(a)$ with eigenvalues $p_\alpha$. Applying the same strategy as in the relativistic case (the symbol $\pm$ in $\langle\bullet\rangle_{\beta\,\pm}$ indicates whether the operators are bosons or fermions when we compute the average at finite temperature $T$, while $[\bullet,\bullet]_+$ is the anticommutator and $[\bullet,\bullet]_-$ is the commutator)
 \begin{eq}\label{eq:2-point-func-spec-repr-nr}
-	\langle[\ophi(x),\ophid(y)]_\pm\rangle_{\beta\,\pm}
+	\langle[\ophi(x),\ophid(y)]_\pm\rangle_{\beta}
 	&=\frac{\displaystyle\Tr[e^{-\beta H}[\ophi(x),\ophid(y)]_\pm]}{\displaystyle\Tr[e^{-\beta H}]}\\
 	&=\frac1Z\sum_{\alpha,\alpha'}\big(\bra{\alpha'}e^{-\beta H}\ophi(x)\ket\alpha\bra\alpha\ophid(y)\ket{\alpha'} \pm \bra{\alpha}e^{-\beta H}\ophid(y)\ket{\alpha'}\bra{\alpha'}\ophi(x)\ket{\alpha}\big)\\
 	&=\frac1Z\sum_{\alpha,\alpha'}\big(e^{-\beta\cenergy_{\alpha'}}\pm e^{-\beta\cenergy_\alpha}\big)e^{-i(p_\alpha-p_{\alpha'})(x-y)}|\bra{\alpha'}\ophi(0)\ket\alpha|^2\\
@@ -246,8 +256,6 @@ Eq.~\eqref{eq:2-point-func-spec-repr-nr} is called \emph{Lehmann representation}
 For fermions, provided that CAR $\{\ophi(\vec x,t),\ophid(\vec y,t)\}=i\delta(\vec x-\vec y)$ is satisfied\footnote{Notice that in the non-relativistic case there is no time derivative in the CAR.} and $T=0$, we get that $A(\omega,\vec q):=\rho^+(q)$ (without $q^0$ in the non relativistic case) is a probability density, and it describes the probability density to find the state $\int e^{-iqx}\ophi(x)\ket0$ in a state of energy $\omega$ for fixed $\vec q$. 
 
 \subsubsection{The constraint $0\leq Z(\vec q)\leq 1$}
-
-Let's see what these spectral representations have to do with the inconsistency of the perturbation theory as $\epsilon\to0$.
 
 In general in a QFT (relativistic or not) if there is a particle (or a quasi-particle) excitation with dispersion $\omega=\omega(\vec q)$ (in the relativistic case $\omega=\sqrt{m^2+\vec q^2}$) (we assume $\bra0\ophi(0)\ket0=0$, otherwise we can shift the field) then in $A(\omega, \vec q)$ there should be a term
 \begin{eq}\label{eq:stable_1_particle_term_in_spec_func}
@@ -310,9 +318,9 @@ A resonance is described through a Lorentzian distribution, by replacing the abo
 \begin{eq}
 	\Im\frac1{\omega-f(\omega, \vec q)}=\frac{-\Im f(\omega, \vec q)}{(\omega-\Re f(\omega, \vec q))^2+(\Im f(\omega, \vec q))^2}
 \end{eq}
-where $\omega=\Re f(\omega, \vec q)$ describes the dispersion relation of the unstable particle and $\Im f(\omega, \vec q)$ its inverse lifetime. 
+where $\omega=\Re f(\omega, \vec q)$ describes the dispersion relation of the unstable particle and $\Im f(\omega, \vec q)$ its inverse lifetime.\todo{Qui penso sia $-\Im f$ l'inverse lifetime, visto che $\Im f<0$.} 
 
-If we take $\Im f(\omega, \vec q)\to0^-$ then $\Im\frac1{\omega-f(\omega,\vec q)}\to\delta(\omega-f(\omega,\vec q))$ with dispersion relation $\omega(\vec q)$ solution of the equation $\omega-\Re f(\omega, \vec q)=0$:
+If we take $\Im f(\omega, \vec q)\to0^-$ then $\Im\frac1{\omega-f(\omega,\vec q)}\to\delta(\omega-f(\omega,\vec q))$ \todo{Ci va $\frac1\pi$ da qualche parte?} with dispersion relation $\omega(\vec q)$ solution of the equation $\omega-\Re f(\omega, \vec q)=0$ and we recover the case of a stable particle:
 \begin{eq}
 	\delta(\omega-f(\omega, \vec q))=\frac{\displaystyle \delta(\omega-\omega(\vec q))}{\displaystyle \left|\pder f\omega(\omega, \vec q)\right|\Big|_{\omega=\omega(\vec q)}}
 	=Z(\vec q)\delta(\omega-\omega(\vec q))
@@ -329,16 +337,16 @@ This means that in the case of the resonance we just broaden the $\delta$-functi
 \draw [shift={(238.5,49)}, rotate = 450] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
 \draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (95.5,188) .. controls (102.23,188) and (108.09,183.72) .. (114.5,185) .. controls (116.33,185.37) and (120.65,189.85) .. (123.5,190) .. controls (141.15,190.93) and (158.84,189.48) .. (176.5,189) .. controls (191.61,188.59) and (200.37,179.85) .. (216.5,181) .. controls (229.23,181.91) and (242.27,193.21) .. (255.5,191) .. controls (262.38,189.85) and (267.57,180.39) .. (274.5,179) .. controls (284.54,176.99) and (295.68,188.42) .. (305.5,189) .. controls (315,189.56) and (327.9,191.69) .. (337.5,191) .. controls (340.48,190.79) and (342.95,187.42) .. (346.5,186) .. controls (349.17,184.93) and (354.56,190.99) .. (359.5,190) .. controls (362.91,189.32) and (366.02,187) .. (369.5,187) ;
 \draw[scale=1, domain=240:340, smooth, variable=\x, blue][line width=1.5] plot (\x,{195-900/((\x-289)*(\x-289)+6)});
-\draw (296,53) node [anchor=north west][inner sep=0.75pt]    {$Z(\vec{q}) \delta (\omega-\omega(\vec q))$};
+\draw (296,53) node [anchor=north west][inner sep=0.75pt]    {$\Im\frac1{\omega-f(\omega, \vec q)}$};
 \draw (187,45) node [anchor=north west][inner sep=0.75pt]    {$A( \omega ,\vec q)$};
-\draw (391,190) node [anchor=north west][inner sep=0.75pt]    {$\vec q$};
+\draw (391,190) node [anchor=north west][inner sep=0.75pt]    {$\omega$};
 \draw (123,170) node [anchor=north west][inner sep=0.75pt]    {$A_\tinc( \omega ,\vec q)$};
 \end{tikzpicture}}
 \caption{One-dimensional pictorially representation of the function $A( \omega ,\vec q)$ for a unstable particle. The width of the blue peak is proportional to the inverse lifetime $\inv\tau$ of the particle.}
 \label{fig:res_behav_A_spect_func}
 \end{figure}
 
-Again, provided CCR or CAR (depending on the physical situation) we again have the contstraint
+Again, provided CCR or CAR (depending on the physical situation) we again have the contstraint\todo{Penso che qui $Z(\vec q)$ vada definito come $\int\de\omega\Im\frac1{\omega-f(\omega, \vec q)}$ }
 \begin{eq}\label{eq:bound_Z_spect_repr}
 	0\leq Z(\vec q)\leq 1
 \end{eq}
@@ -346,7 +354,9 @@ hence the constraint applies even if we consider unstable particles.
 
 \section{The incompatibility between CCR and $U^I$}
 
-Let's see where the problem with the removal of the cutoff $\epsilon$ arises, first considering the relativistic case. Let's inspect the relation between $Z$ and asymptotic fields. With the introduction of the infrared cutoff $\epsilon$ (at least in $t$) we got that the free field is related to the interacting field by a unitary operator
+Let's see what have to do the previous spectral representations with the inconsistency of the perturbation theory as $\epsilon\to0$, first considering the relativistic case.
+
+Let's inspect the relation between $Z$ and asymptotic fields. With the introduction of the infrared cutoff $\epsilon$ (at least in $t$) we got that the free field is related to the interacting field by a unitary operator
 \begin{eq}
 	\ophi(\vec x,t) =\ueid(t)\ophi_\tin(\vec x, t)\uei(t)
 \end{eq}
@@ -358,11 +368,11 @@ such that
 \end{eq}
 Let's see if such unitary relation between free and interacting field is possible preserving translational invariance. 
 
-Consider a one particle system, then from eq.~\eqref{eq:split_spect_func_delta_inc} we can identify $\bra0\ophi_\tin\ophi_\tin\ket0$ as responsible for the contribution
+Consider a one particle system, since \todo{Questa affermazione va controllata, non so se è proprio questo il motivo.} $\bra0\ophi_\tin\ophi_\tin\ket0$ has exactly a pole for $q^2=m^2$ we can identify $\bra0\ophi_\tin\ophi_\tin\ket0$ as responsible for the contribution
 \begin{eq}\label{eq:contr_A_relativ_case}
 	Z\delta(q^2-m^2)\theta(q^0)
 \end{eq}
-in the spectral function $A(q)$ of $\ophi$, since \todo{Questa affermazione va controllata, non so se è proprio questo il motivo.} $\bra0\ophi_\tin\ophi_\tin\ket0$ has exactly a pole for $q^2=m^2$. We want that $\ophi$ describe an interacting field, so we need to assume $Z\neq1$ (otherwise $\ophi$ is free), conversely for $\ophi_\tin$ we already know that eq.~\eqref{eq:contr_A_relativ_case} is satisfied for $Z=1$. Therefore it is impossible to satisfy $\ophi \xrightarrow[t\to-\infty]{}\ophi_\tin$, one can at best hope to satisfy $\ophi \xrightarrow[t\to-\infty]{}Z^{1/2}\ophi_\tin$, i.e.
+in the spectral function $A(q)$ of $\ophi$, eq.~\eqref{eq:split_spect_func_delta_inc}. We want that $\ophi$ describes an interacting field, so we assume $Z\neq1$ (otherwise $\ophi$ is free), conversely for $\ophi_\tin$ we already know that eq.~\eqref{eq:contr_A_relativ_case} is satisfied for $Z=1$. Therefore it is impossible to satisfy $\ophi \xrightarrow[t\to-\infty]{}\ophi_\tin$, one can at best hope to satisfy $\ophi \xrightarrow[t\to-\infty]{}Z^{1/2}\ophi_\tin$, i.e.
 \begin{eq}\label{eq:free_int_unit_rela_Z}
 	\ophi(\vec x,t) =Z^{1/2}\ueid(t)\ophi_\tin(\vec x, t)\uei(t)
 \end{eq}
@@ -379,6 +389,8 @@ but then using CCR for $\ophi_\tin$ and $\ophi$ we get
 	&=Z\lim_{x^0\to-\infty}\bra0[\ophi_\tin(\vec x,x^0),\dot\ophi_\tin(\vec y,y^0)]\ket0\big|_{x^0=y^0}\overset{\text{CCR}}=Z\delta(\vec x -\vec y)
 \end{eq}
 which give $Z=1$, but this is wrong since we assumed that $\ophi$ is interacting. 
+
+\skipline
 
 Notice that the above argument about the inconsistency between CCR and eq.~\eqref{eq:free_int_unit_rela_Z} requires that both $x^0$ and $y^0$ are sent to $-\infty$ simultaneously in eq.~\eqref{eq:limit_t_-inf_CCR}. Conversely it is still possible that $\ophi$ approaches $Z^{1/2}\ophi_\tin$ as $t\to-\infty$ in the weak sense $\ophi \xrightharpoonup[t\to-\infty]{}Z^{1/2}\ophi_\tin$, i.e. in matrix elements: taken a sequence $A_n$ of operators the \emph{weak limit} 
 \begin{eq}
@@ -401,10 +413,13 @@ The serious problem arises when in perturbative approach is used the Gell-Mann L
 The important argument from Haag\footnote{Original paper: \cite{Haag:1955}.} proves that the situation does not improve even if we do not require $\ophi$ to be canonical. Except very special non-relativistic cases, the Hilbert space of the free field is disjoint from the Hilbert space of the interacting field (i.e. doesn't exist any unitary operator which maps the states of one Hilbert spaces into the states of the other one). 
 
 \begin{theorem}[{Haag, \cite[Page 8]{Earman:2005}}]
-	Assume that the unique translationally invariant state of an interacting scalar QFT with Hilbert space $\hs$ and field $\ophi\in\hs$ is the vacuum $\ket0\in\hs$ \footnote{It is reasonable to assume that the only translationally invariant state should be the vacuum, as the presence of any particle broke translational invariance. This is ensured if the underlying free theory has a mass gap, i.e. all particles of our theory are massive. In general these assumptions does not hold if the free theory has massless particles. See \cite[Section 3]{Earman:2005} for further comments about this fact.} (for lattice theories only discrete translations are considered).  Let $U(\vec x)$, $\vec x\in\R^d$, be the unitary representation of translations in $\hs$. Suppose that the Hamiltonian of the theory can be written as $H=H_0+H_I$, with $H_0$ free Hamiltonian. Then there is no state $\ket{0_F}\in\hs$ such that $H_0\ket{0_F}=0$ i.e. the vacuum of the free theory $\ket{0_F}$ is not an element of $\hs$.
+	Assume that the unique translationally invariant state of an interacting scalar QFT with Hilbert space $\hs$ and field $\ophi\in\hs$ is the vacuum $\ket0\in\hs$ \footnote{It is reasonable to assume that the only translationally invariant state should be the vacuum, as the presence of any particle broke translational invariance. This is ensured if the underlying free theory has a mass gap, i.e. all particles of our theory are massive. In general these assumptions does not hold if the free theory has massless particles. See \cite[Section 3]{Earman:2005} for further comments about this fact.} (for lattice theories only discrete translations are considered). Suppose that the Hamiltonian of the theory can be written as $H=H_0+H_I$, with $H_0$ free Hamiltonian. 
+	
+	Then there is no state $\ket{0_F}\in\hs$ such that $H_0\ket{0_F}=0$ and $H\ket{0_F}\neq0$ i.e. if the interacting Hamiltonian $H$ does not annihilate the vacuum of the free theory $\ket{0_F}$ then $\ket{0_F}$ is not an element of $\hs$ .
 \end{theorem}
 \begin{proof}
-	By contradiction, assume that the Fock vacuum $\ket{0_F}$ of the free theory with Hamiltonian $H_0$ is an element of $\hs$. Denote by $a_F(\vec q)$ the annihilation operator of $H_0$ ($F= \text{free}$), then
+	Let $U(\vec x)$, $\vec x\in\R^d$, be the unitary representation of translations in $\hs$.
+	Assume that the Fock vacuum $\ket{0_F}$ of the free theory with Hamiltonian $H_0$ is an element of $\hs$, i.e. $\ket{0_F}\in\hs$ such that $H_0\ket{0_F}=0$. Denote by $a_F(\vec q)$ the annihilation operator of $H_0$ ($F= \text{free}$), then
 	\begin{eq}
 		U^\dagger(\vec x)a_F(\vec q)U(\vec x)=e^{i\vec q\cdot\vec x}a_F(\vec q)
 	\end{eq}
@@ -416,14 +431,16 @@ The important argument from Haag\footnote{Original paper: \cite{Haag:1955}.} pro
 	\begin{eq}
 		0=H\ket0=(H_0+H_I)c\ket{0_F}=c\,H_I\ket{0_F}
 	\end{eq}
-	which give us $H_I\ket{0_F}=0$ and $H\ket{0_F}=0$. But the typical Hamiltonians for interacting fields does not annihilate $\ket{0_F}$ (i.e. $H$ ``polarizes the vacuum'') since $H_I$ describes interactions of the field with itself.\footnote{As an illustration, consider the $\ophi^4$ scalar field in $\R^{3+1}$ with (formal) Hamiltonian
+	which give us $H_I\ket{0_F}=0$ and $H\ket{0_F}=0$.
+\end{proof}
+
+Under some hypothesis, this first version of Haag's theorem proves that the vacuum of the free theory cannot be an element of the Hilbert space of the interacting theory. The relative simplicity of this theorem is purchased at the expense of generality since it appeals to the fact that typical Hamiltonians for interacting fields do not annihilate $\ket{0_F}$, $H\ket{0_F}\neq0$, (\emph{excitations of the vacuum}).\footnote{As an illustration, consider the $\ophi^4$ scalar field in $\R^{3+1}$ with (formal) Hamiltonian
 	\begin{eq}
 		H=H_0+\lambda\int\de^3x\,:\ophi^4:-\,C
 	\end{eq}
-	where $C$ is a $c$-number constant chosen to give to the ground state energy zero, and $:\quad:$ indicates the Wick normal product. This $H$ will not annihilate the bare vacuum $\ket{0_F}$ since the factor that follows the coupling constat $\lambda$ contains a term with a product of four creation operator $\sim (a^\dagger)^4$ (and there is only one term of this form, so it will not be canceled by another term).} Thus, we arrive at a contradiction: it follows from the announced assumptions that $H\ket{0_F}=0$, but for typical interaction Hamiltonians $H\ket{0_F}\neq0$.
-\end{proof}
-
-The relative simplicity of this first version of Haag's theorem is purchased at the expense of generality since it appeals to the fact that typical Hamiltonians for interacting fields do not annihilate $\ket{0_F}$. It was the ambition of the second version of his theorem to dispense with any reference to the particular form of the interacting field Hamiltonian. However, Haag's attempted proof of such general version was found ``inconclusive''. The gap was filled by a pair of theorems presented by Hall and Wightman,\footnote{Original paper: \cite{Hall:1957}} which together constitutes the so called \emph{Haag-Hall-Wightman (HHW) theorem}, which applies to any pair of neutral scalar field.
+where $C$ is a constant $c$-number chosen to give vanishing ground state energy, and $:\quad:$ indicates the Wick normal product. This $H$ will not annihilate the bare vacuum $\ket{0_F}$ since the factor that follows the coupling constat $\lambda$ contains a term with a product of four creation operator $\sim (a^\dagger)^4$ (and there is only one term of this form, so it will not be canceled by another term).} 
+	
+It was the ambition of the second version of his theorem to dispense with any reference to the particular form of the interacting field Hamiltonian. However, Haag's attempted proof of such general version was found ``inconclusive''. The gap was filled by a pair of theorems presented by Hall and Wightman,\footnote{Original paper: \cite{Hall:1957}} which together constitutes the so called \emph{Haag-Hall-Wightman (HHW) theorem}, which applies to any pair of neutral scalar field.
 
 \begin{theorem}[{HHW Part 1, \cite[Section 3, Thm. 1]{Hall:1957}, \cite[Thm. 4.14]{Streater:2000}}]\label{thm:HHW1}
 	Consider two QFTs with scalar fields $\ophi_1$, $\ophi_2$ and Hilbert spaces $\hs_1$, $\hs_2$ and assume that
@@ -434,7 +451,7 @@ The relative simplicity of this first version of Haag's theorem is purchased at 
 	\end{eq}
 	\item the representation of the fields is irreducible, i.e. if an operator $\op A$ defined in $\hs_j$ commutes with all the fields $\{\ophi_j\}\subset\hs_j$ then it is a multiple of the identity, $\op A=a\,\id$ for $a\in\C$;
 	\item the fields are related at some time $t$ by a unitary transformation $V(t)$
-	\begin{eq}
+	\begin{eq}\label{eq:HHW-hp-fields}
 		\ophi_2(\vec x,t)=V(t)\ophi_1(\vec x,t) V^\dagger(t)
 	\end{eq}
 	\end{enumerate}
@@ -466,14 +483,16 @@ Notice that this part of the theorem holds also in the non-relativistic case. Th
 		U_1^\dagger(\vec a,\vec R) V^\dagger(t) U_2(\vec a,\vec R) V(t)\ophi_1(\vec x,t) = \ophi_1(\vec x,t)U_1^\dagger(\vec a,\vec R) V^\dagger(t) U_2(\vec a,\vec R) V(t)
 	\end{eq}
 	Due to the irreducibility of the representation we get that
-	\begin{eq}
+	\begin{eq}\label{eq:dfn-omega-HHW}
 		U_1^\dagger(\vec a,\vec R) V^\dagger(t) U_2(\vec a,\vec R) V(t) = \omega(\vec a,\vec R)\id
 	\end{eq}
 	for some complex function $\omega(\vec a,\vec R)$ which depend on the element $(\vec a,\vec R)\in\mathbb E_d$ and then
 	\begin{eq}\label{eq:HHW1_proof_eq1}
 		\omega(\vec a,\vec R)U_1(\vec a,\vec R)=V^\dagger(t) U_2(\vec a,\vec R) V(t)
 	\end{eq}
-	Notice that in order to preserve unitarity we must have $|\omega(\vec a,\vec R)|=1$ for all $(\vec a,\vec R)\in\mathbb E_d$. By definition $\omega(\vec a,\vec R)$ provides a continuous one-dimensional representation (on $\C$) of a non-compact group ($\mathbb E_d$), and it is a general mathematical result that the unique representation with these properties is the trivial one; hence one may take $\omega(\vec a,\vec R)=1$.  If there are unique states $\ket{0_j}$ invariant under $\mathbb E_d$, $U_j(\vec a,\vec R)\ket{0_j}=\ket{0_j}$, then from $U_1(\vec a,\vec R)\ket{0_1}=\ket{0_1}$ one gets using eq.~\eqref{eq:HHW1_proof_eq1}
+	Notice that in order to preserve unitarity we must have $|\omega(\vec a,\vec R)|=1$ for all $(\vec a,\vec R)\in\mathbb E_d$. By definition eq.~\eqref{eq:dfn-omega-HHW} $\omega(\vec a,\vec R)$ provides a continuous one-dimensional representation (on $\C$) of a non-compact group ($\mathbb E_d$), and it is a general mathematical result that the unique representation with these properties is the trivial one; hence one may take $\omega(\vec a,\vec R)=1$.  
+	
+	If there are unique states $\ket{0_j}$ invariant under $\mathbb E_d$, $U_j(\vec a,\vec R)\ket{0_j}=\ket{0_j}$, then from $U_1(\vec a,\vec R)\ket{0_1}=\ket{0_1}$ one gets using eq.~\eqref{eq:HHW1_proof_eq1}
 	\begin{eq}
 		&V^\dagger(t) U_2(\vec a,\vec R) V(t)\ket{0_1}=\ket{0_1}
 	\end{eq}
@@ -491,11 +510,11 @@ Notice that this part of the theorem holds also in the non-relativistic case. Th
 \begin{corollary}\label{cor:HHW_1}
 	For any pair of theories satisfying the hypothesis of theorem \ref{thm:HHW1} the equal time correlation functions of $\ophi_1$ and $\ophi_2$ coincides
 	\begin{eq}
-		\bra{0_1}\ophi_1(\vec x_1,t)\ldots\ophi_1(\vec x_n,t)\ket{0_1}=\bra{0_2}\ophi_2(\vec x_1,t)\ldots\ophi_2(\vec x_n,t)\ket{0_2}
+		\bra{0_1}\ophi_1(\vec x_1,t)\cdots\ophi_1(\vec x_n,t)\ket{0_1}=\bra{0_2}\ophi_2(\vec x_1,t)\cdots\ophi_2(\vec x_n,t)\ket{0_2}
 	\end{eq}
 \end{corollary} 
 \begin{proof}
-	The statement directly follows from eq.~\eqref{eq:HHW1_thesis1} and eq.~\eqref{eq:HHW1_thesis2}.
+	The statement directly follows from eq.~\eqref{eq:HHW-hp-fields} and eq.~\eqref{eq:HHW1_thesis2}.
 \end{proof}
 
 In principle an operator $V$ satisfying the hypothesis of Gell-Mann Low formula can still exists, and corollary \ref{cor:HHW_1} still admits different dynamics for $\ophi_1$ and $\ophi_2$ since it applies only for equal time correlators. As we consider correlators at different time one should use time evolution operators involving the Hamiltonian, and no useful conclusion can be stated at this point if there is no vacuum polarization. We need one more result, which however works only in the relativistic case:
@@ -539,14 +558,14 @@ where $\infty$ simply denotes some divergent quantity which has been removed thr
  \begin{eq}
 	\ophi(g)=\int\de^4x\,g(x)\ophi(x)
 \end{eq}
-Indeed suppose that $\ophi$ is the Heisenberg interacting field, and suppose that it is well defined at fixed time $x^0$, then according to Källen-Lehmann representation (recall eq.~\eqref{eq:KL_repr_CCR_int}) we get
+Indeed suppose that $\ophi$ is the Heisenberg interacting field, and suppose that it is well defined at fixed time $t$, then according to Källen-Lehmann representation (recall eq.~\eqref{eq:KL_repr_CCR_int}) we get
 \begin{eq}
-	\bra0[\ophi(x^0,\vec x),\dot\ophi(x^0,\vec y)]\ket0=c\,i\delta(\vec x-\vec y)
+	\bra0[\ophi(t,\vec x),\dot\ophi(t,\vec y)]\ket0=c\,i\delta(\vec x-\vec y)
 \end{eq} 
 for a constant $c$, which may diverge and in general is strictly positive. Therefore the ``renormalized'' field $\ophi_\tren=Z^{-1/2}\ophi$ which approaches weakly $\ophi_\tin$ as $t\to-\infty$, satisfies
 \begin{eq}
-	\bra0[\ophi_\tren(x^0,\vec x),\dot\ophi_\tren(x^0,\vec y)]\ket0=c\frac iZ\delta(\vec x-\vec y)
+	\bra0[\ophi_\tren(t,\vec x),\dot\ophi_\tren(t,\vec y)]\ket0=c\frac iZ\delta(\vec x-\vec y)
 \end{eq}
-Clearly if $Z=0$ this expression is ill-defined, but no assumption has been made except that $\ophi$ is well defined at fixed time, hence if $Z=0$ this assumption should be wrong, i.e. the renormalized field cannot be defined at fixed time. A Schrödinger picture requires that we have a definite state at a fixed time, hence we also proved that it is impossible to defined a picture of dynamics using Schrödinger idea if $Z=0$. 
+Clearly if $Z=0$ this expression is ill-defined (recall that usually $c>0$), but no assumption has been made except that $\ophi$ is well defined at fixed time, hence if $Z=0$ this assumption should be wrong, i.e. the renormalized field cannot be defined at fixed time. A Schrödinger picture requires that we have a definite state at a fixed time, hence we also proved that it is impossible to defined a picture of dynamics using Schrödinger idea if $Z=0$. 
 
 \end{document}

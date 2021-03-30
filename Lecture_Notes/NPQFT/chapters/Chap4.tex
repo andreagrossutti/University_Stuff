@@ -41,7 +41,7 @@ Let's heuristically motivate why it is easier to work in the Euclidean space rat
 
 We now list the properties of Schwinger functions needed to determine Wightman functions of an interacting (scalar) RQFT. Such properties are called \emph{Osterwalder-Schrader (OS) axioms}:
 \begin{enumerate}[label=(\arabic*), start=0]
-	\item (\emph{Regularity}) The $\{S_n(x_1,\ldots,x_n)\}_{n=0}^\infty$, $x_i\in\R^{d+1}$ with Euclidean metric, are distributions in $\schw(\R^{d+1})$ and ``should not grow too fast in $n$'' (we omit the details about this requirement).
+	\item (\emph{Regularity}) The $\{S_n(x_1,\ldots,x_n)\}_{n=0}^\infty$, $x_i\in\R^{d+1}$ with Euclidean metric, are distributions in $\schw'(\R^{n(d+1)})$ and ``should not grow too fast in $n$'' (we omit the details about this requirement).
 	\item (\emph{Euclidean covariance}) They transform covariantly under the Euclidean $d+1$-dimensional group $\eucl^{d+1}$. In particular for a scalar field $\phi$, $(a,R)\in\eucl^{d+1}$, we have 
 	\begin{eq}\label{eq:OS_axioms_covariance}
 		S_n(Rx_1+a,\ldots,Rx_n+a)=S_n(x_1,\ldots,x_n)
@@ -70,7 +70,7 @@ To Schwinger functions satisfying OS axioms can be applied a reconstruction theo
 	\item a field operator (in the bosonic case) $\ophi(\vec x)$ such that, for $t_1<t_2<\ldots<t_{n-1}<t_n$, 
 	\begin{eq}
 		S_n(x_1,\ldots,x_n)&=\bra\Omega\Big(\prod_{j=1}^{n-1}\ophi(\vec x_j)e^{-(t_{j+1}-t_j)H}\Big)\ophi(\vec x_n)\ket\Omega\\
-		&=\bra\Omega e^{-t_1H}\ophi(\vec x_1)e^{t_1H}e^{-t_2H}\ophi(\vec x_2)e^{t_2H}\ldots e^{-t_nH}\ophi(\vec x_n)e^{t_nH}\ket\Omega
+		&=\bra\Omega e^{-t_1H}\ophi(\vec x_1)e^{t_1H}e^{-t_2H}\ophi(\vec x_2)e^{t_2H}\cdots e^{-t_nH}\ophi(\vec x_n)e^{t_nH}\ket\Omega
 	\end{eq}
 	where $H$ is the generator of $U(a^0)$ and $H\geq0$.\footnote{$H$ is semidefinite positive, so it is reasonable that Schwinger functions can be analytically continued to the real time obtaining Wightman functions, since this provides the right sign inside the time evolution exponentials.} 
 	\end{enumerate}
@@ -91,9 +91,9 @@ Notice that the fact that we reconstruct the theory directly from the Euclidean 
 
 Moreover we already know that the path integral can be used for build Schwinger functions for the theory regularized by cutoffs (since they are simply vacuum expectation values and we can apply previous formulas, which certainly give well-defined results thanks to the cutoffs we introduced), whereas it is not well defined in the Minkowski space, where Wightman functions are defined. 
 
-After the construction of functions using the path integral for the regularized theory one has to check that after the removal of the cutoffs the OS axioms are satisfied. 
+After the construction of Schwinger functions using the path integral for the regularized theory, one has to check that after the removal of the cutoffs the OS axioms are satisfied. 
 
-\begin{proof}(\emph{sketch}) \textit{(1')} Let $\uschwp$ be the space of finite sequences $\uf$ of test functions with support in the positive euclidean time half-space. Define an inner product by
+\begin{proof}(\emph{sketch}) \textit{(1')} Let $\uschwp$ be the space of finite sequences $\uf$ of test functions with support in the positive Euclidean time half-space. Define an inner product by
 	\begin{eq}\label{eq:OS_scalar_prod_dfn}
 		(\uf,\ug)&:=\sum_{j,k=0}^\infty\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k\,f_j^*(rx_1,\ldots,rx_j)S_{j+k}(x_1,\ldots,x_j,y_1,\ldots,y_k)g_k(y_1,\ldots,y_k)\\
 	\end{eq}
@@ -245,7 +245,7 @@ In view of the previous remark it is not difficult to understand the variants of
 \end{eq}
 One can prove that the the collection of $\wils(\contour)$ for all loops $\contour$ completely determines a massless gauge theory. Therefore Wilson loops are those objects that contain all the information about a (massless) gauge theory in a gauge invariant way. 
 
-In the non-abelian case we need to take also a path ordering $\operatorname P(-)$, which is just the time-ordering for the ``time'' parametrizing the loop, combined with the trace:\todo{Non mi è chiaro qui su cosa somma la traccia.}
+In the non-abelian case we need to take also a path ordering $\operatorname P(-)$, which is just the time-ordering for the ``time'' parametrizing the loop, combined with the trace of the elements of the Lie group\footnote{In the non-Abelian case $A_\mu$ are matrices and so is $e^{i\oint_\contour A_\mu\de x^\mu}$. So the trace is defined as usual.}
 \begin{eq}	\label{eq:dfn_Wilson_loop_YM}
 	\wils(\contour)=\Tr \operatorname P\Big(e^{i\oint_\contour A_\mu\de x^\mu}\Big)
 \end{eq}
@@ -302,7 +302,7 @@ Moreover if cluster property holds, i.e.
 then
 \begin{enumerate}[label=(\arabic*'), resume]
 	\item $\ket \Omega$ is the unique translationally (both in space and time directions) invariant vector in $\hs$,
-	\item there is a set of vectors in $\hs$, $\{\ket{\alpha_1,\contour_1,\ldots,\alpha_n,\contour_n}\}$ such that their linear combination is dense in $\hs$ and their scalar product is defined analogously to eq.~\eqref{eq:OS_scalar_prod_dfn}:
+	\item there is a set of vectors in $\hs$, $\{\ket{\alpha_1,\contour_1,\ldots,\alpha_n,\contour_n}\}$ such that the set of their linear combinations is dense in $\hs$ and their scalar product is defined analogously to eq.~\eqref{eq:OS_scalar_prod_dfn}:
 	\begin{eq}
 		\braket{\alpha_1,\contour_1,\ldots,\alpha_m,\contour_m}{\alpha_1',\contour_1',\ldots,\alpha_n,\contour_n'}
 		=\langle O_{\alpha_1'}(\contour'_1)\cdots O_{\alpha_n'}(\contour_n')\theta[O_{\alpha_1}(\contour_1)\cdots O_{\alpha_m}(\contour_m)]\rangle
@@ -323,20 +323,20 @@ then
 
 Suppose that we have a set of Matsubara functions $S_n$ depending on creation and annihilation operators $a_{\alpha_i}^\#$, where $\,^\#$ denotes either annihilation $a_{\alpha_i}$ or creation $a_{\alpha_i}^\dagger$ operators, and on euclidean times $\tau_i$, time ordered. 
 
-These functions are constructed starting from some expectation values of ladder operators at finite volume $V$, where we have finite degrees of freedom,
+These functions are constructed starting from some expectation values of ladder operators at finite volume $V$, where we have finite degrees of freedom, and for ordered time parameters $\tau_1<\tau_2<\ldots$
 \begin{eq}
 	\langle a^\#_{\alpha_1}(\tau_1)\cdots a^\#_{\alpha_n}(\tau_n)\rangle^\beta_V
 \end{eq}
 and then taking them thermodynamic limit
 \begin{eq}
 	S_n^\beta(a^\#_{\alpha_1},\tau_1,\ldots a^\#_{\alpha_n},\tau_n)
-	:=\lim_{V\to\infty}\langle a^\#_{\alpha_1}(\tau_1)\ldots a^\#_{\alpha_n}(\tau_n)\rangle^\beta_V
+	:=\lim_{V\to\infty}\langle a^\#_{\alpha_1}(\tau_1)\cdots a^\#_{\alpha_n}(\tau_n)\rangle^\beta_V
 \end{eq}
 Indeed in general functions $S_n^\beta$ cannot be defined as expectation values of operators defined in the infinite volume limit since such operators cannot exists due to Haag's theorem. 
 
 Due to usual boundary conditions operators $a_{\alpha_i}$ should be thought as operators defined on a circle of circumference $\beta$.  
 
-\begin{theorem}[OS reconstruction theorem for finite temperature]\label{thm:OS-finite-T} Suppose that functions $\{S_n^\beta\}_{n=0}^\infty$ satisfy the following properties: 
+\begin{theorem}[OS reconstruction theorem for finite temperature]\label{thm:OS-finite-T} Suppose that functions $\{S_n^\beta\}_{n=0}^\infty$ satisfy the following properties ($\tau_1<\tau_2<\ldots$): 
 
 \begin{enumerate}[label=(\arabic*)]
 	\item \emph{Regularity} conditions in $a_{\alpha_i}$ and $\{\tau_i\}$.

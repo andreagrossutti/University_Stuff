@@ -254,7 +254,7 @@ and it has global minima at
 	\tfor
 	\theta\in[0,2\pi)
 	\tcomma
-	A_\mu(\vec x)=0
+	A_i(\vec x)=0
 \end{eq}
 However by gauge invariance this configuration is physically equivalent to 
 \begin{eq}
@@ -263,6 +263,8 @@ However by gauge invariance this configuration is physically equivalent to
 	A_\mu(\vec x)=\frac1{in_e}e^{-i\beta(\vec x)}\partial_\mu e^{i\beta(\vec x)}
 \end{eq}
 with $\beta(\vec x)$ globally defined of compact support (indeed it cannot act on the boundary of the spacetime, otherwise it changes the boundary conditions). 
+
+\skipline
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% LECTURE 17 %%%%%%%%
@@ -289,11 +291,11 @@ the Higgs field $\chi(x)$ acquires a mass gap , whose inverse in condensed matte
 This can be easily proved: inserting the expansion eq.~\eqref{eq:vortex-Higgs-field-expansion} in the Lagrangian eq.~\eqref{eq:lag-vortex} we get
 \begin{eq}
 	\lag&=-\frac1{4e^2}F_{\mu\nu}^2+\vert (\partial_\mu-in_eA_\mu)[\left(v+\chi\right)e^{i\theta}]\vert^2-\lambda(\vert\left(v+\chi\right)e^{i\theta}\vert^2-v^2)^2\\
-	&=-\frac1{4e^2}F_{\mu\nu}^2+\vert i(v+\chi)\partial_\mu\theta +\partial_\mu\chi-in_eA_\mu(v+\chi)\vert^2-\lambda(2v\chi+\chi^2)^2
+	&=-\frac1{4e^2}F_{\mu\nu}^2+\vert \partial_\mu\chi+ i(v+\chi)(\partial_\mu\theta -n_eA_\mu)\vert^2-\lambda(2v\chi+\chi^2)^2
 \end{eq}
 Defining $\tilde A_\mu(x):=A_\mu(x)-\frac1{n_e}\partial_\mu\theta(x)$ we finally get 
 \begin{eq}\label{eq:vortex-no-mixing-terms-SSB}
-	\lag&=-\frac1{4e^2}\tilde F_{\mu\nu}^2+\vert\partial_\mu\chi-in_ev \tilde A_\mu-in_e \tilde A_\mu\chi\vert^2-\lambda(2v\chi+\chi^2)^2\\
+	\lag&=-\frac1{4e^2}\tilde F_{\mu\nu}^2+\vert\partial_\mu\chi-in_e(v+\chi) \tilde A_\mu\vert^2-\lambda(2v\chi+\chi^2)^2\\
 	&=-\frac1{4e^2}\tilde F_{\mu\nu}^2+(\partial_\mu\chi)^2+n_e^2v^2 \tilde A_\mu^2+2n_e^2v\tilde A_\mu^2\chi-4\lambda v^2\chi^2-4\lambda v\chi^3-\lambda\chi^4\\
 	&=\underbrace{-\frac1{4e^2}\tilde F_{\mu\nu}^2+\frac1{2e^2} m_A^2 \tilde A_\mu^2+(\partial_\mu\chi)^2-\half m_H^2\chi^2}_{\text{kinetic term}}\underbrace{\vphantom{\half}+2n_e^2v\tilde A_\mu^2\chi-4\lambda v\chi^3-\lambda\chi^4}_{\text{interaction term}}\\
 \end{eq}
@@ -311,9 +313,7 @@ where $\alpha$ is the angle in polar coordinates of $\vec x$ at $\infty$, $\vec 
 \end{eq}
 so $A_j$, asymptotically, is the pure gauge 
 \begin{eq}\label{eq:vorex-energy-finiteness-cond2}
-	A_j=\frac1{in_e}e^{-if(\alpha)}\partial_je^{if(\alpha)}=\frac1{in_e}\partial_j\log e^{if(\alpha)} 
-	\tfor 
-	\modx\to\infty
+	A_j\xrightarrow[\modx\to\infty]{}\frac1{in_e}e^{-if(\alpha)}\partial_je^{if(\alpha)}=\frac1{in_e}\partial_j\log e^{if(\alpha)} 
 \end{eq}
 
 As a consequence of eq.~\eqref{eq:vorex-energy-finiteness-cond1} we have, asymptotically, the following map
@@ -322,7 +322,6 @@ As a consequence of eq.~\eqref{eq:vorex-energy-finiteness-cond1} we have, asympt
 	\alpha\,&\quad\longmapsto\quad e^{if(\alpha)}
 \end{eq}
 which, if continuous, define a homotopy class in $\pi_1(S^1)\cong\Z$.\footnote{The homotopy class $\pi_1(S^1)$ is the set of equivalent maps from $S^1$ to $S^1$, where the equivalence is defined as follows: two maps are said equivalent if it is possible to deform one map into the other continuously, or better, if exists a continuous map interpolating between the two initial ones. The set $\pi_1(S^1)$ is isomorphic to $\Z$ since to each equivalence class in $\pi_1(S^1)$ can be associated the number of windings of the map around the second circle when the argument of the map goes from $0$ to $2\pi$ once.} These maps are classified by the number of times that $e^{if(\alpha)}$ covers the circle labelled by $\alpha$. For example, if $f(\alpha)=n\alpha$, the homotopy class of $e^{if(\alpha)}$ is $[e^{if(\alpha)}]=n\in\pi_1(S^1)$. 
-
 In fact, using continuous gauge transformations one can always put $f(\alpha)$ in the form $n\alpha$ for some $n\in\Z$. Let's prove this.
 From eq.~\eqref{eq:vorex-energy-finiteness-cond2} we have that 
 \begin{eq}
@@ -341,13 +340,15 @@ hence, for a given $f(\alpha)$ and the corresponding $n$, we can perform a gauge
 \end{eq}
 so that $f(\alpha)$ is replaced by $n\alpha$ in eq.~\eqref{eq:vorex-energy-finiteness-cond2}. Such gauge transformation, even if it acts also at boundaries, do not change the boundary conditions, thanks to eq.~\eqref{eq:stokes-boundary-cond}, hence it is allowed in our gauge theory. 
 
+\subsubsection{Vorticity and magnetic field}
+
 Using Stokes theorem one can also derive
 \begin{eq}\label{eq:field-strength-vortex-magn-field}
 	\lim_{R\to\infty}\oint_{\modx=R} A_j\frac{\de x^j}{2\pi}
 	=\int_{\R^2}\frac{\lctens_{ij}F^{ij}}{2\pi}\de^2x
 	=\int_{\R^2}\frac{B}{2\pi}\de^2x
 \end{eq} 
-where $B(x)$ is the magnetic field associated to $F^{ij}$ (pointing along the third spatial direction). Hence $n$ can also be interpreted as the magnetic flux, and rescaling $A_\mu$ to give the standard form of the Maxwell free action $-\frac14F_{\mu\nu}^2$, we get
+where $B(x)$ is the magnetic field associated to $F^{ij}$ (pointing along the third spatial direction). Hence $n$ can also be interpreted as the magnetic flux, and rescaling $A_\mu$ to give the standard form of the Maxwell free action $-\frac14F_{\mu\nu}^2$, we get\todo{C'è un problema con la $e$.}
 \begin{eq}\label{eq:integration-magnetic-field-vorticity}
 	\int B\,\de^2x=n\frac{2\pi}e\hbar=n\frac{h}{e}
 \end{eq}
@@ -363,7 +364,7 @@ The configurations minimizing the energy for $n=\pm1$ are called \emph{vortex} a
 \label{fig:vortex-plot-phi}
 \end{figure}
 }
-\subsubsection{The vortex solution}
+\subsubsection{Localization of vortices}
 
 According to previous considerations, we want to see how the vortices are localized (which is a property required for solitons), at least qualitatively. Let us consider the case $n=1$, $f(\alpha)=\alpha$, and in the usual notation for polar coordinates we set $r\equiv|\vec x|=\sqrt{x_1^2+x^2_2}$ and $\varphi\equiv\alpha$. Using $\varphi=\arctan\frac {x^2}{x^1}$ we get the following asymptotic behaviours
 \begin{eq}
@@ -484,7 +485,6 @@ we get from eq.~\eqref{eq:vortex-energy-density-rewritten}
 	&=\int\de^2x\,\bigg[\frac1{2e^2}B^2+|D_i\phi|^2+\lambda(|\phi|^2-v^2)^2\bigg]
 \end{eq}
 hence eq.~\eqref{eq:vortex-energy-density-rewritten} really coincides with eq.~\eqref{eq:energy-density-vortex}. 
-
 Notice that
 \begin{eq}
 	\int_{\R^2}\de^2x\,\partial_j(\lctens_{ij}\phi^*D_i\phi)=\int_{S_\infty^1}\lctens_{ij}\phi^*D_i\phi\,\de x^j=0
@@ -502,6 +502,8 @@ and
 \end{eq}
 since the other terms in $\cenergy$ are strictly positive. 
 
+\skipline
+
 In particular for the \emph{BPS limit} or \emph{Bogomol'nyi limit}, where $\lambda=\half (n_ee)^2$ (i.e. $m_A=m_H$) and
 \begin{eq}
 	\begin{cases}
@@ -518,9 +520,6 @@ where we used the previous identity
 	\int\de^2x\,B=\frac{2\pi n}{n_ee}
 \end{eq}
 Since $\int\de^2x\,\cenergy\sim n$ this means that vortices are free in the BPS limit. 
-
-\skipline
-
 The configurations saturating the \emph{BPS bound} (in this case $m_A=m_H$) are called \emph{BPS states} and even in higher dimensions, where instead of vortices forming world-lines we have higher dimensional vortex defects, they play an important role in supersymmetric theories, since the preserve some supersymmetry generators and guarantees a special stability of the system (for instance, in our case, BPS states are non-interacting). 
 
 \skipline
@@ -683,7 +682,7 @@ Recall that $\theta(x)$ is an angle around the center of the vortex, where $|\ph
 \end{eq}
 since the dependence of $\theta$ on the space coordinates goes with $\arctan\frac yx$. Hence such field strength is non zero (actually, singular) only in the center of the vortex. Therefore the spatial part of the field strength of $A_\mu$ is
 \begin{eq}\label{eq:vortex-field-strength-transverse-plane}
-	F_{ij}( x)=\partial_{[i}a_{j]}(x)+2\pi\,\delta_{|\phi|^{-1}(0)}(|\phi|)\lctens_{ij}
+	F_{ij}( x)=\partial_{[i}a_{j]}(x)+2\pi\,\delta_{|\phi|^{-1}(0)}(x)\lctens_{ij}
 \end{eq}
 where $a_\nu$ denotes the regular term of eq.~\eqref{eq:vortex-gauge-potential-singular-current}. 
 
@@ -759,7 +758,7 @@ For the gauge potential we can choose
 \end{eq}
 
 Let us check that $A_\mu^{xy}$ and $F_{\nu\rho}^{xy}$ really describe monopoles at the boundaries of the vortex, i.e. satisfy eq.~\eqref{eq:condition-field-strength-vorticity}, which now reads
-\begin{eq}
+\begin{eq}\label{eq:condition-field-strength-vorticity2}
 	\lctens^{\mu\nu\rho}\partial_\mu F_{\nu\rho}^{xy}( z)=2\pi \big(\delta( z- x)-\delta( z- y)\big)
 \end{eq}
 According to our definitions we have\footnote{In the third identity we used integration by parts together with
@@ -783,7 +782,7 @@ In the fourth we exchanged the labels $\nu\leftrightarrow\rho$ in the third term
 \end{eq}
 as we claimed. 
 %
-Now, let's derive the relation between $F_{\mu\nu}^{xy}$ and $A_\mu^{xy}$. One can write
+Now, let's derive the relation between $F_{\mu\nu}^{xy}$ and $A_\mu^{xy}$, which should coincide with eq.~\eqref{eq:vortex-field-strength-transverse-plane}. One can write
 \begin{eq}\label{eq:QFT-vertex-F-A-relation}
 	F_{\mu\nu}^{xy}( z)&=-2\pi\int\de^3 w\,\partial^\alpha\Delta^{-1}( z- w)\,\half\partial_{[\alpha}j_{\mu\nu]}^{xy}( w)\\
 	&=-2\pi\int\de^3 w\,\big(\partial_\alpha\partial^\alpha\Delta^{-1}( z- w)j_{\mu\nu}^{xy}( w)+{\partial_{\mu}\partial^\alpha\Delta^{-1}( z- w)j_{\nu\alpha}^{xy}( w)+\partial_{\nu}\partial^\alpha\Delta^{-1}( z- w)j_{\alpha\mu}^{xy}( w)\big)}\\
@@ -792,13 +791,15 @@ Now, let's derive the relation between $F_{\mu\nu}^{xy}$ and $A_\mu^{xy}$. One c
 \end{eq}
 Hence the field strength of $A_\mu$ is equal to the usual curl of the gauge potential, $2\,\partial_{[\mu} A_{\nu]}^{xy}( z)$, up to a singular current $2\pi\,j_{\mu\nu}^{xy}( z)$. Such current is called \emph{Dirac string}, and was introduced by Dirac, in order to write the field strength of a monopole. 
 
-From the calculation we see that $F_{\mu\nu}^{xy}$ is independent on the choice of $\gamma^{xy}$, i.e. of the Dirac string, it depends only on the boundary points. Therefore the Dirac string is an unphysical quantity. Indeed if we choose another curve $\gamma^{\prime{xy}}$ with the same boundaries as $\gamma^{xy}$, the difference $\gamma^{\prime{xy}}-\gamma^{xy}$ has no boundary, hence
+\skipline
+
+We can prove that $F_{\mu\nu}^{xy}$ is independent on the choice of $\gamma^{xy}$, i.e. of the Dirac string, it depends only on the boundary points. Therefore the Dirac string is an unphysical quantity. Indeed if we choose another curve $\gamma^{\prime{xy}}$ with the same boundaries as $\gamma^{xy}$, the difference $\gamma^{\prime{xy}}-\gamma^{xy}$ has no boundary, hence
 \begin{eq}
 	\lctens^{\mu\nu\rho}\partial_\mu(j_{\nu\rho}^{\prime{xy}}-j_{\nu\rho}^{xy})=0
 	\tso
 	j_{\nu\rho}^{\prime{xy}}-j_{\nu\rho}^{xy}=\partial_\nu\xi_\rho-\partial_\rho\xi_\nu
 \end{eq}
-with $\xi_\nu$ and integer current. But then
+with $\xi_\nu$ and integer current. But then\todo{Controllare, ci dev'essere un segno meno alla fine.}
 \begin{eq}
 	\hspace{0.5cm}&\hspace{-0.5cm}\partial_{[\mu}A^{\prime{xy}}_{\nu]}( z)-\partial_{[\mu}A_{\nu]}^{xy}( z)\\
 	&=2\pi\,\partial_{[\mu}\int\de^3w\,\partial^\alpha\Delta^{-1}( z- w)(j^{\prime{xy}}_{\nu]\alpha}( w)-j^{xy}_{\nu]\alpha}( w))\\
@@ -809,9 +810,11 @@ with $\xi_\nu$ and integer current. But then
 	&=2\pi\,\partial_{[\mu}\xi_{\nu]}( z)\\
 	&=2\pi\big( j_{\mu\nu}^{\prime{xy}}( z)-j_{\mu\nu}^{xy}( z)\big)
 \end{eq}
-where in the second line $\alpha$ is not included in the antisymmetrization of the indices. Hence we see from eq.~\eqref{eq:QFT-vertex-F-A-relation} that $F_{\mu\nu}^{xy}$ is unchanged under the replacement $\gamma^{xy}\mapsto\gamma^{\prime xy}$. 
+where in the second line $\alpha$ is not included in the antisymmetrization of the indices. Hence using eq.~\eqref{eq:QFT-vertex-F-A-relation} we see from eq.~\eqref{eq:QFT-vertex-F-A-relation} that $F_{\mu\nu}^{xy}$ is unchanged under the replacement $\gamma^{xy}\mapsto\gamma^{\prime xy}$. 
 
-From eq.~\eqref{eq:QFT-vertex-F-A-relation} we see also that $F_{\mu\nu}^{xy}$ has the same structure of the field strength of closed defects, eq.~\eqref{eq:vortex-field-strength-transverse-plane}, when restricted to the transverse plane. The difference is that now $j_{\mu\nu}$ has a boundary: the location of the monopole-antimonopole pairs. 
+\skipline
+
+From eq.~\eqref{eq:QFT-vertex-F-A-relation} we see also that $F_{\mu\nu}^{xy}$ has the same structure of the field strength of closed defects, eq.~\eqref{eq:vortex-field-strength-transverse-plane}, when restricted to the transverse plane. The difference is that now $j_{\mu\nu}$ has a boundary: the location of the monopole-antimonopole pairs, since eq.~\eqref{eq:condition-field-strength-vorticity2} is satisfied. 
 
 \skipline
 
@@ -872,7 +875,7 @@ where $\Sigma$ is any surface such that $\partial\Sigma=\contour$.
 
 These correlators satisfy OS axioms and the reconstructed vortex field operator $\op v_n( x)$ satisfy
 \begin{eq}
-	\langle v_{+1}(x)v_{-1}(y)\rangle=\bra\Omega\op v_{-1}(\vec y)\,e^{-(x^0-\,y^0)t}\,\op v_{+1}(\vec x)\ket\Omega
+	\langle v_{+1}(x)v_{-1}(y)\rangle=\bra\Omega\op v_{-1}(\vec y)\,e^{-(x^0-\,y^0)H}\,\op v_{+1}(\vec x)\ket\Omega
 \end{eq}
 The Wilson loop operator $\op W_\alpha(\Sigma)$ reconstructed from $W_\alpha(\Sigma)$ can be used to define the topological charge $\op Q$ measuring the vorticity $n$ of the vortex. Indeed we can define $\op Q$ by
 \begin{eq}

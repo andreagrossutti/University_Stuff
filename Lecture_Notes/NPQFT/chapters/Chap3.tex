@@ -10,9 +10,9 @@ Beside the literature present at the beginning of each section, have a look at \
 
 Let's see how to avoid problems raised by Haag theorem. The idea is to start by introducing IR (volume) and UV cutoffs (the UV one is not needed for lattice models) so that the cutoff model describes a system of finite degrees of freedom, such that the interaction picture is still correct, thanks to von Neumann uniqueness theorem, which guarantees that free and interacting fields are unitarily equivalent and defined in the same Hilbert space. Moreover one can also require that the fields satisfy CCR (or CAR) since no problem arises in this framework.
 
-Consider a $T=0$ RQFT (the restriction $T=0$ is not really needed, but simplify the treatment) and let $\ophi_0(\vec x):=\ophi(x^0=0,\vec x)$ be the $t=0$ field, then the cutoff field at arbitrary time is given by
+Consider a $T=0$ RQFT (the restriction $T=0$ is not really needed, but simplify the treatment) and let $\ophi_0(\vec x):=\ophi(t=0,\vec x)$ be the $t=0$ field, then the cutoff field at arbitrary time is given by
 \begin{eq}
-	\ophil_\#(x^0,\vec x)=e^{ix^0 H_\#}\ophi_0(\vec x)e^{-ix^0H_\#}
+	\ophil_\#(t,\vec x)=e^{it H_\#}\ophi_0(\vec x)e^{-itH_\#}
 \end{eq}
 where $\#$ denotes either the free ($\#=0$) of the interacting ($\#=I$) theory and $\Lambda$ denotes the introduced cutoffs. The consistency of the previous time evolution is ensured by the von Newman theorem, assuming that the free and the interacting fields coincides at the initial time $t=0$.  Let $\ket{0^\Lambda_I}$ be the vacuum of the interacting theory, which is still in the Fock space of the free field. 
 
@@ -24,7 +24,7 @@ We stress the fact that since translational invariance (and thus also Poincaré 
 
 Then we identify the necessary counterterms to be added to the Hamiltonian (or to the Lagrangian if the path integral approach is used) and the field renormalization $Z_\Lambda$ (called \emph{wave-function renormalization constant}) leading to ``\emph{renormalized fields}'', for which the correlation functions have a well-defined limit when IR an UV cutoffs are removed from outside\footnote{It is important to notice that the limit should be removed from outside, otherwise Haag's theorem apply and we are stuck.} of the correlation function, i.e. such that the following limit
 \begin{eq}
-	\limcutrem Z^{-n}_\UVcut \bra{0^\Lambda_I}\ophil_I(x_1)\cdots\ophil_I(x_n)\ket{0^\Lambda_I}
+	W_n(x_1,\ldots,x_n):=\limcutrem Z^{-n}_\UVcut \bra{0^\Lambda_I}\ophil_I(x_1)\cdots\ophil_I(x_n)\ket{0^\Lambda_I}
 \end{eq}
 exists in a suitable space of functions or distributions, e.g. $\schw'(\R^d)$. This is possible since the previous limit is a limit of functions, hence much weaker than the operator limit (for the fields) which cannot exists due to Haag's theorem. 
 
@@ -48,7 +48,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 	\begin{enumerate}[label=(\arabic*)]
 		\item (\emph{Positive Definiteness}) For any finite sequence of $N$ test functions $\uf=(f_0,f_1(x_1),f_2(x_1,x_2),\ldots)$, $f_n\in\schw(\R^{(d+1)n})$, the following inequality holds:
 		\begin{eq}
-			\sum_{j,k=0}^N\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k \,f_n^*(x_1,\ldots,x_j)W_{j+k}(x_1,\ldots,x_j,y_1,\ldots,y_k)f_k(y_1,\ldots,y_k)\geq0
+			\sum_{j,k=0}^N\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k \,f_j^*(x_1,\ldots,x_j)W_{j+k}(x_1,\ldots,x_j,y_1,\ldots,y_k)f_k(y_1,\ldots,y_k)\geq0
 		\end{eq}
 		or in more compact notation $(\uf,W\uf)\geq0$.\footnote{Notice that the proof of this property is not easy, since one should also prove the existence of the limit $W_n^\Lambda\to W_n$.} 
 		\item (\emph{Poincaré covariance}) For any $(a,\Lambda)\in\poinc$, $\Lambda\in\loren$ and $a\in\R^{d+1}$, 
@@ -58,7 +58,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 		for all $n\in\N$.
 		\item (\emph{Spectral condition}) For each $W_n$, $n>0$, exists $\widetilde W_n$ such that
 		\begin{eq}\label{eq:reconstr_thm_hp_3}
-			W_n(x_1,\ldots,x_n)=\int\de p_1\ldots\de p_{n-1}\,\widetilde W_{n-1}(p_1,\ldots,p_{n-1})\, e^{ i(x_n-x_{n-1})p_{n-1}}\ldots e^{i(x_2-x_1)p_1}
+			W_n(x_1,\ldots,x_n)=\int\de p_1\ldots\de p_{n-1}\,\widetilde W_{n-1}(p_1,\ldots,p_{n-1})\, e^{ i(x_n-x_{n-1})p_{n-1}}\cdots e^{i(x_2-x_1)p_1}
 		\end{eq}
 		with $\widetilde W_{n-1}(p_1,\ldots,p_{n-1})=0$ if $p_j\not\in \overline V^+$ for some $j$, $1\leq j\leq n-1$. 
 		\item (\emph{Local commutativity condition / Symmetry}) If $x_i$ and $x_{i+1}$ are space-like separated for some $i$, that is $(x_i-x_{i+1})^2<0$, then for all $n>i$
@@ -74,8 +74,8 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 	\begin{enumerate}[label=(\arabic*')]
 		\item a separable Hilbert space $\hs$,
 		\item a continuous unitary representation $U(a,\Lambda)$ of $\poinc$\footnote{In the case of fields with half-integer spin $\poinc$ is replaced by $\cpoinc$.} in $\hs$,
-		\item a state $\Omega\in\hs$, translationally invariant, called \emph{vacuum},
-		\item an operator-valued distribution $\ophi(x)$ such that $\ophi(f):=\int\de x\,f(x)\ophi(x)$ is an operator with domain $\dom$ dense in $\hs$ for any test function $f$; moreover $\Omega\in\dom$, and denoting by $\polyn(\ophi(f))$ the set of polynomials of $\ophi(f)$,\footnote{It is important to notice that $\polyn(\ophi(f))$ denotes polynomials of fields smeared (in general) with different test functions, not only one test function $f$, for instance $\ophi(f_1)\ophi(f_2)\ldots\ophi(f_n)\in\polyn(\ophi(f))$.} the subspace of $\hs$ generated by $\polyn(\ophi(f))\ket\Omega$ is dense in $\hs$
+		\item a translationally invariant state $\ket\Omega\in\hs$, called \emph{vacuum},
+		\item an operator-valued distribution $\ophi(x)$ such that $\ophi(f):=\int\de x\,f(x)\ophi(x)$ is an operator with domain $\dom$ dense in $\hs$ for any test function $f$; moreover $\ket\Omega\in\dom$, and denoting by $\polyn(\ophi(f))$ the set of polynomials of $\ophi(f)$,\footnote{It is important to notice that $\polyn(\ophi(f))$ denotes polynomials of fields smeared (in general) with different test functions, not only one test function $f$, for instance $\ophi(f_1)\ophi(f_2)\ldots\ophi(f_n)\in\polyn(\ophi(f))$.} the subspace of $\hs$ generated by $\polyn(\ophi(f))\ket\Omega$ is dense in $\hs$
 	\end{enumerate}
 	and the following properties hold:
 	\begin{enumerate}[label=(\arabic*'), resume]
@@ -94,9 +94,9 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 		\end{eq}
 		where $\sls$ denotes that the two regions are space-like separated,
 		\item (\emph{Uniqueness of the vacuum}) The vector $\Omega$ is the unique vector in $\hs$ translationally invariant;
-		\item for all $n\in \N$\footnote{Usually in the axiomatic approach due to Wightman the Dirac notation is avoided, and the scalar product is denoted by $(-,-)$.}
+		\item for all $n\in \N$
 		\begin{eq}\label{eq:reconstr_thm_prop_9}
-			(\Omega,\ophi(x_1)\ldots\ophi(x_n)\Omega)=W_n(x_1,\ldots,x_n)
+			\bra\Omega\ophi(x_1)\cdots\ophi(x_n)\ket\Omega=W_n(x_1,\ldots,x_n)
 		\end{eq}
 	\end{enumerate}
 \end{theorem}
@@ -137,7 +137,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 	\begin{eq}\label{eq:reconstr_thm_scal_prod_hs}
 		(F,G):=\lim_{n\to\infty}(\eqclass{\varunderline{f_n}},\eqclass{\varunderline{g_n}})
 	\end{eq}
-	and $\mathfrak h_0$ its subspace given by vectors of zero norm, then $\hs:=\mathfrak h/\mathfrak h_0$. In the following we'll denote by $(\eqclass{\uf_1},\eqclass{\uf_2},\ldots)$ the elements of $\hs$ (i.e. as elements of $\mathfrak h$) rather then $[(\eqclass{\uf_1},\eqclass{\uf_2},\ldots)]$, we give as understood the fact that we refer to the associated equivalence class. Moreover, to simplify the notation we denote by $\eqclass\uf$ the trivial Cauchy sequence $(\eqclass\uf,\eqclass\uf,\ldots)$.
+	and $\mathfrak h_0$ its subspace given by vectors of zero norm, then $\hs:=\mathfrak h/\mathfrak h_0$. In the following we'll denote by $\ket{\uf_1,\uf_2,\ldots}$ the elements of $\hs$ (i.e. as elements of $\mathfrak h$) rather then $[(\eqclass{\uf_1},\eqclass{\uf_2},\ldots)]$, we give as understood the fact that we refer to the associated equivalence class. Moreover, to simplify the notation we denote by $\ket\uf$ the element $[(\eqclass\uf,\eqclass\uf,\ldots)]$.
 	
 	Being $\schw$ separable so is $\uschw$, and since the latter is dense in $\hs$ also $\hs$ is separable. 
 	
@@ -170,7 +170,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 		U(a,\Lambda)(1,0,\ldots,0,\ldots)=(1,0,\ldots,0,\ldots)=:\uid
 	\end{eq}
 	hence $\uid\in\uschw$ is translational invariant in $\uschw$ and the same holds for $\eqclass{\uid}$ in $\qschw$. Finally, the vacuum in $\hs$ is given by the Cauchy sequence
-	$\ket\Omega:=\eqclass{\uid}$.
+	$\ket\Omega:=\ket{\uid}$.
 	
 	\skipline
 	\textit{(4')} We introduce in $\uschw$ a linear operator $\ophi(h)$ for each test function $h\in\schw(\R^{d+1})$ by the equation
@@ -189,7 +189,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 	\begin{eq}
 		(\ophi(h)\uf,\ophi(h)\uf)=(\uf,\ophi(h^*)\ophi(h),\uf)\leq\cancel{\norm \uf}\,\norm{\ophi(h^*)\ophi(h)\uf}=0
 	\end{eq}
-	if $\norm \uf=0$. Therefore $\ophi(h)$ is well-defined also in $\qschw$, $\ophi(h)\eqclass\uf:=\eqclass{\ophi(h)\uf}$. Hence $\ophi$ is defined in a dense subset $\dom$ of $\hs$, $\dom\iso\qschw$. In particular, being $\ket\Omega=\eqclass{\uid}\in\dom$, this defines $\ophi(h)$ on $\polyn(\ophi(h))\ket\Omega$. Notice that
+	if $\norm \uf=0$. Therefore $\ophi(h)$ is well-defined also in $\qschw$, $\ophi(h)\eqclass\uf:=\eqclass{\ophi(h)\uf}$. Hence $\ophi$ is defined in a dense subset $\dom$ of $\hs$, $\dom\iso\qschw$. In particular, being $\ket\Omega\in\dom$, this defines $\ophi(h)$ on $\polyn(\ophi(h))\ket\Omega$. Notice that
 	\begin{eq}\label{eq:polyn_fields_on_vacuum}
 		\ophi(h_1)\cdots\ophi(h_n)\uid=\ophi(h_1)\cdots\ophi(h_{n-1})(0,h_n,0,0,\ldots)
 		=(\underbrace{0,\ldots,0}_n,h_1\tensp h_2\tensp\ldots\tensp h_n,0,0,\ldots)
@@ -199,7 +199,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 	\skipline
 	\textit{(9')} The vacuum expectation value in $\hs$ reads
 	\begin{eq}
-		(\Omega,\ophi(h_1)\ldots\ophi(h_n)\Omega)
+		\bra\Omega\ophi(h_1)\ldots\ophi(h_n)\ket\Omega
 		&=(\eqclass{\uid},\ophi(h_1)\ldots\ophi(h_n)\eqclass\uid)\qquad\text{scalar product in $\qschw$}\\
 		&=({\uid},\ophi(h_1)\ldots\ophi(h_n)\uid)\qquad\qquad\text{scalar product in $\uschw$}\\
 		&=\int\de x_1\ldots\de x_n\,W_n(x_1,\ldots,x_n)h_1(x_1)\ldots h_n(x_n)\\
@@ -225,7 +225,7 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 	\end{eq}
 	and finally we can extend it by continuity to $\hs$, since $\qschw$ is dense in it:
 	\begin{eq}
-		U(a,\Lambda)\ophi(h)(\eqclass{\uf_1},\eqclass{\uf_2},\ldots)=\ophi(\{a,\Lambda\}h)U(a,\Lambda)(\eqclass{\uf_1},\eqclass{\uf_2},\ldots)
+		U(a,\Lambda)\ophi(h)\ket{\uf_1,\uf_2,\ldots}=\ophi(\{a,\Lambda\}h)U(a,\Lambda)\ket{\uf_1,\uf_2,\ldots}
 	\end{eq}
 	Since this holds for any element of $\hs$ we get 
 	\begin{eq}
@@ -281,34 +281,34 @@ We give the statement and the complete proof of the \emph{reconstruction theorem
 	\end{eq}
 	and \textit{(9')} tells us that
 	\begin{eq}
-		(\Omega,\ophi(f)\ophi(g)\ophi(h_1)\ldots\ophi(h_n)\Omega)=(\Omega,\ophi(g)\ophi(f)\ophi(h_1)\ldots\ophi(h_n)\Omega)
+		\bra\Omega\ophi(f)\ophi(g)\ophi(h_1)\ldots\ophi(h_n)\ket\Omega=\bra\Omega\ophi(g)\ophi(f)\ophi(h_1)\ldots\ophi(h_n)\ket\Omega
 	\end{eq}
 	Then, by linearity
 	\begin{eq}
-		(\Omega,[\ophi(f),\ophi(g)]\ophi(h_1)\ldots\ophi(h_n)\Omega)=0
+		\bra\Omega[\ophi(f),\ophi(g)]\ophi(h_1)\ldots\ophi(h_n)\ket\Omega=0
 	\end{eq}
 	An analogous procedure together with eq.~\eqref{eq:recons_th_self_adj_phi} lead us also to
 	\begin{eq}
-		([\ophi(f),\ophi(g)]\ophi(h_1)\ldots\ophi(h_n)\Omega,[\ophi(f),\ophi(g)]\ophi(h_1)\ldots\ophi(h_n)\Omega)
-		=\norm{[\ophi(f),\ophi(g)]\ophi(h_1)\ldots\ophi(h_n)\Omega}^2=0
+		\braket{\vphantom{\big|}\smash{[\ophi(f),\ophi(g)]\ophi(h_1)\ldots\ophi(h_n)\Omega}}{\smash{[\ophi(f),\ophi(g)]\ophi(h_1)\ldots\ophi(h_n)\Omega}}
+		=\norm{[\ophi(f),\ophi(g)]\ophi(h_1)\ldots\ophi(h_n)\ket\Omega}^2=0
 	\end{eq}
-	Since the scalar product is non-degenerate, this implies that $[\ophi(f),\ophi(g)]\ophi(h_1)\ldots\ophi(h_n)\Omega=0$ is the zero vector in $\qschw$. The only way to satisfy this for any choice of $n$ and any set of smearing test functions $\{h_i\}_{i=1}^\infty$ is that in $\polyn(\ophi(h))\Omega$ we have
+	Since the scalar product is non-degenerate, this implies that $[\ophi(f),\ophi(g)]\ophi(h_1)\ldots\ophi(h_n)\ket\Omega=0$ is the zero vector in $\qschw$. The only way to satisfy this for any choice of $n$ and any set of smearing test functions $\{h_i\}_{i=1}^\infty$ is that in $\polyn(\ophi(h))\Omega$ we have
 	\begin{eq}
 		[\ophi(f),\ophi(g)]=0 
 	\end{eq}
 	meaning that the operator $[\ophi(f),\ophi(g)]$ maps all the elements of $\polyn(\ophi(h))\Omega$ into the zero vector. But then the claim extends to the whole Hilbert space $\hs$ since $\polyn(\ophi(h))\Omega$ is dense in $\hs$.
 	
 	\skipline
-	\textit{(8')} Assume that, beside $\Omega=\eqclass\uid$ there is another translationally invariant state $\Omega'$. Without loss of generality we can orthonormalize $\Omega'$ respect to $\Omega$, i.e. we take $(\Omega',\Omega)=0$ and $(\Omega',\Omega')=1$. If $\Omega'\in\qschw$, $\Omega=\eqclass\uf$, then we would have an immediate contradiction because,
+	\textit{(8')} Assume that, beside $\ket\Omega=\ket\uid$ there is another translationally invariant state $\Omega'$. Without loss of generality we can orthonormalize $\ket{\Omega'}$ respect to $\ket\Omega$, i.e. we take $\langle\Omega'|\Omega\rangle=0$ and $\langle\Omega'|\Omega'\rangle=1$. If $\ket{\Omega'}=\ket\uf$, which means that $\ket{\Omega'}\in\qschw$, then we would have an immediate contradiction because
 	\begin{eq}
-		1&=(\Omega',\Omega')\overset{\text{(a)}}
-		=\lim_{a\to\infty\atop a^2<0}(\Omega',U(a)\Omega')
+		1&=\langle\Omega'|\Omega'\rangle\overset{\text{(a)}}
+		=\lim_{a\to\infty\atop a^2<0}\langle\Omega'|U(a)\Omega'\rangle
 		=\lim_{a\to\infty\atop a^2<0}((f_0,f_1,\ldots),(f_0,\{a,\id\}f_1,\{a,\id\}f_2,\ldots))\\
 		&\smash{\overset{\eqref{eq:reconstr_thm_scalar_prod}}=}\lim_{a\to\infty\atop a^2<0}\sum_{j,k=0}^\infty\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k\,f_j^*(x_1,\ldots,x_j)W_{j+k}(x_1,\ldots,x_j,y_1,\ldots,y_k)f_k(y_1-a,\ldots,y_k-a)\\
 		&=\lim_{a\to\infty\atop a^2<0}\sum_{j,k=0}^\infty\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k\,f_j^*(x_1,\ldots,x_j)W_{j+k}(x_1,\ldots,x_j,y_1+a,\ldots,y_k+a)f_k(y_1,\ldots,y_k)\\
 		&\smash{\overset{\textit{(5)}}=}\sum_{j,k=0}^\infty\int\de x_1\ldots\de x_j\de y_1\ldots\de y_k\,f_j^*(x_1,\ldots,x_j)W_j(x_1,\ldots,x_j)W_k(y_1,\ldots,y_k)f_k(y_1,\ldots,y_k)\\
 		&=\bigg(\sum_{j=0}^\infty\int\de x_1\ldots\de x_j\,f_j^*(x_1,\ldots,x_j)W_j(x_1,\ldots,x_j)\bigg)\bigg(\sum_{k=0}^\infty\int\de y_1\ldots\de y_k\,W_k(y_1,\ldots,y_k)f_k(y_1,\ldots,y_k)\bigg)\\
-		&=(\Omega',\Omega)(\Omega,\Omega')=0
+		&=\langle\Omega'|\Omega\rangle\langle\Omega|\Omega'\rangle=0
 	\end{eq}
 	where in (a) we used the translational invariance of $\Omega'$. In general $\Omega'$ is not an element of $\qschw$, but because the latter is dense then $\Omega'$ can be approximated by elements of $\qschw$ by arbitrary accuracy, then the contradiction easily extends for $\Omega'\in\hs$, see \cite[page 124]{Streater:2000} for the details.
 \end{proof}
@@ -325,6 +325,8 @@ Can also be proved that the reconstructed theory is unique, i.e. any other theor
 
 Finding a set of Wightman functions satisfying properties \textit{(1)-(5)} turned out to be a very hard problem, apart from the non-interacting case, also because it is difficult to satisfy the positivity condition, which has a non-linear structure, in contrast to the other properties, which have a linear structure. We will see in the following how this problem has been solved by computing Wightman functions in the Euclidean space, where properties \textit{(1)-(5)} take a simpler form.
 
+\skipline
+
 In the proof of the theorem we constructed the Hilbert space of the theory as (the completion of) finite sequences of test functions. In order to give a better interpretation of the Hilbert space, notice that if we define
 \begin{eq}
 	\ophi(\uf):= f_0+\int\de x_1\,\ophi(x_1)f_1(x_1)+\int\de x_1\de x_2\,\ophi(x_1)\ophi(x_2)f_2(x_1,x_2)+\ldots
@@ -339,20 +341,20 @@ and in particular
 \begin{eq}
 	\ophi(\uf)\uid=(f_0,f_1,f_2,\ldots)=\uf
 	\tcomma
-	\ophi(\uf)\Omega=\eqclass\uf
+	\ophi(\uf)\eqclass\uid=\eqclass\uf
 \end{eq}
 Then the scalar product in $\uschw$ and $\qschw$ can be rewritten as\footnote{The bilinear $(-,-)$ denotes as usual the scalar product in $\uschw$, whereas $\langle-,-\rangle$ denotes the scalar product in $\{\ophi(\uf)\uid\st\uf\in\uschw\}$. Analogous notations hold for the quotient sets.}
 \begin{eq}
 	(\uf,\ug)=\langle\ophi(\uf)\uid,\ophi(\ug)\uid\rangle
 	\tcomma
-	(\eqclass\uf,\eqclass\ug)=\langle\ophi(\uf)\Omega,\ophi(\ug)\Omega\rangle
+	(\eqclass\uf,\eqclass\ug)=\langle\ophi(\uf)\eqclass\uid,\ophi(\ug)\eqclass\uid\rangle
 \end{eq}
-Hence we can identify by unitary equivalence (i.e. up to representations) $\qschw$ with $\{\ophi(\uf)\Omega\st\uf\in\uschw\}$ by
+Hence we can identify by unitary equivalence (i.e. up to representations) $\qschw$ with $\{\ophi(\uf)\eqclass\uid\st\uf\in\uschw\}$ by
 \begin{eq}
-	U\,:\,\qschw\,&\to\,\{\ophi(\uf)\Omega\st\uf\in\uschw\}\\
-	\eqclass\uf\,&\mapsto\,\ophi(\uf)\Omega
+	U\,:\,\qschw\,&\to\,\{\ophi(\uf)\eqclass\uid\st\uf\in\uschw\}\\
+	\eqclass\uf\,&\mapsto\,\ophi(\uf)\eqclass\uid
 \end{eq}
-since the scalar products defined in the two spaces are the same. This is related with the density of $\polyn(\ophi(f))\Omega$ in $\hs$. Then we are done: one can forget the structure underlying $\uf$ and $\Omega$ and define the Hilbert space by applying the operator $\ophi(\uf)$ on the vacuum $\Omega$, as usual. 
+since the scalar products defined in the two spaces are the same. This easily extends to the whole $\hs$ due to the density of $\polyn(\ophi(f))\ket\Omega$ in $\hs$. Then we are done: in the Hilbert space one can forget the structure underlying $\uf$ and $\uid$ and define the Hilbert space by applying the operator $\ophi(\uf)$ on the vacuum state $\ket\Omega$, as usual. 
 
 
 \section{Additional remarks}
@@ -365,7 +367,7 @@ By exploiting the analyticity properties of the Wightman's functions, general re
 
 The connection between spin and statistics, which is at the basis of Pauli principle (namely, in the alternative of (anti)commutation relations at space-like separated points, fields carrying half-integer/integer spin must anti-commute/commute), have been first derived by Pauli for free theories in Fock space. It's generalization to interacting theories holds in the Wightman axiomatic formalism, and is a consequence of Lorentz covariance, as it has been proved in \emph{spin-statistics theorem}:
 \begin{theorem}[{Spin-statistics, \cite[Section 4.2]{Strocchi_2013}, \cite[Section 4.4]{Streater:2000}, \cite[Section 5.3]{Jost.:1965}}]
-	Let $\psi_{\alpha,\dot\beta}$ be a spinor field\footnote{Here we consider a spinor field since it can describe the most general case, i.e. both integer and half integer fields. We will do the same also for the spin-statistics theorem.} transforming as $\mathcal D^{j/2,k/2}$, and therefore carrying a integer/half-integer spin, corresponding to $j+k=$even/odd, then the wrong connection between spin and statistics, i.e., for integer/half-integer spin the field anti-commutes/commutes at space-like separations, implies that $\psi\Omega=0$ and, if locality holds, $\psi=0$.
+	Let $\psi_{\alpha,\dot\beta}$ be a spinor field\footnote{Here we consider a spinor field since it can describe the most general case, i.e. both integer and half integer fields. We will do the same also for the spin-statistics theorem.} transforming as $\mathcal D^{j/2,k/2}$, and therefore carrying a integer/half-integer spin, corresponding to $j+k=$even/odd, then the wrong connection between spin and statistics, i.e., for integer/half-integer spin the field anti-commutes/commutes at space-like separations, implies that $\psi\ket\Omega=0$ and, if locality holds, $\psi=0$.
 \end{theorem}
 
 \subsubsection{PCT theorem}
@@ -381,9 +383,9 @@ Wightman's functions analyticity can be proved\footnote{\cite[Sections 3.4.1-3.4
 \begin{theorem}[{Reeh-Schlieder, \cite[Section 4.2]{Streater:2000}, \cite[Section 4.8]{Jost.:1965}, \cite[Section 3.4.4]{Strocchi_2013}, \cite[Section II.5.3]{Haag_1996}}] 
 	For any open set $\mathcal O\subset \R^4$, the vacuum is cyclic with respect to the algebra $\polyn(\mathcal O)$, i.e.
 	\begin{eq}
-		\{\polyn(\ophi(f))\varst \supp(f)\subset\mathcal O\}\Omega
+		\{\polyn(\ophi(f))\varst \supp(f)\subseteq\mathcal O\}\ket\Omega
 	\end{eq}
-	is dense in $\hs$. Moreover, if $A\in\polyn(\mathcal O)$ and $A\Omega=0$ then $A=0$.
+	is dense in $\hs$. Moreover, if $A\in\polyn(\mathcal O)$ and $A\ket\Omega=0$ then $A=0$.
 \end{theorem}
 
 This means that the information contained in fields localized in any, arbitrarily small, open subset of $\R^4$, can be used to reconstruct the entire RQFT.
@@ -420,7 +422,7 @@ Notice that such condition cannot be satisfied if theories admits massless parti
 Let us restrict to the one-body problem, i.e. the description of the asymptotic state for a one particle system. The existence of free asymptotic fields of mass $m$ should be related to the existence of an isolated hyperboloid $p^2=m^2$ in the two-point spectral function of the field $\ophi$. 
 
 Let $\hs_m$ be the improper\footnote{It is an improper subspace since it is made of generalized vectors, in the sense of Dirac's formalism.} subspace of $\hs$, which is eigenspace of the operator $\mom^\mu\mom_\mu$ associated to the eigenvalue $m^2$. 
-Suppose that our (possibly renormalized, if needed) field $\ophi$ when applied to the vacuum has a non-empty intersection with $\hs_m$, that is $\ophi(x)\Omega\not\perp\hs_m$. 
+Suppose that our (possibly renormalized, if needed) field $\ophi$ when applied to the vacuum has a non-empty intersection with $\hs_m$, that is $\ophi(x)\ket\Omega\not\perp\hs_m$. 
 Let $h(x)$ be a test function whose Fourier transform satisfies $\supp\tilde h(p)\cap\spec(\mom^\mu)\subseteq V_m^+$, or equivalently, its support in momentum space does not intersect the continuum region above $V_m^+$ of $\overline V^+$ (the one associated to multi-particles states).
 
 Let's define the operator
@@ -429,7 +431,7 @@ Let's define the operator
 \end{eq}
 and consider the two-points function 
 \begin{eq}
-	(\Omega, \ophi_m(h)\ophi_m(h')\Omega)
+	\bra\Omega\ophi_m(h)\ophi_m(h')\ket\Omega
 \end{eq}
 where $h'$ satisfies same properties as $h$. Such two-point function in the Källen-Lehmann representation contains only an isolated term like $\delta(p^2-m^2)\theta(p^0)$, since the localization of $h$ on the one-particle hyperboloid acts as a cutoff for the continuum part in the spectral representation of the correlator. 
 
@@ -437,7 +439,7 @@ The field $\ophi_m(h)$ is not a free field, since in general $\supp h\not\subset
 
 \skipline
 
-Let's see how to construct more than one. Suppose that we have $n$ test functions, $\{h_i\}_{i=1}^n$, $\supp\tilde h(p)\cap\spec(\mom^\mu)\subseteq V_m^+$, such that their supports in terms of velocities are disjoint, that is 
+Let's see how to construct a state for more than one body. Suppose that we have $n$ test functions, $\{h_i\}_{i=1}^n$, $\supp\tilde h_i(p)\cap\spec(\mom^\mu)\subseteq V_m^+$, such that their supports in terms of velocities are disjoint, that is 
 \begin{eq}\label{eq:disj_velocit_condit}
 	\frac{\vec p_i}{p_i^0}\neq\frac{\vec p_j}{p_j^0} \tforany p_i\in\supp\tilde h_i \tcomma p_j\in\supp\tilde h_j \tcomma i\neq j
 \end{eq}
@@ -452,7 +454,7 @@ have their supports separated by large distances, hence in the asymptotic limit 
 	\ophi_m(h,t):=\int\de p\,e^{it\sqrt{\vec p^2+m^2}}\tilde h(p) e^{-itH}\tilde\ophi_m(p)e^{itH}
 \end{eq}
 Such field behaves for $t\to\pm\infty$ as a free field. 
-\todo{Non capisco il senso di ``portare indietro'' il campo utilizzando l'evoluzione libera, non potevamo utilizzare direttamente $e^{-itH}\ophi_m(h_i)e^{itH}$? Inizialmente pensavo che servisse a definire un campo libero per $t$ generico, ma $\ophi_m(h,t)$ è libero solo per $t\to\pm\infty$... Suppongo allora che tale definizione serva per dimostrare il teorema di Ruelle. Mi chiedo inoltre se $\ophi_m(h,t)$ in genere possa considerarsi un elemento di uno spazio di Fock per $t\to\pm\infty$ o abbia qualche peculiarità che non lo permette, in particolare nel teorema diciamo che $\hs_{\tin/\tout}\subseteq\hs$ quindi immagino di no.} 
+\todo{Non capisco il senso di ``portare indietro'' il campo utilizzando l'evoluzione libera, non potevamo utilizzare direttamente $e^{-itH}\ophi_m(h_i)e^{itH}$? Inizialmente pensavo che servisse a definire un campo libero per $t$ generico, ma $\ophi_m(h,t)$ è libero solo per $t\to\pm\infty$... Suppongo allora che tale definizione serva per dimostrare il teorema di Ruelle.} 
 
 The final result is provided by the following theorem
 \begin{theorem}[{Haag-Ruelle, \cite[Section 4]{Ruelle:1962}; \cite[Theorem 6.2.1]{Strocchi_2013}, \cite[Theorem II.4.2.1]{Haag_1996}, \cite[Theorems 1,2 section 6.3]{Jost.:1965}}]
@@ -476,8 +478,8 @@ for some (generic) test function $f$. Hepp proved that it admits a weak limit $t
 \begin{theorem}[{Hepp, \cite{Hepp:1965}}]
 	The following weak limits exist:
 	\begin{eq}
-		\lim_{t\to-\infty}\,_\tin\langle h_1,\ldots,h_n|\ophi(f,t)\ket{h_1',\ldots,h_n'}_\tin&=\,_\tin\langle h_1,\ldots,h_n|\ophi_\tin(f)\ket{h_1',\ldots,h_n'}_\tin\\
-		\lim_{t\to+\infty}\,_\tout\langle h_1,\ldots,h_n|\ophi(f,t)\ket{h_1',\ldots,h_n'}_\tout&=\,_\tout\langle h_1,\ldots,h_n|\ophi_\tout(f)\ket{h_1',\ldots,h_n'}_\tout
+		\lim_{t\to-\infty}\,_\tin\langle h_1,\ldots,h_n|\ophi(f,t)\ket{h_1',\ldots,h_m'}_\tin&=\,_\tin\langle h_1,\ldots,h_n|\ophi_\tin(f)\ket{h_1',\ldots,h_m'}_\tin\\
+		\lim_{t\to+\infty}\,_\tout\langle h_1,\ldots,h_n|\ophi(f,t)\ket{h_1',\ldots,h_m'}_\tout&=\,_\tout\langle h_1,\ldots,h_n|\ophi_\tout(f)\ket{h_1',\ldots,h_m'}_\tout
 	\end{eq}
 	and define scattering fields $\ophi_{\tin/\tout}$. These fields can be used inside the LSZ reduction formula, hence the reduction formalism works even in this axiomatic framework starting from Wightman functions. 
 \end{theorem}

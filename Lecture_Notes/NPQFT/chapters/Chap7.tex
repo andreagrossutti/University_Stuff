@@ -94,8 +94,6 @@ This problem can be avoided in two ways:
 	\end{eq}
 \end{enumerate}
 
-\todo{Nelle sue note, a pag 241-242, c'era un commento sulla stringa di Dirac che non ha fatto a lezione. Per ora non l'ho riportato in queste note.}
-
 \subsubsection{The Wu-Yang approach}
 
 Let's make some comments about the Wu-Yang approach (as the Dirac solution has already been discussed in the last chapter).
@@ -212,7 +210,7 @@ The \emph{t'Hooft-Polyakov monopole} was first introduced in the \emph{Georgi-Gl
 
 \skipline
 
-Let's start the description of the Georgi-Glashow model from the fields of the theory. The $SO(3)$ gauge field is described by 
+Let's start the description of the Georgi-Glashow model from the fields of the theory. The $SO(3)$ \todo{$SU(2)$?} gauge field is described by 
 \begin{eq}
 	A:= A_\mu^a\frac{\tau^a}2
 	\tfor
@@ -236,16 +234,6 @@ The Euclidean Lagrangian in $3+1$ dimensions, a kind of non-Abelian generalizati
 \begin{eq}
 	\lag=\frac1{4g^2}(G_{\mu\nu}^a)^2+\half(D_\mu\phi^a)^2+\lambda\big((\phi^a)^2-v^2\big)
 \end{eq}
-with $SO(3)$ breaking boundary conditions, e.g.
-\begin{eq}\label{eq:monopole-boundary-conditions-vacuum}
-	\phi^a(\infty)=v\delta^{a3}
-	\quad\leftrightarrow\quad
-	\phi(\infty)=v\frac{\tau^3}2
-\end{eq}
-The direction of the vector $\phi^a(\infty)$ in the $SO(3)$ (inducing the $SO(3)$ breaking) can be chosen arbitrarily, but when once it still leaves a $U(1)$ subgroup of $SO(3)$ unbroken, corresponding to rotations around the chosen axis, e.g.
-\begin{eq}
-	\lexp{i\alpha\frac{\tau^3}2}\underbrace{v\frac{\tau^3}2}_{\phi(\infty)}\lexp{-i\alpha\frac{\tau_3}2}=\underbrace{v\frac{\tau^3}2}_{\phi(\infty)}
-\end{eq}
 From the action we can derive the following equations of motion
 \begin{eq}\label{eq:Georgi-Glashow-eom}
 	\begin{cases}
@@ -263,6 +251,20 @@ The action is invariant under the following gauge transformations: for $g(x)\in 
 		\phi&\quad\mapsto\quad g^{-1}\phi g
 	\end{aligned}\end{cases}
 \end{eq}
+
+\subsubsection{Symmetry breaking boundary conditions}
+
+
+In order to choose a vacuum configuration, let's impose $SO(3)$ breaking boundary conditions, e.g.
+\begin{eq}\label{eq:monopole-boundary-conditions-vacuum}
+	\phi^a(\infty)=v\delta^{a3}
+	\quad\leftrightarrow\quad
+	\phi(\infty)=v\frac{\tau^3}2
+\end{eq}
+The direction of the vector $\phi^a(\infty)$ in the $SO(3)$ (inducing the $SO(3)$ breaking) can be chosen arbitrarily, but when once it still leaves a $U(1)$ subgroup of $SO(3)$ unbroken, corresponding to rotations around the chosen axis, e.g.
+\begin{eq}
+	\lexp{i\alpha\frac{\tau^3}2}\underbrace{v\frac{\tau^3}2}_{\phi(\infty)}\lexp{-i\alpha\frac{\tau_3}2}=\underbrace{v\frac{\tau^3}2}_{\phi(\infty)}
+\end{eq}
 At least perturbatively one often perform a gauge transformation (\emph{unitary gauge}) reducing $\phi=v\frac{\tau^3}2$ everywhere. Then $A_\mu^3$ remains gapless and we identify it with the ``photon field'', whereas
 \begin{eq}
 	W_\mu^\pm=\frac1{\sqrt2}\frac1g(A_\mu^1\pm iA_\mu^2)
@@ -271,7 +273,7 @@ are the massive vector meson fields.
 
 \subsubsection{Vacuum sector}
 
-The vacua of the theory are given by the vanishing of all squares in the energy density $\cenergy$. Define the electric and the magnetic field by $G^{a\,0i}=:\lexp{a\,i}$ and $G^a_{ij}=:-\half\lctens_{ijk}B^{a\,k}$ respectively, then for a static configuration, in the gauge $A_0^a=0$, 
+The vacua of the theory are given by the vanishing of all squares in the energy density $\cenergy$. Define the electric and the magnetic field by $G^{a\,0i}=:E^{a\,i}$ and $G^a_{ij}=:-\half\lctens_{ijk}B^{a\,k}$ respectively, then for a static configuration, in the gauge $A_0^a=0$, 
 \begin{eq}\label{energy-GG-model}
 	\int\de^3\vec x\,\cenergy
 	=\int\de^3\vec x\,\bigg[\half\left(\frac{(B^{ai})^2}{g^2}+(D_i\phi^a)^2\right)+\lambda\big((\phi^a)^2-v^2\big)^2\bigg]
@@ -401,7 +403,7 @@ These conditions give a different result for the magnetic charge density respect
 so the ``magnetic charge density'' is not concentrated in a point like in the Dirac monopole, and this allows the finiteness of the energy. 
 Indeed eq.~\eqref{eq:ansatz-tH-P-monop} give really a static solution of the Georgi-Glashow equations of motion eq.~\eqref{eq:Georgi-Glashow-eom} for $1-g_A=O(r)$ and $1-g_H=O(1)$, and such solution is the (static) t'Hooft-Polyakov monopole. 
 
-\skipline
+\subsubsection{The $\boldsymbol{U(1)}$ symmetry of the monopole}
 
 Recall that a monopole, according to Dirac's description, should be related to a $U(1)$ symmetry. t'Hooft proved that one can define, starting from the non-Abelian field strength $G_{\mu\nu}^a$ of the Georgi-Glashow model, an Abelian $U(1)$ gauge invariant field strength whose singularity is exactly the one of the Dirac monopole. In this way it is possible to see the real monopole structure of the t'Hooft-Polyakov monopole, namely the one corresponding to the Dirac monopole. The correct $U(1)$ ``magnetic field'' found by t'Hooft is obtained by adding to $B_i^a\frac{\phi^a}{|\phi|}$ a contribution vanishing at $\infty$, still gauge invariant, so that instead of the regular structure defined up to now we have the singular structure of the Dirac monopole. 
 
@@ -445,7 +447,7 @@ The second term, using the equation of motion $0=D_{[i}G_{jk]}=D_iB_i^a$, can be
 	\int\de^3x\,\frac1gB_i^aD_i\phi^a=\frac1g\int\de^3x\,\partial_i(B_i^a\phi^a)-\frac1g\int\de^3x\,(\cancel{D_iB_i^a})\phi^a
 	=\lim_{R\to\infty}\frac1g\int_{S_R^2}\de\Sigma^i\,B_i^a\phi^a=vQ_m
 \end{eq}
-Hence if the monopole satisfies $B_i^a=D_i\phi^a$ as local minimum of the energy, we have
+Hence if the monopole satisfies $B_i^a=gD_i\phi^a$ as local minimum of the energy, we have
 \begin{eq}
 	\int\de^3x\,\cenergy=M_m=vQ_m
 \end{eq}
@@ -625,18 +627,13 @@ hence eq.~\eqref{eq:op-Gauss-law}, i.e. the Gauss' law as an operator identity, 
 
 Let's consider the transformation of the field $\op\phi$, charged with respect to the global gauge group, i.e. (modulo smearings)
 \begin{eq}
-	[\op Q,\ophi(y)]=\lim_{R\to\infty}\int_{B_R^d}\de^dx[\op j^0(x),\ophi(y)]=\delta\ophi(y)\neq0
+	0\neq\delta\ophi(y)=[\op Q,\ophi(y)]=\lim_{R\to\infty}\int_{B_R^d}\de^dx[\op j^0(x),\ophi(y)]
 \end{eq}
-If $\vs$ has a semi-definite inner product and $\ophi(y)$ is local, or at least localized in a bounded region, then for $\ket\psi,\ket\chi\in\vsp$ we have
+If $\vs$ has a semi-definite inner product and $\ophi(y)$ is local, or at least localized in a bounded region, then for $\ket\psi,\ket\chi\in\vsp$ we have a contraddiction
 \begin{eq}
-	\bra\psi\lim_{R\to\infty}\int_{B_R^d}\de^dx\,[\op j^0(x),\op\phi(y)]\ket\chi
-	=\bra\psi\delta\ophi(y)\ket\chi\neq0
+	0\neq\bra\psi\delta\ophi(y)\ket\chi= \bra\psi\lim_{R\to\infty}\int_{B_R^d}\de^dx\,[\op j^0(x),\op\phi(y)]\ket\chi\overset{\eqref{eq:op-Gauss-law}}=\bra\psi\lim_{R\to\infty}\int_{S_R^{d-1}}\de\Sigma_i\,[\op G^{i0}( x),\ophi(y)]\ket\chi=0
 \end{eq}
-but also
-\begin{eq}
-	\bra\psi\lim_{R\to\infty}\int_{B_R^d}\de^dx\,[\op j^0(x),\op\phi(y)]\ket\chi=\bra\psi\lim_{R\to\infty}\int_{S_R^{d-1}}\de\Sigma_i\,[\op G^{i0}( x),\ophi(y)]\ket\chi=0
-\end{eq}
-where the vanishing of the commutator is a consequence of locality, contraddicting $\bra\psi\delta\ophi\ket\chi\neq0$.
+where the vanishing of the commutator is a consequence of locality.
 
 Hence positivity of $\vs$ and locality (in a bounded region) of charged fields are incompatible in a gauge theory. This result in known as \emph{Strocchi's theorem}, and can be rephrased as the impossibility in a gauge theory of having both positivity of the Hilbert space and locality of the charged field.
 
@@ -705,7 +702,7 @@ Varying with respect to $B_{\mu\nu}$ in the mixed $B_{\mu\nu}$-$A_\mu$ action on
 	\tand
 	\tilde F^{\mu\nu}=\partial^{[\mu}\tilde A^{\nu]}
 \end{eq}
-which satisfy equations of motion
+which satisfy equations
 \begin{eq}
 	\partial_\mu F^{\mu\nu}=0
 	\quad&\overset{\eqref{eq:duality_PI}}\longleftrightarrow\quad
@@ -761,8 +758,8 @@ The partition function of the Stückelberg model become
 	&=\int\pide A_\mu\int\pide\Lambda\sum_{n_\mu}\,\lexp{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\lexp{-\frac\lambda2\int(\partial_\mu\Lambda-A_\mu+2\pi n_\mu)^2}\delta(\partial^\mu A_\mu)\\
 	&=\int\pide A_\mu^T\int\pide\Lambda\sum_{n_\mu}\,\lexp{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\lexp{-\frac\lambda2\int(\partial_\mu\Lambda-A_\mu+2\pi n_\mu)^2}\\
 	&\overset{\mathclap{\eqref{eq:Poisson-resummation-cont}}}=\int\pide A_\mu^T\int\pide\Lambda\sum_{j_\mu}\,\lexp{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]}^T)^2}\,\lexp{-\frac1{2\lambda}\int j_\mu^2}\lexp{i\int (-A_\mu^T+\partial_\mu\Lambda) j^\mu}\\
-	&\overset{\mathclap{\eqref{eq:int-Lambda-Poisson}}}=\,\int\pide A_\mu^T\,\lexp{-\frac1{2\lexp2}\int(\partial_{[\mu}A_{\nu]}^T)^2}\,\lexp{-\frac1{2\lambda}\int (\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma})^2}\lexp{-i\int A^\mu_T\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}}\\
-	&=\int\pide A_\mu\,\lexp{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\,\lexp{-\frac1{2\lambda}\int (\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma})^2}\lexp{-i\int A^\mu\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}}\delta(\partial^\mu A_\mu)\\
+	&\overset{\mathclap{\eqref{eq:int-Lambda-Poisson}\atop\eqref{eq:current-stuck-S}}}=\,\int\pide A_\mu^T\sum_{S^{\rho\sigma}}\,\lexp{-\frac1{2\lexp2}\int(\partial_{[\mu}A_{\nu]}^T)^2}\,\lexp{-\frac1{2\lambda}\int (\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma})^2}\lexp{-i\int A^\mu_T\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}}\\
+	&=\int\pide A_\mu\sum_{S^{\rho\sigma}}\,\lexp{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\,\lexp{-\frac1{2\lambda}\int (\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma})^2}\lexp{-i\int A^\mu\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}}\delta(\partial^\mu A_\mu)\\
 \end{eq}
 Applying then the duality procedure as in eq.~\eqref{eq:duality-free-photon} we have 
 \begin{eq}
@@ -796,7 +793,7 @@ Accordingly $S^{\rho\sigma}$ should describe the 2-dimensional worldsheet spanne
 
 Let us see how to ``open'' such line defects using duality. A charged gauge-invariant non-local field in the Stückelberg model can be constructed using a recipe suggested by Dirac in the operator setting (for QED), adapted to the path-integral formalism. 
 
-The charged field of the Stückelberg model (given by quantization of the complex field $\phi$ with $|\phi|=1$) is $\lexp{i\op\theta(\vec x)}$, clearly not-gauge invariant under the gauge transformation (if the field has unit charge $e=1$)
+The charged field of the Stückelberg model (given by quantization of the complex field $\phi$ with $|\phi|=1$) is $\lexp{i\op\theta(\vec x)}$, clearly not-gauge invariant under the gauge transformation
 \begin{eq}
 	\lexp{i\op\theta(\vec x)}\quad\to\quad \lexp{i(\op\theta(\vec x)+e\Lambda(\vec x))}
 \end{eq}
@@ -945,7 +942,7 @@ The situation is represented in fig.~\ref{fig:monop-correlator}.
 \caption{Representation of currents and fields in eq.~\eqref{eq:monop-correlat-lambda-infty} in one dimension less.}
 \label{fig:monop-correlator}
 \end{figure}
-%
+
 Since $\partial^\mu(j_\mu^{xy}+E_\mu^x-E_\mu^y)=0$, it exists a tensor $S^{\rho\sigma}(z|j^{xy},E^x,E^y)$ such that
 \begin{eq}
 	-(j_\mu^{xy}+E_\mu^x-E_\mu^y)(z)=\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}(z|j^{xy},E^x,E^y)
@@ -1359,7 +1356,7 @@ We close the discussion about solitons with a final remark about phase transitio
 
 \skipline
 
-As we said, defects can have arbitrary dimension\footnote{Recall that the dimensin of the defect is the dimension of its locus, where the singularity appears.} $k$. We now show heuristically that for $k>0$ condensation of defects is a general mechanism of phase transition. Suppose for simplicity that only one species of defects appear in the model under consideration, but the extension to multiple species is straightforward. 
+As we said, defects can have arbitrary dimension\footnote{Recall that the dimensin of the defect is the dimension of its locus, where the singularity appears.} $k$. We now show heuristically that for $k>0$ condensation of defects is a general mechanism of phase transition. Suppose for simplicity that only one species of defects appears in the model under consideration, but the extension to multiple species is straightforward. 
 
 For $k>0$ the mean action $\bar S$ of a $k$-dimensional defect $D^k$ is typically proportional to the volume of the locus of $D^k$, i.e.
 \begin{eq}
