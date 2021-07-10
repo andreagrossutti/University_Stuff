@@ -18,7 +18,7 @@ We now have to deal with the construction of the Wightman functions or their non
 		\item for a non relativistic theory the path integral is defined in an Euclidean space-time for an ``imaginary'' time;
 	\end{enumerate}
 	\item remove the cutoffs from outside the path integral, we assume that this is possible, otherwise the procedure fails;
-	\item provided some properties hold for the correlation functions, analytically continue them to the appropriate space, in particular
+	\item provided some properties for the correlation functions, analytically continue them to the appropriate space, in particular
 	\begin{enumerate}[label=(\alph*)]
 		\item for a relativistic theory, the correlation functions in the Euclidean space are called \emph{Schwinger functions}, denoted by $\{S_n\}$
 		\begin{eq}
@@ -26,14 +26,14 @@ We now have to deal with the construction of the Wightman functions or their non
 			{\int\pide\phi\pide\phi^*\,e^{-S_\Lambda(\phi^*,\phi)}\phi(x_1)\ldots\phi(x_n)}
 			{\int\pide\phi\pide\phi^*\,e^{-S_\Lambda(\phi^*,\phi)}}
 		\end{eq}
-		they determine Wightman function by analytic continuation to the Minkowski space if a set of properties, called \emph{Osterwalder-Schrader (OS) axioms}, are satisfied,
+		they determine Wightman function by analytical continuation in the Minkowski space if a set of properties, called \emph{Osterwalder-Schrader (OS) axioms}, are satisfied,
 		\item for a non relativistic theory with $T>0$ the Matsubara Green functions we obtained for an ``imaginary'' time can be analytically continued to the real time provided that other suitable axioms are satisfied, defining in this way the retarded functions for the interacting theory.
 	\end{enumerate}
 \end{enumerate}
 
 We first discuss the relativistic case and later we make some comments on the non relativistic $T>0$ and the lattice QFT cases.
 
-Let's heuristically motivate why it is easier to work in the Euclidean space rather than in the Minkowski one. In the Euclidean space the exponential inside the path integral has a real argument, $e^{-S}$, whereas in the Minkowski one the argument is imaginary: $e^{iS}$. In the Euclidean space one can use more powerful techniques such as saddle point method, moreover in general the path integral measure can be defined with a real exponential, while the definition in the Minkowski space is much more difficult and up to now it is not really understood if the path integral can be defined in a rigorous way for an infinite-dimensional configuration space as for a field theory. Without enter in the details, notice for instance that $\int e^{-x^2}\de x$ clearly converges, whereas $\int e^{ix^2}\de x$ should be regularized. For the same reason, in the non relativistic case is better to work with imaginary time rather than with the real one.
+Let's heuristically motivate why it is easier to work in the Euclidean space rather than in the Minkowski one. In the Euclidean space the exponential inside the path integral has a real argument, $e^{-S}$, whereas in the Minkowski one the argument is imaginary: $e^{iS}$. In the Euclidean space one can use more powerful techniques such as saddle point method, moreover in general the path integral measure can be defined with a real exponential, while the definition in the Minkowski space is much more difficult and up to now it is not really understood if the path integral can be defined in a rigorous way. Without enter in the details, notice for instance that $\int e^{-x^2}\de x$ clearly converges, whereas $\int e^{ix^2}\de x$ should be regularized. For the same reason, in the non relativistic case is better to work with imaginary time rather than with the real one.
  
 \section{Osterwalder-Schrader reconstruction}
 
@@ -41,7 +41,7 @@ Let's heuristically motivate why it is easier to work in the Euclidean space rat
 
 We now list the properties of Schwinger functions needed to determine Wightman functions of an interacting (scalar) RQFT. Such properties are called \emph{Osterwalder-Schrader (OS) axioms}:
 \begin{enumerate}[label=(\arabic*), start=0]
-	\item (\emph{Regularity}) The $\{S_n(x_1,\ldots,x_n)\}_{n=0}^\infty$, $x_i\in\R^{d+1}$ with Euclidean metric, are distributions in $\schw'(\R^{n(d+1)})$ (or more generally spaces of distributions admitting Fourier transform) and ``should not grow too fast in $n$'' (we omit the details about this requirement).
+	\item (\emph{Regularity}) The $\{S_n(x_1,\ldots,x_n)\}_{n=0}^\infty$, $x_i\in\R^{d+1}$ with Euclidean metric, are distributions in $\schw'(\R^{n(d+1)})$ and ``should not grow too fast in $n$'' (we omit the details about this requirement).
 	\item (\emph{Euclidean covariance}) They transform covariantly under the Euclidean $d+1$-dimensional group $\eucl^{d+1}$. In particular for a scalar field $\phi$, $(a,R)\in\eucl^{d+1}$, we have 
 	\begin{eq}\label{eq:OS_axioms_covariance}
 		S_n(Rx_1+a,\ldots,Rx_n+a)=S_n(x_1,\ldots,x_n)
@@ -59,7 +59,7 @@ We now list the properties of Schwinger functions needed to determine Wightman f
 
 Notice that it is much more easy to verify this axioms (beside OS positivity) rather than properties of Wightman functions. For instance in this case there is no spectral condition, since it is very cleverly hidden inside OS positivity. 
 
-To Schwinger functions satisfying OS axioms  a reconstruction theorem can be applied which is a variant of Wightman reconstruction theorem. Then Schwinger functions are directly related to Wightman functions (whose existence is now guaranteed by such theorem) by analytical continuation\footnote{Notice that in order to make an analytical continuation from imaginary time to real time one should prove that there is no obstruction in the complex plane such as poles or cuts.} in the time variable.
+To Schwinger functions satisfying OS axioms can be applied a reconstruction theorem which is a variant of Wightman reconstruction theorem. Then Schwinger functions are directly related to Wightman functions (whose existence is now guaranteed by such theorem) by analytical continuation\footnote{Notice that in order to make an analytical continuation from imaginary time to real time one should prove that there is no obstruction in the complex plane such as poles or cuts.} in the time variable.
 
 \begin{theorem}[Osterwalder-Schrader]
 	Assume that the Schwinger functions $\{S_n(x_1,\ldots,x_n)\}_{n=0}^\infty$ satisfy the OS axioms. Then they uniquely determine
@@ -80,7 +80,7 @@ To Schwinger functions satisfying OS axioms  a reconstruction theorem can be app
 		\twhere
 		x_j=(t_j,\vec x_j)
 	\end{eq}
-	The functions $W_n(x_1,\ldots,x_n)$ are the Wightman functions of a RQFT. In other words the Wightman functions are obtained from the Schwinger functions by analytical continuation in time. 
+	The functions $W_n(x_1,\ldots,x_n)$ are the Wightman functions of a RQFT. In other words the Wightman functions are obtained by the Schwinger functions by analytical continuation in time. 
 	
 	Properties \textit{(5')-(9')} in Wightman reconstruction theorem are satisfied.
 	
@@ -89,7 +89,7 @@ To Schwinger functions satisfying OS axioms  a reconstruction theorem can be app
 
 Notice that the fact that we reconstruct the theory directly from the Euclidean space, without using Wightman functions, turns out to be crucial in different situations, for instance OS reconstruction theorem apply to the quantization of solitons, whereas Wightman reconstruction theorem doesn't. 
 
-Moreover we already know that the path integral can be used to build Schwinger functions for the theory regularized by cutoffs (since they are simply vacuum expectation values and we can apply previous formulas, which certainly give well-defined results thanks to the cutoffs we introduced), whereas it is not well defined in the Minkowski space, where Wightman functions are defined. 
+Moreover we already know that the path integral can be used for build Schwinger functions for the theory regularized by cutoffs (since they are simply vacuum expectation values and we can apply previous formulas, which certainly give well-defined results thanks to the cutoffs we introduced), whereas it is not well defined in the Minkowski space, where Wightman functions are defined. 
 
 After the construction of Schwinger functions using the path integral for the regularized theory, one has to check that after the removal of the cutoffs the OS axioms are satisfied. 
 
@@ -183,7 +183,7 @@ After the construction of Schwinger functions using the path integral for the re
 	\end{eq}
 	where we defined it as a quadratic function (i.e. using matrix elements) in an appropriate domain such that the delta function gives always a finite contribution. 
 	
-	Notice that for $\tau=0$ the field is identical to its analytic continuation to the real time, hence $\ophi_0$ provides a well defined field for $t=0$ (as quadratic form) where $t$ is the real time. We can then generalize the definition to arbitrary real time just using the unitary time evolution defined in Minkowski, and this can be done in such a way that the final field turns out to be an operator rather than just a quadratic form, just by appropriately smearing in time the resulting field. In particular, let $f\in\schw(\R^{d+1})$, $f(\vec x,t)=f_t(\vec x)$, be a test function in Minkowski, then the following is a well-defined operator in a dense domain:
+	Notice that for $\tau=0$ the field is identical to its analytic continuation to the real time, hence $\ophi_0$ provides a well defined field for $t=0$ where $t$ is the real time. We can then generalize the definition to arbitrary real time just using the unitary time evolution defined in Minkowski, and this can be done in such a way that the final field turns out to be an operator rather than just a quadratic form, just by appropriately smearing in time the resulting field. In particular, let $f\in\schw(\R^{d+1})$, $f(\vec x,t)=f_t(\vec x)$, be a test function in Minkowski, then the following is a well-defined operator in a dense domain:
 	\begin{eq}
 		\ophi(f)=\int_{-\infty}^{+\infty}\de t\,e^{itH}\int\de\vec x\,\ophi_0(\vec x)f_t(\vec x) e^{-itH}
 	\end{eq}
@@ -236,14 +236,14 @@ For this reason, let us now pinpoint where the properties of OS axioms have been
 
 \subsection{Lattice and gauge theories}
 
-\cite[Section 4]{Frohlich:1980aa}, \cite{Osterwalder:1977pc}, \cite{Seiler:1982}, \cite[Section 6.4]{Strocchi:1993}\\
+\cite[Section 4]{Frohlich:1980aa}, \cite{Osterwalder:1977pc}, \cite{Seiler:1982}, \cite[Section 6.4]{Strocchi:1993}\todo{Non ho trovato una bibliografia particolarmente soddisfacente, se ha consigli aggiungo volentieri altri testi.}\\
 
 
 In view of the previous remark it is not difficult to understand the variants of OS reconstruction for lattice theories involving also non-local fields, such as the Wilson loop in gauge theories. For abelian theories with gauge potential $A_\mu$ the Wilson loop is defined as follows. Let $\contour$ be a loop, then the \emph{Wilson loop} is defined by\footnote{Recall that in QM not only the field strength is an observable. Due to Aharonov-Bohm effect also objects of the form eq.~\eqref{eq:dfn_Wilson_loop} are observables.}
 \begin{eq}	\label{eq:dfn_Wilson_loop}
 	\wils(\contour)=e^{i\oint_\contour A_\mu\de x^\mu}
 \end{eq}
-One can prove that the the collection of $\wils(\contour)$ for all loops $\contour$ completely determines a gauge theory without matter fields. Therefore Wilson loops are those objects that contain all the information about such gauge theory in a gauge invariant way. 
+One can prove that the the collection of $\wils(\contour)$ for all loops $\contour$ completely determines a massless gauge theory. Therefore Wilson loops are those objects that contain all the information about a (massless) gauge theory in a gauge invariant way. 
 
 In the non-abelian case we need to take also a path ordering $\operatorname P(-)$, which is just the time-ordering for the ``time'' parametrizing the loop, combined with the trace of the elements of the Lie group\footnote{In the non-Abelian case $A_\mu$ are matrices and so is $e^{i\oint_\contour A_\mu\de x^\mu}$. So the trace is defined as usual.}
 \begin{eq}	\label{eq:dfn_Wilson_loop_YM}
@@ -334,7 +334,7 @@ and then taking them thermodynamic limit
 \end{eq}
 Indeed in general functions $S_n^\beta$ cannot be defined as expectation values of operators defined in the infinite volume limit since such operators cannot exists due to Haag's theorem. 
 
-Due to usual boundary conditions operators $a_{\alpha_i}$ should be thought as operators defined on a circle of circumference $\beta$ in euclidean time.  
+Due to usual boundary conditions operators $a_{\alpha_i}$ should be thought as operators defined on a circle of circumference $\beta$.  
 
 \begin{theorem}[OS reconstruction theorem for finite temperature]\label{thm:OS-finite-T} Suppose that functions $\{S_n^\beta\}_{n=0}^\infty$ satisfy the following properties ($\tau_1<\tau_2<\ldots$): 
 
@@ -348,7 +348,7 @@ Due to usual boundary conditions operators $a_{\alpha_i}$ should be thought as o
 	\item \emph{KMS condition} 
 	\begin{eq}
 		S_n^\beta(a^\#_{\alpha_1},\tau_1,\ldots a^\#_{\alpha_n},\tau_n)
-		=S_n^\beta(a^\#_{\alpha_{j+1}},\tau_{j+1},\ldots, a^\#_{\alpha_n},\tau_n,a^\#_{\alpha_1},\tau_1+\beta,\ldots, a^\#_{\alpha_j},\tau_j+\beta)
+		=S_n^\beta(a^\#_{\alpha_{j+1}},\tau_1,\ldots, a^\#_{\alpha_n},\tau_n,a^\#_{\alpha_1},\tau_1+\beta,\ldots, a^\#_{\alpha_j},\tau_j+\beta)
 	\end{eq}
 	for any $j=1,\ldots,n-1$.
 	\item \emph{OS positivity}: Consider all polynomials in $\{a_i^\#(\tau_i)\}$ variables, $\polyn(\{a_i^\#(\tau_i)\})$, such that the time variables are ordered and bounded by $\beta/2$, that is
@@ -431,7 +431,7 @@ since as we said before in the thermodynamic limit $V\to\infty$ the Hamiltonian 
 \begin{eq}
  	\bra{\Omega_\beta}(\bullet)\ket{\Omega_\beta}_V=\frac{\Tr_V (\bullet) e^{-\beta H}}{\Tr_V e^{-\beta H}}
 \end{eq}
-provides an expectation value, with respect to the vector $\ket{\Omega_\beta}\in\hs_\beta$, well defined even in the infinite volume limit (for operators in an appropriate domain, from which $H$ is excluded due to eq.~\eqref{eq:H-unbound-T}) which still satisfies $L\ket{\Omega_\beta}=0$ (thanks to eq.~\eqref{eq:L_eigenv_0}) and the KMS condition. 
+provides an expectation value, respect to the vector $\ket{\Omega_\beta}\in\hs_\beta$, well defined even in the infinite volume limit (for operators in an appropriate domain, from which $H$ is excluded due to eq.~\eqref{eq:H-unbound-T}) which still satisfies $L\ket{\Omega_\beta}=0$ (thanks to eq.~\eqref{eq:L_eigenv_0}) and the KMS condition. 
 
 \subsubsection{Summary}
 

@@ -8,7 +8,7 @@ Beside the literature present at the beginning of each section, have a look at \
 \section{How to avoid Haag's theorem}
 \cite[Section 2.5]{Strocchi_2013}\\
 
-Let's see how to avoid the problems raised by the Haag theorem. The idea is to start by introducing IR (volume) and UV cutoffs (the UV one is not needed for lattice models) so that the cutoff model describes a system of finite degrees of freedom, so that the interaction picture is still correct, thanks to von Neumann uniqueness theorem, which guarantees that free and interacting fields are unitarily equivalent and defined in the same Hilbert space. Moreover one can also require that the fields satisfy CCR (or CAR) since no problem arises in this framework.
+Let's see how to avoid problems raised by Haag theorem. The idea is to start by introducing IR (volume) and UV cutoffs (the UV one is not needed for lattice models) so that the cutoff model describes a system of finite degrees of freedom, such that the interaction picture is still correct, thanks to von Neumann uniqueness theorem, which guarantees that free and interacting fields are unitarily equivalent and defined in the same Hilbert space. Moreover one can also require that the fields satisfy CCR (or CAR) since no problem arises in this framework.
 
 Consider a $T=0$ RQFT (the restriction $T=0$ is not really needed, but simplify the treatment) and let $\ophi_0(\vec x):=\ophi(t=0,\vec x)$ be the $t=0$ field, then the cutoff field at arbitrary time is given by
 \begin{eq}
@@ -38,9 +38,9 @@ As anticipated, provided some properties for the limiting functions
 \begin{eq}
 	W_n(x_1,\ldots,x_n):=\limcutrem Z^{-n}_\UVcut W^\Lambda_n(x_1,\ldots,x_n)
 \end{eq}
-are satisfied, these functions themselves determine states and fields of the interacting theory, avoiding Haag's theorem. In this section we first describe how this reconstruction works for a RQFT at $T=0$, then we'll sketch how to adapt the formalism to more general situations. 
+these functions themselves determine states and fields of the interacting theory, avoiding Haag's theorem. In this section we first describe how this reconstruction works for a RQFT at $T=0$, then we'll sketch how to adapt the formalism to more general situations. 
 
-We give the statement and the complete proof of the \emph{reconstruction theorem} for a scalar field at $T=0$ for a relativistic theory.
+We give the statement and the complete proof of the \emph{reconstruction theorem} for a real scalar field at $T=0$ for a relativistic theory.
 
 \begin{theorem}[{Wightman's reconstruction theorem, \cite{Wightman:1956}, \cite[Thm. 3.7]{Streater:2000}, \cite[Section 3.4, Thm. 1]{Jost.:1965}}]
 	Let $\{W_n\}_{n=0}^\infty$ be a sequence of (tempered) distributions, $W_n\in\schw'(\R^{(d+1)n})$ for all $n>0$, $W_0:=1$. Suppose that they satisfy the following properties:
@@ -392,7 +392,7 @@ This means that the information contained in fields localized in any, arbitraril
 
 \subsubsection{Non-commutativity of the algebra of interacting fields}
 
-As we already pointed out equal-time canonical (anti-)commutation relations cannot be used to quantize field equations for interacting theories. A natural question is whether and where a quantization condition is contained in the general requirements of Wightman's axioms, or equivalently in the properties of Wightman functions. To this purpose, one may show that, as a consequence of the spectral condition, the field algebra of the reconstructed theory cannot be commutative because in that case $W_2(x-y)$ would be constant, hence properties \textit{(1)-(5)} imply quantization. Since can be proved\footnote{\cite[Section 4.1]{Strocchi_2013}} that field obeying free fields equations satisfy either CCR of CAR, Wightman's properties qualify as the way of defining quantum fields by providing the correct substitute of canonical quantization in the interacting case. 
+As we already pointed out equal-time canonical (anti-)commutation relations cannot be used to quantize field equations for interacting theories. A natural question is whether and where a quantization condition is contained in the general requirements of Wightman's axioms, or equivalently in the properties of Wightman functions. To this purpose, one may show that, as a consequence of the spectral condition, the field algebra of the reconstructed theory cannot be commutative, hence properties \textit{(1)-(5)} imply quantization. Since can be proved\footnote{\cite[Section 4.1]{Strocchi_2013}} that field obeying free fields equations satisfy either CCR of CAR, Wightman's properties qualify as the way of defining quantum fields by providing the correct substitute of canonical quantization in the interacting case. 
 
 \section{Haag-Ruelle scattering theory (massive case) and LSZ reduction formula}
 
@@ -402,11 +402,11 @@ Another important consequence of properties \textit{(1)-(5)} for relativistic QF
 
 \skipline%
 
-One should notice that the axioms of Wightman do not introduce the notion of a particle. The particle notion is, however, of crucial importance if any connection of the theory with experimental physics is to be achieved. The principal observable of elementary particle physics, the $S$-matrix, depends essentially on the possibility of defining asymptotic incoming and outgoing states, which themselves can be described by free particles and their corresponding free fields. 
+One should notice that the axioms of Wightman do not introduce the notion of a particle. The particle notion is, however, of crucial importance if any connection of the theory with realities of physics is to be achieved. The principal observable of elementary particle physics, the $S$-matrix, depends essentially on the possibility of defining asymptotic incoming and outgoing states, which themselves can be described by free particles and their corresponding free fields. 
 
-It is highly gratifying that, under natural conditions, a Wightman field theory allows the precise definition of such asymptotic fields. This was proved by Ruelle, who applied Haag's idea of construct asymptotic ingoing and outgoing states as strong limits in Hilbert space, if a certain ``space-like asymptotic condition'' is verified by the vacuum expectation values of products of field operators. 
+It is highly gratifying that, under natural conditions, a Wightman field theory allows the precise definition of such asymptotic fields. This was proved by Ruelle, who applied Haag's idea of construct asymptotic ingoing and outgoing states as strong limits in Hilbert space, if certain ``space-like asymptotic condition'' is verified by the vacuum expectation values of products of field operators. 
 
-In his theory, Ruelle had to make some natural additional assumptions which go beyond the axioms of Wightman. This is not astonishing, it is easily seen that in a theory which allows a complete particle interpretation the spectrum of the energy-momentum vector must have special properties. 
+In his theory, Ruelle had to make some natural additional assumptions which go beyond axioms of Wightman. This is not astonishing, it is easily seen that in a theory which allows a complete particle interpretation the spectrum of the energy-momentum vector must have special properties. 
 
 \skipline%
 
@@ -449,12 +449,12 @@ Due to condition \eqref{eq:disj_velocit_condit}, for very large values of $t$ th
 	\tcomma
 	i=1,\ldots,n
 \end{eq}
-have their supports separated by large distances, hence in the asymptotic limit $t\to\pm\infty$ they are free (since interactions decay exponentially for $m>0$, see \cite[Section 6.2.2]{Strocchi_2013}). Then to have fields defined for all times we can ``bring them back'' using free evolution, i.e. using the standard dispersion relation $\sqrt{\vec p^2+m^2}$:
+have their supports separated by large distances, hence in the asymptotic limit $t\to\pm\infty$ they are free (since interactions decay exponentially for $m>0$, see \cite[Section 6.2.2]{Strocchi_2013}). Then we can ``bring them back'' using free evolution, i.e. using the standard dispersion relation $\sqrt{\vec p^2+m^2}$:
 \begin{eq}
 	\ophi_m(h,t):=\int\de p\,e^{it\sqrt{\vec p^2+m^2}}\tilde h(p) e^{-itH}\tilde\ophi_m(p)e^{itH}
 \end{eq}
 Such field behaves for $t\to\pm\infty$ as a free field. 
-
+\todo{Non capisco il senso di ``portare indietro'' il campo utilizzando l'evoluzione libera, non potevamo utilizzare direttamente $e^{-itH}\ophi_m(h_i)e^{itH}$? Inizialmente pensavo che servisse a definire un campo libero per $t$ generico, ma $\ophi_m(h,t)$ è libero solo per $t\to\pm\infty$... Suppongo allora che tale definizione serva per dimostrare il teorema di Ruelle.} 
 
 The final result is provided by the following theorem
 \begin{theorem}[{Haag-Ruelle, \cite[Section 4]{Ruelle:1962}; \cite[Theorem 6.2.1]{Strocchi_2013}, \cite[Theorem II.4.2.1]{Haag_1996}, \cite[Theorems 1,2 section 6.3]{Jost.:1965}}]

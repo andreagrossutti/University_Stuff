@@ -102,7 +102,7 @@ The second problem of the perturbative approach is related to the limit $\epsilo
 \begin{eq}	
 	\ueid(t)\ophi_\tin(\vec x,t)\uei(t)=\ophi(\vec x, t)
 \end{eq}
-Indeed the limit $\epsilon\to0$ should be taken in a way compatible with physical properties of the interacting theory, in particular translational invariance and, in high energy physics, Poincaré invariance. 
+Indeed the limit $\epsilon\to0$ should be taken in a way compatible with physical properties of the interacting theory, in particular translational invariance and, in high energy physics, the Poincaré invariance. 
 
 In order to exploit the problem we first need to introduce the spectral representation of the Green functions (the same we introduced for Matsubara and retarded correlators, but from a more general and deep point of view). 
 
@@ -227,7 +227,7 @@ One of the consequences is that, since the 2-point function of the interacting t
 	&=\int_0^{+\infty}\de m^2\,\sigma(m^2)\,i\delta(\vec x-\vec y)
 	=c\,i\delta(\vec x-\vec y)
 \end{eq}
-with $c=\int_0^{+\infty}\de m^2\,\sigma(m^2)$ strictly positive.
+with $c=\int_0^{+\infty}\de m^2\,\sigma(m^2)$ typically strictly positive.
 
 \subsubsection{Lehmann representation (non-relativistic case)}
 
@@ -237,7 +237,7 @@ Let's see how to generalize the previous representation without assuming Lorentz
 In this case in the Hilbert space $\hs$ of our theory we need:
 \begin{enumerate}[label=(\arabic*')]
 	\item A unitary representation $U$ of spacetime translations (one can also add rotational invariance).
-	\item The field $\ophi$ should transform under an irreducible representation of translations under $U$.\footnote{For lattice theories $U$ is restricted to discrete spatial lattice translations and typically the time lattice translations are represented contractively, i.e. through terms of the form $e^{-tH}$ (continuum version of the transfer matrix).} We assume that $\ophi$ transforms as a scalar. 
+	\item The field $\ophi$ should transform under an irreducible representation of translations under $U$.\footnote{For lattice theories $U$ is restricted to discrete spatial lattice translations and typically the time lattice translations are represented contractively, i.e. through terms of the form $e^{-tH}$ (continuum variation of the transfer matrix).} We assume that $\ophi$ transforms as a scalar. 
 \end{enumerate}
 As in the relativistic case, (1') implies that exists a Dirac completeness for the generators $\op{\vec P}$, $ H$ of $U(a)$ with eigenvalues $p_\alpha$. Applying the same strategy as in the relativistic case (the symbol $\pm$ in $\langle\bullet\rangle_{\beta\,\pm}$ indicates whether the operators are bosons or fermions when we compute the average at finite temperature $T$, while $[\bullet,\bullet]_+$ is the anticommutator and $[\bullet,\bullet]_-$ is the commutator)
 \begin{eq}\label{eq:2-point-func-spec-repr-nr}
@@ -301,7 +301,7 @@ which implies
 	0\leq Z(\vec q)\leq1
 \end{eq}
 
-Notice that in the case $Z(\vec q)=1$ the theory is free, indeed for a free particle $A(\omega, \vec q)=\delta(\omega-\omega(\vec q))$. Our problem is that, as we'll see, it is very difficult to satisfy $0\leq Z<1$ in an interacting situation. 
+Notice that the case $Z(\vec q)=1$ the theory is free, indeed for a free particle $A(\omega, \vec q)=\delta(\omega-\omega(\vec q))$. Our problem is that, as we'll see, is very difficult to satisfy $0\leq Z<1$ in an interacting situation. 
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% LECTURE 6 %%%%%%%%
@@ -318,9 +318,9 @@ A resonance is described through a Lorentzian distribution, by replacing the abo
 \begin{eq}
 	\Im\frac1{\omega-f(\omega, \vec q)}=\frac{-\Im f(\omega, \vec q)}{(\omega-\Re f(\omega, \vec q))^2+(\Im f(\omega, \vec q))^2}
 \end{eq}
-where $\omega=\Re f(\omega, \vec q)$ describes the dispersion relation of the unstable particle and $-\Im f(\omega, \vec q)$ its inverse lifetime.
+where $\omega=\Re f(\omega, \vec q)$ describes the dispersion relation of the unstable particle and $\Im f(\omega, \vec q)$ its inverse lifetime.\todo{Qui penso sia $-\Im f$ l'inverse lifetime, visto che $\Im f<0$.} 
 
-If we take $\Im f(\omega, \vec q)\to0^-$ then $\Im \frac1\pi \frac1{\omega-f(\omega,\vec q)}\to\delta(\omega-f(\omega,\vec q))$  with dispersion relation $\omega(\vec q)$ solution of the equation $\omega-\Re f(\omega, \vec q)=0$ and we recover the case of a stable particle:
+If we take $\Im f(\omega, \vec q)\to0^-$ then $\Im\frac1{\omega-f(\omega,\vec q)}\to\delta(\omega-f(\omega,\vec q))$ \todo{Ci va $\frac1\pi$ da qualche parte?} with dispersion relation $\omega(\vec q)$ solution of the equation $\omega-\Re f(\omega, \vec q)=0$ and we recover the case of a stable particle:
 \begin{eq}
 	\delta(\omega-f(\omega, \vec q))=\frac{\displaystyle \delta(\omega-\omega(\vec q))}{\displaystyle \left|\pder f\omega(\omega, \vec q)\right|\Big|_{\omega=\omega(\vec q)}}
 	=Z(\vec q)\delta(\omega-\omega(\vec q))
@@ -346,7 +346,7 @@ This means that in the case of the resonance we just broaden the $\delta$-functi
 \label{fig:res_behav_A_spect_func}
 \end{figure}
 
-Again, provided CCR or CAR (depending on the physical situation) hold,  we again have the contstraint
+Again, provided CCR or CAR (depending on the physical situation) we again have the contstraint\todo{Penso che qui $Z(\vec q)$ vada definito come $\int\de\omega\Im\frac1{\omega-f(\omega, \vec q)}$ }
 \begin{eq}\label{eq:bound_Z_spect_repr}
 	0\leq Z(\vec q)\leq 1
 \end{eq}
@@ -368,7 +368,7 @@ such that
 \end{eq}
 Let's see if such unitary relation between free and interacting field is possible preserving translational invariance. 
 
-Consider a system with only one species of particle created by the real field $\ophi$, since $\bra0\ophi_\tin\ophi_\tin\ket0$ has exactly a pole for $q^2=m^2$ we can identify $\bra0\ophi_\tin\ophi_\tin\ket0$ as responsible for the contribution
+Consider a one particle system, since \todo{Questa affermazione va controllata, non so se è proprio questo il motivo.} $\bra0\ophi_\tin\ophi_\tin\ket0$ has exactly a pole for $q^2=m^2$ we can identify $\bra0\ophi_\tin\ophi_\tin\ket0$ as responsible for the contribution
 \begin{eq}\label{eq:contr_A_relativ_case}
 	Z\delta(q^2-m^2)\theta(q^0)
 \end{eq}
@@ -400,17 +400,17 @@ means that
 \begin{eq}
 	|\langle\psi,(A_n-A)\phi\rangle|\xrightarrow[n\to+\infty]{}0
 \end{eq} 
-Indeed taken $A_n\rightharpoonup A$ and $B_n\rightharpoonup B$ is not ensured that $A_nB_n\rightharpoonup AB$, therefore (with smearing) $\ophi(x)\xrightharpoonup[x^0\to-\infty]{}Z^{1/2}\ophi_\tin(x)$ and $\dot\ophi(y)\xrightharpoonup[y^0\to-\infty]{}Z^{1/2}\dot\ophi_\tin(y)$ does not imply $[\ophi(x),\dot\ophi(y)]\xrightarrow[x^0,y^0\to-\infty]{}Z[\ophi_\tin(x),\dot\ophi_\tin(y)]$ and eq.~\eqref{eq:limit_t_-inf_CCR} does not hold anymore. Therefore if $\ophi(x)\xrightharpoonup[x^0\to-\infty]{}Z^{1/2}\ophi_\tin(x)$ we don't have any inconsistency between CCR and eq.~\eqref{eq:free_int_unit_rela_Z}.\footnote{More about this fact in \cite[Section 9.2]{Greiner_1996}.}
+Indeed taken $A_n\rightharpoonup A$ and $B_n\rightharpoonup B$ is not ensured that $A_nB_n\rightharpoonup AB$, therefore $\ophi(x)\xrightharpoonup[x^0\to-\infty]{}Z^{1/2}\ophi_\tin(x)$ and $\dot\ophi(y)\xrightharpoonup[y^0\to-\infty]{}Z^{1/2}\dot\ophi_\tin(y)$ does not imply $[\ophi(x),\dot\ophi(y)]\xrightarrow[x^0,y^0\to-\infty]{}Z[\ophi_\tin(x),\dot\ophi_\tin(y)]$ and eq.~\eqref{eq:limit_t_-inf_CCR} does not hold anymore. Therefore if $\ophi(x)\xrightharpoonup[x^0\to-\infty]{}Z^{1/2}\ophi_\tin(x)$ we don't have any inconsistency between CCR and eq.~\eqref{eq:free_int_unit_rela_Z}.\footnote{More about this fact in \cite[Section 9.2]{Greiner_1996}.}
 
 Notice that LSZ formula uses precisely such weak limit for $t\to-\infty$, so there is no inconstistence with it.\footnote{The derivation of the LSZ formula for the scalar theory can be found in \cite[Section 9.4]{Greiner_1996}.} 
 
-The serious problem arises when in the perturbative approach is used the Gell-Mann Low formula, which requires the existence of a unitary operator $U^I=\lim_{\epsilon\to0^+}\uei$ interpolating between $\ophi$ and $\ophi_\tin$, or at least $Z \ophi_\tin$, but if $\ophi$ obeys CCR and translation invariance is recovered (i.e. we take the limit $\epsilon\to0^+$) we get back to the difficulty discussed above.
+The serious problem arises when in perturbative approach is used the Gell-Mann Low formula, which requires the existence of a unitary operator $U^I=\lim_{\epsilon\to0^+}\uei$ interpolating between $\ophi$ and $\ophi_\tin$, but if $\ophi$ obeys CCR and translation invariance is recovered (i.e. we take the limit $\epsilon\to0^+$) we get from eq.~\eqref{eq:free_int_unit_rela_Z}  that such unitary operator does not exist (in order to get unitarity we should have $Z=1$, which is forbidden if $\ophi$ is interacting).
 
 \section{The Haag's theorem}
 
 \cite[Section 3]{Earman:2005}; \cite[Section 4.5]{Streater:2000}; \cite[Pages 39-40, 95-96]{Strocchi_2013}\\
 
-The important argument from Haag\footnote{Original paper: \cite{Haag:1955}.} proves that the situation does not improve even if we do not require $\ophi$ to be canonical. Except very special non-relativistic cases, the Hilbert space of the free field is disjoint from the Hilbert space of the interacting field (i.e. doesn't exist any unitary operator which maps the states of one Hilbert space into the states of the other one). 
+The important argument from Haag\footnote{Original paper: \cite{Haag:1955}.} proves that the situation does not improve even if we do not require $\ophi$ to be canonical. Except very special non-relativistic cases, the Hilbert space of the free field is disjoint from the Hilbert space of the interacting field (i.e. doesn't exist any unitary operator which maps the states of one Hilbert spaces into the states of the other one). 
 
 \begin{theorem}[{Haag, \cite[Page 8]{Earman:2005}}]
 	Assume that the unique translationally invariant state of an interacting scalar QFT with Hilbert space $\hs$ and field $\ophi\in\hs$ is the vacuum $\ket0\in\hs$ \footnote{It is reasonable to assume that the only translationally invariant state should be the vacuum, as the presence of any particle broke translational invariance. This is ensured if the underlying free theory has a mass gap, i.e. all particles of our theory are massive. In general these assumptions does not hold if the free theory has massless particles. See \cite[Section 3]{Earman:2005} for further comments about this fact.} (for lattice theories only discrete translations are considered). Suppose that the Hamiltonian of the theory can be written as $H=H_0+H_I$, with $H_0$ free Hamiltonian. 
@@ -419,7 +419,7 @@ The important argument from Haag\footnote{Original paper: \cite{Haag:1955}.} pro
 \end{theorem}
 \begin{proof}
 	Let $U(\vec x)$, $\vec x\in\R^d$, be the unitary representation of translations in $\hs$.
-	Assume that the Fock vacuum $\ket{0_F}$ of the free theory with Hamiltonian $H_0$ is an element of $\hs$, i.e. $\ket{0_F}\in\hs$ and $H_0\ket{0_F}=0$. Denote by $a_F(\vec q)$ the annihilation operator of $H_0$ ($F= \text{free}$), then
+	Assume that the Fock vacuum $\ket{0_F}$ of the free theory with Hamiltonian $H_0$ is an element of $\hs$, i.e. $\ket{0_F}\in\hs$ such that $H_0\ket{0_F}=0$. Denote by $a_F(\vec q)$ the annihilation operator of $H_0$ ($F= \text{free}$), then
 	\begin{eq}
 		U^\dagger(\vec x)a_F(\vec q)U(\vec x)=e^{i\vec q\cdot\vec x}a_F(\vec q)
 	\end{eq}
@@ -443,13 +443,13 @@ where $C$ is a constant $c$-number chosen to give vanishing ground state energy,
 It was the ambition of the second version of his theorem to dispense with any reference to the particular form of the interacting field Hamiltonian. However, Haag's attempted proof of such general version was found ``inconclusive''. The gap was filled by a pair of theorems presented by Hall and Wightman,\footnote{Original paper: \cite{Hall:1957}} which together constitutes the so called \emph{Haag-Hall-Wightman (HHW) theorem}, which applies to any pair of neutral scalar field.
 
 \begin{theorem}[{HHW Part 1, \cite[Section 3, Thm. 1]{Hall:1957}, \cite[Thm. 4.14]{Streater:2000}}]\label{thm:HHW1}
-	Consider two QFTs with scalar fields $\ophi_1$, $\ophi_2$ and Hilbert spaces $\hs_1$, $\hs_2$ and assume (with $j =1,2)$) that
+	Consider two QFTs with scalar fields $\ophi_1$, $\ophi_2$ and Hilbert spaces $\hs_1$, $\hs_2$ and assume that
 	\begin{enumerate}[label=(\roman*)]
 	\item the Euclidean group $\mathbb E_d$ (roto-traslations) is represented unitarily by $U_1$ and $U_2$ on $\hs_1$ and $\hs_2$ respectively:
 	\begin{eq}
 		U_j(\vec a,\vec R)\ophi_j(\vec x,t) U_j^\dagger(\vec a, \vec R)=\ophi_j(\vec R\,\vec x+\vec a,t)
 	\end{eq}
-	\item the representation of the fields is irreducible, i.e. if an operator $\op A$ defined in $\hs_j$ commutes with all the fields $\{\ophi_j\}$ then it is a multiple of the identity, $\op A=a\,\id$ for $a\in\C$;
+	\item the representation of the fields is irreducible, i.e. if an operator $\op A$ defined in $\hs_j$ commutes with all the fields $\{\ophi_j\}\subset\hs_j$ then it is a multiple of the identity, $\op A=a\,\id$ for $a\in\C$;
 	\item the fields are related at some time $t$ by a unitary transformation $V(t)$
 	\begin{eq}\label{eq:HHW-hp-fields}
 		\ophi_2(\vec x,t)=V(t)\ophi_1(\vec x,t) V^\dagger(t)
@@ -517,7 +517,7 @@ Notice that this part of the theorem holds also in the non-relativistic case. Th
 	The statement directly follows from eq.~\eqref{eq:HHW-hp-fields} and eq.~\eqref{eq:HHW1_thesis2}.
 \end{proof}
 
-In principle an operator $V$ satisfying the hypothesis of Gell-Mann Low formula can still exists, and corollary \ref{cor:HHW_1} still admits different dynamics for $\ophi_1$ and $\ophi_2$ since it applies only to equal time correlators. As we consider correlators at different times one should use time evolution operators involving the Hamiltonian, and no useful conclusion can be stated at this point if there is no vacuum polarization. We need one more result, which however works only in the relativistic case:
+In principle an operator $V$ satisfying the hypothesis of Gell-Mann Low formula can still exists, and corollary \ref{cor:HHW_1} still admits different dynamics for $\ophi_1$ and $\ophi_2$ since it applies only for equal time correlators. As we consider correlators at different time one should use time evolution operators involving the Hamiltonian, and no useful conclusion can be stated at this point if there is no vacuum polarization. We need one more result, which however works only in the relativistic case:
 
 \begin{theorem}[{HHW Part 2, \cite[Section 3, Thm. 2]{Hall:1957}, \cite[Thm. 4.16]{Streater:2000}}]\label{thm:HHW2}
 	Under the hypothesis of theorem \ref{thm:HHW1} assume further that the (covering of the) restricted Poincaré group $\poinc$ is represented unitarily by $U_1$ and $U_2$ on $\hs_1$ and $\hs_2$ respectively, i.e.
@@ -531,7 +531,7 @@ In principle an operator $V$ satisfying the hypothesis of Gell-Mann Low formula 
 	and if $\ophi_1$ is a free field of mass $m>0$, then $\ophi_2$ is a free field of mass $m>0$ too.
 \end{theorem}
 \begin{proof}
-	The proof is much more involved than the previous one, since it requires a preliminary result of R. Jost and B. Schroer, which can be found in \cite[Thm. 4.15]{Streater:2000}. We just sketch the argument for the proof: by Poincaré covariance through a boost transformation we can bring any two points in the space-time to equal time, in such a way that corollary \ref{cor:HHW_1} applies. Then the correlator we obtained can be extended to the initial points by analiticity, preserving the value of $Z$ and the position of the pole in the Källen-Lehmann representation. This is enough to prove the statement of the theorem.  
+	The proof is much more involved than the previous one, since requires a preliminary result of R. Jost and B. Schroer, which can be found in \cite[Thm. 4.15]{Streater:2000}. We just sketch the argument for the proof: by Poincaré covariance through a boost transformation we can bring any two points in the space-time to equal time, in such a way that corollary \ref{cor:HHW_1} applies. Then the correlator we obtained can be extended to the initial points by analiticity, preserving the value of $Z$ and the position of the pole in the Källen-Lehmann representation. This is enough to prove the statement of the theorem.  
 \end{proof}
 
 The immediate consequence of the latter is that, if the hypothesis holds, any interacting theory related to a free one by a unitary transformation is actually free. The conclusion that all the fields are free is unacceptable because the intention is to represent an interacting field, therefore at least one of the assumptions of the theorem must be dropped. An obvious candidate is the assumption that at some $t$ there exists a unitary transformation $V(t)$ relating the fields. Therefore the Heisenberg dynamics of the interacting field does not exist in the Hilbert space of the free field, but requires a different Hilbert space, inequivalent to the free one.  
