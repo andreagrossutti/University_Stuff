@@ -7,7 +7,7 @@
 
 \chapter{Introduction} 
 
-Quantum Field Theory (QFT) was born from an attempt to solve inconsistencies of the Dirac's relativistic quantum mechanics (RQM) when the interaction with the electromagnetic field is introduced. However, very soon it become a common framework in many branches of physics, exhibiting an unexpected unity in the description of elementary quantum processes that deeply modifies our view of the physical reality, mostly with a ``pictorial''representation in terms of Feynman diagrams. In fact, quite amazingly, elementary QFT processes can be described qualitatively in terms of  very few ingredients:
+Quantum Field Theory (QFT) was born from an attempt to solve inconsistencies of the Dirac's relativistic quantum mechanics (RQM) when the interaction with the electromagnetic field is introduced. However, very soon it became a common framework in many branches of physics, exhibiting an unexpected unity in the description of elementary quantum processes that deeply modifies our view of the physical reality, mostly with a ``pictorial'' representation in terms of Feynman diagrams. In fact, quite amazingly, elementary QFT processes can be described qualitatively in terms of  very few ingredients:
 \begin{enumerate}[label=\textbullet]
 	\item \emph{propagators}, describing the virtual propagation of quantum particle excitations and drawn as lines, typically oriented;
 	\item \emph{vertices}, describing the process of emission and absorption of particle excitations, possibly changing the nature of the original particle, and drawn as a point from which the propagators of emitted and absorbed particle emerge
@@ -16,7 +16,7 @@ Propagators and vertices are then embodied in diagrams, describing the quantum p
 
 At the same time for a process describing an electron decelerating by emitting photons (which took away the electron kinetic energy) the number of photons emitted can be arbitrarily high, again QM of finite degrees of freedom is insufficient to describe such process. 
 
-Another case in which QM turns out to be insufficient arises in the so called thermodynamic limit in solid state systems. In real physical systems the number of electrons and ions is finite, although usually very big, $N\sim10^{23}$, and the volume $V$ is finite (infrared (IR) cutoff). Furthermore in a crystal the lattice constant $a$ is finite (ultraviolet (UV) cutoff). However, usually we are interested in universal properties, independent on details of $V$ and $a$. Therefore it is convenient also in these case to consider the limit $N\to\infty$, $V\to\infty$ with $N/V$ (or its expectation value) constant (thermodynamic IR limit) and $a\to0$ (continuum UV limit). These limits are not only technically useful, for the non-analyticity appearing the phase transitions, or the appearance of Euclidean invariance, but e.g. the thermodynamic limit guarantees that the theory does not depend on specific details of $V$ and $N$. 
+Another case in which QM turns out to be insufficient arises in the so called thermodynamic limit in solid state systems. In real physical systems the number of electrons and ions is finite, although usually very big, $N\sim10^{23}$, and the volume $V$ is finite (infrared (IR) cutoff). Furthermore e.g. in a crystal the lattice constant $a$ is finite (ultraviolet (UV) cutoff). However, usually we are interested in universal properties, independent on details of $V$ and $a$. Therefore it is convenient also in these case to consider the limit $N\to\infty$, $V\to\infty$ with $N/V$ (or its expectation value) constant (thermodynamic IR limit) and $a\to0$ (continuum UV limit). These limits are not only technically useful, for the non-analyticity appearing in the phase transitions, or the appearance of Euclidean invariance, but e.g. the thermodynamic limit guarantees that the theory does not depend on specific details of $V$ and $N$. 
 
 Notice that if the removal of the IR or the UV cutoff is impossible and we assumed that the theory without the cutoff is the physical one (hence effective field theories in the modern sense are excluded), then the non-existence of the limit implies that the physical theory depends on details at infinite distances (IR) or infinite momentum (UV) in a manner not controllable by regularization. 
 
@@ -68,7 +68,7 @@ with the conditions
 
 \subsubsection{Variable number of particles, $N\to\infty$ limit}
 
-Let's consider now the case in which $N$ is not fixed, and may be take $N\to\infty$. Define the \textbf{vacuum sector} $\hs_0^\epsilon=\C$ and the corresponding normalized vector $\ket{\Psi_0}$ (or $\ket0$) is called the \textbf{vacuum}. Formally set
+Let's consider now the case in which $N$ is not fixed or we take the $N\to\infty$ limit. Define the \textbf{vacuum sector} $\hs_0^\epsilon=\C$ and the corresponding normalized vector $\ket{\Psi_0}$ (or $\ket0$) is called the \textbf{vacuum}. Formally set
 \begin{eq}
 	\fock^\epsilon:=\hs_0^\epsilon\dir\hs_1^\epsilon\dir\dots\dir\hs_N^\epsilon\dir\dots= \bigdir_{N=0}^\infty\hs_N^\epsilon
 \end{eq}
@@ -148,7 +148,7 @@ but since $\ket\alpha$ is only an improper state ($\braket{\alpha}{\alpha'}\sim\
 	a(f):=\int a(\alpha)f(\alpha)\de\alpha
 \end{eq}
 
-A typical example is given for an elementary particle with classical analogue (in $d=3$) by $\ket\alpha=\ket{\vec x}$ or $\ket\alpha=\ket{\vec p}$. If we define $a^\dagger(\vec p)\ket0=\ket{\vec p}$ with $[a(\vec p),a^\dagger(\vec p')]=\delta(\vec p-\vec p')$, then is clear that this is not an ordinary operator, rather an operator valued distribution. When we turn to the $\vec x$-representation of $a$ (i.e. we smear $a(\vec p)$ with $f(\vec p) = \braket{\vec x}{\vec p}$) we get
+A typical example is given for an elementary particle with classical analogue (in $d=3$) by $\ket\alpha=\ket{\vec x}$ or $\ket\alpha=\ket{\vec p}$. If we define $a^\dagger(\vec p)\ket0=\ket{\vec p}$ with $[a(\vec p),a^\dagger(\vec p')]=\delta(\vec p-\vec p')$, then is clear that $a(\vec p)$ is not an ordinary operator, rather an operator valued distribution. When we turn to the $\vec x$-representation of $a$ (i.e. we smear $a(\vec p)$ with $f(\vec p) = \braket{\vec x}{\vec p}$) we get
 \begin{eq}\label{eq:qf_operator}
 	\psi(\vec x):=\int\de^3p\,\braket{\vec x}{\vec p}a(\vec p)=\int\frac{\de^3p}{(2\pi)^3}e^{\frac i\hbar \vec x\cdot\vec p}a(\vec p)
 \end{eq}
@@ -173,7 +173,7 @@ If the particle we are interested in is not elementary the situation is lightly 
 
 \subsubsection{Relativistic case, $N\to\infty$ limit}
 
-Notice that moving from non-relativistic context (where space coordinates and time are treated differently) to the relativistic one, some problems arises. Dirac formulation of relativistic quantum mechanics treats time and space in the same way, making also the time an observable. However, in presence of interactions we have to take care of the consequences of the Heisenberg principle: due to uncertainty on the energy we are able to produce particle-antiparticle pairs, but if we are interested in measuring the position as better as possible, then the uncertainty on the momentum become huge and lot of pairs are produced, and we are no more able to identify which is  the particle we want to measure. Therefore the position is no more an observable in the relativistic framework, and can only be used as a label to describe the evolution of a state, as we do for the time in quantum mechanics. 
+Notice that moving from non-relativistic context (where space coordinates and time are treated differently) to the relativistic one, some problems arises. Dirac formulation of relativistic quantum mechanics treats time and space in the same way, making also the time an observable. However, in presence of interactions we have to take care of the consequences of the Heisenberg principle: due to uncertainty on the energy we are able to produce particle-antiparticle pairs, but if we are interested in measuring the position in the best possible way, then the uncertainty on the momentum become huge and lot of pairs are produced, and we are no more able to identify which is  the particle we want to measure. Therefore the position is no more an observable in the relativistic framework, and can only be used as a label to describe the evolution of a state, as we do for the time in quantum mechanics. 
 
 Since we cannot characterize elementary particles using position as an observable in an irreducible set of observables (as we do in the non-relativistic case, where position, momentum and spin provide an irreducible set of observables), we need to understand how to choose a new set of observables which allows us to build a Fock space for elementary particles using eigenvectors. 
 
@@ -236,7 +236,7 @@ Therefore we need to impose such (anti)commutation relations for our relativisti
 \begin{eq}
 	\phi(x)=\psi(x)+\psi^\dagger(x)
 \end{eq}
-where the presence of both $\psi$ and $\psi^\dagger$ is reminiscent of the fact that the dispersion relation $p_\mu p^\mu=m^2$ has two solutions $\pm\sqrt{\vec p^2+m^2}$, one to one associated to $\psi$ and $\psi^\dagger$. Then $\phi^\dagger\ket0=\psi^\dagger\ket0$, $\phi$ is a self-adjoint field operator and, as we desired,
+where the presence of both $\psi$ and $\psi^\dagger$ is reminiscent of the fact that the dispersion relation $p_\mu p^\mu=m^2$ has two solutions $\pm\sqrt{\vec p^2+m^2}$, one to one associated to $\psi$ and $\psi^\dagger$. Then $\phi\ket0=\psi^\dagger\ket0$, $\phi$ (smeared) is a self-adjoint field operator and, as we desired,
 \begin{eq}
 	[\phi(x),\phi(y)]=0 \tif (x-y)^2<0
 \end{eq}
@@ -245,7 +245,7 @@ or more precisely
 	[\phi(f),\phi(g)]=0 \tif \supp f\sls\supp g
 \end{eq}
 
-However, it is clear that even if $\phi(x)$ is ``localized in $x$'' (so that it cannot affect points space like separated) or better $\phi(f)$ is ``localized in $\supp f$'', conversely the state $\phi(x)\ket0$ is not localized in $x$ and $\phi(f)\ket0$ is not localized in $\supp f$. In fact the \emph{two point correlation function} for a real field reads
+However, it is clear that even if $\phi(x)$ is ``localized in $x$'' (so that it cannot affect points space like separated) or better $\phi(f)$ is ``localized in $\supp f$'', nevertheless the state $\phi(x)\ket0$ is not localized in $x$ and $\phi(f)\ket0$ is not localized in $\supp f$. In fact the \emph{two point correlation function} for a real field reads
 \begin{eq}
 	\bra0\phi(x)\phi(y)\ket0
 	&=\bra0\psi(x)\psi^\dagger(y)\ket0
@@ -308,7 +308,7 @@ If we replace $c$ with the phonon velocity this is the same equation appearing i
 %%%%%%%% LECTURE 2 %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 
-The aim of this section is to understand how CCR and CAR affects the properties of the Fock space we built up. We have seen that the creation and annihilation operators for bosons and fermions satisfy the CCR and the CAR respectively
+The aim of this section is to understand how CCR and CAR affect the properties of the Fock space we built up. We have seen that the creation and annihilation operators for bosons and fermions satisfy the CCR and the CAR respectively
 \begin{eq}
 	[a_i,a_j^\dagger]=\delta_{ij} \tcomma \{a_i,a_j^\dagger\}=\delta_{ij}
 \end{eq}
@@ -320,7 +320,7 @@ For instance this occur in QM for an $N$ particles system in $\R^d$ (finite degr
 
 This is not true anymore for infinitely generated algebras (infinite d.o.f.). Roughly speaking, a unitary operator mapping one representation of the algebra into another one can be thought in zero dimensions as $e^{iN}\in U(1)$ for finite $N$ but as $N\to\infty$ it vanishes. Infinitely generated CCR and CAR algebras have infinite inequivalent representations acting in completely disjoint Hilbert spaces. Moreover each of these possible representations describes completely different physics.
 
-The point is now understand what actually characterizes a specific $\fock$, since CCR and CAR are the same also for infinitely many different Hilbert spaces. The answer is given by the number operator $\op N$: indeed it is a well defined observable if and only if the elements of $\fock$ are created by a specific representation of $a_i^\dagger$, or in other words if the excitations created out from the vacuum by the $a_i^\dagger$ are the ones that can be counted (even if infinitely many) by a specific $\op N$. 
+The point is now to understand what actually characterizes a specific $\fock$, since CCR and CAR are the same also for infinitely many different Hilbert spaces. The answer is given by the number operator $\op N$: indeed it is a well defined observable if and only if the elements of $\fock$ are created by a specific representation of $a_i^\dagger$, or in other words if the excitations created out from the vacuum by the $a_i^\dagger$ are the ones that can be counted (even if infinitely many) by a specific $\op N$. 
 
 Mathematically, $\op N:=\sum_{i\in I}a_i^\dagger a_i$ is well defined in $\hs$ if exists a domain $\dom$ dense in $\hs$ containing $\ket0$ in which $\op N$ is self-adjoint. This also implies that its spectrum is $\spec(\op N)=\N$ by the standard argument seen for the harmonic oscillator in QM. 
 
@@ -356,7 +356,7 @@ This actually happens in practice also in some simple situations such as for \em
 		0 &\tfor \modk>k_F
 	\end{aligned}\end{cases}
 \end{eq}
-where we have two particles for each momentum state due to the Fermi statistics. Recall that $k_F$ is the Fermi momentum. Clearly when $\modk\leq k_F$ the ground state $\ket{\psi_0}$ corresponding to such configuration $n(\vec k)$ is not a vacuum for the annihilation operators $a(\vec k,s)$  because $a(\vec k,s)\ket{\psi_0}\neq0$, since $a(\vec k,s)$ just annihilates a particle which certainly exists in the whole ensemble where all configurations for $|\vec k|\leq k_F$ are occupied. 
+where we have two particles for each momentum state due the spin 1/2 and to the Fermi statistics. Here $k_F$ is the Fermi momentum. Clearly when $\modk\leq k_F$ the ground state $\ket{\psi_0}$ corresponding to such configuration $n(\vec k)$ is not a vacuum for the annihilation operators $a(\vec k,s)$  because $a(\vec k,s)\ket{\psi_0}\neq0$, since $a(\vec k,s)$ just annihilates a particle which certainly exists in the whole ensemble where all configurations for $|\vec k|\leq k_F$ are occupied. 
 
 Nevertheless if one defines the Bogoliubov transformation
 \begin{eq}
@@ -371,7 +371,7 @@ with
 		\end{aligned}
 	\end{cases}
 \end{eq}
-in such a way that the ground state is a Fock vacuum for $a'(\vec k,s)$:
+then the ground state is a Fock vacuum for $a'(\vec k,s)$:
 \begin{eq}
 	a'(\vec k,s)\ket{\psi_0}=0
 \end{eq}
@@ -385,7 +385,7 @@ and we know that is is a finite number, moreover since photons asymptotically (w
 \begin{eq}
 	N=\int\de^3k\frac{|\efield_\trad(\vec k)|^2}{c\modk}
 \end{eq}
-The problem is that the electric field of the radiation behaves in the infrared ($|\vec x|\to\infty$) as $\efield_\trad(\vec x)\sim|\vec x|^{-2}$ implying $\efield(\vec k)\sim\inv\modk$ as $\modk\to0$, i.e. is logarithmically divergent. Hence 
+The problem is that the electric field of the radiation behaves in the infrared ($|\vec x|\to\infty$) as $\efield_\trad(\vec x)\sim|\vec x|^{-2}$ implying $\efield(\vec k)\sim\inv\modk$ as $\modk\to0$. Hence 
 \begin{eq}
 	N\sim\int\de^3k\,\frac{1}{\modk}\left(\frac{1}{\modk}\right)^2=\infty
 \end{eq}
@@ -486,7 +486,7 @@ with $\epsilon=\pm1$ according to the statistics of the operators and
 	\end{cases}
 \end{eq}
 
-By construction $\fock_\tin,\fock_\tout\subset\hs$ (the space of $\ophi$) and if $\ket\tin\in\fock_\tin$ is the state of free particles prepared at $t=-\infty$ and $\ket{\tout'}\in\fock_\tout$ the state of free particles found at $t=+\infty$, then the probability to get this transition is given, according to the rules of QM, by
+By construction $\fock_\tin,\fock_\tout\subset\hs$ (the space of $\ophi$) and if $\ket\tin\in\fock_\tin$ is a state of free particles prepared at $t=-\infty$ and $\ket{\tout'}\in\fock_\tout$ a state of free particles found at $t=+\infty$, then the probability to get this transition is given, according to the rules of QM, by
 \begin{eq}
 	|\braket{\tin}{\tout'}|^2=|\bra\tin\scate\ket{\tin'}|^2
 \end{eq}
@@ -580,7 +580,7 @@ Let $\{\ket n\}$ be the set of eigenfunctions of $H$ ($H\ket n=\cenergy_n\ket n$
 \begin{eq}
 	\bra n O_1^H(t)\ket n=\bra n e^{itH}O_1 e^{-itH}\ket n
 \end{eq}
-The time evolution in the presence of the perturbation of $O_1$ is
+The time evolution of $O_1$ in the presence of the perturbation is
 \begin{eq}
 	O_1^{H+V_\epsilon}(t)={U^{H+V_\epsilon}}^\dagger(t)O_1U^{H+V_\epsilon}(t)
 \end{eq}
@@ -683,7 +683,7 @@ If $H$ is not free the next question is how to compute the retarded correlation 
 \end{eq}
 and the Gell-Mann Low formula applies as before with adiabatic switching as in the relativistic case and the perturbative approach is completely analogous. 
 
-For $T>0$ the situation is more complicated because $H_I$ would appear in two places: in the time evolution eq.~\eqref{eq:evol-op-solid-state} as in $T=0$ but also in the Boltzmann weight $e^{-\beta(H_0+H_I)}$. This makes the standard perturbative treatment inapplicable, since we need to disentangle a perturbation in these two places. The way to solve this issue \todo{Non mi `e chiara una cosa, anche nel formalismo di Matsubara abbiamo lo stesso problema con $H_I$, quello che cambia è che c'è una versione funzionante di Gell-Mann Low  nel caso in cui l'evoluzione temporale sia data da $e^{-\tau H}$ giusto?} is due to Matsubara, and for this reason called the \emph{Matsubara formalism}. It consists in defining new correlators for which an analogue of the Gell-Mann Low formula applies, and then relate these new correlators to the retarded correlators by analytic continuation. Let's see how this works. 
+For $T>0$ the situation is more complicated because $H_I$ would appear in two places: in the time evolution eq.~\eqref{eq:evol-op-solid-state} as in $T=0$ but also in the Boltzmann weight $e^{-\beta(H_0+H_I)}$. This makes the standard perturbative treatment inapplicable, since we need to disentangle a perturbation in these two places. The way to solve this issue is due to Matsubara, and for this reason is called the \emph{Matsubara formalism}. It consists in defining new correlators for which an analogue of the Gell-Mann Low formula applies, and then relate these new correlators to the retarded correlators by analytic continuation. Let's see how this works. 
 
 We define an ``evolution'' of the operators by a new parameter $\tau$:
 \begin{eq}
@@ -709,7 +709,7 @@ and again
 \begin{eq}\label{eq:Mats3}
 	U^I(\tau)=\tp_\tau[e^{-\int_0^\tau\de\tau'\,H_I(\tau')}]
 \end{eq}
-Note that equations~\eqref{eq:Mats1}, \eqref{eq:Mats2} and \eqref{eq:Mats3} are the analogous of equations~\eqref{eq:evol-phiin-uei}, \eqref{eq:rel-uei-U} and \eqref{eq:uei-time-ord} respectively (and can be obtained in with the same procedure).
+Note that equations~\eqref{eq:Mats1}, \eqref{eq:Mats2} and \eqref{eq:Mats3} are the analogues of equations~\eqref{eq:evol-phiin-uei}, \eqref{eq:rel-uei-U} and \eqref{eq:uei-time-ord} respectively (and can be obtained with the same procedure).
 
 We define, in analogy to eq.~\eqref{eq:Green-function}, the \emph{Matsubara correlator / Green function} by
 \begin{eq}\label{eq:dfn-Mats-Green}
@@ -723,13 +723,13 @@ where $Z$ is the \emph{partition function} defined by
 \end{eq}
 with the trace summing over all the multiparticle states of the system. 
 
-Differently from the case of retarded Green functions, for Matsubara Green functions an analogue of the Gell-Mann Low formula applies
+Unlike for the case of retarded Green functions, for Matsubara Green functions an analogue of the Gell-Mann Low formula applies
 \begin{eq}\label{eq:Gell-Man-Low-Temp}
 	\langle\tp_\tau[O_1^H(\tau_1)\cdots O_n^H(\tau_n)]\rangle_\beta=
 	\frac{\langle\tp_\tau[O_1^{H_0}(\tau_1)\cdots O_n^{H_0}(\tau_n)e^{-\int_0^\beta\de\tau'\,H_I(\tau')}]\rangle_\beta^0}
 	{\langle\tp_\tau[e^{-\int_0^\beta\de\tau'\,H_I(\tau')}]\rangle_\beta^0}
 \end{eq}
-where $\langle\ \rangle_\beta^0$ the thermal average computed using $H_0$ as Hamiltonian.
+where $\langle\ \rangle_\beta^0$ is the thermal average computed using $H_0$ as Hamiltonian.
 In comparison with the Gell-Mann Low formula for particle physics, in this case the vacuum expectation values are replaced by the Boltzmann-weighted thermal traces, and the vacuum expectation value of the $S$-matrix operator $U_\epsilon^I(+\infty)$ in the denominator is replaced by the Boltzmann-weighted trace of the interaction operator $U^I(\beta)$ along the euclidean time axis $\tau$. Moreover, the integration over $\tau$ goes up to $\beta$, since $0\leq\tau\leq\beta$. 
 
 Finally, the perturbative treatment prescripts
@@ -739,13 +739,13 @@ Finally, the perturbative treatment prescripts
 	\sum_{\ell=0}^\infty\frac{(-1)^\ell}{\ell!}\langle\tp_\tau[O_1^{H_0}(\tau_1)\ldots O_n^{H_0}(\tau_n)\Big(\int_0^\beta\de\tau'\,H_I(\tau')\Big)^\ell]\rangle_\beta^0
 \end{gathered}\end{eq}
 
-This leads to a series of thermally averaged products of many fields which move according to the free field equations. Therefore Wick's theorem can be applied and we obtain an expansion of the Matsubara Green function completely analogous to the field theoretic one. The only difference is the finite-time interaction. Now everything is again expressed in terms of the free fields and can be computed using Feynman diagrams. 
+This leads to a series of thermally averaged products of many fields which evolve according to the free field equations. Therefore Wick's theorem can be applied and we obtain an expansion of the Matsubara Green function completely analogous to that used in  the (relativistic) field theoretic setting. The only difference is the finite-time interaction. Now everything is again expressed in terms of the free fields and can be computed using Feynman diagrams. 
 
 To be precise in most cases one also need to use an infrared cutoff $\epsilon$, which in this case (the domain of $\tau$ is finite) is required only in the space coordinates, and will be removed at the end of the calculation.
 
 \subsubsection{KMS condition and Matsubara frequencies}
 
-According to the definition eq.~\eqref{eq:dfn-Mats-Green}, the 2-points Matsubara correlator (the only related to the computation of retarded correlators) reads:
+According to the definition eq.~\eqref{eq:dfn-Mats-Green}, the 2-points Matsubara correlator (the only one related to the computation of retarded correlators in perturbation theory) reads:
 \begin{eq}	\label{eq:Matsu-corr-tau12}
 	G_M^{\,O_1O_2}(\tau_1,\tau_2)&=-\frac1Z\big\{\Tr_\hs[e^{-\beta H}e^{\tau_1H}O_1 e^{-\tau_1H}e^{\tau_2H}O_2e^{-\tau_2H}]\theta(\tau_1-\tau_2)\\
 	&\qquad\qquad \pm \Tr_\hs[e^{-\beta H}e^{\tau_2H}O_2 e^{-\tau_2H}e^{\tau_1H}O_1e^{-\tau_1H}]\theta(\tau_2-\tau_1)\big\}=\\
@@ -756,15 +756,15 @@ where in the second step we used the cyclicity of the trace and the choice of th
 \begin{eq}\label{eq:Matsu-corr-tau}
 	G_M^{\,O_1O_2}(\tau)&=-\frac1Z\big\{\Tr_\hs[e^{-\beta H}O_1e^{-\tau H}O_2e^{\tau H}]\theta(\tau) \pm \Tr_\hs[e^{-\beta H}O_2e^{\tau H}O_1e^{-\tau H}]\theta(-\tau)\big\}
 \end{eq}
-By construction $0\leq\tau_i\leq\beta$, $i=1,2$, hence we get that $\tau\in[-\beta,\beta]$. Notice that for $\tau\in[-\beta,0]$, $\tau+\beta\geq0$ 
+By construction $0\leq\tau_i\leq\beta$, $i=1,2$, hence we get that $\tau\in[-\beta,\beta]$. Notice that for $\tau\in[-\beta,0]$, $\tau+\beta\geq0$ and since
 \begin{eq}
 	\Tr_\hs[e^{-\beta H}O_2e^{\tau H}O_1e^{-\tau H}]
 	=\Tr_\hs[O_2e^{(\tau+\beta)H}e^{-\beta H}O_1 e^{-(\tau+\beta)H}]
 	=\Tr_\hs[e^{-\beta H}O_1 e^{-(\tau+\beta)H}O_2e^{(\tau+\beta)H}]
 \end{eq}
-hence $G_M^{\,O_1O_2}(\tau)=\pm \,G_M^{\,O_1O_2}(\tau+\beta)$ and we can regard $G_M^{\,O_1O_2}(\tau)$ as an (anti)periodic function of period $\beta$ defined for any $\beta\in\R$. 
+we have $G_M^{\,O_1O_2}(\tau)=\pm \,G_M^{\,O_1O_2}(\tau+\beta)$ and we can regard $G_M^{\,O_1O_2}(\tau)$ as an (anti)periodic function of period $\beta$ defined for any $\beta\in\R$. 
 
-In general traces can be infinite or the limit $\epsilon\to0$ of the cutoff might not exists, making the perturbative approach not working (notice that an infinite trace is the thermal-equivalent of a divergent vacuum expectation value of the theoretical field case). Nevertheless the periodicity of the Matsubara correlator is a non-perturbative result which hold anyway, even if the definition of the trace lose its meaning. Such relation is called \emph{Kubo-Martin-Schwinger (KMS) condition}:
+In general traces can be infinite or the limit $\epsilon\to0$ of the cutoff might not exists, making the perturbative approach not working (notice that an infinite trace is the thermal-equivalent of a divergent vacuum expectation value of the zero-temperature case). Nevertheless the periodicity of the Matsubara correlator is a non-perturbative result which hold anyway, even if the definition of the trace lose its meaning. Such relation is called \emph{Kubo-Martin-Schwinger (KMS) condition}:
 \begin{eq}\label{eq:KMS-condition}
 	G_M(\tau)=\pm\, G_M(\tau+\beta)
 \end{eq}
@@ -816,7 +816,7 @@ Finally using the explicit values of Matsubara frequencies eq.~\eqref{eq:Matsu-f
 \end{eq}
 Such expression for the Green function is called \emph{Lehmann representation} (of $G_M$, in this case). Notice that in this representation the Fourier series coefficients can be computed in terms of the eigenvalues of $H$ and the matrix elements of $O_1$ and $O_2$ only (for this reason such representation is also called ``spectral'' representation). Notice that these coefficients have poles along the imaginary axis. 
 
-Let's try to find the Lehmann representation of the retarded Green function we introduced before. Actually a more generic definition respect to eq.~\eqref{eq:ret-corr-hermit} of the retarded correlator is used
+Let's try to find the Lehmann representation of the retarded Green function we introduced before. We use instead of eq.~\eqref{eq:ret-corr-hermit} or its fermionic analogue the synthetic notation
 \begin{eq}\label{eq:ret-corr}
 	\retc^{\,O_1O_2}(t,t'):=-i\theta(t-t')\langle[O_1^H(t),O_2^{H}(t')]_\mp\rangle_\beta
 \end{eq}
@@ -937,11 +937,11 @@ We rewrite it in ``normal order'' $\nord\;$ form, i.e. with all the creation ope
 	e^{-\Delta\tau H(a_\alpha^\dagger, a_\alpha)}=\nord{e^{-\Delta\tau H(a_\alpha^\dagger, a_\alpha)}}+O((\Delta\tau)^2)
 \end{eq}
 
-Let us now study the partition function of the system. It reads (where $\beta:=1/(k_bT)$ is the Boltzmann factor)
+Let us now study the partition function of the system. It reads 
 \begin{eq}
 	Z:=\Tr e^{-\beta H}=\int\frac{\de\phi\,\de\phi^*}{2\pi i}e^{-\phi^*\phi}\bra \phi e^{-\beta H}\ket\phi
 \end{eq}
-We now split the interval $[0,\beta]$ into $N$ small interval of length $\beta/N=:\Delta\tau$ and at the ``imaginary times'' multiples of $\Delta\tau$ we insert the Dirac completeness eq.~\eqref{eq:complet_coh_states}. Finally we take the limit $N\to\infty$ so that the intervals becomes arbitrarily small. We get\footnote{Here $\phi_j$ are vectors as in the footnote~\ref{ft:phi_vect}.}
+We now split the interval $[0,\beta]$ into $N$ small intervals of length $\beta/N=:\Delta\tau$ and at the ``imaginary times'' multiples of $\Delta\tau$ we insert the Dirac completeness eq.~\eqref{eq:complet_coh_states}. Finally we take the limit $N\to\infty$ so that the intervals become arbitrarily small. We get\footnote{Here $\phi_j$ are vectors as in the footnote~\ref{ft:phi_vect}.}
 \begin{eq}
 	Z=\lim_{N\to\infty}\int\prod_{j=1}^N\frac{\de\phi_j\,\de\phi_j^*}{2\pi i}e^{-\phi_j^*\phi_j}\bra{\phi_j}e^{-\Delta\tau H}\ket{\phi_{j-1}}
 	\twhere
@@ -1020,7 +1020,7 @@ with the \emph{Euclidean action} defined in terms of Grassmann fields
 
 Again one can give a rigorous meaning to the above formulas for free fields by proving that $\pide\xi^*(\tau)\pide\xi(\tau)\,e^{-S(\xi^*,\xi)}$ is a ``Grassmann Gaussian integral''. 
 
-In the following we denote by $\phi$ both the complex fields in the bosonic case and Grassmann fields in the fermionic case.
+In the following we denote by $\phi$ both the complex fields in the bosonic case and the Grassmann fields in the fermionic case.
 
 \subsubsection{Computation of Matsubara Green functions}
 
@@ -1035,7 +1035,7 @@ Then according to eq.~\eqref{eq:dfn-Mats-Green} in Fock space the Matsubara Gree
 		{\Tr_{\fock^\pm}\big(e^{-\beta H}\tp_\tau[a_{\alpha_1}(\tau_1)\cdots a_{\alpha_n}(\tau_n)a_{\alpha_{n+1}}^\dagger(\tau_{n+1})\cdots a^\dagger_{\alpha_{2n}}(\tau_{2n})]\big)}
 		{\Tr_{\fock^\pm}e^{-\beta H}}
 \end{eq}
-where we consider $\fock^+$ for bosonic fields and $\fock^-$ for fermionic fields. This formula holds provided that $Z=\Tr_{\fock^\pm}e^{-\beta H}$ is finite. The requirement of finite volume makes this assumption more easily satisfied, but obviously there may be problems thermodynamic limit. 
+where we consider $\fock^+$ for bosonic fields and $\fock^-$ for fermionic fields. This formula holds provided that $Z=\Tr_{\fock^\pm}e^{-\beta H}$ is finite. The requirement of finite volume makes this assumption more easily satisfied, but obviously there may be problems with the thermodynamic limit. 
 
 The time ordering product can be removed by means of a permutation $\pi$ that puts the imaginary times in chronological order, $\tau_{\pi(i)}>\tau_{\pi(i+1)}$, then using notation
 \begin{eq}
