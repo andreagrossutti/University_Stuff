@@ -234,7 +234,7 @@ The model is invariant under the $U(1)$ gauge transformation\footnote{Notice tha
 \begin{eq}
 	e^{-i\beta(x)}\partial_\mu e^{i\beta(x)} = i\partial_\mu\beta(x)
 \end{eq}
-is not really well defined, since $\beta(x)$ may be defined with ``jumps'' of $2\pi$ (more formally, we have $\beta\, :\, \R^2\to\R/2\pi\Z$) hence its derivative is not completely well defined on $\R$. Instead, $e^{i\beta(x)}$ is a smooth function, hence its derivative is well defined and smooth as well. However we'll sometime use such notation since it is more compact.}
+is not really well defined, since $\beta(x)$ may be defined with ``jumps'' of $2\pi$ (more formally, we have $\beta\, :\, \R^2\to\R/2\pi\Z$) hence its distributional derivative would involve also $\delta$-functions with support on the jumps. It is however quite common to use the notation $\partial_\mu \beta$ to actually denote $\frac {1}{i}e^{-i\beta(x)}\partial_\mu e^{i\beta(x)} $ , and sometimes we will follow this convention since it is more compact. Notice that since $e^{i\beta(x)}$ is a smooth function,  its derivative is well defined and smooth as well.}
 \begin{eq}\label{eq:U(1)-gauge-vortex}
 	\begin{cases}\begin{aligned}
 		\phi(x)  \quad&\to\quad e^{i\beta(x)}\phi(x)\\
@@ -270,8 +270,9 @@ with $\beta(\vec x)$ globally defined of compact support (indeed it cannot act o
 %%%%%%%% LECTURE 17 %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 
-The existence of degenerate global minima (up to gauge equivalence) labelled by $\theta$ suggests that the global $U(1)$ symmetry is spontaneously broken. Indeed the degeneracy of the vacuum cannot be regarded as a manifestation of the (local) gauge symmetry breaking of the theory, since gauge symmetries cannot act at boundaries of the spacetime, whereas the action of $e^{i\theta}$ extends also at the infinity.
-The presence of spontaneously symmetry breaking of the theory can be shown perturbatively (as in the SM), non-perturbatively in some specific gauge (e.g. in the Coulomb gauge $\vec\nabla\cdot\vec A=0$, for which a change of boundary conditions at $\infty$ is impossible), and using a non-local order parameter (which turns out to have a non zero expectation value independent from the gauge choice). 
+The existence of degenerate global minima (up to gauge equivalence) labelled by $\theta$ suggests that the global $U(1)$ symmetry is spontaneously broken. 
+It is worthwhile at this point to insert a brief comment on the "spontaneous breaking of local gauge invariance", since sometimes this issue is not clearly discussed in the literature. Actually the local gauge invariance not touching the b.c. is just a redundancy in the description of the system, hence the physics does not change if we introduce a gauge-fixing. The global component of a local gauge invariance instead is a true symmetry, but it cannot be spontaneously broken (Elitzur theorem) without the introduction of gauge-fixing or non-local fields with support reaching infinity.
+In the present model the appearance of spontaneously symmetry breaking in the theory can be shown perturbatively (as in the Standard Model), non-perturbatively in some specific gauge (e.g. in the Coulomb gauge $\vec\nabla\cdot\vec A=0$, for which a change of boundary conditions at $\infty$ is impossible), and using a non-local order parameter (which turns out to have a non zero expectation value independent from the gauge choice). 
 
 Due to the \emph{Anderson-Higgs mechanism} (in high energy physics also called \emph{BEH}, due to Brout-Englert-Higgs\footnote{Nobel prizes in the 2013.}), let $v=\langle\phi\rangle$ be the (real) expectation value of $\phi$ in the broken symmetry phase, the gauge field $A_\mu$ acquire a mass gap, whose inverse in condensed matter (in the Landau-Ginzburg model) is called \emph{penetration depth}, given in the quadratic approximation by
 \begin{eq}\label{eq:mass-gauge-vortex}
@@ -288,7 +289,7 @@ the Higgs field $\chi(x)$ acquires a mass gap , whose inverse in condensed matte
 \begin{eq}\label{eq:mass-Higgs-vortex}
 	m_H=2\sqrt\lambda v
 \end{eq}
-This can be easily proved: inserting the expansion eq.~\eqref{eq:vortex-Higgs-field-expansion} in the Lagrangian eq.~\eqref{eq:lag-vortex} we get
+This can be easily proved: inserting  eq.~\eqref{eq:vortex-Higgs-field-expansion} in the Lagrangian eq.~\eqref{eq:lag-vortex} we get
 \begin{eq}
 	\lag&=-\frac1{4e^2}F_{\mu\nu}^2+\vert (\partial_\mu-in_eA_\mu)[\left(v+\chi\right)e^{i\theta}]\vert^2-\lambda(\vert\left(v+\chi\right)e^{i\theta}\vert^2-v^2)^2\\
 	&=-\frac1{4e^2}F_{\mu\nu}^2+\vert \partial_\mu\chi+ i(v+\chi)(\partial_\mu\theta -n_eA_\mu)\vert^2-\lambda(2v\chi+\chi^2)^2
@@ -313,7 +314,7 @@ where $\alpha$ is the angle in polar coordinates of $\vec x$ at $\infty$, $\vec 
 \end{eq}
 so $A_j$, asymptotically, is the pure gauge 
 \begin{eq}\label{eq:vorex-energy-finiteness-cond2}
-	A_j\xrightarrow[\modx\to\infty]{}\frac1{in_e}e^{-if(\alpha)}\partial_je^{if(\alpha)}=\frac1{in_e}\partial_j\log e^{if(\alpha)} 
+	A_j\xrightarrow[\modx\to\infty]{}\frac1{in_e}e^{-if(\alpha)}\partial_je^{if(\alpha)}=\frac1{in_e}\partial_j\log e^{if(\alpha)}= \frac1{n_e}\partial_j f(\alpha)
 \end{eq}
 
 As a consequence of eq.~\eqref{eq:vorex-energy-finiteness-cond1} we have, asymptotically, the following map
@@ -321,7 +322,7 @@ As a consequence of eq.~\eqref{eq:vorex-energy-finiteness-cond1} we have, asympt
 	e(\vec x):=\frac{\phi(\vec x)}{\vert\phi(\vec x)\vert}\quad:\quad S^1&\quad\longrightarrow\quad S^1\\[-1em]
 	\alpha\,&\quad\longmapsto\quad e^{if(\alpha)}
 \end{eq}
-which, if continuous, define a homotopy class in $\pi_1(S^1)\cong\Z$.\footnote{The homotopy class $\pi_1(S^1)$ is the set of equivalent maps from $S^1$ to $S^1$, where the equivalence is defined as follows: two maps are said equivalent if it is possible to deform one map into the other continuously, or better, if exists a continuous map interpolating between the two initial ones. The set $\pi_1(S^1)$ is isomorphic to $\Z$ since to each equivalence class in $\pi_1(S^1)$ can be associated the number of windings of the map around the second circle when the argument of the map goes from $0$ to $2\pi$ once.} These maps are classified by the number of times that $e^{if(\alpha)}$ covers the circle labelled by $\alpha$. For example, if $f(\alpha)=n\alpha$, the homotopy class of $e^{if(\alpha)}$ is $[e^{if(\alpha)}]=n\in\pi_1(S^1)$. 
+which, if continuous, defines a homotopy class in $\pi_1(S^1)\cong\Z$.\footnote{The homotopy class $\pi_1(S^1)$ is the set of equivalent maps from $S^1$ to $S^1$, where the equivalence is defined as follows: two maps are said equivalent if it is possible to deform one map into the other continuously, or better, if exists a continuous map interpolating between the two initial ones. The set $\pi_1(S^1)$ is isomorphic to $\Z$ since to each equivalence class in $\pi_1(S^1)$ can be associated the number of windings of the map around the second circle when the argument of the map goes from $0$ to $2\pi$ once.} These maps are classified by the number of times that $e^{if(\alpha)}$ covers the circle labelled by $\alpha$. For example, if $f(\alpha)=n\alpha$, the homotopy class of $e^{if(\alpha)}$ is $[e^{if(\alpha)}]=n\in\pi_1(S^1)$. 
 In fact, using continuous gauge transformations one can always put $f(\alpha)$ in the form $n\alpha$ for some $n\in\Z$. Let's prove this.
 From eq.~\eqref{eq:vorex-energy-finiteness-cond2} we have that 
 \begin{eq}
@@ -434,7 +435,7 @@ We see that the piece in the square brackets gives the exponential behaviour, an
 \end{eq}
 hence $g_A(r)$ decays exponentially with the penetration depth $m_A^{-1}$. 
 
-Doing the same for the $\phi$, we have the following equation of motion:
+Doing the same for $\phi$, we have the following equation of motion:
 \begin{eq}
 	\Delta_A\phi+m_e^2e^2\phi(|\phi|^2-v^2)=0
 \end{eq}
@@ -524,7 +525,7 @@ The configurations saturating the \emph{BPS bound} (in this case $m_A=m_H$) are 
 
 \skipline
 
-From eq.~\eqref{eq:BPS-bound-vortex} we see that for $\lambda>\half (n_ee)^2$ the energy density is greater than in the non-interacting case, hence vortices repels each others, whereas for $\lambda<\half (n_ee)^2$ the energy density is smaller and vortices attract each others. 
+From eq.~\eqref{eq:BPS-bound-vortex} we see that for $\lambda>\half (n_ee)^2$ the energy density is greater than in the non-interacting case, hence vortices repel each others, whereas for $\lambda<\half (n_ee)^2$ the energy density is smaller and vortices attract each others. 
 
 For the BPS solution 
 \begin{eq}
@@ -672,9 +673,9 @@ Let's see how $A_{i}$ behaves on such sphere. Using definition eq.~\eqref{eq:cov
 \end{eq}
 and then
 \begin{eq}\label{eq:vortex-gauge-potential-singular-current}
-	A_{i}=\underbrace{\vphantom{\int_T}\frac i2\frac{e^{-i\theta}D_{i}\phi-e^{i\theta}(D_{i}\phi)^*}{|\phi|}}_{\text{regular term $a_i$}}+\underbrace{\vphantom{\int_T}\frac i2(e^{i\theta}\partial_{i} e^{-i\theta}-e^{-i\theta}\partial_{i} e^{i\theta})}_{\text{singular term}}
+	A_{i}=\underbrace{\vphantom{\int_T}\frac i2\frac{e^{-i\theta}D_{i}\phi-e^{i\theta}(D_{i}\phi)^*}{|\phi|}}_{\text{invariant term $a_i$}}+\underbrace{\vphantom{\int_T}\frac i2(e^{i\theta}\partial_{i} e^{-i\theta}-e^{-i\theta}\partial_{i} e^{i\theta})}_{\text{singular term}}
 \end{eq}
-where the first term is gauge-invariant, hence globally defined, and the curl of the second term is non-vanishing if and only if such term is singular (which may happen for $|\phi|=0$, since $\theta$ is ill defined at this point). 
+where the first term is gauge-invariant, hence globally defined, and the (maximally extended) curl of the second term is non-vanishing if and only if such term is singular (which may happen for $|\phi|=0$, since $\theta$ is ill defined at this point). 
 Recall that $\theta(x)$ is an angle around the center of the vortex, where $|\phi|=0$ due to eq.~\eqref{eq:phi-vanish-center}. Without loss of generality we can assume that the center of the vortex coincide with the origin of the space. In the sense of distributions, the spatial components of the field strength of the singular term above is\footnote{The distribution $\delta_{|\phi|^{-1}(0)}( x)$ is made of $\delta$-distributions centered at points of $|\phi|^{-1}(0)$.}
 \begin{eq}
 	\lctens^{ij}\partial_i\left(\frac i2(e^{i\theta}\partial_j e^{-i\theta}-e^{-i\theta}\partial_j e^{i\theta})\right)
@@ -684,7 +685,7 @@ since the dependence of $\theta$ on the space coordinates goes with $\arctan\fra
 \begin{eq}\label{eq:vortex-field-strength-transverse-plane}
 	F_{ij}( x)=\partial_{[i}a_{j]}(x)+2\pi\,\delta_{|\phi|^{-1}(0)}(x)\lctens_{ij}
 \end{eq}
-where $a_\nu$ denotes the regular term of eq.~\eqref{eq:vortex-gauge-potential-singular-current}. 
+where $a_\nu$ denotes the globally defined invariant term of eq.~\eqref{eq:vortex-gauge-potential-singular-current}, so that the first term does not contribute to eq.~\eqref{eq:vorticity-compact-disk-in} since the sphere $S^2$ has no boundary.. 
 
 We see then that one can identify the locus of the defect in $F_{\mu\nu}$ in terms of a ``singular current'' (i.e. ``$\delta$-like'') having the support where $|\phi|$ vanishes, which is necessarily closed because the boundary condition at infinity is $|\phi|=v$. 
 
@@ -941,7 +942,7 @@ pattern radius = 0pt}
 
 \skipline
 
-If the total sum of topological charges (vorticity) of the vortices in a correlator is non-vanishing, e.g. $n\in\Z^*$, we can define the correlator with a compensating charge $-n$ and send it to $\infty$, as in fig.~\ref{fig:combination-of-vorticities}. Since the mass of the vortex is finite, the contribution in the action of the defect associated to the compensating charge is infinite. This implies that all correlation functions with vanishing total charge are $0$, or in other words there are no coherent superposition of states with different total vorticity. Since these correlators can be interpreted as scalar products between states with quantum vortices in the reconstructed Hilbert space, this means that the Hilbert space obtained by OS reconstruction is splitted in superselection sectors, $\hs_n$, labelled by the total vorticity charge $n\in\Z$:
+If the total sum of topological charges (vorticity) of the vortices in a correlator is non-vanishing, e.g. $n\in\Z^*$, we can define the correlator with a compensating charge $-n$ and send it to $\infty$, as in fig.~\ref{fig:combination-of-vorticities}. Since the mass of the vortex is finite, the contribution in the action of the defect associated to the compensating charge is infinite. This implies that all correlation functions with vanishing total charge are $0$, or in other words there are no coherent superposition of states with different total vorticity. Since these correlators can be interpreted as scalar products between states with quantum vortices in the reconstructed Hilbert space, this means that the Hilbert space obtained by OS reconstruction is decomposed in superselection sectors, $\hs_n$, labelled by the total vorticity charge $n\in\Z$:
 \begin{eq}	
 	\hs=\bigoplus_{n\in\Z}\hs_n
 \end{eq}
@@ -985,11 +986,11 @@ One can prove (rigorously in the lattice approixmation) that actually $\op v(x)$
 
 \skipline
 
-Notice that all the above discussion was in absence of external magnetic field. If an external uniform magnetic field is introduced\footnote{Of curse in the thermodynamic limit it would need an infinite energy.} then the globally neutral gas of vortices discussed above turns into a gas with total vortex charge per unit area comparable with the uniform magnetic flux through that area.
+Notice that all the above discussion was done in absence of external magnetic field. If an external uniform magnetic field is introduced\footnote{Of curse in the thermodynamic limit it would need an infinite energy.} then the globally neutral gas of vortices discussed above turns into a gas with total vortex charge per unit area comparable with the uniform magnetic flux through that area.
 
 \skipline
 
-If we have no symmetry breaking of the global $U(1)$, both in the relativistic and the non-relativistic case, at the minima we have $|\phi|\sim0$ instead of $|\phi|\sim v$, and we have a condensation of defects reaching the infinity, making the additional defect from $x_3$ to $\infty$ in fig.~\ref{fig:combination-of-vorticities} invisible. So the Hilbert space of states cannot be splitted into superselection sectors 
+If we have no symmetry breaking of the global $U(1)$, both in the relativistic and the non-relativistic case, at the minima we have $|\phi|\sim0$ instead of $|\phi|\sim v$, and we have a condensation of defects reaching the infinity, making the additional defect from $x_3$ to $\infty$ in fig.~\ref{fig:combination-of-vorticities} invisible. So the Hilbert space of states cannot be decomposed into superselection sectors 
 \begin{eq}
 	\hs=\hs_0
 \end{eq}

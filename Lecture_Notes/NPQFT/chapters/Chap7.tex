@@ -9,9 +9,9 @@
 
 \chapter{Monopoles}
 
-\todo{Qui non ho alcuna bibliografia, se mi suggerisce qualche titolo lo aggiungo volentieri}
+\cite{Shnir_2005}\\
 
-The last solitons we will take into account are the monopoles, in particular we will consider general monopoles and t'Hooft-Polyakov monopoles. As usual we start from them classical theory. 
+The last solitons we will take into account are the monopoles, in particular we will consider Dirac and t'Hooft-Polyakov monopoles. As usual we start from them classical theory. 
 
 \section{Introduction}
 
@@ -86,7 +86,7 @@ In fact, assume for simplicity the temporal gauge $A^0=0$ and the global existen
 hence the magnetic charge associated to $j_m$ should vanish if the gauge potential exists globally.
 This problem can be avoided in two ways:
 \begin{enumerate}[label=\textbullet]
-	\item In the \emph{Wu-Yang approach} we can define $A^\mu$ only on patches (open sets) $\{U_\alpha\}_{\alpha\in A}$ covering $S^2$, then in $U_\alpha\cap U_\beta$ we have $F^{\mu\nu}_\alpha=F^{\mu\nu}_\beta$, $\alpha,\beta\in A$, but $A^\mu_\alpha=A^\mu_\beta+\partial^\mu\lambda_{\alpha\beta}$ for some gauge transformation $\delta A=\partial^\mu\lambda_{\alpha\beta}$. In this way $F^{\mu\nu}$ is still defined globally even if $A^\mu$ isn't, but this is enough in the classical description of physics. 
+	\item In the \emph{Wu-Yang approach} we define $A^\mu$ only on patches (open sets) $\{U_\alpha\}_{\alpha\in A}$ covering $S^2$, then in $U_\alpha\cap U_\beta$ we have $F^{\mu\nu}_\alpha=F^{\mu\nu}_\beta$, $\alpha,\beta\in A$, but $A^\mu_\alpha=A^\mu_\beta+\partial^\mu\lambda_{\alpha\beta}$ for some gauge transformation $\delta A=\partial^\mu\lambda_{\alpha\beta}$. In this way $F^{\mu\nu}$ is still defined globally even if $A^\mu$ isn't, but this is enough in the classical description of physics. 
 
 	\item The other alternative is the one introduced by Dirac, that is the \emph{Dirac string} $j^{\mu\nu}$, introduced in the previous chapter for the quantization of vortices, such that
 	\begin{eq}
@@ -192,7 +192,7 @@ The problem here is that  in the case of the monopole even the semi-classical ap
 
 \skipline
 
-Consider our $U(1)$ group as a subgroup of $SU(2)$, and recall that a $4\pi$ rotation in $SU(2)$ can be deformed to the identity, since $SU(2)$ is a double cover of $SO(3)$. Suppose that we have a $SU(2)$ gauge theory, instead of the $U(1)$ discussed up to now, in which we are able to construct a solution of the previous equations of motion that behaves like a $U(1)$ monopole of charge 2 at large distances from its center but near the center can explore the entire structure of $SU(2)$. 
+Consider our $U(1)$ group as a subgroup of $SU(2)$, and recall that a $4\pi$ rotation in $SU(2)$ can be deformed to the identity, since $SU(2)$ is a double cover of $SO(3)$. Suppose that we have a $SU(2)$ gauge theory, instead of the $U(1)$ discussed up to now, in which we are able to construct a solution of the previous equations of motion that behaves like a $U(1)$ monopole of charge 2 at large distances from its center but near the center it can explore the entire structure of $SU(2)$. 
 
 In particular, from eq.~\eqref{eq:magn-charge-Dirac-monopole} this means that at high energies (small $r$) the whole structure of the $SU(2)$ group is evident, whereas at low energies (large $r$) only the subgroup $U(1)$ is manifest, that is the $SU(2)$ group structure is ``spontaneously broken'' at low energies, and only the $U(1)$ generator remains unbroken. 
 
@@ -202,7 +202,7 @@ Then the previous argument implying infinite energy would not be valid anymore, 
 
 \cite[Chapter 4]{Shifman:2012}\\
 
-The \emph{t'Hooft-Polyakov monopole} was first introduced in the \emph{Georgi-Glashow model}, which was one of the first attempts to get a unified theory of weak and electromagnetic interactions (now proved to be wrong, but so suggestive that Glashow shared the Nobel prize with the inventors of the Standard Model, Weinberg and Salam). The basic underlying idea was that the $U(1)$ gauge symmetry of QED was just a subgroup of a larger gauge symmetry, $SO(3)$, ``spontaneously broken''\footnote{Here the concept of ``spontaneous symmetry breaking'' apply either perturbatively, in some gauges, or using a non local order parameter, not as in section~\ref{sec:SSB}.} to $U(1)$. By the Anderson-Higgs mechanism the $U(1)$ component of the gauge field create massless photons, whereas the other 2 components, corresponding to the spontaneously broken symmetry, create massive vector mesons $W_\mu^\pm$.\footnote{The $Z^0$ massive uncharged meson was missing: it was introduced in the Standard Model to describe neutral currents, by replacing $SU(3)$ with $SU(2)\times U(1)$.} 
+The \emph{t'Hooft-Polyakov monopole} was first introduced in the \emph{Georgi-Glashow model}, which was one of the first attempts to get a unified theory of weak and electromagnetic interactions (now proved to be wrong, but so suggestive that Glashow shared the Nobel prize with the inventors of the Standard Model, Weinberg and Salam). The basic underlying idea was that the $U(1)$ gauge symmetry of QED was just a subgroup of a larger gauge symmetry, $SO(3)$, ``spontaneously broken''\footnote{Here again the concept of ``spontaneous symmetry breaking'' apply either perturbatively, in some gauges, or using a non local order parameter.} to $U(1)$. By the Anderson-Higgs mechanism the $U(1)$ component of the gauge field create massless photons, whereas the other 2 components, corresponding to the spontaneously broken symmetry, create massive vector mesons $W_\mu^\pm$.\footnote{The $Z^0$ massive uncharged meson was missing: it was introduced in the Standard Model to describe neutral currents, by replacing $SO(3)$ with $SU(2)\times U(1)$.} 
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% LECTURE 21 %%%%%%%%
@@ -210,7 +210,7 @@ The \emph{t'Hooft-Polyakov monopole} was first introduced in the \emph{Georgi-Gl
 
 \skipline
 
-Let's start the description of the Georgi-Glashow model from the fields of the theory. The $SO(3)$ \todo{$SU(2)$?} gauge field is described by 
+Let's start the description of the Georgi-Glashow model from the fields of the theory. The $SO(3)$ gauge field is described by 
 \begin{eq}
 	A:= A_\mu^a\frac{\tau^a}2
 	\tfor
@@ -261,11 +261,11 @@ In order to choose a vacuum configuration, let's impose $SO(3)$ breaking boundar
 	\quad\leftrightarrow\quad
 	\phi(\infty)=v\frac{\tau^3}2
 \end{eq}
-The direction of the vector $\phi^a(\infty)$ in the $SO(3)$ (inducing the $SO(3)$ breaking) can be chosen arbitrarily, but when once it still leaves a $U(1)$ subgroup of $SO(3)$ unbroken, corresponding to rotations around the chosen axis, e.g.
+The direction of the vector $\phi^a(\infty)$ in the $SO(3)$ (inducing the $SO(3)$ breaking) can be chosen arbitrarily, but then it still leaves a $U(1)$ subgroup of $SO(3)$ unbroken, corresponding to rotations around the chosen axis, e.g.
 \begin{eq}
 	\lexp{i\alpha\frac{\tau^3}2}\underbrace{v\frac{\tau^3}2}_{\phi(\infty)}\lexp{-i\alpha\frac{\tau_3}2}=\underbrace{v\frac{\tau^3}2}_{\phi(\infty)}
 \end{eq}
-At least perturbatively one often perform a gauge transformation (\emph{unitary gauge}) reducing $\phi=v\frac{\tau^3}2$ everywhere. Then $A_\mu^3$ remains gapless and we identify it with the ``photon field'', whereas
+At least perturbatively one often perform a gauge transformation (\emph{unitary gauge}) reducing $\phi$ to $v\frac{\tau^3}2$ everywhere. Then $A_\mu^3$ remains gapless and we identify it with the ``photon field'', whereas
 \begin{eq}
 	W_\mu^\pm=\frac1{\sqrt2}\frac1g(A_\mu^1\pm iA_\mu^2)
 \end{eq}
@@ -298,6 +298,7 @@ and its ``magnetic charge'' in units of $g$ can be defined as
 \begin{eq}\label{eq:magn-charg-monop}
 	Q_m=\lim_{R\to\infty}\frac1g\int_{S_R^2}\de\Sigma^i\, B_i^a\frac{\phi^a}{|\phi|}
 \end{eq}
+which reduces to the standard $U(1)$ magnetic charge in the unitary gauge.
 
 \skipline
 
@@ -308,8 +309,8 @@ Let us consider the case $N=1$, this clearly occours if at $\infty$ we have
 \begin{eq}	\label{eq:behav-phi-infty-monopole}
 	\phi^a\underset{r\to\infty}\sim v\frac{x^a}{r}=:vn^a
 \end{eq}
-We see that the group index ``$a$'' is referred to as a group index but also as a spatial index, hence gets ``entangled'' with a coordinate index of $\vec x$ (this is possible since in both cases it runs over 3 components), whereas this would be impossible in $U(1)$). 
-Furthermore finiteness of the energy imposes also that as $r\to\infty$ the derivative $D_i\phi^a$ decays faster than $r^{-3/2}$. For eq.~\eqref{eq:behav-phi-infty-monopole} this means that 
+We see that the group index ``$a$'' introduced as a group index turns out to behave also as a spatial index, hence gets ``entangled'' with a coordinate index of $\vec x$ (this is possible since in both cases it runs over 3 components), whereas this would be impossible in $U(1)$). 
+Furthermore finiteness of the energy imposes also that as $r\to\infty$ the derivative $D_i\phi^a$ decays faster than $r^{-3/2}$. From eq.~\eqref{eq:behav-phi-infty-monopole} this means that 
 \begin{eq}
 	\partial_i\phi^a=\partial_i\left(\frac{vx^a}r\right)=\frac vr(\delta^{ai}-n^an^i)\underset{r\to\infty}\sim\frac1r
 \end{eq}
@@ -356,7 +357,7 @@ and then
 	=\lim_{R\to\infty}\frac1g\int_{S_R^2}{r^2\sin\theta\,\de\theta\,\de\varphi}\,\frac{x^i}r\, \frac{x_i}{r^3}
 	=\frac{4\pi}g
 \end{eq}
-and this is exactly the expected \todo{Non mi è ben chiaro come mai questa sia la forma corretta della carica del monopolo.} magnetic charge for a $N=1$ monopole, hence fields as in eq.~\eqref{eq:monop-finite-energy-N-1} are very good candidates for the asymptotic description of the monopole. 
+and this is exactly the expected magnetic charge for a $N=1$ monopole, hence fields as in eq.~\eqref{eq:monop-finite-energy-N-1} are very good candidates for the asymptotic description of the monopole. 
 
 \skipline
 
@@ -523,10 +524,10 @@ Again we construct monopole quantum field operators from Euclidean monopole corr
 \cite[Chapter 7]{Strocchi_2013}\\
 
 The electric charge in scalar electrodynamic appears as the generator of a global subgroup of a local gauge invariance, this implies an important difference with respect to the topological charges previously discussed. 
-Up to now, starting from the correlation functions of the (Euclidean) fields, via reconstruction theorems, we have constructed a Hilbert space of states which was naturally endowed with a positive definite scalar product. 
+Up to now, starting from the correlation functions of the (Euclidean) fields via reconstruction theorems we have constructed a Hilbert space of states which was naturally endowed with a positive definite scalar product. 
 However for gauge theories, both in the relativistic (such as QED) and non-relativistic cases, the situation is not so simple. The key issue is that a local gauge invariance implies a Gauss' law. 
 
-Let us first consider the problem classically. The Noether's theorem for a global (gauge) invariance yields a conserved current $j_\mu$ using equations of motions (of both the gauge field and the charged field). However, if we mimic its standard proof in the case of local gauge invariance we get the conservation of the current without using the equations of motions of the charged field and the corresponding charge can be determined from measurements at infinity, hence the charge is not local. 
+Let us first consider the problem classically. The Noether's theorem for a global (gauge) invariance yields a conserved current $j_\mu$ using equations of motions of all the fields. However, if we mimic its standard proof in the case of local gauge invariance we get the conservation of the current without using the equations of motions of the charged field and the corresponding charge can be determined from measurements at infinity, hence the charge is not local. 
 
 \skipline
 
@@ -595,7 +596,7 @@ associated to $j^\nu$, we see that such global charge does not depend on the loc
 
 \skipline
 
-Since property eq.~\eqref{eq:conserved-curr-em-FS} is a key consequence of the local gauge invariance we must impose it also at quantum level at least in the weakest possible sense, as we are going to see. 
+Since the property given in eq.~\eqref{eq:conserved-curr-em-FS} is a key consequence of the local gauge invariance we must impose it also at quantum level at least in the weakest possible sense, as we are going to see. 
 
 Denote by $\op j_\mu$ and $\op G_{\mu\nu}$ the field operator corresponding to classical $j_\mu$ and $G_{\mu\nu}$, and by $\ket\psi$ and $\ket\chi$ the vectors in the space $\vs$ of states generated by quantum fields of a quantum gauge theory. According to the previous discussion we require that at least in a subspace\footnote{Due to the gauge invariance there are unphysical states, which are elements of $\vs$ but not of $\vsp$.} $\vsp\subseteq\vs$ of physical states the matrix elements satisfy
 \begin{eq}
@@ -669,7 +670,7 @@ which coincides with eq.~\eqref{eq:gauge-tfm-Gauss}. Similarly, for the gauge fi
 
 This suggest that if in the reconstruction theorem we use only fields invariant under local gauge transformations ($\delta\ophi=\delta\op A_j=0$) vanishing at infinity, then $\op Q(\Lambda)\vert_{\vsp}=0$ and from eq.~\eqref{eq:op-Q-nonlocal} we get that the Gauss' law is automatically implemented in the reconstructed space of states. If OS positivity holds this must be a Hilbert space, but then charged field operators are non-local, reaching $\infty$ even at fixed time. 
 
-This is not the standard approach based on covariant quantization, gauge-fixing and locality, indeed for the consistency of the monopole, in particular for the unphysical nature of the Dirac string, preserving the gauge invariance appears to be crucial and this approach based on positivity but not locality is the most natural for charged fields.
+This is not the standard approach based on covariant quantization, gauge-fixing and locality, indeed for the consistency of the monopole, in particular for the unphysical nature of the Dirac string, preserving the gauge invariance appears to be crucial and this approach based on positivity but not on locality is the most natural for the charged fields.
 
 Therefore we try to get the monopole quantum field starting from a charged non-local quantum field, easier to define, in the electromagnetic dual theory obtained via OS reconstruction from its correlators. Then we apply to these correlators the duality transformation. Let us show how to do this.
 
@@ -733,12 +734,12 @@ We can apply its $x$-dependent version to the Lagrangian ($\varphi\mapsto\partia
 \begin{eq}\label{eq:Poisson-resummation-cont}
 	\sum_{n_\mu} \lexp{-\frac\lambda2\int(\partial_\mu\Lambda+2\pi n_\mu-A_\mu)^2}=\sum_{j^\mu}\lexp{-\frac1{2\lambda}\int j_\mu^2}\lexp{i\int(\partial_\mu\Lambda-A_\mu)j^\mu}
 \end{eq}
-where now $n_\mu(x)$ and $j^\mu(x)$ are integer valued line-currents. In particular $j^\mu$ is the current of charged particles in the Stückelberg model. 
+where now $n_\mu(x)$ and $j^\mu(x)$ are integer valued line-currents.  In particular $j^\mu$ is the current of charged particles in the Stückelberg model.  Furthermore for simplicity here (and often in the following) we have not written explicitly the measure of integration in the exponentials. 
 Integration over the scalar field $\Lambda(x)$ gives
 \begin{eq}\label{eq:int-Lambda-Poisson}
 	\int\pide\Lambda\,\lexp{i\int\de^4x\,(\partial_\mu\Lambda) j^\mu}=\prod_{x\in\R^4}\delta(\partial^\mu j_\mu(x))=:\delta(\partial^\mu j_\mu)
 \end{eq}
-and $\partial_\mu j^\mu=0$ implies that the support of the current $j_\mu$ is made of closed lines. We see that the term $\exp(-i\int\de^4x\,A_\mu j^\mu)$ describes the world line of a charged particle-antiparticle pair. The closed lines in the support of $j_\mu$ then correspond to boundaries of surfaces. 
+and $\partial_\mu j^\mu=0$ implies that the support of the current $j_\mu$ is made of closed lines. We see that the term $\exp(-i\int\de^4x\,A_\mu j^\mu)$ in  eq.~\eqref{eq:int-Lambda-Poisson} describes the world line of a charged particle-antiparticle pair. The closed lines in the support of $j_\mu$ then correspond to boundaries of surfaces. 
 %
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% LECTURE 23 %%%%%%%%
@@ -795,11 +796,11 @@ Let us see how to ``open'' such line defects using duality. A charged gauge-inva
 
 The charged field of the Stückelberg model (given by quantization of the complex field $\phi$ with $|\phi|=1$) is $\lexp{i\op\theta(\vec x)}$, clearly not-gauge invariant under the gauge transformation
 \begin{eq}
-	\lexp{i\op\theta(\vec x)}\quad\to\quad \lexp{i(\op\theta(\vec x)+e\Lambda(\vec x))}
+	\lexp{i\op\theta(\vec x)}\quad\to\quad \lexp{i(\op\theta(\vec x)+\Lambda(\vec x))}
 \end{eq}
 Dirac suggested\footnote{The idea of Dirac, qualitatively, it that an electron, even asymptotically, carries with it also its Coulomb field, hence when an electron is created its Coulomb field should be created as well. Applying this idea to the scalar field (rather than to the electron field) we get the procedure we are describing in the following.} to make it gauge invariant multiplying it by
 \begin{eq}
-	\lexp{ie\int\de^3\vec y\, E_i^{\vec x}(\vec y)\op A^i(\vec y)}
+	\lexp{i\int\de^3\vec y\, E_i^{\vec x}(\vec y)\op A^i(\vec y)}
 \end{eq}
 where $\op A^i$ is the gauge potential of the quantum ``photon'' field and $E_i^{\vec x}$ denote the (classical) electric field generated by a unit charge at the position $\vec x$, so that by the classical Gauss' law
 \begin{eq}
@@ -807,15 +808,15 @@ where $\op A^i$ is the gauge potential of the quantum ``photon'' field and $E_i^
 \end{eq}
 In fact, under a gauge transformation $\Lambda(\vec x)$ vanishing at $\infty$
 \begin{eq}
-	\lexp{ie\int\de^3\vec y\, E_i^{\vec x}(\vec y)\op A^i(\vec y)}
+	\lexp{i\int\de^3\vec y\, E_i^{\vec x}(\vec y)\op A^i(\vec y)}
 	\quad\to\quad
-	&\lexp{ie\int\de^3\vec y\, E_i^{\vec x}(\vec y)(\op A^i(\vec y)+\partial_i\Lambda(\vec y))}=\\
-	&\quad=\lexp{ie\int\de^3\vec y\,E_i^{\vec x}(\vec y)\op A_i(\vec y)}\lexp{-ie\int\de^3\vec y\,\partial^i E_i^{\vec x}(\vec y)\Lambda(\vec y)}=\\
-	&\quad=\lexp{ie\int\de^3\vec y\,E_i^{\vec x}(\vec y)\op A_i(\vec y)}\lexp{-ie\Lambda(\vec x)}
+	&\lexp{i\int\de^3\vec y\, E_i^{\vec x}(\vec y)(\op A^i(\vec y)+\partial_i\Lambda(\vec y))}=\\
+	&\quad=\lexp{i\int\de^3\vec y\,E_i^{\vec x}(\vec y)\op A_i(\vec y)}\lexp{-i\int\de^3\vec y\,\partial^i E_i^{\vec x}(\vec y)\Lambda(\vec y)}=\\
+	&\quad=\lexp{i\int\de^3\vec y\,E_i^{\vec x}(\vec y)\op A_i(\vec y)}\lexp{-i\Lambda(\vec x)}
 \end{eq}
 so that 
 \begin{eq}\label{eq:Dirac-recipe-quant}
-	\lexp{i\op\theta(\vec x)}\lexp{ie\int\de^3\vec y\, E_i^{\vec x}(\vec y)\op A^i(\vec y)}
+	\lexp{i\op\theta(\vec x)}\lexp{i\int\de^3\vec y\, E_i^{\vec x}(\vec y)\op A^i(\vec y)}
 \end{eq}
 is gauge invariant but still charged, hence it is physical and should be added to the Hilbert space of the theory due to completeness. The second term in eq.~\eqref{eq:Dirac-recipe-quant} describes the Coulomb field always attached to a charged particle.
 
@@ -827,13 +828,13 @@ It is easy to define the corresponding Euclidean field (now in $\R^4$). Define
 \end{eq}
 then the charged non-local Euclidean field is given by 
 \begin{eq}
-	\lexp{i\theta(x)}\lexp{ie\int\de^4y\,E_\mu^x(y)A^\mu(y)}
+	\lexp{i\theta(x)}\lexp{i\int\de^4y\,E_\mu^x(y)A^\mu(y)}
 \end{eq}
 The Euclidean correlator of such fields naturally satisfy the OS positivity, hence using the OS reconstruction it is possible to obtain a charged quantum field operator (in the lattice). 
 
 However we are interested in the quantum field operator for the monopole, so let's apply the duality transformation to
 \begin{eq}\label{eq:exp-value-monopole-duality}
-	\big\langle \lexp{i\theta(x)}\lexp{ie\int\de^4z\,E_\mu^x(z)A^\mu(z)}\lexp{-i\theta(y)}\lexp{-ie\int\de^4w\,E_\mu^y(w)A^\mu(w)}\big\rangle_\lambda
+	\big\langle \lexp{i\theta(x)}\lexp{i\int\de^4z\,E_\mu^x(z)A^\mu(z)}\lexp{-i\theta(y)}\lexp{-i\int\de^4w\,E_\mu^y(w)A^\mu(w)}\big\rangle_\lambda
 \end{eq}
 where $\langle\quad\rangle_\lambda$ denotes the expectation value in the model with the fixed value $\lambda$.
 To apply the duality transformation we need to re-express the $\theta$-dependence appearing in the expectation value in terms of $\frac1i\lexp{-i\theta}\partial_\mu \lexp{i\theta}=\partial_\mu\Lambda+2\pi n_\mu$. This can be achieved introducing a current $j_\mu^{xy}$ satisfying
@@ -850,8 +851,8 @@ using this current we can write
 \end{eq}
 so our 2-point function eq.~\eqref{eq:exp-value-monopole-duality} according to the decomposition eq.~\eqref{eq:Hodge-decomp} becomes
 \begin{eq}
-	&\langle \lexp{i\theta(x)}\lexp{ie\int\de^4z\,E_\mu^x(z)A^\mu(z)}\lexp{-i\theta(y)}\lexp{-ie\int\de^4w\,E_\mu^y(w)A^\mu(w)}\rangle_\lambda=\\
-	&\qquad=\langle \lexp{ie\int\de^4w\,(E_\mu^x(w)-E_\mu^y(w))A^\mu(w)}\lexp{i\int\de^4w\,j_\mu^{xy}(w)(\partial^\mu\Lambda+2\pi n^\mu)(w)}\rangle_\lambda
+	&\langle \lexp{i\theta(x)}\lexp{i\int\de^4z\,E_\mu^x(z)A^\mu(z)}\lexp{-i\theta(y)}\lexp{-i\int\de^4w\,E_\mu^y(w)A^\mu(w)}\rangle_\lambda=\\
+	&\qquad=\langle \lexp{i\int\de^4w\,(E_\mu^x(w)-E_\mu^y(w))A^\mu(w)}\lexp{i\int\de^4w\,j_\mu^{xy}(w)(\partial^\mu\Lambda+2\pi n^\mu)(w)}\rangle_\lambda
 \end{eq}
 Note that 
 \begin{eq}
@@ -859,15 +860,15 @@ Note that
 \end{eq}
 since both $j_\mu^{xy}$ and $n_\mu$ are integer valued, hence we get
 \begin{eq}
-	&\langle \lexp{i\theta(x)}\lexp{ie\int\,E_\mu^xA^\mu}\lexp{-i\theta(y)}\lexp{-ie\int\,E_\mu^yA^\mu}\rangle_\lambda=\\
-	&\qquad=\frac1{Z_\lambda}\int\pide A_\mu\int\pide\Lambda\sum_{n_\mu}\,\lexp{ie\int\,(E_\mu^x-E_\mu^y)A^\mu}\lexp{i\int\,j_\mu^{xy}\partial^\mu\Lambda}\lexp{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\lexp{-\frac\lambda2\int(\partial_\mu\Lambda-A_\mu+2\pi n_\mu)^2}\delta(\partial^\mu A_\mu)\\
-	&\qquad\overset{\mathclap{\eqref{eq:Poisson-resummation-cont}}}=\,\frac1{Z_\lambda}\int\pide A_\mu\int\pide\Lambda\sum_{j_\mu}\,\lexp{ie\int\,(E_\mu^x-E_\mu^y)A^\mu}\lexp{i\int\,j_\mu^{xy}\partial^\mu\Lambda}\lexp{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\lexp{-\frac1{2\lambda}\int j_\mu^2}\lexp{i\int(\partial_\mu\Lambda-A_\mu)j^\mu}\delta(\partial^\mu A_\mu)\\
-	&\qquad\overset{\mathclap{\eqref{eq:int-Lambda-Poisson}}}=\ \frac1{Z_\lambda}\int\pide A_\mu\sum_{j_\mu}\,\lexp{ie\int\,(E_\mu^x-E_\mu^y)A^\mu}\lexp{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\lexp{-\frac1{2\lambda}\int j_\mu^2}\lexp{-i\int A_\mu j^\mu}\delta(\partial^\mu j_\mu+\partial^\mu j_\mu^{xy})\delta(\partial^\mu A_\mu)\\
+	&\langle \lexp{i\theta(x)}\lexp{i\int\,E_\mu^xA^\mu}\lexp{-i\theta(y)}\lexp{-i\int\,E_\mu^yA^\mu}\rangle_\lambda=\\
+	&\qquad=\frac1{Z_\lambda}\int\pide A_\mu\int\pide\Lambda\sum_{n_\mu}\,\lexp{i\int\,(E_\mu^x-E_\mu^y)A^\mu}\lexp{i\int\,j_\mu^{xy}\partial^\mu\Lambda}\lexp{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\lexp{-\frac\lambda2\int(\partial_\mu\Lambda-A_\mu+2\pi n_\mu)^2}\delta(\partial^\mu A_\mu)\\
+	&\qquad\overset{\mathclap{\eqref{eq:Poisson-resummation-cont}}}=\,\frac1{Z_\lambda}\int\pide A_\mu\int\pide\Lambda\sum_{j_\mu}\,\lexp{i\int\,(E_\mu^x-E_\mu^y)A^\mu}\lexp{i\int\,j_\mu^{xy}\partial^\mu\Lambda}\lexp{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\lexp{-\frac1{2\lambda}\int j_\mu^2}\lexp{i\int(\partial_\mu\Lambda-A_\mu)j^\mu}\delta(\partial^\mu A_\mu)\\
+	&\qquad\overset{\mathclap{\eqref{eq:int-Lambda-Poisson}}}=\ \frac1{Z_\lambda}\int\pide A_\mu\sum_{j_\mu}\,\lexp{i\int\,(E_\mu^x-E_\mu^y)A^\mu}\lexp{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\lexp{-\frac1{2\lambda}\int j_\mu^2}\lexp{-i\int A_\mu j^\mu}\delta(\partial^\mu j_\mu+\partial^\mu j_\mu^{xy})\delta(\partial^\mu A_\mu)\\
 \end{eq}
 hence $\partial^\mu j_\mu(w)=-\partial^\mu j_\mu^{xy}(w)=\delta(w-x)-\delta(w-y)$, or equivalently $\partial^\mu j_\mu=\delta_x-\delta_y$, where we defined $\delta_x(w):=\delta(w-x)$. 
 Finally in the limit $\lambda\to\infty$, which we have seen is dual to the electrodynamic with monopoles, the correlation function becomes\todo{C'è un problema con la carica $e$, a volte è omessa e altre no.}
 \begin{eq}\label{eq:monop-correlat-lambda-infty}
-	&\langle \lexp{i\theta(x)}\lexp{ie\int\de^4z\,E_\mu^x(z)A^\mu(z)}\lexp{-i\theta(y)}\lexp{-ie\int\de^4w\,E_\mu^y(w)A^\mu(w)}\rangle_\infty=\\
+	&\langle \lexp{i\theta(x)}\lexp{i\int\de^4z\,E_\mu^x(z)A^\mu(z)}\lexp{-i\theta(y)}\lexp{-i\int\de^4w\,E_\mu^y(w)A^\mu(w)}\rangle_\infty=\\
 	&\qquad=\frac1{Z_\infty}\int\pide A_\mu\,\lexp{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\delta(\partial^\mu A_\mu)\sum_{\scriptstyle j_\mu\atop\scriptstyle\partial^\mu j_\mu=\delta_x-\delta_y}\lexp{i\int A_\mu(-j_\mu+E_\mu^x-E_\mu^y)}=\\
 	&\qquad=\frac1{Z_\infty}\int\pide A_\mu\,\lexp{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\delta(\partial^\mu A_\mu)\sum_{\scriptstyle j_\mu\atop\scriptstyle\partial^\mu j_\mu=0}\lexp{i\int A_\mu(-j_\mu+j_\mu^{xy}+E_\mu^x-E_\mu^y)}\\
 \end{eq}
@@ -961,7 +962,7 @@ in fact, using $\lctens^{\rho\sigma\alpha\beta}\lctens_{\mu\nu\rho\sigma}=\delta
 \end{eq}
 Since $j_\mu$ appearing in eq.~\eqref{eq:monop-correlat-lambda-infty} could be rewritten as in the partition function using $j_\mu=\lctens_{\mu\nu\rho\sigma}\partial^\nu S^{\rho\sigma}$ one has
 \begin{eq}
-	&\langle \lexp{i\theta(x)}\lexp{ie\int\de^4z\,E_\mu^x(z)A^\mu(z)}\lexp{-i\theta(y)}\lexp{-ie\int\de^4w\,E_\mu^y(w)A^\mu(w)}\rangle_\infty=\\
+	&\langle \lexp{i\theta(x)}\lexp{i\int\de^4z\,E_\mu^x(z)A^\mu(z)}\lexp{-i\theta(y)}\lexp{-i\int\de^4w\,E_\mu^y(w)A^\mu(w)}\rangle_\infty=\\
 	&\qquad=\frac1{Z_\infty}\int\pide A_\mu\,\lexp{-\frac1{2e^2}\int(\partial_{[\mu}A_{\nu]})^2}\delta(\partial^\mu A_\mu)\sum_{S^{\rho\sigma}}\lexp{-i\int A_\mu\lctens_{\mu\nu\rho\sigma}\partial^\nu(S^{\rho\sigma}+S^{\rho\sigma}(j^{xy},E^x,E^y))}\\
 	&\qquad=\frac1{Z_\infty}\int\pide A_\mu^T\int\pide B_{\mu\nu}\sum_{S^{\rho\sigma}}\lexp{-\frac{e^2}2\int B_{\mu\nu}^2}\,\lexp{i\int A^\mu_T\partial^\nu(B_{\mu\nu}-\lctens_{\mu\nu\rho\sigma}(S^{\rho\sigma}+S^{\rho\sigma}(j^{xy}E^x,E^y)))}\\
 	&\qquad=\frac1{Z_\infty}\int\pide B_{\mu\nu}\sum_{S^{\rho\sigma}}\lexp{-\frac{e^2}2\int B_{\mu\nu}^2}\delta(\partial^\nu(B_{\mu\nu}-\lctens_{\mu\nu\rho\sigma}(S^{\rho\sigma}+S^{\rho\sigma}(j^{xy}E^x,E^y))))
@@ -972,7 +973,7 @@ where in the third step we applied duality as in eq.~\eqref{eq:duality-free-phot
 \end{eq}
 Then we finally get (recall eq.~\eqref{eq:part-func-monop})
 \begin{eq}
-	&\langle \lexp{i\theta(x)}\lexp{ie\int\de^4z\,E_\mu^x(z)A^\mu(z)}\lexp{-i\theta(y)}\lexp{-ie\int\de^4w\,E_\mu^y(w)A^\mu(w)}\rangle_\infty=\\
+	&\langle \lexp{i\theta(x)}\lexp{i\int\de^4z\,E_\mu^x(z)A^\mu(z)}\lexp{-i\theta(y)}\lexp{-ie\int\de^4w\,E_\mu^y(w)A^\mu(w)}\rangle_\infty=\\
 	&\qquad=\frac
 	{\displaystyle\int\pide\tilde A_\mu\,\delta(\partial^\mu\tilde A_\mu)\sum_{S_{\mu\nu}}\lexp{-\frac {e^2}2\int(\partial_{[\mu}\tilde A_{\nu]}+S_{\mu\nu}+S_{\mu\nu}(j^{xy},E^x,E^y))^2}}
 	{\displaystyle\int\pide\tilde A_\mu\,\delta(\partial^\mu\tilde A_\mu)\sum_{S_{\mu\nu}}\lexp{-\frac {e^2}2\int(\partial_{[\mu}\tilde A_{\nu]}+S_{\mu\nu})^2}}\\
@@ -1086,7 +1087,7 @@ Conversely to the case $e^2\gg1$, where opening a closed defect ``costs a lot'',
 
 \cite{Castelnovo:2008aa}\\
 
-Although Dirac monopoles have not been found as elementary particles, and in fact they suffer of an UV problem, in 2008 a kind of exotic magnets called \emph{spin ice} have been studied, in which there seems to appear excitations similar to Dirac monopoles.\footnote{Original work: \cite{Castelnovo:2008aa}.}  The name comes from the fact that their structure is reminiscent of that of the ice. 
+Although Dirac monopoles have not been found as elementary particles, and in fact they suffer of an UV problem, in 2008 a kind of exotic magnets called \emph{spin ice} have been studied, in which there seems to appear excitations similar to Dirac monopoles.\footnote{Original work: \cite{Castelnovo:2008aa}.}  The name of these systems comes from the fact that their structure is reminiscent of that of the ice. 
 
 The structure appearing in the portion of oxygen and hydrogen in ice is tetrahedral, as represented in fig.~\ref{fig:ice}.
 %
@@ -1208,7 +1209,7 @@ The structure appearing in the portion of oxygen and hydrogen in ice is tetrahed
 \label{fig:ice}
 \end{figure}
 
-In spin ice materials the hydrogen is replaced is replaced by rare-earth ions and the displacement vector is replaced by a spin vector, each spin vector has only one possible direction and two possible orientations, i.e. Ising-like spins, along the bound. 
+In spin ice materials the hydrogen is replaced by rare-earth ions and the displacement vector is replaced by a spin vector, each spin vector has only one possible direction and two possible orientations, i.e. Ising-like spins, along the bound. 
 
 The Hamiltonian can be taken as 
 \begin{eq}
@@ -1288,7 +1289,7 @@ Imposing an onsite energy $v_0\sum_i Q_i^2$, so that $Q_i=0$ on the ground state
 \label{fig:spin-ice-dipole}
 \end{figure}
 
-If we flip a spin, in one of the two tetrahedrons connected by that spin the total charge become 2, and in the other one become $-2$. The defects in the partition function of the model correspond to chains of spin flips. If a site is intermediate between two spin flips cleverly chosen, then two opposite charges of that site in the dipole picture have changed their signs, so we still have $Q=0$ in that site. However at the ends of a chain of spin flips we have 3 charges of the same sign and one with the opposite one, so that $Q\neq0$. Since these charges interact according to the Coulomb interaction eq.~\eqref{eq:Coulomb}, they can be interpreted as monopoles. Therefore at each end of a chain of spin flips we have a ``magnetic monopole'' if $Q>0$ of a ``magnetic antimonopole'' if $Q<0$. The string of spin flips is nothing but a ``Dirac string''. Such situation is represented in fig.~\ref{fig:spin-flips}
+If we flip a spin, in one of the two tetrahedrons connected by that spin the total charge in one tetrahedron becomes 2, and in the other one become $-2$. The defects in the partition function of the model correspond to chains of spin flips. If a site is intermediate between two spin flips cleverly chosen, then two opposite charges of that site in the dipole picture have changed their signs, so we still have $Q=0$ in that site. However at the ends of a chain of spin flips we have 3 charges of the same sign and one with the opposite one, so that $Q\neq0$. Since these charges interact according to the Coulomb interaction eq.~\eqref{eq:Coulomb}, they can be interpreted as monopoles. Therefore at each end of a chain of spin flips we have a ``magnetic monopole'' if $Q>0$ of a ``magnetic antimonopole'' if $Q<0$. The string of spin flips is nothing but a ``Dirac string''. Such situation is represented in fig.~\ref{fig:spin-flips}
 
 \begin{figure}[h]
 \centering
@@ -1350,7 +1351,7 @@ If we flip a spin, in one of the two tetrahedrons connected by that spin the tot
 
 If we introduce the time dimension these configurations describes precisely worldlines of  virtual monopole-antimonopole pairs with a Dirac string between them spanning a surface bounded by that worldline. 
 
-\section{Condensation of defects}
+\section{Condensation of defects}\label{sec:condensation-defects}
 
 We close the discussion about solitons with a final remark about phase transitions. We have seen that quantum solitons correspond in their Euclidean description to line-defects. We also remarked that it may happen that line-defects reach $\infty$ with finite probability, i.e. they give raise to the phenomenon called \emph{condensation of defects}. When condensation of defects occurs the soliton sectors disappear. The transition from a situation where configurations allowed are only with finite defects (``dilute gas of defects'') to a situation where also infinitely extended defects appear corresponds to a \emph{phase transition}. 
 
@@ -1391,6 +1392,6 @@ The first case implies that there are no defects of infinite volume containing t
 
 One can heuristically interpret in this way the transition from the symmetry breaking phase to the unbroken phase in the case of kinks, from superconductors with massive photon to the usual Coulomb phase with massless photons in the case of vortices, and so on. 
 
-Although this mechanism of phase transition is quite general, specific for the line defects is the related appearance of soliton sectors and usually of quantum soliton particles in the phase where the gas of defects is dilute, i.e. where there are no infinite-long defects. 
+Although this mechanism of phase transition is quite general, specifically for the line defects is the related appearance of soliton sectors and usually of quantum soliton particles in the phase where the gas of defects is dilute, i.e. where there are no infinite-long defects. 
 
 \end{document}
